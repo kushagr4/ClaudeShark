@@ -265,8 +265,84 @@ lesson generalises:
 > path or move commitment needs an arena or a clock simulation, because the
 > deterministic instruments structurally cannot reach it.
 
+### The 400-game result — settled
+
+```
+champions/v0_3 vs champions/v0_2 over 400 games
++144 =147 -109, score 54.4%
+elo +30  (95% CI +3 .. +58)
+```
+
+**The interval excludes zero.** This is the first statistically significant
+strength measurement in the project. No crashes, flags or illegal moves.
+
+It is also a lesson in sample size. The same comparison, same conditions:
+
+| games | score | Elo | 95% CI |
+|---|---|---|---|
+| 120 (pre-fix) | 47.9% | −14 | −61 .. +32 |
+| 120 (post-fix) | 53.3% | +23 | −23 .. +71 |
+| **400** | **54.4%** | **+30** | **+3 .. +58** |
+
+120 games could not tell −14 from +23. Reading either of the smaller runs as
+evidence of anything was reading noise.
+
+## v0.4 — static exchange evaluation
+
+Full record: [`benchmarks/current/2026-09-02-see-experiment.md`](benchmarks/current/2026-09-02-see-experiment.md).
+
+MVV-LVA cannot tell a real capture from one that loses material, so losing
+captures sorted above every quiet move and dragged their recapture subtrees
+through quiescence. SEE fixes both, behind separate flags so each was measured
+on its own.
+
+| variant (fixed depth 6) | nodes | vs v0.3 |
+|---|---|---|
+| v0.3 | 1,957,695 | — |
+| + SEE in quiescence | 1,756,212 | −10.3% |
+| + SEE in ordering | 1,848,730 | −5.6% |
+| + both | 1,666,590 | **−14.9%** |
+
+On an idle machine that is **16.8% less wall clock at identical depth**, so SEE
+repays its per-call cost several times over. Depth gain: **+0.41 ply at 900 ms,
++0.34 ply at 4500 ms**. Move quality unchanged (1.5 → 1.9 cp average loss
+against an unpruned reference, zero blunders, tactical suite 16/16).
+
+SEE ignores pins — the standard limitation — and that is measured rather than
+assumed: agreement with an independent brute-force swap-off over 250 random
+capture positions is held above 98%, with the one disagreement kept as a named
+regression test.
+
+### And the arena said +1
+
+```
+champions/v0_4 vs champions/v0_3 over 240 games
++68 =105 -67, score 50.2%
+elo +1  (95% CI -32 .. +35)
+```
+
+Full record: [`benchmarks/current/2026-09-02-v0.4-arena.md`](benchmarks/current/2026-09-02-v0.4-arena.md).
+
+Every deterministic instrument said SEE was a clear win. The arena says nothing
+happened. For contrast, v0.3 over v0.2 was a comparable depth gain and measured
++30 Elo over 400 games, so this is not simply an effect too small to see.
+
+The likely explanation is *where* the depth comes from. SEE buys nodes by
+refusing to look at losing captures — subtrees that are cheap to skip and mostly
+irrelevant — and spends the savings on quiet positions the engine already
+understood. **A ply bought by pruning better is not worth the same as a ply
+bought by searching deeper into what matters.**
+
+This is recorded prominently because it undermines a habit the project had been
+forming: treating "+0.4 ply at a realistic budget" as a proxy for strength. That
+proxy was good for v0.3 and poor here, and nothing in the deterministic
+measurements distinguished the two cases beforehand.
+
 ### Current status
 
-**v0.3 is the champion**, promoted on a proven bug fix, a provably
-behaviour-neutral speedup, and a fixed regression — not on the arena number
-alone. A 400+ game run remains outstanding before the Elo claim is settled.
+**v0.4 is the shipping version, and its advantage over v0.3 is unproven.** v0.3
+over v0.2 is settled at +30 Elo (95% CI +3 .. +58) over 400 games. SEE is kept
+because it is not a regression, because "less work for the same depth" is a
+proven property, and because futility pruning and further quiescence work both
+need an exchange evaluator — **not** because it was shown to gain Elo. It was
+not.

@@ -4,8 +4,9 @@ An AI Chessathon entry: an iterative-deepening alpha-beta engine written against
 `python-chess`, with a transposition table, quiescence search and a tapered
 piece-square evaluation.
 
-Current version: **v0.3**. Previous versions are frozen under `champions/` and
-kept as arena opponents.
+Current version: **v0.4**. Previous versions are frozen under `champions/` and
+kept as arena opponents. v0.3 beat v0.2 by **+30 Elo (95% CI +3 .. +58)** over
+400 games — the first statistically significant strength result in the project.
 
 ## Competition constraints
 
@@ -77,6 +78,7 @@ agent.py           entry point: legal-move fallback, new-game detection, warm-up
 cs_search.py       iterative deepening, negamax + alpha-beta, quiescence
 cs_eval.py         tapered material + piece-square evaluation
 cs_ordering.py     MVV-LVA, killers, history
+cs_see.py          static exchange evaluation
 cs_tt.py           fixed-size transposition table, mate-score encoding
 cs_time.py         soft/hard deadlines, increment inference
 cs_constants.py    score bounds, piece values, PeSTO piece-square tables
@@ -265,10 +267,16 @@ against the champion, and reverted if it does not measure.
 organiser clarification**. Not implemented, not scheduled. Analysis only, in
 `docs/PONDERING.md`.
 
-**Search** — check extensions; static exchange evaluation for capture ordering
-and quiescence pruning; futility pruning and razoring; mate-distance pruning; a
-history-aware reduction table rather than the current fixed 1–2 ply. PVS,
-null-move pruning, LMR and aspiration windows are already in as of v0.3.
+**Time management** — the engine finishes a 120 s game with about a fifth of its
+clock unspent and uses 67.9% of its soft budget on an average move. The fix is a
+single parameter (`START_FRACTION`, or `DEFAULT_MOVES_TO_GO` from 26 to ~22) and
+is worth perhaps 0.2 ply. Deliberately not bundled with anything else; it is the
+next isolated A/B.
+
+**Search** — check extensions; futility pruning and razoring; mate-distance
+pruning; a history-aware reduction table rather than the current fixed 1–2 ply.
+PVS, null-move pruning, LMR and aspiration windows arrived in v0.3; static
+exchange evaluation for quiescence pruning and capture ordering in v0.4.
 
 **Speed** — at ~69k nodes/second we reach depth 8 where a C engine reaches 14+.
 About half the remaining time is inside python-chess, which bounds what
