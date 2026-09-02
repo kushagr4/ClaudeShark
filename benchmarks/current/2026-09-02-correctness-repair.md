@@ -152,3 +152,60 @@ from the quiescence legality check. That is the price of the repairs and it is
 paid deliberately: the class of bug removed here converts won games into draws,
 and this project has already measured that ~0.4 ply of extra search is worth
 approximately nothing in Elo.
+
+## Regression match
+
+Not an Elo experiment. Its only purpose is to catch a catastrophic playing
+regression introduced by the repairs.
+
+```
+set CS_LMR=0    (deliberately planted, to prove the arena strips it)
+uv run python -m tools.arena --agent champions/v0_5_correctness --opponent champions/v0_3 ^
+    --games 96 --base-ms 20000 --increment-ms 200 --ply-cap 300 --workers 5 ^
+    --set-env CS_INCREMENT_MS=200 --jsonl benchmarks/current/2026-09-02-v0.5-regression.jsonl ^
+    --pgn benchmarks/current/2026-09-02-v0.5-regression.pgn
+```
+
+```
+champions/v0_5_correctness vs champions/v0_3 over 96 games
++24 =46 -26, score 49.0%
+elo -7
+  naive game-level 95% CI    -58 .. +43
+  paired bootstrap 95% CI    -62 .. +51   (24 position clusters)
+terminations: checkmate 50, threefold_repetition 42, insufficient_material 4
+```
+
+| | |
+|---|---|
+| games | 96, corpus v2 (`5e05e90376be086e`), 300-ply cap |
+| W/D/L | 24 / 46 / 26 |
+| score | 49.0% |
+| Elo | −7 |
+| naive CI | −58 .. +43 |
+| **paired bootstrap CI** | **−62 .. +51** |
+| crashes / flags / illegal | 0 / 0 / 0 |
+| environment | `CS_INCREMENT_MS=200` in force, `CS_LMR` stripped from parent |
+
+**No catastrophic regression.** The repairs cost roughly 20% of nodes/second
+and the result is indistinguishable from level, which is what the project's own
+prior measurements predicted: search volume has repeatedly failed to convert
+into Elo here, in either direction.
+
+Two things worth noting from this run.
+
+**The bootstrap interval is wider than the naive one** (−62..+51 against
+−58..+43), which is the whole reason it exists. Repeated starting positions are
+clusters, and treating 96 games as 96 independent observations understates the
+uncertainty. Every past result in this repository quoted only the narrow
+version.
+
+**The environment sanitisation was verified live**, not just unit-tested. A
+`CS_LMR=0` was deliberately exported into the parent shell before launching; the
+arena stripped it, ran both engines without it, and recorded both the effective
+and the stripped set in the match header. Under the old arena that flag would
+have silently disabled late move reductions in *both* contestants and appeared
+nowhere in the record.
+
+An early snapshot of this same match read +2 =6 -7 after 15 games — a 33% score
+that looked like a serious regression and was pure noise. Worth remembering
+before reacting to a partial arena.
