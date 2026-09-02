@@ -5,8 +5,11 @@ An AI Chessathon entry: an iterative-deepening alpha-beta engine written against
 piece-square evaluation.
 
 Current version: **v0.5.2-correctness**, frozen at
-`champions/v0_5_2_correctness`. It is the release target and the working tree
-matches it exactly.
+`champions/v0_5_2_correctness`. It is the release target. The working tree
+matches it in *behaviour* -- depth-6 node counts are identical -- and adds one
+dormant, flag-gated experiment (`cs_king.py`, `CS_EVAL_KING_SAFETY`, default
+off) that was measured and rejected; see
+`benchmarks/current/2026-09-02-king-safety-v1.md`.
 
 ### Version status, stated precisely
 
@@ -96,6 +99,7 @@ agent.py           entry point: legal-move fallback, new-game detection, warm-up
 AGENTS.md          the short version of this file, for coding agents
 cs_search.py       iterative deepening, negamax + alpha-beta, quiescence
 cs_eval.py         tapered material + piece-square evaluation
+cs_king.py         king safety, flag-gated OFF (measured and rejected, kept for v2)
 cs_ordering.py     MVV-LVA, killers, history
 cs_see.py          static exchange evaluation
 cs_tt.py           fixed-size transposition table, mate-score encoding

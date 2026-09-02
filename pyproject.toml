@@ -44,6 +44,7 @@ files = [
     "agent.py",
     "cs_constants.py",
     "cs_eval.py",
+    "cs_king.py",
     "cs_ordering.py",
     "cs_search.py",
     "cs_see.py",

@@ -23,6 +23,8 @@ with it on every position, which is what makes optimising this file safe.
 
 from __future__ import annotations
 
+import os
+
 import chess
 
 from cs_constants import (
@@ -35,6 +37,7 @@ from cs_constants import (
     TEMPO,
     TOTAL_PHASE,
 )
+from cs_king import king_safety_mg
 
 
 def _pack(mg_tables: tuple[tuple[int, ...], ...], eg_tables: tuple[tuple[int, ...], ...],
@@ -60,6 +63,12 @@ _B_QUEEN = _pack(MG_BLACK, EG_BLACK, chess.QUEEN)
 _B_KING = _pack(MG_BLACK, EG_BLACK, chess.KING)
 
 _BISHOP_PAIR = (BISHOP_PAIR_MG << 16) + BISHOP_PAIR_EG
+
+# King safety is flag-gated so it can be measured against the same binary.
+# Default off during development; the arena records whichever value is in force.
+USE_KING_SAFETY = os.environ.get("CS_EVAL_KING_SAFETY", "0").strip().lower() not in {
+    "", "0", "false", "no", "off"
+}
 
 
 def evaluate(board: chess.Board) -> int:
@@ -142,6 +151,11 @@ def evaluate(board: chess.Board) -> int:
         eg -= 0x10000
     mg = (packed - eg) >> 16
 
+    if USE_KING_SAFETY:
+        # Middlegame only: the taper below multiplies it by phase, so it
+        # vanishes in the endgame where an active king is an asset.
+        mg += king_safety_mg(board)
+
     total = mg * phase + eg * (TOTAL_PHASE - phase)
     # Truncate toward zero rather than using floor division, so mirroring the
     # position negates the score exactly. Floor division rounds negatives away
@@ -189,6 +203,9 @@ def evaluate_reference(board: chess.Board) -> int:
     if (board.bishops & black).bit_count() > 1:
         mg -= BISHOP_PAIR_MG
         eg -= BISHOP_PAIR_EG
+
+    if USE_KING_SAFETY:
+        mg += king_safety_mg(board)
 
     total = mg * phase + eg * (TOTAL_PHASE - phase)
     score = total // TOTAL_PHASE if total >= 0 else -(-total // TOTAL_PHASE)
