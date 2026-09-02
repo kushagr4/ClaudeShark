@@ -168,3 +168,27 @@ Checked before relying on any of it:
 with zero move changes across 240 near-level positions. Regression tests are in
 `tests/test_tt_pv_policy.py`, including one that keeps the defect reproducible
 under `TT_PV_POLICY="all"` so the fix cannot be quietly reverted.
+
+## Regression match
+
+Not an Elo test -- the deterministic evidence already showed identical moves on
+240 of 240 near-level positions. This is insurance against a catastrophic
+regression under a real clock, where games diverge by timing rather than at a
+fixed depth.
+
+```
+CS_INCREMENT_MS=200, 20 s + 0.2 s, 300-ply cap, corpus competition_like_v1
+champions/v0_5_2_correctness vs champions/v0_5_1_correctness over 96 games
+
++16 =63 -17, score 49.5%
+elo -4
+  Wilson score 95% CI        -73 .. +65
+  paired bootstrap 95% CI    -33 .. +22   (48 position clusters)
+terminations: threefold_repetition 51, checkmate 33, insufficient_material 9,
+              fifty_moves 3
+```
+
+No crashes, no flags, no illegal moves. 63 of 96 games drawn, which is what two
+engines differing in one rarely-reached search rule should produce. The
+bootstrap interval spans zero and is centred on it: **no regression, and no
+strength claim either.**
