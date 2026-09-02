@@ -1,0 +1,25 @@
+suite positions found in labelled pool: 240/240   by split: {'train': 172, 'val': 36, 'test': 32}
+quiet train without suite games: 2524  (was 2668)
+
+refit with suite games excluded from training:
+  piece    MG cand  MG refit  EG cand  EG refit
+  pawn         121       123      141       141
+  knight       506       506      422       422
+  bishop       530       531      407       407
+  rook         688       691      736       729
+  queen       1210      1243     1404      1404
+  max |difference| = 33 cp
+  val: ES-MSE 0.05121 -> 0.04640   MAE 82.3 -> 80.4
+  test: ES-MSE 0.04845 -> 0.04549   MAE 78.9 -> 77.8
+
+not in train (val+test games): n=68
+  agree   41.2% -> 39.7%
+  robust  31.6 -> 25.8
+  serious 8.8% -> 7.4%
+  catast. 1.5% -> 0.0%
+
+in train: n=172
+  agree   35.5% -> 37.2%
+  robust  36.7 -> 32.7
+  serious 10.5% -> 9.3%
+  catast. 1.7% -> 1.2%

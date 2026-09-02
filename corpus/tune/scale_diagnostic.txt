@@ -1,0 +1,28 @@
+
+=== all: train 4340 val 928 test 935   K=185  base val ES-MSE 0.06572
+  material scale only  : s=0.94  val 0.06569 (-0.0%)  test 0.06656 (-0.2%)
+  whole-eval scale     : s=1.12  val 0.06560 (-0.2%)   [changes no move choice]
+  10-param lam=0       : val 0.06268 (-4.6%)  test 0.06367
+     MG ratios vs pawn: prod [ 1.    4.11  4.45  5.82 12.5 ]  fit [1.   2.52 2.73 4.01 7.68]
+     EG ratios vs pawn: prod [1.   2.99 3.16 5.45 9.96]  fit [1.   2.87 2.85 4.78 8.89]
+     parameters sitting on a bound: ['knightMG', 'bishopMG', 'queenMG', 'pawnEG']
+  lambda    max|delta|   val ES-MSE   gain%
+  0.03             4   0.06549   -0.34
+  0.01            10   0.06522   -0.76
+  0.003           21   0.06482   -1.37
+  0.001           38   0.06444   -1.95
+  0              410   0.06268   -4.62
+
+=== quiet30: train 2668 val 557 test 576   K=185  base val ES-MSE 0.04959
+  material scale only  : s=2.00  val 0.04313 (-13.0%)  test 0.04411 (-5.4%)
+  whole-eval scale     : s=1.94  val 0.04338 (-12.5%)   [changes no move choice]
+  10-param lam=0       : val 0.04497 (-9.3%)  test 0.04398
+     MG ratios vs pawn: prod [ 1.    4.11  4.45  5.82 12.5 ]  fit [1.   4.16 4.37 5.67 9.96]
+     EG ratios vs pawn: prod [1.   2.99 3.16 5.45 9.96]  fit [1.   2.99 2.89 5.22 9.96]
+     parameters sitting on a bound: ['knightMG', 'pawnEG', 'knightEG', 'queenEG']
+  lambda    max|delta|   val ES-MSE   gain%
+  0.03             5   0.04932   -0.55
+  0.01            13   0.04898   -1.23
+  0.003           29   0.04857   -2.06
+  0.001           47   0.04822   -2.77
+  0              468   0.04497   -9.32

@@ -126,6 +126,8 @@ tools/clocksim.py       how much of its allocated clock an engine actually spend
 tools/profile_search.py where search time goes
 tools/profile_eval.py   evaluator throughput, and cProfile of it
 tools/positions.py      the legacy FEN suites (corpus v2; see corpus/ for the calibrated ones)
+tools/tune/             offline evaluator tuning: decomposition, audit, material fit, simulation
+                        (see benchmarks/current/2026-09-02-material-tuning-audit.md)
 tools/corpus/           reference-oracle labelling, structural tags, suite building, move-quality analysis
 corpus/                 calibrated suites: competition_like_v1 (strength), stress_test_v1 (failure hunting)
 tools/freeze.py         snapshot the engine as a champion
