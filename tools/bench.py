@@ -20,6 +20,13 @@ from tools.positions import BALANCED_OPENINGS
 def main() -> None:
     parser = argparse.ArgumentParser(description="Benchmark the search over the FEN suite.")
     parser.add_argument("--ms", type=int, default=2_000, help="fixed search budget per position")
+    parser.add_argument(
+        "--depth",
+        type=int,
+        default=0,
+        help="search to a fixed depth instead of a fixed time; node counts are "
+        "then deterministic, which is what pruning comparisons need",
+    )
     parser.add_argument("--positions", type=int, default=0, help="0 means the whole suite")
     parser.add_argument("--fresh-tt", action="store_true", help="new table per position")
     parser.add_argument(
@@ -58,7 +65,10 @@ def main() -> None:
             searcher = Searcher()
         else:
             searcher.new_game()
-        move, info = searcher.search(chess.Board(fen), 0, fixed_budget_ms=arguments.ms)
+        if arguments.depth:
+            move, info = searcher.search(chess.Board(fen), 0, max_depth=arguments.depth)
+        else:
+            move, info = searcher.search(chess.Board(fen), 0, fixed_budget_ms=arguments.ms)
 
         mate = mate_in(info.score)
         score = f"#{mate}" if mate is not None else f"{info.score / 100:+.2f}"
@@ -77,8 +87,9 @@ def main() -> None:
         total_hits += info.tt_hits
 
     count = len(fens)
+    limit = f"fixed depth {arguments.depth}" if arguments.depth else f"{arguments.ms} ms"
     print(
-        f"\n{count} positions at {arguments.ms} ms\n"
+        f"\n{count} positions at {limit}\n"
         f"  average depth   {total_depth / count:.2f}\n"
         f"  total nodes     {total_nodes:,} "
         f"({100.0 * total_q / max(1, total_nodes):.0f}% quiescence)\n"

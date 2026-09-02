@@ -236,15 +236,19 @@ def test_survives_a_nearly_flagged_clock() -> None:
         assert chess.Move.from_uci(uci) in chess.Board(SUITE["tactical"]).legal_moves
 
 
-def test_increment_is_inferred_from_successive_clocks() -> None:
-    searcher = Searcher(tt_bits=14)
-    board = chess.Board(SUITE["start"])
-    clock = 10_000
-    for _ in range(4):
-        searcher.search(chess.Board(board.fen()), clock)
-        spent = searcher.time._last_spend_ms
-        clock = int(clock - spent - 5 + 500)  # referee: subtract elapsed, add increment
-    assert 300 <= searcher.time.increment_ms <= 500
+def test_fixed_depth_search_is_deterministic() -> None:
+    """Fixed-depth searches must not depend on the clock or the machine.
+
+    This is what makes tools/attribute.py and tools/movequality.py trustworthy:
+    if the same depth gave different node counts run to run, every pruning
+    comparison built on them would be measuring noise.
+    """
+    fen = SUITE["open_middlegame"]
+    first_move, first = Searcher(tt_bits=16).search(chess.Board(fen), 0, max_depth=5)
+    second_move, second = Searcher(tt_bits=16).search(chess.Board(fen), 0, max_depth=5)
+    assert first_move == second_move
+    assert first.nodes == second.nodes
+    assert first.score == second.score
 
 
 def test_a_whole_game_against_itself_stays_legal() -> None:

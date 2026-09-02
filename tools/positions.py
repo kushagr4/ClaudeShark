@@ -47,3 +47,33 @@ BALANCED_OPENINGS: tuple[str, ...] = (
     "r3k2r/ppp2ppp/8/8/8/8/PPP2PPP/2KR1B1R w kq - 0 15",
     "r1b1k2r/pppp1ppp/8/8/8/8/PPPP1PPP/R1B1K2R w KQkq - 0 12",
 )
+
+# Sharp positions: loose pieces, open lines to the king, pins and available
+# checks. The quiet suite above is the right place to measure ordinary play, but
+# it is the wrong place to catch a reduction scheme skipping a forcing move --
+# on a quiet board there is nothing forcing to skip. These exist so
+# tools/movequality.py has somewhere for tactical blindness to show up.
+SHARP_POSITIONS: tuple[str, ...] = (
+    # Exposed kings, opposite castling, pawn storms
+    "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+    "r2qk2r/ppp1bppp/2n1bn2/3p4/3P1B2/2N1PN2/PPQ2PPP/R3KB1R w KQkq - 0 9",
+    "r1bqk2r/pp1nbppp/2p1pn2/3p2B1/2PP4/2N1PN2/PPQ2PPP/R3KB1R w KQkq - 0 8",
+    # Loose and hanging pieces
+    "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "r1bqkb1r/pppp1ppp/2n5/4p3/2B1n3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5",
+    "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2BPP3/5N2/PPP2PPP/RNBQK2R b KQkq - 0 5",
+    # Pins and discovered attacks
+    "r2qkb1r/pp2pppp/2n2n2/3p1b2/3P4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 7",
+    "rnbqk2r/ppp2ppp/4pn2/3p4/1bPP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6",
+    # Central tension, many captures available
+    "r1bqkb1r/pp3ppp/2n1pn2/2pp4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 7",
+    "rnbqkb1r/pp2pppp/3p1n2/2pP4/4P3/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 5",
+    "r1bqkbnr/pp1p1ppp/2n5/2p1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    # Queenside majority races and sacrificial motifs
+    "r2q1rk1/1b1nbppp/p2ppn2/1p6/3NPP2/1BN1B3/PPPQ2PP/2KR3R w - - 0 13",
+    "r1b2rk1/pp1nqppp/2pbpn2/3p4/2PP4/2NBPN2/PPQ2PPP/R1B2RK1 w - - 0 10",
+    # King in the centre
+    "r1bqk2r/ppppbppp/2n2n2/4N3/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5",
+    "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+    "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR b KQkq - 0 3",
+)

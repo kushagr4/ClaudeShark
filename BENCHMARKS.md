@@ -1,5 +1,19 @@
 # Benchmark record
 
+> Full records with exact commands live in [`benchmarks/`](benchmarks/). This
+> file is the narrative summary. Results recorded before that directory existed
+> are transcribed console output and are labelled as such.
+
+## A correction that applies to everything below
+
+Earlier revisions of this file described the competition as having roughly
+"4.5 seconds per move". **That is wrong.** The competition plays a chess clock of
+120 s + 0.5 s. 4.5 s is only what the allocator happens to spend on an opening
+move with a full clock, and it falls through the game. Where 4.5 s appears
+below it is a *fixed-budget benchmark point* used to compare engines at a
+comparable amount of thinking, never a description of the time control.
+
+
 Every entry is a measurement, not an impression. Arena games are played from the
 balanced FEN suite in `tools/positions.py`, each position once with each colour.
 Elo intervals are 95%.
@@ -135,11 +149,11 @@ No crashes, no flags, no illegal moves. The point estimate flipped from -26 to
 +26 exactly as the depth analysis predicted, but 120 games is not enough to
 exclude zero, so **this is not on its own proof of an improvement**.
 
-### The measurement at the competition's own operating point
+### The measurement at a competition-scale budget
 
-Rated games are 120 s + 0.5 s, which the time manager turns into roughly 4.5 s
-per move. Benchmarking both engines at exactly that budget is deterministic and
-cheap, and it is the least ambiguous evidence available:
+With a full 120 s clock the allocator spends roughly 4.5 s on a move, so
+benchmarking both engines at that fixed budget compares them at a realistic
+amount of thinking. It is deterministic and cheap:
 
 | engine | avg depth | nodes | nps | TT hit | wall time |
 |---|---|---|---|---|---|
@@ -159,5 +173,100 @@ negative there. The Elo interval still spans zero, so the honest statement is
 *"very likely better, not yet proven"*. Outstanding work:
 
 * a longer run (400+ games) at 20 s + 0.2 s to tighten the interval;
-* per-feature A/B of PVS, null-move pruning and LMR separately, at a correct
-  time control — the bundle was validated, the individual parts were not.
+* per-feature A/B of PVS, null-move pruning and LMR separately — done in v0.3,
+  see below.
+
+## v0.3 — attribution, correctness, evaluator speed
+
+Full record: [`benchmarks/current/2026-09-02-v0.3-feature-attribution.md`](benchmarks/current/2026-09-02-v0.3-feature-attribution.md).
+
+### Feature attribution (fixed depth 6, deterministic)
+
+| variant | nodes | vs v0.1 search |
+|---|---|---|
+| baseline (v0.1 search) | 5,870,410 | — |
+| PVS only | 5,471,327 | −6.8% |
+| null-move only | 5,846,694 | **−0.4%** |
+| LMR only | 2,195,691 | −62.6% |
+| PVS + null-move | 3,478,706 | −40.7% |
+| all three (v0.2) | 1,990,684 | −66.1% |
+
+**Null-move pruning does nothing without PVS.** It is gated on
+`beta - alpha == 1`, and with PVS off no null-window nodes exist for it to fire
+at. This corrects the v0.2 note suggesting PVS might be droppable for saving
+"only 1.3% of nodes": removing PVS from the full combination costs 9.4% of nodes
+*and* silently disables null-move entirely. All three are kept.
+
+### Move quality (centipawn loss against an unpruned reference)
+
+| suite | v0.2 | safe LMR | no LMR |
+|---|---|---|---|
+| 24 quiet, depth 6 | 0.3 avg / 7 worst | 0.3 / 7 | 0.0 / 0 |
+| 16 sharp, depth 7 | 0.7 avg / 8 worst | 0.7 / 8 | 0.0 / 0 |
+
+LMR never blundered, and safe LMR chose an identical move in all 40 positions.
+It is enabled for robustness at a measured cost of 0.6% nodes, **not** as an Elo
+claim.
+
+### Evaluator
+
+| metric | v0.2 | v0.3 | change |
+|---|---|---|---|
+| evaluations/second | 196,378 | 264,053 | **+34%** |
+| search NPS at depth 6 | 64,833 | 68,808 | **+6.1%** |
+| depth-6 node count | 2,001,875 | 2,001,875 | identical |
+
+Identical node counts prove the packing and unrolling are behaviour-neutral, so
+the speed carries no strength risk. Guarded by an equivalence test against a
+transparent reference over every suite position plus 400 randomly-played ones.
+
+### Aspiration windows
+
+−2.8% nodes at depth 7, −2.4% at depth 8, 23 of 24 root moves unchanged. Kept.
+
+### Correctness fix worth its own line
+
+With `halfmove_clock` at 99, v0.2 scored a **forced mate as a draw** and played
+a random pawn move, because the fifty-move test ran before checkmate detection:
+
+```
+v0.2 (old):   move=f2f3  score=518
+v0.3 (fixed): move=a1a8  score=29999
+```
+
+Rare, but it only becomes possible in long endgames, which is exactly where a
+won game gets thrown away. Regression test in `tests/test_search_correctness.py`.
+
+### Arena, and the regression a fixed-depth benchmark could not see
+
+Full record: [`benchmarks/current/2026-09-02-v0.3-arena.md`](benchmarks/current/2026-09-02-v0.3-arena.md).
+
+Aspiration windows were validated at fixed depth, where they are unambiguously
+good. Fixed-depth runs never run out of time — and that is precisely what hid a
+regression. v0.2 committed a root move that had been fully searched and improved
+alpha even when the iteration was later aborted. The first aspiration
+implementation refused every partial result from a narrow-window iteration, and
+since aspiration applies from depth 4 up, that removed the behaviour from
+essentially every real iteration under a clock.
+
+Two 120-game runs under identical conditions, differing only in that fix:
+
+| | score | Elo | 95% CI |
+|---|---|---|---|
+| before the fix | 47.9% | −14 | −61 .. +32 |
+| after the fix | **53.3%** | **+23** | −23 .. +71 |
+
+Neither result is individually significant, and the difference between them is
+not either (p ≈ 0.26). What the pair does establish is a direction, and the
+lesson generalises:
+
+> **A change validated only at fixed depth has not been validated for
+> time-limited play.** Anything touching the iterative-deepening loop, the abort
+> path or move commitment needs an arena or a clock simulation, because the
+> deterministic instruments structurally cannot reach it.
+
+### Current status
+
+**v0.3 is the champion**, promoted on a proven bug fix, a provably
+behaviour-neutral speedup, and a fixed regression — not on the arena number
+alone. A 400+ game run remains outstanding before the Elo claim is settled.

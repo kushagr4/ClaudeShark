@@ -4,7 +4,7 @@ An AI Chessathon entry: an iterative-deepening alpha-beta engine written against
 `python-chess`, with a transposition table, quiescence search and a tapered
 piece-square evaluation.
 
-Current version: **v0.2**. Previous versions are frozen under `champions/` and
+Current version: **v0.3**. Previous versions are frozen under `champions/` and
 kept as arena opponents.
 
 ## Competition constraints
@@ -24,10 +24,14 @@ canonical and changes. Re-read it before every upload.
 | Time control | 120 s + 0.5 s increment; 60 s initialisation budget before the clock starts |
 | Output | 4096 bytes per move maximum |
 | Validation | build check, then two smoke games (one as each colour) |
-| Prohibited | third-party engines (Stockfish, Lc0, Maia) or wrappers around them; obfuscated code |
+| Prohibited | third-party engines (Stockfish, Lc0, Maia) or wrappers around them; **compiled extensions and native binaries — submissions are source only**; obfuscated code |
+| Process | **one process serves one game, started fresh for each**; in-memory state carries across our own moves within a game |
+| Pondering | **permitted between opponent moves** |
+| Adjudication | 300 plies without a result is adjudicated on material, else drawn; threefold and fifty-move draws are claimed automatically |
+| Failure | illegal move, crash, timeout, init failure or malformed output all lose the game |
 | Allowed | labelling training positions with an existing engine offline — the ban covers what ships in the zip, not what we learn from. Any model shipped must be one we trained |
 
-Two things the docs make clear that shape the design:
+Four things the docs make clear that shape the design:
 
 * **Rated games start from curated positions, not the initial position.** An
   opening book is close to worthless. Broad positional strength is what counts,
@@ -35,6 +39,27 @@ Two things the docs make clear that shape the design:
   queenless and endgame families rather than opening theory.
 * **The process stays alive between moves.** The transposition table, the
   killer/history tables and the repetition history all persist across a game.
+  It is also started fresh for each game, so cross-game state cannot leak.
+* **Compiled extensions are prohibited.** This rules out Cython and C
+  extensions entirely. Numba remains available and compliant because it ships
+  as Python source and compiles at runtime — see `docs/MOVEGEN.md`.
+* **Pondering is permitted.** Thinking during the opponent's turn costs nothing
+  on our clock. This is currently unexploited and is the largest identified
+  opportunity that is not a rewrite.
+
+### The time control is a clock, not a per-move budget
+
+The competition plays **120 s per side plus a 500 ms increment**. Earlier notes
+in this repository described it as roughly "4.5 s per move"; that was wrong.
+4.5 s is only what the allocator happens to spend on an opening move with a full
+clock, and it falls as the game goes on. It survives here solely as a
+*fixed-budget benchmark point*. Actual allocation depends on the remaining
+clock, the known increment and the game phase — see `cs_time.py`.
+
+Because the increment is published, it is a constant. v0.2 inferred it from
+successive clocks; that machinery has been removed. `CS_INCREMENT_MS` overrides
+it only so local arenas, which must use faster controls to fit games into an
+afternoon, can state their real increment rather than have the engine guess.
 
 Compliance status: the submission is pure Python over `python-chess` and the
 standard library. No third-party engine ships or is invoked, no network access
@@ -60,14 +85,28 @@ standard-library module when the submission directory goes first on `sys.path`.
 Supporting code, none of which ships:
 
 ```
-harness/           the official harness, vendored unchanged (MIT, see THIRD_PARTY_LICENSE)
-baselines/         the official random / greedy / minimax / numba opponents
-tools/arena.py     many games from a FEN suite, in parallel, with an Elo interval
-tools/bench.py     fixed-budget search benchmark: depth, nps, TT hit rate
-tools/positions.py the balanced FEN suite
-tests/             correctness tests
-champions/         frozen previous versions, kept as arena opponents
+harness/                the official harness, vendored unchanged (MIT, see THIRD_PARTY_LICENSE)
+baselines/              the official random / greedy / minimax / numba opponents
+tools/arena.py          many games from a FEN suite, in parallel, with an Elo interval
+tools/bench.py          search benchmark: --depth N is deterministic, --ms N is not
+tools/attribute.py      which of PVS / null-move / LMR is actually paying
+tools/movequality.py    centipawn loss of a variant against a less-selective reference
+tools/tactics.py        puzzles with objectively correct moves; --verify proves the mates
+tools/clocksim.py       how much of its allocated clock an engine actually spends
+tools/profile_search.py where search time goes
+tools/profile_eval.py   evaluator throughput, and cProfile of it
+tools/positions.py      the balanced and sharp FEN suites
+tools/freeze.py         snapshot the engine as a champion
+tests/                  correctness tests
+champions/              frozen previous versions, kept as arena opponents
+benchmarks/             recorded results with the exact command that produced them
+docs/MOVEGEN.md         investigation: where future speed could come from
 ```
+
+The `CS_*` environment flags (`CS_PVS`, `CS_NMP`, `CS_LMR`, `CS_LMR_SAFE`,
+`CS_ASPIRATION`, `CS_TT_PV_CUTOFF`, `CS_INCREMENT_MS`) let any variant be run
+from one code base. Every default is the shipping behaviour, so an agent started
+with no environment set is the production engine.
 
 ### Search
 
@@ -81,7 +120,7 @@ A root move that has been *fully* searched at the current depth and improved
 alpha is committed even when the iteration is later aborted, because its score
 came from a complete search with a valid window.
 
-Three Phase-10 techniques are in (added in v0.2, benchmarked one at a time):
+Four selective-search techniques are in, each benchmarked separately:
 
 * **Principal variation search** — every move after the first gets a null-window
   probe and is only re-searched with the full window if it beats alpha.
@@ -90,7 +129,18 @@ Three Phase-10 techniques are in (added in v0.2, benchmarked one at a time):
   excluded. A mate score proved by a null move is not returned as a mate.
 * **Late move reductions** — quiet, non-killer, non-promotion moves from index 3
   onward are searched shallower, then re-searched at full depth if they beat
-  alpha.
+  alpha. Moves that give check and en-passant captures are exempt.
+* **Aspiration windows** — each iteration from depth 4 searches a ±30cp window
+  around the previous score, widening geometrically on a fail and falling back
+  to a full window rather than creeping outward.
+
+Attribution matters here and is easy to get wrong: **null-move pruning is worth
+nothing without PVS**, because it only fires at null-window nodes and PVS is
+what creates them. The measurements are in `BENCHMARKS.md`.
+
+Every one of these is behind a `CS_*` environment flag, defaulting to the
+shipping behaviour, so any variant can be measured without maintaining a second
+copy of the code that would drift.
 
 Mate scores count from the root (`-MATE_SCORE + ply`), so shorter mates score
 higher and unavoidable ones are delayed. They are re-based on the way into and
@@ -108,17 +158,22 @@ automatically, so an engine that cannot see a repetition can draw a won game.
 Explicit, and pessimistic, because a flag is a whole point. Everything runs off
 `time.perf_counter()`.
 
-* **soft deadline** — whether to start another iteration. Checked between
-  iterations only. An iteration is also skipped when more than 45% of the soft
-  budget is already gone, since the next ply costs 2–4× the last.
+* **soft deadline** — whether to *start* another iteration, checked between
+  iterations only, where stopping is free. The threshold is 45% of the soft
+  budget by default, since the next ply costs 2–4× the last; it relaxes to 70%
+  when the root move keeps changing and tightens to 35% once the root has been
+  stable for three iterations.
 * **hard deadline** — aborts mid-search, checked every 1024 nodes.
 * **margins** — 40 ms for IPC overhead the referee attributes to us but we
-  cannot measure, plus a 200 ms reserve, plus a cap of one third of the
-  remaining clock on any single move.
+  cannot measure, a 200 ms reserve, a cap of one third of the usable clock on
+  any single move, and a panic mode below 120 ms that returns the depth-1 move
+  or the legal fallback.
+* **increment** — the published 500 ms constant, credited each move at 75%, and
+  never credited beyond what is actually left on the clock.
 
-The API never tells us the increment. It is inferred: we know what we spent and
-what the clock said, so the difference between the next clock and that
-prediction is the increment. The estimate is deliberately biased low.
+Validated by `tests/test_time.py`: an allocation ladder from 50 ms to 120 s, real
+searches at each, panic clocks down to 1 ms, and a whole self-played game run
+with the referee's own clock arithmetic asserting the clock never reaches zero.
 
 ### Transposition table
 
@@ -146,19 +201,31 @@ runtime cost in measured Elo.
 
 ## Testing methodology
 
-Three layers, all runnable from the Makefile.
+Five layers, all runnable from the Makefile.
 
-1. **Correctness** (`make test`) — legality across the whole position suite,
-   terminal positions, promotion and en-passant paths, mate finding, mate-score
-   round trips through the TT, evaluation colour symmetry, budget adherence
-   under clocks from 1 ms to 3 s, and a full self-play game to flush out rare
-   paths.
-2. **Search benchmark** (`make bench`) — fixed budget per position across the
-   suite, reporting depth, nodes, nodes per second, quiescence share and TT hit
-   rate. This attributes a change to speed or to ordering.
-3. **Arena** (`make suite`) — many games from the balanced FEN suite, every
-   position played once with each colour, run concurrently, reporting the score
-   and an Elo difference with a 95% interval.
+1. **Correctness** (`make test`) — legality across the position suites, terminal
+   positions, promotion and en-passant paths, mate finding, mate-score round
+   trips through the TT, evaluator equivalence against a transparent reference
+   over 400 randomly-played positions, a clock ladder from 50 ms to 120 s, a
+   whole self-played game run on the referee's own clock arithmetic, and a game
+   played out of the extracted submission zip.
+2. **Deterministic search benchmark** (`tools/bench.py --depth N`) — fixed
+   *depth*, so node counts reproduce exactly and are machine-independent. This
+   is the right instrument for comparing pruning changes; a time-limited run
+   measures the laptop as much as the engine.
+3. **Fixed-budget benchmark** (`make bench`) — what the engine achieves in a
+   given amount of thinking. Use for reporting, not for A/B.
+4. **Tactics and move quality** (`tools/tactics.py`, `tools/movequality.py`) —
+   whether the moves are any *good*. `movequality` scores a variant's chosen
+   moves against a less-selective reference in centipawns, which is how a
+   pruning change that buys speed with blunders gets caught.
+5. **Arena** (`make suite`) — many games from the FEN suite, every position
+   played once with each colour, run concurrently, reporting the score and an
+   Elo difference with a 95% interval.
+
+**Depth is not strength.** A selective search that reduces the wrong moves
+reaches a bigger depth number and plays worse. No promotion is justified by
+depth alone; layers 4 and 5 exist to say whether the moves improved.
 
 Rules of engagement: **candidate vs champion**, always. A change is only an
 improvement when it beats the previous champion over enough games that the
@@ -189,20 +256,27 @@ See `BENCHMARKS.md` for the running record.
 Ordered by expected Elo per unit of risk. Each is a separate change, A/B tested
 against the champion, and reverted if it does not measure.
 
-**Search** — aspiration windows; check extensions (currently a checking move can
-be reduced, which is the most likely weakness in the LMR scheme); futility
-pruning and razoring; static exchange evaluation for capture ordering and
-quiescence pruning; mate-distance pruning; a history-aware reduction table
-rather than the current fixed 1–2 ply. Principal variation search, null-move
-pruning and late move reductions are already in as of v0.2.
+**Pondering** — the docs permit thinking during the opponent's turn, and the
+process stays alive between our moves. That time is free: the referee only
+measures wall time around our own `get_move`. On a 120 s + 0.5 s control this is
+potentially close to a doubling of effective thinking time for a bounded amount
+of work in one file. It is the largest identified opportunity that is not a
+rewrite. See `docs/MOVEGEN.md`.
 
-**Speed** — this is where most of the strength is, because at ~74k nodes/second
-we reach depth 6–7 where a C engine reaches 12+. Profile first. Candidates:
-avoiding `list(board.legal_moves)` allocation, staged move generation (try the
-TT move before generating anything), incremental evaluation maintained through
-push/pop, and a Numba-jitted movegen and evaluation over a bitboard
-representation of our own. The last is a large, risky project and must be gated
-on a measured win.
+**Search** — check extensions; static exchange evaluation for capture ordering
+and quiescence pruning; futility pruning and razoring; mate-distance pruning; a
+history-aware reduction table rather than the current fixed 1–2 ply. PVS,
+null-move pruning, LMR and aspiration windows are already in as of v0.3.
+
+**Speed** — at ~69k nodes/second we reach depth 8 where a C engine reaches 14+.
+About half the remaining time is inside python-chess, which bounds what
+optimising our own code can do. Candidates: staged move generation (try the TT
+move before generating anything), incremental evaluation through push/pop, and
+cheaper ordering. A custom or Numba-jitted move generator is the only route to
+an order of magnitude and is analysed in `docs/MOVEGEN.md` — **not recommended
+yet**, and gated on a perft spike proving 5x before any rewrite is authorised.
+Note that compiled extensions are prohibited, so Cython and C are off the table
+entirely; Numba is compliant because it ships as source.
 
 **Evaluation** — passed pawns, rook on open file, king safety, mobility, doubled
 and isolated pawns. Cheap terms only, one at a time, each justified by Elo.
