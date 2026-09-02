@@ -9,6 +9,20 @@ benchmarks/
   current/       results recorded with their exact command and conditions
 ```
 
+## Corpus versions
+
+Results are only comparable within a corpus version. Every arena record states
+the version and hash it ran on.
+
+| version | balanced | sharp | combined hash | note |
+|---|---|---|---|---|
+| v1 | 24 | 18 | `0c1fd866a32163e5` | **contained an illegal position** (`BALANCED_OPENINGS[19]`, `OPPOSITE_CHECK`) used as a game start in every arena |
+| v2 | 24 | 18 | `c269c63bb74391f0` | index 19 replaced; validated by `tests/test_positions.py` |
+
+Ply cap also changed: everything before 2026-09-02 used **200**, the competition
+uses **300**, and 300 is now the default. Pass `--ply-cap 200` to reproduce an
+older run.
+
 ## The rules
 
 **Record the command, not just the number.** A benchmark without its exact
@@ -41,7 +55,16 @@ negative there. This has already produced one reversed result; see
 
 ## What to record for an arena run
 
-Date, candidate and opponent version, git commit, exact command, FEN set, game
-count, time control, W/D/L, score, Elo with interval, crashes, illegal moves,
-timeouts, average depth, NPS, and any caveat that would change how the number
-should be read.
+Use `--jsonl`. It writes all of this automatically: match id, timestamp, git
+commit, a content hash of each agent directory, corpus version and hash, clock,
+increment, ply cap, worker count, the effective and stripped `CS_*` environment,
+platform — then one line per game with the starting FEN and cluster, colours,
+result, termination, ply count, final FEN, duration and failure flag, and a
+closing summary with both intervals.
+
+Add any caveat that would change how the number should be read.
+
+**Report both intervals, labelled.** The naive game-level CI treats every game
+as independent, which they are not: each starting position is played twice and
+the corpus is cycled, so a 400-game match is ~24 clusters. The paired bootstrap
+over positions is the honest one. Do not quote the naive figure alone.

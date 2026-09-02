@@ -1,5 +1,23 @@
 """A deliberately broad set of starting positions for benchmarking.
 
+**Corpus version 2.** Every position is validated by `tests/test_positions.py`,
+which fails the suite if any FEN is not `board.is_valid()`. That test exists
+because version 1 shipped an illegal position -- `BALANCED_OPENINGS[19]` had a
+bishop on c3 giving check to the black king on g7 with White to move
+(`Status.OPPOSITE_CHECK`) -- and every arena the project had run to that point
+used it as a starting position.
+
+Corpus identity, so results can be tied to the corpus that produced them:
+
+| version | balanced | sharp | combined sha256[:16] | note |
+|---|---|---|---|---|
+| v1 | 24 | 18 | `0c1fd866a32163e5` | contained one illegal position |
+| v2 | 24 | 18 | see `corpus_hash()` | index 19 replaced |
+
+Results produced under v1 are **not** directly comparable with results produced
+under v2. See `benchmarks/README.md`.
+
+
 Rated games start from curated neutral positions rather than the initial
 position, so a test suite built around openings would measure the wrong thing.
 These are roughly balanced and cover the structural families an engine has to
@@ -39,7 +57,11 @@ BALANCED_OPENINGS: tuple[str, ...] = (
     # Minor-piece endgames
     "8/5pk1/4b1p1/8/8/4N1P1/5P1P/6K1 w - - 0 40",
     "8/4kp2/6p1/2b5/8/4B1P1/5P1P/6K1 w - - 0 40",
-    "8/2n2pk1/6p1/8/8/2B3P1/5P1P/6K1 w - - 0 40",
+    # Corpus v2: the bishop was on c3, where it attacked the black king on g7
+    # while it was White to move -- an OPPOSITE_CHECK position that python-chess
+    # rejects as invalid. Moved to e3, which keeps the intended material and
+    # structure (bishop against knight, three pawns each) and is legal.
+    "8/2n2pk1/6p1/8/8/4B1P1/5P1P/6K1 w - - 0 40",
     # Pawn endings
     "8/5pk1/6p1/8/6P1/5PK1/8/8 w - - 0 40",
     "8/p4pk1/1p4p1/8/1P4P1/P4PK1/8/8 w - - 0 36",
@@ -80,3 +102,34 @@ SHARP_POSITIONS: tuple[str, ...] = (
     "k7/8/8/3pP3/8/8/8/7K w - d6 0 2",
     "rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq f6 0 4",
 )
+
+CORPUS_VERSION = 2
+# The combined hash of corpus v1, kept so a result recorded under it can still
+# be identified. v1 contained one illegal position; see the module docstring.
+CORPUS_V1_HASH = "0c1fd866a32163e5"
+
+
+def corpus_hash(positions: tuple[str, ...] | None = None) -> str:
+    """Stable identifier for a set of positions, for benchmark records."""
+    import hashlib
+
+    chosen = positions if positions is not None else BALANCED_OPENINGS + SHARP_POSITIONS
+    return hashlib.sha256("\n".join(chosen).encode()).hexdigest()[:16]
+
+
+def invalid_positions() -> list[tuple[str, int, str, str]]:
+    """Every position that python-chess rejects, as (suite, index, fen, status).
+
+    Used by the test that guards the corpus and by the arena, which refuses to
+    start a match on an invalid position rather than producing games from one.
+    """
+    import chess
+
+    bad: list[tuple[str, int, str, str]] = []
+    suites = (("BALANCED_OPENINGS", BALANCED_OPENINGS), ("SHARP_POSITIONS", SHARP_POSITIONS))
+    for name, suite in suites:
+        for index, fen in enumerate(suite):
+            board = chess.Board(fen)
+            if not board.is_valid():
+                bad.append((name, index, fen, repr(board.status())))
+    return bad

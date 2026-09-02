@@ -37,7 +37,19 @@ ignore = ["N818"]
 
 [tool.mypy]
 strict = true
-files = ["agent.py", "cs_constants.py", "cs_eval.py", "cs_ordering.py", "cs_search.py", "cs_time.py", "cs_tt.py"]
+# Every module that ships. cs_see.py was missing from this list for a whole
+# version, so a production module went untyped; the release checker's
+# "engine modules packaged" check and this list must both cover the same set.
+files = [
+    "agent.py",
+    "cs_constants.py",
+    "cs_eval.py",
+    "cs_ordering.py",
+    "cs_search.py",
+    "cs_see.py",
+    "cs_time.py",
+    "cs_tt.py",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

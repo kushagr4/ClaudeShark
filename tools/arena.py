@@ -1,167 +1,327 @@
-"""Arena: many games between two agent directories, with a score and an Elo estimate.
+"""Arena: many games between two agent directories, with recoverable results.
 
-Differences from ``harness/arena.py``, which it otherwise reuses wholesale:
+Differences from `harness/arena.py`, which it otherwise reuses wholesale:
 
-* games start from a curated FEN suite rather than always the initial position,
-  matching how rated games are played;
-* every position is played twice, once with each engine as white, so colour and
-  opening imbalance cancel;
-* games run concurrently, because a 200-game match at a real time control is
-  otherwise measured in hours;
-* it reports an Elo difference with a confidence interval, so "this helped" is a
-  claim with a number behind it rather than an impression.
+* games start from a curated FEN corpus rather than always the initial position,
+  matching how rated games are played, and the corpus is **validated** before a
+  single game is played;
+* every position is played twice, once with each engine as white;
+* games run concurrently;
+* **every game is written to JSONL** with enough context to reconstruct the
+  match, optionally with PGN, because a console aggregate is not a record;
+* the `CS_*` experiment environment is **sanitised and recorded**, so a flag
+  left in a parent shell cannot silently alter both contestants;
+* uncertainty is reported both game-level and by **paired bootstrap over
+  starting positions**, because repeated positions are clusters, not
+  independent samples.
 
-Concurrency note: the referee measures wall time, so oversubscribing the CPU
-slows both engines in a game equally but does make absolute node counts
-meaningless. Keep ``--workers`` at or below half the core count.
+The default ply cap is 300, matching the competition. Historical runs in this
+repository used 200; pass `--ply-cap 200` to reproduce them.
 """
 
 from __future__ import annotations
 
 import argparse
-import math
+import json
 import os
+import platform
+import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
 from harness.referee import FAILED_TERMINATIONS, Outcome, play_match
-from harness.rules import PLY_CAP
 from harness.sandbox import local
-from tools.positions import BALANCED_OPENINGS
+from tools.positions import (
+    BALANCED_OPENINGS,
+    CORPUS_VERSION,
+    corpus_hash,
+    invalid_positions,
+)
+from tools.stats import DRAW, LOSS, WIN, summarise
+
+# The competition adjudicates at 300 plies. Historical arenas here used 200.
+COMPETITION_PLY_CAP = 300
+
+# Experiment variables the arena is allowed to pass through to engines. Anything
+# else matching CS_* is stripped, so a leftover shell export cannot change both
+# players without appearing in the record.
+KNOWN_CS_VARS = (
+    "CS_PVS",
+    "CS_NMP",
+    "CS_LMR",
+    "CS_LMR_SAFE",
+    "CS_ASPIRATION",
+    "CS_TT_PV_CUTOFF",
+    "CS_SEE_QS",
+    "CS_SEE_ORDER",
+    "CS_INCREMENT_MS",
+    "CLAUDESHARK_DEBUG",
+)
 
 
 @dataclass(frozen=True)
 class GameSpec:
     index: int
+    cluster: int  # index into the corpus; games sharing it are one cluster
     fen: str
     agent_is_white: bool
 
 
-def _play(spec: GameSpec, agent: Path, opponent: Path, base_ms: int, increment_ms: int,
-          ply_cap: int) -> tuple[GameSpec, Outcome]:
-    white, black = (agent, opponent) if spec.agent_is_white else (opponent, agent)
-    outcome = play_match(
-        local(white), local(black), base_ms, increment_ms, ply_cap=ply_cap, start_fen=spec.fen
-    )
-    return spec, outcome
+def sanitise_environment(allow: dict[str, str]) -> dict[str, str]:
+    """Strip every CS_* variable, then re-add only what was asked for.
+
+    Returns the values actually in force, for the record. Mutates os.environ,
+    which is safe because it happens once before any engine is spawned and both
+    contestants are spawned from the same parent.
+    """
+    removed = {}
+    for name in list(os.environ):
+        if name.startswith("CS_") or name == "CLAUDESHARK_DEBUG":
+            removed[name] = os.environ.pop(name)
+    for name, value in allow.items():
+        os.environ[name] = value
+    effective = {n: os.environ[n] for n in KNOWN_CS_VARS if n in os.environ}
+    return {"stripped": removed, "effective": effective}  # type: ignore[return-value]
 
 
-def elo_difference(score: float) -> float:
-    """Convert a score fraction to an Elo difference. Saturates at +/-800."""
-    if score <= 0.0:
-        return -800.0
-    if score >= 1.0:
-        return 800.0
-    return -400.0 * math.log10(1.0 / score - 1.0)
+def snapshot_identity(directory: Path) -> str:
+    """A content hash of an agent directory, so a record names exact code."""
+    import hashlib
+
+    digest = hashlib.sha256()
+    for path in sorted(directory.rglob("*.py")):
+        digest.update(path.relative_to(directory).as_posix().encode())
+        digest.update(path.read_bytes())
+    return digest.hexdigest()[:16]
 
 
-def elo_interval(wins: int, draws: int, losses: int) -> tuple[float, float, float]:
-    """Elo difference with a 95% interval, from the per-game score variance."""
-    games = wins + draws + losses
-    if games == 0:
-        return 0.0, 0.0, 0.0
-    score = (wins + draws * 0.5) / games
-    # Variance of a single game's score around the observed mean.
-    variance = (
-        wins * (1.0 - score) ** 2 + draws * (0.5 - score) ** 2 + losses * score**2
-    ) / games
-    stderr = math.sqrt(variance / games)
-    low = elo_difference(max(0.0, score - 1.96 * stderr))
-    high = elo_difference(min(1.0, score + 1.96 * stderr))
-    return elo_difference(score), low, high
+def git_commit() -> str:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            capture_output=True, text=True, check=False,
+        )
+        return result.stdout.strip() or "unknown"
+    except OSError:
+        return "unknown"
 
 
 def build_schedule(games: int, fens: tuple[str, ...]) -> list[GameSpec]:
     """Pair every game with its colour-reversed twin on the same position."""
     schedule = []
     for index in range(games):
-        fen = fens[(index // 2) % len(fens)]
-        schedule.append(GameSpec(index=index, fen=fen, agent_is_white=index % 2 == 0))
+        cluster = (index // 2) % len(fens)
+        schedule.append(
+            GameSpec(index=index, cluster=cluster, fen=fens[cluster],
+                     agent_is_white=index % 2 == 0)
+        )
     return schedule
 
 
+def _play(spec: GameSpec, agent: Path, opponent: Path, base_ms: int, increment_ms: int,
+          ply_cap: int) -> tuple[GameSpec, Outcome, float]:
+    white, black = (agent, opponent) if spec.agent_is_white else (opponent, agent)
+    started = time.time()
+    outcome = play_match(
+        local(white), local(black), base_ms, increment_ms, ply_cap=ply_cap,
+        start_fen=spec.fen,
+    )
+    return spec, outcome, time.time() - started
+
+
+def _final_position(pgn: str, start_fen: str) -> tuple[str, int]:
+    """Replay the PGN to recover the final FEN and ply count."""
+    import io
+
+    import chess.pgn
+
+    game = chess.pgn.read_game(io.StringIO(pgn))
+    board = chess.Board(start_fen)
+    plies = 0
+    if game is not None:
+        for move in game.mainline_moves():
+            if move not in board.legal_moves:
+                break
+            board.push(move)
+            plies += 1
+    return board.fen(), plies
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Score an agent over many games from a FEN suite.")
+    parser = argparse.ArgumentParser(description="Score an agent over many games.")
     parser.add_argument("--agent", type=Path, default=Path("."))
-    parser.add_argument("--opponent", type=Path, default=Path("baselines/minimax"))
-    parser.add_argument("--games", type=int, default=20)
-    parser.add_argument("--base-ms", type=int, default=10_000)
-    parser.add_argument("--increment-ms", type=int, default=100)
-    parser.add_argument("--ply-cap", type=int, default=PLY_CAP)
+    parser.add_argument("--opponent", type=Path, default=Path("champions/v0_3"))
+    parser.add_argument("--games", type=int, default=96)
+    parser.add_argument("--base-ms", type=int, default=20_000)
+    parser.add_argument("--increment-ms", type=int, default=200)
+    parser.add_argument("--ply-cap", type=int, default=COMPETITION_PLY_CAP,
+                        help="300 matches the competition; historical runs used 200")
     parser.add_argument("--workers", type=int, default=max(1, ((os.cpu_count() or 4) - 2) // 2))
-    parser.add_argument("--start-fen", default=None, help="Use one position instead of the suite.")
+    parser.add_argument("--start-fen", default=None, help="Use one position instead of the corpus.")
+    parser.add_argument("--jsonl", type=Path, default=None, help="per-game record (recommended)")
     parser.add_argument("--pgn", type=Path, default=None)
+    parser.add_argument("--set-env", action="append", default=[],
+                        help="CS_VAR=value to pass to BOTH engines; everything else is stripped")
+    parser.add_argument("--bootstrap", type=int, default=5000)
     arguments = parser.parse_args()
+
+    # 1. Refuse to run on an invalid corpus. An illegal starting position
+    #    silently corrupted every arena this project ran before it was caught.
+    bad = invalid_positions()
+    if bad:
+        for suite, index, fen, status in bad:
+            print(f"INVALID {suite}[{index}] {fen}: {status}", file=sys.stderr)
+        raise SystemExit("refusing to run on an invalid corpus")
+
+    # 2. Control the environment before anything is spawned.
+    allow: dict[str, str] = {}
+    for item in arguments.set_env:
+        name, _, value = item.partition("=")
+        if not name.startswith("CS_") and name != "CLAUDESHARK_DEBUG":
+            raise SystemExit(f"--set-env only accepts CS_* variables, got {name}")
+        allow[name] = value
+    environment = sanitise_environment(allow)
 
     agent = arguments.agent.resolve()
     opponent = arguments.opponent.resolve()
     fens = (arguments.start_fen,) if arguments.start_fen else BALANCED_OPENINGS
     schedule = build_schedule(arguments.games, fens)
 
+    match_id = f"{int(time.time())}-{agent.name}-vs-{opponent.name}"
+    header = {
+        "record": "match_header",
+        "match_id": match_id,
+        "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "git_commit": git_commit(),
+        "agent": str(arguments.agent),
+        "agent_snapshot": snapshot_identity(agent),
+        "opponent": str(arguments.opponent),
+        "opponent_snapshot": snapshot_identity(opponent),
+        "corpus_version": CORPUS_VERSION,
+        "corpus_hash": corpus_hash(fens),
+        "corpus_size": len(fens),
+        "games": arguments.games,
+        "base_ms": arguments.base_ms,
+        "increment_ms": arguments.increment_ms,
+        "ply_cap": arguments.ply_cap,
+        "workers": arguments.workers,
+        "env_effective": environment["effective"],
+        "env_stripped": sorted(environment["stripped"]),
+        "python": platform.python_version(),
+        "platform": platform.platform(),
+    }
+
+    handle = arguments.jsonl.open("w", encoding="utf-8") if arguments.jsonl else None
+    if handle:
+        handle.write(json.dumps(header) + "\n")
+        handle.flush()
+
     print(
         f"{arguments.agent} vs {arguments.opponent}: {arguments.games} games at "
         f"{arguments.base_ms / 1000:g}s+{arguments.increment_ms / 1000:g}s, "
-        f"{arguments.workers} concurrent, {len(fens)} opening(s)",
+        f"ply cap {arguments.ply_cap}, {arguments.workers} concurrent, "
+        f"corpus v{CORPUS_VERSION} ({corpus_hash(fens)}, {len(fens)} positions)",
         flush=True,
     )
+    if environment["effective"]:
+        print(f"  CS_* in force: {environment['effective']}", flush=True)
+    if environment["stripped"]:
+        print(f"  CS_* stripped from parent: {sorted(environment['stripped'])}", flush=True)
 
-    wins = draws = losses = 0
+    outcomes: list[tuple[int, float]] = []
     terminations: dict[str, int] = {}
-    # A crash or a flag is only *our* bug when we are the side that lost by it.
     our_failures: dict[str, int] = {}
     pgns: list[str] = []
+    wins = draws = losses = 0
 
     with ThreadPoolExecutor(max_workers=arguments.workers) as pool:
         futures = [
-            pool.submit(
-                _play, spec, agent, opponent, arguments.base_ms, arguments.increment_ms,
-                arguments.ply_cap,
-            )
+            pool.submit(_play, spec, agent, opponent, arguments.base_ms,
+                        arguments.increment_ms, arguments.ply_cap)
             for spec in schedule
         ]
         for done, future in enumerate(futures, start=1):
-            spec, outcome = future.result()
+            spec, outcome, seconds = future.result()
             terminations[outcome.termination] = terminations.get(outcome.termination, 0) + 1
             pgns.append(outcome.pgn)
+
             if outcome.result in ("draw", "void"):
                 draws += 1
-                symbol = "="
+                score, symbol = DRAW, "="
             elif (outcome.result == "white") == spec.agent_is_white:
                 wins += 1
-                symbol = "+"
+                score, symbol = WIN, "+"
             else:
                 losses += 1
-                symbol = "-"
+                score, symbol = LOSS, "-"
                 if outcome.termination in FAILED_TERMINATIONS:
                     our_failures[outcome.termination] = (
                         our_failures.get(outcome.termination, 0) + 1
                     )
+            outcomes.append((spec.cluster, score))
+
+            if handle:
+                final_fen, plies = _final_position(outcome.pgn, spec.fen)
+                handle.write(json.dumps({
+                    "record": "game",
+                    "match_id": match_id,
+                    "game_index": spec.index,
+                    "cluster": spec.cluster,
+                    "start_fen": spec.fen,
+                    "white": str(arguments.agent if spec.agent_is_white else arguments.opponent),
+                    "black": str(arguments.opponent if spec.agent_is_white else arguments.agent),
+                    "agent_is_white": spec.agent_is_white,
+                    "result": outcome.result,
+                    "termination": outcome.termination,
+                    "agent_score": score,
+                    "plies": plies,
+                    "final_fen": final_fen,
+                    "seconds": round(seconds, 2),
+                    "failed": outcome.termination in FAILED_TERMINATIONS,
+                }) + "\n")
+                handle.flush()
+
             print(
                 f"[{done:>4}/{arguments.games}] {symbol} {outcome.termination:<20} "
                 f"+{wins} ={draws} -{losses}",
                 flush=True,
             )
 
-    games = wins + draws + losses
-    score = (wins + draws * 0.5) / games if games else 0.0
-    elo, low, high = elo_interval(wins, draws, losses)
+    stats = summarise(outcomes, iterations=arguments.bootstrap)
 
-    print(f"\n{arguments.agent} vs {arguments.opponent} over {games} games")
-    print(f"+{wins} ={draws} -{losses}, score {score:.1%}")
-    print(f"elo {elo:+.0f}  (95% CI {low:+.0f} .. {high:+.0f})")
+    print(f"\n{arguments.agent} vs {arguments.opponent} over {stats.games} games")
+    print(stats.describe())
     print("terminations: " + ", ".join(f"{k} {v}" for k, v in sorted(terminations.items())))
 
+    if handle:
+        handle.write(json.dumps({
+            "record": "match_summary",
+            "match_id": match_id,
+            "games": stats.games,
+            "wins": stats.wins,
+            "draws": stats.draws,
+            "losses": stats.losses,
+            "score": stats.score,
+            "elo": stats.elo,
+            "naive_ci": [stats.naive_low, stats.naive_high],
+            "bootstrap_ci": [stats.boot_low, stats.boot_high],
+            "clusters": stats.clusters,
+            "terminations": terminations,
+            "our_failures": our_failures,
+        }) + "\n")
+        handle.close()
+        print(f"per-game records written to {arguments.jsonl}")
+
     if arguments.pgn:
-        arguments.pgn.write_text("\n\n".join(pgns) + "\n")
+        arguments.pgn.write_text("\n\n".join(pgns) + "\n", encoding="utf-8")
         print(f"pgn written to {arguments.pgn}")
 
     if our_failures:
-        print(
-            "\nOUR FAILURES: " + ", ".join(f"{k} {v}" for k, v in our_failures.items()),
-            file=sys.stderr,
-        )
+        print("\nOUR FAILURES: " + ", ".join(f"{k} {v}" for k, v in our_failures.items()),
+              file=sys.stderr)
         raise SystemExit(1)
 
 

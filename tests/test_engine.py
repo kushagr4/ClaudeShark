@@ -13,7 +13,7 @@ import pytest
 
 import agent
 from cs_constants import MATE_BOUND, TOTAL_PHASE
-from cs_eval import evaluate, is_material_draw
+from cs_eval import evaluate
 from cs_ordering import Heuristics, order_moves
 from cs_search import Searcher
 from cs_tt import TranspositionTable, score_from_tt, score_to_tt
@@ -157,13 +157,10 @@ def test_phase_never_exceeds_the_total() -> None:
     evaluate(board)  # must not raise or produce a nonsense taper
 
 
-def test_material_draw_detection() -> None:
-    assert is_material_draw(chess.Board("4k3/8/8/8/8/8/8/4K3 w - - 0 1"))
-    assert is_material_draw(chess.Board("4k3/8/8/8/8/8/8/3BK3 w - - 0 1"))
-    assert is_material_draw(chess.Board("4k1n1/8/8/8/8/8/8/3BK3 w - - 0 1"))
-    assert not is_material_draw(chess.Board("4k3/8/8/8/8/8/4P3/4K3 w - - 0 1"))
-    assert not is_material_draw(chess.Board("4k3/8/8/8/8/8/8/3RK3 w - - 0 1"))
-    assert not is_material_draw(chess.Board("4k3/8/8/8/8/8/8/2BBK3 w - - 0 1"))
+# Material-draw detection is covered exhaustively in tests/test_material_draw.py,
+# against python-chess over every small configuration. The copy that used to
+# live here asserted that K+B vs K+N is a draw, which is what the rule does
+# *not* say -- so it locked in the defect and would have failed the fix.
 
 
 # ------------------------------------------------------- tables and search

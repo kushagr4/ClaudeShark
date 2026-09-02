@@ -92,10 +92,21 @@ def test_phase_never_exceeds_the_total() -> None:
     evaluate(board)  # must not raise or produce a nonsense taper
 
 
-def test_material_draw_detection() -> None:
-    assert is_material_draw(chess.Board("4k3/8/8/8/8/8/8/4K3 w - - 0 1"))
-    assert is_material_draw(chess.Board("4k3/8/8/8/8/8/8/3BK3 w - - 0 1"))
-    assert is_material_draw(chess.Board("4k1n1/8/8/8/8/8/8/3BK3 w - - 0 1"))
-    assert not is_material_draw(chess.Board("4k3/8/8/8/8/8/4P3/4K3 w - - 0 1"))
-    assert not is_material_draw(chess.Board("4k3/8/8/8/8/8/8/3RK3 w - - 0 1"))
-    assert not is_material_draw(chess.Board("4k3/8/8/8/8/8/8/2BBK3 w - - 0 1"))
+def test_material_draw_agrees_with_the_rule() -> None:
+    """Spot check; the exhaustive version lives in tests/test_material_draw.py.
+
+    This deliberately asserts agreement with python-chess rather than a
+    hand-written expectation. The version it replaces hard-coded K+B vs K+N as
+    a draw, which is drawish but not dead, and so encoded the very defect this
+    session fixed.
+    """
+    for fen in (
+        "4k3/8/8/8/8/8/8/4K3 w - - 0 1",
+        "4k3/8/8/8/8/8/8/3BK3 w - - 0 1",
+        "4k1n1/8/8/8/8/8/8/3BK3 w - - 0 1",
+        "4k3/8/8/8/8/8/4P3/4K3 w - - 0 1",
+        "4k3/8/8/8/8/8/8/3RK3 w - - 0 1",
+        "4k3/8/8/8/8/8/8/2BBK3 w - - 0 1",
+    ):
+        board = chess.Board(fen)
+        assert is_material_draw(board) == board.is_insufficient_material(), fen

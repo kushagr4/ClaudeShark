@@ -1,5 +1,29 @@
 # Benchmark record
 
+> ## Every result below this line predates the 2026-09-02 correctness repair
+>
+> They were produced on **corpus v1**, which contained an illegal starting
+> position (`BALANCED_OPENINGS[19]`, `OPPOSITE_CHECK`), at a **200-ply cap**
+> rather than the competition's 300, with **no environment sanitisation**, and
+> with **game-level intervals that ignored clustering** by starting position.
+> They are kept verbatim — none has been altered — but they must be read with
+> that in mind. See
+> [`benchmarks/current/2026-09-02-correctness-repair.md`](benchmarks/current/2026-09-02-correctness-repair.md).
+>
+> ### Reclassification
+>
+> | result | previous claim | status now |
+> |---|---|---|
+> | v0.3 vs v0.2, 400 games, +30 Elo (CI +3..+58) | "statistically significant" | **Directionally encouraging, significance not established.** One position in 24 was illegal, and the interval assumed 400 independent games when they were 24 clustered positions. Both push the true interval wider than reported. **Stop quoting "+30 Elo proven."** |
+> | v0.4 SEE, 240 games, +1 Elo | neutral on strength | **Efficiency result stands** — node and wall-clock measurements are deterministic and corpus-independent in kind, though the specific numbers were taken on v1. **Playing-strength result uncertain**, same caveats. |
+> | Time policy sf60, 400 games, +9 Elo | inconclusive | **Still inconclusive**, and it remains a clean one-variable experiment. Same corpus and clustering caveats. |
+>
+> The qualitative conclusion that survives all of this is the one drawn from
+> three experiments agreeing: **more search has not converted into measurable
+> strength in this engine.** That pattern does not depend on a single position
+> or on the width of an interval.
+
+
 > Full records with exact commands live in [`benchmarks/`](benchmarks/). This
 > file is the narrative summary. Results recorded before that directory existed
 > are transcribed console output and are labelled as such.

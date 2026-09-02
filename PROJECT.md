@@ -4,9 +4,24 @@ An AI Chessathon entry: an iterative-deepening alpha-beta engine written against
 `python-chess`, with a transposition table, quiescence search and a tapered
 piece-square evaluation.
 
-Current version: **v0.4**. Previous versions are frozen under `champions/` and
-kept as arena opponents. v0.3 beat v0.2 by **+30 Elo (95% CI +3 .. +58)** over
-400 games — the first statistically significant strength result in the project.
+Current version: **v0.5-correctness**, frozen at
+`champions/v0_5_correctness`. It is the release target and the working tree
+matches it exactly.
+
+### Version status, stated precisely
+
+| version | what it is | strength evidence |
+|---|---|---|
+| v0.2 | first search bundle | superseded |
+| **v0.3** | correctness fixes + faster evaluator | the strongest *evidence* the project has, but see the reclassification in `BENCHMARKS.md` — the "+30 Elo proven" claim does not survive the corpus and clustering corrections |
+| v0.4 | v0.3 + static exchange evaluation | **experimental.** Efficiency gain is solid; playing strength measured +1 Elo, i.e. neutral |
+| **v0.5-correctness** | v0.4 + the 2026-09-02 repairs | **not a strength claim.** It fixes bugs that silently corrupted results and play; it is not asserted to be stronger |
+
+**`submission.zip` is a build artefact, never authoritative.** It is
+gitignored and is rebuilt from source by `tools/release_check.py` into a
+temporary directory, which then validates *that* copy rather than anything on
+disk. A stale archive in the working directory cannot be uploaded by mistake
+because nothing reads it.
 
 ## Competition constraints
 
@@ -76,6 +91,7 @@ occurs, nothing is written outside the process, and no code is obfuscated.
 
 ```
 agent.py           entry point: legal-move fallback, new-game detection, warm-up
+AGENTS.md          the short version of this file, for coding agents
 cs_search.py       iterative deepening, negamax + alpha-beta, quiescence
 cs_eval.py         tapered material + piece-square evaluation
 cs_ordering.py     MVV-LVA, killers, history
@@ -155,11 +171,24 @@ higher and unavoidable ones are delayed. They are re-based on the way into and
 out of the transposition table, since a mate distance is only meaningful
 relative to where it was found.
 
-Draws are detected three ways: the fifty-move counter, a cheap insufficient
-material test, and repetition. Repetition uses the search path (checked at a
-stride of two plies, bounded by the halfmove clock) plus a record of every root
-position the engine has been handed this game — the referee claims threefold
-automatically, so an engine that cannot see a repetition can draw a won game.
+Draws are detected three ways.
+
+* **Fifty-move counter** — rule-exact, and checkmate outranks it.
+* **Insufficient material** — rule-exact, matching `is_insufficient_material()`
+  exactly. It deliberately does *not* fire on merely drawish endings such as
+  K+N vs K+N; those are not dead positions and the search has no business
+  forcing 0 on them.
+* **Repetition** — a **documented heuristic, not the rule**. FIDE draws on the
+  third occurrence; this scores a draw on the second, either on the current
+  search line or against the positions the engine has been asked about this
+  game. That is the usual engine convention, but it can make a winning line
+  whose only path revisits an earlier position look drawn.
+  `tests/test_repetition.py` documents the actual behaviour.
+
+The transposition key does not include the fifty-move counter, so the table is
+bypassed for scores once the counter passes `TT_HALFMOVE_LIMIT`. Without that,
+a near-fifty-move search poisons the same position at a fresh clock — measured
+at 0 instead of +542 in a won rook endgame.
 
 ### Time management
 
