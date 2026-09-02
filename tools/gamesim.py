@@ -18,15 +18,19 @@ from __future__ import annotations
 import argparse
 import csv
 import statistics
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from time import perf_counter
 
 import chess
 
-from cs_search import Searcher
-from cs_time import PANIC_MS
 from tools.positions import BALANCED_OPENINGS
+
+# Bound in main() once --engine has been resolved, so a frozen champion
+# directory can be measured instead of the working tree.
+Searcher = None  # type: ignore[assignment]
+PANIC_MS = 120.0
 
 
 @dataclass
@@ -128,7 +132,19 @@ def main() -> None:
     parser.add_argument("--increment-ms", type=int, default=500)
     parser.add_argument("--ply-cap", type=int, default=200)
     parser.add_argument("--csv", type=Path, default=None)
+    parser.add_argument("--engine", type=Path, default=None, help="frozen champion directory")
     arguments = parser.parse_args()
+
+    global Searcher, PANIC_MS
+    if arguments.engine:
+        sys.path.insert(0, str(arguments.engine.resolve()))
+    from cs_search import Searcher as _Searcher
+    from cs_time import PANIC_MS as _PANIC_MS
+    from cs_time import START_FRACTION
+
+    Searcher = _Searcher
+    PANIC_MS = _PANIC_MS
+    print(f"engine: {arguments.engine or 'working tree'}   START_FRACTION = {START_FRACTION}")
 
     rows: list[Ply] = []
     for index in range(arguments.games):
