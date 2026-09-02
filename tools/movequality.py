@@ -31,15 +31,19 @@ import cs_search
 from cs_search import Searcher
 from tools.positions import BALANCED_OPENINGS, SHARP_POSITIONS
 
-# (name, PVS, null move, LMR, safe LMR)
-VARIANTS: tuple[tuple[str, bool, bool, bool, bool], ...] = (
-    ("v0.2 (PVS+NMP+LMR)", True, True, True, False),
-    ("v0.2 + safe LMR", True, True, True, True),
-    ("no LMR", True, True, False, False),
+# (name, PVS, null move, LMR, safe LMR, SEE in quiescence, SEE in ordering)
+VARIANTS: tuple[tuple[str, bool, bool, bool, bool, bool, bool], ...] = (
+    ("v0.3 shipping", True, True, True, True, False, False),
+    ("+ SEE quiescence", True, True, True, True, True, False),
+    ("+ SEE ordering", True, True, True, True, False, True),
+    ("+ SEE both", True, True, True, True, True, True),
+    ("no LMR", True, True, False, False, False, False),
 )
 
 
-def configure(pvs: bool, nmp: bool, lmr: bool, safe: bool) -> None:
+def configure(
+    pvs: bool, nmp: bool, lmr: bool, safe: bool, see_qs: bool = False, see_order: bool = False
+) -> None:
     """Set the search feature flags for this process.
 
     The flags are module globals read at node time, so mutating them here
@@ -49,6 +53,8 @@ def configure(pvs: bool, nmp: bool, lmr: bool, safe: bool) -> None:
     cs_search.USE_NULL_MOVE = nmp
     cs_search.USE_LMR = lmr
     cs_search.LMR_SAFE = safe
+    cs_search.USE_SEE_QS = see_qs
+    cs_search.USE_SEE_ORDER = see_order
 
 
 def search_at(fen: str, depth: int) -> tuple[chess.Move, int]:
@@ -88,7 +94,7 @@ def main() -> None:
         reference[fen] = search_at(fen, arguments.ref_depth)
 
     print(f"\n{'variant':<22} {'agree':>6} {'avg loss':>9} {'worst':>7} {'>100cp':>7}")
-    for name, pvs, nmp, lmr, safe in VARIANTS:
+    for name, pvs, nmp, lmr, safe, see_qs, see_order in VARIANTS:
         losses: list[int] = []
         agreements = 0
         detail: list[str] = []
@@ -96,7 +102,7 @@ def main() -> None:
         for fen in fens:
             reference_move, reference_score = reference[fen]
 
-            configure(pvs, nmp, lmr, safe)
+            configure(pvs, nmp, lmr, safe, see_qs, see_order)
             candidate_move, _ = search_at(fen, arguments.depth)
 
             if candidate_move == reference_move:

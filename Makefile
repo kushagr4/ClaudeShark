@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: setup play arena zip gate test bench suite
+.PHONY: setup play arena zip gate test bench suite compare attribute quality profile release clock
 
 setup:
 	uv sync
@@ -45,6 +45,14 @@ quality:
 profile:
 	uv run python -m tools.profile_search --ms 3000 --positions 6
 	uv run python -m tools.profile_eval
+
+# The only question that matters before an upload.
+release:
+	uv run python -m tools.release_check
+
+# Whole games on the real 120 s + 0.5 s clock.
+clock:
+	uv run python -m tools.gamesim --games 2
 
 zip:
 	uv run python -m harness.package
