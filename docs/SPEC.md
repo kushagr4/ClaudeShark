@@ -11,12 +11,24 @@ There are two sources for the four packaging facts below and **they disagree**.
 Both are recorded, with timestamps, rather than one being quietly picked.
 
 **Source A — automated fetch of the live pages.**
-Last read **2026-09-02 09:53 UTC** (10:53 local, UTC+01:00), from
-`https://aichessathon.com/docs` and `https://aichessathon.com/docs/rules.md`
-(the canonical file the vendored `harness/rules.py` names as its source).
+Last read **2026-09-02 10:03:44 UTC** (11:03:44 local, UTC+01:00), from
+`https://aichessathon.com/docs`, the rendered page (not a cached `rules.md`).
 `https://aichessathon.com/terms` defers all technical detail to `/docs`.
-Three separate reads on 2026-09-02, the last of them uncached, returned
-identical text.
+**Four separate reads on 2026-09-02** returned identical text on these points,
+the later ones uncached.
+
+Verbatim from that retrieval:
+
+> "A submission is a zip, 50 MB unzipped at most."
+>
+> "Nothing installs at validation and a `requirements.txt` in your zip is ignored."
+>
+> "The environment is fixed. The container ships Python 3.12, the full standard
+> library, and five preinstalled packages" — importing anything outside this set
+> "crashes your agent in its smoke games."
+>
+> "Native binaries inside the zip are rejected. What you ship has to be source a
+> judge can read."
 
 **Source B — participant reading of the live `/docs` page**, reported
 2026-09-02 and stated to be current. A logged-in or newer deploy that the
@@ -29,24 +41,29 @@ automated fetch cannot reach is a plausible explanation for the difference.
 | Compiled PyPI wheels | not permitted; only the five preinstalled packages | permitted |
 | Native binaries in the zip | "Native binaries inside the zip are rejected. What you ship has to be source a judge can read." | rejected — **both agree** |
 
-**What the tooling does about it.** `tools/release_check.py` uses Source B's
-200 MB limit. That choice is safe in either world: the submission is about
-58 KB, so no engine decision depends on the number, and a size check that is too
-lenient cannot crash an agent — it can only allow an upload the platform would
-reject, which is visible immediately in the validation log.
+**What the tooling does about it.** `tools/release_check.py` follows **Source A**,
+the text actually retrievable from the live page: a 50 MB limit, and imports
+restricted to the standard library plus the five preinstalled packages.
 
-The dependency question is handled differently, because there the two readings
-have opposite failure modes. The checker now validates imports against the
-standard library, the five preinstalled packages, **and anything declared in a
-`requirements.txt` shipped inside the zip**. Under Source B that is correct
-behaviour. Under Source A it is also correct, because we ship no
-`requirements.txt` and import nothing outside the preinstalled set, so the check
-behaves exactly as it did before. Nothing is silently disabled either way.
+This reverses a previous commit that had adopted Source B's 200 MB figure. The
+instruction then was to match the live page; a fresh read of the live page still
+returns 50 MB, so matching it means 50 MB. Nothing practical turns on it — the
+submission is about 66 KB — but the two failure modes are not symmetric:
 
-**Before relying on an extra dependency, confirm with the organisers.** Source A
-states plainly that an undeclared import "crashes your agent in its smoke
-games", and that failure costs every game rather than producing a warning. The
-asymmetry is large enough to be worth an email to hello@aichessathon.com.
+* a size limit that is **too strict** costs nothing, since we are three orders
+  of magnitude below either figure;
+* an import allowlist that is **too lenient** costs everything, because Source A
+  says an unresolvable import "crashes your agent in its smoke games", and that
+  is every game rather than a warning.
+
+`declared_requirements()` in the checker still parses a shipped
+`requirements.txt`, gated behind `REQUIREMENTS_HONOURED = False`. Flipping that
+one constant is the entire change if the organisers confirm Source B. The
+checker also now warns if a `requirements.txt` is shipped at all, since under
+Source A it would be silently ignored and give false confidence.
+
+**Before relying on an extra dependency, confirm with the organisers** at
+hello@aichessathon.com.
 
 ## Everything below is Source A, verbatim
 

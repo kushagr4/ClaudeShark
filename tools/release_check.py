@@ -33,12 +33,18 @@ from harness.package import DEFAULT_INCLUDES, build
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Expanded-size limit, per the participant reading of the live /docs page
-# (2026-09-02). The automated fetch of the same page reports 50 MB; see the
-# provenance table in docs/SPEC.md. The looser figure is used because the
-# submission is ~58 KB either way, and a size check that is too lenient can only
-# allow an upload the platform then rejects visibly -- it cannot crash an agent.
-MAX_UNZIPPED_BYTES = 200_000_000
+# Expanded-size limit. The live /docs page, read 2026-09-02 10:03:44 UTC, says
+# "A submission is a zip, 50 MB unzipped at most." A 200 MB figure has been
+# reported; see the provenance table in docs/SPEC.md. The stricter number is
+# used because the submission is ~66 KB, so being wrong in this direction costs
+# nothing, while being wrong in the other direction passes an upload the
+# platform would reject.
+MAX_UNZIPPED_BYTES = 50_000_000
+
+# Whether the platform installs a requirements.txt shipped in the zip. The live
+# page says it does not ("a requirements.txt in your zip is ignored"); this is
+# disputed. One constant, because if that changes, this is the whole change.
+REQUIREMENTS_HONOURED = False
 # Nothing we ship should come close. A file this large is an accident, not a
 # limit; raise it deliberately if a model file is ever shipped.
 LARGE_FILE_BYTES = 5_000_000
@@ -188,7 +194,7 @@ def declared_requirements(extracted: Path) -> set[str]:
 
 
 def check_imports(extracted: Path) -> list[Check]:
-    requirements = declared_requirements(extracted)
+    requirements = declared_requirements(extracted) if REQUIREMENTS_HONOURED else set()
     allowed = PREINSTALLED | set(sys.stdlib_module_names) | requirements
     shipped_names = {path.stem for path in shipped_sources(extracted)}
 
@@ -207,9 +213,15 @@ def check_imports(extracted: Path) -> list[Check]:
                 unknown.add(f"{path.name}:{name}")
 
     declared = f", {len(requirements)} declared in requirements.txt" if requirements else ""
+    shipped_requirements = (extracted / "requirements.txt").is_file()
     return [
         Check("imports resolve on the platform", not unknown,
               ", ".join(sorted(unknown)) or f"stdlib + preinstalled{declared}"),
+        # Shipping one when it is ignored is not fatal, but it invites someone
+        # to add a dependency believing it will be installed.
+        Check("no requirements.txt giving false confidence",
+              REQUIREMENTS_HONOURED or not shipped_requirements,
+              "shipped but the platform ignores it" if shipped_requirements else "none shipped"),
         Check("no development-only imports", not dev, ", ".join(sorted(dev)) or "clean"),
         Check("no network imports", not network, ", ".join(sorted(network)) or "clean"),
     ]

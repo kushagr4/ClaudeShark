@@ -1,12 +1,34 @@
 # Pondering — design analysis only
 
-**Status: awaiting organiser clarification. Not implemented. Not scheduled.**
+**Status: explicitly permitted by the official documentation. Not implemented,
+deliberately, and not scheduled for this session.**
 
-The documentation read on 2026-09-02 does state that pondering is allowed
-(`/docs`: "The process keeps its dedicated core after `get_move` returns, and
-pondering is allowed"; `/docs/rules.md`: "Pondering allowed. Your process keeps
-its core while the opponent thinks"). This project is nevertheless treating the
-question as open and the production agent does no work between `get_move` calls.
+## The official rule, retrieved
+
+| | |
+|---|---|
+| URL | `https://aichessathon.com/docs` |
+| Retrieved | **2026-09-02 10:03:44 UTC** (11:03:44 local, UTC+01:00) |
+| Wording | *"The process keeps its dedicated core after `get_move` returns, and pondering is allowed."* |
+
+A second phrasing appears in `https://aichessathon.com/docs/rules.md`, the file
+the vendored `harness/rules.py` names as its canonical source: *"Pondering
+allowed. Your process keeps its core while the opponent thinks."*
+
+Both readings are consistent and have been stable across four retrievals of the
+live page on 2026-09-02. This resolves the question that was previously open:
+**pondering is authorised.**
+
+## Why it is still not implemented
+
+The permission question is settled; the engineering question is not, and this
+session is a controlled single-variable experiment on time management. Adding
+background computation on the same core, in the same session, would make the
+time-management result uninterpretable — which is exactly the mistake that made
+the v0.2 feature bundle worthless and that the SEE experiment was structured to
+avoid.
+
+It is now a scheduled piece of work rather than a blocked one.
 
 The reasoning: background computation between calls is the one category of
 behaviour where a misreading looks like exploiting the harness rather than an
