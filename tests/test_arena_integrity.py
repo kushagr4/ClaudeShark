@@ -12,6 +12,9 @@ Both had happened, in some form, before these existed.
 from __future__ import annotations
 
 import os
+import subprocess
+import sys
+from pathlib import Path
 
 import pytest
 
@@ -22,7 +25,7 @@ from tools.arena import (
     sanitise_environment,
     snapshot_identity,
 )
-from tools.positions import BALANCED_OPENINGS, invalid_positions
+from tools.positions import BALANCED_OPENINGS, invalid_positions, unsuitable
 
 
 @pytest.fixture(autouse=True)
@@ -75,6 +78,66 @@ def test_arena_would_refuse_an_invalid_corpus() -> None:
     assert invalid_positions() == []
 
 
+# ------------------------------------------------- custom starting positions
+#
+# Validating only the built-in corpus was not enough: a custom --start-fen went
+# through unchecked, so the arena could knowingly benchmark an illegal position.
+
+OPPOSITE_CHECK = "8/2n2pk1/6p1/8/8/2B3P1/5P1P/6K1 w - - 0 40"
+ALREADY_MATE = "R5k1/5ppp/8/8/8/8/8/6K1 b - - 0 1"
+STALEMATED = "7k/5Q2/8/8/8/8/8/6K1 b - - 0 1"
+
+
+@pytest.mark.parametrize(
+    ("fen", "reason"),
+    [
+        (OPPOSITE_CHECK, "side not to move is in check"),
+        (ALREADY_MATE, "already over"),
+        (STALEMATED, "already over"),
+        ("not a fen at all", "unparseable"),
+        ("8/8/8/8/8/8/8/8 w - - 0 1", "no kings"),
+    ],
+)
+def test_unsuitable_rejects_bad_starting_positions(fen: str, reason: str) -> None:
+    bad = unsuitable((fen,), "--start-fen")
+    assert bad, f"accepted an unsuitable position ({reason}): {fen}"
+
+
+def test_unsuitable_accepts_the_real_corpus() -> None:
+    assert unsuitable(BALANCED_OPENINGS, "corpus") == []
+
+
+def test_arena_cli_rejects_an_invalid_start_fen() -> None:
+    """End to end: the process must fail loudly, not skip quietly."""
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "tools.arena",
+            "--agent", "champions/v0_3", "--opponent", "champions/v0_3",
+            "--games", "2", "--start-fen", OPPOSITE_CHECK,
+        ],
+        cwd=Path(__file__).resolve().parent.parent,
+        capture_output=True, text=True, check=False,
+    )
+    assert result.returncode != 0, "the arena ran on an illegal position"
+    combined = result.stdout + result.stderr
+    assert "UNSUITABLE" in combined
+    assert "OPPOSITE_CHECK" in combined
+
+
+def test_arena_cli_rejects_an_unknown_set_env_name() -> None:
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "tools.arena",
+            "--agent", "champions/v0_3", "--opponent", "champions/v0_3",
+            "--games", "2", "--set-env", "PATH=/tmp",
+        ],
+        cwd=Path(__file__).resolve().parent.parent,
+        capture_output=True, text=True, check=False,
+    )
+    assert result.returncode != 0
+    assert "only accepts CS_*" in result.stdout + result.stderr
+
+
 def test_default_ply_cap_matches_the_competition() -> None:
     assert COMPETITION_PLY_CAP == 300
 
@@ -93,6 +156,55 @@ def test_schedule_pairs_colours_on_the_same_position() -> None:
 def test_schedule_uses_the_position_its_cluster_names() -> None:
     for spec in build_schedule(96, BALANCED_OPENINGS):
         assert spec.fen == BALANCED_OPENINGS[spec.cluster]
+
+
+def test_known_vars_covers_every_flag_the_engine_reads() -> None:
+    """The list is derived from the engine, not copied beside it.
+
+    A hand-maintained copy had already fallen a flag behind:
+    CS_SEE_KEEP_CHECKS took effect while matches recorded "effective: {}".
+    """
+    from cs_search import DECLARED_FLAGS
+    from cs_time import DECLARED_VARS
+
+    missing = (set(DECLARED_FLAGS) | set(DECLARED_VARS)) - set(KNOWN_CS_VARS)
+    assert not missing, f"engine reads {sorted(missing)} but the arena would not record it"
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "CS_PVS",
+        "CS_NMP",
+        "CS_LMR",
+        "CS_LMR_SAFE",
+        "CS_ASPIRATION",
+        "CS_TT_PV_CUTOFF",
+        "CS_SEE_QS",
+        "CS_SEE_ORDER",
+        "CS_SEE_KEEP_CHECKS",
+        "CS_INCREMENT_MS",
+        "CLAUDESHARK_DEBUG",
+    ],
+)
+def test_each_production_toggle_is_sanitised_and_recordable(name: str) -> None:
+    """Every live toggle must be strippable when stray and recorded when set."""
+    assert name in KNOWN_CS_VARS
+
+    os.environ[name] = "1"
+    stripped = sanitise_environment({})
+    assert name not in os.environ, f"{name} survived sanitisation"
+    assert name in stripped["stripped"]
+
+    recorded = sanitise_environment({name: "1"})
+    assert recorded["effective"].get(name) == "1", f"{name} missing from provenance"
+
+
+def test_unknown_inherited_cs_variables_are_stripped() -> None:
+    os.environ["CS_SOMETHING_INVENTED"] = "1"
+    report = sanitise_environment({})
+    assert "CS_SOMETHING_INVENTED" not in os.environ
+    assert "CS_SOMETHING_INVENTED" in report["stripped"]
 
 
 def test_snapshot_identity_is_stable_and_distinguishing(tmp_path) -> None:

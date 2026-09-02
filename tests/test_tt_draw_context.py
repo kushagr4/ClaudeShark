@@ -64,6 +64,24 @@ def test_limit_leaves_a_real_margin() -> None:
     assert 100 - TT_HALFMOVE_LIMIT >= 20
 
 
+def test_the_root_store_respects_the_same_limit() -> None:
+    """The root store used to bypass the guard the interior nodes obey.
+
+    A root searched near the fifty-move boundary wrote a rule-influenced score
+    under a clock-blind key -- the exact path the limit exists to close.
+    """
+    high = WON_ROOK_ENDGAME.format(clock=96, move=90)
+    searcher = Searcher(tt_bits=16)
+    searcher.search(chess.Board(high), 0, max_depth=4)
+    root_key = hash(chess.Board(high)._transposition_key())
+    assert searcher.tt.probe(root_key) is None, "root entry written above the limit"
+
+    low = WON_ROOK_ENDGAME.format(clock=0, move=1)
+    fresh = Searcher(tt_bits=16)
+    fresh.search(chess.Board(low), 0, max_depth=4)
+    assert fresh.tt.probe(hash(chess.Board(low)._transposition_key())) is not None
+
+
 def test_ordinary_positions_still_use_the_table() -> None:
     """The bypass must be rare, or it would cost most of the table's value."""
     searcher = Searcher(tt_bits=16)

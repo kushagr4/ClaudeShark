@@ -57,8 +57,25 @@ def test_fifty_move_leaf_scores_as_a_draw() -> None:
     board = chess.Board(fen)
     assert board.is_fifty_moves()
     assert q(fen) == 0
-    # The same position one halfmove earlier is a rook up, not a draw.
-    assert q("6k1/8/8/8/8/8/8/R5K1 w - - 99 80") > 300
+
+
+def test_the_draw_threshold_is_the_referee_s_not_a_round_number() -> None:
+    """Clock 99 is already drawn; 98 is not.
+
+    This test previously asserted that 99 was still a rook up, which encoded a
+    `>= 100` threshold. The referee ends the game with
+    `outcome(claim_draw=True)`, and `can_claim_fifty_moves()` is true at 99
+    whenever a legal move does not reset the counter -- the claim may be made
+    for the move about to be played.
+    """
+    at_98 = "6k1/8/8/8/8/8/8/R5K1 w - - 98 80"
+    at_99 = "6k1/8/8/8/8/8/8/R5K1 w - - 99 80"
+
+    assert chess.Board(at_98).outcome(claim_draw=True) is None
+    assert chess.Board(at_99).outcome(claim_draw=True) is not None
+
+    assert q(at_98) > 300, "not yet claimable, so still a rook up"
+    assert q(at_99) == 0, "the referee has already drawn this"
 
 
 def test_insufficient_material_leaf_scores_as_a_draw() -> None:

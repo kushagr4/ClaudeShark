@@ -117,6 +117,40 @@ def corpus_hash(positions: tuple[str, ...] | None = None) -> str:
     return hashlib.sha256("\n".join(chosen).encode()).hexdigest()[:16]
 
 
+def unsuitable(fens: tuple[str, ...], label: str = "selected") -> list[tuple[str, int, str, str]]:
+    """Validate whatever set of positions is actually about to be benchmarked.
+
+    Applies to the built-in corpus, a custom ``--start-fen`` and any future
+    externally supplied set alike. Validating only the built-in corpus was not
+    enough: a custom FEN went straight through, so the arena could knowingly
+    benchmark an illegal position.
+
+    A position is unsuitable if python-chess rejects it, if the game is already
+    over before a move is played, or if the side not to move is in check --
+    the specific defect that got a bishop-gives-check position into corpus v1.
+    """
+    import chess
+
+    bad: list[tuple[str, int, str, str]] = []
+    for index, fen in enumerate(fens):
+        try:
+            board = chess.Board(fen)
+        except ValueError as error:
+            bad.append((label, index, fen, f"unparseable: {error}"))
+            continue
+        if not board.is_valid():
+            bad.append((label, index, fen, repr(board.status())))
+            continue
+        if board.is_game_over(claim_draw=False):
+            bad.append((label, index, fen, "already over before a move is played"))
+            continue
+        mirror = board.copy(stack=False)
+        mirror.turn = not board.turn
+        if mirror.is_check():
+            bad.append((label, index, fen, "side not to move is in check"))
+    return bad
+
+
 def invalid_positions() -> list[tuple[str, int, str, str]]:
     """Every position that python-chess rejects, as (suite, index, fen, status).
 

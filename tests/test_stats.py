@@ -111,3 +111,72 @@ def test_empty_match_does_not_explode() -> None:
     stats = summarise([], iterations=100)
     assert stats.games == 0
     assert not math.isnan(stats.elo)
+
+
+# ------------------------------------------------------ boundary behaviour
+#
+# The normal approximation used the *observed* between-game variance, which is
+# exactly zero when every game ends the same way. 96 straight wins reported
+# +800 .. +800: a zero-width interval implying certainty no sample can supply.
+
+
+def test_all_wins_gives_a_finite_lower_bound() -> None:
+    stats = summarise([(i % 24, WIN) for i in range(96)], iterations=500)
+    assert stats.score == 1.0
+    assert stats.saturated
+    assert stats.naive_low < stats.naive_high, "interval must not be zero-width"
+    assert stats.naive_low < 800.0, "a lower bound of +800 claims certainty"
+    assert stats.naive_high == 800.0
+
+
+def test_all_losses_is_the_mirror_image() -> None:
+    stats = summarise([(i % 24, LOSS) for i in range(96)], iterations=500)
+    assert stats.score == 0.0
+    assert stats.saturated
+    assert stats.naive_low == -800.0
+    assert stats.naive_high > -800.0
+
+
+def test_all_draws_is_not_reported_as_certainty() -> None:
+    """Score is exactly 0.5 but the sample says nothing precise about true Elo."""
+    stats = summarise([(i % 24, DRAW) for i in range(96)], iterations=500)
+    assert stats.score == 0.5
+    assert not stats.saturated, "a drawn match is not at the Elo clamp"
+    assert stats.naive_low < 0 < stats.naive_high, "must admit uncertainty"
+    assert stats.boot_degenerate, "no between-cluster variation to bootstrap from"
+
+
+def test_boundary_intervals_narrow_with_more_games() -> None:
+    """The lower bound on an all-wins match must depend on the sample size."""
+    small = summarise([(i, WIN) for i in range(20)], iterations=300)
+    large = summarise([(i, WIN) for i in range(400)], iterations=300)
+    assert large.naive_low > small.naive_low
+
+
+def test_degenerate_bootstrap_is_flagged_not_hidden() -> None:
+    stats = summarise([(i % 24, DRAW) for i in range(96)], iterations=300)
+    assert stats.boot_low == stats.boot_high
+    assert stats.boot_degenerate
+    assert "not precision" in stats.describe()
+
+
+def test_a_mixed_match_is_not_flagged() -> None:
+    """The ordinary case must carry neither warning."""
+    outcomes = [(i % 24, [WIN, DRAW, LOSS][i % 3]) for i in range(96)]
+    stats = summarise(outcomes, iterations=500)
+    assert not stats.saturated
+    assert not stats.boot_degenerate
+    assert stats.naive_low < stats.naive_high
+    assert stats.boot_low < stats.boot_high
+
+
+def test_elo_never_exceeds_the_documented_saturation() -> None:
+    for score in (0.0, 1e-9, 0.5, 1 - 1e-9, 1.0):
+        assert -800.0 <= elo_from_score(score) <= 800.0
+
+
+def test_describe_mentions_both_intervals() -> None:
+    stats = summarise([(i % 8, WIN if i % 2 else LOSS) for i in range(64)], iterations=300)
+    text = stats.describe()
+    assert "Wilson" in text
+    assert "bootstrap" in text

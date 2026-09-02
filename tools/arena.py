@@ -32,33 +32,28 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
+from cs_search import DECLARED_FLAGS
+from cs_time import DECLARED_VARS
 from harness.referee import FAILED_TERMINATIONS, Outcome, play_match
 from harness.sandbox import local
 from tools.positions import (
     BALANCED_OPENINGS,
     CORPUS_VERSION,
     corpus_hash,
-    invalid_positions,
+    unsuitable,
 )
 from tools.stats import DRAW, LOSS, WIN, summarise
 
 # The competition adjudicates at 300 plies. Historical arenas here used 200.
 COMPETITION_PLY_CAP = 300
 
-# Experiment variables the arena is allowed to pass through to engines. Anything
-# else matching CS_* is stripped, so a leftover shell export cannot change both
-# players without appearing in the record.
-KNOWN_CS_VARS = (
-    "CS_PVS",
-    "CS_NMP",
-    "CS_LMR",
-    "CS_LMR_SAFE",
-    "CS_ASPIRATION",
-    "CS_TT_PV_CUTOFF",
-    "CS_SEE_QS",
-    "CS_SEE_ORDER",
-    "CS_INCREMENT_MS",
-    "CLAUDESHARK_DEBUG",
+# Experiment variables the arena may pass through, taken from the engine itself
+# rather than copied here. A hand-maintained list had already fallen a flag
+# behind -- CS_SEE_KEEP_CHECKS took effect while matches recorded
+# "effective: {}" -- so the list is now derived from what the engine declares it
+# reads. tests/test_arena_integrity.py fails if the two ever diverge.
+KNOWN_CS_VARS: tuple[str, ...] = tuple(
+    sorted(set(DECLARED_FLAGS) | set(DECLARED_VARS))
 )
 
 
@@ -168,13 +163,19 @@ def main() -> None:
     parser.add_argument("--bootstrap", type=int, default=5000)
     arguments = parser.parse_args()
 
-    # 1. Refuse to run on an invalid corpus. An illegal starting position
-    #    silently corrupted every arena this project ran before it was caught.
-    bad = invalid_positions()
+    # 1. Refuse to run on an invalid position set. An illegal starting position
+    #    silently corrupted every arena this project ran before it was caught,
+    #    and validating only the built-in corpus let a custom --start-fen
+    #    through unchecked.
+    selected = (
+        (arguments.start_fen,) if arguments.start_fen else BALANCED_OPENINGS
+    )
+    label = "--start-fen" if arguments.start_fen else "BALANCED_OPENINGS"
+    bad = unsuitable(selected, label)
     if bad:
         for suite, index, fen, status in bad:
-            print(f"INVALID {suite}[{index}] {fen}: {status}", file=sys.stderr)
-        raise SystemExit("refusing to run on an invalid corpus")
+            print(f"UNSUITABLE {suite}[{index}] {fen}: {status}", file=sys.stderr)
+        raise SystemExit("refusing to benchmark an unsuitable starting position")
 
     # 2. Control the environment before anything is spawned.
     allow: dict[str, str] = {}
@@ -187,7 +188,7 @@ def main() -> None:
 
     agent = arguments.agent.resolve()
     opponent = arguments.opponent.resolve()
-    fens = (arguments.start_fen,) if arguments.start_fen else BALANCED_OPENINGS
+    fens = selected
     schedule = build_schedule(arguments.games, fens)
 
     match_id = f"{int(time.time())}-{agent.name}-vs-{opponent.name}"

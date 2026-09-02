@@ -30,12 +30,18 @@ WIN, DRAW, LOSS = 1.0, 0.5, 0.0
 
 
 def elo_from_score(score: float) -> float:
-    """Elo difference implied by a score fraction. Saturates at +/-800."""
+    """Elo difference implied by a score fraction.
+
+    Clamped at +/-ELO_SATURATION. A score of exactly 0 or 1 has no finite Elo,
+    so the clamp is a floor on the difference rather than an estimate of it;
+    MatchStats flags that case explicitly rather than printing a number that
+    looks like a measurement.
+    """
     if score <= 0.0:
-        return -800.0
+        return -ELO_SATURATION
     if score >= 1.0:
-        return 800.0
-    return -400.0 * math.log10(1.0 / score - 1.0)
+        return ELO_SATURATION
+    return max(-ELO_SATURATION, min(ELO_SATURATION, -400.0 * math.log10(1.0 / score - 1.0)))
 
 
 @dataclass(frozen=True)
@@ -51,32 +57,68 @@ class MatchStats:
     boot_low: float
     boot_high: float
     clusters: int
+    saturated: bool = False
+    boot_degenerate: bool = False
 
     def describe(self) -> str:
-        return (
-            f"+{self.wins} ={self.draws} -{self.losses}, score {self.score:.1%}\n"
-            f"elo {self.elo:+.0f}\n"
-            f"  naive game-level 95% CI    {self.naive_low:+.0f} .. {self.naive_high:+.0f}\n"
+        lines = [
+            f"+{self.wins} ={self.draws} -{self.losses}, score {self.score:.1%}",
+            f"elo {self.elo:+.0f}" + (" (saturated, see below)" if self.saturated else ""),
+            f"  Wilson score 95% CI        {self.naive_low:+.0f} .. {self.naive_high:+.0f}",
             f"  paired bootstrap 95% CI    {self.boot_low:+.0f} .. {self.boot_high:+.0f}"
-            f"   ({self.clusters} position clusters)"
-        )
+            f"   ({self.clusters} position clusters)",
+        ]
+        if self.saturated:
+            lines.append(
+                "  NOTE: every game had the same result, so the point estimate is at the"
+                f" +/-{ELO_SATURATION:.0f} clamp and is a floor on the true difference, not"
+                " a measurement of it."
+            )
+        if self.boot_degenerate:
+            lines.append(
+                "  NOTE: the bootstrap interval is zero-width because every position"
+                " cluster produced the same score. That is an absence of observed"
+                " variation, not precision; read the Wilson interval instead."
+            )
+        return "\n".join(lines)
+
+
+ELO_SATURATION = 800.0
+
+
+def wilson_interval(successes: float, games: int, z: float = 1.96) -> tuple[float, float]:
+    """95% interval for a score fraction, valid at the boundaries.
+
+    The previous normal approximation used the observed between-game variance,
+    which is exactly zero when every game ends the same way. That produced a
+    zero-width interval -- 96 straight wins reported +800 .. +800, implying
+    certainty a sample of any size cannot supply. Wilson's interval is derived
+    from the binomial rather than from the observed spread, so an all-wins
+    sample still yields a finite lower bound that widens as the sample shrinks.
+
+    Draws count as half a success, which is the usual chess adaptation. It
+    slightly overstates uncertainty for a match of nothing but draws, and that
+    is the right direction to err.
+    """
+    if games <= 0:
+        return 0.0, 1.0
+    proportion = successes / games
+    denominator = 1.0 + z * z / games
+    centre = (proportion + z * z / (2 * games)) / denominator
+    spread = z * math.sqrt(
+        proportion * (1.0 - proportion) / games + z * z / (4 * games * games)
+    ) / denominator
+    return max(0.0, centre - spread), min(1.0, centre + spread)
 
 
 def naive_interval(wins: int, draws: int, losses: int) -> tuple[float, float, float]:
-    """Elo and a game-level normal-approximation interval."""
+    """Elo point estimate and a Wilson score interval, in Elo."""
     games = wins + draws + losses
     if games == 0:
-        return 0.0, 0.0, 0.0
+        return 0.0, -ELO_SATURATION, ELO_SATURATION
     score = (wins + draws * 0.5) / games
-    variance = (
-        wins * (1.0 - score) ** 2 + draws * (0.5 - score) ** 2 + losses * score**2
-    ) / games
-    stderr = math.sqrt(variance / games)
-    return (
-        elo_from_score(score),
-        elo_from_score(max(0.0, score - 1.96 * stderr)),
-        elo_from_score(min(1.0, score + 1.96 * stderr)),
-    )
+    low, high = wilson_interval(wins + draws * 0.5, games)
+    return elo_from_score(score), elo_from_score(low), elo_from_score(high)
 
 
 def paired_bootstrap(
@@ -138,4 +180,9 @@ def summarise(
         boot_low=boot_low,
         boot_high=boot_high,
         clusters=len({c for c, _ in outcomes}),
+        # Every game identical: the Elo transform is at its clamp and the number
+        # is a floor, not a measurement.
+        saturated=bool(games) and score in (0.0, 1.0),
+        # No between-cluster variation, so the bootstrap cannot estimate spread.
+        boot_degenerate=bool(games) and boot_low == boot_high,
     )
