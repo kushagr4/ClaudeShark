@@ -89,9 +89,14 @@ with no Python objects in the hot path.
 
 ### D. Other compliant routes
 
-- **Cython or a C extension — out.** Native binaries inside the zip are
-  rejected, and no additional package installs at validation, so there is
-  neither a way to ship a built extension nor a way to depend on one.
+- **Cython or a hand-built C extension — out.** Native binaries inside the zip
+  are rejected under every reading of the rules, so a locally compiled `.so`
+  cannot be shipped. A compiled extension published as a PyPI wheel and pulled
+  in through a `requirements.txt` may be permitted (`docs/SPEC.md` records the
+  disagreement), but that route means depending on someone else's chess library,
+  which runs straight into the third-party-engine prohibition for anything
+  strong enough to be worth it. It does not change the recommendation below,
+  which rejects a rewrite on engineering risk rather than on packaging.
 - **PyPy — unavailable.** The runtime is CPython 3.12.
 - **Parallel search — pointless.** One dedicated core. The 128-process
   allowance does not create a second core.

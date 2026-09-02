@@ -16,7 +16,7 @@ canonical and changes. Re-read it before every upload.
 | | |
 |---|---|
 | Entry point | `agent.py` at the zip root, exposing `get_move(fen: str, time_left_ms: int) -> str` returning UCI |
-| Submission | zip, "<= 50 MB unzipped" (see `docs/SPEC.md` — a 200 MB figure has been reported but could not be confirmed; the stricter number is retained) |
+| Submission | zip, **200 MB expanded** (sources disagree — the automated fetch reports 50 MB; see the provenance table in `docs/SPEC.md`. Our zip is ~58 KB, so nothing depends on it) |
 | Dependencies | `torch` 2.13.0+cpu, `numpy` 2.5.2, `python-chess` 1.11.2, `onnxruntime` 1.29.0, `numba` 0.67.0, Python 3.12 stdlib. Nothing installs at runtime |
 | CPU | 1 dedicated core |
 | Memory | 2 GB |
@@ -26,7 +26,7 @@ canonical and changes. Re-read it before every upload.
 | Output | 4096 bytes per move maximum |
 | Validation | build check, then two smoke games (one as each colour) |
 | Prohibited | third-party engines (Stockfish, Lc0, Maia) or wrappers around them; **native binaries inside the zip** ("what you ship has to be source a judge can read"); obfuscated code |
-| Dependencies | the five preinstalled packages only. Nothing else installs and a `requirements.txt` in the zip is ignored, so an extra import crashes the agent. Additions can be requested at hello@aichessathon.com and any grant is announced to every team |
+| Dependencies | the five preinstalled packages, plus — per the participant reading — anything declared in a `requirements.txt`, including compiled PyPI wheels. The automated fetch says such a file is ignored and an extra import crashes the agent; confirm with the organisers before relying on one. We ship none and import nothing extra |
 | Process | **one process serves one game, started fresh for each**; in-memory state carries across our own moves within a game |
 | Pondering | **awaiting organiser clarification — not implemented** (see `docs/SPEC.md`) |
 | Adjudication | 300 plies without a result is adjudicated on material, else drawn; threefold and fifty-move draws are claimed automatically |
@@ -42,12 +42,13 @@ Four things the docs make clear that shape the design:
 * **The process stays alive between moves.** The transposition table, the
   killer/history tables and the repetition history all persist across a game.
   It is also started fresh for each game, so cross-game state cannot leak.
-* **Native binaries in the zip are rejected, and no extra package installs.**
-  Cython and hand-written C extensions are out on the first count; any
-  additional PyPI dependency is out on the second, because nothing installs and
-  an unresolvable import crashes the agent. Numba remains available and
-  compliant: it is preinstalled and ships as Python source compiled at runtime,
-  so nothing compiled goes into the zip. See `docs/SPEC.md`.
+* **Native binaries in the zip are rejected.** This is the one packaging rule
+  both sources agree on: a hand-built `.so` or a Cython-compiled extension
+  shipped inside the submission is an automatic rejection. Whether a compiled
+  *PyPI wheel* can be pulled in through a `requirements.txt` is disputed — see
+  `docs/SPEC.md`. Either way Numba is the safe route to compiled speed: it is
+  preinstalled and ships as source compiled at runtime, so nothing compiled
+  enters the zip.
 * **Pondering status is unresolved.** The documentation read on 2026-09-02 does
   say pondering is allowed, but we are treating that as pending organiser
   confirmation and the production agent does no work between `get_move` calls.
