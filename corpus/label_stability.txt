@@ -1,0 +1,8 @@
+n=240 mean shift -0.9 cp, mean |shift| 8.1, median |shift| 6, p90 |shift| 19, max 44
+band +/-25: 102 inside at 1M, 93 still inside at 4M (91%), leave to >50: 0
+band +/-50: 163 inside at 1M, 157 still inside at 4M (96%), leave to >75: 0
+band +/-75: 209 inside at 1M, 207 still inside at 4M (99%), leave to >100: 0
+band +/-100: 240 inside at 1M, 236 still inside at 4M (98%), leave to >125: 0
+best move unchanged: 195/240
+gap>100 at 1M: 25, of which gap>100 at 4M: 24
+exit=0

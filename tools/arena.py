@@ -156,6 +156,8 @@ def main() -> None:
                         help="300 matches the competition; historical runs used 200")
     parser.add_argument("--workers", type=int, default=max(1, ((os.cpu_count() or 4) - 2) // 2))
     parser.add_argument("--start-fen", default=None, help="Use one position instead of the corpus.")
+    parser.add_argument("--corpus", type=Path, default=None,
+                        help="a built suite (corpus/*.jsonl) instead of BALANCED_OPENINGS")
     parser.add_argument("--jsonl", type=Path, default=None, help="per-game record (recommended)")
     parser.add_argument("--pgn", type=Path, default=None)
     parser.add_argument("--set-env", action="append", default=[],
@@ -167,10 +169,23 @@ def main() -> None:
     #    silently corrupted every arena this project ran before it was caught,
     #    and validating only the built-in corpus let a custom --start-fen
     #    through unchecked.
-    selected = (
-        (arguments.start_fen,) if arguments.start_fen else BALANCED_OPENINGS
-    )
-    label = "--start-fen" if arguments.start_fen else "BALANCED_OPENINGS"
+    suite_header: dict[str, object] = {}
+    if arguments.start_fen and arguments.corpus:
+        raise SystemExit("--start-fen and --corpus are mutually exclusive")
+    if arguments.start_fen:
+        selected: tuple[str, ...] = (arguments.start_fen,)
+        label = "--start-fen"
+        corpus_version: object = CORPUS_VERSION
+    elif arguments.corpus:
+        from tools.corpus.suite import load_suite
+
+        suite_header, selected = load_suite(arguments.corpus)
+        label = str(arguments.corpus)
+        corpus_version = f"{suite_header.get('suite')}-{suite_header.get('version')}"
+    else:
+        selected = BALANCED_OPENINGS
+        label = "BALANCED_OPENINGS"
+        corpus_version = CORPUS_VERSION
     bad = unsuitable(selected, label)
     if bad:
         for suite, index, fen, status in bad:
@@ -222,8 +237,10 @@ def main() -> None:
         "agent_snapshot": snapshot_identity(agent),
         "opponent": str(arguments.opponent),
         "opponent_snapshot": snapshot_identity(opponent),
-        "corpus_version": CORPUS_VERSION,
+        "corpus_version": corpus_version,
         "corpus_hash": corpus_hash(fens),
+        "corpus_file": str(arguments.corpus) if arguments.corpus else None,
+        "corpus_declared_hash": suite_header.get("hash"),
         "corpus_size": len(fens),
         "games": arguments.games,
         "base_ms": arguments.base_ms,
@@ -245,7 +262,7 @@ def main() -> None:
         f"{arguments.agent} vs {arguments.opponent}: {arguments.games} games at "
         f"{arguments.base_ms / 1000:g}s+{arguments.increment_ms / 1000:g}s, "
         f"ply cap {arguments.ply_cap}, {arguments.workers} concurrent, "
-        f"corpus v{CORPUS_VERSION} ({corpus_hash(fens)}, {len(fens)} positions)",
+        f"corpus {corpus_version} ({corpus_hash(fens)}, {len(fens)} positions)",
         flush=True,
     )
     if environment["effective"]:

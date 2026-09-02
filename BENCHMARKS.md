@@ -370,3 +370,27 @@ because it is not a regression, because "less work for the same depth" is a
 proven property, and because futility pruning and further quiescence work both
 need an exchange evaluator — **not** because it was shown to gain Elo. It was
 not.
+
+## 2026-09-02 — corpus calibration and move-quality diagnosis (Fable, session 1)
+
+Record: [`benchmarks/current/2026-09-02-fable-corpus-calibration.md`](benchmarks/current/2026-09-02-fable-corpus-calibration.md).
+No engine change. What was measured, against an offline reference engine
+(Stockfish 18, fixed nodes, tooling only, never shipped):
+
+* **`BALANCED_OPENINGS` is not balanced.** 12 of 24 are within +/-50 cp; two
+  hang a piece to the side to move; one is a rook up; one is a piece up. The
+  legacy suite also produces **zero** serious errors from the engine at depth
+  6, so it cannot show what the engine gets wrong.
+* **New suites** in `corpus/`: `competition_like_v1` (240 near-level,
+  diverse, one-per-game positions from master games; band +/-50 cp, best
+  minus second <= 100 cp) and `stress_test_v1` (138 failure-hunting
+  positions). `tools/arena.py --corpus` plays them.
+* **Move quality on the near-level suite**: 10% of moves lose >= 100 cp at
+  depth 6 and **9% at 4.5 s per move** — 3.4x the effort changes almost
+  nothing. King-related structures lead the loss table by about 3x over pawn
+  structures.
+* **Diagnosis of the 24 serious errors**: 12 search-depth (fixed by depth 8),
+  7 evaluation (never fixed; five are pawn grabs or attacks with the engine's
+  own king exposed), 3 pruning (LMR twice, delta once), 1 horizon.
+* **Recommended next experiment: a bounded king-safety term**, constants
+  seeded from the regression in `corpus/eval_residuals.md`. Not implemented.

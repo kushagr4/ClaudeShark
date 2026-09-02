@@ -119,7 +119,9 @@ tools/tactics.py        puzzles with objectively correct moves; --verify proves 
 tools/clocksim.py       how much of its allocated clock an engine actually spends
 tools/profile_search.py where search time goes
 tools/profile_eval.py   evaluator throughput, and cProfile of it
-tools/positions.py      the balanced and sharp FEN suites
+tools/positions.py      the legacy FEN suites (corpus v2; see corpus/ for the calibrated ones)
+tools/corpus/           reference-oracle labelling, structural tags, suite building, move-quality analysis
+corpus/                 calibrated suites: competition_like_v1 (strength), stress_test_v1 (failure hunting)
 tools/freeze.py         snapshot the engine as a champion
 tests/                  correctness tests
 champions/              frozen previous versions, kept as arena opponents
@@ -234,7 +236,9 @@ Tapered PeSTO material and piece-square tables interpolated on a 0–24 game
 phase, plus a bishop pair term and a tempo bonus. Written as one flat function
 with locals bound up front and no allocation, scanning piece bitboards directly.
 Nothing else is in there yet, on purpose: every extra term has to pay for its
-runtime cost in measured Elo.
+runtime cost in measured Elo. The 2026-09-02 corpus calibration ranks the
+missing terms by evidence (king safety first); see
+`benchmarks/current/2026-09-02-fable-corpus-calibration.md`.
 
 ## Testing methodology
 

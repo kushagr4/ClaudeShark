@@ -7,3 +7,6 @@ submission.zip
 scratch/
 
 benchmarks/current/*.pgn
+
+# Regenerable from the TWIC PGNs; the labelled file is a superset and is tracked.
+corpus/candidates.jsonl
