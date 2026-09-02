@@ -76,4 +76,7 @@ SHARP_POSITIONS: tuple[str, ...] = (
     "r1bqk2r/ppppbppp/2n2n2/4N3/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5",
     "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
     "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR b KQkq - 0 3",
+    # En passant available, and the choice actually matters.
+    "k7/8/8/3pP3/8/8/8/7K w - d6 0 2",
+    "rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq f6 0 4",
 )

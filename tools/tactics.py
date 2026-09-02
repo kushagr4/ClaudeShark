@@ -120,6 +120,39 @@ SUITE: tuple[Puzzle, ...] = (
         "win",
         "knight is pinned and lost",
     ),
+    # An en-passant tactic was tried here and removed. In the position used,
+    # both exd6 and e6 win, so "en passant is the only move" was a hand-written
+    # claim the verifier could not support. Rather than widen the accepted set
+    # until the engine's answer fits -- which would make the puzzle prove
+    # nothing -- the position moved to SHARP_POSITIONS, where tools/movequality
+    # scores it against a reference instead of against a label. En-passant
+    # legality and handling are covered by tests/test_engine.py.
+    # ------------------------------------------------------------ avoid mate
+    # The best-move set is computed by the verifier: every move after which the
+    # opponent has no forced mate. A puzzle is only kept if both a safe and a
+    # losing move exist, so it cannot be passed by accident.
+    Puzzle(
+        "make_luft_or_lose",
+        "1n4k1/5ppp/8/8/8/8/5PPP/R5K1 b - - 0 1",
+        (),
+        "avoid_mate",
+        "any knight move allows Ra8#; a pawn move makes an escape square",
+    ),
+    Puzzle(
+        "king_must_not_step_into_the_net",
+        "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1",
+        (),
+        "avoid_mate",
+    ),
+    # -------------------------------------------------------- stalemate trap
+    # Winning positions where a natural-looking move throws the win away.
+    Puzzle(
+        "do_not_stalemate",
+        "7k/8/6K1/8/8/8/8/6Q1 w - - 0 1",
+        (),
+        "no_stalemate",
+        "Kh6 throws the win away by stalemate; the verifier finds it, not the label",
+    ),
 )
 
 
@@ -178,6 +211,30 @@ def fastest_mating_moves(board: chess.Board, distance: int) -> list[str]:
     return sorted(moves)
 
 
+def safe_and_losing_moves(board: chess.Board, horizon: int = 3) -> tuple[list[str], list[str]]:
+    """Split legal moves into those that avoid a forced mate and those that allow one."""
+    safe: list[str] = []
+    losing: list[str] = []
+    for move in board.legal_moves:
+        board.push(move)
+        # After our move the opponent is to move; do they have a forced mate?
+        mate = mate_plies(board, horizon)
+        board.pop()
+        (losing if mate is not None else safe).append(move.uci())
+    return sorted(safe), sorted(losing)
+
+
+def stalemating_moves(board: chess.Board) -> tuple[list[str], list[str]]:
+    """Split legal moves into those that stalemate the opponent and those that do not."""
+    stalemating: list[str] = []
+    fine: list[str] = []
+    for move in board.legal_moves:
+        board.push(move)
+        (stalemating if board.is_stalemate() else fine).append(move.uci())
+        board.pop()
+    return sorted(stalemating), sorted(fine)
+
+
 def verify() -> int:
     """Prove every ``mate`` puzzle, and report the true distance and best moves.
 
@@ -200,6 +257,28 @@ def verify() -> int:
         if illegal:
             print(f"ILLEGAL  {puzzle.name}: {illegal} not legal in this position")
             failures += 1
+            continue
+
+        if puzzle.kind == "avoid_mate":
+            safe, losing = safe_and_losing_moves(board)
+            ok = bool(safe) and bool(losing)
+            if not ok:
+                failures += 1
+            print(
+                f"{'ok' if ok else 'DEGENERATE':<8} {puzzle.name}: "
+                f"{len(safe)} safe, {len(losing)} allow mate {losing[:4]}"
+            )
+            continue
+
+        if puzzle.kind == "no_stalemate":
+            stalemating, fine = stalemating_moves(board)
+            ok = bool(stalemating) and bool(fine)
+            if not ok:
+                failures += 1
+            print(
+                f"{'ok' if ok else 'DEGENERATE':<8} {puzzle.name}: "
+                f"{len(stalemating)} stalemate {stalemating[:4]}, {len(fine)} do not"
+            )
             continue
 
         if puzzle.kind != "mate":
@@ -259,6 +338,15 @@ def main() -> None:
 
         if puzzle.name == "save_the_knight":
             ok = _saves_the_knight(board, move)
+        elif puzzle.kind == "avoid_mate":
+            # Recomputed rather than hard-coded, so the pass condition can never
+            # drift from the position.
+            safe, _ = safe_and_losing_moves(board)
+            ok = move.uci() in safe
+        elif puzzle.kind == "no_stalemate":
+            board.push(move)
+            ok = not board.is_stalemate()
+            board.pop()
         else:
             ok = move.uci() in puzzle.best
 
@@ -266,7 +354,8 @@ def main() -> None:
         total_nodes += info.nodes
         total_depth += info.depth
         if not ok:
-            failed.append(f"{puzzle.name} (played {move.uci()}, want {'/'.join(puzzle.best)})")
+            wanted = "/".join(puzzle.best) if puzzle.best else puzzle.kind
+            failed.append(f"{puzzle.name} (played {move.uci()}, want {wanted})")
         if not arguments.quiet:
             print(
                 f"{'PASS' if ok else 'FAIL':<5} {puzzle.name:<24} "

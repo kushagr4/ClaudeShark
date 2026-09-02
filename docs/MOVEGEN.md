@@ -78,49 +78,47 @@ with no Python objects in the hot path.
   no dicts of tuples, no classes as we use them, recursion is supported but
   awkward; the transposition table becomes a typed array, killers and history
   become arrays, and `chess.Move` disappears entirely.
-- Packaging: **compliant**. The rules prohibit shipping compiled binaries and
-  native extensions; Numba ships as readable Python source and compiles at
-  runtime, and it is preinstalled. Compilation must be warmed at import with the
-  exact argument types the real calls use, inside the 60 s initialisation
-  budget, which is ample.
+- Packaging: **compliant**. Native binaries inside the zip are rejected, but
+  Numba is preinstalled and ships as readable Python source compiled at runtime,
+  so nothing compiled enters the submission. Compilation must be warmed at
+  import with the exact argument types the real calls use, inside the 60 s
+  initialisation budget, which is ample. See `docs/SPEC.md`.
 - Cold start: warm-up must cover every signature, or the first search of the
   game pays compilation on the clock.
 - Reversibility: effectively none. This becomes the engine.
 
 ### D. Other compliant routes
 
-- **Cython or a C extension — prohibited.** The docs ban compiled extensions and
-  native binaries; submissions are source only.
+- **Cython or a C extension — out.** Native binaries inside the zip are
+  rejected, and no additional package installs at validation, so there is
+  neither a way to ship a built extension nor a way to depend on one.
 - **PyPy — unavailable.** The runtime is CPython 3.12.
 - **Parallel search — pointless.** One dedicated core. The 128-process
   allowance does not create a second core.
-- **Pondering — permitted, and unexploited.** The docs state the process stays
-  alive between our moves and that pondering is allowed. Time spent thinking
-  while the *opponent's* clock runs is free: it costs nothing on our clock and
-  the referee only measures wall time around our own `get_move` call. On a
-  120 s + 0.5 s control this is potentially close to a doubling of effective
-  thinking time, for none of the correctness risk of a rewrite. It needs a
-  background thread, careful handover when the expected move is not played, and
-  discipline about the single core — but it is the highest ratio of expected
-  gain to risk on this page.
+- **Pondering — potentially large, currently blocked.** Thinking during the
+  opponent's turn would be free on our own clock. The documentation read on
+  2026-09-02 does say it is allowed, but the project is treating that as
+  pending organiser confirmation and is **not implementing it**. Analysis in
+  `docs/PONDERING.md`; status in `docs/SPEC.md`.
 - **Spend nodes better instead of making more.** SEE-ordered captures, check
   extensions and a stronger evaluation raise Elo per node. This competes
   directly with a rewrite for engineering time and is far cheaper.
 
 ## Recommendation
 
-**Stay on python-chess for now (A), and treat pondering (D) as the next large
-lever rather than a move-generation rewrite.**
+**Stay on python-chess for now (A).**
+
+Pondering (D) would be the next large lever, but it is blocked pending
+organiser clarification and is not counted here.
 
 The reasoning is about ratios, not about ambition. A full Numba rewrite offers
 maybe three extra plies for an effort measured in weeks, with a real chance of
-landing at zero if the search does not fully compile, and no way back. Pondering
-offers something in the same neighbourhood — close to double the thinking time —
-for a bounded amount of work in one file, and it is reversible in an afternoon.
-Node-quality work (SEE, extensions) is cheaper still and stacks with everything.
+landing at zero if the search does not fully compile, and no way back.
+Node-quality work — SEE, extensions, better ordering — is far cheaper, stacks
+with everything else, and is where the next effort goes.
 
 Before any rewrite is authorised, it should be gated on a **spike**, not a
 promise: implement perft in Numba `nopython` mode over a bitboard
 representation, warm it, and measure nodes/second end to end against
 `python-chess` perft. If that spike does not show at least 5x on the same
-machine, option C is not worth its risk and the answer is A plus D indefinitely.
+machine, option C is not worth its risk and the answer is A indefinitely.

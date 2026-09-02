@@ -15,7 +15,7 @@ canonical and changes. Re-read it before every upload.
 | | |
 |---|---|
 | Entry point | `agent.py` at the zip root, exposing `get_move(fen: str, time_left_ms: int) -> str` returning UCI |
-| Submission | zip, 50 MB unzipped maximum |
+| Submission | zip, "<= 50 MB unzipped" (see `docs/SPEC.md` — a 200 MB figure has been reported but could not be confirmed; the stricter number is retained) |
 | Dependencies | `torch` 2.13.0+cpu, `numpy` 2.5.2, `python-chess` 1.11.2, `onnxruntime` 1.29.0, `numba` 0.67.0, Python 3.12 stdlib. Nothing installs at runtime |
 | CPU | 1 dedicated core |
 | Memory | 2 GB |
@@ -24,9 +24,10 @@ canonical and changes. Re-read it before every upload.
 | Time control | 120 s + 0.5 s increment; 60 s initialisation budget before the clock starts |
 | Output | 4096 bytes per move maximum |
 | Validation | build check, then two smoke games (one as each colour) |
-| Prohibited | third-party engines (Stockfish, Lc0, Maia) or wrappers around them; **compiled extensions and native binaries — submissions are source only**; obfuscated code |
+| Prohibited | third-party engines (Stockfish, Lc0, Maia) or wrappers around them; **native binaries inside the zip** ("what you ship has to be source a judge can read"); obfuscated code |
+| Dependencies | the five preinstalled packages only. Nothing else installs and a `requirements.txt` in the zip is ignored, so an extra import crashes the agent. Additions can be requested at hello@aichessathon.com and any grant is announced to every team |
 | Process | **one process serves one game, started fresh for each**; in-memory state carries across our own moves within a game |
-| Pondering | **permitted between opponent moves** |
+| Pondering | **awaiting organiser clarification — not implemented** (see `docs/SPEC.md`) |
 | Adjudication | 300 plies without a result is adjudicated on material, else drawn; threefold and fifty-move draws are claimed automatically |
 | Failure | illegal move, crash, timeout, init failure or malformed output all lose the game |
 | Allowed | labelling training positions with an existing engine offline — the ban covers what ships in the zip, not what we learn from. Any model shipped must be one we trained |
@@ -40,12 +41,16 @@ Four things the docs make clear that shape the design:
 * **The process stays alive between moves.** The transposition table, the
   killer/history tables and the repetition history all persist across a game.
   It is also started fresh for each game, so cross-game state cannot leak.
-* **Compiled extensions are prohibited.** This rules out Cython and C
-  extensions entirely. Numba remains available and compliant because it ships
-  as Python source and compiles at runtime — see `docs/MOVEGEN.md`.
-* **Pondering is permitted.** Thinking during the opponent's turn costs nothing
-  on our clock. This is currently unexploited and is the largest identified
-  opportunity that is not a rewrite.
+* **Native binaries in the zip are rejected, and no extra package installs.**
+  Cython and hand-written C extensions are out on the first count; any
+  additional PyPI dependency is out on the second, because nothing installs and
+  an unresolvable import crashes the agent. Numba remains available and
+  compliant: it is preinstalled and ships as Python source compiled at runtime,
+  so nothing compiled goes into the zip. See `docs/SPEC.md`.
+* **Pondering status is unresolved.** The documentation read on 2026-09-02 does
+  say pondering is allowed, but we are treating that as pending organiser
+  confirmation and the production agent does no work between `get_move` calls.
+  Design analysis only, in `docs/PONDERING.md`.
 
 ### The time control is a clock, not a per-move budget
 
@@ -256,12 +261,9 @@ See `BENCHMARKS.md` for the running record.
 Ordered by expected Elo per unit of risk. Each is a separate change, A/B tested
 against the champion, and reverted if it does not measure.
 
-**Pondering** — the docs permit thinking during the opponent's turn, and the
-process stays alive between our moves. That time is free: the referee only
-measures wall time around our own `get_move`. On a 120 s + 0.5 s control this is
-potentially close to a doubling of effective thinking time for a bounded amount
-of work in one file. It is the largest identified opportunity that is not a
-rewrite. See `docs/MOVEGEN.md`.
+**Pondering** — potentially the largest non-rewrite gain, and **blocked pending
+organiser clarification**. Not implemented, not scheduled. Analysis only, in
+`docs/PONDERING.md`.
 
 **Search** — check extensions; static exchange evaluation for capture ordering
 and quiescence pruning; futility pruning and razoring; mate-distance pruning; a
@@ -275,8 +277,8 @@ move before generating anything), incremental evaluation through push/pop, and
 cheaper ordering. A custom or Numba-jitted move generator is the only route to
 an order of magnitude and is analysed in `docs/MOVEGEN.md` — **not recommended
 yet**, and gated on a perft spike proving 5x before any rewrite is authorised.
-Note that compiled extensions are prohibited, so Cython and C are off the table
-entirely; Numba is compliant because it ships as source.
+Note that native binaries in the zip are rejected, so Cython and C are off the
+table; Numba is compliant because it is preinstalled and ships as source.
 
 **Evaluation** — passed pawns, rook on open file, king safety, mobility, doubled
 and isolated pawns. Cheap terms only, one at a time, each justified by Elo.
