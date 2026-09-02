@@ -1,0 +1,2 @@
+{"index": 51, "fen": "2q3k1/pp3pp1/1n2p2p/3pP2P/3P2P1/1P3NK1/P1Q2P2/8 w - - 3 35", "results": {"all": ["c2c8", 67, 28625], "exact": ["c2c8", 67, 28775], "none": ["c2c5", 67, 32290]}, "oracle_best": null, "oracle_cp": null, "structures": null}
+{"index": 168, "fen": "4rrk1/pR2n2p/3N1bp1/5p2/8/B4BPP/P4P2/6K1 b - - 0 28", "results": {"all": ["e8b8", 7, 27662], "exact": ["e8b8", 7, 27694], "none": ["e8a8", 15, 34482]}, "oracle_best": null, "oracle_cp": null, "structures": null}

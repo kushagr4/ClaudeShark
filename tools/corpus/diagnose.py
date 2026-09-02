@@ -44,7 +44,7 @@ FEATURE_OFF: tuple[tuple[str, str, Any], ...] = (
     ("lmr_off", "USE_LMR", False),
     ("see_qs_off", "USE_SEE_QS", False),
     ("aspiration_off", "USE_ASPIRATION", False),
-    ("tt_pv_cutoff_off", "TT_CUTOFF_AT_PV", False),
+    ("tt_pv_cutoff_off", "TT_PV_POLICY", "none"),
     ("delta_off", "DELTA_MARGIN", 100_000),
 )
 

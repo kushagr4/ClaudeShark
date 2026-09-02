@@ -4,8 +4,8 @@ An AI Chessathon entry: an iterative-deepening alpha-beta engine written against
 `python-chess`, with a transposition table, quiescence search and a tapered
 piece-square evaluation.
 
-Current version: **v0.5-correctness**, frozen at
-`champions/v0_5_correctness`. It is the release target and the working tree
+Current version: **v0.5.2-correctness**, frozen at
+`champions/v0_5_2_correctness`. It is the release target and the working tree
 matches it exactly.
 
 ### Version status, stated precisely
@@ -15,7 +15,9 @@ matches it exactly.
 | v0.2 | first search bundle | superseded |
 | **v0.3** | correctness fixes + faster evaluator | the strongest *evidence* the project has, but see the reclassification in `BENCHMARKS.md` — the "+30 Elo proven" claim does not survive the corpus and clustering corrections |
 | v0.4 | v0.3 + static exchange evaluation | **experimental.** Efficiency gain is solid; playing strength measured +1 Elo, i.e. neutral |
-| **v0.5-correctness** | v0.4 + the 2026-09-02 repairs | **not a strength claim.** It fixes bugs that silently corrupted results and play; it is not asserted to be stronger |
+| v0.5-correctness | v0.4 + the 2026-09-02 repairs | **not a strength claim.** It fixes bugs that silently corrupted results and play; it is not asserted to be stronger |
+| v0.5.1-correctness | residual rules and benchmark-integrity repair | **not a strength claim** |
+| **v0.5.2-correctness** | v0.5.1 + the PV transposition-cutoff fix | **not a strength claim**, but it removes an oracle-confirmed 560 cp tactical error for +0.41% nodes. See `benchmarks/current/2026-09-02-tt-pv-cutoff.md` |
 
 **`submission.zip` is a build artefact, never authoritative.** It is
 gitignored and is rebuilt from source by `tools/release_check.py` into a

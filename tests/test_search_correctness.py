@@ -24,7 +24,7 @@ def _restore_flags():
         cs_search.USE_LMR,
         cs_search.LMR_SAFE,
         cs_search.USE_ASPIRATION,
-        cs_search.TT_CUTOFF_AT_PV,
+        cs_search.TT_PV_POLICY,
     )
     yield
     (
@@ -33,7 +33,7 @@ def _restore_flags():
         cs_search.USE_LMR,
         cs_search.LMR_SAFE,
         cs_search.USE_ASPIRATION,
-        cs_search.TT_CUTOFF_AT_PV,
+        cs_search.TT_PV_POLICY,
     ) = saved
 
 
