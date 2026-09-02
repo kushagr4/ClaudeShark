@@ -21,13 +21,17 @@ from tools.positions import BALANCED_OPENINGS, SHARP_POSITIONS
 
 EXTREMES = (
     "4k3/8/8/8/8/8/8/4K3 w - - 0 1",  # bare kings
-    "QQQQkQQQ/QQQ5/8/8/8/8/8/4K3 w - - 0 1",  # phase overflow
-    "qqqqKqqq/qqq5/8/8/8/8/8/4k3 b - - 0 1",  # the same, mirrored
-    "8/PPPPPPPP/8/4k3/4K3/8/pppppppp/8 w - - 0 1",  # pawns about to promote
+    "k7/8/8/8/8/1QQQ4/1QQQ4/1QQQ3K w - - 0 1",  # phase overflow
+    "K7/8/8/8/8/1qqq4/1qqq4/1qqq3k b - - 0 1",  # the same, mirrored
+    "8/PPPPPPPP/8/1k6/8/6K1/pppppppp/8 w - - 0 1",  # pawns about to promote
     "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-    "3k4/8/8/8/8/8/8/3QK3 w - - 0 1",  # lopsided
-    "8/8/8/3k4/3K4/8/8/8 w - - 0 1",
+    "3k4/8/8/8/8/8/8/2Q1K3 w - - 0 1",  # lopsided
+    "8/8/8/3k4/8/3K4/8/8 w - - 0 1",
 )
+# Several of these were previously invalid -- queens giving check to the side
+# not to move, and kings on adjacent squares. Evaluation does not consult
+# legality, so the tests still passed while asserting things about positions
+# that cannot occur. test_all_fixtures_are_legal_positions guards that now.
 
 
 def _random_positions(count: int, seed: int = 20260902) -> list[chess.Board]:
@@ -64,7 +68,7 @@ def test_fast_evaluator_matches_the_reference_on_random_play() -> None:
 
 def test_packing_survives_a_lopsided_endgame_total() -> None:
     """The endgame half must not overflow its 16 bits on an extreme board."""
-    board = chess.Board("QQQQkQQQ/QQQ5/8/8/8/8/8/4K3 w - - 0 1")
+    board = chess.Board("k7/8/8/8/8/1QQQ4/1QQQ4/1QQQ3K w - - 0 1")
     assert evaluate(board) == evaluate_reference(board)
     assert evaluate(board) > 0
 
@@ -82,7 +86,7 @@ def test_evaluation_prefers_more_material() -> None:
 
 
 def test_phase_never_exceeds_the_total() -> None:
-    board = chess.Board("QQQQkQQQ/QQQ5/8/8/8/8/8/4K3 w - - 0 1")
+    board = chess.Board("k7/8/8/8/8/1QQQ4/1QQQ4/1QQQ3K w - - 0 1")
     phase = (
         (board.knights | board.bishops).bit_count()
         + 2 * board.rooks.bit_count()

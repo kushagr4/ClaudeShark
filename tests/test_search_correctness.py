@@ -71,10 +71,16 @@ def test_fifty_move_draw_still_applies_when_not_in_check() -> None:
 def test_stalemate_is_a_draw_not_a_loss() -> None:
     fen = "7k/5Q2/8/8/8/8/8/6K1 b - - 0 1"
     assert chess.Board(fen).is_stalemate()
-    # From the side that can force it, stalemate must not read as a win.
-    parent = chess.Board("7k/8/5Q2/8/8/8/8/6K1 w - - 0 1")
+
+    # From a position where stalemating is available, the engine must not take
+    # it. The previous parent here (`7k/8/5Q2/...`) was invalid: the queen on f6
+    # gave check to the black king while it was White to move.
+    parent = chess.Board("7k/8/6K1/8/8/8/8/6Q1 w - - 0 1")
+    assert parent.is_valid()
     move, _ = Searcher(tt_bits=16).search(parent, 0, max_depth=4)
     assert move is not None and move in parent.legal_moves
+    parent.push(move)
+    assert not parent.is_stalemate(), f"threw the win away with {move.uci()}"
 
 
 # ------------------------------------------------------- transposition table

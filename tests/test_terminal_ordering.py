@@ -106,16 +106,72 @@ def test_fifty_move_ladder_matches_the_referee(clock: int) -> None:
         assert q(fen) < -300, "black is a rook down and it is not yet drawn"
 
 
-def test_a_zeroing_move_does_not_make_the_claim_available() -> None:
-    """At clock 99 the claim needs a move that does *not* reset the counter."""
-    # Black's only legal moves are pawn moves and captures, all of which zero.
-    fen = "8/8/8/8/8/8/6pk/6K1 b - - 99 80"
+# The fifty-move ladder, as six named cases. Every expectation is derived from
+# python-chess at run time rather than written down here, because hand-written
+# rule expectations are exactly what has gone wrong repeatedly in this suite.
+#
+# The previous version of case C used `8/8/8/8/8/8/6pk/6K1 b - - 99 80`, which
+# was invalid (adjacent kings, OPPOSITE_CHECK) *and* had two non-zeroing king
+# moves, so it never tested the scenario its name claimed.
+FIFTY_MOVE_CASES = [
+    # (name, fen, what it is meant to exercise)
+    ("A clock 98", "6k1/8/8/8/8/8/8/R5K1 b - - 98 80", "not yet claimable"),
+    ("B clock 99 non-zeroing", "6k1/8/8/8/8/8/8/R5K1 b - - 99 80", "claim available"),
+    # Black has only two pawn moves, both of which reset the counter, so no
+    # claim exists at 99 and the game continues.
+    ("C clock 99 all zeroing", "7k/p7/6Q1/8/8/8/8/1K6 b - - 99 80", "no claim"),
+    ("D clock 100", "6k1/8/8/8/8/8/8/R5K1 b - - 100 80", "claimable"),
+    ("E in check, legal moves", "q5k1/6R1/8/8/8/8/8/6K1 b - - 100 80", "claim beats check"),
+    ("F checkmate", "R5k1/5ppp/8/8/8/8/8/6K1 b - - 100 80", "mate beats claim"),
+]
+
+
+@pytest.mark.parametrize(
+    ("name", "fen", "intent"), FIFTY_MOVE_CASES, ids=[c[0] for c in FIFTY_MOVE_CASES]
+)
+def test_fifty_move_cases_are_valid_and_exercise_what_they_claim(
+    name: str, fen: str, intent: str
+) -> None:
+    """Guard the fixtures themselves before trusting anything they assert."""
     board = chess.Board(fen)
-    if not list(board.legal_moves):
-        pytest.skip("fixture has no legal moves")
-    expected_draw = board.outcome(claim_draw=True) is not None
+    assert board.is_valid(), f"{name}: {board.status()!r}"
+
+    moves = list(board.legal_moves)
+    if name.startswith("C"):
+        assert moves, "case C needs legal moves"
+        assert all(board.is_zeroing(m) for m in moves), (
+            "case C must have only counter-resetting moves, or it tests nothing"
+        )
+        assert not board.can_claim_fifty_moves()
+    if name.startswith("B"):
+        assert any(not board.is_zeroing(m) for m in moves), "case B needs a non-zeroing move"
+    if name.startswith("E"):
+        assert board.is_check() and not board.is_checkmate() and moves
+    if name.startswith("F"):
+        assert board.is_checkmate()
+
+
+@pytest.mark.parametrize(
+    ("name", "fen", "intent"), FIFTY_MOVE_CASES, ids=[c[0] for c in FIFTY_MOVE_CASES]
+)
+def test_engine_agrees_with_the_referee_on_every_case(
+    name: str, fen: str, intent: str
+) -> None:
+    """python-chess is the oracle; nothing here is a remembered rule."""
+    board = chess.Board(fen)
+    outcome = board.outcome(claim_draw=True)
     engine = rules_outcome(board, board.is_check(), ply=1)
-    assert (engine == 0) == expected_draw
+
+    if board.is_checkmate():
+        assert engine is not None and engine < -MATE_BOUND, f"{name}: mate must outrank the claim"
+        assert n(fen) < -MATE_BOUND
+    elif outcome is not None:
+        assert outcome.winner is None, f"{name}: fixture should be a draw"
+        assert engine == 0, f"{name}: referee draws, engine said {engine}"
+        assert q(fen) == 0
+        assert n(fen) == 0
+    else:
+        assert engine is None, f"{name}: referee plays on, engine forced {engine}"
 
 
 # --------------------------------------------------------- quiescence cap

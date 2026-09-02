@@ -124,18 +124,52 @@ def test_arena_cli_rejects_an_invalid_start_fen() -> None:
     assert "OPPOSITE_CHECK" in combined
 
 
-def test_arena_cli_rejects_an_unknown_set_env_name() -> None:
-    result = subprocess.run(
+def _arena(*extra: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
         [
             sys.executable, "-m", "tools.arena",
             "--agent", "champions/v0_3", "--opponent", "champions/v0_3",
-            "--games", "2", "--set-env", "PATH=/tmp",
+            *extra,
         ],
         cwd=Path(__file__).resolve().parent.parent,
         capture_output=True, text=True, check=False,
     )
+
+
+@pytest.mark.parametrize("name", ["PATH", "CS_LRM", "CS_TYPO", "CLAUDESHARK_DEBUGG"])
+def test_arena_cli_rejects_an_unrecognised_set_env_name(name: str) -> None:
+    """A typo must fail loudly, not silently benchmark something else.
+
+    CS_LRM=0 looks like CS_LMR=0. Accepted, it would be set and recorded while
+    changing nothing, producing a match of two identical engines under the
+    label of an LMR experiment.
+    """
+    result = _arena("--games", "2", "--set-env", f"{name}=0")
+    assert result.returncode != 0, f"{name} was accepted"
+    combined = result.stdout + result.stderr
+    assert "unrecognised variable" in combined or "expects NAME=value" in combined
+    assert "CS_LMR" in combined, "the error should list what is recognised"
+
+
+def test_arena_cli_accepts_a_recognised_set_env_name() -> None:
+    """The rejection must not be so broad it blocks real experiments."""
+    result = _arena("--games", "0", "--set-env", "CS_LMR=0")
+    # --games 0 fails on the count, not on the variable.
+    assert "unrecognised variable" not in result.stdout + result.stderr
+
+
+@pytest.mark.parametrize("games", [1, 3, 97])
+def test_arena_cli_rejects_odd_game_counts(games: int) -> None:
+    """Paired statistics require paired colours."""
+    result = _arena("--games", str(games))
+    assert result.returncode != 0, f"{games} games accepted"
+    assert "must be even" in result.stdout + result.stderr
+
+
+def test_arena_cli_rejects_non_positive_game_counts() -> None:
+    result = _arena("--games", "0")
     assert result.returncode != 0
-    assert "only accepts CS_*" in result.stdout + result.stderr
+    assert "must be positive" in result.stdout + result.stderr
 
 
 def test_default_ply_cap_matches_the_competition() -> None:

@@ -177,12 +177,33 @@ def main() -> None:
             print(f"UNSUITABLE {suite}[{index}] {fen}: {status}", file=sys.stderr)
         raise SystemExit("refusing to benchmark an unsuitable starting position")
 
-    # 2. Control the environment before anything is spawned.
+    # 2. Colour pairing is the basis of every strength claim here: each position
+    #    is played once with each engine as white. An odd count leaves a final
+    #    unpaired game whose colour bias goes straight into the score, so it is
+    #    refused rather than run under paired statistics.
+    if arguments.games % 2 != 0:
+        raise SystemExit(
+            f"--games must be even for paired arena matches, got {arguments.games}. "
+            f"Every position is played once with each colour; an odd count leaves "
+            f"one game unpaired and biases the score."
+        )
+    if arguments.games <= 0:
+        raise SystemExit(f"--games must be positive, got {arguments.games}")
+
+    # 3. Control the environment before anything is spawned. An unrecognised
+    #    name is refused rather than accepted: a typo like CS_LRM=0 would
+    #    otherwise be set, recorded, and change nothing, quietly producing a
+    #    benchmark of something other than what was intended.
     allow: dict[str, str] = {}
     for item in arguments.set_env:
-        name, _, value = item.partition("=")
-        if not name.startswith("CS_") and name != "CLAUDESHARK_DEBUG":
-            raise SystemExit(f"--set-env only accepts CS_* variables, got {name}")
+        name, separator, value = item.partition("=")
+        if not separator:
+            raise SystemExit(f"--set-env expects NAME=value, got {item!r}")
+        if name not in KNOWN_CS_VARS:
+            raise SystemExit(
+                f"--set-env: unrecognised variable {name!r}.\n"
+                f"The engine reads: {', '.join(KNOWN_CS_VARS)}"
+            )
         allow[name] = value
     environment = sanitise_environment(allow)
 

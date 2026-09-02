@@ -17,6 +17,16 @@ Corpus identity, so results can be tied to the corpus that produced them:
 Results produced under v1 are **not** directly comparable with results produced
 under v2. See `benchmarks/README.md`.
 
+**The name is aspirational.** These positions are proven legal, unique and
+non-terminal, and they are *not* proven near-level: no position here carries a
+reference evaluation from any external engine, and none has been calibrated.
+This engine's own depth-6 scores span -0.65 to +6.03, and index 14 is a whole
+rook up. Colour pairing means that does not bias a result — both engines play
+both sides — but a decisively won position wastes a game pair, because both
+engines convert it and the pair draws out carrying almost no information.
+Calibrating this corpus is an open task; see
+`benchmarks/current/2026-09-02-v0.5.1-cleanup.md`.
+
 
 Rated games start from curated neutral positions rather than the initial
 position, so a test suite built around openings would measure the wrong thing.

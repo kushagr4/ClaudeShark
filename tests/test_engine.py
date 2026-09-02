@@ -147,7 +147,7 @@ def test_evaluation_prefers_more_material() -> None:
 
 def test_phase_never_exceeds_the_total() -> None:
     # Nine queens is legal after promotions and must not overflow the taper.
-    board = chess.Board("QQQQkQQQ/QQQ5/8/8/8/8/8/4K3 w - - 0 1")
+    board = chess.Board("k7/8/8/8/8/1QQQ4/1QQQ4/1QQQ3K w - - 0 1")
     phase = (
         (board.knights | board.bishops).bit_count()
         + 2 * board.rooks.bit_count()
