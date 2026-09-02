@@ -148,4 +148,81 @@ re-confirms the move the engine already had.
 
 ## Arena
 
-Recorded below once the 400-game run completes.
+```
+CS_INCREMENT_MS=200 uv run python -m tools.arena --agent champions/v0_3_sf60 \
+    --opponent champions/v0_3 --games 400 --base-ms 20000 --increment-ms 200 \
+    --ply-cap 200 --workers 5
+```
+
+```
+champions/v0_3_sf60 vs champions/v0_3 over 400 games
++119 =172 -109, score 51.2%
+elo +9  (95% CI -17 .. +34)
+terminations: checkmate 224, threefold_repetition 140, insufficient_material 25,
+              adjudication 8, fifty_moves 2, stalemate 1
+```
+
+| | |
+|---|---|
+| games | 400 |
+| W/D/L | 119 / 172 / 109 |
+| score | 51.2% |
+| Elo | **+9, 95% CI −17 .. +34** |
+| **flags** | **0** |
+| **crashes** | **0** |
+| **illegal moves** | **0** |
+| adjudications | 8 of 400 (2.0%) |
+
+The termination counts sum to exactly 400 and every one is a legitimate game
+ending. **Zero flags across 400 games**, at a 20 s + 0.2 s control whose
+equilibrium clock is tighter than the competition's 120 s + 0.5 s — so this is a
+harsher safety test than the real thing, and the policy passed it.
+
+## Conclusion
+
+The session asked one question. It has two halves and they have different
+answers.
+
+**Can the unused clock be reclaimed safely? Yes, comfortably.** Soft-budget
+utilisation went from 73.7% to 96.0% by changing one constant, with zero flags,
+zero crashes, zero illegal moves and zero hard-deadline overruns across 400
+arena games and two full 120 s + 0.5 s simulations.
+
+**Does reclaiming it produce measurable strength? No.** +9 Elo with an interval
+of −17 to +34. Not significant, and the point estimate is small.
+
+**Decision: not promoted. v0.3 remains the champion, `START_FRACTION` stays at
+0.45.** The reasoning is the trade rather than the point estimate. Policy B
+would exchange a real reduction in safety margin — the lowest clock in a full
+game falls from 21.3% to 4.8%, about 25 s to about 5.7 s — for a gain that 400
+games could not demonstrate. On a competition machine whose scheduling jitter we
+have never observed, that is the wrong side of the trade for an unproven +9. It
+would be a different decision if the interval excluded zero.
+
+`champions/v0_3_sf60` and `champions/v0_3_sf75` are kept as frozen, tested
+candidates so the experiment does not have to be rebuilt.
+
+## The pattern this makes three of
+
+| change | search bought | Elo | interval |
+|---|---|---|---|
+| v0.3 over v0.2 (bug fixes, eval speed, aspiration) | +1.29 ply @4.5 s | **+30** | **+3 .. +58** |
+| v0.4 SEE | +0.41 ply @0.9 s, −16.8% wall clock | +1 | −32 .. +35 |
+| Time policy B | 73.7% → 96.0% budget, +1.07 ply in game | +9 | −17 .. +34 |
+
+Two changes that gave the engine **more search** produced nothing measurable.
+The one change that produced +30 Elo was mostly not about search volume at all:
+it fixed a forced mate being scored as a draw, restored a commit-on-abort
+behaviour that had been silently removed, and made the evaluator faster without
+changing a single node.
+
+`tools/timequality.py` shows the mechanism directly: given a doubled time
+budget, the engine picks a different move in **3 of 42 positions**, and a
+less-selective reference rates those three as level. The extra search is
+overwhelmingly spent re-confirming a move already chosen.
+
+**The implication for where effort goes next is hard to avoid: this engine is
+not short of search, it is short of evaluation.** It reaches depth 8 on a
+competition clock while judging positions with material, piece-square tables, a
+bishop pair term and a tempo bonus. Deepening a crude evaluation returns little,
+which is exactly what three experiments in a row have now measured.
