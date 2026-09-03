@@ -93,7 +93,8 @@ def main() -> None:
         if cw == bw:
             continue
         holder = "cand" if cw > bw else "base"
-        result = "won" if (g["cand_score"] == 1.0) == (holder == "cand") else ("drew" if g["cand_score"] == 0.5 else "lost")
+        holder_score = g["cand_score"] if holder == "cand" else 1.0 - g["cand_score"]
+        result = "won" if holder_score == 1.0 else ("drew" if holder_score == 0.5 else "lost")
         tally[(holder, result)] += 1
     for holder in ("cand", "base"):
         n = sum(v for (h, _), v in tally.items() if h == holder)

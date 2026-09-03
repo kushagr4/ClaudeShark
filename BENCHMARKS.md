@@ -430,3 +430,14 @@ moves and PGN retained): +35 =131 -34, 50.2%, Elo +2, cluster bootstrap
 -26..+30; converts +200 47.9% vs 41.0% and holds -200 59.0% vs 52.1%, but
 reaches seventh-rank passers twice as often and errs there more. No search
 cost (56.2k vs 56.3k NPS). Gate 3 not run.
+
+## 2026-09-03 — passed pawns v1 failure audit: DEFER
+
+Record: [`benchmarks/current/2026-09-03-passed-pawn-v1-failure-audit.md`](benchmarks/current/2026-09-03-passed-pawn-v1-failure-audit.md).
+No engine change. 141 deduplicated seventh-rank passer episodes from the v1
+Gate 2 games: the candidate's extra passers are pushed in positions already
+level (24 of 78 pushes vs 9 of 55), its not-winning passers fail for the same
+spread of reasons as the baseline's (no label above 22%), and 32 of its 34
+extra serious errors while ahead do not touch the passer. Erratum: the
+"better passer at ply 60" baseline line was 9/11/1, not 20/0/1 (tool bug,
+fixed). No single compact mechanism; nothing implemented.

@@ -305,7 +305,9 @@ candidate plays in seventh-rank-passer positions twice as often and plays
 worse in them; in the middlegame the serious-error rate there nearly
 triples on a small sample. At ply 60 the candidate held the more advanced
 passer in 26 games and scored 13 wins, 8 draws, 5 losses; the baseline held
-it in 21 and scored 20 wins, 0 draws, 1 loss. **The term makes the engine
+it in 21 and scored 9 wins, 11 draws, 1 loss (an earlier version of this
+record and of the summary tool counted the baseline's draws as wins and
+printed 20/0/1; corrected in the failure audit). **The term makes the engine
 create and push passers it does not know how to use.** A rank bonus with no
 notion of whether the pawn can be stopped by a king or a piece rewards the
 advance itself, and the search obliges. This is the mechanism by which the
@@ -362,9 +364,10 @@ record as their baseline, one at a time.
    iteration.
 7. **Passers it cannot use** (`13_gate2_summary.txt`, last two blocks): the
    candidate holds the better passer at ply 60 in 26 games and scores
-   13/8/5; the baseline holds it in 21 and scores 20/0/1. Show the two
-   lines together, then the rank-7 row of the table above them (379 moves at
-   42.9 vs 193 at 33.1).
+   13/8/5; the baseline holds it in 21 and scores 9/11/1 (loses less, wins
+   less). The sharper shot is the rank-7 row of the table above them: 379
+   moves at 42.9 vs 193 at 33.1, and the failure audit's 27% vs 14.5%
+   serious-error rate when ahead with a passer on the seventh.
 
 ## 14. Reproduction (Windows CMD, from the repository root)
 

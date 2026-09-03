@@ -1,0 +1,40 @@
+== CAUSAL REPLAY: the candidate's 34 serious errors when ahead with a seventh-rank passer, replayed by both engines from a fresh searcher at depth 6 ==
+loss = Stockfish cp given up at 1M nodes; if the baseline errs in the same positions, the positions are hard and the term only walked the engine into them
+same move from both engines: 24/34
+  base: serious (>=100) in 20/34, mean winsorised loss 167
+  cand: serious (>=100) in 24/34, mean winsorised loss 199
+   cl ply    SF best   | base   loss | cand   loss  fen
+   28  10  +537 d5d1   | a4a3    537 | a4a3    537  8/8/8/3r4/k4K2/6P1/2p2P2/4R3 b - - 3 50
+   40  26  +924 d7d8q  | d7d8q     0 | d6a6    249  6r1/2KP1kp1/3R3p/7P/p7/8/6P1/8 w - - 2 58
+   56  15  +592 h4h5   | d5d6     76 | d5d6     76  1R6/1P3p2/5p2/3K4/5k1P/5P2/8/1r6 w - - 1 56
+   56  17  +603 h4h5   | d6e7    139 | d6e7    139  1R6/1P3p2/3K1p2/8/7P/5k2/8/1r6 w - - 0 57
+   56  19  +500 h4h5   | e7f7    500 | e7f7    500  1R6/1P2Kp2/8/5p2/7P/5k2/8/1r6 w - - 0 58
+   56  25  +487 e7d7   | e7d8      0 | e7f7    487  1R6/1P2K3/1r6/5p1P/8/5k2/8/8 w - - 3 61
+   67  16  +187 c5c4   | f5d7    239 | f5d7    239  8/4k3/3p4/1prPpb2/5n2/PRN2P2/3K2pP/6R1 b - - 1 45
+   67  24  +458 f5d3   | f5d3     20 | f5h3    380  8/4k3/3p4/1p1Ppb2/5n2/P3RP2/2r1NKpP/6R1 b - - 9 49
+   67  26  +322 h3f5   | h3c8    273 | c2a2    142  8/4k3/3p4/1p1Pp3/5n2/P3RP1b/2r1NKpP/3R4 b - - 11 50
+   67  28  +347 h3f5   | h3c8    152 | e7f6    113  8/4k3/3p4/1p1Pp3/4Rn2/P4P1b/r3NKpP/3R4 b - - 13 51
+   67  30  +287 h3f5   | a2b2     64 | f6f5    267  8/8/3p1k2/1p1Pp3/5n2/P3RP1b/r3NKpP/3R4 b - - 15 52
+   67  32  +227 f5f6   | f5f6      0 | f5f6      0  8/8/3p4/1p1Ppk2/4Rn2/P4P1b/r3NKpP/3R4 b - - 17 53
+   67  36  +270 f5g5   | f5f6     29 | f5f6     29  8/8/3p4/1p1Ppk2/4Rn2/P4P1b/r3NKpP/3R4 b - - 21 55
+   94  15  +240 a1d1   | a1d1      0 | e4d5    248  3r1rk1/pp1P2pp/5p2/4p2q/P3QP2/7P/1P4P1/R3R1K1 w - - 1 27
+    4  19  +669 h6h7   | h6h7      0 | h6h7      0  r5k1/5RP1/7P/3R1K2/2p5/2bn4/8/8 w - - 1 51
+   25   2  +446 b1d1   | b5a4   10446 | b5c6    446  8/8/8/1k2B2R/8/1p1K3P/p5P1/1r6 b - - 1 51
+   32  33  +200 c2d2   | f7f3    200 | f7f3    200  r7/P4R2/1k6/2p5/1pP5/1P3p2/2K5/8 w - - 2 50
+   60  46  +431 g3d6   | h3g2    247 | h3g2    247  4r3/3RP3/p5p1/1p5p/2k4P/P2n2BK/P4P2/8 w - - 1 38
+   65  61  +857 d6f6   | d6d3    207 | d6d3    207  8/2k2P2/3R4/p1p5/Pp3K2/8/8/4r3 w - - 3 61
+   65  65  +727 f7f8q  | f7f8q     0 | f7f8q     0  8/2k2P2/8/p7/Pp3K2/2p2R2/8/4r3 w - - 0 63
+   83  11  +154 b5e2   | h2f2    154 | b5e2      0  6rk/p3P1pp/3P4/1Q6/5P1P/4n1PK/7R/3q4 w - - 15 50
+   31  10  +686 b8h8   | e2f3    686 | e2f3    686  1R6/1P3k2/6p1/7p/5P1P/1r2p3/4K3/8 w - - 0 54
+   78  61  +907 b2b1q  | b8b7     36 | b8b7     36  1r4k1/1P4p1/1P2P2p/4P3/3P4/8/1p4KP/8 b - - 0 46
+   81  62  +843 g7c3   | g7f8     34 | g7f8     34  8/4k1b1/6Kp/p6P/8/4P3/1p1N4/8 b - - 1 60
+   81  64  +833 a5a4   | e7f7    220 | a5a4    136  5b2/4k3/7p/p4K1P/8/4P3/1p1N4/8 b - - 3 61
+   90  15  +812 e8b8   | e8b8     73 | e8b8     73  4r3/5p2/1Q3p1k/4qP2/4p1R1/4P2P/1p4P1/6K1 b - - 3 36
+   85  42  +691 d5c7   | d5b6     33 | d5b6     33  4r1k1/P5p1/8/3N1p2/2p1b1p1/2P3P1/1P3P2/4R1K1 w - - 0 37
+   85  44  +690 e1e4   | b6c4    293 | b6c4    293  3r2k1/P5p1/1N6/5p2/2p1b1p1/2P3P1/1P3P2/4R1K1 w - - 2 38
+   85  46  +579 e1e4   | b2b4    183 | b2b4    183  3r4/P4kp1/8/5p2/2N1b1p1/2P3P1/1P3P2/4R1K1 w - - 1 39
+   85  48  +552 e1e4   | c4e3    224 | c4e3    224  3r4/P5p1/5k2/5p2/1PN1b1p1/2P3P1/5P2/4R1K1 w - - 1 40
+   93  23  +455 f7f5   | g8f8    223 | g8f8    223  6k1/1p3p1p/1P1p2p1/r7/2nPN3/2P2KP1/p4P1P/R7 b - - 1 30
+   93  31  +388 b6d5   | h7h5    100 | h7h5    100  8/1p2kp1p/1n1p2p1/6K1/3PN1PP/r1P5/p4P2/R7 b - - 1 34
+   93  39  +358 b6d5   | f7f6    152 | f7f6    152  8/1p2kpK1/1n1p2p1/r5N1/3P3P/2P5/p4P2/R7 b - - 3 38
+   93  41  +318 b6d5   | g6g5    318 | g6g5    318  8/1p2k1KN/1n1p1pp1/r7/3P3P/2P5/p4P2/R7 b - - 1 39

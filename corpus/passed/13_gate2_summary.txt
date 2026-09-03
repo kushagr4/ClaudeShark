@@ -24,4 +24,4 @@ as white: cand 52.5%, as black: cand 48.0%
 
 == GAMES DECIDED WITH A PASSER ON THE BOARD: who had the more advanced passer at ply 60 and who won ==
   cand held the better passer in 26 games: won 13, drew 8, lost 5
-  base held the better passer in 21 games: won 20, drew 0, lost 1
+  base held the better passer in 21 games: won 9, drew 11, lost 1
