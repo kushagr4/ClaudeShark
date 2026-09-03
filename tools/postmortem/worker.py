@@ -41,6 +41,16 @@ def main() -> None:
         cmd, _, arg = line.partition(" ")
         if cmd == "quit":
             break
+        if cmd == "seen":
+            # Replay a root position the engine was handed earlier in its game,
+            # without paying for the search. This reproduces the game-level
+            # repetition record (`_game_counts`) exactly as the real game built
+            # it, which is what makes "what would it play here?" a faithful
+            # question rather than a fresh-searcher one.
+            key = hash(chess.Board(arg)._transposition_key())
+            searcher._game_counts[key] = searcher._game_counts.get(key, 0) + 1
+            print(json.dumps({"ok": True, "seen": len(searcher._game_counts)}), flush=True)
+            continue
         if cmd == "new":
             searcher = Searcher()
             searcher.new_game()

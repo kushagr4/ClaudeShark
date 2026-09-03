@@ -24,6 +24,8 @@ from pathlib import Path
 
 import chess
 
+from harness.referee import DRAW_CLAIM_MODES, game_outcome
+
 WORKER = Path(__file__).with_name("worker.py")
 
 
@@ -50,7 +52,7 @@ class Engine:
 
 
 def play_one(args: tuple) -> dict:
-    cand_dir, base_dir, depth, cluster, fen, cand_white, ply_cap = args
+    cand_dir, base_dir, depth, cluster, fen, cand_white, ply_cap, draw_claim = args
     cand = Engine(Path(cand_dir), depth)
     base = Engine(Path(base_dir), depth)
     cand.ask("new")
@@ -60,9 +62,9 @@ def play_one(args: tuple) -> dict:
     termination = "ply_cap"
     try:
         while len(plies) < ply_cap:
-            if board.is_game_over(claim_draw=True):
-                outcome = board.outcome(claim_draw=True)
-                termination = outcome.termination.name.lower() if outcome else "unknown"
+            outcome = game_outcome(board, draw_claim)
+            if outcome is not None:
+                termination = outcome.termination.name.lower()
                 break
             mover_is_cand = (board.turn == chess.WHITE) == cand_white
             mover, other = (cand, base) if mover_is_cand else (base, cand)
@@ -98,7 +100,8 @@ def play_one(args: tuple) -> dict:
     finally:
         cand.close()
         base.close()
-    result = board.result(claim_draw=True) if board.is_game_over(claim_draw=True) else "1/2-1/2"
+    finish = game_outcome(board, draw_claim)
+    result = finish.result() if finish is not None else "1/2-1/2"
     if result == "1-0":
         cand_score = 1.0 if cand_white else 0.0
     elif result == "0-1":
@@ -110,6 +113,7 @@ def play_one(args: tuple) -> dict:
         "start_fen": fen,
         "cand_white": cand_white,
         "depth": depth,
+        "draw_claim": draw_claim,
         "result": result,
         "cand_score": cand_score,
         "termination": termination,
@@ -131,6 +135,7 @@ def main() -> None:
         "--out", type=Path, default=Path("corpus/postmortem/games/fixed_depth.jsonl")
     )
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--draw-claim", choices=DRAW_CLAIM_MODES, default="auto")
     arguments = parser.parse_args()
 
     pairs = json.load(arguments.pairs.open())
@@ -148,6 +153,7 @@ def main() -> None:
                     p["fen"],
                     cand_white,
                     arguments.ply_cap,
+                    arguments.draw_claim,
                 )
             )
     arguments.out.parent.mkdir(parents=True, exist_ok=True)

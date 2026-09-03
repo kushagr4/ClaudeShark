@@ -22,6 +22,7 @@ repository used 200; pass `--ply-cap 200` to reproduce them.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import os
 import platform
@@ -32,9 +33,16 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
+import chess.pgn
+
 from cs_search import DECLARED_FLAGS
 from cs_time import DECLARED_VARS
-from harness.referee import FAILED_TERMINATIONS, Outcome, play_match
+from harness.referee import (
+    DRAW_CLAIM_MODES,
+    FAILED_TERMINATIONS,
+    Outcome,
+    play_match,
+)
 from harness.sandbox import local
 from tools.positions import (
     BALANCED_OPENINGS,
@@ -116,13 +124,51 @@ def build_schedule(games: int, fens: tuple[str, ...]) -> list[GameSpec]:
     return schedule
 
 
+
+def resolve_pgn_path(pgn: Path | None, jsonl: Path | None, no_pgn: bool) -> Path | None:
+    """Where the move history goes, defaulting to on rather than off.
+
+    The v0.6 arena was run without `--pgn`, and the post-mortem that followed
+    could not reconstruct a single trajectory from 200 games; it had to build a
+    separate fixed-depth game set to ask what happened. Move history is small
+    next to the cost of the match, so it is retained unless refused explicitly.
+    """
+    if no_pgn:
+        if pgn is not None:
+            raise SystemExit("--pgn and --no-pgn are mutually exclusive")
+        print("WARNING: --no-pgn. No move history will be retained, so this "
+              "result cannot be reconstructed, only totalled.", flush=True)
+        return None
+    if pgn is not None:
+        return pgn
+    if jsonl is not None:
+        derived = jsonl.with_suffix(".pgn")
+        print(f"move history -> {derived} (derived from --jsonl; "
+              f"pass --pgn to place it elsewhere, --no-pgn to discard it)", flush=True)
+        return derived
+    print("WARNING: neither --jsonl nor --pgn given, so nothing about this match "
+          "will be recorded beyond the console. Strength results should always "
+          "pass --jsonl.", flush=True)
+    return None
+
+
+def tag_pgn(pgn: str, tags: dict[str, object]) -> str:
+    """Stamp the identifiers that tie a PGN game to its JSONL record."""
+    game = chess.pgn.read_game(io.StringIO(pgn))
+    if game is None:
+        return pgn
+    for key, value in tags.items():
+        game.headers[key] = str(value)
+    return str(game)
+
+
 def _play(spec: GameSpec, agent: Path, opponent: Path, base_ms: int, increment_ms: int,
-          ply_cap: int) -> tuple[GameSpec, Outcome, float]:
+          ply_cap: int, draw_claim: str = "auto") -> tuple[GameSpec, Outcome, float]:
     white, black = (agent, opponent) if spec.agent_is_white else (opponent, agent)
     started = time.time()
     outcome = play_match(
         local(white), local(black), base_ms, increment_ms, ply_cap=ply_cap,
-        start_fen=spec.fen,
+        start_fen=spec.fen, draw_claim=draw_claim,
     )
     return spec, outcome, time.time() - started
 
@@ -159,7 +205,17 @@ def main() -> None:
     parser.add_argument("--corpus", type=Path, default=None,
                         help="a built suite (corpus/*.jsonl) instead of BALANCED_OPENINGS")
     parser.add_argument("--jsonl", type=Path, default=None, help="per-game record (recommended)")
-    parser.add_argument("--pgn", type=Path, default=None)
+    parser.add_argument("--pgn", type=Path, default=None,
+                        help="move history; defaults to the --jsonl path with a .pgn suffix")
+    parser.add_argument("--no-pgn", action="store_true",
+                        help="deliberately discard move history (a strength result recorded "
+                             "this way cannot be reconstructed; the v0.6 post-mortem lost "
+                             "its trajectories exactly this way)")
+    parser.add_argument("--draw-claim", choices=DRAW_CLAIM_MODES, default="auto",
+                        help="auto: end the game as soon as the side to move COULD force a "
+                             "threefold (python-chess claim_draw=True, the historical "
+                             "behaviour). strict: end it only once a position has actually "
+                             "occurred three times.")
     parser.add_argument("--set-env", action="append", default=[],
                         help="CS_VAR=value to pass to BOTH engines; everything else is stripped")
     parser.add_argument("--bootstrap", type=int, default=5000)
@@ -228,6 +284,7 @@ def main() -> None:
     schedule = build_schedule(arguments.games, fens)
 
     match_id = f"{int(time.time())}-{agent.name}-vs-{opponent.name}"
+    pgn_path = resolve_pgn_path(arguments.pgn, arguments.jsonl, arguments.no_pgn)
     header = {
         "record": "match_header",
         "match_id": match_id,
@@ -246,7 +303,9 @@ def main() -> None:
         "base_ms": arguments.base_ms,
         "increment_ms": arguments.increment_ms,
         "ply_cap": arguments.ply_cap,
+        "draw_claim": arguments.draw_claim,
         "workers": arguments.workers,
+        "pgn_file": str(pgn_path) if pgn_path else None,
         "env_effective": environment["effective"],
         "env_stripped": sorted(environment["stripped"]),
         "python": platform.python_version(),
@@ -279,13 +338,23 @@ def main() -> None:
     with ThreadPoolExecutor(max_workers=arguments.workers) as pool:
         futures = [
             pool.submit(_play, spec, agent, opponent, arguments.base_ms,
-                        arguments.increment_ms, arguments.ply_cap)
+                        arguments.increment_ms, arguments.ply_cap, arguments.draw_claim)
             for spec in schedule
         ]
         for done, future in enumerate(futures, start=1):
             spec, outcome, seconds = future.result()
             terminations[outcome.termination] = terminations.get(outcome.termination, 0) + 1
-            pgns.append(outcome.pgn)
+            pgn_index = len(pgns)
+            pgns.append(tag_pgn(outcome.pgn, {
+                "Event": match_id,
+                "Round": spec.index,
+                "White": str(arguments.agent if spec.agent_is_white else arguments.opponent),
+                "Black": str(arguments.opponent if spec.agent_is_white else arguments.agent),
+                "MatchId": match_id,
+                "GameIndex": spec.index,
+                "PgnIndex": pgn_index,
+                "Cluster": spec.cluster,
+            }))
 
             if outcome.result in ("draw", "void"):
                 draws += 1
@@ -308,6 +377,8 @@ def main() -> None:
                     "record": "game",
                     "match_id": match_id,
                     "game_index": spec.index,
+                    "pgn_index": pgn_index,
+                    "pgn_file": str(pgn_path) if pgn_path else None,
                     "cluster": spec.cluster,
                     "start_fen": spec.fen,
                     "white": str(arguments.agent if spec.agent_is_white else arguments.opponent),

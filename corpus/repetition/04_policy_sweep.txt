@@ -1,0 +1,17 @@
+== POLICY SWEEP over all 127 repetition final positions, depth 6, faithful game history ==
+
+policy           moves differing from current   chooses a repeating move
+D_current                                   0                         24
+A_threefold                                23                         29
+C_disabled                                 76                         81
+
+mean search-score change from disabling the game-level check: +8.7 cp
+positions where disabling it changed the score at all: 81/127
+  restricted to positions where the engine is winning (n=47): mean +5.0 cp
+
+Among the 24 positions where the current policy picks a repeating move,
+  A_threefold picks a non-repeating move in 1
+  C_disabled  picks a non-repeating move in 2
+
+Cases where a variant AVOIDS a repetition the current policy takes, while winning:
+  total: 0

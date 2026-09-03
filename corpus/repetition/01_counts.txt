@@ -1,0 +1,16 @@
+== 1. REPETITION TERMINATION COUNTS ==
+
+-- time-controlled arena (v0.6 scale vs v0.5.2), 200 games --
+   terminations: {'checkmate': 69, 'threefold_repetition': 116, 'insufficient_material': 11, 'fifty_moves': 4}
+   repetition 116/200 = 58.0%
+   by candidate colour: white 57, black 59
+   mean plies rep 73 vs non-rep 83
+
+-- fixed-depth diagnostic set, 200 games (full move history retained) --
+   terminations: {'checkmate': 65, 'threefold_repetition': 127, 'insufficient_material': 8}
+   repetition 127/200 = 63.5%
+   mean plies rep 46 vs non-rep 66
+   replayed final positions: threefold claimable 127, NOT claimable 0
+   side to move at the claim: white 63, black 64
+
+   NOTE: the arena's 116 and the fixed-depth 127 are DIFFERENT GAME SETS, not a repeated measurement.

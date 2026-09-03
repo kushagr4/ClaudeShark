@@ -41,9 +41,25 @@ showing that more search does *not* automatically mean more strength, so
 * **Match the arena's per-move budget to the competition's.** A fast local
   control produces a per-move budget an order of magnitude smaller and has
   already reversed the sign of one result.
-* **Record raw game outcomes.** `tools/arena.py --jsonl` writes per-game
-  records with snapshots, corpus hash, environment and terminations. A console
-  aggregate is not a record.
+* **Three gates, in order. Never skip to the last one.**
+  1. *Root move quality* -- `tools/corpus/analyse.py` on
+     `corpus/competition_like_v1.jsonl`. Cheap screening **only**. It admits
+     near-balanced positions by construction (239 of 240 under 50 cp) and
+     cannot see a change that trades balanced-position quality for unbalanced,
+     which is how v0.6 passed it and lost 40 Elo.
+  2. *Fixed-depth paired self-play* -- `tools/postmortem/play.py`, then
+     `annotate.py`, then `report.py`. 100-200 games, every move retained,
+     deterministic. Report W/D/L, the cluster bootstrap, serious-error and
+     first-error rates, conversion from +200, defence from -200, and
+     repetition outcomes. This is the gate that reproduced the v0.6 loss.
+  3. *Real time-controlled arena* -- only if gate 2 passes.
+* **Never present the root suite alone as predictive Elo evidence.**
+* **Record raw game outcomes, moves included.** `tools/arena.py --jsonl`
+  writes per-game records with snapshots, corpus hash, environment and
+  terminations, and the move history now defaults to the same path with a
+  `.pgn` suffix. Discarding it takes an explicit `--no-pgn` and is warned
+  about. The v0.6 arena ran without a PGN and the post-mortem could not
+  reconstruct one trajectory out of 200 games.
 * **Report both intervals.** The naive game-level CI and the paired bootstrap
   over starting positions. Repeated positions are clusters, not independent
   samples.

@@ -271,6 +271,20 @@ fixed-depth paired self-play set** (`tools/postmortem/play.py` +
 loss at -26 Elo with a bootstrap excluding zero. The suite remains a
 tactical and diagnostic screen only.
 
+## The candidate pipeline
+
+Three gates, in order, adopted after the v0.6 post-mortem. Gate 1 is screening,
+gate 2 decides, gate 3 confirms.
+
+| gate | instrument | cost | what it can and cannot see |
+|---|---|---|---|
+| 1 | `tools/corpus/analyse.py` on `corpus/competition_like_v1.jsonl` | minutes | Root move quality against Stockfish on 240 near-balanced positions. Tactical and catastrophic-error screening. **Cannot** see a change that trades balanced-position quality for unbalanced: 239 of its 240 positions sit under 50 cp, while 40% of the moves in a real game are played at 200 cp or more. |
+| 2 | `tools/postmortem/play.py` + `annotate.py` + `report.py` | ~50 min for 200 games at depth 6 | Fixed-depth paired self-play, deterministic, every move retained. W/D/L with a cluster bootstrap, serious-error and first-error rates, conversion from +200, defence from -200, repetition outcomes. Reproduced the v0.6 loss at -26 Elo with a bootstrap excluding zero. |
+| 3 | `tools/arena.py` | hours | Real clock, real time management. Run only if gate 2 passes. Retains move history by default. |
+
+The rule that produced this: **the root suite alone is not predictive Elo
+evidence.** A candidate must not reach gate 3 on gate 1 alone.
+
 ## Testing methodology
 
 Five layers, all runnable from the Makefile.

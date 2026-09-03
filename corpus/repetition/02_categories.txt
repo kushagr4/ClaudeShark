@@ -1,0 +1,43 @@
+== 2. CATEGORY BREAKDOWN -- the LAST MOVER's choice, 127 repetition draws ==
+
+  A    0   0.0%  ahead but no better non-repeating move
+  B   82  64.6%  equal position repeating naturally
+  C   44  34.6%  losing side successfully forcing the draw
+  D    1   0.8%  winning side repeating despite a stronger continuation
+
+== 4. EVAL BEFORE THE REPETITION (last mover's view, Stockfish 1M nodes) ==
+  <= -300        37  29.1%   {'C': 37}
+  -299..-100      7   5.5%   {'C': 7}
+  -99..+99       82  64.6%   {'B': 82}
+  +100..+299      1   0.8%   {'D': 1}
+  >= +300         0   0.0%   {}
+
+== THE REFEREE'S SIDE ==
+  positions that actually occurred three times on the board: 0/127
+  every game therefore ended on the EARLIER clause: the side to move merely had a legal move reaching a third occurrence.
+  side the referee claimed FOR was winning (>= +100): 47/127
+    of those, that engine would itself have repeated: 3
+    of those, it would have played ON  -> GAME CUT SHORT: 44
+  cut short by engine: {'cand': 19, 'base': 25}
+  eval of the winning side in cut-short games: {'>= +300': 37, '+100..+299': 7}
+
+== IS THE PATTERN 'LOSING SIDE STEERS IN, REFEREE GRANTS IT EARLY'? ==
+  cut-short games whose last mover was the LOSING side (category C): 42/44
+  cut-short games whose last mover was level (category B): 2
+
+== SEARCH-LEVEL SUSPECTS: engine WOULD repeat while winning ==
+  3 cases
+   cl  38 base eval  +367 wdl [1000, 0, 0] plays g8g2 (repeating); SF best b6d8
+     1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 7 64
+   cl  91 cand eval  +511 wdl [1000, 0, 0] plays d8b7 (repeating); SF best h6f8
+     3N4/3b4/2p1pBkb/2PpP1p1/3Pp1P1/2K1P3/8/8 w - - 28 58
+   cl  96 base eval  +149 wdl [959, 41, 0] plays b4d2 (repeating); SF best f4g3
+     1r6/R6p/3p1qpk/1P2p3/1Q2Pp1P/3n2P1/5PB1/6K1 w - - 7 42
+
+  engine would repeat while NOT winning: 20 (correct behaviour)
+
+== 3. CATEGORY D ==
+  cluster 43 mover cand eval +120 wdl [789, 211, 0]
+  played b8e5 -> draw 0 ; best non-repeating b8b6 -> +135
+  top alternatives [['b8b6', 135], ['b8e8', -25], ['b8c7', -247], ['b8f4', -255], ['b8a7', -283]]
+  FEN 1Q6/5pk1/1p2p1p1/1P5p/4P2P/6P1/4qPK1/8 w - - 9 51

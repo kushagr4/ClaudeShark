@@ -1,0 +1,28 @@
+== 6. AHEAD / BEHIND ASYMMETRY ==
+Every ply of all 200 fixed-depth games replayed with real move history. At each ply,
+does the mover HAVE a move that hands over a claimable threefold, and did they take it?
+Grouped by Stockfish evaluation from the MOVER's point of view.
+
+mover eval band   had the option  took the draw    rate
+<= -300                       31             23  74.2%
+-299..-100                    12              7  58.3%
+-99..+99                     111             82  73.9%
++100..+299                     5              1  20.0%
+>= +300                        5              0   0.0%
+ALL                          164            113  68.9%
+
+The gradient is the finding: the engine takes an available repetition when it is losing
+and declines it when it is winning, with no draw-contempt term anywhere in the code.
+
+by engine (cand = v0.6 material scale, base = v0.5.2 production):
+         band                had   took    rate
+cand     <= -300              17     14  82.4%
+cand     -299..-100            6      4  66.7%
+cand     -99..+99             57     42  73.7%
+cand     +100..+299            2      1  50.0%
+cand     >= +300               2      0   0.0%
+base     <= -300              14      9  64.3%
+base     -299..-100            6      3  50.0%
+base     -99..+99             54     40  74.1%
+base     +100..+299            3      0   0.0%
+base     >= +300               3      0   0.0%

@@ -1,0 +1,19 @@
+== STRICT vs AUTO DRAW ADJUDICATION, same 200 fixed-depth games, depth 6 ==
+
+              W    D    L   score    elo      bootstrap 95% CI  mean plies
+auto         25  135   40  46.2%    -26        -49 .. -3              53
+strict       25  133   42  45.8%    -30        -53 .. -7              55
+
+terminations:
+  auto    {'checkmate': 65, 'threefold_repetition': 127, 'insufficient_material': 8}
+  strict  {'checkmate': 67, 'threefold_repetition': 125, 'insufficient_material': 8}
+
+  repetition draws: 127 -> 125  (-2%)
+  decisive games:   65 -> 67  (+3%)
+  ply-capped games: 0 -> 0
+  fifty-move draws: 0 -> 0
+
+== THE 44 GAMES THE AUDIT CALLED 'CUT SHORT' (winning side to move, would have played on) ==
+  under strict they end: {'threefold_repetition': 42, 'checkmate': 2}
+  the side that was winning went on to WIN in 2/44
+  mean plies: auto 60 -> strict 65

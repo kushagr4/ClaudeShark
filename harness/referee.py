@@ -23,6 +23,48 @@ class Outcome:
     pgn: str
 
 
+
+DRAW_CLAIM_MODES = ("auto", "strict")
+
+
+def game_outcome(board: chess.Board, draw_claim: str = "auto") -> chess.Outcome | None:
+    """The finished outcome of ``board``, or None if play continues.
+
+    ``auto`` is ``board.outcome(claim_draw=True)``: python-chess reports a
+    claimable threefold either when the position has occurred three times **or
+    when the side to move merely has a legal move reaching a third
+    occurrence**, and this claims it for them. Under FIDE the claim is that
+    player's option, and a winning player would decline it.
+
+    That is not a hypothetical. Auditing 127 repetition draws in the fixed-depth
+    diagnostic set found that not one position had actually occurred three
+    times, and that in 44 of them the side the draw was claimed for was winning
+    by at least 100 cp and, asked directly, would have played a different move.
+    See `benchmarks/current/2026-09-03-repetition-audit.md`.
+
+    ``strict`` therefore ends the game on the automatic outcomes plus a
+    repetition claim only once the position has genuinely occurred three times.
+    The fifty-move rule is left claimable in both modes, deliberately: the
+    engine's own `rules_outcome` mirrors `can_claim_fifty_moves`, and desyncing
+    the two is exactly the class of bug that cost this project a benchmark
+    before.
+
+    ``auto`` remains the default so that historical results stay comparable.
+    """
+    if draw_claim == "auto":
+        return board.outcome(claim_draw=True)
+    if draw_claim != "strict":
+        raise ValueError(f"unknown draw_claim {draw_claim!r}")
+    finish = board.outcome(claim_draw=False)
+    if finish is not None:
+        return finish
+    if board.is_repetition(3):
+        return chess.Outcome(chess.Termination.THREEFOLD_REPETITION, None)
+    if board.can_claim_fifty_moves():
+        return chess.Outcome(chess.Termination.FIFTY_MOVES, None)
+    return None
+
+
 def play_match(
     white: Agent,
     black: Agent,
@@ -30,16 +72,18 @@ def play_match(
     increment_ms: int,
     ply_cap: int = PLY_CAP,
     start_fen: str = chess.STARTING_FEN,
+    draw_claim: str = "auto",
 ) -> Outcome:
     try:
-        return _play(white, black, base_ms, increment_ms, ply_cap, start_fen)
+        return _play(white, black, base_ms, increment_ms, ply_cap, start_fen, draw_claim)
     finally:
         white.stop()
         black.stop()
 
 
 def _play(
-    white: Agent, black: Agent, base_ms: int, increment_ms: int, ply_cap: int, start_fen: str
+    white: Agent, black: Agent, base_ms: int, increment_ms: int, ply_cap: int, start_fen: str,
+    draw_claim: str = "auto",
 ) -> Outcome:
     board = chess.Board(start_fen)
     agents = {chess.WHITE: white, chess.BLACK: black}
@@ -56,7 +100,7 @@ def _play(
     clock = {chess.WHITE: float(base_ms), chess.BLACK: float(base_ms)}
 
     while True:
-        finish = board.outcome(claim_draw=True)
+        finish = game_outcome(board, draw_claim)
         if finish is not None:
             return _outcome(board, _decide(finish), finish.termination.name.lower())
         if len(board.move_stack) >= ply_cap:

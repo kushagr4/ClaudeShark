@@ -1,0 +1,38 @@
+== AUDIT-ONLY REPETITION POLICIES (source champions\v0_5_2_correctness, depth 10) ==
+
+-- cluster 38 final position, base to move, winning
+   FEN 1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 7 64
+   Stockfish: +367 cp, WDL [1000, 0, 0], best b6d8
+   moves that hand over a claimable threefold: ['g8g2']
+   policy         move      score     nodes  repeats?
+   D_current      g8g2          0    171910  YES -- draw
+   A_threefold    g8g2          0    171910  YES -- draw
+   C_disabled     g8g2         19    219055  YES -- draw
+
+-- cluster 91 final position, cand to move, winning
+   FEN 3N4/3b4/2p1pBkb/2PpP1p1/3Pp1P1/2K1P3/8/8 w - - 28 58
+   Stockfish: +511 cp, WDL [1000, 0, 0], best h6f8
+   moves that hand over a claimable threefold: ['d8b7']
+   policy         move      score     nodes  repeats?
+   D_current      c3b4        108     68937  no
+   A_threefold    c3b4        108     68939  no
+   C_disabled     c3b4        108     88887  no
+
+-- cluster 96 final position, base to move, winning
+   FEN 1r6/R6p/3p1qpk/1P2p3/1Q2Pp1P/3n2P1/5PB1/6K1 w - - 7 42
+   Stockfish: +149 cp, WDL [959, 41, 0], best f4g3
+   moves that hand over a claimable threefold: ['b4d2']
+   policy         move      score     nodes  repeats?
+   D_current      b4d2          0    366879  YES -- draw
+   A_threefold    b4d2          0    366879  YES -- draw
+   C_disabled     b4d2         78    535611  YES -- draw
+
+-- cluster 43 category D, cand played b8e5
+   FEN 1Q6/5pk1/1p2p1p1/1P5p/4P2P/6P1/4qPK1/8 w - - 9 51
+   Stockfish: +120 cp, WDL [789, 211, 0], best b8b6
+   moves that hand over a claimable threefold: ['b8e5']
+   policy         move      score     nodes  repeats?
+   D_current      b8b6         28    117844  no
+   A_threefold    b8b6         28    117844  no
+   C_disabled     b8e5          0     82973  YES -- draw
+
