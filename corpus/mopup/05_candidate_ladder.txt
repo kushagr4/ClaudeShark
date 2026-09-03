@@ -1,0 +1,65 @@
+== DEPTH LADDER over 6 conversion-failure positions (production, depths [6, 7, 8, 9, 10, 12]) ==
+loss = Stockfish cp given up by the chosen move at 1000000 nodes; 'fixed' = loss < 50
+
+-- [1] cluster 4 KQK (cluster 4, real self-play final position)
+   8/8/6K1/8/6Q1/8/8/7k w - - 17 75
+   Stockfish +10000 best g6g5   verdict: -
+    depth move      score   loss      nodes
+        6 g4g5      +1178      0     31,498
+        7 g4g5      +1162      0     71,226
+        8 g6f5     +29993      0    127,592
+        9 g6f5     +29993      0    127,592
+       10 g6f5     +29993      0    127,592
+       12 g6f5     +29993      0    127,592
+-- [2] cluster 28 KQK (cluster 28, real self-play final position)
+   8/4Q3/8/5K2/2k5/8/8/8 w - - 15 70
+   Stockfish +10000 best e7e3   verdict: -
+    depth move      score   loss      nodes
+        6 f5e4      +1137      0     35,769
+        7 f5e4      +1138      0     80,200
+        8 e7d6      +1149      0    163,128
+        9 f5e4      +1162      0    336,328
+       10 e7d7      +1179      0    566,763
+       12 f5e4     +29989      0  1,166,578
+-- [3] cluster 87 KQK (cluster 87, real self-play final position)
+   8/8/6K1/8/6Q1/4k3/8/8 w - - 9 68
+   Stockfish +10000 best g4d1   verdict: -
+    depth move      score   loss      nodes
+        6 g6f5      +1114      0     40,113
+        7 g6f5      +1116      0    103,868
+        8 g4c4      +1139      0    178,156
+        9 g4d1      +1145      0    313,283
+       10 g4d1      +1151      0    499,206
+       12 g4d1      +1189      0  1,263,708
+-- [4] cluster 98 KRNK (cluster 98, real self-play final position)
+   1k6/3R4/5K2/4N3/8/8/8/8 w - - 17 70
+   Stockfish +10000 best f6e6   verdict: -
+    depth move      score   loss      nodes
+        6 f6e6      +1055      0     22,975
+        7 f6e6     +29993      0     41,886
+        8 f6e6     +29993      0     41,886
+        9 f6e6     +29993      0     41,886
+       10 f6e6     +29993      0     41,886
+       12 f6e6     +29993      0     41,886
+-- [5] cluster 48 KRK (cluster 48, real self-play final position)
+   8/5K2/8/8/k7/8/8/1R6 w - - 11 79
+   Stockfish +10000 best f7e6   verdict: -
+    depth move      score   loss      nodes
+        6 f7e6       +695      0     14,670
+        7 f7e6       +696      0     28,209
+        8 f7e6       +722      0     57,090
+        9 f7e6       +712      0    110,282
+       10 f7e6       +736      0    185,629
+       12 f7e6       +753      0    442,712
+-- [6] cluster 77 KRK (cluster 77, real self-play final position)
+   8/7K/5r2/8/8/6k1/8/8 b - - 17 81
+   Stockfish +10000 best g3g4   verdict: -
+    depth move      score   loss      nodes
+        6 g3g4       +676      0     13,104
+        7 g3g4       +682      0     22,774
+        8 g3g4       +692      0     38,509
+        9 g3g4       +709      0     63,512
+       10 g3h4       +704      0    148,203
+       12 g3h4     +29989      0    207,806
+
+verdicts: {'-': 6}

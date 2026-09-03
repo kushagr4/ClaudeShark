@@ -1,0 +1,34 @@
+== EVALUATION GRADIENT, baseline vs mop-up v1 (EDGE=30, PROXIMITY=15) ==
+white-point-of-view static scores, tempo removed; 'spread' = max - min over the series
+
+-- K+Q v K (Ke2, Qd1): defending king on every legal square (n=42)
+   baseline: min +880 max +967 spread 87
+   mop-up:   min +966 max +1088 spread 122
+   defender on edge a5    baseline  +944  mop-up +1079
+   defender on corner a8  baseline  +967  mop-up +1072
+   defender on corner h8  baseline  +954  mop-up +1059
+   attacking king approaching a cornered defender (defender a8):
+     Kh1: baseline  +942  mop-up +1032  (term +90)
+     Kg2: baseline  +952  mop-up +1057  (term +105)
+     Kf3: baseline  +963  mop-up +1083  (term +120)
+     Ke4: baseline  +969  mop-up +1104  (term +135)
+     Kd5: baseline  +973  mop-up +1123  (term +150)
+     Kc6: baseline  +974  mop-up +1139  (term +165)
+   walk spread: baseline 32, mop-up 107
+
+-- K+R v K (Ke2, Rd1): defending king on every legal square (n=45)
+   baseline: min +476 max +568 spread 92
+   mop-up:   min +557 max +683 spread 126
+   defender on edge a5    baseline  +539  mop-up  +674
+   defender on corner a8  baseline  +568  mop-up  +673
+   defender on corner h8  baseline  +557  mop-up  +662
+   attacking king approaching a cornered defender (defender a8):
+     Kh1: baseline  +521  mop-up  +611  (term +90)
+     Kg2: baseline  +534  mop-up  +639  (term +105)
+     Kf3: baseline  +550  mop-up  +670  (term +120)
+     Ke4: baseline  +559  mop-up  +694  (term +135)
+     Kd5: baseline  +560  mop-up  +710  (term +150)
+     Kc6: baseline  +559  mop-up  +724  (term +165)
+     Kb6: baseline  +556  mop-up  +721  (term +165)
+   walk spread: baseline 39, mop-up 113
+

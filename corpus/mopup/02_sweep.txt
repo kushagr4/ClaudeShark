@@ -1,0 +1,9 @@
+== MOP-UP WEIGHT SWEEP (depth 6, ply cap 120) ==
+diagnostic = the six real stuck positions (both colours); validation = synthetic in-domain positions
+
+ EDGE  PROX | diag mated  plies  rep | valid mated  plies  rep
+    0     0 |    0/12       0.0   12 |   12/48       17.7   28
+   10     5 |    6/12      15.0    6 |   28/48       17.6   12
+   20    10 |    8/12      13.5    4 |   34/48       17.4    6
+   30    15 |   12/12      11.7    0 |   36/48       17.8    4
+   40    20 |   12/12      11.7    0 |   34/48       17.9    6

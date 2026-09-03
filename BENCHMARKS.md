@@ -394,3 +394,13 @@ No engine change. What was measured, against an offline reference engine
   own king exposed), 3 pruning (LMR twice, delta once), 1 horizon.
 * **Recommended next experiment: a bounded king-safety term**, constants
   seeded from the regression in `corpus/eval_residuals.md`. Not implemented.
+
+## 2026-09-03 — mop-up v1: bare-king mating gradient, keep for confirmation
+
+Record: [`benchmarks/current/2026-09-03-mop-up-v1.md`](benchmarks/current/2026-09-03-mop-up-v1.md).
+Flag-gated (`CS_EVAL_MOPUP`), production default off. Gate 1: 0 of 240 root
+moves changed, regression suite identical except the missed-mate rows, tactics
+16/16, node counts identical. Gate 2 (200 fixed-depth paired games, moves and
+PGN retained): +35 =132 -33, 50.5%, Elo +3, cluster bootstrap -0..+9;
+bare-king endings converted 18/19 with the term against 14/16 without. Gate 3
+not run: the signal is positive but not decisive.

@@ -1,0 +1,10 @@
+== ACTIVATION-DOMAIN COVERAGE of the gate suites (positions where mop_up != 0) ==
+  240 competition-like root suite        0/240
+  stress suite                           2/138
+  self-play positions suite              1/318
+  conversion regression suite (90)       1/90
+  tactics suite: (could not introspect: ImportError )
+
+  retained fixed-depth games: term active in 602/10625 positions (5.67%) across 43/200 games
+  reading: the term is structurally zero on every screening suite; only the regression suite's bare-king rows and the
+  self-play endgames can move. Gate 1 on the 240 suite is therefore an invariance check, not a measurement.

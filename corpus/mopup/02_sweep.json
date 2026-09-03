@@ -1,0 +1,92 @@
+[
+ {
+  "edge": 0,
+  "proximity": 0,
+  "diagnostic": {
+   "games": 12,
+   "mated": 0,
+   "mean_plies_to_mate": null,
+   "repetition": 12,
+   "other": 0
+  },
+  "validation": {
+   "games": 48,
+   "mated": 12,
+   "mean_plies_to_mate": 17.666666666666668,
+   "repetition": 28,
+   "other": 8
+  }
+ },
+ {
+  "edge": 10,
+  "proximity": 5,
+  "diagnostic": {
+   "games": 12,
+   "mated": 6,
+   "mean_plies_to_mate": 15.0,
+   "repetition": 6,
+   "other": 0
+  },
+  "validation": {
+   "games": 48,
+   "mated": 28,
+   "mean_plies_to_mate": 17.642857142857142,
+   "repetition": 12,
+   "other": 8
+  }
+ },
+ {
+  "edge": 20,
+  "proximity": 10,
+  "diagnostic": {
+   "games": 12,
+   "mated": 8,
+   "mean_plies_to_mate": 13.5,
+   "repetition": 4,
+   "other": 0
+  },
+  "validation": {
+   "games": 48,
+   "mated": 34,
+   "mean_plies_to_mate": 17.41176470588235,
+   "repetition": 6,
+   "other": 8
+  }
+ },
+ {
+  "edge": 30,
+  "proximity": 15,
+  "diagnostic": {
+   "games": 12,
+   "mated": 12,
+   "mean_plies_to_mate": 11.666666666666666,
+   "repetition": 0,
+   "other": 0
+  },
+  "validation": {
+   "games": 48,
+   "mated": 36,
+   "mean_plies_to_mate": 17.833333333333332,
+   "repetition": 4,
+   "other": 8
+  }
+ },
+ {
+  "edge": 40,
+  "proximity": 20,
+  "diagnostic": {
+   "games": 12,
+   "mated": 12,
+   "mean_plies_to_mate": 11.666666666666666,
+   "repetition": 0,
+   "other": 0
+  },
+  "validation": {
+   "games": 48,
+   "mated": 34,
+   "mean_plies_to_mate": 17.88235294117647,
+   "repetition": 6,
+   "other": 8
+  }
+ }
+]

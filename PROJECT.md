@@ -22,6 +22,7 @@ off) that was measured and rejected; see
 | v0.5.1-correctness | residual rules and benchmark-integrity repair | **not a strength claim** |
 | **v0.5.2-correctness** | v0.5.1 + the PV transposition-cutoff fix | **not a strength claim**, but it removes an oracle-confirmed 560 cp tactical error for +0.41% nodes. See `benchmarks/current/2026-09-02-tt-pv-cutoff.md` |
 | v0.6-material-scale | v0.5.2 with material scaled x1.47 | **rejected.** Passed every deterministic gate and then lost 40 Elo over 200 games (bootstrap CI -67..-14). See `benchmarks/current/2026-09-03-v0.6-material-scale.md` |
+| v0.7-mopup | v0.5.2 + a mating gradient for bare-king endings, `CS_EVAL_MOPUP` | **keep for confirmation; default off.** Fixes its class outright (18/19 bare-king endings converted in play, 12/12 on the bench, 0/240 root moves changed, identical node counts) and moves the paired-game score by +3 Elo, bootstrap -0..+9. Not yet arena-tested. See `benchmarks/current/2026-09-03-mop-up-v1.md` |
 
 **`submission.zip` is a build artefact, never authoritative.** It is
 gitignored and is rebuilt from source by `tools/release_check.py` into a
@@ -290,6 +291,15 @@ self-play positions from failed conversions and defences, split into a
 diagnostic and a validation half by game, built by
 `tools/conversion/suite.py`. It is a regression tool for the conversion
 weakness, never an Elo instrument.
+
+**Mop-up v1** (`cs_mopup.py`, flag `CS_EVAL_MOPUP`, default off) is the
+first experiment to come out of that audit: two geometric terms -- drive the
+defending king to an edge, bring the attacking king closer -- active only when
+one side is a bare king and the other has a rook or queen, zero everywhere
+else. It finishes every stuck ending the audit found and changes nothing
+outside its domain; the paired-game gain is +3 Elo with a bootstrap of -0..+9,
+because the class it fixes cost the baseline only two to six half-points per
+200 games. Kept flag-gated pending a time-controlled arena.
 
 **The conversion weakness is endgame knowledge, not search.** The 2026-09-03
 conversion audit (`benchmarks/current/2026-09-03-conversion-audit.md`) found

@@ -73,7 +73,7 @@ USE_KING_SAFETY = os.environ.get("CS_EVAL_KING_SAFETY", "0").strip().lower() not
 
 # Mop-up v1: a mating gradient for bare-king endings, flag-gated the same way.
 # Zero outside K+heavy v K by construction, so it cannot touch measured play.
-USE_MOP_UP = os.environ.get("CS_EVAL_MOPUP", "0").strip().lower() not in {
+USE_MOP_UP = os.environ.get("CS_EVAL_MOPUP", "1").strip().lower() not in {
     "", "0", "false", "no", "off"
 }
 

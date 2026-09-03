@@ -1,0 +1,44 @@
+[
+ {
+  "cluster": 4,
+  "colour": "white",
+  "label": "KQK (cluster 4, real self-play final position)",
+  "fen": "8/8/6K1/8/6Q1/8/8/7k w - - 17 75",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 28,
+  "colour": "white",
+  "label": "KQK (cluster 28, real self-play final position)",
+  "fen": "8/4Q3/8/5K2/2k5/8/8/8 w - - 15 70",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 87,
+  "colour": "white",
+  "label": "KQK (cluster 87, real self-play final position)",
+  "fen": "8/8/6K1/8/6Q1/4k3/8/8 w - - 9 68",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 98,
+  "colour": "white",
+  "label": "KRNK (cluster 98, real self-play final position)",
+  "fen": "1k6/3R4/5K2/4N3/8/8/8/8 w - - 17 70",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 48,
+  "colour": "white",
+  "label": "KRK (cluster 48, real self-play final position)",
+  "fen": "8/5K2/8/8/k7/8/8/1R6 w - - 11 79",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 77,
+  "colour": "black",
+  "label": "KRK (cluster 77, real self-play final position)",
+  "fen": "8/7K/5r2/8/8/6k1/8/8 b - - 17 81",
+  "kind": "stuck"
+ }
+]

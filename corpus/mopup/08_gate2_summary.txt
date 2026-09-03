@@ -1,0 +1,48 @@
+== GATE 2: 200 fixed-depth paired games, v0_7_mopup (candidate) vs v0_5_2_correctness ==
+
++35 =132 -33  score 50.5%  Elo +3
+naive 95% CI -45 .. +51   paired cluster bootstrap -0 .. +9  (100 clusters)
+terminations: {'threefold_repetition': 126, 'checkmate': 68, 'insufficient_material': 6}
+failures (no_move / ply_cap): 0
+
+== ELEMENTARY WON-ENDING CONVERSION (bare-king positions that arose in play) ==
+  cand as attacker: 19 games reached a bare-king ending -> won 18/19 (95%); terminations {'checkmate': 18, 'threefold_repetition': 1}; mean plies from entering the domain to the end 12.4
+     cluster   3 cand B entered at ply  51,  10 more plies, checkmate              attacker score 1.0
+     cluster  14 cand W entered at ply  79,  14 more plies, checkmate              attacker score 1.0
+     cluster  15 cand B entered at ply  39,   2 more plies, checkmate              attacker score 1.0
+     cluster  21 cand B entered at ply  26,  19 more plies, threefold_repetition   attacker score 0.5
+     cluster  27 cand W entered at ply  84,   4 more plies, checkmate              attacker score 1.0
+     cluster  28 cand W entered at ply  56,   4 more plies, checkmate              attacker score 1.0
+     cluster  29 cand B entered at ply  76,  20 more plies, checkmate              attacker score 1.0
+     cluster  32 cand W entered at ply  82,  18 more plies, checkmate              attacker score 1.0
+     cluster  40 cand W entered at ply  45,  26 more plies, checkmate              attacker score 1.0
+     cluster  45 cand W entered at ply  50,  12 more plies, checkmate              attacker score 1.0
+     cluster  47 cand B entered at ply  73,   4 more plies, checkmate              attacker score 1.0
+     cluster  52 cand W entered at ply  18,  18 more plies, checkmate              attacker score 1.0
+     cluster  54 cand W entered at ply  54,  10 more plies, checkmate              attacker score 1.0
+     cluster  59 cand W entered at ply  43,   8 more plies, checkmate              attacker score 1.0
+     cluster  63 cand W entered at ply  81,  14 more plies, checkmate              attacker score 1.0
+     cluster  65 cand W entered at ply  60,  12 more plies, checkmate              attacker score 1.0
+     cluster  81 cand B entered at ply  71,  14 more plies, checkmate              attacker score 1.0
+     cluster  96 cand B entered at ply  67,  24 more plies, checkmate              attacker score 1.0
+     cluster  98 cand B entered at ply  99,   2 more plies, checkmate              attacker score 1.0
+  base as attacker: 16 games reached a bare-king ending -> won 14/16 (88%); terminations {'checkmate': 14, 'threefold_repetition': 2}; mean plies from entering the domain to the end 13.1
+     cluster   3 cand W entered at ply  49,  10 more plies, checkmate              attacker score 1.0
+     cluster  15 cand W entered at ply  39,   2 more plies, checkmate              attacker score 1.0
+     cluster  21 cand W entered at ply  26,  13 more plies, threefold_repetition   attacker score 0.5
+     cluster  28 cand B entered at ply  56,   4 more plies, checkmate              attacker score 1.0
+     cluster  40 cand B entered at ply  49,   6 more plies, checkmate              attacker score 1.0
+     cluster  42 cand B entered at ply  53,  24 more plies, checkmate              attacker score 1.0
+     cluster  45 cand B entered at ply  54,  16 more plies, checkmate              attacker score 1.0
+     cluster  47 cand W entered at ply  73,  14 more plies, checkmate              attacker score 1.0
+     cluster  52 cand B entered at ply  20,  18 more plies, checkmate              attacker score 1.0
+     cluster  59 cand B entered at ply  45,   4 more plies, checkmate              attacker score 1.0
+     cluster  63 cand B entered at ply  79,  18 more plies, checkmate              attacker score 1.0
+     cluster  77 cand B entered at ply  50,  16 more plies, checkmate              attacker score 1.0
+     cluster  81 cand W entered at ply  69,  18 more plies, checkmate              attacker score 1.0
+     cluster  92 cand B entered at ply  77,  15 more plies, threefold_repetition   attacker score 0.5
+     cluster  98 cand W entered at ply  91,  10 more plies, checkmate              attacker score 1.0
+     cluster  99 cand W entered at ply 115,  22 more plies, checkmate              attacker score 1.0
+
+reading: 'cand as attacker' games are where the term was live; 'base as attacker' games are the
+control -- the same endings reached by the engine without the term.

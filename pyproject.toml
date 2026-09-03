@@ -40,6 +40,7 @@ ignore = ["N818"]
 "tools/postmortem/*" = ["E501"]
 "tools/repetition/*" = ["E501"]
 "tools/conversion/*" = ["E501"]
+"tools/mopup/*" = ["E501"]
 
 [tool.mypy]
 strict = true
@@ -51,6 +52,7 @@ files = [
     "cs_constants.py",
     "cs_eval.py",
     "cs_king.py",
+    "cs_mopup.py",
     "cs_ordering.py",
     "cs_search.py",
     "cs_see.py",
