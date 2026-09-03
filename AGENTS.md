@@ -59,6 +59,22 @@ showing that more search does *not* automatically mean more strength, so
      first-error rates, conversion from +200, defence from -200, and
      repetition outcomes. This is the gate that reproduced the v0.6 loss.
   3. *Real time-controlled arena* -- only if gate 2 passes.
+* **Evaluation terms go through the registry.** Every positional term beyond
+  the tapered tables is a `cs_terms.Term`: a fast function, a reference twin,
+  a stage (`packed` before the taper or `post` after it) and an entry in the
+  `DEFAULTS` table, which is the only place a term is shipped. Do not add
+  `if FLAG:` branches to `cs_eval.evaluate`; add a term. `tests/test_terms.py`
+  checks antisymmetry, fast/reference agreement and non-interaction for every
+  registered term, and `tools/v2/termbench.py` measures its evaluator cost,
+  search NPS, activation frequency and effect on the calibration set.
+* **V2 gates, in order.** Gate 0: unit, symmetry, reference equivalence
+  (`tests/test_terms.py`). Gate 1: the V2 endgame calibration set
+  (`corpus/v2/endgame_calibration_v1.jsonl` via `tools/v2/suite.py`, both
+  failure classes -- blind wins must rise, false wins must fall, recognised
+  classes and controls must not move), the blind-win and conversion suites,
+  the 240 suite, tactics, and performance. Gate 2: 200 fixed-depth paired
+  games with PGN and JSONL retained. Gate 3: the arena, only after Gate 2.
+  Nothing is promoted because selected deterministic positions improved.
 * **Never present the root suite alone as predictive Elo evidence.**
 * **Record raw game outcomes, moves included.** `tools/arena.py --jsonl`
   writes per-game records with snapshots, corpus hash, environment and

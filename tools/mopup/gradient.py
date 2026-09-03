@@ -23,11 +23,11 @@ from cs_mopup import EDGE, PROXIMITY, mop_up
 def static(board: chess.Board, with_term: bool) -> int:
     """White-point-of-view static score with the term off, or on."""
     saved = cs_eval.USE_MOP_UP
-    cs_eval.USE_MOP_UP = with_term
+    cs_eval.set_term("mopup", with_term)
     try:
         score = cs_eval.evaluate(board)
     finally:
-        cs_eval.USE_MOP_UP = saved
+        cs_eval.set_term("mopup", saved)
     return score - cs_eval.TEMPO if board.turn else -(score - cs_eval.TEMPO)
 
 

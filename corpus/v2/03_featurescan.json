@@ -1,0 +1,155 @@
+[
+ {
+  "feature": "king_pawn_proximity",
+  "slope": 91.58578567462521,
+  "r2": -0.01933390024379089,
+  "trajectories_touched": 79,
+  "blind_below": 419.84472257680443,
+  "false_above": 182.90098382842865,
+  "validation_mae": {
+   "blind_win": 438.916887525258,
+   "false_win": 185.27598382842865,
+   "recognised_win": 581.1449301670012,
+   "recognised_draw": 98.49158548281258,
+   "losing": 428.54218441861804,
+   "control_middle": 50.34400531450781,
+   "control_tactic": 183.91364172681844
+  }
+ },
+ {
+  "feature": "king_to_enemy_pawns",
+  "slope": -0.7800546594995842,
+  "r2": -0.05334106166470387,
+  "trajectories_touched": 114,
+  "blind_below": 435.34649866553605,
+  "false_above": 209.48672657883458,
+  "validation_mae": {
+   "blind_win": 454.4106218133762,
+   "false_win": 211.2076182445667,
+   "recognised_win": 565.2018891466494,
+   "recognised_draw": 90.99921447743533,
+   "losing": 430.71475763579946,
+   "control_middle": 50.06678538893155,
+   "control_tactic": 205.46966785674235
+  }
+ },
+ {
+  "feature": "king_vs_passer_geometry",
+  "slope": 4.89578849664936,
+  "r2": -0.05291245833711611,
+  "trajectories_touched": 112,
+  "blind_below": 434.5283787752589,
+  "false_above": 203.65049730469906,
+  "validation_mae": {
+   "blind_win": 453.49959963099803,
+   "false_win": 204.85254797737682,
+   "recognised_win": 567.8872598826393,
+   "recognised_draw": 92.50501960682497,
+   "losing": 433.2401567394922,
+   "control_middle": 49.43031341115306,
+   "control_tactic": 205.16352533633886
+  }
+ },
+ {
+  "feature": "unstoppable_passer",
+  "slope": -1003.4919957310566,
+  "r2": -0.02384179144102072,
+  "trajectories_touched": 2,
+  "blind_below": 425.7455687706983,
+  "false_above": 151.8832710779082,
+  "validation_mae": {
+   "blind_win": 444.81773371915193,
+   "false_win": 231.7417289220918,
+   "recognised_win": 539.6870125605451,
+   "recognised_draw": 91.18181818181819,
+   "losing": 402.3781695064954,
+   "control_middle": 50.07142857142857,
+   "control_tactic": 205.75
+  }
+ },
+ {
+  "feature": "rook_activity",
+  "slope": -65.62272267206478,
+  "r2": -0.04483674496080847,
+  "trajectories_touched": 80,
+  "blind_below": 440.9592233085688,
+  "false_above": 171.94954097608806,
+  "validation_mae": {
+   "blind_win": 458.0018195145874,
+   "false_win": 175.8316418111083,
+   "recognised_win": 570.0402565156883,
+   "recognised_draw": 99.31134178321679,
+   "losing": 433.2170387320257,
+   "control_middle": 53.49304601648352,
+   "control_tactic": 227.96602590460526
+  }
+ },
+ {
+  "feature": "opposite_bishops",
+  "slope": 300.72727272727275,
+  "r2": -0.04924632009268448,
+  "trajectories_touched": 3,
+  "blind_below": 435.659793814433,
+  "false_above": 174.91666666666666,
+  "validation_mae": {
+   "blind_win": 454.7319587628866,
+   "false_win": 190.58333333333334,
+   "recognised_win": 565.0,
+   "recognised_draw": 91.18181818181819,
+   "losing": 430.48275862068965,
+   "control_middle": 50.07142857142857,
+   "control_tactic": 205.75
+  }
+ },
+ {
+  "feature": "king_centralisation",
+  "slope": 9.170656138545755,
+  "r2": -0.052443336534019114,
+  "trajectories_touched": 125,
+  "blind_below": 434.69860820541015,
+  "false_above": 205.24342835424892,
+  "validation_mae": {
+   "blind_win": 453.7707731538638,
+   "false_win": 210.9141329040388,
+   "recognised_win": 567.2118329308512,
+   "recognised_draw": 92.54188128328026,
+   "losing": 428.15056589580087,
+   "control_middle": 49.4709689433095,
+   "control_tactic": 207.2316600865911
+  }
+ },
+ {
+  "feature": "passer_count",
+  "slope": 14.894067246527328,
+  "r2": -0.052498318998113414,
+  "trajectories_touched": 100,
+  "blind_below": 431.09176803521456,
+  "false_above": 206.73750892509412,
+  "validation_mae": {
+   "blind_win": 450.1639329836682,
+   "false_win": 206.73750892509412,
+   "recognised_win": 569.4873151319666,
+   "recognised_draw": 92.08186627406087,
+   "losing": 431.94862587124584,
+   "control_middle": 49.53949759833831,
+   "control_tactic": 203.96581486109307
+  }
+ },
+ {
+  "feature": "pawn_ending_king_race",
+  "slope": 33.71604938271605,
+  "r2": -0.0500357504814104,
+  "trajectories_touched": 15,
+  "blind_below": 437.05014636629755,
+  "false_above": 209.375,
+  "validation_mae": {
+   "blind_win": 456.1223113147512,
+   "false_win": 211.75,
+   "recognised_win": 568.8903133903134,
+   "recognised_draw": 91.79483726150393,
+   "losing": 430.48275862068965,
+   "control_middle": 50.07142857142857,
+   "control_tactic": 205.75
+  }
+ }
+]

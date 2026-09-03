@@ -1,0 +1,102 @@
+== ROOT-CAUSE MAP, V2 calibration set a473da0823abf75c ==
+counts are independent trajectories (source games); a trajectory with two rows of one mechanism counts once
+
+-- blind_win: 170 rows, 135 trajectories
+   mechanism                       traj  rows  share  mean SF  mean V1 root  mean V1 static pawn end rook end
+   tactical/horizon                  35    36    26%     +476           +34             -29       3%       3%
+   passed pawn                       30    35    22%     +492           +32             +49       9%      29%
+   king-to-pawn coordination         20    22    15%     +476           +52             +57      32%      23%
+   other                             18    19    13%     +393           +37             +22       5%      11%
+   king activity                     18    19    13%     +435           +52             +20      16%      26%
+   rook activity                      9     9     7%     +430           +59             +14       0%      33%
+   mating gradient                    9     9     7%    +2000           -20            +222       0%      11%
+   pawn race / tempo                  7     7     5%     +484           +32             -36      29%      57%
+   rook + passer coordination         6     6     4%     +407           +40             +50       0%       0%
+   extra-pawn conversion              5     5     4%     +420           +62              -5       0%       0%
+   pawn breakthrough                  3     3     2%     +455           -96             -12     100%       0%
+
+-- false_win: 40 rows, 24 trajectories
+   mechanism                       traj  rows  share  mean SF  mean V1 root  mean V1 static pawn end rook end
+   extra-pawn conversion              7    11    29%       +0          +348            +355       0%      36%
+   blocked/stoppable passer           5     8    21%       +0          +279            +304      25%      62%
+   opposite bishops / fortress        4     7    17%       +3          +239            +248       0%       0%
+   king activity                      4     6    17%       -1          +345             +57       0%      83%
+   mating gradient                    3     6    12%       +5          +300            +299       0%       0%
+   wrong rook pawn                    1     2     4%       +0          +218            +227     100%       0%
+
+-- king geometry, failure classes vs recognised classes (means; distance = Chebyshev to nearest pawn of either colour)
+   class               n our K->pawn their K->pawn our centre their centre material own passers their passers
+   blind_win         170        1.21          1.52       3.15         2.94    +0.19        0.98          0.61
+   false_win          40        1.40          1.02       3.58         3.20    +1.73        0.93          0.72
+   recognised_win    100        1.38          1.70       3.27         2.68   +10.27        0.78          0.38
+   recognised_draw   100        1.33          1.37       3.17         3.09    -0.52        0.62          0.69
+   losing            100        1.65          1.61       2.94         3.59    -8.60        0.46          0.74
+
+-- examples, largest disagreement per mechanism
+   blind_win / tactical/horizon
+      ec-028 blindwin:90:cB         SF  +979 best f4g4   V1 static  -140 qs  -140 root   -83 (f4g4)  KQRPPPP-KQRPPPPP 8/1Q3pk1/p1r2p2/5P2/2q1pR2/1p2P2P/6PK/8 w - - 2 32
+      ec-127 postmortem:4:cB        SF  +742 best d8e7   V1 static  -299 qs  +184 root    +7 (e6e7)  KRPPP-KRBNP  3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+      ec-031 blindwin:95:cB         SF  +660 best e3c5   V1 static   -30 qs   -30 root   -23 (e3c5)  KQRBNPPPPP-KQRBNPPPPPP 4k2r/p1q5/2p2p2/1p3Np1/4Pn1p/1B2Q3/PbP3PP/3R3K w - - 0 31
+   blind_win / passed pawn
+      ec-036 mopup:14:cB            SF +1432 best f8f7   V1 static  +496 qs  +506 root    +0 (f8f7)  KQPPP-KQ     5K1q/4P3/6P1/5Q2/5P2/6k1/8/8 w - - 3 72
+      ec-072 passed:14:cB           SF  +872 best f4f5   V1 static  +202 qs  +202 root   +94 (f4f5)  KPPPPP-KPPP  8/8/p3p3/Pp2P3/1P3PK1/2Pk4/8/8 w - - 1 44
+      ec-140 postmortem:58:cW       SF  +726 best c7c3   V1 static   +33 qs   +94 root   +64 (g4g3)  KQRPPP-KRNNPPPPPP 6k1/p1r3p1/Rp2p3/3p4/Q2Pnnp1/2P5/2P5/5K2 b - - 1 38
+   blind_win / king-to-pawn coordination
+      ec-123 postmortem:35:cB       SF  +671 best f1e2   V1 static   +12 qs   +12 root   +40 (f1e2)  KBPPPPP-KBPPPPP b7/2p5/1pPk4/1P1P3B/3pPp2/6p1/6P1/5K2 w - - 0 53
+      ec-061 mopup:79:cB            SF  +652 best d5c4   V1 static   +49 qs   +49 root   +49 (d5e5)  KPPPP-KPPPP  8/1p2k1p1/6p1/p1PK2P1/P7/1P6/8/8 w - - 11 51
+      ec-060 mopup:79:cB            SF  +615 best d4c4   V1 static   +37 qs   +37 root   +43 (d4e4)  KPPPP-KPPPP  8/1p4p1/4k1p1/p1P3P1/P2K4/1P6/8/8 w - - 3 47
+   blind_win / other
+      ec-002 blindwin:3:cW          SF  +490 best g4g3   V1 static   -67 qs   -67 root   -53 (g4g3)  KNPPPP-KNPPPP 8/p7/P1Pk1n2/1P6/3K2pp/5p2/5N1P/8 b - - 0 52
+      ec-089 passed:53:cB           SF  +551 best f3f4   V1 static   +92 qs   +92 root   +88 (f3e3)  KBPPPP-KBPPP 8/8/2b2kp1/1p1p4/1P1P3P/2PB1K2/8/8 w - - 3 54
+      ec-103 passed:86:cB           SF  +505 best g3g4   V1 static   +19 qs   +19 root   +43 (g3g4)  KPPPP-KPPPP  8/6p1/pp1kp3/7P/1PP5/4K1P1/8/8 w - - 3 45
+   blind_win / king activity
+      ec-004 blindwin:35:cB         SF  +645 best b2d4   V1 static   +30 qs   +30 root   +32 (b2d4)  KQBPPPPP-KQBPPPPP b7/2p5/1pPk4/1P1Pp2B/3qPp2/6p1/1Q4P1/5K2 w - - 16 52
+      ec-037 mopup:23:cW            SF  +633 best g7g6   V1 static   -58 qs   +69 root   +57 (g7g6)  KQNPPPPP-KQNPPPP 8/4Q1k1/1p2p1P1/p5n1/P3P1q1/2P4p/1P2N3/5K2 b - - 3 45
+      ec-141 postmortem:59:cB       SF  +650 best g4f5   V1 static   +56 qs   +32 root   +81 (e4f4)  KPPPPPP-KPPPPPP 8/4k2p/1p4p1/p1pP1p1P/P1P1K1P1/3P4/8/8 w - - 0 38
+   blind_win / rook activity
+      ec-143 postmortem:61:cB       SF  +641 best d2d8   V1 static    -7 qs    -7 root   +65 (d2d8)  KQRPPPP-KQBPPPPPP 2R5/5ppk/6b1/p3p2p/1p5P/qP6/P2Q2PK/8 w - - 0 38
+      ec-058 mopup:77:cB            SF  +408 best h4h5   V1 static   +88 qs   +88 root    +5 (h4h5)  KRPPPPP-KRPPPP 2k5/1p3p2/p5p1/2P5/Pr4PP/3R4/6P1/7K w - - 0 36
+      ec-148 postmortem:67:cW       SF  +468 best f4g2   V1 static   +44 qs   +44 root   +83 (g1g2)  KRRBNPPPPP-KRRBNPPPP 8/3bk3/3p4/3Ppp2/2B1Pn2/PRN1KP1p/1R5P/6rr b - - 10 46
+   blind_win / mating gradient
+      ec-128 postmortem:4:cB        SF +10000 best f6f7   V1 static   +33 qs   +33 root  -215 (g6g7)  KPP-KNP      7k/7P/5KP1/8/8/8/n1p5/8 w - - 0 60
+      ec-066 mopup:90:cB            SF +10000 best f4g4   V1 static  -132 qs  -132 root  -110 (f4g4)  KQRPPPP-KQRPPPPP 1Qr5/5pk1/p4p2/5P2/2q1pR2/1p2P2P/6PK/8 w - - 4 33
+      ec-120 postmortem:30:cW       SF +10000 best d4g1   V1 static    +8 qs    +8 root   -22 (d4e5)  KQBPPPP-KQBPPP 8/1Q3pk1/6p1/7p/P2b3P/5PP1/6BK/4q3 b - - 0 35
+   blind_win / pawn race / tempo
+      ec-113 postmortem:21:cW       SF  +526 best e3e2   V1 static  -335 qs  -335 root   -78 (e3e2)  KRPP-KPP     K7/7R/8/8/5p2/4p3/2P2k1P/8 b - - 0 47
+      ec-132 postmortem:45:cB       SF  +562 best f4f5   V1 static    +8 qs   +62 root   +69 (f4f5)  KPPPP-KPPPP  8/8/p3k3/1p1p2Kp/1P3P2/1PP5/8/8 w - - 3 45
+      ec-056 mopup:75:cW            SF  +549 best c3d2   V1 static   -10 qs   +47 root   +59 (c4e4)  KRPPP-KRPP   1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69
+   blind_win / rook + passer coordination
+      ec-149 postmortem:67:cW       SF  +635 best g2e2   V1 static  +107 qs  +107 root   +95 (g2f2)  KRRBNPPP-KRRBNPPP 8/1R6/3p1k2/3Ppb2/P1B2n2/4KP1p/1R2N1rr/8 b - - 0 50
+      ec-107 passed:94:cB           SF  +398 best g1h2   V1 static  +135 qs  +116 root    +0 (g1h2)  KRRBPPPP-KRRBPPP 5rk1/2R2p2/3R1p1p/1b6/3P4/1B5P/5PP1/4r1K1 w - - 1 35
+      ec-052 mopup:72:cW            SF  +437 best e6e5   V1 static   +27 qs   +27 root   +45 (e6e5)  KRRNNPPPPP-KRRBNPPPPP 3r3k/1p5p/pbn1p3/6r1/3Pp3/8/PPN1NRPP/3R2K1 b - - 1 28
+   blind_win / extra-pawn conversion
+      ec-142 postmortem:60:cB       SF  +508 best g7h6   V1 static    +1 qs   +71 root   +86 (g7h6)  KBBPPPP-KNNPPPPP 8/p1k2BB1/2p4p/1pn4P/n2KP1p1/8/P4P2/8 w - - 0 37
+      ec-010 blindwin:65:cB         SF  +490 best e6e7   V1 static   -40 qs   -40 root   +82 (e6e7)  KQRNNPPPPPP-KQRRNPPPPP 5rk1/6r1/p2pPn2/P1pP4/1pP3p1/1P4Nq/2Q2P2/4RNK1 w - - 2 38
+      ec-013 blindwin:67:cW         SF  +434 best c1g1   V1 static   +64 qs   +64 root   +63 (c1g1)  KRRBNPPPPP-KRRBNPPPP 8/3bk3/3p4/3Ppp2/2B1Pn2/PRN2P1p/1R1K3P/2r4r b - - 8 45
+   blind_win / pawn breakthrough
+      ec-110 postmortem:14:cW       SF  +380 best g6g5   V1 static   -86 qs   -86 root  -229 (e7d7)  KPPPPPP-KPPPPP 8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+      ec-070 passed:14:cW           SF  +477 best g7g5   V1 static   +16 qs   +16 root  -103 (e7d7)  KPPPPP-KPPPPP 8/4k1p1/p3p3/K3Pp1p/7P/1P4P1/2P5/8 b - - 0 36
+      ec-007 blindwin:47:cW         SF  +508 best g4h4   V1 static   +33 qs   +87 root   +44 (g4h4)  KPPP-KPPP    8/7p/8/1p4P1/p5kP/2K5/1P6/8 b - - 1 48
+   false_win / extra-pawn conversion
+      ec-194 postmortem:13:cW       SF    +0 best a3g3   V1 static  +718 qs  +718 root  +764 (a3e7)  KP-KQ        8/5PK1/8/8/8/q7/1k6/8 b - - 2 69
+      ec-195 postmortem:13:cW       SF    +0 best f4e5   V1 static  +778 qs  +778 root  +759 (f4g5)  KP-KQ        8/5PK1/8/8/5q2/2k5/8/8 b - - 10 73
+      ec-181 mopup:62:cW            SF    +0 best c2d3   V1 static  +337 qs  +337 root  +329 (f2g2)  KPP-KR       8/8/8/6K1/5P1P/8/2k2r2/8 b - - 2 51
+   false_win / blocked/stoppable passer
+      ec-201 postmortem:31:cB       SF    +0 best d5c6   V1 static  +458 qs  +458 root  +409 (d5c6)  KRPPP-KRP    1R6/1P4k1/6P1/3K3p/7P/1r6/8/8 w - - 7 60
+      ec-177 mopup:31:cB            SF    +0 best e3d4   V1 static  +451 qs  +284 root  +295 (e3e4)  KRPPP-KRP    1R6/1P4k1/6P1/7p/7P/1r2K3/8/8 w - - 1 57
+      ec-178 mopup:31:cB            SF    +0 best e5d6   V1 static  +456 qs  +456 root  +295 (e5e4)  KRPPP-KRP    1R6/1P4k1/6P1/4K2p/7P/1r6/8/8 w - - 11 62
+   false_win / opposite bishops / fortress
+      ec-171 mopup:12:cW            SF    +0 best g3f4   V1 static  +251 qs  +251 root  +252 (g3f4)  KBPP-KBPPP   8/8/5p2/6p1/1b2P1B1/pK3Pk1/8/8 b - - 13 53
+      ec-193 postmortem:12:cW       SF    +0 best g2g3   V1 static  +232 qs  +232 root  +252 (g2g1)  KBPP-KBPPP   8/8/5p2/2b3p1/4P1B1/pK3P2/6k1/8 b - - 9 51
+      ec-170 mopup:12:cW            SF    +0 best g3f2   V1 static  +227 qs  +227 root  +235 (f8d6)  KBPP-KBPPP   5b2/8/5p2/6p1/4P1B1/pK3Pk1/8/8 b - - 7 50
+   false_win / mating gradient
+      ec-209 postmortem:92:cB       SF    +0 best e7a7   V1 static  +372 qs  +372 root  +361 (f5f6)  KRB-KR       3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89
+      ec-208 postmortem:92:cB       SF    +0 best h7h4   V1 static  +355 qs  +355 root  +357 (e5f5)  KRB-KR       4k3/7R/8/4K3/4B3/8/8/4r3 w - - 32 83
+      ec-172 mopup:16:cW            SF    +0 best f2e2   V1 static  +304 qs  +304 root  +307 (f2c2)  KR-KRB       8/3Rbk2/8/4K3/8/8/5r2/8 b - - 5 70
+   false_win / king activity
+      ec-199 postmortem:26:cB       SF    +0 best h6h8   V1 static  +147 qs  +147 root  +394 (h6g6)  KRP-KRP      8/4rPK1/7R/6k1/7p/8/8/8 w - - 1 58
+      ec-191 passed:96:cB           SF    +0 best g1f1   V1 static    -4 qs  +454 root  +365 (g1f1)  KQRPP-KQRPPP 8/5R1p/5Qpk/8/5pP1/8/3q1P2/5rK1 w - - 0 45
+      ec-175 mopup:26:cB            SF    +0 best f6f7   V1 static   +51 qs   +51 root  +358 (f6f7)  KRP-KRP      8/6K1/5P1R/6k1/7p/8/4r3/8 w - - 0 57
+   false_win / wrong rook pawn
+      ec-186 passed:42:cW           SF    +0 best h5g5   V1 static  +199 qs  +199 root  +245 (h5g5)  K-KP         8/8/8/7k/8/7p/8/6K1 b - - 5 62
+      ec-187 passed:42:cW           SF    +0 best g4g3   V1 static  +255 qs  +255 root  +190 (g4h5)  K-KP         8/8/8/8/6k1/7p/8/7K b - - 11 65

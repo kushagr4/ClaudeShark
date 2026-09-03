@@ -206,7 +206,7 @@ CLUSTER_31 = "8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62"
 
 @pytest.mark.parametrize("fen", [LONE, DOUBLED, MULTIPLE, MIDDLEGAME, CLUSTER_31])
 def test_full_evaluators_agree_and_stay_symmetric_with_the_flag_on(monkeypatch, fen: str) -> None:
-    monkeypatch.setattr(cs_eval, "USE_PASSED", True)
+    cs_eval.set_term("passed", True)
     board = chess.Board(fen)
     assert cs_eval.evaluate(board) == cs_eval.evaluate_reference(board)
     assert cs_eval.evaluate(board) == cs_eval.evaluate(board.mirror())
@@ -216,18 +216,18 @@ def test_the_flag_adds_exactly_the_tapered_term_and_nothing_else(monkeypatch) ->
     from cs_constants import TOTAL_PHASE
 
     board = chess.Board("4k3/8/8/4P3/8/8/8/4K3 w - - 0 1")  # pure pawn ending: phase 0
-    monkeypatch.setattr(cs_eval, "USE_PASSED", False)
+    cs_eval.set_term("passed", False)
     off = cs_eval.evaluate(board)
     middlegame_off = cs_eval.evaluate(chess.Board(MIDDLEGAME))
-    monkeypatch.setattr(cs_eval, "USE_PASSED", True)
+    cs_eval.set_term("passed", True)
     mg, eg = passed_pawns_reference(board)
     assert cs_eval.evaluate(board) - off == eg  # phase 0: the endgame value, whole
     assert cs_eval.evaluate(chess.Board(MIDDLEGAME)) == middlegame_off
     # With one queen each the same pawn is tapered.
     queens = chess.Board("4k3/8/8/4P3/8/8/8/q3K2Q w - - 0 1")
-    monkeypatch.setattr(cs_eval, "USE_PASSED", False)
+    cs_eval.set_term("passed", False)
     q_off = cs_eval.evaluate(queens)
-    monkeypatch.setattr(cs_eval, "USE_PASSED", True)
+    cs_eval.set_term("passed", True)
     phase = 8
     expected = (mg * phase + eg * (TOTAL_PHASE - phase)) // TOTAL_PHASE
     assert abs((cs_eval.evaluate(queens) - q_off) - expected) <= 1

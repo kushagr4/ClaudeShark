@@ -1,0 +1,17 @@
+== V2 ENDGAME CALIBRATION SUITE v1 (550 positions, hash a473da0823abf75c) engine champions\v0_5_2_correctness ==
+SF = Stockfish from the side to move (clamped +-2000); 'below' = mean(SF - x) where the win is real; 'above' = mean(x - SF) where the position is level
+MAE = mean |x - SF|; a term is good when blind_win 'below' falls, false_win 'above' falls, and the recognised classes and controls do not move
+
+  class               n traj     SF  static static MAE
+  blind_win         170  135   +540     +28        511
+  false_win          40   24     +1    +266        269
+  recognised_win    100  100  +1837   +1131        755
+  recognised_draw   100  100     +4     -50         91
+  losing            100  100  -1521    -934        656
+  control_middle     24   24     +3      +6         46
+  control_tactic     16   16  +1243    +287       1001
+
+  static: blind wins sit +511 below Stockfish; false wins sit +265 above; blind rows with static < +100: 152/170; false rows with static >= +200: 30/40
+
+  diagnostic: static blind-below +537 (73), false-above +302 (24)
+  validation: static blind-below +492 (97), false-above +209 (16)

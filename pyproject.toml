@@ -43,6 +43,7 @@ ignore = ["N818"]
 "tools/mopup/*" = ["E501"]
 "tools/blindwin/*" = ["E501"]
 "tools/passed/*" = ["E501"]
+"tools/v2/*" = ["E501"]
 
 [tool.mypy]
 strict = true
@@ -59,6 +60,7 @@ files = [
     "cs_ordering.py",
     "cs_search.py",
     "cs_see.py",
+    "cs_terms.py",
     "cs_time.py",
     "cs_tt.py",
 ]

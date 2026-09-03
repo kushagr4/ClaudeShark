@@ -29,7 +29,7 @@ import chess
 
 ROOT = Path(__file__).resolve().parents[2]
 ENGINE_FILES = ("agent.py", "cs_constants.py", "cs_eval.py", "cs_king.py", "cs_mopup.py",
-                "cs_ordering.py", "cs_search.py", "cs_see.py", "cs_time.py", "cs_tt.py")
+                "cs_ordering.py", "cs_search.py", "cs_see.py", "cs_terms.py", "cs_time.py", "cs_tt.py")
 
 
 def build_variant(edge: int, proximity: int, where: Path, flag_on: bool = True) -> Path:
@@ -41,11 +41,11 @@ def build_variant(edge: int, proximity: int, where: Path, flag_on: bool = True) 
     src = src.replace("EDGE = 20\n", f"EDGE = {edge}\n", 1).replace("PROXIMITY = 10\n", f"PROXIMITY = {proximity}\n", 1)
     m.write_text(src, encoding="utf-8")
     if flag_on:
-        e = where / "cs_eval.py"
+        e = where / "cs_terms.py"
         src = e.read_text(encoding="utf-8")
-        old = 'USE_MOP_UP = os.environ.get("CS_EVAL_MOPUP", "0")'
+        old = '"mopup": False,'
         assert old in src
-        e.write_text(src.replace(old, 'USE_MOP_UP = os.environ.get("CS_EVAL_MOPUP", "1")', 1), encoding="utf-8")
+        e.write_text(src.replace(old, '"mopup": True,', 1), encoding="utf-8")
     return where
 
 

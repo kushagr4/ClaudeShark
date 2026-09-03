@@ -441,3 +441,17 @@ spread of reasons as the baseline's (no label above 22%), and 32 of its 34
 extra serious errors while ahead do not touch the passer. Erratum: the
 "better passer at ply 60" baseline line was 9/11/1, not 20/0/1 (tool bug,
 fixed). No single compact mechanism; nothing implemented.
+
+## 2026-09-03 — V2 start: term registry, endgame calibration set, root-cause map
+
+Record: [`benchmarks/current/2026-09-03-v2-architecture-and-calibration.md`](benchmarks/current/2026-09-03-v2-architecture-and-calibration.md).
+Branch `v2-development`; rated V1 tagged `rated-v1`, untouched. Evaluator
+terms now go through `cs_terms.py` (fingerprint unchanged at 1,712,405
+nodes; 1,062 tests). A 550-position, 387-trajectory calibration set with
+both failure directions: blind wins sit +511 below Stockfish, false wins
++265 above. Root-cause map by trajectory: tactical/horizon 26%, passed pawn
+22%, king-to-pawn coordination 15%, king activity 13% of blind wins;
+drawn-material and blocked-passer configurations dominate the 24 false-win
+trajectories. Single-feature scan: no linear feature explains the residual;
+only king-to-pawn proximity points the right way in both classes.
+Recommended V2.1 feature: endgame king-to-pawn proximity. Nothing implemented.

@@ -1,0 +1,17 @@
+== TERM BENCH: passed (stage packed, flag CS_EVAL_PASSED) ==
+
+evaluator, 42 bench positions cache-hot: off 252,671/s (3.96 us), on 230,622/s (4.34 us), cost +8.7%
+depth-6 search, same positions: off 3,563,322 nodes 55,452 NPS; on 3,562,692 nodes 54,352 NPS; NPS cost +2.0%
+
+calibration set: 550 positions, active on 68.5%; |contribution| when active mean 32.1 cp, max 152
+retained games, every position: 9641 positions, active on 68.7%; |contribution| when active mean 32.5 cp, max 176
+
+static vs Stockfish by class, term off -> on (below = SF - static for wins; above = static - SF for level positions; MAE = mean |static - SF|):
+  class               n off static  on static  off MAE  on MAE  moved  active
+  blind_win         170        +14        +13      526     528    122     72%
+  false_win          40        -39        -34      266     293     32     80%
+  recognised_win    100       +151       +162     1718    1708     67     67%
+  recognised_draw   100        -11         -9       91      99     66     66%
+  losing            100       +251       +248     1798    1796     72     72%
+  control_middle     24        +13        +15       50      57     14     58%
+  control_tactic     16       +374       +380     1101    1094      4     25%

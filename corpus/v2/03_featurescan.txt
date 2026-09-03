@@ -1,0 +1,38 @@
+== SINGLE-FEATURE SCAN on the V2 calibration set (clamp +-1000; scale fitted on 242 diagnostic rows, read on 300 validation rows) ==
+slope = least-squares scale (cp per unit of endgame-weighted feature) of the V1 residual on the feature; R2 on diagnostic
+then, on validation with that one scale applied to V1 static: blind wins 'below' SF (want smaller), false wins 'above' SF (want smaller), MAE per class (want no rise)
+
+feature                      slope     R2 traj touched | blind below false above |  blind_win  false_win recognised recognised     losing control_mi control_ta  (validation MAE, baseline in the first row)
+V1 as is                                               |        +436        +209 |        455        212        565         91        430         50        206
+king_pawn_proximity          +91.6 -0.019           79 |        +420        +183 |        439        185        581         98        429         50        184
+king_to_enemy_pawns           -0.8 -0.053          114 |        +435        +209 |        454        211        565         91        431         50        205
+king_vs_passer_geometry       +4.9 -0.053          112 |        +435        +204 |        453        205        568         93        433         49        205
+unstoppable_passer         -1003.5 -0.024            2 |        +426        +152 |        445        232        540         91        402         50        206
+rook_activity                -65.6 -0.045           80 |        +441        +172 |        458        176        570         99        433         53        228
+opposite_bishops            +300.7 -0.049            3 |        +436        +175 |        455        191        565         91        430         50        206
+king_centralisation           +9.2 -0.052          125 |        +435        +205 |        454        211        567         93        428         49        207
+passer_count                 +14.9 -0.052          100 |        +431        +207 |        450        207        569         92        432         50        204
+pawn_ending_king_race        +33.7 -0.050           15 |        +437        +209 |        456        212        569         92        430         50        206
+
+feature distribution by class (mean raw value, share of rows non-zero):
+feature                           blind_win        false_win   recognised_win   recognised_dra           losing   control_middle   control_tactic
+king_pawn_proximity           +0.31     47%    -0.38     42%    +0.32     48%    +0.04     35%    -0.04     55%    -0.08     21%    -0.62     25%
+king_to_enemy_pawns           -0.31     70%    -0.53     62%    -0.51     68%    +0.01     71%    +0.30     62%    +0.08     75%    -0.31     25%
+king_vs_passer_geometry       +0.41     68%    -0.88     70%    +0.23     64%    -0.21     69%    -0.17     65%    +0.12     58%    +0.06     12%
+unstoppable_passer            -0.01      1%    +0.03      2%    +0.13     15%    +0.00      0%    -0.07      7%    +0.00      0%    +0.06      6%
+rook_activity                 +0.11     45%    +0.20     42%    +0.45     43%    -0.03     35%    -0.23     38%    -0.08     62%    +0.19     44%
+opposite_bishops              +0.00      0%    -0.12     12%    +0.00      0%    +0.00      0%    +0.00      0%    +0.00      0%    +0.00      0%
+king_centralisation           +0.21     76%    +0.38     85%    +0.59     86%    +0.08     76%    -0.65     78%    +0.17     50%    +0.62     25%
+passer_count                  +0.36     61%    +0.20     62%    +0.40     58%    -0.07     54%    -0.28     66%    +0.00     50%    -0.06     25%
+pawn_ending_king_race         -0.02      9%    -0.60     10%    -0.07      3%    -0.03      3%    +0.00      0%    +0.00      0%    -0.38      6%
+
+sign agreement on the failure classes (all rows): blind wins with feature > 0 / < 0, false wins with feature < 0 / > 0
+  king_pawn_proximity        blind + 56 - 24 0: 90   false - 12 +  5 0: 23
+  king_to_enemy_pawns        blind + 56 - 63 0: 51   false - 17 +  8 0: 15
+  king_vs_passer_geometry    blind + 65 - 51 0: 54   false - 16 + 12 0: 12
+  unstoppable_passer         blind +  0 -  1 0:169   false -  0 +  1 0: 39
+  rook_activity              blind + 44 - 32 0: 94   false -  6 + 11 0: 23
+  opposite_bishops           blind +  0 -  0 0:170   false -  5 +  0 0: 35
+  king_centralisation        blind + 72 - 58 0: 40   false - 16 + 18 0:  6
+  passer_count               blind + 68 - 36 0: 66   false -  9 + 16 0: 15
+  pawn_ending_king_race      blind +  5 - 10 0:155   false -  4 +  0 0: 36

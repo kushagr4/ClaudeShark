@@ -1,0 +1,28 @@
+== V2 ENDGAME CALIBRATION SET v1: 550 unique FENs, 387 trajectories, hash a473da0823abf75c ==
+oracle 1000000 nodes; V1 = champions\v0_5_2_correctness (static, root quiescence, depth-6 root), all from the side to move
+
+class            rows traj diag valid     SF V1 static  V1 qs V1 root fresh class kept endgame pawn end rook end own passer their passer
+blind_win         170  135   73    97   +540       +28    +63     +36              97%     78%      12%      18%        61%          45%
+false_win          40   24   24    16     +1      +266   +295    +301              98%     98%      10%      35%        60%          45%
+recognised_win    100  100   48    52  +1837     +1131  +4918  +21472             100%     98%       3%      12%        52%          32%
+recognised_draw   100  100   45    55     +4       -50    -18      -2              96%    100%       8%      25%        49%          53%
+losing            100  100   42    58  -1521      -934  -1231  -16877             100%     92%       1%       6%        38%          51%
+control_middle     24   24   10    14     +3        +6    +26     +16             100%      0%       0%       0%        42%          38%
+control_tactic     16   16    8     8  +1243      +287  +2332  +15128             100%     94%       6%      25%        12%          12%
+
+material signature, top 8 per failure class:
+  blind_win: [('KNPPP-KBPPPP', 4), ('KPPPP-KPPPP', 4), ('KRBPPPP-KRBPPPP', 3), ('KPPP-KPPP', 3), ('KRRBNPPPPP-KRRBNPPPP', 3), ('KQRPPPPPP-KQRPPPPP', 3), ('KRP-KRPP', 3), ('KNPPPP-KBPPPP', 3)]
+  false_win: [('KBPP-KBPPP', 5), ('KRPPP-KRP', 4), ('KRP-KRP', 3), ('KR-KRB', 2), ('KPP-KR', 2), ('K-KP', 2), ('KP-K', 2), ('KP-KQ', 2)]
+
+king activity (Chebyshev distance of each king to its nearest pawn; centralisation 0..7), by class:
+  blind_win        our king->pawn 1.21  their king->pawn 1.52  our centre 3.15  their centre 2.94  material(stm) +0.19
+  false_win        our king->pawn 1.82  their king->pawn 1.38  our centre 3.53  their centre 2.97  material(stm) +1.56
+  recognised_win   our king->pawn 1.98  their king->pawn 2.38  our centre 3.17  their centre 2.71  material(stm) +10.00
+  recognised_draw  our king->pawn 1.33  their king->pawn 1.37  our centre 3.17  their centre 3.09  material(stm) -0.52
+  losing           our king->pawn 2.12  their king->pawn 2.07  our centre 2.93  their centre 3.59  material(stm) -7.95
+  control_middle   our king->pawn 1.17  their king->pawn 1.08  our centre 1.71  their centre 1.54  material(stm) -0.08
+  control_tactic   our king->pawn 2.50  their king->pawn 1.50  our centre 1.70  their centre 1.50  material(stm) +0.80
+
+structure tags, failure classes (share of rows):
+  blind_win: open_file 97%, semi_open_file 96%, isolated_pawn 89%, passed_pawn 75%, backward_pawn 49%, rook_on_open_file 48%, material_imbalance 42%, queenside_majority 29%, connected_passers 26%, advanced_passer 26%, protected_passer 25%, doubled_pawns 24%
+  false_win: open_file 100%, semi_open_file 85%, passed_pawn 80%, isolated_pawn 78%, advanced_passer 60%, material_imbalance 42%, rook_ending 35%, minor_piece_ending 30%, rook_on_open_file 30%, rook_on_semi_open_file 30%, connected_passers 20%, opposite_coloured_bishops 18%

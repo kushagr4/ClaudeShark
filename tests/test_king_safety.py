@@ -22,9 +22,9 @@ from cs_king import king_safety_mg, king_safety_mg_reference
 @pytest.fixture(autouse=True)
 def _enable():
     saved = cs_eval.USE_KING_SAFETY
-    cs_eval.USE_KING_SAFETY = True
+    cs_eval.set_term("king_safety", True)
     yield
-    cs_eval.USE_KING_SAFETY = saved
+    cs_eval.set_term("king_safety", saved)
 
 
 MIRROR_CASES = [
@@ -186,9 +186,9 @@ def test_the_term_is_middlegame_only_by_construction() -> None:
     )
     assert phase == 0
 
-    cs_eval.USE_KING_SAFETY = False
+    cs_eval.set_term("king_safety", False)
     off = cs_eval.evaluate(board)
-    cs_eval.USE_KING_SAFETY = True
+    cs_eval.set_term("king_safety", True)
     assert cs_eval.evaluate(board) == off, "king safety leaked into a phase-0 endgame"
 
 
@@ -196,18 +196,18 @@ def test_an_active_endgame_king_is_not_punished() -> None:
     """The failure mode that would cost endgames: hiding an active king."""
     active = chess.Board("8/8/8/3K4/8/5k2/8/8 w - - 0 1")
     passive = chess.Board("8/8/8/8/8/5k2/8/K7 w - - 0 1")
-    cs_eval.USE_KING_SAFETY = False
+    cs_eval.set_term("king_safety", False)
     off = cs_eval.evaluate(active) - cs_eval.evaluate(passive)
-    cs_eval.USE_KING_SAFETY = True
+    cs_eval.set_term("king_safety", True)
     on = cs_eval.evaluate(active) - cs_eval.evaluate(passive)
     assert on == off
 
 
 def test_the_flag_actually_gates_the_term() -> None:
     board = chess.Board("3r4/1kp5/5b2/1pq1p3/4Pp1p/3P1PpQ/rBPR2K1/2RN4 w - - 0 1")
-    cs_eval.USE_KING_SAFETY = False
+    cs_eval.set_term("king_safety", False)
     off = cs_eval.evaluate(board)
-    cs_eval.USE_KING_SAFETY = True
+    cs_eval.set_term("king_safety", True)
     assert cs_eval.evaluate(board) != off
 
 

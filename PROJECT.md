@@ -246,11 +246,21 @@ moves.
 Tapered PeSTO material and piece-square tables interpolated on a 0–24 game
 phase, plus a bishop pair term and a tempo bonus. Written as one flat function
 with locals bound up front and no allocation, scanning piece bitboards directly.
-Two flag-gated terms exist beside it, both default off: a bare-king mop-up
-gradient (`cs_mopup.py`) and a rank-indexed passed-pawn bonus
-(`cs_passed.py`, cached by pawn structure so it costs about 4% of evaluator
-throughput). Nothing is switched on by default, on purpose: every extra term
-has to pay for its runtime cost in measured Elo. The 2026-09-02 corpus calibration ranks the
+Everything positional beyond that is a *term* in the registry
+`cs_terms.py`: a fast function of the board returning White's-point-of-view
+centipawns, a transparently written reference twin, and a stage -- `packed`
+(a middlegame/endgame pair added before the taper, phased like the tables)
+or `post` (whole centipawns after the taper, for the bare-king mop-up whose
+gradient must not be diluted). The active set is fixed once at import from
+the `DEFAULTS` table and the environment (`CS_EVAL_PASSED=1` or
+`CS_EVAL_TERMS=passed,mopup`) and can be changed by tests and tools with
+`cs_eval.set_terms`; with nothing active the evaluator is exactly the tapered
+tables (two falsy checks, depth-6 node count unchanged at 1,712,405). Three
+terms are registered, all default off: king safety (`cs_king.py`), the
+bare-king mop-up (`cs_mopup.py`), and the rank-indexed passed-pawn bonus
+(`cs_passed.py`, cached by pawn structure). Nothing is switched on by
+default, on purpose: every extra term has to pay for its runtime cost in
+measured Elo, and one term is added, measured and gated at a time. The 2026-09-02 corpus calibration ranks the
 missing terms by evidence (king safety first); see
 `benchmarks/current/2026-09-02-corpus-calibration.md`.
 

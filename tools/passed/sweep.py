@@ -35,7 +35,7 @@ from tools.postmortem.play import Engine
 
 ROOT = Path(__file__).resolve().parents[2]
 ENGINE_FILES = ("agent.py", "cs_constants.py", "cs_eval.py", "cs_king.py", "cs_mopup.py", "cs_passed.py",
-                "cs_ordering.py", "cs_search.py", "cs_see.py", "cs_time.py", "cs_tt.py")
+                "cs_ordering.py", "cs_search.py", "cs_see.py", "cs_terms.py", "cs_time.py", "cs_tt.py")
 
 # The whole family, fixed before any of it was run. Index = relative rank.
 FAMILY: dict[str, tuple[tuple[int, ...], tuple[int, ...]]] = {
@@ -65,11 +65,11 @@ def build_variant(mg: tuple[int, ...], eg: tuple[int, ...], where: Path, flag_on
     assert replaced == 2, "table lines not found"
     module.write_text("".join(lines), encoding="utf-8")
     if flag_on:
-        e = where / "cs_eval.py"
+        e = where / "cs_terms.py"
         src = e.read_text(encoding="utf-8")
-        old = 'USE_PASSED = os.environ.get("CS_EVAL_PASSED", "0")'
+        old = '"passed": False,'
         assert old in src
-        e.write_text(src.replace(old, 'USE_PASSED = os.environ.get("CS_EVAL_PASSED", "1")', 1), encoding="utf-8")
+        e.write_text(src.replace(old, '"passed": True,', 1), encoding="utf-8")
     return where
 
 

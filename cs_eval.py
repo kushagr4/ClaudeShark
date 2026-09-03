@@ -23,10 +23,9 @@ with it on every position, which is what makes optimising this file safe.
 
 from __future__ import annotations
 
-import os
-
 import chess
 
+import cs_terms
 from cs_constants import (
     BISHOP_PAIR_EG,
     BISHOP_PAIR_MG,
@@ -37,9 +36,6 @@ from cs_constants import (
     TEMPO,
     TOTAL_PHASE,
 )
-from cs_king import king_safety_mg
-from cs_mopup import mop_up
-from cs_passed import passed_pawns_packed, passed_pawns_reference
 
 
 def _pack(mg_tables: tuple[tuple[int, ...], ...], eg_tables: tuple[tuple[int, ...], ...],
@@ -66,23 +62,47 @@ _B_KING = _pack(MG_BLACK, EG_BLACK, chess.KING)
 
 _BISHOP_PAIR = (BISHOP_PAIR_MG << 16) + BISHOP_PAIR_EG
 
-# King safety is flag-gated so it can be measured against the same binary.
-# Default off during development; the arena records whichever value is in force.
-USE_KING_SAFETY = os.environ.get("CS_EVAL_KING_SAFETY", "0").strip().lower() not in {
-    "", "0", "false", "no", "off"
-}
+# Optional positional terms, from the registry in cs_terms. The active set is
+# decided once at import from the environment and the shipped DEFAULTS table;
+# tests and tools change it with set_terms / set_term. With nothing active the
+# two loops below never run and the evaluator is exactly the tapered tables.
+ACTIVE_TERMS: frozenset[str] = frozenset()
+_PACKED_TERMS: tuple = ()
+_POST_TERMS: tuple = ()
+_PACKED_REFERENCE: tuple = ()
+_POST_REFERENCE: tuple = ()
+# Read-only mirrors of the three original flags, kept for tools and tests
+# that ask "is this on?"; assigning to them does nothing. Use set_term.
+USE_KING_SAFETY = False
+USE_MOP_UP = False
+USE_PASSED = False
 
-# Mop-up v1: a mating gradient for bare-king endings, flag-gated the same way.
-# Zero outside K+heavy v K by construction, so it cannot touch measured play.
-USE_MOP_UP = os.environ.get("CS_EVAL_MOPUP", "0").strip().lower() not in {
-    "", "0", "false", "no", "off"
-}
 
-# Passed pawns v1: a rank-indexed bonus for pawns no enemy pawn can stop,
-# phased through the taper like every other term. Flag-gated, default off.
-USE_PASSED = os.environ.get("CS_EVAL_PASSED", "0").strip().lower() not in {
-    "", "0", "false", "no", "off"
-}
+def set_terms(names) -> None:
+    """Make exactly these registry terms active, in registry order."""
+    global ACTIVE_TERMS, _PACKED_TERMS, _POST_TERMS, _PACKED_REFERENCE, _POST_REFERENCE
+    global USE_KING_SAFETY, USE_MOP_UP, USE_PASSED
+    wanted = frozenset(names)
+    unknown = wanted - set(cs_terms.BY_NAME)
+    if unknown:
+        raise ValueError(f"unknown evaluation terms {sorted(unknown)}")
+    active = [term for term in cs_terms.TERMS if term.name in wanted]
+    ACTIVE_TERMS = wanted
+    _PACKED_TERMS = tuple(t.fast for t in active if t.stage == "packed")
+    _POST_TERMS = tuple(t.fast for t in active if t.stage == "post")
+    _PACKED_REFERENCE = tuple(t.reference for t in active if t.stage == "packed")
+    _POST_REFERENCE = tuple(t.reference for t in active if t.stage == "post")
+    USE_KING_SAFETY = "king_safety" in wanted
+    USE_MOP_UP = "mopup" in wanted
+    USE_PASSED = "passed" in wanted
+
+
+def set_term(name: str, on: bool) -> None:
+    """Switch one registry term on or off, leaving the others as they are."""
+    set_terms((ACTIVE_TERMS | {name}) if on else (ACTIVE_TERMS - {name}))
+
+
+set_terms(cs_terms.enabled_from_environment())
 
 
 def evaluate(board: chess.Board) -> int:
@@ -158,9 +178,10 @@ def evaluate(board: chess.Board) -> int:
     if (bishops & black).bit_count() > 1:
         packed -= _BISHOP_PAIR
 
-    if USE_PASSED:
-        # Packed like the tables, so it is tapered with them below.
-        packed += passed_pawns_packed(board)
+    if _PACKED_TERMS:
+        # Packed like the tables, so each is tapered with them below.
+        for term in _PACKED_TERMS:
+            packed += term(board)
 
     # Split the pair back out. The endgame half is the low 16 bits, sign
     # extended; whatever is left is an exact multiple of 65536.
@@ -169,20 +190,16 @@ def evaluate(board: chess.Board) -> int:
         eg -= 0x10000
     mg = (packed - eg) >> 16
 
-    if USE_KING_SAFETY:
-        # Middlegame only: the taper below multiplies it by phase, so it
-        # vanishes in the endgame where an active king is an asset.
-        mg += king_safety_mg(board)
-
     total = mg * phase + eg * (TOTAL_PHASE - phase)
     # Truncate toward zero rather than using floor division, so mirroring the
     # position negates the score exactly. Floor division rounds negatives away
     # from zero and would hand white a systematic one-centipawn edge.
     score = total // TOTAL_PHASE if total >= 0 else -(-total // TOTAL_PHASE)
-    if USE_MOP_UP:
-        # Added after the taper, in whole centipawns: the positions it fires in
-        # are endgames by definition and the gradient must not be diluted.
-        score += mop_up(board)
+    if _POST_TERMS:
+        # Added after the taper, in whole centipawns: terms whose positions
+        # are endgames by definition and whose gradient must not be diluted.
+        for term in _POST_TERMS:
+            score += term(board)
     if board.turn:  # chess.WHITE is True
         return score + TEMPO
     return -score + TEMPO
@@ -226,18 +243,15 @@ def evaluate_reference(board: chess.Board) -> int:
         mg -= BISHOP_PAIR_MG
         eg -= BISHOP_PAIR_EG
 
-    if USE_PASSED:
-        passed_mg, passed_eg = passed_pawns_reference(board)
-        mg += passed_mg
-        eg += passed_eg
-
-    if USE_KING_SAFETY:
-        mg += king_safety_mg(board)
+    for reference in _PACKED_REFERENCE:
+        term_mg, term_eg = reference(board)
+        mg += term_mg
+        eg += term_eg
 
     total = mg * phase + eg * (TOTAL_PHASE - phase)
     score = total // TOTAL_PHASE if total >= 0 else -(-total // TOTAL_PHASE)
-    if USE_MOP_UP:
-        score += mop_up(board)
+    for reference in _POST_REFERENCE:
+        score += reference(board)
     if board.turn:
         return score + TEMPO
     return -score + TEMPO

@@ -111,10 +111,10 @@ def test_fast_and_reference_agree_on_random_positions() -> None:
 
 def test_the_flag_adds_exactly_the_term_and_nothing_else(monkeypatch) -> None:
     board = chess.Board(KQK)
-    monkeypatch.setattr(cs_eval, "USE_MOP_UP", False)
+    cs_eval.set_term("mopup", False)
     off = cs_eval.evaluate(board)
     middlegame_off = cs_eval.evaluate(chess.Board(MIDDLEGAME))
-    monkeypatch.setattr(cs_eval, "USE_MOP_UP", True)
+    cs_eval.set_term("mopup", True)
     assert cs_eval.evaluate(board) - off == mop_up(board)
     assert cs_eval.evaluate(chess.Board(MIDDLEGAME)) == middlegame_off
 
