@@ -1,0 +1,18 @@
+== PV-END STATIC GAP ON ALL 129 BLIND EPISODES, frozen candidate vs baseline (descriptive, after selection) ==
+gap = min(Stockfish at PV end, 2000) - static at PV end, from the episode mover's side
+
+  rows (129)                   base  n 129  static@root     -4  static@end   +148  gap   +392  gap by cluster   +412  end<100 65/129
+  rows (129)                   cand  n 129  static@root     +2  static@end   +160  gap   +380  gap by cluster   +398  end<100 57/129
+  unique FEN (115)             base  n 115  static@root     +4  static@end   +147  gap   +386  gap by cluster   +412  end<100 59/115
+  unique FEN (115)             cand  n 115  static@root    +10  static@end   +159  gap   +374  gap by cluster   +398  end<100 53/115
+
+by feature at the PV end (rows), baseline gap -> candidate gap:
+  no own passer   n  26  gap   +332 ->   +339   static@end  +183 ->  +176
+  rank 1-3        n  48  gap   +317 ->   +318   static@end  +194 ->  +193
+  rank 4          n  24  gap   +445 ->   +424   static@end   +97 ->  +118
+  rank 5          n  18  gap   +416 ->   +386   static@end   +92 ->  +122
+  rank 6-7        n  13  gap   +657 ->   +600   static@end   +77 ->  +135
+  pawn ending     n  18  gap   +604 ->   +592   static@end   +12 ->   +24
+  1-2 pieces      n  47  gap   +413 ->   +396   static@end  +122 ->  +140
+  3-4 pieces      n  36  gap   +350 ->   +340   static@end  +178 ->  +187
+  5+ pieces       n  28  gap   +275 ->   +269   static@end  +240 ->  +245

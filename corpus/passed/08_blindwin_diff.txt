@@ -1,0 +1,31 @@
+== BLIND-WIN SUITE, POSITION BY POSITION: v0_5_2_correctness (base) -> v0_8_passed (cand), depth 6 ==
+the suite's 68 rows are 68 unique FENs from 47 source games; validation was read once, after the tables were frozen
+
+-- diagnostic: 36 rows, 23 clusters; moves changed 10; better 7, worse 3, same loss 0; net -1270 cp
+   root score mean +10 -> +27; rows still under +100 at the root 36 -> 30
+   static mean +4 -> +16
+   bw-004 cl  36 king activity        blind    e6d7  454 -> e6d6  450  delta    -4  root    +5 ->    +0  static   +13 ->    -8  1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+   bw-008 cl  60 king activity        blind    f3e3   94 -> e4e5  180  delta   +86  root   +22 ->   +40  static   +92 ->  +103  8/pkp4p/1p4p1/8/P3P2P/3n1KB1/Pn2BP2/8 w - - 1 29
+   bw-009 cl  62 king activity        blind    f8e8  431 -> f8d8   10  delta  -421  root   -57 ->   -78  static   -24 ->   -50  5r2/6pp/R1p1k3/P4p2/1bpB4/8/2P2PPP/6K1 b - - 1 31
+   bw-014 cl   4 promotion race       horizon  e6e7  742 -> d8e7    0  delta  -500  root    +7 ->   +68  static  -299 ->  -250  3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+   bw-018 cl  60 promotion race       partly   e8g8  404 -> e8d8   35  delta  -369  root   -14 ->   +95  static   +55 ->  +101  4R3/2p3p1/p1k1P3/1p6/7P/P4K2/r4P2/8 w - - 5 35
+   bw-025 cl  14 quiet / unresolved   blind    e7d7  933 -> g6g5    4  delta  -496  root  -229 ->  -271  static   -86 ->   -86  8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+   bw-031 cl  42 quiet / unresolved   blind    f3f4    0 -> h2h4  381  delta  +381  root   +57 ->  +112  static   +25 ->   +56  8/8/3kb3/8/4P3/5P2/1K4PP/8 w - - 1 49
+   bw-042 cl  66 wins a piece         horizon  h4g5    7 -> e3d1  261  delta  +254  root   +65 ->   +84  static  +111 ->  +133  4r1k1/5n1p/3p1P2/qp1PrBp1/2p3PP/1nP1N3/5Q2/4RRK1 w - - 3 35
+   bw-051 cl  90 wins a piece         horizon  b3d3  408 -> b3a2  384  delta   -24  root   -79 ->   -95  static  -103 ->  -113  8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+   bw-055 cl  24 wins pawn(s)         partly   f8g8  354 -> f8e8  177  delta  -177  root   +26 ->    +9  static    -3 ->   -21  5k2/R7/2p5/2N5/3r3P/P3r1P1/1K6/8 b - - 5 45
+
+-- validation: 32 rows, 24 clusters; moves changed 6; better 3, worse 2, same loss 1; net -806 cp
+   root score mean +27 -> +46; rows still under +100 at the root 32 -> 28
+   static mean -12 -> -4
+   bw-010 cl  75 king activity        blind    c4e4  549 -> c4d4  549  delta    +0  root   +59 ->   +96  static   -10 ->   +11  1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69
+   bw-024 cl  13 quiet / unresolved   blind    d7e8    0 -> b3c2  334  delta  +334  root   +14 ->   +41  static   +31 ->   +65  8/p2b4/5Bp1/6K1/1p5P/1k3P2/5P2/8 b - - 1 52
+   bw-058 cl  51 wins pawn(s)         partly   h5g6  460 -> g4g5   69  delta  -391  root   +33 ->   +60  static   +50 ->   +50  8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+   bw-060 cl  59 wins pawn(s)         partly   e4f4  650 -> g4f5    0  delta  -500  root   +81 ->  +132  static   +56 ->   +88  8/4k2p/1p4p1/p1pP1p1P/P1P1K1P1/3P4/8/8 w - - 0 38
+   bw-063 cl  67 wins pawn(s)         partly   c1g1    0 -> f5e4   30  delta   +30  root   +63 ->   +91  static   +64 ->   +59  8/3bk3/3p4/3Ppp2/2B1Pn2/PRN2P1p/1R1K3P/2r4r b - - 8 45
+   bw-064 cl  75 wins pawn(s)         partly   f6c6  349 -> d5d4   70  delta  -279  root   -32 ->   -14  static   -43 ->   -26  R7/2r4k/5qp1/3p1r1p/1P2pP1P/P1p1P1Q1/2R3PK/8 b - - 1 43
+
+-- flagship positions
+   bw-003 cl  31 validation  SF +519 best h6h5: base f7e6 loss 519 root +15 | cand f7e6 loss 519 root +15
+   bw-032 cl  45 validation  SF +442 best g2g4: base b2b3 loss 442 root +9 | cand b2b3 loss 442 root +9
+   bw-025 cl  14 diagnostic  SF +380 best g6g5: base e7d7 loss 933 root -229 | cand g6g5 loss 4 root -271

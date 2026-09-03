@@ -1,0 +1,17 @@
+== BLIND-WIN REGRESSION SUITE v1 (36 positions of 68, hash 9caeda378f88ed58, role diagnostic) engine C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\e3813b42-0a37-4aea-86be-348b96190e38\scratchpad\engines\passed\passed_A_small depth 6 ==
+
+loss = Stockfish cp given up by the chosen move; robust winsorises at 500; cl-rob = mean of per-cluster means;
+root = engine root score (side to move), droot = change since the suite was built; root<100 = still blind at the root
+
+by role, mechanism and horizon/blind verdict
+  group                                n clus  robust  cl-rob  serious  catast  agree   root  droot root<100
+  diagnostic ALL                      36   23    88.7    81.4    25.0%   13.9%  61.1%    +27    +17    30/36
+  diagnostic hb blind                 19   15    70.9    62.6    21.1%   10.5%  57.9%    +24    +27    14/19
+  diagnostic hb horizon                9    7   117.9    94.5    33.3%   22.2%  66.7%    +14     +8     8/9 
+  diagnostic hb partly                 8    8    98.1    98.1    25.0%   12.5%  62.5%    +49     +4     8/8 
+  diagnostic mech king activity        9    6    88.9    65.9    22.2%   11.1%  33.3%    +27    +31     8/9 
+  diagnostic mech promotion race       5    5    10.4    10.4     0.0%    0.0% 100.0%    +83    +46     3/5 
+  diagnostic mech quiet / unresolved   6    5    66.0    41.1    16.7%   16.7%  83.3%    -20    +19     5/6 
+  diagnostic mech rook activity        1    1     6.0     6.0     0.0%    0.0% 100.0%   +122    +28     0/1 
+  diagnostic mech wins a piece         9    7   177.4   182.1    44.4%   33.3%  44.4%     +6     -4     9/9 
+  diagnostic mech wins pawn(s)         6    6    57.2    57.2    33.3%    0.0%  66.7%    +43     -0     5/6 

@@ -1,0 +1,9 @@
+== SEARCH COST of the passed-pawn term: depth 6, 42 bench positions, 2 repeats each ==
+
+flag  run        nodes   seconds       NPS   cache
+0       1    3,563,322     63.35    56,246       0
+0       2    3,563,322     63.62    56,012       0
+1       1    3,562,692     64.16    55,528   24940
+1       2    3,562,692     63.27    56,310   24940
+
+best NPS off 56,246, on 56,310: the term costs -0.1% of search throughput

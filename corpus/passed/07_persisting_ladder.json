@@ -1,0 +1,962 @@
+[
+ {
+  "cluster": 14,
+  "colour": "black",
+  "label": "quiet / unresolved | blind | SF +380 root -229 static -86",
+  "fen": "8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38",
+  "played": "e7d7",
+  "cp_loss": 933,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "g6g5",
+  "sf_cp_stm": 380,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "g6g5",
+   "g6g5",
+   "g6g5",
+   "g6g5",
+   "g6g5"
+  ],
+  "engine_scores": [
+   -271,
+   -271,
+   -290,
+   -298,
+   -298
+  ],
+  "losses": [
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "nodes": [
+   2417,
+   3895,
+   6397,
+   11170,
+   17410
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 38,
+  "colour": "white",
+  "label": "wins pawn(s) | blind | SF +380 root -8 static +0",
+  "fen": "1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62",
+  "played": "g8g2",
+  "cp_loss": 107,
+  "mechanism": "wins pawn(s)",
+  "hb": "blind",
+  "sf_best": "h4h5",
+  "sf_cp_stm": 380,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "g8g2",
+   "g8g2",
+   "g8g2",
+   "g8g2",
+   "g8g2"
+  ],
+  "engine_scores": [
+   -62,
+   -5,
+   0,
+   0,
+   0
+  ],
+  "losses": [
+   107,
+   107,
+   107,
+   107,
+   107
+  ],
+  "nodes": [
+   28946,
+   48968,
+   89401,
+   132842,
+   354537
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 51,
+  "colour": "white",
+  "label": "wins pawn(s) | partly | SF +460 root +33 static +50",
+  "fen": "8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50",
+  "played": "h5g6",
+  "cp_loss": 460,
+  "mechanism": "wins pawn(s)",
+  "hb": "partly",
+  "sf_best": "g4g5",
+  "sf_cp_stm": 460,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "g4g5",
+   "g4g5",
+   "g4g5",
+   "g4g5",
+   "g4g5"
+  ],
+  "engine_scores": [
+   60,
+   49,
+   48,
+   37,
+   31
+  ],
+  "losses": [
+   69,
+   69,
+   69,
+   69,
+   69
+  ],
+  "nodes": [
+   9394,
+   15924,
+   28044,
+   46755,
+   92487
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 58,
+  "colour": "black",
+  "label": "wins pawn(s) | blind | SF +304 root +22 static -77",
+  "fen": "6k1/p1r3p1/1p2p3/3p2p1/1Q1Pnn2/2P4P/2P5/R5K1 b - - 7 35",
+  "played": "f4h3",
+  "cp_loss": 149,
+  "mechanism": "wins pawn(s)",
+  "hb": "blind",
+  "sf_best": "c7c3",
+  "sf_cp_stm": 304,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "f4h3",
+   "f4h3",
+   "f4h3",
+   "f4h3",
+   "f4h3"
+  ],
+  "engine_scores": [
+   58,
+   71,
+   72,
+   77,
+   77
+  ],
+  "losses": [
+   149,
+   149,
+   149,
+   149,
+   149
+  ],
+  "nodes": [
+   64244,
+   115673,
+   236511,
+   388502,
+   707701
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 61,
+  "colour": "black",
+  "label": "quiet / unresolved | partly | SF +377 root +94 static +97",
+  "fen": "8/5p1k/4p1p1/1Q5p/8/PP3b1q/3R4/6K1 b - - 0 44",
+  "played": "f3d5",
+  "cp_loss": 155,
+  "mechanism": "quiet / unresolved",
+  "hb": "partly",
+  "sf_best": "h3g3",
+  "sf_cp_stm": 377,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "f3d5",
+   "f3d5",
+   "h3g3",
+   "h3g3",
+   "f3d5"
+  ],
+  "engine_scores": [
+   117,
+   129,
+   129,
+   131,
+   140
+  ],
+  "losses": [
+   155,
+   155,
+   39,
+   39,
+   155
+  ],
+  "nodes": [
+   50160,
+   97655,
+   225760,
+   402312,
+   859361
+  ],
+  "verdict": "E unstable"
+ },
+ {
+  "cluster": 86,
+  "colour": "black",
+  "label": "wins a piece | horizon | SF +399 root +50 static +42",
+  "fen": "3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46",
+  "played": "d8e8",
+  "cp_loss": 398,
+  "mechanism": "wins a piece",
+  "hb": "horizon",
+  "sf_best": "c6b5",
+  "sf_cp_stm": 399,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "d8e8",
+   "d8e8",
+   "d8e8",
+   "d8e8",
+   "d8e8"
+  ],
+  "engine_scores": [
+   50,
+   88,
+   96,
+   85,
+   94
+  ],
+  "losses": [
+   398,
+   398,
+   398,
+   398,
+   398
+  ],
+  "nodes": [
+   67682,
+   110374,
+   222586,
+   359970,
+   747860
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 36,
+  "colour": "black",
+  "label": "quiet / unresolved | blind | SF +315 root +83 static +10",
+  "fen": "8/8/1R1pk3/1Pp5/7r/K7/7P/8 b - - 0 46",
+  "played": "h4h3",
+  "cp_loss": 262,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "e6d5",
+  "sf_cp_stm": 315,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "h4h3",
+   "h4h3",
+   "h4h3",
+   "h4h2",
+   "e6d5"
+  ],
+  "engine_scores": [
+   76,
+   83,
+   37,
+   77,
+   28
+  ],
+  "losses": [
+   262,
+   262,
+   262,
+   0,
+   0
+  ],
+  "nodes": [
+   23333,
+   39480,
+   131954,
+   191294,
+   504869
+  ],
+  "verdict": "C deeper"
+ },
+ {
+  "cluster": 36,
+  "colour": "black",
+  "label": "king activity | blind | SF +440 root +21 static +68",
+  "fen": "1R6/8/3pk3/1Pp5/8/7r/2K5/8 b - - 9 52",
+  "played": "h3h2",
+  "cp_loss": 157,
+  "mechanism": "king activity",
+  "hb": "blind",
+  "sf_best": "e6d5",
+  "sf_cp_stm": 440,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "h3h2",
+   "e6d7",
+   "c5c4",
+   "c5c4",
+   "c5c4"
+  ],
+  "engine_scores": [
+   6,
+   2,
+   92,
+   93,
+   96
+  ],
+  "losses": [
+   73,
+   124,
+   440,
+   440,
+   440
+  ],
+  "nodes": [
+   20158,
+   34655,
+   84021,
+   115081,
+   177761
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 36,
+  "colour": "black",
+  "label": "king activity | blind | SF +454 root +7 static +13",
+  "fen": "1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55",
+  "played": "e6d6",
+  "cp_loss": 450,
+  "mechanism": "king activity",
+  "hb": "blind",
+  "sf_best": "c5c4",
+  "sf_cp_stm": 454,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "e6d6",
+   "e6d6",
+   "e6d6",
+   "e6d6",
+   "e6d6"
+  ],
+  "engine_scores": [
+   0,
+   5,
+   10,
+   118,
+   126
+  ],
+  "losses": [
+   450,
+   450,
+   450,
+   450,
+   450
+  ],
+  "nodes": [
+   19216,
+   37002,
+   74853,
+   154745,
+   258161
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 45,
+  "colour": "white",
+  "label": "quiet / unresolved | blind | SF +442 root +9 static +6",
+  "fen": "8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38",
+  "played": "b2b3",
+  "cp_loss": 442,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "g2g4",
+  "sf_cp_stm": 442,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "g2g4"
+  ],
+  "engine_scores": [
+   9,
+   0,
+   0,
+   -4,
+   14
+  ],
+  "losses": [
+   442,
+   442,
+   442,
+   442,
+   0
+  ],
+  "nodes": [
+   3442,
+   6190,
+   14436,
+   31366,
+   57019
+  ],
+  "verdict": "C deeper"
+ },
+ {
+  "cluster": 63,
+  "colour": "white",
+  "label": "quiet / unresolved | blind | SF +328 root +89 static +115",
+  "fen": "4R3/5kp1/8/5p1p/5P1P/1Pr5/5KP1/8 w - - 9 54",
+  "played": "e8b8",
+  "cp_loss": 328,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "e8e3",
+  "sf_cp_stm": 328,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "e8b8",
+   "e8e3",
+   "e8b8",
+   "e8b8",
+   "e8b8"
+  ],
+  "engine_scores": [
+   98,
+   89,
+   91,
+   103,
+   102
+  ],
+  "losses": [
+   328,
+   0,
+   328,
+   328,
+   328
+  ],
+  "nodes": [
+   12191,
+   27156,
+   51844,
+   75355,
+   106465
+  ],
+  "verdict": "E unstable"
+ },
+ {
+  "cluster": 81,
+  "colour": "white",
+  "label": "quiet / unresolved | partly | SF +363 root +68 static +7",
+  "fen": "8/1p5p/p4k2/P7/R2p1K2/4p2N/2r1P1rP/4R3 w - - 4 46",
+  "played": "a4d4",
+  "cp_loss": 332,
+  "mechanism": "quiet / unresolved",
+  "hb": "partly",
+  "sf_best": "f4f3",
+  "sf_cp_stm": 363,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "a4d4",
+   "a4d4",
+   "a4d4",
+   "a4d4",
+   "h3g1"
+  ],
+  "engine_scores": [
+   65,
+   82,
+   93,
+   100,
+   116
+  ],
+  "losses": [
+   332,
+   332,
+   332,
+   332,
+   71
+  ],
+  "nodes": [
+   33352,
+   55972,
+   119496,
+   216382,
+   529719
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 90,
+  "colour": "white",
+  "label": "wins a piece | horizon | SF +384 root -79 static -103",
+  "fen": "8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33",
+  "played": "b3d3",
+  "cp_loss": 408,
+  "mechanism": "wins a piece",
+  "hb": "horizon",
+  "sf_best": "f3g3",
+  "sf_cp_stm": 384,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "b3a2",
+   "b3b8",
+   "b3b8",
+   "b3b8",
+   "b3b8"
+  ],
+  "engine_scores": [
+   -95,
+   -73,
+   -76,
+   -68,
+   -33
+  ],
+  "losses": [
+   384,
+   384,
+   384,
+   384,
+   384
+  ],
+  "nodes": [
+   53731,
+   118860,
+   209380,
+   405779,
+   764774
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 14,
+  "colour": "black",
+  "label": "quiet / unresolved | blind | SF +380 root -229 static -86",
+  "fen": "8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38",
+  "played": "e7d7",
+  "cp_loss": 933,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "g6g5",
+  "sf_cp_stm": 380,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "g6g5",
+   "g6g5",
+   "g6g5",
+   "g6g5",
+   "g6g5"
+  ],
+  "engine_scores": [
+   -271,
+   -271,
+   -290,
+   -298,
+   -298
+  ],
+  "losses": [
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "nodes": [
+   2417,
+   3895,
+   6397,
+   11170,
+   17410
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 75,
+  "colour": "black",
+  "label": "wins pawn(s) | partly | SF +349 root -41 static -43",
+  "fen": "R7/2r4k/5qp1/3p1r1p/1P2pP1P/P1p1P1Q1/2R3PK/8 b - - 1 43",
+  "played": "c7c4",
+  "cp_loss": 560,
+  "mechanism": "wins pawn(s)",
+  "hb": "partly",
+  "sf_best": "d5d4",
+  "sf_cp_stm": 349,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "d5d4",
+   "f6c6",
+   "d5d4",
+   "d5d4",
+   "d5d4"
+  ],
+  "engine_scores": [
+   -14,
+   -25,
+   -30,
+   9,
+   9
+  ],
+  "losses": [
+   70,
+   349,
+   70,
+   70,
+   70
+  ],
+  "nodes": [
+   76887,
+   198663,
+   322423,
+   496960,
+   777291
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 75,
+  "colour": "black",
+  "label": "king activity | blind | SF +549 root +59 static -10",
+  "fen": "1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69",
+  "played": "c4e4",
+  "cp_loss": 549,
+  "mechanism": "king activity",
+  "hb": "blind",
+  "sf_best": "c3d2",
+  "sf_cp_stm": 549,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "c4d4",
+   "c4e4",
+   "c4d4",
+   "c4e4",
+   "c3d3"
+  ],
+  "engine_scores": [
+   96,
+   95,
+   94,
+   96,
+   129
+  ],
+  "losses": [
+   549,
+   549,
+   549,
+   549,
+   549
+  ],
+  "nodes": [
+   18706,
+   31553,
+   61072,
+   129653,
+   310944
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 96,
+  "colour": "black",
+  "label": "quiet / unresolved | blind | SF +311 root +22 static +33",
+  "fen": "8/7p/3pN1pk/1Q1Pqp2/4p2P/3nP1P1/R4P1K/2r5 b - - 15 46",
+  "played": "d3e1",
+  "cp_loss": 311,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "e5c3",
+  "sf_cp_stm": 311,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "d3e1",
+   "d3e1",
+   "d3e1",
+   "d3e1",
+   "d3e1"
+  ],
+  "engine_scores": [
+   22,
+   35,
+   35,
+   42,
+   34
+  ],
+  "losses": [
+   311,
+   311,
+   311,
+   311,
+   311
+  ],
+  "nodes": [
+   68000,
+   116351,
+   221930,
+   413572,
+   858283
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 99,
+  "colour": "black",
+  "label": "wins pawn(s) | partly | SF +388 root -136 static +34",
+  "fen": "r3r1k1/4qppp/2p2n2/1p1p1P1b/1P1P2Pn/2NBP2P/2QN4/1R2R1K1 b - - 0 22",
+  "played": "e7d6",
+  "cp_loss": 165,
+  "mechanism": "wins pawn(s)",
+  "hb": "partly",
+  "sf_best": "h5g4",
+  "sf_cp_stm": 388,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "e7d6",
+   "e7d6",
+   "e7d6",
+   "e7d6",
+   "e7d6"
+  ],
+  "engine_scores": [
+   -135,
+   -69,
+   -69,
+   13,
+   28
+  ],
+  "losses": [
+   165,
+   165,
+   165,
+   165,
+   165
+  ],
+  "nodes": [
+   140203,
+   233939,
+   519855,
+   1211663,
+   2116900
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 45,
+  "colour": "white",
+  "label": "quiet / unresolved | blind | SF +442 root +9 static +6",
+  "fen": "8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38",
+  "played": "b2b3",
+  "cp_loss": 442,
+  "mechanism": "quiet / unresolved",
+  "hb": "blind",
+  "sf_best": "g2g4",
+  "sf_cp_stm": 442,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "g2g4"
+  ],
+  "engine_scores": [
+   9,
+   0,
+   0,
+   -4,
+   14
+  ],
+  "losses": [
+   442,
+   442,
+   442,
+   442,
+   0
+  ],
+  "nodes": [
+   3442,
+   6190,
+   14436,
+   31366,
+   57019
+  ],
+  "verdict": "C deeper"
+ },
+ {
+  "cluster": 78,
+  "colour": "black",
+  "label": "wins a piece | partly | SF +466 root +34 static +60",
+  "fen": "7k/6p1/4p3/4P2p/5n2/6P1/2r2N1P/4RK2 b - - 0 47",
+  "played": "f4d5",
+  "cp_loss": 466,
+  "mechanism": "wins a piece",
+  "hb": "partly",
+  "sf_best": "c2f2",
+  "sf_cp_stm": 466,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "f4d5",
+   "f4d5",
+   "f4d5",
+   "f4d5",
+   "f4d5"
+  ],
+  "engine_scores": [
+   34,
+   36,
+   33,
+   24,
+   19
+  ],
+  "losses": [
+   466,
+   466,
+   466,
+   466,
+   466
+  ],
+  "nodes": [
+   17290,
+   27257,
+   56725,
+   94607,
+   272274
+  ],
+  "verdict": "D persists"
+ }
+]

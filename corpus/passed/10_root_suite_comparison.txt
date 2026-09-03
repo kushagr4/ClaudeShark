@@ -1,0 +1,48 @@
+== ROOT SUITE COMPARISON: analysis_cl_v1_d6_baseline.jsonl (base, champions\v0_5_2_correctness) vs analysis_cl_v1_d6_passed.jsonl (cand, champions\v0_8_passed) ==
+suite 6a8111f22f9ea393 / 6a8111f22f9ea393, depth 6 / 6, 240 positions
+
+moves changed: 29 of 240
+  base: agree 37.1%  within 25 65.8%  robust 35.3  serious 10.0%  catastrophic 1.7%  nodes 20,047,682
+  cand: agree 39.2%  within 25 65.8%  robust 34.0  serious 10.0%  catastrophic 1.7%  nodes 20,116,598
+
+by phase and passer presence at the root (n, base robust -> cand robust, base serious -> cand serious, moves changed):
+  endgame     mover has passer  n  27  robust   28.8 ->   30.8  serious  3.7% ->  3.7%  changed  5
+  endgame     no passers        n  19  robust   13.4 ->   19.3  serious  5.3% -> 10.5%  changed  4
+  endgame     other has passer  n  14  robust   11.6 ->   23.5  serious  7.1% -> 14.3%  changed  4
+  middlegame  mover has passer  n  33  robust   37.8 ->   35.6  serious 15.2% -> 15.2%  changed  7
+  middlegame  no passers        n  89  robust   34.0 ->   34.0  serious  7.9% ->  9.0%  changed  4
+  middlegame  other has passer  n  22  robust  106.5 ->   81.1  serious 40.9% -> 27.3%  changed  5
+  opening     no passers        n  34  robust   19.2 ->   19.2  serious  0.0% ->  0.0%  changed  0
+  opening     other has passer  n   2  robust    0.0 ->    0.0  serious  0.0% ->  0.0%  changed  0
+
+changed positions (loss under base -> cand; negative delta = candidate better):
+  cl-007  endgame     d6d5       0 -> g4g6     111  delta  +111  root   -25 ->   -36  6k1/1p6/3p4/p1p4r/P2pPBq1/3P4/1PP3PP/5QK1 b - - 4 29
+  cl-011  endgame     e5c5       0 -> e5f4       0  delta    +0  root   +51 ->   +10  8/6k1/1P3p1p/p3q3/8/8/5KP1/1Q6 b - - 10 48
+  cl-012  endgame     h4g3      56 -> d4e5      16  delta   -40  root  +129 ->  +139  4B3/8/5p2/p5pp/3bP2k/5P2/4K1P1/8 b - - 7 41
+  cl-014  endgame     h2h4     159 -> a3a4     118  delta   -41  root   +22 ->   +14  8/pp2k1p1/4p2p/4Pp2/8/PPK3P1/2P4P/8 w - f6 0 32
+  cl-016  endgame     b7b5      48 -> f7f6      76  delta   +28  root   +11 ->   +62  8/Bp3k2/2p4p/4rP2/8/2bB4/1p5P/5RK1 b - - 1 40
+  cl-020  endgame     e6d5       0 -> b7e7     149  delta  +149  root    +9 ->    +8  8/1q4pk/3ppn1p/1p1Pp3/p1p1P3/P1N1P2P/1PP2QP1/6K1 b - - 0 30
+  cl-025  endgame     b5a4       0 -> b4b3       0  delta    +0  root   -49 ->   +37  8/8/8/1k2B2R/1p2K3/7P/p5P1/1r6 b - - 2 50
+  cl-027  endgame     g8g6       0 -> g8g3       0  delta    +0  root   -73 ->   -81  6r1/5k1p/p1r2p2/1p1p4/1P1BbP2/P1P1P1R1/1K5P/6R1 b - - 6 32
+  cl-032  endgame     h7h5      19 -> e8e5      77  delta   +58  root   -53 ->   -66  4r3/2k4p/2p5/p5p1/Pp1RPpP1/1P3P2/2P4P/1K6 b - - 0 33
+  cl-041  endgame     d3c4       2 -> d3b5       0  delta    -2  root  +131 ->  +105  8/8/5k2/6p1/1P2B3/3bnPK1/6P1/8 b - - 0 47
+  cl-049  endgame     f5f4       8 -> h5h4      12  delta    +4  root    +7 ->    +6  2r5/1p2b3/p3k1p1/3Rpp1p/2P1P3/1P3K1P/1P1B2P1/8 b - - 1 34
+  cl-050  endgame     e3e4       0 -> d6f8       0  delta    +0  root   -93 ->  -116  8/1p3b2/2pBk3/2P1p2p/1P4pP/4K1P1/8/8 w - - 4 33
+  cl-053  endgame     c7d6       0 -> e4e3      65  delta   +65  root   +72 ->  +126  4b3/2b1k3/6p1/1p1p3p/1P1Pp2P/1NP3P1/4BK2/8 b - - 1 38
+  cl-064  middlegame  c5c4       2 -> a6a5       2  delta    +0  root    -5 ->    +9  6k1/5p2/r3q1p1/2pp3p/5Q1P/1P4P1/P1R2P2/6K1 b - - 1 34
+  cl-066  middlegame  c8d8     116 -> d7c7     213  delta   +97  root   -88 ->  -111  2r3k1/3q3p/3p1P1n/1p1Pr1p1/2p3P1/1nP4P/2B2Q1K/3NRR2 b - - 2 30
+  cl-090  middlegame  e4b7      27 -> f3g3       0  delta   -27  root  -118 ->  -164  2r5/5pk1/p4p2/4pP2/1pq1Q3/4PR1P/6P1/6K1 w - - 0 29
+  cl-094  middlegame  b5h5     175 -> b5a5     112  delta   -63  root   -61 ->   -84  r4rk1/pp1b1ppp/2np4/1q6/P2PB3/5N1P/1P1Q1PP1/R3R1K1 b - - 0 19
+  cl-110  middlegame  f4g4     116 -> f4f2     130  delta   +14  root   +29 ->   +39  r4rk1/7p/6p1/p1q5/BpPnPR2/8/PQ4PP/2R4K w - - 1 28
+  cl-113  middlegame  h6h5      12 -> d7d8       0  delta   -12  root    -3 ->    +8  4r1k1/1p1r1pp1/p1q4p/2PpP3/1P1Q4/P3R2P/6P1/4R1K1 b - - 6 28
+  cl-118  middlegame  d4e3      74 -> c3d2      36  delta   -38  root   -82 ->   -87  3r4/1p6/2b3k1/1pPpPq1p/3BpPp1/2Q3P1/5K1P/R7 w - - 6 40
+  cl-127  middlegame  c8d8      75 -> e8d8       0  delta   -75  root   -24 ->   -30  2r1r1k1/p2n1pp1/Pp2p2p/1Q6/1BPPn2q/4N2P/2R2PP1/3R2K1 b - - 8 36
+  cl-151  middlegame  f1f5     251 -> d8f8       0  delta  -251  root  -157 ->  -180  3r3k/p2q2p1/P1p1R2p/1pb1P3/8/1BP1n1BP/1P2Q1PK/4Rr2 b - - 4 33
+  cl-161  middlegame  d8c8       0 -> f7g7      35  delta   +35  root   -24 ->   -26  3rr3/5k1p/6p1/bp1p1p2/pNbP4/P2BPPP1/1P1KR2P/4R3 b - - 4 27
+  cl-164  middlegame  a8d8      43 -> d7c7      39  delta    -4  root   -49 ->   -54  r4rk1/p2q1pp1/5n1p/2pPp3/3nP3/P2BB3/5PPP/1R1Q1RK1 b - - 0 19
+  cl-174  middlegame  b7c7     243 -> c1d3      36  delta  -207  root  -101 ->  -117  Q7/1r3ppk/2q1p2p/5b2/2P1n3/P2B1N2/1R3PPP/2n1B1K1 b - - 3 29
+  cl-188  middlegame  h1g1       0 -> f1d1     100  delta  +100  root   -89 ->   -91  6k1/p1q2p2/2pbr1p1/2pn1b1p/N1Np1P2/1P1P3P/P1PB1QP1/5R1K w - - 1 21
+  cl-194  middlegame  e1d3       6 -> a5a6       0  delta    -6  root   +41 ->   +60  r7/3k1pp1/2b1p2p/PrPnP3/1p6/8/R2B1PPP/1R2N1K1 w - - 1 27
+  cl-197  middlegame  g4g6      32 -> g4h5       0  delta   -32  root   -49 ->   -73  r5rk/P5pp/8/5p2/3PpQq1/2P1PnP1/1P3PKP/R4R2 b - - 6 33
+  cl-198  middlegame  a2a1     165 -> a4b3       0  delta  -165  root  -105 ->  -132  1k1r4/1p3p1R/5N2/p1pPPQ2/b7/2P5/qP3Pr1/2K4R b - - 1 29
+  net over changed positions: -302 cp (mean -10.4); better 14, worse 10, same 5

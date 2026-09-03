@@ -414,3 +414,19 @@ endings: static +4 vs +616), the gap rises with passer rank to +665, and
 neither quiescence nor depth-6 search recovers it. Dominant class: endgame
 static blindness to passed pawns and king activity. Adds a 68-position
 blind-win regression suite. Next experiment: passed-pawn evaluation v1.
+
+## 2026-09-03 — passed pawns v1: rank-indexed bonus, inconclusive
+
+Record: [`benchmarks/current/2026-09-03-passed-pawn-v1.md`](benchmarks/current/2026-09-03-passed-pawn-v1.md).
+Flag-gated (`CS_EVAL_PASSED`), production default off. One feature: a
+passed-pawn bonus by relative rank with middlegame and endgame tables
+(0,0,2,4,8,16,28 / 0,4,8,16,32,56,88), chosen once from a five-member family
+on the diagnostic half of the blind-win suite. Gate 1: blind-win suite robust
+loss 124.0 -> 88.7 (diagnostic), 148.5 -> 123.3 (validation, read once);
+conversion suite diagnostic 226 -> 181, validation 205 -> 210; root suite
+35.3 -> 34.0 with 29 of 240 moves changed; flagship cluster 31 unchanged,
+both adversarial controls improved. Gate 2 (200 fixed-depth paired games,
+moves and PGN retained): +35 =131 -34, 50.2%, Elo +2, cluster bootstrap
+-26..+30; converts +200 47.9% vs 41.0% and holds -200 59.0% vs 52.1%, but
+reaches seventh-rank passers twice as often and errs there more. No search
+cost (56.2k vs 56.3k NPS). Gate 3 not run.

@@ -1,0 +1,86 @@
+[
+ {
+  "cluster": 31,
+  "fen": "8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62",
+  "label": "flagship cluster 31",
+  "role": "target",
+  "baseline_verdict": "A +1 ply",
+  "baseline_moves": [
+   "f7e6",
+   "h6h5",
+   "h6h5",
+   "h6h5",
+   "h6h5"
+  ],
+  "baseline_scores": [
+   15,
+   64,
+   112,
+   112,
+   47
+  ],
+  "baseline_losses": [
+   519,
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "cluster": 45,
+  "fen": "8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38",
+  "label": "flagship cluster 45",
+  "role": "adversarial control",
+  "baseline_verdict": "D persists",
+  "baseline_moves": [
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3"
+  ],
+  "baseline_scores": [
+   9,
+   0,
+   0,
+   -4,
+   10
+  ],
+  "baseline_losses": [
+   442,
+   442,
+   442,
+   442,
+   442
+  ]
+ },
+ {
+  "cluster": 14,
+  "fen": "8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38",
+  "label": "flagship cluster 14",
+  "role": "adversarial control",
+  "baseline_verdict": "D persists",
+  "baseline_moves": [
+   "e7d7",
+   "e7f7",
+   "e7f7",
+   "e7f7",
+   "e7f7"
+  ],
+  "baseline_scores": [
+   -229,
+   -231,
+   -234,
+   -267,
+   -267
+  ],
+  "baseline_losses": [
+   933,
+   889,
+   889,
+   889,
+   889
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+== CONVERSION REGRESSION SUITE v1 (90 positions, hash 1a3de886a87db970) engine champions\v0_8_passed depth 6 ==
+
+role        source         n  robust  serious  catast  agree
+diagnostic  ALL           43   180.6    69.8%   18.6%  25.6%
+diagnostic  blind          6    32.0    16.7%    0.0%  66.7%
+diagnostic  control        6   117.7    50.0%   16.7%  50.0%
+diagnostic  defence       12   216.0    91.7%   16.7%   8.3%
+diagnostic  first_error   19   225.0    78.9%   26.3%  15.8%
+validation  ALL           47   209.8    68.1%   29.8%  31.9%
+validation  blind          7    23.3     0.0%    0.0% 100.0%
+validation  control        2     4.5     0.0%    0.0% 100.0%
+validation  defence       12   252.8    91.7%   25.0%  16.7%
+validation  first_error   23   224.2    78.3%   34.8%  17.4%
+validation  missed_mate    3   500.0   100.0%  100.0%   0.0%

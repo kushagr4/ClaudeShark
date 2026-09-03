@@ -80,7 +80,7 @@ USE_MOP_UP = os.environ.get("CS_EVAL_MOPUP", "0").strip().lower() not in {
 
 # Passed pawns v1: a rank-indexed bonus for pawns no enemy pawn can stop,
 # phased through the taper like every other term. Flag-gated, default off.
-USE_PASSED = os.environ.get("CS_EVAL_PASSED", "0").strip().lower() not in {
+USE_PASSED = os.environ.get("CS_EVAL_PASSED", "1").strip().lower() not in {
     "", "0", "false", "no", "off"
 }
 

@@ -1,0 +1,26 @@
+== THE 20 'PERSISTS AT DEPTH 10' LADDER ROWS (18 unique positions) re-run with the candidate, depths 6..10 ==
+baseline verdict was 'D persists' for every row by construction; loss = Stockfish cp given up by the chosen move
+
+ cl cand verdict base losses d6..10          cand losses d6..10          cand root d6 / d10 fen
+ 14 -            [933, 889, 889, 889, 889]   [4, 4, 4, 4, 4]              -271 /  -298   8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+ 38 D persists   [107, 107, 107, 107, 107]   [107, 107, 107, 107, 107]     -62 /    +0   1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62
+ 51 D persists   [460, 69, 69, 69, 69]       [69, 69, 69, 69, 69]          +60 /   +31   8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+ 58 D persists   [149, 149, 149, 149, 149]   [149, 149, 149, 149, 149]     +58 /   +77   6k1/p1r3p1/1p2p3/3p2p1/1Q1Pnn2/2P4P/2P5/R5K1 b - - 7 35
+ 61 E unstable   [155, 155, 155, 155, 155]   [155, 155, 39, 39, 155]      +117 /  +140   8/5p1k/4p1p1/1Q5p/8/PP3b1q/3R4/6K1 b - - 0 44
+ 86 D persists   [398, 398, 398, 398, 398]   [398, 398, 398, 398, 398]     +50 /   +94   3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46
+ 36 C deeper     [262, 262, 262, 262, 275]   [262, 262, 262, 0, 0]         +76 /   +28   8/8/1R1pk3/1Pp5/7r/K7/7P/8 b - - 0 46
+ 36 D persists   [73, 440, 440, 440, 440]    [73, 124, 440, 440, 440]       +6 /   +96   1R6/8/3pk3/1Pp5/8/7r/2K5/8 b - - 9 52
+ 36 D persists   [454, 450, 450, 454, 450]   [450, 450, 450, 450, 450]      +0 /  +126   1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+ 45 C deeper     [442, 442, 442, 442, 442]   [442, 442, 442, 442, 0]        +9 /   +14   8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+ 63 E unstable   [328, 328, 328, 328, 328]   [328, 0, 328, 328, 328]       +98 /  +102   4R3/5kp1/8/5p1p/5P1P/1Pr5/5KP1/8 w - - 9 54
+ 81 D persists   [332, 332, 332, 332, 71]    [332, 332, 332, 332, 71]      +65 /  +116   8/1p5p/p4k2/P7/R2p1K2/4p2N/2r1P1rP/4R3 w - - 4 46
+ 90 D persists   [408, 384, 384, 384, 384]   [384, 384, 384, 384, 384]     -95 /   -33   8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+ 75 D persists   [349, 349, 529, 70, 70]     [70, 349, 70, 70, 70]         -14 /    +9   R7/2r4k/5qp1/3p1r1p/1P2pP1P/P1p1P1Q1/2R3PK/8 b - - 1 43
+ 75 D persists   [549, 549, 549, 549, 549]   [549, 549, 549, 549, 549]     +96 /  +129   1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69
+ 96 D persists   [311, 311, 311, 311, 311]   [311, 311, 311, 311, 311]     +22 /   +34   8/7p/3pN1pk/1Q1Pqp2/4p2P/3nP1P1/R4P1K/2r5 b - - 15 46
+ 99 D persists   [165, 165, 165, 165, 165]   [165, 165, 165, 165, 165]    -135 /   +28   r3r1k1/4qppp/2p2n2/1p1p1P1b/1P1P2Pn/2NBP2P/2QN4/1R2R1K1 b - - 0 22
+ 78 D persists   [466, 466, 466, 466, 466]   [466, 466, 466, 466, 466]     +34 /   +19   7k/6p1/4p3/4P2p/5n2/6P1/2r2N1P/4RK2 b - - 0 47
+
+unique positions 18: verdicts {'-': 1, 'D persists': 13, 'E unstable': 2, 'C deeper': 2} ('-' = no longer an error at depth 6)
+depth-6 loss better by >20 cp in 4, worse in 0, unchanged in 14
+rows whose root is still under +100 at depth 10 with the candidate: 13/18

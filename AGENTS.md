@@ -45,7 +45,10 @@ showing that more search does *not* automatically mean more strength, so
   1. *Root move quality* -- `tools/corpus/analyse.py` on
      `corpus/competition_like_v1.jsonl`, plus the conversion regression suite
      `corpus/conversion_regression_v1.jsonl` via `tools/conversion/suite.py run`
-     and the blind-win regression suite `corpus/blindwin_regression_v1.jsonl`.
+     and the blind-win regression suite `corpus/blindwin_regression_v1.jsonl`
+     via `tools/blindwin/run.py` (report by row, by unique FEN and by
+     source-game cluster; tune on the diagnostic half only, read validation
+     once after freezing).
      Cheap screening **only**. It admits
      near-balanced positions by construction (239 of 240 under 50 cp) and
      cannot see a change that trades balanced-position quality for unbalanced,

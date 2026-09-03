@@ -1,0 +1,76 @@
+== FIXED-DEPTH DIAGNOSTIC SET ==
+200 games  +35 =131 -34  candidate score 50.2%
+terminations {'threefold_repetition': 129, 'checkmate': 69, 'insufficient_material': 2}
+
+per-game agreement with the arena result: 118 same, 82 different (games are not expected to repeat; the question is whether the *direction* holds)
+arena score on these games 44.2%, fixed-depth score 50.2%
+
+== FIRST-ERROR ANALYSIS (per engine, per game) ==
+            moves    <=25   26-99  100-299   >=300  robust  games w/ serious  mean 1st serious ply  games w/ cat
+cand         4827   75.1%   13.9%     6.8%    4.2%    39.9               137                  12.4           104
+base         4814   75.2%   13.9%     6.6%    4.3%    39.4               140                  12.4           100
+who makes the first serious error: {'cand first': 70, 'base first': 62, 'neither': 55, 'only base erred': 8, 'only cand erred': 5}
+
+== CONVERSION AND DEFENCE (Stockfish eval from the engine's side, first time a threshold is reached) ==
+-- cand --
+  ahead >= +100: n= 82  won  42.7% drew  45.1% lost  12.2%   |   behind <= -100: n= 94  held (draw or win)  63.8% lost  36.2%
+  ahead >= +200: n= 73  won  47.9% drew  42.5% lost   9.6%   |   behind <= -200: n= 83  held (draw or win)  59.0% lost  41.0%
+  ahead >= +300: n= 67  won  52.2% drew  40.3% lost   7.5%   |   behind <= -300: n= 78  held (draw or win)  56.4% lost  43.6%
+-- base --
+  ahead >= +100: n= 94  won  36.2% drew  51.1% lost  12.8%   |   behind <= -100: n= 82  held (draw or win)  57.3% lost  42.7%
+  ahead >= +200: n= 83  won  41.0% drew  50.6% lost   8.4%   |   behind <= -200: n= 73  held (draw or win)  52.1% lost  47.9%
+  ahead >= +300: n= 78  won  43.6% drew  48.7% lost   7.7%   |   behind <= -300: n= 67  held (draw or win)  47.8% lost  52.2%
+
+== RECOVERY: after the OPPONENT's first serious error, does the engine convert? ==
+  cand: opponent erred first-seriously in 140 games -> won 25.0% drew 52.9% lost 22.1%
+  base: opponent erred first-seriously in 137 games -> won 24.8% drew 53.3% lost 21.9%
+
+== PHASE BREAKDOWN (phase of the position the move was played in) ==
+phase        side    moves  serious%    cat%  robust
+middlegame   cand      967     15.0%    4.1%    49.3
+middlegame   base      968     13.7%    3.7%    47.2
+endgame      cand     3860     10.1%    4.3%    37.6
+endgame      base     3846     10.2%    4.4%    37.4
+phase of the LOSER's worst move in decisive games: cand lost -> {'endgame': 28, 'middlegame': 6}; base lost -> {'endgame': 27, 'middlegame': 8}
+
+== STRUCTURAL BREAKDOWN (tags of the position at the time of each move) ==
+tag                       n cand  ser% cand  rob cand  n base  ser% base  rob base  delta rob
+locked_pawn_chain            379      15.0%      47.6     383       9.9%      38.2       +9.4
+exchange_imbalance           601      15.3%      50.9     604      12.6%      43.2       +7.7
+bishop_pair                  291       9.3%      35.9     293       7.5%      29.2       +6.7
+opposite_side_castling       120      22.5%      53.0     124      16.9%      46.7       +6.3
+queenless_middlegame         262      12.6%      41.5     263      10.6%      35.4       +6.1
+open_centre                  505      15.2%      53.9     506      13.2%      48.7       +5.3
+pawn_ending                  282      16.3%      69.2     277      15.9%      64.2       +5.0
+advanced_passer             1433      14.2%      48.8    1443      13.7%      46.0       +2.8
+rook_and_minor_ending       1301      11.5%      40.1    1303      11.1%      37.5       +2.7
+protected_passer             992      12.1%      47.7     976      11.5%      45.2       +2.5
+passed_pawn                 3432      12.0%      43.4    3422      11.5%      41.6       +1.8
+material_imbalance          2637      10.6%      39.1    2652      10.2%      37.8       +1.3
+closed_centre                136       5.1%      25.7     140       5.7%      24.5       +1.2
+minor_piece_ending           675       9.9%      38.0     670      10.0%      37.7       +0.4
+exposed_king                 461      20.0%      61.8     459      18.3%      62.1       -0.2
+same_side_castling           731      13.7%      45.9     731      13.7%      46.3       -0.4
+rook_ending                  680      11.3%      40.8     671      11.3%      41.5       -0.7
+connected_passers            884      11.0%      42.5     875      12.1%      43.5       -1.0
+hanging_piece                656       9.3%      32.8     735       9.8%      37.9       -5.1
+space_advantage              620      12.1%      39.6     602      11.8%      45.0       -5.5
+king_in_centre                32      12.5%      64.8      30      13.3%      71.5       -6.8
+(positive delta = candidate loses more centipawns per move than baseline in that structure)
+
+== PASSED-PAWN CONTRIBUTION ==
+decisive games 69: a passed pawn existed at some point in 69; an advanced/connected passer in 64
+  cand lost 34: worst move made in a passer position 31; oracle's best was a pawn move/capture while the engine's was not 1
+  base lost 35: worst move made in a passer position 28; oracle's best was a pawn move/capture while the engine's was not 5
+  cand: serious-error rate with passers 12.0% (n=3432), without 8.7% (n=1395)
+  base: serious-error rate with passers 11.5% (n=3422), without 9.5% (n=1392)
+
+== EVALUATION CALIBRATION against Stockfish (all positions, white's view) ==
+positions 8255: pearson r cand +0.682  base +0.671
+slope static/SF: cand 0.49  base 0.47  (units differ; the shape matters)
+  cand: sign-wrong by a margin (static beyond +-50, SF beyond -+100 the other way): 329 (4.0%)
+  base: sign-wrong by a margin (static beyond +-50, SF beyond -+100 the other way): 314 (3.8%)
+'compensation' positions (up >=2 pawn-units of material yet Stockfish says not better): n=370
+   mean static from the material-up side: cand +252  base +277  Stockfish -147
+
+== REPRESENTATIVE TRAJECTORIES (candidate losses in the clusters the arena baseline won both colours) ==

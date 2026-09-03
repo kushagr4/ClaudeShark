@@ -23,6 +23,7 @@ off) that was measured and rejected; see
 | **v0.5.2-correctness** | v0.5.1 + the PV transposition-cutoff fix | **not a strength claim**, but it removes an oracle-confirmed 560 cp tactical error for +0.41% nodes. See `benchmarks/current/2026-09-02-tt-pv-cutoff.md` |
 | v0.6-material-scale | v0.5.2 with material scaled x1.47 | **rejected.** Passed every deterministic gate and then lost 40 Elo over 200 games (bootstrap CI -67..-14). See `benchmarks/current/2026-09-03-v0.6-material-scale.md` |
 | v0.7-mopup | v0.5.2 + a mating gradient for bare-king endings, `CS_EVAL_MOPUP` | **keep for confirmation; default off.** Fixes its class outright (18/19 bare-king endings converted in play, 12/12 on the bench, 0/240 root moves changed, identical node counts) and moves the paired-game score by +3 Elo, bootstrap -0..+9. Not yet arena-tested. See `benchmarks/current/2026-09-03-mop-up-v1.md` |
+| v0.8-passed | v0.5.2 + a rank-indexed passed-pawn bonus, `CS_EVAL_PASSED` | **inconclusive; default off.** Deterministic gates positive (blind-win suite robust loss 124->89 diagnostic, 149->123 validation read once; conversion diagnostic 226->181; root suite 35.3->34.0 with 29/240 moves changed; both adversarial flagship controls improved, none worsened) but the paired-game score is +2 Elo with a bootstrap of -26..+30. Not arena-tested. See `benchmarks/current/2026-09-03-passed-pawn-v1.md` |
 
 **`submission.zip` is a build artefact, never authoritative.** It is
 gitignored and is rebuilt from source by `tools/release_check.py` into a
@@ -245,8 +246,11 @@ moves.
 Tapered PeSTO material and piece-square tables interpolated on a 0–24 game
 phase, plus a bishop pair term and a tempo bonus. Written as one flat function
 with locals bound up front and no allocation, scanning piece bitboards directly.
-Nothing else is in there yet, on purpose: every extra term has to pay for its
-runtime cost in measured Elo. The 2026-09-02 corpus calibration ranks the
+Two flag-gated terms exist beside it, both default off: a bare-king mop-up
+gradient (`cs_mopup.py`) and a rank-indexed passed-pawn bonus
+(`cs_passed.py`, cached by pawn structure so it costs about 4% of evaluator
+throughput). Nothing is switched on by default, on purpose: every extra term
+has to pay for its runtime cost in measured Elo. The 2026-09-02 corpus calibration ranks the
 missing terms by evidence (king safety first); see
 `benchmarks/current/2026-09-02-corpus-calibration.md`.
 
@@ -315,6 +319,21 @@ else. It finishes every stuck ending the audit found and changes nothing
 outside its domain; the paired-game gain is +3 Elo with a bootstrap of -0..+9,
 because the class it fixes cost the baseline only two to six half-points per
 200 games. Kept flag-gated pending a time-controlled arena.
+
+**Passed pawns v1** (`cs_passed.py`, flag `CS_EVAL_PASSED`, default off) is
+the second: one bonus indexed by relative rank, separate middlegame and
+endgame tables, both monotonic, tapered with everything else, the front pawn
+of a doubled file only. Deliberately nothing else -- no king distances, no
+square rule, no connected or protected or blocked adjustments -- so the
+result is attributable to the single fact "this pawn cannot be stopped by a
+pawn". The tables were chosen once from a five-member family on the
+diagnostic half of the blind-win suite (the smallest member won outright)
+and frozen. It moves the deterministic gates the right way and leaves the
+adversarial controls no worse, but the term supplies only about 3% of the
+missing evaluation at the end of Stockfish's lines: the moves improve
+because the search now has a gradient toward keeping and advancing passers,
+not because the static sees the win. 200 paired games: +2 Elo, bootstrap
+-26..+30. Inconclusive; kept flag-gated.
 
 **The conversion weakness is endgame knowledge, not search.** The 2026-09-03
 conversion audit (`benchmarks/current/2026-09-03-conversion-audit.md`) found
