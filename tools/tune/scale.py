@@ -1,6 +1,6 @@
 """One-parameter material scale: is material underweighted against the tables?
 
-Fable's ten-parameter fit preserved the current relative piece ratios almost
+The ten-parameter fit preserved the current relative piece ratios almost
 exactly while pushing four parameters onto their bounds. That is the signature
 of a model with one real degree of freedom wearing ten, so this fits the one:
 

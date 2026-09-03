@@ -1,4 +1,4 @@
-# Corpus calibration and move-quality diagnosis (Fable session 1)
+# Corpus calibration and move-quality diagnosis (corpus-calibration session)
 
 Date: 2026-09-02. Base: `6449ad2`. Candidate: `champions/v0_5_1_correctness`,
 which the working tree matches byte for byte. **No production engine file was
@@ -483,7 +483,7 @@ with few pieces, exactly where the engine should be deepest.
 | 7 | the regression says the same thing in numbers: king_open_files -24, king_zone_attackers -16, t about -5 | `corpus/eval_residuals.md` | the quiet-score coefficient table, top six rows |
 | 8 | a concrete search defect: the engine sees -9.39 and still refuses the only defence; one flag fixes it | section 18b, st-098 | the terminal output of the two one-liners, then the board |
 | 9 | a rare structure breaks the engine: a pure pawn ending mis-evaluated by 4 pawns at every depth | section 18b, st-024 | the board and the ladder line `422 x6` |
-| 10 | Fable disagrees with the standing plan: PROJECT.md lists "passed pawns, rook on open file, king safety, mobility, doubled and isolated pawns" in that order; the evidence puts king safety first and doubled/isolated last | section 13 ranking against `PROJECT.md` "Evaluation" bullet | the two lists side by side |
+| 10 | This analysis disagrees with the standing plan: PROJECT.md lists "passed pawns, rook on open file, king safety, mobility, doubled and isolated pawns" in that order; the evidence puts king safety first and doubled/isolated last | section 13 ranking against `PROJECT.md` "Evaluation" bullet | the two lists side by side |
 
 ## 20. Reproduction commands (Windows CMD, from the repository root)
 
@@ -529,7 +529,7 @@ are deterministic; the 4.5 s run is not.
 | `corpus/analysis_{legacy_v2_d6,cl_v1_d6,cl_v1_4500ms,st_v1_d6}.{jsonl,md}` | move quality |
 | `corpus/diagnosis_{cl_v1,st_v1}.{jsonl,md}` | causes |
 | `corpus/eval_residuals.md` | the evaluator regression |
-| `benchmarks/current/2026-09-02-fable-corpus-calibration.md` | this record |
+| `benchmarks/current/2026-09-02-corpus-calibration.md` | this record |
 | `BENCHMARKS.md`, `PROJECT.md`, `.gitignore` | pointers; `corpus/candidates.jsonl` ignored as regenerable |
 
 ## 22. Git state

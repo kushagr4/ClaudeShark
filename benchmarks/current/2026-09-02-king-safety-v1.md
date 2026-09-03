@@ -5,7 +5,7 @@ Date: 2026-09-02. Base: `27e7f8c` (`champions/v0_5_2_correctness`).
 
 ## Why it was tried
 
-Fable's structural analysis put king safety at the top of the evaluation
+The structural analysis put king safety at the top of the evaluation
 weakness list. Reproduced independently before implementing anything:
 
 | claim | verdict |

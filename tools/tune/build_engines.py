@@ -1,6 +1,6 @@
 """Materialise the three deterministic candidates as engine directories.
 
-Baseline, the one-parameter material scale and Fable's ten-parameter fit, each
+Baseline, the one-parameter material scale and the ten-parameter fit, each
 as a complete agent directory under `corpus/tune/engines/`, so the standard
 benchmark and arena tooling can address them like any frozen champion. They are
 derived artefacts, rebuilt by this script, and are not tracked.

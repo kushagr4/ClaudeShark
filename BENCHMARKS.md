@@ -371,9 +371,9 @@ proven property, and because futility pruning and further quiescence work both
 need an exchange evaluator — **not** because it was shown to gain Elo. It was
 not.
 
-## 2026-09-02 — corpus calibration and move-quality diagnosis (Fable, session 1)
+## 2026-09-02 — corpus calibration and move-quality diagnosis (corpus-calibration session)
 
-Record: [`benchmarks/current/2026-09-02-fable-corpus-calibration.md`](benchmarks/current/2026-09-02-fable-corpus-calibration.md).
+Record: [`benchmarks/current/2026-09-02-corpus-calibration.md`](benchmarks/current/2026-09-02-corpus-calibration.md).
 No engine change. What was measured, against an offline reference engine
 (Stockfish 18, fixed nodes, tooling only, never shipped):
 

@@ -1,6 +1,6 @@
 """Diagnostic: where does the ten-parameter fit go when the bounds are lifted?
 
-Fable's fit put four of its ten parameters on the 1.5x ceiling. That is either
+The earlier fit put four of its ten parameters on the 1.5x ceiling. That is either
 a real signal the band is too tight, or the fit still climbing the calibration
 gradient described in `tools.tune.scale` -- bigger numbers score better under a
 fixed sigmoid scale whether or not they are better chess.
@@ -56,7 +56,7 @@ def main() -> None:
     va = quiet & (split == "val")
 
     out = ["# Diagnostic: widened bounds, K refitted at every width", "",
-           "Fable's fit placed four of ten parameters on the 1.5x ceiling. With K "
+           "The earlier fit placed four of ten parameters on the 1.5x ceiling. With K "
            "refitted per width the calibration gradient is removed, so a fit that "
            "still climbs with the ceiling is absorbing units rather than chess.", "",
            "| bounds | lambda | max|delta| | on bound | val ES-MSE | K "

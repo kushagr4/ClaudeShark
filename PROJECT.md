@@ -247,7 +247,7 @@ with locals bound up front and no allocation, scanning piece bitboards directly.
 Nothing else is in there yet, on purpose: every extra term has to pay for its
 runtime cost in measured Elo. The 2026-09-02 corpus calibration ranks the
 missing terms by evidence (king safety first); see
-`benchmarks/current/2026-09-02-fable-corpus-calibration.md`.
+`benchmarks/current/2026-09-02-corpus-calibration.md`.
 
 **The material values are not under-scaled, and the 240-position suite cannot
 be used as a strength gate.** A one-parameter material scale of x1.47, fitted

@@ -2,7 +2,7 @@
 
 Date: 2026-09-02. Base: `8fb67f8`. Result: `champions/v0_5_2_correctness`.
 
-Reported by Fable during corpus analysis, reproduced independently here, and
+Reported during the corpus analysis, reproduced independently here, and
 confirmed against the offline oracle. This is the largest single tactical error
 the project has found.
 
@@ -127,7 +127,7 @@ two divergences were `none` against the other two, and both were score-neutral:
 | 51 | `c2c8` 67 | `c2c5` 67 |
 | 168 | `e8b8` 7 | `e8a8` 15 |
 
-Fable reported 3/240 for `none`; this run found 2. Close enough to be the same
+The corpus analysis reported 3/240 for `none`; this run found 2. Close enough to be the same
 observation under slightly different conditions, and immaterial either way.
 
 **Stress-test suite, 138 positions: 1 divergence — the bug itself.**
@@ -146,7 +146,7 @@ That the near-level suite shows nothing while the stress suite shows exactly one
 case is the point of keeping the two separate: this defect needs a sharp
 position with a forced-looking king attack to fire at all.
 
-## Fable's corpus, verified
+## The calibrated corpus, verified
 
 Checked before relying on any of it:
 

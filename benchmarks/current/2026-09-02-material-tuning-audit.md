@@ -339,7 +339,7 @@ design, or it will cost more in nodes than it returns in accuracy.
 
 ## 12. Recommended next implementation
 
-Exactly one frozen candidate, for Claude to implement flag-gated and arena:
+Exactly one frozen candidate, to implement flag-gated and arena:
 
 **`v0.6-material-scale` — the simulated quiet candidate, verbatim:**
 MG `(0, 121, 506, 530, 688, 1210, 0)`, EG `(0, 141, 422, 407, 736, 1404, 0)`.

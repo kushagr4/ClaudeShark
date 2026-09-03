@@ -1,6 +1,6 @@
 # Diagnostic: widened bounds, K refitted at every width
 
-Fable's fit placed four of ten parameters on the 1.5x ceiling. With K refitted per width the calibration gradient is removed, so a fit that still climbs with the ceiling is absorbing units rather than chess.
+The earlier fit placed four of ten parameters on the 1.5x ceiling. With K refitted per width the calibration gradient is removed, so a fit that still climbs with the ceiling is absorbing units rather than chess.
 
 | bounds | lambda | max|delta| | on bound | val ES-MSE | K | effective scale | MG P/N/B/R/Q |
 |---|---|---|---|---|---|---|---|
