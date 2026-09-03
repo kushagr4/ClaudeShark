@@ -21,6 +21,7 @@ off) that was measured and rejected; see
 | v0.5-correctness | v0.4 + the 2026-09-02 repairs | **not a strength claim.** It fixes bugs that silently corrupted results and play; it is not asserted to be stronger |
 | v0.5.1-correctness | residual rules and benchmark-integrity repair | **not a strength claim** |
 | **v0.5.2-correctness** | v0.5.1 + the PV transposition-cutoff fix | **not a strength claim**, but it removes an oracle-confirmed 560 cp tactical error for +0.41% nodes. See `benchmarks/current/2026-09-02-tt-pv-cutoff.md` |
+| v0.6-material-scale | v0.5.2 with material scaled x1.47 | **rejected.** Passed every deterministic gate and then lost 40 Elo over 200 games (bootstrap CI -67..-14). See `benchmarks/current/2026-09-03-v0.6-material-scale.md` |
 
 **`submission.zip` is a build artefact, never authoritative.** It is
 gitignored and is rebuilt from source by `tools/release_check.py` into a
@@ -247,6 +248,16 @@ Nothing else is in there yet, on purpose: every extra term has to pay for its
 runtime cost in measured Elo. The 2026-09-02 corpus calibration ranks the
 missing terms by evidence (king safety first); see
 `benchmarks/current/2026-09-02-fable-corpus-calibration.md`.
+
+**The material values are not under-scaled, and the 240-position suite cannot
+be used as a strength gate.** A one-parameter material scale of x1.47, fitted
+with the sigmoid scale K refitted per candidate and selected on validation,
+improved the leakage-free external suite, the stress suite and every error
+band, cost nothing at runtime, and then lost 40 Elo in a 200-game match. Two
+things follow. Material scale is a dead end and should not be retried. More
+importantly, oracle-agreement over single moves is a *screening* tool: it can
+rank candidates for further work, but a candidate must win games before any
+strength claim is made. See `benchmarks/current/2026-09-03-v0.6-material-scale.md`.
 
 ## Testing methodology
 

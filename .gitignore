@@ -13,3 +13,6 @@ corpus/candidates.jsonl
 
 # derived feature cache for offline tuning; rebuilt by tools.tune.features
 corpus/tune/*.npz
+
+# Derived candidate engine directories, rebuilt by tools.tune.build_engines.
+corpus/tune/engines/

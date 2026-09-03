@@ -1,0 +1,36 @@
+K refitted on TRAIN at each s; validation loss then measured with that K.
+    s  K(train)     train       val  val vs s=1    K-free?
+ 1.00       116   0.04969   0.04406      +0.00%
+ 1.10       122   0.04950   0.04352      -1.21%
+ 1.20       128   0.04944   0.04315      -2.06%
+ 1.30       136   0.04946   0.04300      -2.39%
+ 1.40       144   0.04954   0.04294      -2.53%
+ 1.50       152   0.04966   0.04294      -2.53%
+ 1.60       160   0.04981   0.04298      -2.43%
+ 1.70       168   0.04997   0.04306      -2.26%
+ 1.80       176   0.05015   0.04316      -2.03%
+ 1.90       186   0.05034   0.04336      -1.57%
+ 2.00       194   0.05052   0.04348      -1.30%
+ 2.10       204   0.05071   0.04369      -0.82%
+ 2.20       212   0.05089   0.04382      -0.53%
+ 2.30       222   0.05107   0.04403      -0.06%
+ 2.40       232   0.05125   0.04423      +0.39%
+ 2.50       242   0.05142   0.04442      +0.83%
+ 2.60       252   0.05158   0.04461      +1.26%
+
+best by validation with K free: s=1.45  K=148  val=0.04293  (-2.55%)
+
+--- whole-eval control with K free (must be exactly flat: s and K are the same knob) ---
+  whole s=1.00  K(train)=116  val=0.04406
+  whole s=1.30  K(train)=150  val=0.04402
+  whole s=1.70  K(train)=196  val=0.04402
+  whole s=2.20  K(train)=254  val=0.04403
+
+--- so: at the SAME K, does material scale still beat s=1? ---
+K fitted at s=1 on train: 116
+  s=1.00 (K fixed 116): val 0.04406  (+0.00%)
+  s=1.20 (K fixed 116): val 0.04261  (-3.29%)
+  s=1.40 (K fixed 116): val 0.04197  (-4.73%)
+  s=1.60 (K fixed 116): val 0.04197  (-4.73%)
+  s=1.80 (K fixed 116): val 0.04245  (-3.65%)
+  s=2.00 (K fixed 116): val 0.04329  (-1.75%)

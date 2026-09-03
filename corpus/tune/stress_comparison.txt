@@ -1,0 +1,7 @@
+stress suite, positions common to all three: 120
+                 agree  <=25cp  robust  serious  catast
+A baseline      75.8%  82.5%    31.2   10.0%   3.3%
+B scale1.47     76.7%  85.8%    23.4    7.5%   2.5%
+C 10-param      76.7%  85.0%    26.1    8.3%   2.5%
+B scale1.47: changed 7, better 6, worse 1
+C 10-param: changed 5, better 4, worse 1

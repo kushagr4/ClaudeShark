@@ -161,7 +161,8 @@ def main() -> None:
 
     arguments.out.parent.mkdir(parents=True, exist_ok=True)
     arguments.out.write_text("\n".join(out) + "\n", encoding="utf-8")
-    shutil.copy2(analysis, arguments.out.parent / "simulate_analysis.jsonl")
+    # Name the record after --out so two candidates never collide.
+    shutil.copy2(analysis, arguments.out.with_suffix(".analysis.jsonl"))
     print("\n".join(out))
     shutil.rmtree(scratch, ignore_errors=True)
 

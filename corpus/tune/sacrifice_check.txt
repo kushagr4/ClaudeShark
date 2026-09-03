@@ -1,0 +1,13 @@
+suite positions where the oracle's best move is a losing-SEE capture: 8
+               found  mean loss
+A baseline      2/8         56
+B scale         2/8         44
+C 10-param      3/8         51
+    b5c4 oracle | A   f8e8   38 | B   d8e7   34 | C   d8c7   26  1r1q1r2/5pkp/p2p2p1/1bpPp2n/2N1P3/5P2/PP1QN1PP/2R2RK1 b - - 4 19
+    c4a3 oracle | A   c4e3  225 | B   c4a5  121 | C   c4e3  225  r3k2r/4npbp/1qp1p1p1/3pP2P/2nP1P2/PpQ1B3/1P1N2P1/1KR2N1R b kq - 4 20
+    b2c3 oracle | A   e1e5   29 | B   e1e5   29 | C   b2c3    0  1r1r2k1/5p2/2qn2p1/4b1Np/1P1p3P/1Qn3P1/1B3P2/2R1R1K1 w - - 0 34
+    a6d3 oracle | A   a6d3    0 | B   a6d3    0 | C   a6d3    0  r3qrk1/p1pp2pp/bbp5/4P3/6n1/3N2B1/PPP1NPPP/R2Q1RK1 b - - 4 14
+    b4c3 oracle | A   b4c3    0 | B   b4c3    0 | C   b4c3    0  r1bnk1r1/ppp2pPp/8/8/1bp5/2N2N2/PP3PPP/R1B2RK1 b q - 0 11
+    b5c6 oracle | A   b5c4   20 | B   b5c4   20 | C   b5c4   20  5rk1/pp2bppp/2n1p3/1B1r4/3P4/4B3/PP3PPP/R2R2K1 w - - 0 18
+    d4d5 oracle | A   e3g5  109 | B   e3g5  109 | C   e3g5  109  8/5pkp/4p1p1/1q1nP3/3R4/P3BQPK/5P1P/6r1 w - - 17 44
+    f6e4 oracle | A   e7f5   26 | B   e7d5   39 | C   e7f5   26  r1bqr1k1/pp2nppp/5n2/1P1P4/3NP3/P2B4/3B1PPP/R2QK2R b KQ - 0 15

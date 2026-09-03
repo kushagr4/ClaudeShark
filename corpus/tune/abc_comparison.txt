@@ -1,0 +1,60 @@
+loaded A240 B240 C240 W240
+
+=== ALL 240  n=240 ===
+               agree  <=25cp  robust  serious  catast
+A baseline    37.1%  65.8%    35.3   10.0%   1.7%
+B scale1.47   37.5%  65.4%    33.2    9.6%   1.7%
+C 10-param    37.9%  67.9%    30.8    8.8%   0.8%
+W uniform     35.8%  64.2%    34.7   10.0%   1.7%
+
+=== EXTERNAL (val/test games)  n=68 ===
+               agree  <=25cp  robust  serious  catast
+A baseline    41.2%  66.2%    31.6    8.8%   1.5%
+B scale1.47   38.2%  64.7%    30.0    7.4%   1.5%
+C 10-param    39.7%  67.6%    25.8    7.4%   0.0%
+W uniform     39.7%  61.8%    31.0    7.4%   1.5%
+
+=== in-train  n=172 ===
+               agree  <=25cp  robust  serious  catast
+A baseline    35.5%  65.7%    36.7   10.5%   1.7%
+B scale1.47   37.2%  65.7%    34.4   10.5%   1.7%
+C 10-param    37.2%  68.0%    32.7    9.3%   1.2%
+W uniform     34.3%  65.1%    36.1   11.0%   1.7%
+
+B vs C differ on 44/240 positions; C better by >10cp: 18, B better: 16
+
+=== B (scale 1.47) vs baseline, by structural tag (n>=15) ===
+tag                           n  robust A  robust B   delta
+exchange_imbalance           18      38.7      19.1   -19.6
+exposed_king                 54      57.9      42.8   -15.1
+closed_centre                24      44.1      34.5    -9.6
+locked_pawn_chain            31      40.5      31.0    -9.5
+hanging_piece                45      38.3      29.0    -9.2
+king_in_centre               48      31.9      23.4    -8.6
+rook_on_semi_open_file      104      39.0      31.3    -7.7
+space_advantage              30      55.1      48.0    -7.1
+passed_pawn                  98      46.2      39.4    -6.8
+open_centre                  91      36.8      32.2    -4.6
+same_side_castling           92      44.8      40.8    -4.0
+opposite_coloured_bishops    27      29.0      25.8    -3.2
+bishop_pair                  76      32.1      28.9    -3.2
+unusual_king_placement       15      64.8      61.9    -2.9
+isolated_pawn               172      37.0      34.2    -2.7
+semi_open_file              227      35.4      33.0    -2.4
+material_imbalance          127      45.9      43.6    -2.4
+bad_bishop                   65      41.3      39.1    -2.1
+doubled_pawns                94      29.0      26.9    -2.1
+open_file                   167      37.2      35.4    -1.9
+backward_pawn                96      30.8      29.5    -1.4
+weak_colour_complex          47      37.9      37.6    -0.3
+rook_on_open_file            91      49.7      49.9    +0.2
+rook_and_minor_ending        21      38.9      40.7    +1.8
+queenless_middlegame         41      39.3      42.6    +3.4
+knight_outpost               45      28.8      32.8    +4.0
+isolated_queen_pawn          30      20.2      25.2    +5.0
+protected_passer             41      37.6      45.3    +7.7
+queenside_majority           46      48.2      56.7    +8.5
+carlsbad                     22      16.1      25.9    +9.8
+opposite_side_castling       21      32.1      47.0   +14.9
+connected_passers            26      41.4      56.4   +15.0
+advanced_passer              33      42.8      57.9   +15.1

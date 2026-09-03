@@ -58,5 +58,32 @@
    223.66298686558955,
    468.0
   ]
+ },
+ "whole_eval_scale_control": {
+  "kind": "whole_eval_scale",
+  "s": 1.7,
+  "k": 185.0,
+  "note": "decision-invariant statically; control only, not a candidate"
+ },
+ "scale 1.47": {
+  "kind": "material_scale",
+  "s": 1.47,
+  "k": 148.0,
+  "mg": [
+   121,
+   495,
+   537,
+   701,
+   1507
+  ],
+  "eg": [
+   138,
+   413,
+   437,
+   753,
+   1376
+  ],
+  "fitted_on": "quiet (tol 30) train, K refitted per s",
+  "selected_on": "validation"
  }
 }

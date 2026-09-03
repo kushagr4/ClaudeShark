@@ -1,0 +1,19 @@
+games: 200  failed: 0
+overall score: 44.2%
+
+  as white:  45.5%  n=100
+  as black:  43.0%  n=100
+
+game length               n   score
+< 60 plies               73  45.9%
+60-99                    66  37.9%
+100-159                  53  50.0%
+160+ (endgames)           8  43.8%
+
+terminations by outcome:
+  win   n= 23  {'checkmate': 23}
+  draw  n=131  {'threefold_repetition': 116, 'insufficient_material': 11, 'fifty_moves': 4}
+  loss  n= 46  {'checkmate': 46}
+
+decisive games ending with more than two queens on the board (i.e. a promotion happened): 1/69
+  agent score in those: 0.0%
