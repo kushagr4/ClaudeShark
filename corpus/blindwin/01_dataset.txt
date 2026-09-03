@@ -1,0 +1,27 @@
+== BLIND-WIN EPISODES: 129 (Stockfish >= +300 for production, root < +100; first ply of each run) ==
+
+after an opponent blunder on the previous ply: 88/129
+engine's move at the episode start loses >= 100 cp: 49/129; >= 300: 30
+eventual result from these games: won 59, drawn 64, lost 6
+
+== HORIZON OR BLIND: production static at the end of Stockfish's PV ==
+  blind (static still under +100 at the PV end)        66  51%
+  partly (static at PV end 100..299)                   44  34%
+  horizon (static sees it at the PV end)               19  15%
+  mean static at the episode: -4; at the PV end: +141; Stockfish +429
+
+== MECHANISM (from the PV) ==
+  quiet / unresolved       44  34%   horizon   0 / partly   8 / blind  36   failed-to-punish 21   mean SF +390
+  wins pawn(s)             37  29%   horizon   0 / partly  28 / blind   9   failed-to-punish 13   mean SF +407
+  wins a piece             18  14%   horizon  11 / partly   6 / blind   1   failed-to-punish 3   mean SF +484
+  king activity            15  12%   horizon   0 / partly   0 / blind  15   failed-to-punish 5   mean SF +451
+  promotion race           12  9%   horizon   8 / partly   1 / blind   3   failed-to-punish 7   mean SF +534
+  rook activity             3  2%   horizon   0 / partly   1 / blind   2   failed-to-punish 0   mean SF +393
+
+== PHASE / MATERIAL / STRUCTURE ==
+  phase: {'endgame': 93, 'middlegame': 36}
+  material from production's side: {-4: 5, -3: 1, -2: 3, -1: 27, 0: 64, 1: 25, 2: 3, 3: 1}
+  own passers present: 76; their passers: 58
+  tags (share of episodes): semi_open_file 96%, open_file 95%, isolated_pawn 88%, passed_pawn 71%, backward_pawn 53%, rook_on_open_file 48%, material_imbalance 44%, advanced_passer 26%, doubled_pawns 26%, connected_passers 25%, protected_passer 24%, rook_on_semi_open_file 24%, queenside_majority 23%, same_side_castling 22%
+  endgame: {'quiet / unresolved': 33, 'wins pawn(s)': 31, 'promotion race': 8, 'wins a piece': 4, 'rook activity': 2, 'king activity': 15}
+  middlegame: {'wins pawn(s)': 6, 'wins a piece': 14, 'promotion race': 4, 'quiet / unresolved': 11, 'rook activity': 1}

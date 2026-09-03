@@ -57,6 +57,18 @@ def main() -> None:
             print(json.dumps({"ok": True}), flush=True)
             continue
         board = chess.Board(arg)
+        if cmd == "qs":
+            # Root quiescence score, white's view: what the leaf evaluation
+            # looks like once captures are resolved, with no depth at all.
+            from cs_constants import INFINITY
+            searcher.nodes = 0
+            searcher.qnodes = 0
+            searcher.time.begin_fixed(60_000)
+            searcher._path[0] = hash(board._transposition_key())
+            q = searcher._quiescence(board, -INFINITY, INFINITY, 0, 0)
+            print(json.dumps({"qs": q if board.turn == chess.WHITE else -q,
+                              "qnodes": searcher.qnodes}), flush=True)
+            continue
         if cmd == "static":
             print(json.dumps({"static": white_pov(board)}), flush=True)
             continue

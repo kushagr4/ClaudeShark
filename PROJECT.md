@@ -286,11 +286,26 @@ gate 2 decides, gate 3 confirms.
 The rule that produced this: **the root suite alone is not predictive Elo
 evidence.** A candidate must not reach gate 3 on gate 1 alone.
 
-Gate 1 also includes `corpus/conversion_regression_v1.jsonl`: 90 real
+Gate 1 also includes `corpus/blindwin_regression_v1.jsonl` (68 blind-win
+positions, `tools/blindwin/suite.py`) and `corpus/conversion_regression_v1.jsonl`: 90 real
 self-play positions from failed conversions and defences, split into a
 diagnostic and a validation half by game, built by
 `tools/conversion/suite.py`. It is a regression tool for the conversion
 weakness, never an Elo instrument.
+
+**The blind wins are endgame evaluation, and the next experiment is passed
+pawns.** The blind-win audit (`benchmarks/current/2026-09-03-blind-win-audit.md`)
+took the 129 positions in retained self-play where Stockfish scores
+production +300 or better while its own root says under +100, and walked
+Stockfish's principal variation to its end: in 110 of them the static
+evaluation *still* does not see the win on that quiet position. Pawn endings
+score +4 where Stockfish says +616; the gap climbs with the winner's most
+advanced passer, +324 at ranks 1-3 to +665 at ranks 6-7. Quiescence recovers
+the score in 12 episodes and depth-6 search in 7; the search is not the
+problem. The single next experiment is an endgame-weighted passed-pawn term
+with king-distance components, gated on the 240 suite, the conversion and
+blind-win regression suites, then fixed-depth paired self-play. Passers were
+deferred twice before for lack of a causal signal; the audit supplies it.
 
 **Mop-up v1** (`cs_mopup.py`, flag `CS_EVAL_MOPUP`, default off) is the
 first experiment to come out of that audit: two geometric terms -- drive the

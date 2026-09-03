@@ -41,6 +41,7 @@ ignore = ["N818"]
 "tools/repetition/*" = ["E501"]
 "tools/conversion/*" = ["E501"]
 "tools/mopup/*" = ["E501"]
+"tools/blindwin/*" = ["E501"]
 
 [tool.mypy]
 strict = true

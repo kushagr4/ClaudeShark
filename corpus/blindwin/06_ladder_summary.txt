@@ -1,0 +1,49 @@
+== DEPTH LADDER: 49 failed-to-punish blind episodes, production, depths 6-10 ==
+verdicts: {'D persists': 20, 'C deeper': 5, 'A +1 ply': 9, 'E unstable': 5, '-': 8, 'B +2 plies': 2}
+errors at depth 6 (loss >= 50): 41
+
+verdict x horizon/blind discriminator (static at the PV end):
+  static at PV end     A +1 ply   B +2 plies     C deeper   D persists   E unstable
+  horizon               1            2            1            2            0
+  partly                0            0            3            6            3
+  blind                 8            0            1           12            2
+
+verdict x mechanism:
+  quiet / unresolved     {'D persists': 9, 'A +1 ply': 7, 'E unstable': 2, 'C deeper': 1}
+  wins pawn(s)           {'D persists': 5, 'E unstable': 2, 'C deeper': 3}
+  king activity          {'D persists': 3, 'A +1 ply': 1, 'E unstable': 1}
+  promotion race         {'C deeper': 1, 'B +2 plies': 2, 'A +1 ply': 1}
+  wins a piece           {'D persists': 3}
+
+mean loss by depth: d6: 350 d7: 236 d8: 230 d9: 206 d10: 175 | still >=100 at d10: 19
+
+fixed by ONE extra ply (RECORD THIS candidates):
+  cl  48 quiet / unresolved SF  +323 best a2a1   moves ['f3g3', 'a2a1', 'a2a1', 'a2a1', 'a2a1'] losses [322, 0, 0, 0, 0] scores [8, 16, 27, 28, 50]  8/1k6/2p2p2/3p1P1p/3P4/4PK2/R4P1r/8 w - - 2 40
+  cl  99 quiet / unresolved SF  +320 best g6h4   moves ['e7d6', 'g6h4', 'g6h4', 'g6h4', 'g6h4'] losses [320, 0, 0, 0, 0] scores [28, 40, 79, 191, 191]  3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 2 22
+  cl  99 quiet / unresolved SF  +319 best g6h4   moves ['e7d6', 'g6h4', 'g6h4', 'g6h4', 'g6h4'] losses [320, 0, 0, 0, 0] scores [28, 40, 79, 191, 191]  3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 6 24
+  cl   4 promotion race     SF  +742 best d8e7   moves ['e6e7', 'd8e7', 'd8e7', 'd8e7', 'd8e7'] losses [742, 0, 0, 0, 0] scores [7, 267, 267, 427, 427]  3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+  cl  36 quiet / unresolved SF  +304 best e4c3   moves ['e6c4', 'e4c3', 'e4c3', 'e4c3', 'e4c3'] losses [271, 0, 0, 0, 0] scores [19, 22, 28, 24, 48]  8/1R6/1p1pbkp1/2p2p2/1rP1nP2/K7/2P1B2P/3R4 b - - 0 30
+  cl  31 king activity      SF  +519 best h6h5   moves ['f7e6', 'h6h5', 'h6h5', 'h6h5', 'h6h5'] losses [519, 2, 2, 2, 2] scores [15, 64, 112, 112, 47]  8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62
+  cl  75 quiet / unresolved SF  +302 best f4f5   moves ['a6f6', 'f4f5', 'f4f5', 'f4f5', 'f4f5'] losses [103, 10, 10, 10, 10] scores [58, 64, 64, 103, 94]  8/6k1/R4rp1/1Pqp3p/2r1pP1P/P1p1P1Q1/2R3P1/6K1 w - - 11 51
+  cl  36 quiet / unresolved SF  +304 best e4c3   moves ['e6c4', 'e4c3', 'e4c3', 'e4c3', 'e4c3'] losses [271, 0, 0, 0, 0] scores [19, 22, 28, 24, 48]  8/1R6/1p1pbkp1/2p2p2/1rP1nP2/K7/2P1B2P/3R4 b - - 0 30
+  cl  62 quiet / unresolved SF  +318 best e1d1   moves ['e1e5', 'e1d1', 'e1d1', 'e1d1', 'e1d1'] losses [265, 0, 0, 0, 0] scores [44, 282, 282, 282, 298]  5r2/3r1kpp/pBpb4/P3pp2/1Pp5/2P5/2PR1PPP/4R1K1 w - - 0 27
+
+persists at depth 10 with the root still under +100 (evaluation, not horizon):
+  cl  14 quiet / unresolved blind   SF  +380 best g6g5   moves ['e7d7', 'e7f7', 'e7f7', 'e7f7', 'e7f7'] losses [933, 889, 889, 889, 889] scores [-229, -231, -234, -267, -267]  8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+  cl  38 wins pawn(s)       blind   SF  +380 best h4h5   moves ['g8g2', 'g8g2', 'g8g2', 'g8g2', 'g8g2'] losses [107, 107, 107, 107, 107] scores [-8, 0, 0, 18, 19]  1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62
+  cl  51 wins pawn(s)       partly  SF  +460 best g4g5   moves ['h5g6', 'g4g5', 'g4g5', 'g4g5', 'g4g5'] losses [460, 69, 69, 69, 69] scores [33, 55, 48, 37, 34]  8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+  cl  58 wins pawn(s)       blind   SF  +304 best c7c3   moves ['f4h3', 'f4h3', 'f4h3', 'f4h3', 'f4h3'] losses [149, 149, 149, 149, 149] scores [22, 51, 53, 51, 37]  6k1/p1r3p1/1p2p3/3p2p1/1Q1Pnn2/2P4P/2P5/R5K1 b - - 7 35
+  cl  86 wins a piece       horizon SF  +399 best c6b5   moves ['d8e8', 'd8e8', 'd8e8', 'd8e8', 'd8e8'] losses [398, 398, 398, 398, 398] scores [50, 88, 92, 85, 94]  3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46
+  cl  36 quiet / unresolved blind   SF  +315 best e6d5   moves ['h4h3', 'h4h3', 'h4h3', 'h4h3', 'h4h8'] losses [262, 262, 262, 262, 275] scores [83, 74, 43, 78, 31]  8/8/1R1pk3/1Pp5/7r/K7/7P/8 b - - 0 46
+  cl  36 king activity      blind   SF  +440 best e6d5   moves ['h3h2', 'c5c4', 'c5c4', 'c5c4', 'c5c4'] losses [73, 440, 440, 440, 440] scores [18, 15, 45, 86, 89]  1R6/8/3pk3/1Pp5/8/7r/2K5/8 b - - 9 52
+  cl  36 king activity      blind   SF  +454 best c5c4   moves ['e6d7', 'e6d6', 'e6d6', 'e6d7', 'e6d6'] losses [454, 450, 450, 454, 450] scores [5, 12, 85, 50, 98]  1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+  cl  45 quiet / unresolved blind   SF  +442 best g2g4   moves ['b2b3', 'b2b3', 'b2b3', 'b2b3', 'b2b3'] losses [442, 442, 442, 442, 442] scores [9, 0, 0, -4, 10]  8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+  cl  63 quiet / unresolved blind   SF  +328 best e8e3   moves ['e8b8', 'e8b8', 'e8b8', 'e8b8', 'e8b8'] losses [328, 328, 328, 328, 328] scores [87, 79, 81, 81, 81]  4R3/5kp1/8/5p1p/5P1P/1Pr5/5KP1/8 w - - 9 54
+  cl  90 wins a piece       horizon SF  +384 best f3g3   moves ['b3d3', 'b3b8', 'b3b8', 'b3b8', 'b3b8'] losses [408, 384, 384, 384, 384] scores [-79, -65, -61, -27, -23]  8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+  cl  14 quiet / unresolved blind   SF  +380 best g6g5   moves ['e7d7', 'e7f7', 'e7f7', 'e7f7', 'e7f7'] losses [933, 889, 889, 889, 889] scores [-229, -231, -234, -267, -267]  8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+  cl  75 wins pawn(s)       partly  SF  +349 best d5d4   moves ['f6c6', 'f6c6', 'f6b6', 'd5d4', 'd5d4'] losses [349, 349, 529, 70, 70] scores [-32, -31, -38, -9, -3]  R7/2r4k/5qp1/3p1r1p/1P2pP1P/P1p1P1Q1/2R3PK/8 b - - 1 43
+  cl  75 king activity      blind   SF  +549 best c3d2   moves ['c4e4', 'c4e4', 'c4d4', 'c4d4', 'c4h4'] losses [549, 549, 549, 549, 549] scores [59, 53, 56, 68, 78]  1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69
+  cl  96 quiet / unresolved blind   SF  +311 best e5c3   moves ['d3e1', 'd3e1', 'd3e1', 'd3e1', 'd3e1'] losses [311, 311, 311, 311, 311] scores [22, 35, 35, 42, 34]  8/7p/3pN1pk/1Q1Pqp2/4p2P/3nP1P1/R4P1K/2r5 b - - 15 46
+  cl  99 wins pawn(s)       partly  SF  +388 best h5g4   moves ['e7d6', 'e7d6', 'e7d6', 'e7d6', 'e7d6'] losses [165, 165, 165, 165, 165] scores [-136, -69, -69, 12, 27]  r3r1k1/4qppp/2p2n2/1p1p1P1b/1P1P2Pn/2NBP2P/2QN4/1R2R1K1 b - - 0 22
+  cl  45 quiet / unresolved blind   SF  +442 best g2g4   moves ['b2b3', 'b2b3', 'b2b3', 'b2b3', 'b2b3'] losses [442, 442, 442, 442, 442] scores [9, 0, 0, -4, 10]  8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+  cl  78 wins a piece       partly  SF  +466 best c2f2   moves ['f4d5', 'f4d5', 'f4d5', 'f4d5', 'f4d5'] losses [466, 466, 466, 466, 466] scores [34, 36, 33, 24, 19]  7k/6p1/4p3/4P2p/5n2/6P1/2r2N1P/4RK2 b - - 0 47

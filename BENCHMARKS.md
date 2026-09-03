@@ -404,3 +404,13 @@ moves changed, regression suite identical except the missed-mate rows, tactics
 PGN retained): +35 =132 -33, 50.5%, Elo +3, cluster bootstrap -0..+9;
 bare-king endings converted 18/19 with the term against 14/16 without. Gate 3
 not run: the signal is positive but not decisive.
+
+## 2026-09-03 — blind-win audit: the root says 0 where Stockfish says +400
+
+Record: [`benchmarks/current/2026-09-03-blind-win-audit.md`](benchmarks/current/2026-09-03-blind-win-audit.md).
+No engine change. 129 blind episodes from 400 retained self-play games; in
+110 the static still misses the win at the end of Stockfish's own line (pawn
+endings: static +4 vs +616), the gap rises with passer rank to +665, and
+neither quiescence nor depth-6 search recovers it. Dominant class: endgame
+static blindness to passed pawns and king activity. Adds a 68-position
+blind-win regression suite. Next experiment: passed-pawn evaluation v1.

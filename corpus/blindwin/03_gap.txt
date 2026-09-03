@@ -1,0 +1,106 @@
+== EVALUATION GAP AT THE PV END (129 blind episodes): Stockfish vs production static on a quiet position ==
+
+mechanism                n  SF at PV end  static at PV end    gap  passer rank>=5 end phase             
+quiet / unresolved      44          +454               +17   +437              13 {'endgame': 40, 'middlegame': 4}
+wins pawn(s)            37          +474              +131   +342               7 {'endgame': 32, 'middlegame': 5}
+wins a piece            18          +732              +416   +316               1 {'endgame': 13, 'middlegame': 5}
+king activity           15          +546               -14   +560               5 {'endgame': 15}       
+promotion race          12          +764              +419   +345               4 {'endgame': 9, 'middlegame': 3}
+rook activity            3          +536              +106   +430               1 {'endgame': 2, 'middlegame': 1}
+
+== FEATURES OF THE PV-END POSITIONS where the gap is largest (>= 300) ==
+large-gap episodes 79, small-gap 16
+  advanced_passer              large-gap   43%  small-gap   12%  diff  +31%
+  backward_pawn                large-gap   49%  small-gap   25%  diff  +24%
+  minor_piece_ending           large-gap   23%  small-gap    0%  diff  +23%
+  pawn_ending                  large-gap   20%  small-gap    0%  diff  +20%
+  weak_colour_complex          large-gap   10%  small-gap    0%  diff  +10%
+  rook_ending                  large-gap   20%  small-gap   12%  diff   +8%
+  in_check                     large-gap   14%  small-gap    6%  diff   +8%
+  open_file                    large-gap  100%  small-gap   94%  diff   +6%
+  semi_open_file               large-gap  100%  small-gap   94%  diff   +6%
+  passed_pawn                  large-gap   87%  small-gap   81%  diff   +6%
+  space_advantage              large-gap   18%  small-gap   12%  diff   +5%
+  exchange_imbalance           large-gap   11%  small-gap    6%  diff   +5%
+  protected_passer             large-gap   29%  small-gap   25%  diff   +4%
+  rook_on_semi_open_file       large-gap   22%  small-gap   19%  diff   +3%
+  own passer on rank >= 5 at PV end: large-gap 33%, small-gap 6%
+  own passer on rank >= 6 at PV end: large-gap 16%, small-gap 0%
+  material from our side at PV end (mean): large-gap +0.5, small-gap +3.5
+
+== REPRESENTATIVE CASES, largest Stockfish-vs-root gap per mechanism ==
+-- quiet / unresolved
+   cl  35 ply  13  SF  +645 (mate None)  root   +32  static   +30  played b2d4 (loss 33)  best b2d4  blind; PV-end static +73 vs SF +810
+       b7/2p5/1pPk4/1P1Pp2B/3qPp2/6p1/1Q4P1/5K2 w - - 16 52
+       pv b2d4 e5d4 f1e2 d6e7 e2d3 e7f8 h5f3 f8e7 e4e5 e7d8
+   cl  14 ply  13  SF  +380 (mate None)  root  -229  static   -86  played e7d7 (loss 933)  best g6g5  blind; PV-end static -359 vs SF +489
+       8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+       pv g6g5 h4g5 f5f4 g3f4 h5h4 a6b5 h4h3 g5g6 h3h2 g6g7
+   cl  14 ply  13  SF  +380 (mate None)  root  -229  static   -86  played e7d7 (loss 933)  best g6g5  blind; PV-end static -359 vs SF +489
+       8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+       pv g6g5 h4g5 f5f4 g3f4 h5h4 a6b5 h4h3 g5g6 h3h2 g6g7
+   cl  28 ply  15  SF  +429 (mate None)  root  -157  static   -98  played g4g5 (loss 53)  best g4g5  blind; PV-end static -151 vs SF +502
+       8/8/5r2/7P/P5P1/6K1/4kP2/8 w - - 3 53
+       pv g4g5 f6f3 g3g4 e2f2 g5g6 f3a3 g4f5 a3a4 g6g7 a4a8
+-- wins pawn(s)
+   cl  61 ply  15  SF  +641 (mate None)  root   +65  static    -7  played d2d8 (loss 70)  best d2d8  partly; PV-end static +172 vs SF +692
+       2R5/5ppk/6b1/p3p2p/1p5P/qP6/P2Q2PK/8 w - - 0 38
+       pv d2d8 g6f5 d8h8 h7g6 c8g8 f5e6 g8g7 g6f5 h8h5 f5e4
+   cl  59 ply   4  SF  +650 (mate None)  root   +81  static   +56  played e4f4 (loss 650)  best g4f5  partly; PV-end static +156 vs SF +852
+       8/4k2p/1p4p1/p1pP1p1P/P1P1K1P1/3P4/8/8 w - - 0 38
+       pv g4f5 g6f5 e4f5 e7d6 f5e4 h7h6 e4f5 b6b5 c4b5 d6d5
+   cl  59 ply   4  SF  +650 (mate None)  root   +81  static   +56  played e4f4 (loss 650)  best g4f5  partly; PV-end static +156 vs SF +852
+       8/4k2p/1p4p1/p1pP1p1P/P1P1K1P1/3P4/8/8 w - - 0 38
+       pv g4f5 g6f5 e4f5 e7d6 f5e4 h7h6 e4f5 b6b5 c4b5 d6d5
+   cl  99 ply   8  SF  +388 (mate None)  root  -136  static   +34  played e7d6 (loss 165)  best h5g4  partly; PV-end static +246 vs SF +450
+       r3r1k1/4qppp/2p2n2/1p1p1P1b/1P1P2Pn/2NBP2P/2QN4/1R2R1K1 b - - 0 22
+       pv h5g4 e3e4 g4h3 e4e5 f6g4 f5f6 g4f6 c3e2 f6h5 d3h7
+-- wins a piece
+   cl  90 ply   6  SF  +979 (mate None)  root  -106  static  -140  played b7b8 (loss 0)  best f4g4  horizon; PV-end static +778 vs SF +895
+       8/1Q3pk1/p1r2p2/5P2/2q1pR2/1p2P2P/6PK/8 w - - 2 32
+       pv f4g4 g7f8 b7b8 f8e7 g4g8 c6c8 g8c8 c4c8 b8c8 e7d6
+   cl  95 ply   3  SF  +660 (mate None)  root   -23  static   -30  played e3c5 (loss 0)  best e3c5  horizon; PV-end static +1052 vs SF +10000
+       4k2r/p1q5/2p2p2/1p3Np1/4Pn1p/1B2Q3/PbP3PP/3R3K w - - 0 31
+       pv e3c5 h8h7 f5d6 e8f8 d6b5 c7e7 d1d8 f8g7 c5e7 g7h6
+   cl  95 ply   3  SF  +660 (mate None)  root   -23  static   -30  played e3c5 (loss 0)  best e3c5  horizon; PV-end static +1052 vs SF +10000
+       4k2r/p1q5/2p2p2/1p3Np1/4Pn1p/1B2Q3/PbP3PP/3R3K w - - 0 31
+       pv e3c5 h8h7 f5d6 e8f8 d6b5 c7e7 d1d8 f8g7 c5e7 g7h6
+   cl  60 ply  52  SF  +617 (mate None)  root    +0  static   +78  played e5f6 (loss 0)  best e5f6  horizon; PV-end static +331 vs SF +10000
+       8/p2k4/2p1n2B/1p2KB1P/4P1p1/3n4/P4P2/8 w - - 7 41
+       pv e5f6 d3c5 e4e5 d7e8 h6e3 e8f8 f5e6 c5e6 f6e6 f8g7
+-- king activity
+   cl  28 ply  19  SF  +549 (mate None)  root   -89  static  -145  played g5g6 (loss 34)  best g5g6  blind; PV-end static +14 vs SF +758
+       8/2r5/7P/5PP1/1k6/8/6K1/8 w - - 1 55
+       pv g5g6 c7c2 g2g3 c2c3 g3g4 c3c2 h6h7 c2g2 g4f4 g2h2
+   cl  28 ply  11  SF  +401 (mate None)  root  -125  static  -119  played h5h6 (loss 14)  best g4g5  blind; PV-end static -136 vs SF +487
+       8/2r5/8/7P/P5P1/1k6/5PK1/8 w - - 1 51
+       pv g4g5 c7h7 h5h6 b3a4 g2h3 a4b5 h3h4 b5c6 h4h5 h7f7
+   cl  31 ply  27  SF  +519 (mate None)  root   +15  static   -20  played f7e6 (loss 519)  best h6h5  blind; PV-end static +18 vs SF +516
+       8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62
+       pv h6h5 d4d3 f7e7 d3e2 e7e6 e2f2 e6d5 f2g2 d5e4 g2g3
+   cl  79 ply  28  SF  +537 (mate None)  root   +39  static   +60  played d2e3 (loss 537)  best f4f8  blind; PV-end static +31 vs SF +511
+       5qk1/1p4p1/2p3p1/p1P3P1/P2P1Q2/1P6/3K4/8 w - - 7 39
+       pv f4f8 g8f8 d2c3 f8e7 b3b4 a5b4 c3b4 e7d7 b4c4 d7e6
+-- promotion race
+   cl  14 ply  80  SF +1432 (mate None)  root    +0  static  +496  played f8f7 (loss 0)  best f8f7  horizon; PV-end static +1339 vs SF +10000
+       5K1q/4P3/6P1/5Q2/5P2/6k1/8/8 w - - 3 72
+       pv f8f7 h8c3 e7e8q g3f2 g6g7 c3b3 e8e6 b3b7 f7f6 b7b2
+   cl   4 ply  29  SF  +742 (mate None)  root    +7  static  -299  played e6e7 (loss 742)  best d8e7  horizon; PV-end static +741 vs SF +10000
+       3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+       pv d8e7 c1d3 e7d8 g7a1 e6e8 h8g7 h7h8q g7g6 h8g8 g6f5
+   cl  21 ply   7  SF  +526 (mate None)  root   -78  static  -335  played e3e2 (loss 107)  best e3e2  blind; PV-end static +56 vs SF +560
+       K7/7R/8/8/5p2/4p3/2P2k1P/8 b - - 0 47
+       pv e3e2 h7e7 e2e1q e7e1 f2e1 a8b8 f4f3 c2c4 f3f2 c4c5
+   cl  21 ply   7  SF  +526 (mate None)  root   -78  static  -335  played e3e2 (loss 107)  best e3e2  blind; PV-end static +56 vs SF +560
+       K7/7R/8/8/5p2/4p3/2P2k1P/8 b - - 0 47
+       pv e3e2 h7e7 e2e1q e7e1 f2e1 a8b8 f4f3 c2c4 f3f2 c4c5
+-- rook activity
+   cl  77 ply  13  SF  +408 (mate None)  root    +5  static   +88  played h4h5 (loss 40)  best h4h5  blind; PV-end static +21 vs SF +530
+       2k5/1p3p2/p5p1/2P5/Pr4PP/3R4/6P1/7K w - - 0 36
+       pv h4h5 b4a4 h5h6 a4e4 d3f3 c8d7 f3f7 d7c6 f7f6 c6c5
+   cl  32 ply  15  SF  +421 (mate None)  root   +94  static   +68  played c2d3 (loss 6)  best c2d3  blind; PV-end static +80 vs SF +525
+       2r5/7p/4k3/p1pRP1p1/PpP2pP1/1P3P2/2K4P/8 w - - 7 41
+       pv c2d3 c8c7 d3e4 c7c6 d5d8 e6e7 d8g8 c6h6 g8g5 h6h2
+   cl  89 ply  15  SF  +350 (mate None)  root   +71  static   +85  played a3a4 (loss 66)  best d1c1  partly; PV-end static +217 vs SF +554
+       4r1k1/1R6/4pqpp/r3n3/4QN1P/P3PP2/6K1/3R4 w - - 0 34
+       pv d1c1 f6h4 b7g7 g8g7 f4e6 e8e6 e4h4 a5a3 c1c7 e5f7

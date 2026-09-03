@@ -1,0 +1,28 @@
+== SEARCH PROBE: 129 blind episodes vs 129 seen winning positions (production, depth 6) ==
+
+where the win goes missing (blind episodes): mean static -> quiescence -> root, against Stockfish
+  static -4   qsearch +30   root +31   Stockfish +429
+  quiescence lifts the static by >= 100 in 12/129; the root lifts quiescence by >= 100 in 7/129
+  static < 0 in 52/129; root < 0 in 20/129
+
+by mechanism (blind episodes):
+  mechanism                n  static      qs    root      SF
+  quiet / unresolved      44     +22     +48     +30    +390
+  wins pawn(s)            37      -4     +16     +49    +407
+  wins a piece            18     -77     +23     +24    +484
+  king activity           15     +19     +22     +14    +451
+  promotion race          12     -38     +17      +1    +534
+  rook activity            3     +80     +80     +57    +393
+
+pruning per node, blind vs seen (a search-side cause would show here):
+  metric                            blind       seen   ratio
+  nodes                        40910.0078 30091.2248    1.36
+  qnodes/nodes                     0.4719     0.4849    0.97
+  researches                       0.4419     1.2946    0.34
+  c_null_tries/nodes               0.0032     0.0027    1.20
+  c_null_cuts/c_null_tries         0.4117     0.3809    1.08
+  c_lmr_reduced/nodes              0.0336     0.0327    1.03
+  c_lmr_research/c_lmr_reduced     0.0127     0.0166    0.76
+  c_delta_pruned/qnodes            0.0915     0.0645    1.42
+  c_see_pruned/qnodes              0.0533     0.0190    2.80
+  tt_hits/tt_probes                0.1635     0.1969    0.83
