@@ -1,0 +1,13 @@
+== FIXED-DEPTH SET STATISTICS ==
++25 =135 -40, score 46.2%
+elo -26
+  Wilson score 95% CI        -74 .. +22
+  paired bootstrap 95% CI    -49 .. -3   (100 position clusters)
+
+cluster direction, arena vs fixed-depth (candidate net < 1.0 = losing cluster):
+  losing in both: 11   losing only in arena: 21   losing only at fixed depth: 16   losing in neither: 52
+  clusters losing in BOTH: [38, 42, 44, 58, 67, 79, 80, 91, 94, 97, 98]
+  fixed-depth: baseline sweeps both colours in [97] ; candidate sweeps [93]
+  per-cluster correlation of candidate points, arena vs fixed depth: r=+0.21
+
+fixed-depth game length vs arena: fixed mean 53 plies

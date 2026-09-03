@@ -1,0 +1,35 @@
+== SAME-POSITION SEARCH PROBE (depth 6) ==
+candidate serious-error positions: 100; quiet control positions: 100
+
+-- candidate-error positions: same root move 73/100
+metric                           cand       base   ratio
+nodes                       38297.500  37016.080    1.03
+qnodes                      18709.740  18724.490    1.00
+qnodes/nodes                    0.475      0.487    0.98
+researches                      1.100      0.610    1.80
+c_asp_low                       0.650      0.350    1.86
+c_asp_high                      0.450      0.260    1.73
+c_null_tries/nodes              0.004      0.004    1.04
+c_null_cuts/c_null_tries        0.438      0.423    1.04
+c_lmr_reduced/nodes             0.036      0.035    1.05
+c_lmr_research/c_lmr_reduced      0.015      0.015    1.00
+c_delta_pruned/qnodes           0.121      0.086    1.41
+c_see_pruned/qnodes             0.038      0.043    0.90
+tt_hits/tt_probes               0.184      0.176    1.04
+
+-- quiet control positions: same root move 96/100
+metric                           cand       base   ratio
+nodes                       24034.980  24844.570    0.97
+qnodes                      11359.520  12132.720    0.94
+qnodes/nodes                    0.456      0.464    0.98
+researches                      0.760      0.480    1.58
+c_asp_low                       0.350      0.200    1.75
+c_asp_high                      0.410      0.280    1.46
+c_null_tries/nodes              0.003      0.003    1.01
+c_null_cuts/c_null_tries        0.371      0.365    1.02
+c_lmr_reduced/nodes             0.035      0.033    1.05
+c_lmr_research/c_lmr_reduced      0.012      0.013    0.94
+c_delta_pruned/qnodes           0.077      0.055    1.39
+c_see_pruned/qnodes             0.028      0.032    0.88
+tt_hits/tt_probes               0.186      0.180    1.03
+

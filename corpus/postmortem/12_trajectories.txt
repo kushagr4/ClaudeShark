@@ -1,0 +1,110 @@
+cluster field type: int ; cand losses in 97/38/79: [(38, True), (79, False), (97, True), (97, False)]
+
+== REPRESENTATIVE TRAJECTORIES: candidate losses (fixed depth 6). SF = Stockfish white-view cp; statics are each engine's own evaluation, white view; search = mover's root score, white view ==
+
+-- cluster 38  candidate White  0-1 by checkmate in 46 plies
+   start 6R1/8/3k4/pp1p2pB/1n5b/4K2P/8/8 w - - 0 40
+    ply side  move       SF  cand_st  base_st  search  loss  note
+      0 cand  g8c8       +0      -96      -67    -100   139  loss 139 (SF best g8b8)
+      1 base  a5a4     -139     -103      -75     -89    34  turning point
+      2 cand  h5e8     -105     -105      -76     -99   166  loss 166 (SF best e3d2)
+      3 base  a4a3     -271     -133     -104    -145     0  turning point
+      4 cand  e8g6     -276     -168     -139    -247   192  loss 192 (SF best c8d8)
+      5 base  g5g4     -468     -165     -137    -265    70  loss 70 (SF best a3a2); turning point
+      8 cand  c8a8     -391      -85      -99    -405     0  
+     14 cand  e8b5     -433     -121     -135    -426   182  loss 182 (SF best g4g5)
+     15 base  c5b5     -615      +22      -34    -541    55  turning point
+     16 cand  a8a3     -560     -404     -317    -835    21  
+     18 cand  a3a1    -1035    -1598    -1088    -816   133  loss 133 (SF best a3a1); turning point
+     19 base  f6a1    -1168     -147     -103    -551   382  loss 382 (SF best f6a1); turning point
+     20 cand  g4g5     -786     -821     -544    -836     0  turning point
+     21 base  d5d4     -681     -823     -546    -572     0  turning point
+     22 cand  g5g6     -803     -819     -542    -871     0  turning point
+     24 cand  f3e3    -1015     -816     -540    -930     0  turning point
+     26 cand  e3f2   -10000     -830     -553    -946     0  turning point
+     32 cand  e1f2   -10000    -1090     -769   -2321     0  
+     40 cand  g2f2   -10000    -2364    -1627   -2424     0  
+
+-- cluster 79  candidate Black  1-0 by checkmate in 45 plies
+   start 4q1k1/pp3pp1/2p3n1/5pP1/2PPbB2/3B2P1/PPQ5/2K5 w - - 1 25
+    ply side  move       SF  cand_st  base_st  search  loss  note
+      0 base  f4e3       +8      +69      +58     +41     5  
+      1 cand  e8b8       +3      +55      +44     +10     0  
+      8 base  d3e3       +4     -182     -151      -3     0  
+     10 base  e4d3      +67      +17       +8      +9    67  loss 67 (SF best e4g6)
+     11 cand  g8f8       +0       -5      -14     +18    90  loss 90 (SF best g6f8)
+     12 base  d2c3      +90      +27      +17     +14    90  loss 90 (SF best d3g6); turning point
+     13 cand  h4g4       +0      +27      +17     +20    91  loss 91 (SF best g6f4); turning point
+     14 base  c4c5      +91      +32      +22     +21    91  loss 91 (SF best d3g6); turning point
+     15 cand  a7a5       +0      +30      +20     +30   170  loss 170 (SF best g6f4); turning point
+     16 base  d3e2     +170      +43      +33     +19   166  loss 166 (SF best d3g6); turning point
+     17 cand  g4h4       +4      +20      +10     +29   115  loss 115 (SF best g4f5); turning point
+     18 base  e2c4     +119      +47      +37      +5     9  turning point
+     19 cand  g6f4     +110      +39      +28     +15   115  loss 115 (SF best h4h2)
+     20 base  e3e5     +225      +19       +8      +3    42  turning point
+     23 cand  g3f2     +233      +25      +14     +95   249  loss 249 (SF best f4h5)
+     24 base  c2b3     +482      +33      +23     +44     0  turning point
+     25 cand  f8g8     +496      +10       +0    +134  9504  loss 9504 (SF best f2f3)
+     26 base  e5e8   +10000      +11       +1     +87     0  turning point
+     32 base  b2b4   +10000     +156     +104    +244     0  
+     40 base  e8e7   +10000    +1505    +1045  +29995     0  
+
+-- cluster 44  candidate White  0-1 by checkmate in 111 plies
+   start 2r3k1/5pp1/2pB3p/P2p4/3Pb1P1/1pR3KP/1r3P2/4R3 b - - 1 39
+    ply side  move       SF  cand_st  base_st  search  loss  note
+      0 base  e4c2      -10     -227     -185    -112    10  
+      1 cand  c3e3       +0     -184     -142    -165   379  loss 379 (SF best e1a1)
+      2 base  g8h7     -379     -194     -152    -129   364  loss 364 (SF best b2a2); turning point
+      3 cand  e3f3      -15     -175     -133    -233   192  loss 192 (SF best e1a1); turning point
+      4 base  f7f6     -207     -195     -153    -161   143  loss 143 (SF best c8d8); turning point
+      5 cand  f3c3      -64     -168     -126    -245   273  loss 273 (SF best e1a1); turning point
+      6 base  b2a2     -337     -186     -144    -160     5  turning point
+      7 cand  c3c5     -332     -167     -125    -261    78  loss 78 (SF best h3h4)
+      8 base  c2e4     -410     -163     -121    -270    44  
+     16 base  d5e4     -382     -277     -190    -253     0  
+     24 base  a1f1     -449     -411     -282    -282     0  
+     32 base  d1g1     -525     -419     -290    -274    69  loss 69 (SF best d1d3)
+     40 base  f1g1     -481     -402     -273    -282    40  
+     48 base  g3g4     -546     -413     -283    -316    37  
+     56 base  a4a1     -524     -420     -291    -437     0  
+     64 base  a1d1     -500     -663     -449    -460     8  
+     71 cand  f2e3     -544     -678     -464    -675   157  loss 157 (SF best f2b6)
+     72 base  h1e1     -701     -680     -466    -472   166  loss 166 (SF best h1h4); turning point
+     73 cand  e4f4     -535     -675     -461    -687     0  turning point
+     75 cand  e3c5     -578     -673     -458    -683   116  loss 116 (SF best e3a7)
+     76 base  e1c1     -694     -688     -474    -763    64  loss 64 (SF best e1f1); turning point
+     80 base  c2c5     -705     -682     -468    -790     0  
+     81 cand  c7c5     -730    -1125     -760   -1158  9270  loss 9270 (SF best c7b7)
+     82 base  c1c5   -10000     -406     -276    -795     0  turning point
+     86 base  g6f5     -727    -1165     -795    -811     0  turning point
+     87 cand  e3d2   -10000    -1161     -791   -1178     0  turning point
+     88 base  c1a1    -1139    -1188     -818    -819     0  turning point
+     89 cand  d2c3    -1513    -1168     -797   -1192     0  turning point
+     90 base  f5f4    -1024    -1182     -812    -828     0  turning point
+     91 cand  c3b2    -1511    -1177     -806   -1197  8489  loss 8489 (SF best c3b4); turning point
+     92 base  a1e1   -10000    -1211     -840    -829     0  turning point
+     96 base  e1e3   -10000    -1201     -831    -898     0  
+    104 base  h2h1q  -10000    -1385    -1015   -1760     0  
+
+-- cluster 97  candidate White  0-1 by checkmate in 74 plies
+   start r2r4/4R3/2k1p2p/2p1Bbp1/8/2N1p3/1PP3PP/1KN5 w - - 0 25
+    ply side  move       SF  cand_st  base_st  search  loss  note
+      0 cand  c1b3       +0       +7       -3     +34   346  loss 346 (SF best g2g4)
+      1 base  d8c8     -346      +22      +13     +26   481  loss 481 (SF best d8d1); turning point
+      2 cand  h2h3     +135      +43      +33     +36     0  turning point
+      4 cand  b3c1     +100      +48      +38     +33   100  loss 100 (SF best e7f7)
+      5 base  c8d8       +0       +0       -9     +21     0  turning point
+      8 cand  c1b3      -43      +16       +7     +21   330  loss 330 (SF best g2g4)
+      9 base  d8d1     -373      +32      +22     -19    27  turning point
+     16 cand  b3a1     -366     -450     -321      +0     0  
+     19 base  c5c4     -422     -471     -341    -328    76  loss 76 (SF best c5c6)
+     24 cand  d4b3     -351     -431     -301    -466    43  
+     32 cand  d1f2     -454     -593     -420    -656    44  
+     36 cand  b3d2     -583     -602     -430    -734     0  turning point
+     40 cand  d1e3     -533     -748     -533    -754    11  
+     48 cand  c5g1     -650    -1930    -1311    -979     0  
+     54 cand  c4d6     -821     -995     -683   -1527    15  turning point
+     56 cand  d6f5     -819     -985     -674   -2173     0  
+     58 cand  f5d4   -10000     -936     -668   -2180     0  turning point
+     64 cand  c4b4   -10000    -2181    -1496   -2661     0  
+     72 cand  a2a1   -10000    -2877    -1969      +0     0  

@@ -259,6 +259,18 @@ importantly, oracle-agreement over single moves is a *screening* tool: it can
 rank candidates for further work, but a candidate must win games before any
 strength claim is made. See `benchmarks/current/2026-09-03-v0.6-material-scale.md`.
 
+The post-mortem (`benchmarks/current/2026-09-03-v0.6-postmortem.md`) found
+why: the 240-position suite admits only near-balanced positions (239 of 240
+at |Stockfish cp| < 50) while 40% of a game's moves are played at |cp| >= 200,
+and the candidate's extra errors are exactly there -- ten points worse at both
+converting an advantage and holding a deficit, from an evaluator that is
+over-confident about large material edges and blind to compensation. The
+metric was sound; the sample was not. **The pre-arena gate is now a
+fixed-depth paired self-play set** (`tools/postmortem/play.py` +
+`annotate.py` + `report.py`, ~50 minutes for 200 games), which reproduced the
+loss at -26 Elo with a bootstrap excluding zero. The suite remains a
+tactical and diagnostic screen only.
+
 ## Testing methodology
 
 Five layers, all runnable from the Makefile.

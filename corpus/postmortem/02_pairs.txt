@@ -1,0 +1,54 @@
+== 2. PAIR-BY-PAIR ==
+pair patterns (candidate points out of 2):
+  both draws              46 clusters
+  cand +0.5               27 clusters
+  cand +1.5               12 clusters
+  one win each (split)     9 clusters
+  baseline wins both       5 clusters
+  cand wins both           1 clusters
+
+clusters where candidate nets < 1.0: 32   > 1.0: 13   = 1.0: 55
+net points from losing clusters: -18.5   from winning clusters: +7.0
+
+Most damaging clusters (candidate points / 2):
+ pts  cl id      family           phase        asW  asB  plyW  plyB  termW                  termB                 
+ 0.0  14 cl-014  colle            endgame      0.0  0.0    64    65  checkmate              checkmate             
+ 0.0  20 cl-020  four_knights     endgame      0.0  0.0    83    82  checkmate              checkmate             
+ 0.0  38 cl-038  polish           endgame      0.0  0.0    46    57  checkmate              checkmate             
+ 0.0  75 cl-075  budapest         middlegame   0.0  0.0    64   153  checkmate              checkmate             
+ 0.0  79 cl-079  caro_kann        middlegame   0.0  0.0    78    79  checkmate              checkmate             
+ 0.5  11 cl-011  bogo_indian      endgame      0.5  0.0    16    66  threefold_repetition   checkmate             
+ 0.5  12 cl-012  budapest         endgame      0.5  0.0   116   160  threefold_repetition   checkmate             
+ 0.5  26 cl-026  kings_indian     endgame      0.5  0.0    40    66  threefold_repetition   checkmate             
+ 0.5  28 cl-028  nimzo_indian     endgame      0.5  0.0    79    50  threefold_repetition   checkmate             
+ 0.5  40 cl-040  ponziani         endgame      0.5  0.0    91    75  threefold_repetition   checkmate             
+ 0.5  42 cl-042  queens_gambit_accepted endgame      0.0  0.5    74   138  checkmate              threefold_repetition  
+ 0.5  44 cl-044  scandinavian     endgame      0.0  0.5    67    68  checkmate              threefold_repetition  
+ 0.5  48 cl-048  semi_slav        endgame      0.5  0.0   135   100  threefold_repetition   checkmate             
+ 0.5  51 cl-051  sicilian_alapin  endgame      0.5  0.0    45    77  threefold_repetition   checkmate             
+ 0.5  56 cl-056  trompowsky       endgame      0.5  0.0    37    86  threefold_repetition   checkmate             
+ 0.5  58 cl-058  vienna           endgame      0.0  0.5    37   135  checkmate              threefold_repetition  
+ 0.5  59 cl-059  vienna           endgame      0.5  0.0    98    99  threefold_repetition   checkmate             
+ 0.5  61 cl-061  alekhine         middlegame   0.0  0.5   107    48  checkmate              threefold_repetition  
+ 0.5  67 cl-067  benoni           middlegame   0.5  0.0    57   112  threefold_repetition   checkmate             
+ 0.5  68 cl-068  benoni           middlegame   0.0  0.5    62    78  checkmate              threefold_repetition  
+
+Best clusters for candidate:
+ 2.0  93 cl-093  danish_gambit    middlegame   1.0  1.0   129    62  checkmate              checkmate             
+ 1.5  92 cl-092  danish_gambit    middlegame   1.0  0.5   119    41  checkmate              threefold_repetition  
+ 1.5  90 cl-090  colle            middlegame   0.5  1.0    20    42  threefold_repetition   checkmate             
+ 1.5  85 cl-085  centre_game      middlegame   1.0  0.5   103    85  checkmate              threefold_repetition  
+ 1.5  81 cl-081  catalan          middlegame   1.0  0.5   170   115  checkmate              threefold_repetition  
+ 1.5  78 cl-078  caro_kann        middlegame   0.5  1.0    43    90  threefold_repetition   checkmate             
+ 1.5  63 cl-063  benko            middlegame   1.0  0.5    77    61  checkmate              threefold_repetition  
+ 1.5  55 cl-055  torre            endgame      0.5  1.0     8    94  threefold_repetition   checkmate             
+
+baseline wins both colours: 5 clusters -> ids ['cl-014', 'cl-020', 'cl-038', 'cl-075', 'cl-079']
+candidate wins both colours: ['cl-093']
+
+cumulative candidate deficit (points below 1.0/cluster) by worst clusters:
+  worst  5: -5.0 of total -11.5
+  worst 10: -7.5 of total -11.5
+  worst 15: -10.0 of total -11.5
+  worst 20: -12.5 of total -11.5
+  worst 30: -17.5 of total -11.5

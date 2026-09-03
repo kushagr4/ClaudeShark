@@ -1,0 +1,20 @@
+== ROOT-MOVE DIVERGENCE at the 100 arena start positions (depth-6 deterministic, Stockfish-judged) ==
+Does the candidate already play a different/worse move at ply 1 of the losing clusters?
+
+baseline wins both (0.0): n=5  same root move 4/5   mean cp_loss A 52  B 59
+   cl-014  A h2h4 (159)   B h2h4 (159)   SF best e5f6
+   cl-020  A e6d5 (0)   B e6d5 (0)   SF best e6d5
+   cl-038  A h5e2 (101)   B g8c8 (135)   SF best g8b8
+   cl-075  A c5a5 (0)   B c5a5 (0)   SF best c5a5
+   cl-079  A f4e3 (0)   B f4e3 (0)   SF best f4e3
+
+cand 0.5: n=27  same root move 23/27   mean cp_loss A 37  B 38
+
+level 1.0: n=55  same root move 46/55   mean cp_loss A 21  B 29
+
+cand >1.0: n=13  same root move 7/13   mean cp_loss A 24  B 26
+
+over all 100 clusters: root move differs in 20; of those, B worse by >10cp in 8, better in 6
+losing clusters: root differs 5/32;  winning clusters: 6/13
+
+Conclusion test: if root-move quality at ply 1 explained the loss, losing clusters would show B's root move worse. They show: B worse 3, B better 1, same/neutral 28

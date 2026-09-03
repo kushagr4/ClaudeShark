@@ -1,0 +1,19 @@
+== FINAL-POSITION ANALYSIS of the 69 decisive games ==
+(the loser is the side to move in a checkmate final FEN)
+decisive games 69: candidate won 23, lost 46
+promotion occurred: 28/69
+passed pawn present at START: 40/69   at END: 31/69
+advanced/connected passer at START: 18/69   at END: 9/69
+
+material balance from the CANDIDATE's side (pawn units), start -> end:
+  candidate WON : n=23  mean start +0.26  mean end +11.43  mean plies 88  mean pieces at end 7.1
+     end-material distribution: {-4: 1, -3: 1, 0: 1, 5: 2, 8: 3, 9: 15}
+  candidate LOST: n=46  mean start -0.09  mean end -14.83  mean plies 79  mean pieces at end 6.9
+     end-material distribution: {-9: 40, -8: 2, -5: 2, 1: 1, 3: 1}
+
+Of the 46 LOSSES: candidate was AHEAD in material at the end in 2, level in 0, behind in 44
+Of the 23 WINS:   candidate was ahead in material at the end in 20, level 1, behind 2
+
+end-of-game piece count (checkmates with many pieces = middlegame mating attacks):
+  losses: pieces on board at mate  <=12: 41  13-20: 5  >20: 0
+  wins: pieces on board at mate  <=12: 20  13-20: 3  >20: 0

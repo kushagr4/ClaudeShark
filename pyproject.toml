@@ -35,6 +35,10 @@ exclude = ["champions"]
 select = ["E", "F", "I", "N", "UP", "B", "SIM", "RUF"]
 ignore = ["N818"]
 
+[tool.ruff.lint.per-file-ignores]
+# Diagnostic report tooling: wide f-string tables are clearer on one line.
+"tools/postmortem/*" = ["E501"]
+
 [tool.mypy]
 strict = true
 # Every module that ships. cs_see.py was missing from this list for a whole

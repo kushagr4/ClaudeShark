@@ -1,0 +1,31 @@
+== HYPOTHESIS G on the deterministic suite: candidate's 23 serious-error positions ==
+scale          = candidate as played (PIECE_VALUE/DELTA_MARGIN in old units)
+scale_margins  = same evaluator, PIECE_VALUE and DELTA_MARGIN scaled x1.47 to match its units (DIAGNOSTIC ONLY)
+
+id      scale   loss margins   loss base    loss   delta_pruned s/m       qnodes s/m
+cl-000  e7e5   10000 e7e5     10000 e7e5   10000      1868/1117       19967/20668  
+cl-014  h2h4     159 h2h4       159 h2h4     159         0/0           4564/4564   
+cl-038  g8c8     139 g8c8       139 h5e2     105       554/326        17089/17308  
+cl-066  c8d8     113 c8d8       113 c8d8     113     21084/15103      61062/56920  
+cl-083  g4e3     399 d4e4         0 d4e4       0     11419/7398       28636/30843  
+cl-087  e5e6     191 e5e6       191 e5e6     191      4843/3599       34274/34862  
+cl-092  d1b3     105 d1b3       105 e3d4      69     18541/14016      69118/70101  
+cl-094  b5h5     171 b5h5       171 b5h5     171     16047/15370      53737/58540  
+cl-096  e7e6     102 e7e6       102 e7e6     102     11624/9367       43476/40090  
+cl-097  c1b3     346 e7c7        34 c1b3     346      5506/4178       36183/35807  
+cl-125  c4a5     121 c4e3       225 c4e3     225     29673/17800      59714/50846  
+cl-128  d3b5     100 d3d8       161 d3d8     161      6379/4655       35505/36706  
+cl-144  c4e4     204 c4e4       204 c4e4     204     16815/14980      63755/61921  
+cl-149  c5e3     120 c5e3       120 c5e3     120     24891/19910      96646/100553 
+cl-158  e8c8     112 e8c8       112 e8c8     112     13758/11649      40556/42610  
+cl-162  e1a1     192 g1h1       114 g1h1     114     14178/7852       30763/24981  
+cl-165  b3d2     105 h8f8         9 h8f8       9     28210/27396      78462/84015  
+cl-169  g6h6     136 g6h6       136 g6h6     136      1739/1310       12250/13194  
+cl-170  h3e6     477 h3e6       477 h3e6     477      9492/8411       27882/30063  
+cl-173  c2c4     107 c2c4       107 h2h4       0     12183/9643       43043/45360  
+cl-189  e3g5     109 e3g5       109 e3g5     109      5565/6275       28317/38075  
+cl-198  a2a1     165 a2a1       165 a2a1     165     14215/13925      32524/33608  
+cl-202  e3a7     197 e3a7       197 e3a7     197      5347/3520       45237/46787  
+
+move changed by rescaling margins: 6/23  (better 4, worse 2)
+robust loss on these positions: scale 190  margins 159  baseline 165

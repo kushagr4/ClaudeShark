@@ -1,0 +1,7 @@
+== HYPOTHESIS G, UNBIASED: full 240-position suite, depth 6 ==
+                             agree    <=25  robust  serious  catast
+A baseline                  37.1%  65.8%    35.3   10.0%   1.7%
+B scale 1.47                37.5%  65.4%    33.2    9.6%   1.7%
+B + scaled margins          35.4%  65.0%    34.4   10.0%   1.2%
+
+moves changed by rescaling margins: 39/240; better by >10cp 13, worse 21

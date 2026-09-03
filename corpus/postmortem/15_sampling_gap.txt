@@ -1,0 +1,13 @@
+== WHERE THE SUITE LOOKS vs WHERE GAMES ARE PLAYED ==
+suite: 240 positions, |Stockfish cp| distribution: <50 239  50-199 1  >=200 0
+games: 9263 moves, |Stockfish cp|: <50 47%  50-199 14%  >=200 40%
+suite phase: {'endgame': 60, 'middlegame': 144, 'opening': 36}
+games phase (moves): middlegame 17%, endgame 83% (from 06_report)
+
+suite A vs B by phase and standing (robust loss, lower is better):
+  middlegame  n=144  A  46.0  B  42.4  delta  -3.5
+  endgame     n= 60  A  19.9  B  19.8  delta  -0.1
+  |cp|<50     n=239  A  35.0  B  32.9  delta  -2.1
+  |cp|>=50    n=  1  A  95.0  B  95.0  delta  +0.0
+
+the same one-ply metric on the 10,600 self-play positions: A 38.7  B 41.4  delta +2.7  (06_report)

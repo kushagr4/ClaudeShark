@@ -1,0 +1,15 @@
+== WHY CONVERSION/DEFENCE IS WORSE: serious-error rate by the mover's own Stockfish standing ==
+standing            n cand  ser% cand  rob cand  n base  ser% base  rob base
+ahead >=200           1134      16.0%      56.6    1518      13.1%      48.6
+ahead 50..199          330      12.4%      40.5     369      19.0%      52.9
+level                 2192       7.8%      28.2    2148       5.4%      22.1
+behind -199..-50       285      15.1%      44.1     275      16.4%      43.6
+behind <=-200         1369      12.3%      49.4    1005      12.5%      52.6
+
+== AFTER REACHING +200: how did the game end, and did the side throw it? ==
+  cand: reached +200 in 76 games -> W 25 D 45 L 6; made a serious error afterwards in 71 (93%); drew by repetition 44
+  base: reached +200 in 90 games -> W 40 D 47 L 3; made a serious error afterwards in 79 (88%); drew by repetition 45
+
+== DRAW MECHANICS: repetition draws while ahead by Stockfish's count ==
+  cand: of 127 repetition draws, the final position had this side >= +150 (a thrown win) in 19
+  base: of 127 repetition draws, the final position had this side >= +150 (a thrown win) in 23

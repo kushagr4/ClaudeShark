@@ -1,0 +1,1002 @@
+[
+ {
+  "pts": 0.0,
+  "cluster": 14,
+  "id": "cl-014",
+  "family": "colle",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 0.0,
+  "fen": "8/pp2k1p1/4p2p/4Pp2/8/PPK3P1/2P4P/8 w - f6 0 32"
+ },
+ {
+  "pts": 0.0,
+  "cluster": 20,
+  "id": "cl-020",
+  "family": "four_knights",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 0.0,
+  "fen": "8/1q4pk/3ppn1p/1p1Pp3/p1p1P3/P1N1P2P/1PP2QP1/6K1 b - - 0 30"
+ },
+ {
+  "pts": 0.0,
+  "cluster": 38,
+  "id": "cl-038",
+  "family": "polish",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 0.0,
+  "fen": "6R1/8/3k4/pp1p2pB/1n5b/4K2P/8/8 w - - 0 40"
+ },
+ {
+  "pts": 0.0,
+  "cluster": 75,
+  "id": "cl-075",
+  "family": "budapest",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.0,
+  "fen": "8/2r4k/2pq2p1/2Rp1r1p/p3pP1P/P3P1Q1/1P4PK/2R5 w - - 2 37"
+ },
+ {
+  "pts": 0.0,
+  "cluster": 79,
+  "id": "cl-079",
+  "family": "caro_kann",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.0,
+  "fen": "4q1k1/pp3pp1/2p3n1/5pP1/2PPbB2/3B2P1/PPQ5/2K5 w - - 1 25"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 11,
+  "id": "cl-011",
+  "family": "bogo_indian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "8/6k1/1P3p1p/p3q3/8/8/5KP1/1Q6 b - - 10 48"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 12,
+  "id": "cl-012",
+  "family": "budapest",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "4B3/8/5p2/p5pp/3bP2k/5P2/4K1P1/8 b - - 7 41"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 26,
+  "id": "cl-026",
+  "family": "kings_indian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "2R5/5pkp/N7/4b1p1/8/1P1R4/b4PKP/4r3 b - - 0 35"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 28,
+  "id": "cl-028",
+  "family": "nimzo_indian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "8/8/4R3/2r5/2k4P/P1p3P1/5PK1/8 b - - 4 45"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 40,
+  "id": "cl-040",
+  "family": "ponziani",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "6rk/p2r2p1/1p1P2Rp/1P3R2/7P/8/6PK/8 w - - 1 45"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 42,
+  "id": "cl-042",
+  "family": "queens_gambit_accepted",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "R7/5kpp/4nb2/8/1pb1P3/5P2/1B3KPP/8 w - - 4 36"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 44,
+  "id": "cl-044",
+  "family": "scandinavian",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "2r3k1/5pp1/2pB3p/P2p4/3Pb1P1/1pR3KP/1r3P2/4R3 b - - 1 39"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 48,
+  "id": "cl-048",
+  "family": "semi_slav",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "r5r1/3k1p2/2p4p/p2p4/3P1P2/R3P3/3K1P1P/R7 b - - 0 30"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 51,
+  "id": "cl-051",
+  "family": "sicilian_alapin",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "2q3k1/pp3pp1/1n2p2p/3pP2P/3P2P1/1P3NK1/P1Q2P2/8 w - - 3 35"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 56,
+  "id": "cl-056",
+  "family": "trompowsky",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "8/1R3pk1/1P3p2/7p/5K2/5PP1/1r6/8 b - - 0 48"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 58,
+  "id": "cl-058",
+  "family": "vienna",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "6k1/p1r3p1/1p1np3/3p2p1/1Q1P1n2/2P4P/2P5/4R1K1 b - - 5 34"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 59,
+  "id": "cl-059",
+  "family": "vienna",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "8/7p/1p1k1pp1/p1pP4/P1P1K1P1/3P3P/8/8 w - - 0 36"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 61,
+  "id": "cl-061",
+  "family": "alekhine",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "8/5ppk/p3pn1p/1p3b2/1q6/1P3B1P/P5P1/2R1Q2K b - - 2 30"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 67,
+  "id": "cl-067",
+  "family": "benoni",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "7r/3bk3/3p1p2/1prPp2n/4P3/PRNBKP1p/7P/6R1 b - - 7 37"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 68,
+  "id": "cl-068",
+  "family": "benoni",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "r1r1q1k1/pp1bb1pp/3p1n2/3Pp3/PpPNPpP1/3B1N1P/1PQ2P2/R3K1R1 w Q - 2 21"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 69,
+  "id": "cl-069",
+  "family": "benoni",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "r3kn1r/1p2bpp1/p2p3p/2pPp3/N1P1P2P/4PN2/PP4P1/R3K2R b KQkq - 0 15"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 70,
+  "id": "cl-070",
+  "family": "bird",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "rn3rk1/pp3p1p/1q3bp1/3P2NP/2p2Pb1/2NBQ3/PP4P1/2KR3R w - - 0 17"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 73,
+  "id": "cl-073",
+  "family": "bogo_indian",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "1rb5/Rpq2kpp/1Q1p4/2rPp3/4Pp2/3B1P1P/6P1/1R4K1 w - - 7 30"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 80,
+  "id": "cl-080",
+  "family": "caro_kann",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "r6r/pn1kb1pp/5p2/1N2p3/1PPpP3/3K1N1P/5PP1/RR6 w - - 5 23"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 84,
+  "id": "cl-084",
+  "family": "catalan",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "r4rk1/q4ppp/4bn2/p1pp4/8/2N1P1P1/PPQ2PBP/R1R3K1 b - - 0 17"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 86,
+  "id": "cl-086",
+  "family": "centre_game",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "r2b2k1/1pp2pp1/p1n1bn1p/8/5B2/2N2N1P/PPP2PP1/2K2B1R w - - 0 14"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 91,
+  "id": "cl-091",
+  "family": "colle",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "r1b2rk1/ppbnq1pp/2p1p3/2PpN3/1P1PpP2/2N1P3/P2B2PP/R2Q1RK1 b - - 0 13"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 94,
+  "id": "cl-094",
+  "family": "danish_gambit",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "r4rk1/pp1b1ppp/2np4/1q6/P2PB3/5N1P/1P1Q1PP1/R3R1K1 b - - 0 19"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 96,
+  "id": "cl-096",
+  "family": "dutch",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "4r3/R2bp2p/3p1qpk/2nB1p2/2PN3P/4P1P1/5P2/1Q4K1 b - - 2 32"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 97,
+  "id": "cl-097",
+  "family": "dutch",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 0.5,
+  "fen": "r2r4/4R3/2k1p2p/2p1Bbp1/8/2N1p3/1PP3PP/1KN5 w - - 0 25"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 98,
+  "id": "cl-098",
+  "family": "dutch",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "r4rk1/pb1n2pp/8/1npp1p2/8/1P2PPP1/P1N3BP/R2RN1K1 b - - 0 20"
+ },
+ {
+  "pts": 0.5,
+  "cluster": 99,
+  "id": "cl-099",
+  "family": "english",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.0,
+  "fen": "r1b1r1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBP3/2QN1PPP/1R2R1K1 b - - 2 18"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 0,
+  "id": "cl-000",
+  "family": "albin",
+  "phase": "endgame",
+  "asW": 1.0,
+  "asB": 0.0,
+  "fen": "2k5/1pp1rp1p/8/1NP5/P6n/2N5/1P4bP/2KR4 b - - 0 27"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 1,
+  "id": "cl-001",
+  "family": "albin",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "4r3/P7/8/1R6/3K1ppk/8/5P2/8 b - - 3 49"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 2,
+  "id": "cl-002",
+  "family": "alekhine",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "5r2/2p3kp/3b2p1/4p1RP/1PB2Q2/P7/5PK1/8 b - - 0 44"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 3,
+  "id": "cl-003",
+  "family": "alekhine",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/p3n3/4k2p/1PP2pp1/2K5/8/P2N3P/8 b - - 0 43"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 4,
+  "id": "cl-004",
+  "family": "bird",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "2r5/6k1/3R4/6P1/2pb3P/3n3K/P7/5R2 b - - 3 41"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 5,
+  "id": "cl-005",
+  "family": "bird",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/4k3/b5p1/3B3p/3n1P2/3PP2P/1p1N1K2/8 b - - 0 39"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 6,
+  "id": "cl-006",
+  "family": "bird",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/5k2/1p2ppp1/p1p1P3/P1P2PPK/1P6/8/8 w - - 2 44"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 7,
+  "id": "cl-007",
+  "family": "bishops_opening",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6k1/1p6/3p4/p1p4r/P2pPBq1/3P4/1PP3PP/5QK1 b - - 4 29"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 8,
+  "id": "cl-008",
+  "family": "bishops_opening",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/5p2/2p3b1/3p2kp/p1pP4/P1P2PP1/1P4N1/4K3 w - - 0 45"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 9,
+  "id": "cl-009",
+  "family": "bogo_indian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "3Q4/5k2/2p5/pp5p/8/P7/1q2PPKP/8 w - - 8 40"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 13,
+  "id": "cl-013",
+  "family": "chigorin",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "2r4r/pp3kp1/3Rbpp1/2p5/8/P1B1PPKP/1P3P2/3R4 w - - 4 24"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 15,
+  "id": "cl-015",
+  "family": "dutch",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/5k2/1B6/3p2P1/b7/4P2p/5PpK/8 b - - 1 40"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 17,
+  "id": "cl-017",
+  "family": "evans_gambit",
+  "phase": "endgame",
+  "asW": 0.0,
+  "asB": 1.0,
+  "fen": "r7/p5p1/P1r2pk1/1pB5/2b5/5P2/1R3KP1/R7 w - - 8 37"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 18,
+  "id": "cl-018",
+  "family": "four_knights",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "3B4/8/pp2b1p1/1kp4p/7P/P1P3P1/8/2K5 w - - 8 45"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 19,
+  "id": "cl-019",
+  "family": "four_knights",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "7R/3r4/5k2/4p2p/5p2/3B1P2/1rP2KPP/8 w - - 4 38"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 21,
+  "id": "cl-021",
+  "family": "french",
+  "phase": "endgame",
+  "asW": 1.0,
+  "asB": 0.0,
+  "fen": "r7/P3R2p/1K6/8/5p2/4p3/2P3kP/8 w - - 0 44"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 22,
+  "id": "cl-022",
+  "family": "grunfeld",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/5p1k/8/Q4p2/6q1/2P5/P4P2/5K2 b - - 0 41"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 24,
+  "id": "cl-024",
+  "family": "kings_gambit",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "5k2/p5R1/2p5/8/1K1PN2P/P2r2P1/2r5/8 w - - 5 42"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 25,
+  "id": "cl-025",
+  "family": "kings_gambit",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/8/8/1k2B2R/1p2K3/7P/p5P1/1r6 b - - 2 50"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 27,
+  "id": "cl-027",
+  "family": "london",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6r1/5k1p/p1r2p2/1p1p4/1P1BbP2/P1P1P1R1/1K5P/6R1 b - - 6 32"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 29,
+  "id": "cl-029",
+  "family": "nimzo_larsen",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6k1/5p1p/5p2/2pBb3/1p3p2/pP1P2P1/P1P1K2P/8 w - - 0 29"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 30,
+  "id": "cl-030",
+  "family": "nimzo_larsen",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/1Q2qpk1/6p1/7p/P2b3P/6P1/5PBK/8 b - - 2 34"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 32,
+  "id": "cl-032",
+  "family": "old_indian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "4r3/2k4p/2p5/p5p1/Pp1RPpP1/1P3P2/2P4P/1K6 b - - 0 33"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 33,
+  "id": "cl-033",
+  "family": "other",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/p2k2qp/1pR2R1p/4K3/5P2/8/8/8 w - - 9 44"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 34,
+  "id": "cl-034",
+  "family": "owens",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/R2bk2p/6p1/8/p6P/1n1pKB2/8/8 b - - 11 47"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 35,
+  "id": "cl-035",
+  "family": "owens",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "b7/2p5/1pP2k2/1P1Pp3/4Pp2/4qBp1/1Q4P1/5K2 b - - 3 45"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 36,
+  "id": "cl-036",
+  "family": "philidor",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "2b5/1p2k3/1ppp2p1/5p2/4nP2/r1P1R3/2P1B2P/2KR4 w - - 0 25"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 37,
+  "id": "cl-037",
+  "family": "pirc",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/5pk1/5bpp/2pB4/2P2PP1/6KP/3Q4/5q2 w - - 4 46"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 41,
+  "id": "cl-041",
+  "family": "queens_gambit_accepted",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/8/5k2/6p1/1P2B3/3bnPK1/6P1/8 b - - 0 47"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 43,
+  "id": "cl-043",
+  "family": "reti",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6k1/1p3p2/p3p1p1/q6p/P1Q1P2P/1P4P1/5PK1/8 b - - 6 42"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 45,
+  "id": "cl-045",
+  "family": "scandinavian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/5p2/p2qpkp1/1p5p/1P2QP1P/2P5/1P4PK/8 b - - 6 34"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 46,
+  "id": "cl-046",
+  "family": "scotch",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/p3rpk1/6p1/2pp1r1p/2Np3P/1P3BP1/P4PK1/3R4 w - - 0 28"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 47,
+  "id": "cl-047",
+  "family": "scotch",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "r4rb1/pp1k3p/8/4B1N1/5P2/8/1P4PP/4R1K1 b - - 0 24"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 49,
+  "id": "cl-049",
+  "family": "sicilian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "2r5/1p2b3/p3k1p1/3Rpp1p/2P1P3/1P3K1P/1P1B2P1/8 b - - 1 34"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 50,
+  "id": "cl-050",
+  "family": "sicilian",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/1p3b2/2pBk3/2P1p2p/1P4pP/4K1P1/8/8 w - - 4 33"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 52,
+  "id": "cl-052",
+  "family": "smith_morra",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/1p6/2pK4/p7/8/1P4k1/1P6/8 b - - 5 48"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 53,
+  "id": "cl-053",
+  "family": "torre",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "4b3/2b1k3/6p1/1p1p3p/1P1Pp2P/1NP3P1/4BK2/8 b - - 1 38"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 54,
+  "id": "cl-054",
+  "family": "torre",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/1p2k1p1/p3pp1p/P2p4/1PrP1PP1/2PK2P1/2R5/8 b - - 2 38"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 57,
+  "id": "cl-057",
+  "family": "trompowsky",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "8/1p1bkp2/pb4pp/3p4/3N3P/2PB2P1/PP2KP2/8 w - - 0 26"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 60,
+  "id": "cl-060",
+  "family": "albin",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 1.0,
+  "fen": "2kr1b1r/ppp2Bpp/8/4n3/4P3/N4nB1/PP3P1P/R4K1R w - - 0 15"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 62,
+  "id": "cl-062",
+  "family": "alekhine",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "r4rk1/1bp1q1pp/p1nbpp2/1pN1p3/1P6/1BP1B3/P1P1QPPP/3R1RK1 b - - 3 15"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 64,
+  "id": "cl-064",
+  "family": "benko",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6k1/5p2/r3q1p1/2pp3p/5Q1P/1P4P1/P1R2P2/6K1 b - - 1 34"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 65,
+  "id": "cl-065",
+  "family": "benko",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "r5k1/p2b3r/3pRn1q/2pP1Pp1/PpP2n2/1P4N1/R4PB1/1Q3NK1 b - - 10 30"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 66,
+  "id": "cl-066",
+  "family": "benoni",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "2r3k1/3q3p/3p1P1n/1p1Pr1p1/2p3P1/1nP4P/2B2Q1K/3NRR2 b - - 2 30"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 71,
+  "id": "cl-071",
+  "family": "bishops_opening",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "5r1k/5p2/5q1p/5R2/p2P4/P1P3Rp/1P3P1K/1B6 b - - 2 38"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 72,
+  "id": "cl-072",
+  "family": "bishops_opening",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 0.0,
+  "fen": "rn1r3k/ppb2p1p/4bq2/3p1p1Q/3PpP1N/1BN5/PPP3PP/3R1RK1 w - - 4 16"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 74,
+  "id": "cl-074",
+  "family": "bogo_indian",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6k1/2p2p1p/3b2p1/1qNp1b2/1P1Pn3/2B1PN2/5PPP/Q5K1 b - - 0 23"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 76,
+  "id": "cl-076",
+  "family": "budapest",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "r3k2r/pppb1ppp/2npqP2/2n5/2P1P3/2B5/PP4PP/RB2KQNR w KQkq - 1 15"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 77,
+  "id": "cl-077",
+  "family": "caro_kann",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 1.0,
+  "fen": "2krr3/1pq2p2/p5p1/2P5/PP1pR2P/1R5P/4Q1P1/7K b - - 1 29"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 82,
+  "id": "cl-082",
+  "family": "catalan",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 1.0,
+  "fen": "5B2/7k/q1r2pp1/2p5/P1bnPQ1P/1p4P1/6BK/2R5 b - - 0 44"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 83,
+  "id": "cl-083",
+  "family": "catalan",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "6rk/p3P1pp/3P4/1Q6/3q1PnP/6P1/1R4K1/8 b - - 4 44"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 87,
+  "id": "cl-087",
+  "family": "centre_game",
+  "phase": "middlegame",
+  "asW": 0.0,
+  "asB": 1.0,
+  "fen": "r2r3k/ppp1b1pp/2n2p2/4P3/2B2P2/2P2N2/P1b3PP/R1B2RK1 w - - 0 15"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 88,
+  "id": "cl-088",
+  "family": "chigorin",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "r1b3k1/ppp2ppp/6q1/8/4r3/2B1PQ2/PP3PPP/R4RK1 w - - 0 15"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 89,
+  "id": "cl-089",
+  "family": "chigorin",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 0.5,
+  "fen": "r5k1/1p3pp1/2nqB2p/r2p4/8/P3PP1P/2Q1NPK1/2RR4 b - - 0 26"
+ },
+ {
+  "pts": 1.0,
+  "cluster": 95,
+  "id": "cl-095",
+  "family": "dutch",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 0.0,
+  "fen": "4k2r/ppq5/2p2p2/4bNp1/2B1Pn1p/4Q3/PPP3PP/3R3K b - - 2 29"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 10,
+  "id": "cl-010",
+  "family": "bogo_indian",
+  "phase": "endgame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "4r1k1/6pp/1p1p1p2/p1nPrP2/2P1P3/1P2R3/P4KBP/4R3 w - - 4 30"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 16,
+  "id": "cl-016",
+  "family": "dutch",
+  "phase": "endgame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "8/Bp3k2/2p4p/4rP2/8/2bB4/1p5P/5RK1 b - - 1 40"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 23,
+  "id": "cl-023",
+  "family": "italian",
+  "phase": "endgame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "5k2/2Q5/1p2p1P1/p3p1n1/P3P2p/2P4P/1P1q4/6NK w - - 1 39"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 31,
+  "id": "cl-031",
+  "family": "old_indian",
+  "phase": "endgame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "1R6/1P4p1/6k1/5p1p/5P1P/4P1K1/1r6/8 w - - 1 49"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 39,
+  "id": "cl-039",
+  "family": "polish",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 1.0,
+  "fen": "6k1/1pp3r1/5p2/p7/P2rP2P/1P4PB/4P3/2R3K1 w - - 1 38"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 55,
+  "id": "cl-055",
+  "family": "torre",
+  "phase": "endgame",
+  "asW": 0.5,
+  "asB": 1.0,
+  "fen": "R7/1r2p2p/1Pkb1pp1/2Bp4/3P4/3K1P1P/5P2/8 w - - 3 36"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 63,
+  "id": "cl-063",
+  "family": "benko",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "1r4k1/4qppp/6r1/2pp4/Pn2n3/1P2P3/1B1N1PPP/R2Q1RK1 w - - 11 23"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 78,
+  "id": "cl-078",
+  "family": "caro_kann",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 1.0,
+  "fen": "2rq1rk1/1p1nb1pp/1n2p1p1/pPppP3/P2P4/2P1NN2/5PPP/R1BQ1RK1 w - - 0 16"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 81,
+  "id": "cl-081",
+  "family": "catalan",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "3r4/npr1bkpp/pNn2p2/P1P1P3/8/3NB1P1/4P1KP/R1R5 b - - 0 29"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 85,
+  "id": "cl-085",
+  "family": "centre_game",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "r1b2rk1/ppp2pp1/3b2p1/8/8/2P2N2/PP2BPPP/R4RK1 w - - 0 16"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 90,
+  "id": "cl-090",
+  "family": "colle",
+  "phase": "middlegame",
+  "asW": 0.5,
+  "asB": 1.0,
+  "fen": "2r5/5pk1/p4p2/4pP2/1pq1Q3/4PR1P/6P1/6K1 w - - 0 29"
+ },
+ {
+  "pts": 1.5,
+  "cluster": 92,
+  "id": "cl-092",
+  "family": "danish_gambit",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 0.5,
+  "fen": "r2qr2k/pbp1n1bp/3pP1p1/8/2B1pP2/P3B2P/4N1P1/2RQ1RK1 w - - 1 21"
+ },
+ {
+  "pts": 2.0,
+  "cluster": 93,
+  "id": "cl-093",
+  "family": "danish_gambit",
+  "phase": "middlegame",
+  "asW": 1.0,
+  "asB": 1.0,
+  "fen": "r3r1k1/1pp2ppp/1n1b4/p4q2/3P4/1QP2NP1/P2B1PKP/R3R3 w - - 0 19"
+ }
+]

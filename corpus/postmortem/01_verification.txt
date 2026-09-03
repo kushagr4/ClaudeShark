@@ -1,0 +1,14 @@
+== 1. RAW MATCH VERIFICATION ==
+games 200  failed 0
+W/D/L 23/131/46  score 44.2%
+corpus competition_like-v1 declared 6a8111f22f9ea393 recorded 6a8111f22f9ea393
+corpus header hash now: 6a8111f22f9ea393
+snapshots agent 5c02726caf077231 opponent 6eee6bd9b5e58e29
+recomputed now: scale 5c02726caf077231 v0.5.2 6eee6bd9b5e58e29
+clock base 20000 inc 200 ply cap 300 workers 5 env {'CS_INCREMENT_MS': '200'} stripped []
+clusters 100 sizes {2: 100}
+clusters not exactly one game per colour: 0
+terminations {'checkmate': 69, 'threefold_repetition': 116, 'insufficient_material': 11, 'fifty_moves': 4}
+max plies 214  games at cap: 0
+seconds/game mean 40.1
+summary record: {'match_id': '1788392399-v0_6_material_scale-vs-v0_5_2_correctness', 'games': 200, 'wins': 23, 'draws': 131, 'losses': 46, 'score': 0.4425, 'elo': -40.132638674541624, 'naive_ci': [-88.45045488963518, 8.185177540551987], 'bootstrap_ci': [-66.82477700555238, -13.904842503684801], 'clusters': 100, 'terminations': {'checkmate': 69, 'threefold_repetition': 116, 'insufficient_material': 11, 'fifty_moves': 4}, 'our_failures': {}}

@@ -1,0 +1,102 @@
+== 4. PHASE (by START position phase, from corpus structure) ==
+start phase     n   score  W/D/L          decisive%
+middlegame     80  43.1%  +14 =41 -25    49%
+endgame       120  45.0%  +9 =90 -21     25%
+
+by start phase24 (0=endgame .. 24=opening) buckets:
+  phase24 17-24  n= 36 score 47.2%  +6 =22 -8
+  phase24 9-16   n= 78 score 41.7%  +11 =43 -24
+  phase24 0-8    n= 86 score 45.3%  +6 =66 -14
+
+by game LENGTH (plies played in the arena game):
+    0-39  n= 43 score 48.8%  +3 =36 -4
+   40-79  n= 71 score 37.3%  +6 =41 -24
+   80-119 n= 51 score 45.1%  +10 =26 -15
+  120-300 n= 35 score 51.4%  +4 =28 -3
+
+decisive games only, by start phase:
+  middlegame  n= 39 cand score 35.9%  +14 =0 -25
+  endgame     n= 30 cand score 30.0%  +9 =0 -21
+
+== 5. STRUCTURAL (by START position tags) ==
+tag                           n   score  vs all  W/D/L         deterministic-suite delta(B-A)
+passed_pawn                 116  45.7%  +1.4%  +15 =76 -25     -6.8
+advanced_passer              42  48.8%  +4.6%  +7 =27 -8      +15.1
+connected_passers            34  50.0%  +5.8%  +5 =24 -5      +15.0
+protected_passer             44  50.0%  +5.8%  +7 =30 -7       +7.7
+exposed_king                 34  41.2%  -3.1%  +7 =14 -13     -15.1
+king_in_centre                6  41.7%  -2.6%  +1 =3 -2        -8.6
+closed_centre                16  28.1% -16.1%  +1 =7 -8        -9.6
+open_centre                  46  46.7%  +2.5%  +10 =23 -13     -4.6
+locked_pawn_chain            34  39.7%  -4.5%  +2 =23 -9       -9.5
+exchange_imbalance           20  42.5%  -1.8%  +1 =15 -4      -19.6
+hanging_piece                36  43.1%  -1.2%  +3 =25 -8       -9.2
+opposite_side_castling       10  30.0% -14.3%  +2 =2 -6       +14.9
+same_side_castling           58  47.4%  +3.2%  +11 =33 -14     -4.0
+rook_and_minor_ending        42  48.8%  +4.6%  +6 =29 -7       +1.8
+rook_ending                  18  41.7%  -2.6%  +2 =11 -5   
+minor_piece_ending           22  47.7%  +3.5%  +0 =21 -1   
+queenless_middlegame         20  40.0%  -4.2%  +4 =8 -8        +3.4
+material_imbalance           84  44.6%  +0.4%  +9 =57 -18      -2.4
+bishop_pair                  30  41.7%  -2.6%  +5 =15 -10      -3.2
+carlsbad                     12  45.8%  +1.6%  +2 =7 -3        +9.8
+queenside_majority           48  50.0%  +5.8%  +8 =32 -8       +8.5
+space_advantage              28  48.2%  +4.0%  +4 =19 -5       -7.1
+isolated_pawn               154  43.8%  -0.4%  +19 =97 -38     -2.7
+doubled_pawns                72  47.2%  +3.0%  +10 =48 -14     -2.1
+
+all tags with n>=6, ranked by candidate score:
+  unusual_king_placement         n=  8 25.0%
+  closed_centre                  n= 16 28.1%
+  opposite_side_castling         n= 10 30.0%
+  pawn_ending                    n=  8 31.2%
+  imbalance:other                n=  8 37.5%
+  locked_pawn_chain              n= 34 39.7%
+  imbalance:even                 n= 70 40.0%
+  queenless_middlegame           n= 20 40.0%
+  exposed_king                   n= 34 41.2%
+  rook_ending                    n= 18 41.7%
+  isolated_queen_pawn            n= 12 41.7%
+  bishop_pair                    n= 30 41.7%
+  imbalance:queen_vs_pieces      n=  6 41.7%
+  minority_attack                n=  6 41.7%
+  king_in_centre                 n=  6 41.7%
+  king_attack                    n=  6 41.7%
+  complex_ending                 n= 20 42.5%
+  exchange_imbalance             n= 20 42.5%
+  imbalance:exchange             n= 20 42.5%
+  opposite_coloured_bishops      n= 34 42.6%
+  weak_colour_complex            n= 42 42.9%
+  hanging_piece                  n= 36 43.1%
+  maroczy_bind                   n=  8 43.8%
+  isolated_pawn                  n=154 43.8%
+  backward_pawn                  n= 88 44.3%
+  material_imbalance             n= 84 44.6%
+  imbalance:bishop_vs_knight     n= 38 44.7%
+  open_file                      n=174 44.8%
+  queen_ending                   n= 10 45.0%
+  hanging_pawns                  n= 10 45.0%
+  bad_bishop                     n= 62 45.2%
+  semi_open_file                 n=186 45.2%
+  knight_outpost                 n= 32 45.3%
+  rook_on_semi_open_file         n= 78 45.5%
+  passed_pawn                    n=116 45.7%
+  rook_on_open_file              n= 82 45.7%
+  carlsbad                       n= 12 45.8%
+  open_centre                    n= 46 46.7%
+  doubled_pawns                  n= 72 47.2%
+  same_side_castling             n= 58 47.4%
+  minor_piece_ending             n= 22 47.7%
+  space_advantage                n= 28 48.2%
+  rook_and_minor_ending          n= 42 48.8%
+  advanced_passer                n= 42 48.8%
+  queenside_majority             n= 48 50.0%
+  imbalance:piece                n=  6 50.0%
+  connected_passers              n= 34 50.0%
+  protected_passer               n= 44 50.0%
+  imbalance:pawns                n= 46 50.0%
+  imbalance:minor_vs_pawns       n=  6 58.3%
+
+SPEARMAN-style check: does deterministic delta predict game score by tag?
+  pearson r between suite delta (neg=improved) and arena score over 22 tags: +0.24
+  (a NEGATIVE r means tags the suite said improved also scored better in games)

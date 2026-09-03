@@ -1,0 +1,28 @@
+== STATIC EVALUATION vs STOCKFISH by material balance (white view; units differ between engines) ==
+ material     n      SF    cand    base  cand/SF  base/SF  cand-base gap
+       -4   408    -453    -877    -595     1.94     1.31           -283
+       -3   252    -357    -456    -311     1.28     0.87           -145
+       -2   390    -176    -314    -219     1.79     1.25            -95
+       -1  1912     -72    -139     -96     1.93     1.33            -44
+       +0  3418     +20      +6      +5     0.28     0.25             +1
+       +1  1544    +142    +123     +79     0.87     0.56            +44
+       +2   438    +277    +270    +181     0.97     0.66            +88
+       +3   358    +319    +451    +308     1.41     0.97           +143
+       +4   485    +552    +900    +612     1.63     1.11           +288
+
+Units are not comparable across engines, so normalise each engine by its own level-material slope:
+  level-material slope static/SF: cand 0.13  base 0.13  (this is the 'positional' scale each engine uses)
+ material      SF  cand/slope  base/slope  -> material-up side's eval in SF-equivalent cp
+       -4    -453       -6776       -4651
+       -3    -357       -3522       -2431
+       -2    -176       -2427       -1712
+       -1     -72       -1076        -749
+       +0     +20         +43         +39
+       +1    +142        +949        +620
+       +2    +277       +2083       +1419
+       +3    +319       +3484       +2411
+       +4    +552       +6953       +4791
+
+Reading: after normalising each engine so that positional (level-material) evaluation matches Stockfish's scale,
+the candidate values a material edge at about 1.47x what the baseline does, while Stockfish's cp for the same
+material edge is what it is. Whichever engine is closer to the SF column in the material rows is better calibrated.

@@ -1,0 +1,17 @@
+== SLOW DEATH: decisive games lost WITHOUT a serious (>=100cp) error by the loser ==
+  cand: lost 40; lost with no serious error 0; mean sum of sub-100 losses per lost game 340cp
+  base: lost 25; lost with no serious error 0; mean sum of sub-100 losses per lost game 348cp
+
+== ERROR ASYMMETRY: does the loss come from many small errors or few big ones? (per engine, all games) ==
+  cand: robust total 219676  share from >=300 47%  100-299 29%  26-99 18%  <=25 6%
+  base: robust total 205753  share from >=300 49%  100-299 27%  26-99 18%  <=25 6%
+
+== EVAL DRIFT: how the game's Stockfish eval moves during stretches where NEITHER side makes a serious error ==
+  windows 345: mean drift from candidate's view -6.0 cp per 10 plies (negative = candidate quietly loses ground); median +0
+
+== PROMOTIONS in fixed-depth decisive games ==
+  decisive 65, with a promotion 52
+
+== RECORD-THIS CANDIDATES ==
+  [5] passer-without-promotion: cluster 68 cand W lost in 66 plies; worst cand move ply 42 d1d2 loss 9017 (SF best d3e4) tags ['advanced_passer', 'connected_passers', 'doubled_pawns', 'exposed_king', 'king_attack', 'material_imbalance', 'opposite_coloured_bishops', 'passed_pawn', 'protected_passer', 'rook_on_semi_open_file', 'semi_open_file', 'unusual_king_placement']
+      fen 2rr2k1/1p4p1/6P1/p2Pp2p/1bP2p1P/1p1K1N2/1q3P2/3RRB2 w - - 0 42
