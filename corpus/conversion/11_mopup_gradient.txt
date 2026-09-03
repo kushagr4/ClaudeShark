@@ -1,0 +1,22 @@
+== HOW MUCH GRADIENT DOES THE STATIC GIVE THE MATING SIDE? (production evaluate(), K+Q v K, White to move) ==
+Black king square varied from centre to corner; White K and Q fixed. If mop-up knowledge existed the score
+would rise steeply as the defending king is pushed to the edge and as the attacking king approaches.
+ black K  static
+      e5    +914
+      e6    +917
+      c6    +923
+      b7    +937
+      a8    +975
+      h8    +962
+spread centre->corner: 61 cp   (queen value alone is 936 EG)
+
+attacking king approaching a cornered defender (black K a8, white Q d1, white K varied):
+  white K e1: static +949
+  white K d3: static +981
+  white K c5: static +989
+  white K b6: static +989
+  white K c7: static +979
+
+reading: the whole incentive is the PeSTO endgame king table -- the defending king loses at most ~100 cp
+between centre and corner and the attacking king gains ~50 cp approaching. Against a fixed queen value
+of 936 that is a 5-10% gradient, and at depth 6-12 the search cannot turn it into a mating plan.

@@ -1,0 +1,19 @@
+== EVIDENCE PROVENANCE: inherited conclusions recomputed from retained raw data ==
+
+retained fixed-depth set: 200 games, 10625 moves, terminations {'checkmate': 65, 'threefold_repetition': 127, 'insufficient_material': 8}
+
+[recomputed] conversion / defence, first crossing of the threshold (post-mortem claimed base 44%/cand 33% won from +200; base 67%/cand 56% held from -200):
+  base: from +200 n=90 won 44.4% drew 52.2% lost 3.3% | from -200 n=76 held 67.1%
+  cand: from +200 n=76 won 32.9% drew 59.2% lost 7.9% | from -200 n=90 held 55.6%
+
+[recomputed] recovery after the opponent's first serious error (claimed base wins 27%, cand 17%):
+  base: n=149 won 26.8% drew 57.7% lost 15.4%
+  cand: n=146 won 17.1% drew 56.8% lost 26.0%
+
+[recomputed] repetition categories from classified.jsonl (claimed B 82 / C 44 / D 1): {'B': 82, 'C': 44, 'D': 1}, n=127
+[recomputed] three occurrences actually on board: 0/127; cut-short flagged: 44
+[recomputed] strict set: 200 games, terminations {'checkmate': 67, 'threefold_repetition': 125, 'insufficient_material': 8}, cand score 45.8% (claimed 45.8%, 125 repetition, 67 checkmate)
+[recomputed] of 44 cut-short games, winning side won under strict: 2 (claimed 2/44)
+
+[inherited, not reproduced here] the time-controlled arena result itself (+23 =131 -46) -- moves not retained; only its JSONL summary exists.
+[independently reproduced] production == champions/v0_5_2_correctness: depth-6 nodes 1,712,405 on both; only diff is the dormant CS_EVAL_KING_SAFETY hook.

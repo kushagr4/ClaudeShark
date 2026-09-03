@@ -1,0 +1,21 @@
+== DOES THE ENGINE KNOW IT IS WINNING? (production root score vs Stockfish, mover = production) ==
+
+Stockfish band               n  mean SF  mean root  mean static  root<100  root<0  serious%  serious% | root<100  serious% | root>=300
++100..+299                 411     +194        +69          +25     74.9%   13.6%     21.9%                23.7%                  0.0%
++300..+599                 629     +443       +264         +173     20.0%    1.9%     13.4%                31.0%                  1.8%
++600..+999                 234     +733       +606         +334      4.3%    0.4%     16.2%                60.0%                 12.5%
+>= +1000 (incl. mates)     459    +1931      +1320         +854      2.4%    0.7%      9.6%                27.3%                  8.4%
+
+root score < 100 while Stockfish >= +300, by phase:
+  +300..+599               endgame     n= 577  root<100 18.5%  serious 12.5%
+  +300..+599               middlegame  n=  52  root<100 36.5%  serious 23.1%
+  +600..+999               endgame     n= 202  root<100 3.5%  serious 14.9%
+  +600..+999               middlegame  n=  32  root<100 9.4%  serious 25.0%
+  >= +1000 (incl. mates)   endgame     n= 423  root<100 1.9%  serious 9.2%
+  >= +1000 (incl. mates)   middlegame  n=  36  root<100 8.3%  serious 13.9%
+
+reading: 'root<100' is the share of objectively winning positions in which the search itself
+reports no advantage worth converting. The two right-hand columns show whether serious errors
+concentrate in those blind positions or are spread across positions the engine does see as won.
+
+static vs root when Stockfish >= +300: {'static<200 & root>=200': 174, 'static>=200 & root>=200': 416, 'static<200 & root<200': 317, 'static>=200 & root<200': 3}

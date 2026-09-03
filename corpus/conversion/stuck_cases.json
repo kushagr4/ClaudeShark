@@ -1,0 +1,107 @@
+[
+ {
+  "cluster": 4,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/6K1/8/6Q1/8/8/7k w - - 17 75",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 28,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/4Q3/8/5K2/2k5/8/8/8 w - - 15 70",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 67,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "6Q1/8/8/3P3k/4P3/1R2K3/7P/5rn1 w - - 9 68",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 87,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/6K1/8/6Q1/4k3/8/8 w - - 9 68",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 98,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "1k6/3R4/5K2/4N3/8/8/8/8 w - - 17 70",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 45,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "5Q2/8/p5K1/1p6/kP6/8/8/8 w - - 6 55",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 13,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "8/5P2/6K1/4q3/8/2k5/8/8 b - - 16 76",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 86,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "4K3/6P1/8/8/8/5q2/6k1/8 b - - 7 71",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 21,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/1KP5/8/8/8/4k2P/7q b - - 6 56",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 48,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/5K2/8/8/k7/8/8/1R6 w - - 11 79",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 77,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "8/7K/5r2/8/8/6k1/8/8 b - - 17 81",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 49,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/3Q4/5k2/2K4p/6r1/8/8 w - - 18 66",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 92,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 35,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/7K/8/1Q1p2q1/3k4/5B2/6P1/8 w - - 23 80",
+  "kind": "stuck"
+ },
+ {
+  "cluster": 31,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "1R6/1P4k1/2K3P1/7p/7P/2r5/8/8 w - - 13 63",
+  "kind": "stuck"
+ }
+]

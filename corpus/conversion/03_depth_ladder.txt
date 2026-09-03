@@ -1,0 +1,572 @@
+== DEPTH LADDER over 63 conversion-failure positions (production, depths [6, 7, 8, 9, 10]) ==
+loss = Stockfish cp given up by the chosen move at 1000000 nodes; 'fixed' = loss < 50
+
+-- [1] cluster 14 first serious error, 0 plies after +200 (standing +206)
+   8/pp2k1p1/4p3/4Pp1p/1P5P/P1K3P1/2P5/8 b - - 0 33
+   Stockfish +206 best g7g5   verdict: D persists
+    depth move      score   loss      nodes
+        6 b7b5        -14    206      4,684
+        7 e7f7        -44    347     16,748
+        8 e7f8        -37    370     33,553
+        9 e7f7        -42    347     64,075
+       10 e7f7        -42    347    101,590
+-- [2] cluster 14 largest loss (9515) after +200 (standing -485)
+   8/8/3Kp1P1/4Pq2/3Q1Pk1/P1P5/8/8 b - - 0 56
+   Stockfish -485 best f5f8   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 f5g6       -369   9515     12,437
+        7 g4f3       -393     14     30,095
+        8 f5f8       -395      0     73,440
+        9 f5f8       -382      0    112,008
+       10 f5f8       -382      0    208,287
+-- [3] cluster 38 first serious error, 16 plies after +200 (standing +380)
+   1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62
+   Stockfish +380 best h4h5   verdict: D persists
+    depth move      score   loss      nodes
+        6 g8g2         -8    107     29,266
+        7 g8g2         +0    107     46,829
+        8 g8g2         +0    107     75,924
+        9 g8g2        +18    107    135,068
+       10 g8g2        +19    107    219,055
+-- [4] cluster 12 first serious error, 0 plies after +200 (standing +495)
+   4B3/8/5p2/p5pp/3bP3/3K1Pk1/6P1/8 b - - 9 42
+   Stockfish +495 best h5h4   verdict: D persists
+    depth move      score   loss      nodes
+        6 d4e5       +146    495     11,498
+        7 d4b2       +137    495     21,563
+        8 d4e5       +188    495     57,509
+        9 d4e5       +200    495     78,951
+       10 d4e5       +208    495    112,093
+-- [5] cluster 75 first serious error, 0 plies after +200 (standing +447)
+   4R3/8/6p1/4k1Pp/7P/5KP1/p2r4/8 b - - 5 62
+   Stockfish +447 best e5d4   verdict: -
+    depth move      score   loss      nodes
+        6 e5d4       +155      0      4,628
+        7 e5d4       +155      0      8,062
+        8 e5d4       +152      0     20,644
+        9 e5d4       +152      0     31,715
+       10 e5d4       +154      0     86,198
+-- [6] cluster 75 largest loss (468) after +200 (standing +468)
+   R7/8/6p1/6Pp/3k3P/5KP1/p1r5/8 b - - 11 65
+   Stockfish +468 best d4c3   verdict: D persists
+    depth move      score   loss      nodes
+        6 c2d2       +154    468     24,628
+        7 c2d2       +152    468     41,920
+        8 c2d2       +152    468     72,972
+        9 c2d2       +152    468    113,661
+       10 c2d2       +151    468    217,796
+-- [7] cluster 75 first serious error, 0 plies after +200 (standing +430)
+   R7/7k/1P4p1/7p/3rpr2/P1p5/2R3P1/6K1 w - - 0 50
+   Stockfish +430 best b6b7   verdict: C deeper
+    depth move      score   loss      nodes
+        6 c2c3        +51    427     33,839
+        7 c2c3        +77    427     49,712
+        8 c2c1        +50    430    101,945
+        9 c2c3        +87    427    249,567
+       10 b6b7       +105      0    453,808
+-- [8] cluster 75 largest loss (9632) after +200 (standing -368)
+   8/8/8/8/4K3/6k1/8/5r2 w - - 28 102
+   Stockfish -404 best e4e5   verdict: D persists
+    depth move      score   loss      nodes
+        6 e4e5       -538   9596      7,074
+        7 e4e5       -539   9596     13,112
+        8 e4e5       -538   9596     21,529
+        9 e4e5       -539   9596     38,187
+       10 e4e5       -535   9596     75,572
+-- [9] cluster 28 first serious error, 12 plies after +200 (standing +603)
+   r7/7P/6P1/8/8/7K/5k2/8 w - - 2 59
+   Stockfish +603 best g6g7   verdict: -
+    depth move      score   loss      nodes
+        6 g6g7       +914      9      6,246
+        7 g6g7       +914      9      8,743
+        8 g6g7       +923      9     12,631
+        9 g6g7       +932      9     27,291
+       10 g6g7       +948      9     36,130
+-- [10] cluster 51 first serious error, 0 plies after +200 (standing +460)
+   8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+   Stockfish +460 best g4g5   verdict: D persists
+    depth move      score   loss      nodes
+        6 h5g6        +33    460     11,786
+        7 g4g5        +55     69     25,750
+        8 g4g5        +48     69     40,593
+        9 g4g5        +37     69     60,432
+       10 g4g5        +34     69     87,153
+-- [11] cluster 56 first serious error, 0 plies after +200 (standing +237)
+   1R6/5p2/1P3pk1/7p/8/1r2KPP1/8/8 w - - 5 51
+   Stockfish +237 best e3d4   verdict: B +2 plies
+    depth move      score   loss      nodes
+        6 e3e4       +109    237      7,176
+        7 e3e4       +113    237     13,874
+        8 e3d2       +158     25     39,801
+        9 e3d2       +157     25     55,178
+       10 e3d2       +164     25     86,977
+-- [12] cluster 56 largest loss (341) after +200 (standing +341)
+   1R6/5p2/1P3pk1/7p/2K5/5PP1/8/1r6 w - - 11 54
+   Stockfish +341 best c4c5   verdict: D persists
+    depth move      score   loss      nodes
+        6 b6b7       +163    341     14,651
+        7 b6b7       +163    341     22,652
+        8 b6b7       +163    341     38,911
+        9 c4c3       +164    114     85,907
+       10 c4c3       +165    114    155,759
+-- [13] cluster 48 first serious error, 2 plies after +200 (standing +323)
+   8/1k6/2p2p2/3p1P1p/3P4/4PK2/R4P1r/8 w - - 2 40
+   Stockfish +323 best a2a1   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 f3g3         +8    322      8,219
+        7 a2a1        +16      0     16,706
+        8 a2a1        +27      0     29,169
+        9 a2a1        +28      0     50,765
+       10 a2a1        +50      0     77,956
+-- [14] cluster 48 largest loss (512) after +200 (standing +0)
+   8/2k5/2p2p2/3P1P2/8/5K1p/1R3Pr1/8 w - - 2 45
+   Stockfish +0 best d5c6   verdict: C deeper
+    depth move      score   loss      nodes
+        6 b2c2        +37    512      9,433
+        7 b2c2         +6    512     18,034
+        8 b2c2         +6    512     30,383
+        9 b2c2        +22    512     44,977
+       10 d5c6        -16      0    207,506
+-- [15] cluster 61 first serious error, 0 plies after +200 (standing +297)
+   8/5ppk/1R2pn1p/1p6/5q2/1PQb1B2/P5P1/7K b - - 4 34
+   Stockfish +297 best d3e4   verdict: D persists
+    depth move      score   loss      nodes
+        6 f4f5        +14    251     65,467
+        7 f4f5        +14    251    125,979
+        8 f4f5        +16    251    274,036
+        9 f4f5        +25    251    590,041
+       10 f4f5        +23    251  1,086,616
+-- [16] cluster 61 largest loss (585) after +200 (standing +588)
+   6k1/5p2/5Qp1/4p3/PPb5/5K1p/5R2/1q6 b - - 4 53
+   Stockfish +588 best b1d1   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 b1b4       +127    585     59,872
+        7 b1b3       +176      0    142,221
+        8 b1d1       +414      5    304,626
+        9 b1d1       +434      5    516,205
+       10 b1d1       +434      5    963,026
+-- [17] cluster 67 first serious error, 12 plies after +200 (standing +812)
+   8/1P6/3p1k2/3Pp3/2r1P3/1R6/2K4P/6n1 w - - 1 59
+   Stockfish +812 best c2b2   verdict: -
+    depth move      score   loss      nodes
+        6 c2d3       +766      1      9,937
+        7 c2d3       +766      1     14,502
+        8 c2d3       +857      1     34,842
+        9 c2d3       +870      1     84,359
+       10 c2d3       +889      1    119,217
+-- [18] cluster 69 first serious error, 22 plies after +200 (standing +610)
+   8/5p1r/3p4/2pPp3/4P1P1/1k4Kp/1P6/7R b - - 2 51
+   Stockfish +610 best b3b2   verdict: -
+    depth move      score   loss      nodes
+        6 b3b2       +118      0      7,404
+        7 b3b2       +124      0     16,414
+        8 b3b2       +169      0     32,439
+        9 b3b2       +176      0     51,282
+       10 b3b2       +221      0    108,351
+-- [19] cluster 84 first serious error, 6 plies after +200 (standing +709)
+   R4rk1/5ppp/8/8/P3Q3/6P1/5PKP/q7 w - - 5 39
+   Stockfish +709 best e4e8   verdict: D persists
+    depth move      score   loss      nodes
+        6 a8f8       +180    160     72,488
+        7 a4a5       +196    155    123,320
+        8 a4a5       +202    155    222,430
+        9 a4a5       +225    155    365,484
+       10 a4a5       +254    155    526,811
+-- [20] cluster 84 largest loss (541) after +200 (standing +541)
+   5k2/5ppp/8/8/P3Q3/6P1/5PKP/q7 w - - 0 40
+   Stockfish +541 best e4a8   verdict: C deeper
+    depth move      score   loss      nodes
+        6 e4h7       +159    541     48,564
+        7 e4h7       +159    541     74,356
+        8 e4h7       +166    541    134,906
+        9 e4a8       +224      0    263,065
+       10 e4a8       +252      0    477,919
+-- [21] cluster 91 first serious error, 2 plies after +200 (standing +216)
+   2b3k1/6pp/r1p1p3/2PpP2P/3Pp2b/1p2P3/3B2P1/1R1N2K1 b - - 1 26
+   Stockfish +216 best a6a2   verdict: D persists
+    depth move      score   loss      nodes
+        6 a6a8        +90     77     63,530
+        7 a6a8       +109     77     94,328
+        8 a6a8       +173     77    175,170
+        9 a6a8       +172     77    314,078
+       10 a6a8       +168     77    643,470
+-- [22] cluster 91 largest loss (326) after +200 (standing +0)
+   3B4/3b1k2/2p1p2b/2PpP1p1/3Pp1P1/1N2P3/3K4/8 b - - 9 48
+   Stockfish +0 best f7e8   verdict: C deeper
+    depth move      score   loss      nodes
+        6 f7g6        +14    420      4,681
+        7 f7f8         +7    322      8,816
+        8 d7e8        +14    333     17,214
+        9 d7c8        +17      0     33,112
+       10 d7c8        +23      0     51,730
+-- [23] cluster 86 first serious error, 2 plies after +200 (standing +399)
+   3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46
+   Stockfish +399 best c6b5   verdict: D persists
+    depth move      score   loss      nodes
+        6 d8e8        +50    398     67,068
+        7 d8e8        +88    398    112,441
+        8 d8e8        +92    398    242,547
+        9 d8e8        +85    398    392,392
+       10 d8e8        +94    398    715,547
+-- [24] cluster 99 first serious error, 0 plies after +200 (standing +320)
+   3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 2 22
+   Stockfish +320 best g6h4   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 e7d6        +28    320    121,010
+        7 g6h4        +40      0    207,281
+        8 g6h4        +79      0    393,768
+        9 g6h4       +191      0    734,078
+       10 g6h4       +191      0  1,154,199
+-- [25] cluster 99 largest loss (341) after +200 (standing +319)
+   3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 6 24
+   Stockfish +319 best g6h4   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 e7d6        +28    320    121,010
+        7 g6h4        +40      0    207,281
+        8 g6h4        +79      0    393,768
+        9 g6h4       +191      0    734,078
+       10 g6h4       +191      0  1,154,199
+-- [26] cluster 4 first serious error, 0 plies after +200 (standing +742)
+   3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+   Stockfish +742 best d8e7   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 e6e7         +7    742      6,115
+        7 d8e7       +267      0     22,369
+        8 d8e7       +267      0     28,734
+        9 d8e7       +427      0     43,109
+       10 d8e7       +427      0     59,743
+-- [27] cluster 21 first serious error, 0 plies after +200 (standing +526)
+   K7/7R/8/8/5p2/4p3/2P2k1P/8 b - - 0 47
+   Stockfish +526 best e3e2   verdict: -
+    depth move      score   loss      nodes
+        6 e3e2        -78     19      4,524
+        7 e3e2        -78     19      8,025
+        8 f4f3        -55     11     28,312
+        9 f4f3        +23     11     59,704
+       10 e3e2       +501     19    320,311
+-- [28] cluster 17 first serious error, 0 plies after +200 (standing +237)
+   1R6/6p1/5p2/B4k2/2b5/1p1r1PK1/6P1/8 b - - 15 52
+   Stockfish +237 best f5e5   verdict: D persists
+    depth move      score   loss      nodes
+        6 c4d5       +190    136     46,280
+        7 c4d5       +188    136     79,436
+        8 c4d5       +190    136    146,687
+        9 d3d5       +190    131    262,827
+       10 d3d5       +191    131    433,550
+-- [29] cluster 24 first serious error, 2 plies after +200 (standing +515)
+   5k2/R7/2p5/2N5/3r3P/P3r1P1/1K6/8 b - - 5 45
+   Stockfish +515 best d4d2   verdict: C deeper
+    depth move      score   loss      nodes
+        6 f8g8        +26    354     35,084
+        7 f8e8        +34    177     71,123
+        8 f8e8        +33    177    153,363
+        9 f8e8        +40    177    255,664
+       10 d4d2       +115      0    615,972
+-- [30] cluster 13 first serious error, 7 plies after +200 (standing +415)
+   8/p2b4/5Bp1/6K1/1p5P/1k3P2/5P2/8 b - - 1 52
+   Stockfish +415 best d7e8   verdict: -
+    depth move      score   loss      nodes
+        6 d7e8        +14      0      9,747
+        7 d7e8        +51      0     17,168
+        8 b3c2        +80    334     29,483
+        9 b3c2        +86    334     50,134
+       10 d7e8        +69      0    109,154
+-- [31] cluster 13 largest loss (10000) after +200 (standing +10000)
+   8/4qP2/6K1/8/8/8/1k6/8 b - - 4 70
+   Stockfish +10000 best e7f8   verdict: C deeper
+    depth move      score   loss      nodes
+        6 b2c3       +778  10000     38,138
+        7 b2c3       +781  10000     66,667
+        8 e7c5       +776  10000    132,327
+        9 b2c3       +779  10000    214,428
+       10 e7f8       +779      0    326,762
+-- [32] cluster 29 first serious error, 0 plies after +200 (standing +320)
+   8/4kp2/2K2p2/2p5/1p4B1/pP1Pb3/P1P5/8 b - - 17 41
+   Stockfish +320 best f6f5   verdict: D persists
+    depth move      score   loss      nodes
+        6 e3g1       +160    308      9,172
+        7 e3g1       +155    308     12,984
+        8 e3g1       +158    308     20,550
+        9 e3g1       +150    308     30,760
+       10 e3g1       +150    308     50,964
+-- [33] cluster 29 largest loss (385) after +200 (standing +385)
+   2B5/4kp2/2K2p2/2p5/1p1b4/pP1P4/P1P5/8 b - - 21 43
+   Stockfish +385 best f6f5   verdict: D persists
+    depth move      score   loss      nodes
+        6 d4f2       +154    385      6,920
+        7 e7f8       +150    385     12,040
+        8 e7f8       +154    385     21,088
+        9 e7f8       +148    385     31,392
+       10 e7f8       +157    385     50,937
+-- [34] cluster 34 first serious error, 2 plies after +200 (standing +474)
+   8/6R1/1n1k2p1/7p/3K3P/p7/8/8 w - - 0 53
+   Stockfish +474 best g7g6   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 g7a7       +131    438      9,059
+        7 g7g6       +208      2     22,039
+        8 g7g6       +208      2     33,597
+        9 g7g6       +229      2     44,671
+       10 g7g6       +229      2     69,790
+-- [35] cluster 34 largest loss (439) after +200 (standing +452)
+   8/8/R1nk2p1/7p/3K3P/8/8/8 w - - 3 56
+   Stockfish +452 best d4e3   verdict: D persists
+    depth move      score   loss      nodes
+        6 d4c4       +159    439      4,545
+        7 d4c4       +149    439      8,851
+        8 d4c4       +155    439     15,209
+        9 d4c4       +151    439     25,246
+       10 d4c4       +151    439     37,303
+-- [36] cluster 35 first serious error, 0 plies after +200 (standing +246)
+   b7/2p5/1pPk4/1PqPp2B/4Pp2/6p1/2Q3P1/5K2 w - - 14 51
+   Stockfish +246 best c2c5   verdict: D persists
+    depth move      score   loss      nodes
+        6 c2b2        +23    193      6,581
+        7 c2b2        +24    193     14,271
+        8 c2b2        +19    193     27,416
+        9 c2b2        +24    193     52,518
+       10 c2b2        +24    193     94,086
+-- [37] cluster 36 first serious error, 0 plies after +200 (standing +304)
+   8/1R6/1p1pbkp1/2p2p2/1rP1nP2/K7/2P1B2P/3R4 b - - 0 30
+   Stockfish +304 best e4c3   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 e6c4        +19    271     26,686
+        7 e4c3        +22      0     56,204
+        8 e4c3        +28      0    115,134
+        9 e4c3        +24      0    178,486
+       10 e4c3        +48      0    317,525
+-- [38] cluster 36 largest loss (450) after +200 (standing +454)
+   1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+   Stockfish +454 best c5c4   verdict: D persists
+    depth move      score   loss      nodes
+        6 e6d7         +5    454     22,046
+        7 e6d6        +12    450     43,348
+        8 e6d6        +85    450    112,765
+        9 e6d7        +50    454    201,943
+       10 e6d6        +98    450    325,437
+-- [39] cluster 45 first serious error, 0 plies after +200 (standing +442)
+   8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+   Stockfish +442 best g2g4   verdict: D persists
+    depth move      score   loss      nodes
+        6 b2b3         +9    442      3,507
+        7 b2b3         +0    442      6,391
+        8 b2b3         +0    442     13,824
+        9 b2b3         -4    442     31,576
+       10 b2b3        +10    442     52,057
+-- [40] cluster 45 largest loss (9029) after +200 (standing +10000)
+   5Q2/8/p5K1/1p6/kP6/8/8/8 w - - 6 55
+   Stockfish +10000 best f8f4   verdict: -
+    depth move      score   loss      nodes
+        6 f8c5       +937      0     32,077
+        7 f8d6       +924   8758     70,091
+        8 f8d6       +924   8758    134,723
+        9 f8d6       +942   8758    297,149
+       10 f8d6       +949   8758    581,554
+-- [41] cluster 53 first serious error, 10 plies after +200 (standing +217)
+   1bN5/8/4k1p1/1p1p3p/1P1P3P/2P1pKP1/8/8 b - - 1 47
+   Stockfish +217 best e3e2   verdict: B +2 plies
+    depth move      score   loss      nodes
+        6 e6d7        +76    194      4,566
+        7 e6d7        +33    194     10,770
+        8 e3e2        +22     14     18,405
+        9 e3e2        +23     14     29,357
+       10 e3e2        +37     14     42,623
+-- [42] cluster 47 first serious error, 18 plies after +200 (standing +301)
+   8/8/p2k4/5r1p/1PR2N2/7P/3r2P1/6K1 b - - 0 42
+   Stockfish +301 best f5g5   verdict: C deeper
+    depth move      score   loss      nodes
+        6 a6a5       +123    301     47,784
+        7 a6a5       +121    301     75,470
+        8 a6a5       +118    301    148,014
+        9 f5b5       +112      2    378,090
+       10 f5b5       +110      2    749,379
+-- [43] cluster 49 first serious error, 0 plies after +200 (standing +250)
+   5r2/4k3/1p4p1/p2R3p/1bP1Pp1P/2BK4/1P4P1/8 w - - 3 42
+   Stockfish +250 best c3b4   verdict: C deeper
+    depth move      score   loss      nodes
+        6 c3d4         +7    203     34,788
+        7 c3d4         +2    203     60,141
+        8 c3d4         +2    203    121,197
+        9 c3d4         +3    203    215,204
+       10 c3b4        +23      8    374,829
+-- [44] cluster 46 first serious error, 4 plies after +200 (standing +232)
+   4r3/p4pk1/5r2/2p4p/3pB2P/1P6/PN3PK1/2R5 w - - 3 34
+   Stockfish +232 best f2f3   verdict: D persists
+    depth move      score   loss      nodes
+        6 e4d3        +54    106     61,465
+        7 e4d3        +55    106     89,953
+        8 e4d3        +54    106    219,184
+        9 e4d3        +56    106    416,143
+       10 e4d3        +69    106    786,911
+-- [45] cluster 46 largest loss (8813) after +200 (standing -1187)
+   8/8/5k2/8/4R1B1/8/r2p3K/1r6 w - - 2 72
+   Stockfish -1187 best e4e6   verdict: D persists
+    depth move      score   loss      nodes
+        6 h2h3       -742   8813     20,052
+        7 e4e6       -770   8813     43,165
+        8 e4e6       -772   8813     61,326
+        9 e4e6       -793   8813    103,752
+       10 e4e6      -1033   8813    221,925
+-- [46] cluster 62 first serious error, 0 plies after +200 (standing +230)
+   2r5/4k1pp/p1p5/P3pp1P/1Pp5/2P5/2PR1PP1/5K2 b - - 1 31
+   Stockfish +230 best c8d8   verdict: D persists
+    depth move      score   loss      nodes
+        6 c6c5        -29    230     14,615
+        7 e7e6        -12    230     39,413
+        8 e7e6        -12    230     58,788
+        9 f5f4        -25    210    170,188
+       10 c6c5        +14    230    277,735
+-- [47] cluster 62 largest loss (387) after +200 (standing +383)
+   4R3/7p/P7/1k6/5p2/2p2K2/r4PP1/8 b - - 3 46
+   Stockfish +383 best a2a6   verdict: C deeper
+    depth move      score   loss      nodes
+        6 c3c2       +110    387     21,838
+        7 c3c2        +98    387     43,131
+        8 c3c2       +105    387     83,285
+        9 a2a6       +114      0    188,906
+       10 a2a6       +127      0    345,968
+-- [48] cluster 77 first serious error, 6 plies after +200 (standing +448)
+   1k6/1p5R/6K1/8/8/8/8/4r3 b - - 4 51
+   Stockfish +448 best b8a7   verdict: D persists
+    depth move      score   loss      nodes
+        6 b8c8        +66    236     24,295
+        7 b8c8        +69    236     41,984
+        8 b8c8        +69    236     64,749
+        9 b8c8        +69    236    144,827
+       10 b8c8        +73    236    204,284
+-- [49] cluster 77 largest loss (9392) after +200 (standing +10000)
+   8/5K2/8/8/4r3/6k1/8/8 b - - 5 75
+   Stockfish +10000 best g3h4   verdict: D persists
+    depth move      score   loss      nodes
+        6 e4f4       +548   9392     13,773
+        7 e4f4       +539   9392     29,159
+        8 e4f4       +539   9392     52,066
+        9 e4f4       +539   9392     93,123
+       10 e4f4       +539   9392    133,276
+-- [50] cluster 76 first serious error, 2 plies after +200 (standing +502)
+   2k5/ppp5/5N1P/4p1K1/2P5/1P6/2b5/8 w - - 1 49
+   Stockfish +502 best f6g4   verdict: D persists
+    depth move      score   loss      nodes
+        6 h6h7        +89    502      7,467
+        7 h6h7        +99    502     11,263
+        8 h6h7       +112    502     19,226
+        9 h6h7       +165    502     35,379
+       10 h6h7       +186    502     61,523
+-- [51] cluster 77 first serious error, 1 plies after +200 (standing +261)
+   2k5/1p6/p3r1p1/2P2p2/1P1R1Q1P/7P/4q1PK/8 w - - 4 36
+   Stockfish +261 best f4g3   verdict: E unstable
+    depth move      score   loss      nodes
+        6 d4d6       +114    212     46,716
+        7 f4g3       +116      0     91,605
+        8 f4g3       +121      0    177,127
+        9 d4d6       +114    212    398,092
+       10 d4d6       +109    212    748,663
+-- [52] cluster 77 largest loss (419) after +200 (standing +463)
+   2k5/1p6/p2Rr1p1/2P2p2/1P2qQ1P/7P/6PK/8 w - - 6 37
+   Stockfish +463 best f4e4   verdict: C deeper
+    depth move      score   loss      nodes
+        6 f4g3       +135    419     23,674
+        7 f4g3       +114    419     48,278
+        8 f4g3       +109    419     88,824
+        9 f4c1       +104    437    192,222
+       10 f4e4       +103     47    407,389
+-- [53] cluster 87 first serious error, 15 plies after +200 (standing +329)
+   3R4/pppP3p/5k2/8/7p/8/P5PK/3r2N1 w - - 2 32
+   Stockfish +329 best d8b8   verdict: C deeper
+    depth move      score   loss      nodes
+        6 d8a8       +164    160     22,195
+        7 d8a8       +167    160     39,586
+        8 d8a8       +175    160     73,679
+        9 g1f3       +179     88    170,850
+       10 d8b8       +190     10    291,818
+-- [54] cluster 88 first serious error, 2 plies after +200 (standing +468)
+   r5k1/ppp2ppp/6q1/3b4/4r3/P1B1PQ2/1P3PPP/R4RK1 b - - 4 17
+   Stockfish +468 best e4e5   verdict: B +2 plies
+    depth move      score   loss      nodes
+        6 e4d4       +132    218    261,062
+        7 e4d4       +120    218    359,548
+        8 e4e5       +498      7    757,564
+        9 e4e5       +487      7  1,059,348
+       10 e4e5       +481      7  2,077,997
+-- [55] cluster 31 first serious error, 0 plies after +200 (standing +519)
+   8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62
+   Stockfish +519 best h6h5   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 f7e6        +15    519      2,016
+        7 h6h5        +64      2      4,843
+        8 h6h5       +112      2      9,362
+        9 h6h5       +112      2     13,560
+       10 h6h5        +47      2     56,646
+-- [56] cluster 31 first serious error, 0 plies after +200 (standing +568)
+   1R6/1P3k2/6p1/5P1p/7P/1r2pK2/8/8 w - - 0 54
+   Stockfish +568 best f5f6   verdict: C deeper
+    depth move      score   loss      nodes
+        6 f5g6       +274    568     11,814
+        7 f5g6       +277    568     20,197
+        8 f5g6       +277    568     32,407
+        9 b8h8       +370      0     62,458
+       10 b8h8       +368      0     93,091
+-- [57] cluster 78 first serious error, 8 plies after +200 (standing +277)
+   2rq1rk1/1p4pp/4p1p1/1P2P3/1pRP4/2nQ1N2/5PPP/5RK1 b - - 2 24
+   Stockfish +277 best c8c4   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 d8a5         +8    274     83,189
+        7 c8c4        +17      0    190,281
+        8 c8c4        +22      0    346,312
+        9 c8c4        +42      0    557,895
+       10 c8c4        +19      0  1,128,353
+-- [58] cluster 63 first serious error, 18 plies after +200 (standing +230)
+   6k1/6p1/5p2/P6p/1nNr3P/1P1p1P2/6P1/R5K1 w - - 2 41
+   Stockfish +230 best g1f2   verdict: D persists
+    depth move      score   loss      nodes
+        6 a5a6        +97    218     26,603
+        7 a5a6        +98    218     49,494
+        8 a5a6        +98    218     99,728
+        9 a5a6        +89    218    180,671
+       10 a5a6        +89    218    307,551
+-- [59] cluster 63 largest loss (328) after +200 (standing +328)
+   4R3/5kp1/8/5p1p/5P1P/1Pr5/5KP1/8 w - - 9 54
+   Stockfish +328 best e8e3   verdict: D persists
+    depth move      score   loss      nodes
+        6 e8b8        +87    328     13,695
+        7 e8b8        +79    328     25,179
+        8 e8b8        +81    328     37,207
+        9 e8b8        +81    328     55,779
+       10 e8b8        +81    328     89,748
+-- [60] cluster 90 first serious error, 0 plies after +200 (standing +384)
+   8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+   Stockfish +384 best f3g3   verdict: D persists
+    depth move      score   loss      nodes
+        6 b3d3        -79    408     47,562
+        7 b3b8        -65    384    144,773
+        8 b3b8        -61    384    207,590
+        9 b3b8        -27    384    436,081
+       10 b3b8        -23    384    685,132
+-- [61] cluster 90 largest loss (447) after +200 (standing -13)
+   8/5R2/5p2/5r2/6k1/2K5/8/8 w - - 0 58
+   Stockfish -13 best c3d3   verdict: B +2 plies
+    depth move      score   loss      nodes
+        6 c3d4       -100    447     19,420
+        7 c3d4        -99    447     33,316
+        8 c3d3        -96      0     55,432
+        9 c3d3        -97      0     82,005
+       10 c3d3        -91      0    171,892
+-- [62] cluster 92 first serious error, 18 plies after +200 (standing +696)
+   3r4/6k1/4B2R/3n1PP1/p7/5K2/8/8 w - - 3 60
+   Stockfish +696 best h6g6   verdict: C deeper
+    depth move      score   loss      nodes
+        6 f5f6       +286    292     29,374
+        7 f5f6       +272    292     53,280
+        8 f5f6       +273    292    109,485
+        9 f3e4       +452      0    234,586
+       10 f3e4       +458      0    361,080
+-- [63] cluster 92 largest loss (487) after +200 (standing +494)
+   8/6k1/4BR2/6P1/4K3/p7/3r4/8 w - - 2 63
+   Stockfish +494 best e6f5   verdict: E unstable
+    depth move      score   loss      nodes
+        6 e4e3       +264    487     37,756
+        7 e6d5       +274     40     73,519
+        8 e4e3       +274    487    165,817
+        9 e6c4       +276    486    279,782
+       10 e6d5       +282     40    599,944
+
+verdicts: {'D persists': 27, 'A +1 ply': 10, '-': 7, 'C deeper': 13, 'B +2 plies': 4, 'E unstable': 2}

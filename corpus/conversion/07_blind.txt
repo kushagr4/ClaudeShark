@@ -1,0 +1,63 @@
+== BLIND WINNING POSITIONS: Stockfish >= +300 for production; root < 100 ('blind', n=136) vs root >= 100 ('seen', n=774) ==
+
+feature                               blind       seen
+pawn_ending                            8.8%       7.9%
+rook_ending                           27.9%      12.8%
+material                               -0.1        2.2
+non_pawn                                3.5        3.0
+pieces                                 12.4       10.8
+our_passers                             1.3        1.2
+our_best_passer_rank                    2.2        2.6
+their_best_passer_rank                  1.1        1.0
+def_king_to_promo                       3.4        3.2
+our_king_centrality                     1.2        1.1
+static                                  4.3      276.0
+root                                   42.9      515.2
+sf                                    427.3      601.1
+loss                                  119.4       47.0
+serious-error rate                    33.1%      11.5%
+phase endgame                         83.8%      91.9%
+
+material balance distribution (pawn units, production's side):
+  blind: -3: 3%, -2: 4%, -1: 22%, +0: 42%, +1: 26%, +2: 2%
+  seen:  -3: 2%, -2: 2%, -1: 6%, +0: 16%, +1: 23%, +2: 13%, +3: 16%, +4: 5%, +5: 4%, +6: 14%
+
+structural tags enriched in blind positions (share blind vs seen, n_blind >= 15):
+  rook_ending                  blind  27.9%  seen  12.8%  diff +15.2%
+  backward_pawn                blind  44.9%  seen  32.9%  diff +11.9%
+  knight_outpost               blind  17.6%  seen   7.6%  diff +10.0%
+  isolated_pawn                blind  91.2%  seen  84.2%  diff  +6.9%
+  connected_passers            blind  28.7%  seen  21.8%  diff  +6.8%
+  rook_on_semi_open_file       blind  26.5%  seen  20.2%  diff  +6.3%
+  locked_pawn_chain            blind  11.8%  seen   6.1%  diff  +5.7%
+  doubled_pawns                blind  25.0%  seen  20.0%  diff  +5.0%
+  in_check                     blind  14.7%  seen  10.2%  diff  +4.5%
+  bad_bishop                   blind  12.5%  seen   8.0%  diff  +4.5%
+  semi_open_file               blind  98.5%  seen  95.6%  diff  +2.9%
+  minor_piece_ending           blind  19.9%  seen  17.8%  diff  +2.0%
+  opposite_coloured_bishops    blind  13.2%  seen  11.4%  diff  +1.9%
+  rook_on_open_file            blind  46.3%  seen  45.1%  diff  +1.2%
+  queenside_majority           blind  22.8%  seen  21.7%  diff  +1.1%
+  protected_passer             blind  23.5%  seen  22.9%  diff  +0.7%
+  passed_pawn                  blind  83.1%  seen  84.6%  diff  -1.5%
+  open_file                    blind  96.3%  seen  98.1%  diff  -1.7%
+  rook_and_minor_ending        blind  20.6%  seen  36.4%  diff -15.8%
+  advanced_passer              blind  21.3%  seen  37.7%  diff -16.4%
+  material_imbalance           blind  43.4%  seen  66.8%  diff -23.4%
+
+blind positions where production is NOT ahead in material (the win is positional/technical):
+  97/136  (seen: 202/774)
+
+examples of blind winning positions with the largest Stockfish-vs-root gap:
+  SF  +742 root    +7 static  -299 mat -4 passer rank 6 loss  742  3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+  SF  +660 root   -23 static   -30 mat -1 passer rank -1 loss    0  4k2r/p1q5/2p2p2/1p3Np1/4Pn1p/1B2Q3/PbP3PP/3R3K w - - 0 31
+  SF  +726 root   +64 static   +33 mat +0 passer rank 4 loss  127  6k1/p1r3p1/Rp2p3/3p4/Q2Pnnp1/2P5/2P5/5K2 b - - 1 38
+  SF  +653 root   +27 static   -27 mat +0 passer rank 5 loss  157  8/p7/P1Pk1n2/1P6/8/4Kpp1/5N2/8 b - - 1 54
+  SF  +671 root   +48 static   +12 mat +0 passer rank 3 loss  129  b7/2p5/1pPk4/1P1P3B/3pPp2/6p1/6P1/5K2 w - - 0 53
+  SF  +645 root   +32 static   +30 mat +0 passer rank -1 loss   33  b7/2p5/1pPk4/1P1Pp2B/3qPp2/6p1/1Q4P1/5K2 w - - 16 52
+  SF  +380 root  -229 static   -86 mat -1 passer rank -1 loss  933  8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+  SF  +470 root  -135 static  -211 mat -2 passer rank 4 loss   57  8/8/8/6PP/P5K1/5r2/5k2/8 w - - 0 55
+  SF  +526 root   -78 static  -335 mat -5 passer rank 5 loss  107  K7/7R/8/8/5p2/4p3/2P2k1P/8 b - - 0 47
+  SF  +604 root    +0 static   +24 mat +0 passer rank -1 loss   16  3Q3k/6p1/5p1p/7P/P5P1/1r5q/8/3R2K1 b - - 2 48
+  SF  +429 root  -157 static   -98 mat -1 passer rank 4 loss   53  8/8/5r2/7P/P5P1/6K1/4kP2/8 w - - 3 53
+  SF  +641 root   +65 static    -7 mat +0 passer rank -1 loss   70  2R5/5ppk/6b1/p3p2p/1p5P/qP6/P2Q2PK/8 w - - 0 38

@@ -1,0 +1,143 @@
+== RECORD THIS candidates: production trajectories through a failed conversion ==
+SF = Stockfish standing from production's side; root = production root score (own turns only); static = production static (own side)
+
+-- cluster 4, production white, result 0.5, termination threefold_repetition; crossed +200 at ply 29; first serious error ply 29; largest loss ply 29
+   start 2r5/6k1/3R4/6P1/2pb3P/3n3K/P7/5R2 b - - 3 41
+    ply mover move        SF    root  static   loss  note
+     25 base  d6e6        +0      71    +144     12  
+     26 cand  e2c1       -12            +121         
+     27 base  e8d8        -4      -1    -306      0  
+     28 cand  c7e7        +0            -317         
+     29 base  e6e7      +742       7    -299    742  crosses +200; FIRST SERIOUS ERROR (SF best d8e7)
+     30 cand  g7f6        +0            +223         
+     31 base  d8e8        +0       4    +225      0  
+     32 cand  f6e7        +0            +208         
+     33 base  e8f7        +1    -183    -253    625  
+     34 cand  e7f6      -624            -220         
+
+-- cluster 13, production black, result 0.5, termination threefold_repetition; crossed +200 at ply 50; first serious error ply 57; largest loss ply 93
+   start 2r4r/pp3kp1/3Rbpp1/2p5/8/P1B1PPKP/1P3P2/3R4 w - - 4 24
+    ply mover move        SF    root  static   loss  note
+     46 cand  e4e5       -28             -21         
+     47 base  a6a5      +141       3     -10      3  
+     48 cand  e5f6      +138             -19         
+     49 base  g7f6      +154      16    -141      0  
+     50 cand  c5d4      +225             -26         crosses +200
+     51 base  a5b4      +240      31     -17     15  
+     52 cand  d4f6      +225             +82         
+     53 base  c7d7      +245      19     +13      0  
+     54 cand  d8d7      +251              +2         
+     55 base  b5d7      +298       0    -483      0  
+     56 cand  f4g5      +351             +20         
+     57 base  b3a2      +415      50     +31    415  FIRST SERIOUS ERROR (SF best d7e8)
+     58 cand  h4h5        +0             -10         
+     59 base  g6h5      +530     185     -11     52  
+     60 cand  g5h5      +478             +74         
+     61 base  b4b3      +502     200     +23     23  
+     62 cand  h5g6      +479             +76         
+     63 base  d7e6      +510     206     +50     25  
+     64 cand  f3f4      +485             +48         
+     65 base  e6d7      +517     186     +66      0  
+     66 cand  f6d4      +520             +36         
+     67 base  b3b2      +476     183     +42      6  
+     68 cand  d4b2      +470            +104         
+     69 base  a2b2      +452     171    -107      0  
+     70 cand  f4f5      +455            +187         
+     71 base  d7c6      +528     109    +192    528  
+     72 cand  f5f6        +0            +185         
+     73 base  c6e4        +0       0    +152      0  
+     74 cand  g6g7        +0            +143         
+     75 base  e4d5        +1      -1    +181      1  
+     76 cand  f6f7        +0            +170         
+     77 base  d5f7        +0      12    +107      0  
+     78 cand  g7f7        +0            +289         
+     79 base  a7a5        +0      28      +0      0  
+     80 cand  f2f4        +0             -16         
+     81 base  a5a4        +0     758      +8      0  
+     82 cand  f4f5        +0             +11         
+     83 base  a4a3       +13     697     +15     13  
+     84 cand  f5f6        +0             +61         
+     85 base  a3a2        +0     726     +28      0  
+     86 cand  f7g6        +0             +96         
+     87 base  a2a1q       +0     741    +106      0  
+     88 cand  f6f7        +0            +758         
+     89 base  a1a3        +0     762    +697      0  
+     90 cand  g6g7        +0            +674         
+     91 base  a3e7        +0     776    +718      0  
+     92 cand  g7g6        +0            +709         
+     93 base  b2c3    +10000     778    +697  10000  largest loss (SF best e7f8)
+     94 cand  g6g7        +0            +687         
+     95 base  e7e5       +21     779    +730     21  
+     96 cand  g7g6        +0            +752         
+     97 base  e5f4    +10000     779    +740  10000  
+     98 cand  g6g7        +0            +735         
+
+-- cluster 31, production white, result 0.5, termination threefold_repetition; crossed +200 at ply 10; first serious error ply 10; largest loss ply 10
+   start 1R6/1P4p1/6k1/5p1p/5P1P/4P1K1/1r6/8 w - - 1 49
+    ply mover move        SF    root  static   loss  note
+      6 base  f4f5       +16     128    +168     11  
+      7 cand  e4e3        +5            +163         
+      8 base  e2f3        +7     172    +124      7  
+      9 cand  g7g6        +0            +112         
+     10 base  f5g6      +568     274    +131    568  crosses +200; FIRST SERIOUS ERROR (SF best f5f6)
+     11 cand  f7g7        +0            +279         
+     12 base  f3e2       +11     277    +298     11  
+     13 cand  b3b1        +0            +279         
+     14 base  e2e3        +0     293    +288      0  
+     15 cand  b1b3        +0            +429         
+
+-- cluster 45, production white, result 0.5, termination threefold_repetition; crossed +200 at ply 7; first serious error ply 7; largest loss ply 41
+   start 8/5p2/p2qpkp1/1p5p/1P2QP1P/2P5/1P4PK/8 b - - 6 34
+    ply mover move        SF    root  static   loss  note
+      3 base  h2g3        +5       5     -25      0  
+      4 cand  f6f5        +9             -17         
+      5 base  g3f3        +5       5      -8      5  
+      6 cand  f7f6        +0             -15         
+      7 base  b2b3      +442       9      +6    442  crosses +200; FIRST SERIOUS ERROR (SF best g2g4)
+      8 cand  f5e6        +0             -11         
+      9 base  g2g4        +0      12      +5      0  
+     10 cand  h5g4        +0             -10         
+     11 base  f3g4      +327      18    -109      5  
+     12 cand  f6f5      +322             -21         
+     13 base  g4g5      +337      19      -2     28  
+     14 cand  e6f7      +309              -1         
+     15 base  h4h5      +317      48     +34      0  
+     16 cand  g6h5      +338             +36         
+     17 base  g5f5      +370      64     -59    370  
+     18 cand  f7e7        +0             +18         
+     19 base  f5g5      +392      47     +24      7  
+     20 cand  e7e6      +385              +1         
+     21 base  f4f5      +562      69      +8      3  
+     22 cand  e6e5      +559              +4         
+     23 base  f5f6      +659     157     +16     92  
+     24 cand  e5e6      +567             +49         
+     25 base  g5g6      +613     693     +69      0  
+     26 cand  d5d4      +661             +71         
+     27 base  c3d4      +668     858     +75     43  
+     28 cand  e6d5      +625            +157         
+     29 base  f6f7      +660     875    +172     17  
+     30 cand  d5d4      +643            +235         
+     31 base  f7f8q     +655     911    +161      0  
+     32 cand  d4c3      +961            +907         
+     33 base  g6h5    +10000     934    +922   9019  
+     34 cand  c3b3      +981            +949         
+     35 base  h5g6     +1429     937    +869      0  
+     36 cand  b3c4     +1457            +897         
+     37 base  f8c5    +10000     937    +913      0  
+     38 cand  c4b3    +10000            +891         
+     39 base  c5f8    +10000     937    +907      0  
+     40 cand  b3a4    +10000            +897         
+     41 base  f8e7    +10000     937    +940   9029  largest loss (SF best f8f4)
+     42 cand  a4b3      +971            +947         
+
+-- cluster 12, production black, result 0.5, termination threefold_repetition; crossed +200 at ply 2; first serious error ply 2; largest loss ply 2
+   start 4B3/8/5p2/p5pp/3bP2k/5P2/4K1P1/8 b - - 7 41
+    ply mover move        SF    root  static   loss  note
+      0 base  h4g3       +50     129    +122     50  
+      1 cand  e2d3        +0            +149         
+      2 base  d4e5      +495     146    +158    495  crosses +200; FIRST SERIOUS ERROR (SF best h5h4)
+      3 cand  e8h5        +0            +139         
+      4 base  a5a4        +7     188     +55      7  
+      5 cand  d3c4        +0             +58         
+      6 base  a4a3        +0     208     +72      0  
+      7 cand  c4b3        +0            +114         

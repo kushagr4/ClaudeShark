@@ -39,6 +39,7 @@ ignore = ["N818"]
 # Diagnostic report tooling: wide f-string tables are clearer on one line.
 "tools/postmortem/*" = ["E501"]
 "tools/repetition/*" = ["E501"]
+"tools/conversion/*" = ["E501"]
 
 [tool.mypy]
 strict = true

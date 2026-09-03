@@ -1,0 +1,68 @@
+== 6. DEPTH-SCALING SUMMARY: 63 conversion-failure positions, production, depths 6-10 ==
+verdicts: {'D persists': 27, 'A +1 ply': 10, '-': 7, 'C deeper': 13, 'B +2 plies': 4, 'E unstable': 2}
+positions that were errors (loss>=50) at depth 6: 56; not errors at depth 6 (loss<50): 7
+  A +1 ply      10  18%
+  B +2 plies     4  7%
+  C deeper      13  23%
+  D persists    27  48%
+  E unstable     2  4%
+
+mean Stockfish loss of the chosen move by depth (errors at depth 6 only):
+  depth 6: mean loss 349  still >=100: 55/56  root score mean +68
+  depth 7: mean loss 257  still >=100: 42/56  root score mean +76
+  depth 8: mean loss 247  still >=100: 39/56  root score mean +94
+  depth 9: mean loss 204  still >=100: 33/56  root score mean +109
+  depth 10: mean loss 155  still >=100: 26/56  root score mean +110
+
+by case kind:
+  first_error   n=36 {'D persists': 18, 'C deeper': 7, 'B +2 plies': 3, 'A +1 ply': 7, 'E unstable': 1}
+  largest_loss  n=20 {'A +1 ply': 3, 'D persists': 9, 'C deeper': 6, 'B +2 plies': 1, 'E unstable': 1}
+
+root-score awareness at depth 6 vs 10 (errors only): root<100 while SF>=300
+  depth 6: 17/37
+  depth 10: 11/37
+
+persisting failures (D) -- evaluation, not horizon:
+  cl  14 black SF   +206 best g7g5   moves ['b7b5', 'e7f7', 'e7f8', 'e7f7', 'e7f7'] losses [206, 347, 370, 347, 347] scores [-14, -44, -37, -42, -42]  8/pp2k1p1/4p3/4Pp1p/1P5P/P1K3P1/2P5/8 b - - 0 33
+  cl  38 white SF   +380 best h4h5   moves ['g8g2', 'g8g2', 'g8g2', 'g8g2', 'g8g2'] losses [107, 107, 107, 107, 107] scores [-8, 0, 0, 18, 19]  1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62
+  cl  12 black SF   +495 best h5h4   moves ['d4e5', 'd4b2', 'd4e5', 'd4e5', 'd4e5'] losses [495, 495, 495, 495, 495] scores [146, 137, 188, 200, 208]  4B3/8/5p2/p5pp/3bP3/3K1Pk1/6P1/8 b - - 9 42
+  cl  75 black SF   +468 best d4c3   moves ['c2d2', 'c2d2', 'c2d2', 'c2d2', 'c2d2'] losses [468, 468, 468, 468, 468] scores [154, 152, 152, 152, 151]  R7/8/6p1/6Pp/3k3P/5KP1/p1r5/8 b - - 11 65
+  cl  75 white SF   -404 best e4e5   moves ['e4e5', 'e4e5', 'e4e5', 'e4e5', 'e4e5'] losses [9596, 9596, 9596, 9596, 9596] scores [-538, -539, -538, -539, -535]  8/8/8/8/4K3/6k1/8/5r2 w - - 28 102
+  cl  51 white SF   +460 best g4g5   moves ['h5g6', 'g4g5', 'g4g5', 'g4g5', 'g4g5'] losses [460, 69, 69, 69, 69] scores [33, 55, 48, 37, 34]  8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+  cl  56 white SF   +341 best c4c5   moves ['b6b7', 'b6b7', 'b6b7', 'c4c3', 'c4c3'] losses [341, 341, 341, 114, 114] scores [163, 163, 163, 164, 165]  1R6/5p2/1P3pk1/7p/2K5/5PP1/8/1r6 w - - 11 54
+  cl  61 black SF   +297 best d3e4   moves ['f4f5', 'f4f5', 'f4f5', 'f4f5', 'f4f5'] losses [251, 251, 251, 251, 251] scores [14, 14, 16, 25, 23]  8/5ppk/1R2pn1p/1p6/5q2/1PQb1B2/P5P1/7K b - - 4 34
+  cl  84 white SF   +709 best e4e8   moves ['a8f8', 'a4a5', 'a4a5', 'a4a5', 'a4a5'] losses [160, 155, 155, 155, 155] scores [180, 196, 202, 225, 254]  R4rk1/5ppp/8/8/P3Q3/6P1/5PKP/q7 w - - 5 39
+  cl  91 black SF   +216 best a6a2   moves ['a6a8', 'a6a8', 'a6a8', 'a6a8', 'a6a8'] losses [77, 77, 77, 77, 77] scores [90, 109, 173, 172, 168]  2b3k1/6pp/r1p1p3/2PpP2P/3Pp2b/1p2P3/3B2P1/1R1N2K1 b - - 1 26
+  cl  86 black SF   +399 best c6b5   moves ['d8e8', 'd8e8', 'd8e8', 'd8e8', 'd8e8'] losses [398, 398, 398, 398, 398] scores [50, 88, 92, 85, 94]  3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46
+  cl  17 black SF   +237 best f5e5   moves ['c4d5', 'c4d5', 'c4d5', 'd3d5', 'd3d5'] losses [136, 136, 136, 131, 131] scores [190, 188, 190, 190, 191]  1R6/6p1/5p2/B4k2/2b5/1p1r1PK1/6P1/8 b - - 15 52
+  cl  29 black SF   +320 best f6f5   moves ['e3g1', 'e3g1', 'e3g1', 'e3g1', 'e3g1'] losses [308, 308, 308, 308, 308] scores [160, 155, 158, 150, 150]  8/4kp2/2K2p2/2p5/1p4B1/pP1Pb3/P1P5/8 b - - 17 41
+  cl  29 black SF   +385 best f6f5   moves ['d4f2', 'e7f8', 'e7f8', 'e7f8', 'e7f8'] losses [385, 385, 385, 385, 385] scores [154, 150, 154, 148, 157]  2B5/4kp2/2K2p2/2p5/1p1b4/pP1P4/P1P5/8 b - - 21 43
+  cl  34 white SF   +452 best d4e3   moves ['d4c4', 'd4c4', 'd4c4', 'd4c4', 'd4c4'] losses [439, 439, 439, 439, 439] scores [159, 149, 155, 151, 151]  8/8/R1nk2p1/7p/3K3P/8/8/8 w - - 3 56
+  cl  35 white SF   +246 best c2c5   moves ['c2b2', 'c2b2', 'c2b2', 'c2b2', 'c2b2'] losses [193, 193, 193, 193, 193] scores [23, 24, 19, 24, 24]  b7/2p5/1pPk4/1PqPp2B/4Pp2/6p1/2Q3P1/5K2 w - - 14 51
+  cl  36 black SF   +454 best c5c4   moves ['e6d7', 'e6d6', 'e6d6', 'e6d7', 'e6d6'] losses [454, 450, 450, 454, 450] scores [5, 12, 85, 50, 98]  1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+  cl  45 white SF   +442 best g2g4   moves ['b2b3', 'b2b3', 'b2b3', 'b2b3', 'b2b3'] losses [442, 442, 442, 442, 442] scores [9, 0, 0, -4, 10]  8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+  cl  46 white SF   +232 best f2f3   moves ['e4d3', 'e4d3', 'e4d3', 'e4d3', 'e4d3'] losses [106, 106, 106, 106, 106] scores [54, 55, 54, 56, 69]  4r3/p4pk1/5r2/2p4p/3pB2P/1P6/PN3PK1/2R5 w - - 3 34
+  cl  46 white SF  -1187 best e4e6   moves ['h2h3', 'e4e6', 'e4e6', 'e4e6', 'e4e6'] losses [8813, 8813, 8813, 8813, 8813] scores [-742, -770, -772, -793, -1033]  8/8/5k2/8/4R1B1/8/r2p3K/1r6 w - - 2 72
+  cl  62 black SF   +230 best c8d8   moves ['c6c5', 'e7e6', 'e7e6', 'f5f4', 'c6c5'] losses [230, 230, 230, 210, 230] scores [-29, -12, -12, -25, 14]  2r5/4k1pp/p1p5/P3pp1P/1Pp5/2P5/2PR1PP1/5K2 b - - 1 31
+  cl  77 black SF   +448 best b8a7   moves ['b8c8', 'b8c8', 'b8c8', 'b8c8', 'b8c8'] losses [236, 236, 236, 236, 236] scores [66, 69, 69, 69, 73]  1k6/1p5R/6K1/8/8/8/8/4r3 b - - 4 51
+  cl  77 black SF +10000 best g3h4   moves ['e4f4', 'e4f4', 'e4f4', 'e4f4', 'e4f4'] losses [9392, 9392, 9392, 9392, 9392] scores [548, 539, 539, 539, 539]  8/5K2/8/8/4r3/6k1/8/8 b - - 5 75
+  cl  76 white SF   +502 best f6g4   moves ['h6h7', 'h6h7', 'h6h7', 'h6h7', 'h6h7'] losses [502, 502, 502, 502, 502] scores [89, 99, 112, 165, 186]  2k5/ppp5/5N1P/4p1K1/2P5/1P6/2b5/8 w - - 1 49
+  cl  63 white SF   +230 best g1f2   moves ['a5a6', 'a5a6', 'a5a6', 'a5a6', 'a5a6'] losses [218, 218, 218, 218, 218] scores [97, 98, 98, 89, 89]  6k1/6p1/5p2/P6p/1nNr3P/1P1p1P2/6P1/R5K1 w - - 2 41
+  cl  63 white SF   +328 best e8e3   moves ['e8b8', 'e8b8', 'e8b8', 'e8b8', 'e8b8'] losses [328, 328, 328, 328, 328] scores [87, 79, 81, 81, 81]  4R3/5kp1/8/5p1p/5P1P/1Pr5/5KP1/8 w - - 9 54
+  cl  90 white SF   +384 best f3g3   moves ['b3d3', 'b3b8', 'b3b8', 'b3b8', 'b3b8'] losses [408, 384, 384, 384, 384] scores [-79, -65, -61, -27, -23]  8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+
+fixed by +1/+2 plies (A/B) -- horizon:
+  cl  14 black SF   -485 best f5f8   moves ['f5g6', 'g4f3', 'f5f8', 'f5f8', 'f5f8'] losses [9515, 14, 0, 0, 0]  8/8/3Kp1P1/4Pq2/3Q1Pk1/P1P5/8/8 b - - 0 56
+  cl  56 white SF   +237 best e3d4   moves ['e3e4', 'e3e4', 'e3d2', 'e3d2', 'e3d2'] losses [237, 237, 25, 25, 25]  1R6/5p2/1P3pk1/7p/8/1r2KPP1/8/8 w - - 5 51
+  cl  48 white SF   +323 best a2a1   moves ['f3g3', 'a2a1', 'a2a1', 'a2a1', 'a2a1'] losses [322, 0, 0, 0, 0]  8/1k6/2p2p2/3p1P1p/3P4/4PK2/R4P1r/8 w - - 2 40
+  cl  61 black SF   +588 best b1d1   moves ['b1b4', 'b1b3', 'b1d1', 'b1d1', 'b1d1'] losses [585, 0, 5, 5, 5]  6k1/5p2/5Qp1/4p3/PPb5/5K1p/5R2/1q6 b - - 4 53
+  cl  99 black SF   +320 best g6h4   moves ['e7d6', 'g6h4', 'g6h4', 'g6h4', 'g6h4'] losses [320, 0, 0, 0, 0]  3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 2 22
+  cl  99 black SF   +319 best g6h4   moves ['e7d6', 'g6h4', 'g6h4', 'g6h4', 'g6h4'] losses [320, 0, 0, 0, 0]  3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 6 24
+  cl   4 white SF   +742 best d8e7   moves ['e6e7', 'd8e7', 'd8e7', 'd8e7', 'd8e7'] losses [742, 0, 0, 0, 0]  3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+  cl  34 white SF   +474 best g7g6   moves ['g7a7', 'g7g6', 'g7g6', 'g7g6', 'g7g6'] losses [438, 2, 2, 2, 2]  8/6R1/1n1k2p1/7p/3K3P/p7/8/8 w - - 0 53
+  cl  36 black SF   +304 best e4c3   moves ['e6c4', 'e4c3', 'e4c3', 'e4c3', 'e4c3'] losses [271, 0, 0, 0, 0]  8/1R6/1p1pbkp1/2p2p2/1rP1nP2/K7/2P1B2P/3R4 b - - 0 30
+  cl  53 black SF   +217 best e3e2   moves ['e6d7', 'e6d7', 'e3e2', 'e3e2', 'e3e2'] losses [194, 194, 14, 14, 14]  1bN5/8/4k1p1/1p1p3p/1P1P3P/2P1pKP1/8/8 b - - 1 47
+  cl  88 black SF   +468 best e4e5   moves ['e4d4', 'e4d4', 'e4e5', 'e4e5', 'e4e5'] losses [218, 218, 7, 7, 7]  r5k1/ppp2ppp/6q1/3b4/4r3/P1B1PQ2/1P3PPP/R4RK1 b - - 4 17
+  cl  31 black SF   +519 best h6h5   moves ['f7e6', 'h6h5', 'h6h5', 'h6h5', 'h6h5'] losses [519, 2, 2, 2, 2]  8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62
+  cl  78 black SF   +277 best c8c4   moves ['d8a5', 'c8c4', 'c8c4', 'c8c4', 'c8c4'] losses [274, 0, 0, 0, 0]  2rq1rk1/1p4pp/4p1p1/1P2P3/1pRP4/2nQ1N2/5PPP/5RK1 b - - 2 24
+  cl  90 white SF    -13 best c3d3   moves ['c3d4', 'c3d4', 'c3d3', 'c3d3', 'c3d3'] losses [447, 447, 0, 0, 0]  8/5R2/5p2/5r2/6k1/2K5/8/8 w - - 0 58

@@ -1,0 +1,116 @@
+== CONVERSION DATASET: 200 games, 1194 episodes (one per game x side x threshold x sign; first crossing only) ==
+
+== CONVERSION CURVES (W/D/L after first reaching the threshold; episode = game-level here) ==
+engine               thr    n     won    drew    lost  1st err<=10  recov  mean +10  mean +20
+v0.5.2 production   +100  105   37.1%   56.2%    6.7%        75.2%  75.2%      +614     +1642
+v0.5.2 production   +200   88   44.3%   52.3%    3.4%        69.3%  77.3%     +1021     +2229
+v0.5.2 production   +300   83   47.0%   50.6%    2.4%        71.1%  72.3%     +1121     +2743
+v0.5.2 production   +500   58   63.8%   34.5%    1.7%        69.0%  77.6%     +1938     +5171
+v0.6 scale          +100   83   28.9%   61.4%    9.6%        77.1%  79.5%      +567      +963
+v0.6 scale          +200   75   32.0%   60.0%    8.0%        78.7%  80.0%      +653     +1183
+v0.6 scale          +300   63   38.1%   54.0%    7.9%        71.4%  68.3%      +465      +968
+v0.6 scale          +500   42   57.1%   42.9%    0.0%        64.3%  76.2%     +1493     +4104
+
+== DEFENCE CURVES (after first reaching the negative threshold) ==
+engine               thr    n    held     won    lost
+v0.5.2 production   -100   83   71.1%    9.6%   28.9%
+v0.5.2 production   -200   75   68.0%    8.0%   32.0%
+v0.5.2 production   -300   63   61.9%    7.9%   38.1%
+v0.5.2 production   -500   42   42.9%    0.0%   57.1%
+v0.6 scale          -100  105   62.9%    6.7%   37.1%
+v0.6 scale          -200   88   55.7%    3.4%   44.3%
+v0.6 scale          -300   83   53.0%    2.4%   47.0%
+v0.6 scale          -500   58   36.2%    1.7%   63.8%
+
+== FIRST COLLAPSE in failed conversions from +200 (production) ==
+failed conversions: 49 of 88
+phase of the FIRST serious error after crossing: {'endgame': 35, 'middlegame': 7} (no serious error at all: 7)
+phase of the episode start: {'endgame': 38, 'middlegame': 11}
+plies from crossing to the first serious error: {'<=4': 29, '11-20': 7, 'none': 7, '>20': 1, '5-10': 5}
+  cl col    start   peak collapse ply traj (5 plies) -> after            move    loss SF best  engine  static  res
+  13 black   +225 +10000           93 +0 +0 +0 +0 +10000 -> +0           b2c3   10000 e7f8       +778    -697  0.5
+  75 white   +430   +430          130 -394 -379 -389 -386 -368 -> -10000 e4e5    9632 e4d5       -545    -534  0.5
+  14 black   +206   +380           49 -457 -506 -452 -433 -485 -> -10000 f5g6    9515 f5f8       -369    +404  0.0
+  77 black   +423 +10000           92 +464 +457 +438 +10000 +10000 -> +608 e4f4    9392 g3h4       +544    -528  0.5
+  45 white   +442 +10000           41 +10000 +10000 +10000 +10000 +10000 -> +971 f8e7    9029 f8f4       +937    +940  0.5
+  46 white   +229   +275           88 -527 -534 -893 -884 -1187 -> -10000 h2h3    8813 e4e6       -742    -437  0.0
+   4 white   +742 +10000           29 +742 -> +0                         e6e7     742 d8e7         +7    -299  0.5
+  61 black   +297   +700           46 +700 +581 +375 +491 +588 -> +3     b1b4     585 b1d1       +127     -69  0.0
+  31 white   +568   +568           10 +568 -> +0                         f5g6     568 f5f6       +274    +131  0.5
+  84 white   +335   +709           45 +646 +646 +709 +549 +541 -> +0     e4h7     541 e4a8       +159    +147  0.5
+  31 black   +519   +519           27 +519 -> +0                         f7e6     519 h6h5        +15     +20  0.5
+  48 white   +243 +10000           29 +1 +0 +8 -1 +0 -> -512             b2c2     512 d5c6        +37     -44  0.5
+  76 white   +492   +527           68 +492 +425 +502 -> +0               h6h7     502 f6g4        +89      -2  0.5
+  12 black   +495   +495            2 +495 -> +0                         d4e5     495 h5h4       +146    -158  0.5
+  92 white   +312   +696           84 +322 +328 +371 +0 +494 -> +7       e4e3     487 e6f5       +264    +267  0.5
+  75 black   +447   +468           57 +351 +0 +454 +0 +468 -> +0         c2d2     468 d4c3       +155    -169  0.5
+  51 white   +460   +460           30 +460 -> +0                         h5g6     460 g4g5        +33     +50  0.5
+  36 black   +304   +454           61 +359 +9 +0 +2 +454 -> +4           e6d6     450 c5c4         +7     -13  0.5
+  90 white   +384   +384           58 -2 -311 -27 +0 -13 -> -460         c3d4     447 c3d3       -103     -74  0.5
+  34 white   +370   +479           17 +479 +188 +188 +149 +452 -> +13    d4c4     439 d4e3       +159    +140  0.5
+  77 white   +208   +496           15 +208 +261 +49 +463 -> +44          f4g3     419 f4e4       +135    +108  0.5
+  86 black   +224   +782           65 +224 +197 +399 -> +1               d8e8     398 c6b5        +50     -42  0.5
+  62 black   +230   +383           62 +316 +31 +59 +49 +383 -> -4        c3c2     387 a2a6       +110     +29  0.5
+  29 black   +320   +385           29 +320 +12 +36 +17 +385 -> +0        e7d8     385 f6f5       +154    -200  0.5
+  24 black   +297   +515            7 +297 +306 +515 -> +161             f8g8     354 d4d2        +26      +3  0.5
+  56 white   +237   +453           11 +321 +241 +330 +275 +341 -> +0     b6b7     341 c4c5       +158    +107  0.5
+  99 black   +320   +320           12 +320 +0 +237 +0 +319 -> -22        e7d7     341 g6h4        +24     -38  0.5
+  63 white   +238   +328           62 +69 +36 +11 +0 +328 -> +0          e8b8     328 e8e3        +89    +115  0.5
+  91 black   +216   +216           70 +0 -40 -9 -40 +0 -> -326           f7g7     326 f7e8        +19     -51  0.5
+  47 black   +232   +333           36 +290 +318 +305 +258 +301 -> +0     a6a5     301 f5g5       +122    -111  0.5
+  78 black   +232   +285           51 -24 -227 -186 -193 +0 -> -281      b6a6     281 d8c8        +18     -10  0.5
+  87 white   +200 +10000           86 +464 +502 +495 +503 +802 -> +539   g6h5     263 g6h5       +401     -55  0.5
+  21 black   +526   +576            9 +526 +419 +510 -> +251             f2f1     259 f4f3        -40    +249  0.5
+  49 white   +250   +513           41 +0 +0 +513 +476 +499 -> +258       g7g6     241 g7g8       +392     +67  0.5
+  88 black   +420   +468            5 +420 +419 +468 -> +250             e4d4     218 e4e5       +132     -23  0.5
+  35 white   +246   +753           53 +374 +356 +373 +379 +591 -> +374   g6f7     217 c8g4       +356    +382  0.5
+  53 black   +324   +324           18 +149 +180 +143 +141 +217 -> +23    e6d7     194 e3e2        +76     -99  0.5
+  17 black   +237   +237           31 +237 -> +106                       d3d5     131 f5e5       +189    -192  0.5
+  69 black   +280   +610           72 +428 +451 +478 +536 +610 -> +482   c5c4     128 b3b2       +118    -169  0.5
+  67 white   +248 +10000           43 +626 +613 +747 +697 +812 -> +689   c2d3     123 c2b2       +766     +93  0.5
+
+== STRUCTURE / IMBALANCE at the +200 crossing (production) ==
+-- by imbalance:
+   level material         n= 38 won 39.5%
+   +1 pawn                n= 15 won 46.7%
+   pawns down             n= 13 won 53.8%
+   exchange up            n=  8 won 37.5%
+   exchange down          n=  7 won 42.9%
+   mixed (-1)             n=  2 won 50.0%
+   mixed (-4)             n=  2 won 50.0%
+   queen imbalance        n=  1 won 100.0%
+   mixed (-5)             n=  1 won 0.0%
+   mixed (-2)             n=  1 won 100.0%
+-- by phase:
+   endgame                n= 60 won 36.7%
+   middlegame             n= 28 won 60.7%
+-- by structural tag (n >= 8), ranked by conversion rate:
+   rook_ending                n= 13 won 15.4%
+   hanging_piece              n=  8 won 25.0%
+   rook_and_minor_ending      n= 23 won 26.1%
+   exchange_imbalance         n= 11 won 27.3%
+   rook_on_semi_open_file     n= 32 won 40.6%
+   isolated_pawn              n= 79 won 41.8%
+   open_file                  n= 80 won 42.5%
+   space_advantage            n= 14 won 42.9%
+   passed_pawn                n= 63 won 44.4%
+   semi_open_file             n= 85 won 44.7%
+   doubled_pawns              n= 29 won 44.8%
+   queenside_majority         n= 20 won 45.0%
+   rook_on_open_file          n= 37 won 45.9%
+   material_imbalance         n= 38 won 47.4%
+   backward_pawn              n= 46 won 50.0%
+   connected_passers          n= 14 won 50.0%
+   protected_passer           n= 22 won 50.0%
+   open_centre                n= 18 won 50.0%
+   bad_bishop                 n= 17 won 52.9%
+   weak_colour_complex        n= 15 won 53.3%
+   minor_piece_ending         n= 13 won 53.8%
+   advanced_passer            n= 24 won 54.2%
+   opposite_coloured_bishops  n= 20 won 55.0%
+   bishop_pair                n=  9 won 55.6%
+   same_side_castling         n= 21 won 57.1%
+   knight_outpost             n= 12 won 66.7%
+   locked_pawn_chain          n= 13 won 69.2%
+   exposed_king               n= 10 won 70.0%
+   queenless_middlegame       n=  8 won 75.0%

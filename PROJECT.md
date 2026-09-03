@@ -285,6 +285,24 @@ gate 2 decides, gate 3 confirms.
 The rule that produced this: **the root suite alone is not predictive Elo
 evidence.** A candidate must not reach gate 3 on gate 1 alone.
 
+Gate 1 also includes `corpus/conversion_regression_v1.jsonl`: 90 real
+self-play positions from failed conversions and defences, split into a
+diagnostic and a validation half by game, built by
+`tools/conversion/suite.py`. It is a regression tool for the conversion
+weakness, never an Elo instrument.
+
+**The conversion weakness is endgame knowledge, not search.** The 2026-09-03
+conversion audit (`benchmarks/current/2026-09-03-conversion-audit.md`) found
+production converts +200 into a win 44% of the time and loses only 3%; half
+of its conversion errors persist at depth 10 and are endgame technique;
+twelve of forty-nine failed conversions are K+Q v K, K+R v K and the like,
+shuffled into repetition at a root score of +1000 because the evaluator's
+whole mating incentive is a 61 cp spread in the PeSTO king table. Ruled out
+with evidence: aggressive pruning while ahead (the search prunes *less* when
+ahead), simplification, and concave material (Stockfish's value per unit is
+flat). The next experiment is a mop-up term for won endgames, gated as
+above.
+
 ## Testing methodology
 
 Five layers, all runnable from the Makefile.

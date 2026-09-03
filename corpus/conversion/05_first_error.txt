@@ -1,0 +1,60 @@
+== 5. FIRST SERIOUS ERROR after reaching +200: 49 failed conversions (production) ==
+
+categories:
+  quiet positional                          14  28.6%
+  king exposure                              8  16.3%
+  no serious error (drawn without one)       7  14.3%
+  passed pawn                                6  12.2%
+  missed tactic                              6  12.2%
+  material grab                              4   8.2%
+  refused trade                              3   6.1%
+  bad trade                                  1   2.0%
+
+punishment test (first error within the episode): {"crossing caused by opponent's serious error": 39, 'crossing not from an opponent error': 3}
+first serious errors within 4 plies of crossing: 29; of those, crossing was an opponent blunder in 28; categories {'quiet positional': 8, 'material grab': 4, 'king exposure': 6, 'missed tactic': 6, 'passed pawn': 3, 'refused trade': 2}
+
+missed forced mates: 0
+
+category            cl col   +ply  stand played best    loss mate    eng blund fen
+bad trade           84 white    6   +709 a8f8   e4e8     160        +180 True  R4rk1/5ppp/8/8/P3Q3/6P1/5PKP/q7 w - - 5 39
+king exposure       90 white    0   +384 b3d3   f3g3     408         -79 True  8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+king exposure       48 white    2   +323 e3e4   a2a1     323          +3 True  8/1k6/2p2p2/3p1P1p/3P4/4PK2/R4P1r/8 w - - 2 40
+king exposure       47 black   18   +301 a6a5   f5g5     301        +122 True  8/8/p2k4/5r1p/1PR2N2/7P/3r2P1/6K1 b - - 0 42
+king exposure       56 white    0   +237 e3e4   e3d4     237        +109 True  1R6/5p2/1P3pk1/7p/8/1r2KPP1/8/8 w - - 5 51
+king exposure       77 black    6   +448 b8c8   b8a7     236         +69 True  1k6/1p5R/6K1/8/8/8/8/4r3 b - - 4 51
+king exposure       62 black    0   +230 c6c5   c8d8     230         -29 True  2r5/4k1pp/p1p5/P3pp1P/1Pp5/2P5/2PR1PP1/5K2 b - - 1 31
+king exposure       88 black    2   +468 e4d4   e4e5     218        +132 True  r5k1/ppp2ppp/6q1/3b4/4r3/P1B1PQ2/1P3PPP/R4RK1 b - - 4 17
+king exposure       77 white    1   +261 d4d6   f4g3     212        +114 False 2k5/1p6/p3r1p1/2P2p2/1P1R1Q1P/7P/4q1PK/8 w - - 4 36
+material grab       31 white    0   +568 f5g6   f5f6     568        +274 True  1R6/1P3k2/6p1/5P1p/7P/1r2pK2/8/8 w - - 0 54
+material grab       51 white    0   +460 h5g6   g4g5     460         +33 True  8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+material grab       75 white    0   +430 c2c3   b6b7     427         +51 True  R7/7k/1P4p1/7p/3rpr2/P1p5/2R3P1/6K1 w - - 0 50
+material grab       36 black    0   +304 e6c4   e4c3     271         +19 True  8/1R6/1p1pbkp1/2p2p2/1rP1nP2/K7/2P1B2P/3R4 b - - 0 30
+missed tactic        4 white    0   +742 e6e7   d8e7     742          +7 True  3K3k/4r1bP/4R1P1/8/8/8/P1p5/2n5 w - - 2 56
+missed tactic       45 white    0   +442 b2b3   g2g4     442          +9 True  8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+missed tactic       34 white    2   +474 g7a7   g7g6     438        +131 True  8/6R1/1n1k2p1/7p/3K3P/p7/8/8 w - - 0 53
+missed tactic       86 black    2   +399 d8e8   c6b5     398         +50 True  3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46
+missed tactic       24 black    2   +515 f8g8   d4d2     354         +26 True  5k2/R7/2p5/2N5/3r3P/P3r1P1/1K6/8 b - - 5 45
+missed tactic       99 black    0   +320 e7d6   g6h4     320         +24 True  3rr1k1/4qppp/2p2nn1/1p1p4/1P1P4/2NBPP1P/2Q2PK1/1R2R3 b - - 2 22
+passed pawn         31 black    0   +519 f7e6   h6h5     519         +15 True  8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62
+passed pawn         29 black    0   +320 e3g1   f6f5     308        +154 True  8/4kp2/2K2p2/2p5/1p4B1/pP1Pb3/P1P5/8 b - - 17 41
+passed pawn         53 black   10   +217 e6d7   e3e2     194         +76 True  1bN5/8/4k1p1/1p1p3p/1P1P3P/2P1pKP1/8/8 b - - 1 47
+passed pawn         28 white   12   +603 g6g7   g6g7     121        +914 True  r7/7P/6P1/8/8/7K/5k2/8 w - - 2 59
+passed pawn         38 white   16   +380 g8g2   h4h5     107          -8 True  1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62
+passed pawn         21 black    0   +526 e3e2   e3e2     107         -78 True  K7/7R/8/8/5p2/4p3/2P2k1P/8 b - - 0 47
+quiet positional    76 white    2   +502 h6h7   f6g4     502         +89 True  2k5/ppp5/5N1P/4p1K1/2P5/1P6/2b5/8 w - - 1 49
+quiet positional    12 black    0   +495 d4e5   h5h4     495        +146 True  4B3/8/5p2/p5pp/3bP3/3K1Pk1/6P1/8 b - - 9 42
+quiet positional    13 black    7   +415 b3a2   d7e8     415         +50 False 8/p2b4/5Bp1/6K1/1p5P/1k3P2/5P2/8 b - - 1 52
+quiet positional    92 white   18   +696 f5f6   h6g6     292        +286 True  3r4/6k1/4B2R/3n1PP1/p7/5K2/8/8 w - - 3 60
+quiet positional    61 black    0   +297 f4f5   d3e4     251         +14 True  8/5ppk/1R2pn1p/1p6/5q2/1PQb1B2/P5P1/7K b - - 4 34
+quiet positional    63 white   18   +230 a5a6   g1f2     218         +97 True  6k1/6p1/5p2/P6p/1nNr3P/1P1p1P2/6P1/R5K1 w - - 2 41
+quiet positional    14 black    0   +206 b7b5   g7g5     206         -14 True  8/pp2k1p1/4p3/4Pp1p/1P5P/P1K3P1/2P5/8 b - - 0 33
+quiet positional    75 black    0   +447 e5d5   e5d4     166        +155 True  4R3/8/6p1/4k1Pp/7P/5KP1/p2r4/8 b - - 5 62
+quiet positional    87 white   15   +329 d8a8   d8b8     160        +164 False 3R4/pppP3p/5k2/8/7p/8/P5PK/3r2N1 w - - 2 32
+quiet positional    91 black    2   +216 c8d7   a6a2     159         +81 True  2b3k1/6pp/r1p1p3/2PpP2P/3Pp2b/1p2P3/3B2P1/1R1N2K1 b - - 1 26
+quiet positional    17 black    0   +237 d3d5   f5e5     131        +189 True  1R6/6p1/5p2/B4k2/2b5/1p1r1PK1/6P1/8 b - - 15 52
+quiet positional    69 black   22   +610 c5c4   b3b2     128        +118 True  8/5p1r/3p4/2pPp3/4P1P1/1k4Kp/1P6/7R b - - 2 51
+quiet positional    67 white   12   +812 c2d3   c2b2     123        +766 True  8/1P6/3p1k2/3Pp3/2r1P3/1R6/2K4P/6n1 w - - 1 59
+quiet positional    46 white    4   +232 e4d3   f2f3     106         +54 True  4r3/p4pk1/5r2/2p4p/3pB2P/1P6/PN3PK1/2R5 w - - 3 34
+refused trade       78 black    8   +277 d8a5   c8c4     274          +8 True  2rq1rk1/1p4pp/4p1p1/1P2P3/1pRP4/2nQ1N2/5PPP/5RK1 b - - 2 24
+refused trade       49 white    0   +250 c3d4   c3b4     203          +7 True  5r2/4k3/1p4p1/p2R3p/1bP1Pp1P/2BK4/1P4P1/8 w - - 3 42
+refused trade       35 white    0   +246 c2b2   c2c5     193         +30 True  b7/2p5/1pPk4/1PqPp2B/4Pp2/6p1/2Q3P1/5K2 w - - 14 51

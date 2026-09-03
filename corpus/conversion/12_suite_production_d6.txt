@@ -1,0 +1,14 @@
+== CONVERSION REGRESSION SUITE v1 (90 positions, hash 9c7a29b0bbdde64c) engine C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\e3813b42-0a37-4aea-86be-348b96190e38\scratchpad\engines\baseline depth 6 ==
+
+role        source         n  robust  serious  catast  agree
+diagnostic  ALL           43   226.2    81.4%   27.9%  14.0%
+diagnostic  blind          6   114.7    33.3%   16.7%  50.0%
+diagnostic  control        6   119.0    50.0%   16.7%  33.3%
+diagnostic  defence       12   233.3   100.0%   16.7%   0.0%
+diagnostic  first_error   19   290.8    94.7%   42.1%   5.3%
+validation  ALL           47   205.4    63.8%   29.8%  29.8%
+validation  blind          7    94.7    14.3%   14.3%  85.7%
+validation  control        2     4.5     0.0%    0.0% 100.0%
+validation  defence       12   235.2    83.3%   25.0%  16.7%
+validation  first_error   23   224.3    73.9%   34.8%  17.4%
+validation  missed_mate    3   333.3    66.7%   66.7%   0.0%

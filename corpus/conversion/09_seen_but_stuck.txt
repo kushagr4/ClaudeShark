@@ -1,0 +1,26 @@
+== SEEN-BUT-STUCK vs BLIND: two kinds of failed conversion (production, from +200) ==
+For each failed conversion: production root score over its LAST 10 own moves, and Stockfish standing there.
+  lost the eval too (SF<300 at the end)             30
+  seen-but-stuck (root>=300 at the end, SF>=300)    12
+  blind at the end (SF>=300, root<300)               7
+
+ cl col    root(last10)  SF(last10) term                   plies  res  final own position
+  4 white         +1036       +2000 threefold_repetition      69  0.5  8/8/6K1/8/6Q1/8/8/7k w - - 17 75
+ 28 white         +1006       +1696 threefold_repetition      51  0.5  8/4Q3/8/5K2/2k5/8/8/8 w - - 15 70
+ 67 white          +959        +939 threefold_repetition      63  0.5  6Q1/8/8/3P3k/4P3/1R2K3/7P/5rn1 w - - 9 68
+ 87 white          +939       +1274 threefold_repetition     108  0.5  8/8/6K1/8/6Q1/4k3/8/8 w - - 9 68
+ 98 white          +902       +1257 threefold_repetition     101  0.5  1k6/3R4/5K2/4N3/8/8/8/8 w - - 17 70
+ 45 white          +818       +1268 threefold_repetition      43  0.5  5Q2/8/p5K1/1p6/kP6/8/8/8 w - - 6 55
+ 13 black          +773        +604 threefold_repetition     107  0.5  8/5P2/6K1/4q3/8/2k5/8/8 b - - 16 76
+ 86 black          +722        +494 threefold_repetition     117  0.5  4K3/6P1/8/8/8/5q2/6k1/8 b - - 7 71
+ 21 black          +607        +520 threefold_repetition      27  0.5  8/8/1KP5/8/8/8/4k2P/7q b - - 6 56
+ 48 white          +547        +916 threefold_repetition      99  0.5  8/5K2/8/8/k7/8/8/1R6 w - - 11 79
+ 77 black          +543       +1536 threefold_repetition     106  0.5  8/7K/5r2/8/8/6k1/8/8 b - - 17 81
+ 49 white          +386        +239 threefold_repetition      65  0.5  8/8/3Q4/5k2/2K4p/6r1/8/8 w - - 18 66
+ 92 white          +360         +15 threefold_repetition     138  0.5  3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89
+ 35 white          +350        +461 threefold_repetition      71  0.5  8/7K/8/1Q1p2q1/3k4/5B2/6P1/8 w - - 23 80
+ 31 white          +337         +58 threefold_repetition      30  0.5  1R6/1P4k1/2K3P1/7p/7P/2r5/8/8 w - - 13 63
+
+reading: seen-but-stuck games are the ones where the engine KNOWS it is winning and still cannot make
+progress -- a technique / no-progress problem, not a knowledge or horizon problem. The root score is flat,
+every move looks equally good, and the shuffle ends by repetition.

@@ -43,7 +43,9 @@ showing that more search does *not* automatically mean more strength, so
   already reversed the sign of one result.
 * **Three gates, in order. Never skip to the last one.**
   1. *Root move quality* -- `tools/corpus/analyse.py` on
-     `corpus/competition_like_v1.jsonl`. Cheap screening **only**. It admits
+     `corpus/competition_like_v1.jsonl`, plus the conversion regression suite
+     `corpus/conversion_regression_v1.jsonl` via `tools/conversion/suite.py run`.
+     Cheap screening **only**. It admits
      near-balanced positions by construction (239 of 240 under 50 cp) and
      cannot see a change that trades balanced-position quality for unbalanced,
      which is how v0.6 passed it and lost 40 Elo.

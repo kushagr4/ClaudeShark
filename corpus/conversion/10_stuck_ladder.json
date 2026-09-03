@@ -1,0 +1,602 @@
+[
+ {
+  "cluster": 4,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/6K1/8/6Q1/8/8/7k w - - 17 75",
+  "kind": "stuck",
+  "sf_best": "g6g5",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "g6f7",
+   "g6g5",
+   "g6g5",
+   "g6g5"
+  ],
+  "engine_scores": [
+   1040,
+   29993,
+   29993,
+   29993
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   29836,
+   117612,
+   117612,
+   117612
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 28,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/4Q3/8/5K2/2k5/8/8/8 w - - 15 70",
+  "kind": "stuck",
+  "sf_best": "e7e3",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "e7e4",
+   "e7e4",
+   "e7e4",
+   "e7e5"
+  ],
+  "engine_scores": [
+   1028,
+   1026,
+   1026,
+   1076
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   40843,
+   184006,
+   493921,
+   1663701
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 67,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "6Q1/8/8/3P3k/4P3/1R2K3/7P/5rn1 w - - 9 68",
+  "kind": "stuck",
+  "sf_best": "e3d4",
+  "sf_cp_stm": 1372,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "g8h8",
+   "b3b7",
+   "b3b7",
+   "b3b7"
+  ],
+  "engine_scores": [
+   1004,
+   1234,
+   1512,
+   29989
+  ],
+  "losses": [
+   305,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   44483,
+   211033,
+   590239,
+   1062076
+  ],
+  "verdict": "B +2 plies"
+ },
+ {
+  "cluster": 87,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/6K1/8/6Q1/4k3/8/8 w - - 9 68",
+  "kind": "stuck",
+  "sf_best": "g4d1",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "g4f5",
+   "g4g2",
+   "g4f5",
+   "g4d1"
+  ],
+  "engine_scores": [
+   1024,
+   1023,
+   1026,
+   1059
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   35758,
+   195847,
+   646935,
+   1631904
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 98,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "1k6/3R4/5K2/4N3/8/8/8/8 w - - 17 70",
+  "kind": "stuck",
+  "sf_best": "f6e6",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "e5c4",
+   "f6e6",
+   "f6e6",
+   "f6e6"
+  ],
+  "engine_scores": [
+   903,
+   29993,
+   29993,
+   29993
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   23614,
+   97029,
+   97029,
+   97029
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 45,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "5Q2/8/p5K1/1p6/kP6/8/8/8 w - - 6 55",
+  "kind": "stuck",
+  "sf_best": "f8f4",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "f8c5",
+   "f8d6",
+   "f8d6",
+   "f8f4"
+  ],
+  "engine_scores": [
+   937,
+   924,
+   949,
+   1024
+  ],
+  "losses": [
+   0,
+   8758,
+   8758,
+   0
+  ],
+  "nodes": [
+   32077,
+   134723,
+   581554,
+   2212376
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 13,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "8/5P2/6K1/4q3/8/2k5/8/8 b - - 16 76",
+  "kind": "stuck",
+  "sf_best": "e5h8",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "e5h8",
+   "e5h8",
+   "e5h8",
+   "e5h8"
+  ],
+  "engine_scores": [
+   773,
+   773,
+   905,
+   942
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   36074,
+   102538,
+   269675,
+   650132
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 86,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "4K3/6P1/8/8/8/5q2/6k1/8 b - - 7 71",
+  "kind": "stuck",
+  "sf_best": "f3a8",
+  "sf_cp_stm": 686,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "f3d5",
+   "f3d5",
+   "f3d5",
+   "f3d5"
+  ],
+  "engine_scores": [
+   745,
+   758,
+   776,
+   782
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   24156,
+   79425,
+   169929,
+   338685
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 21,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/1KP5/8/8/8/4k2P/7q b - - 6 56",
+  "kind": "stuck",
+  "sf_best": "h1b1",
+  "sf_cp_stm": 515,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "h1b1",
+   "h1h2",
+   "h1h2",
+   "h1h2"
+  ],
+  "engine_scores": [
+   779,
+   766,
+   773,
+   767
+  ],
+  "losses": [
+   0,
+   515,
+   515,
+   515
+  ],
+  "nodes": [
+   25121,
+   110717,
+   311854,
+   836861
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 48,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/5K2/8/8/k7/8/8/1R6 w - - 11 79",
+  "kind": "stuck",
+  "sf_best": "f7e6",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "f7g6",
+   "f7g6",
+   "f7g6",
+   "f7g6"
+  ],
+  "engine_scores": [
+   568,
+   580,
+   565,
+   573
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   14986,
+   57041,
+   258283,
+   679685
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 77,
+  "colour": "black",
+  "label": "seen-but-stuck final position",
+  "fen": "8/7K/5r2/8/8/6k1/8/8 b - - 17 81",
+  "kind": "stuck",
+  "sf_best": "g3g4",
+  "sf_cp_stm": 10000,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "f6f1",
+   "g3f3",
+   "g3f4",
+   "g3f4"
+  ],
+  "engine_scores": [
+   544,
+   542,
+   558,
+   29987
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   12246,
+   41082,
+   132146,
+   182213
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 49,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/8/3Q4/5k2/2K4p/6r1/8/8 w - - 18 66",
+  "kind": "stuck",
+  "sf_best": "c4d4",
+  "sf_cp_stm": 251,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "d6d5",
+   "d6d5",
+   "d6d5",
+   "d6d5"
+  ],
+  "engine_scores": [
+   386,
+   385,
+   387,
+   387
+  ],
+  "losses": [
+   15,
+   15,
+   15,
+   15
+  ],
+  "nodes": [
+   38892,
+   125199,
+   296630,
+   691107
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 92,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89",
+  "kind": "stuck",
+  "sf_best": "e7a7",
+  "sf_cp_stm": 0,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "f5f6",
+   "e7b7",
+   "e7a7",
+   "e7a7"
+  ],
+  "engine_scores": [
+   361,
+   361,
+   364,
+   362
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   33121,
+   93818,
+   306722,
+   768945
+  ],
+  "verdict": "-"
+ },
+ {
+  "cluster": 35,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "8/7K/8/1Q1p2q1/3k4/5B2/6P1/8 w - - 23 80",
+  "kind": "stuck",
+  "sf_best": "b5d5",
+  "sf_cp_stm": 514,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "b5d7",
+   "b5c6",
+   "b5c6",
+   "b5c6"
+  ],
+  "engine_scores": [
+   354,
+   360,
+   361,
+   363
+  ],
+  "losses": [
+   88,
+   105,
+   105,
+   105
+  ],
+  "nodes": [
+   47488,
+   172919,
+   513401,
+   1714496
+  ],
+  "verdict": "D persists"
+ },
+ {
+  "cluster": 31,
+  "colour": "white",
+  "label": "seen-but-stuck final position",
+  "fen": "1R6/1P4k1/2K3P1/7p/7P/2r5/8/8 w - - 13 63",
+  "kind": "stuck",
+  "sf_best": "c6d6",
+  "sf_cp_stm": 0,
+  "depths": [
+   6,
+   8,
+   10,
+   12
+  ],
+  "moves": [
+   "c6d5",
+   "c6d5",
+   "c6d5",
+   "c6b5"
+  ],
+  "engine_scores": [
+   293,
+   315,
+   315,
+   315
+  ],
+  "losses": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nodes": [
+   7923,
+   19102,
+   54539,
+   117475
+  ],
+  "verdict": "-"
+ }
+]

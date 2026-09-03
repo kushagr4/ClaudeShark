@@ -1,0 +1,20 @@
+== SEARCH BEHAVIOUR BY THE ENGINE'S OWN STATIC EVAL (production, depth 6) ==
+rates are per node / per parent count; pv_len is the reported principal variation length
+
+-- phase: middlegame
+bin               n              nodes       qnodes/nodes      cutoffs/nodes c_null_tries/nodes c_null_cuts/c_null_tries c_lmr_reduced/nodes c_lmr_research/c_lmr_reduced c_delta_pruned/qnodes c_see_pruned/qnodes         researches  tt_hits/tt_probes             pv_len
+|eval| < 100     80         83517.6750             0.4849             0.1188             0.0022             0.4659             0.0292             0.0036             0.2061             0.0820             0.4250             0.1143             0.0000
++100..+299       80         86233.9250             0.5080             0.1364             0.0022             0.4752             0.0317             0.0035             0.1896             0.0704             0.6875             0.1251             0.0000
++300..+599       11         44515.7273             0.5322             0.1655             0.0031             0.3571             0.0279             0.0043             0.1589             0.0267             0.7273             0.1476             0.0000
+-100..-299       80         57848.7125             0.4909             0.1348             0.0027             0.5027             0.0330             0.0032             0.2060             0.0630             0.8625             0.1363             0.0000
+<= -300          80         40390.3375             0.4687             0.1248             0.0029             0.5550             0.0308             0.0039             0.1879             0.0577             0.5875             0.1243             0.0000
+
+-- phase: endgame
+bin               n              nodes       qnodes/nodes      cutoffs/nodes c_null_tries/nodes c_null_cuts/c_null_tries c_lmr_reduced/nodes c_lmr_research/c_lmr_reduced c_delta_pruned/qnodes c_see_pruned/qnodes         researches  tt_hits/tt_probes             pv_len
+|eval| < 100     80         21265.6750             0.4734             0.1482             0.0044             0.4757             0.0352             0.0147             0.0493             0.0477             0.3125             0.1759             0.0000
++100..+299       80         21362.5875             0.4806             0.1513             0.0042             0.4532             0.0361             0.0177             0.0460             0.0403             0.5500             0.1832             0.0000
++300..+599       80         25246.2500             0.4752             0.1525             0.0028             0.3477             0.0345             0.0152             0.0338             0.0182             0.7625             0.2093             0.0000
+>= +600          80         41249.5750             0.4742             0.1558             0.0013             0.3871             0.0285             0.0071             0.0434             0.0094             0.7750             0.2307             0.0000
+-100..-299       80         13692.2375             0.4600             0.1501             0.0045             0.4609             0.0378             0.0221             0.0323             0.0339             0.3250             0.1982             0.0000
+<= -300          80         11256.8500             0.4793             0.1570             0.0052             0.5103             0.0366             0.0158             0.0383             0.0234             0.7125             0.2037             0.0000
+

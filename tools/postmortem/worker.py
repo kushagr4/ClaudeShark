@@ -73,6 +73,7 @@ def main() -> None:
                 "tt_hits": info.tt_hits,
                 "tt_probes": info.tt_probes,
                 "static": white_pov(board),
+                "pv": list(info.pv),
             }
             for c in counters:
                 reply[c] = getattr(searcher, c)

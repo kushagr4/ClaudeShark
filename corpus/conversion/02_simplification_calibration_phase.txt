@@ -1,0 +1,47 @@
+== 8. SIMPLIFICATION AUDIT (production; equal non-pawn exchanges) ==
+-- AHEAD >= +200: n=1106
+   Stockfish's best is an equal trade in 35 (3.2%) {'rook trade': 14, 'minor trade': 14, 'queen trade': 7}; engine played it 27/35 (77%); when it declined, mean loss 154 cp, serious 4
+   engine traded in 35 (3.2%); mean loss of those trades 55 cp, serious 4; trades Stockfish did not prefer 7
+-- LEVEL |eval| < 100 (control): n=2439
+   Stockfish's best is an equal trade in 96 (3.9%) {'minor trade': 42, 'rook trade': 34, 'queen trade': 20}; engine played it 56/96 (58%); when it declined, mean loss 67 cp, serious 9
+   engine traded in 81 (3.3%); mean loss of those trades 10 cp, serious 1; trades Stockfish did not prefer 24
+-- trades into a pawn ending while ahead: 4, mean loss 26 cp
+
+== 9/10. MATERIAL / COMPENSATION CALIBRATION (production is the mover) ==
+imbalance (mover)      n     SF  static  search  static-SF  search-SF  |static-SF|  serious%
+-2 pawns             180   -462    -226    -262       +235       +199          334     17.8%
+-1 pawn              679    -82     -77     -64         +5        +18          199     10.2%
+level               1469    +33     +10     +14        -22        -19          120     12.6%
++1 pawn              561   +169    +106    +110        -64        -59          189     10.7%
++2 pawns              67   +556    +290    +395       -266       -161          427      9.0%
+exchange down        366    -72     -70     -68         +1         +3          182     13.7%
+exchange up          359    +88     +70     +83        -17         -4          168      8.6%
+piece down           247    -72    -175     -52       -103        +20          372     10.5%
+piece up             241   +349    +268    +321        -82        -28          207      7.5%
+rook down            104   -209    -418    -138       -209        +71          488     12.5%
+rook up               59   +379    +394    +329        +15        -50          419     10.2%
+queen imbalance      268    -76     -79    +288         -3       +364          465     10.8%
+mixed                 27   +690    +683    +820         -7       +130          213      0.0%
+
+compensation positions:
+  up >= 2 units, Stockfish says not better: n=60  SF -134  static +234  search +84  serious-error rate 6.7%
+  down >= 2 units, Stockfish says not worse: n=164  SF +169  static -321  search +84  serious-error rate 4.9%
+
+per unit of material advantage (mover ahead by k pawn-units):
+   k     n  SF/unit  static/unit  search/unit       SF  static  search
+  +1   769     +157         +105         +108     +157    +105    +108
+  +2   169     +155         +115         +139     +311    +230    +277
+  +3   163     +137         +107         +127     +412    +321    +380
+  +4    48     +152         +105         +133     +607    +422    +534
+  +5    33     +127         +102         +117     +637    +511    +585
+  +6    28     +155         +104         +117     +929    +624    +703
+
+== 11. ENDGAME: CAUSE OR VENUE? (production, +200 episodes) ==
+phase at crossing -> phase of first serious error (failed): {'endgame -> endgame': 34, 'middlegame -> middlegame': 7, 'no serious error': 7, 'middlegame -> endgame': 1}
+crossing phase: failed {'endgame': 38, 'middlegame': 11}, converted {'endgame': 22, 'middlegame': 17}
+pieces at crossing: failed mean 14.6, converted mean 16.9
+   conversion with <= 8 pieces on the board at crossing: 2/7
+   conversion with 9-14 pieces on the board at crossing: 11/31
+   conversion with >= 15 pieces on the board at crossing: 26/50
+failed conversions already in the endgame at the crossing: 38/49
+
