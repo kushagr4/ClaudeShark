@@ -572,3 +572,54 @@ produces is not a search change: the engine finished both decisive rated games
 with 57 seconds of its 120 unspent, because the allocator stops starting new
 iterations at 45% of a soft budget it never reaches. Converting that clock into
 depth has to be measured at the competition's own time control.
+
+## 2026-09-04 — TEMPO = 32: rejected at Gate 2
+
+Record: [`benchmarks/current/2026-09-04-v2.3-tempo.md`](benchmarks/current/2026-09-04-v2.3-tempo.md).
+Pre-registered before any candidate was measured. An unselected 35,202-position
+comparison with the oracle, split by side to move, implied the static
+evaluation under-values the move by about 35 cp against a shipped `TEMPO` of 8
+— but the same estimator on the depth-6 root implied only 4 cp, because the
+search already recovers most of it.
+
+The pre-registered statistic (mean oracle-scored move loss) selected
+`TEMPO = 32` on the diagnostic half and appeared to show validation improving
+from 120.6 to 39.7. **One position produced that entire gain**: a variant
+walking into mate contributes 10,000 cp, which is 333 spread over a
+thirty-position bucket mean. The robust columns were flat in both halves
+(losses ≥ 100 cp: 20/23/19/21 and 18/18/17/17; oracle-move agreement 63/64/63/59
+and 51/49/55/53). Diagnostic verdict: **inconclusive**, with the statistic —
+not the constant — recorded as the finding, and `tools/daily/variants.py` fixed
+to report median, clamped mean and ≥100/≥300 counts.
+
+Gate 2 settled it. 200 paired fixed-depth games against
+`champions/v2_1_kingpawn`: **+31 =125 −44, 46.8%, nominal −23 Elo, 54 of 100
+clusters informative**, cluster bootstrap −53..+7, leave-one-cluster-out
+−26.4..−19.3. That is the best-powered match of the session and it is
+negative everywhere in the distribution. **Rejected.** `TEMPO` stays at 8.
+
+## 2026-09-04 — Public Chessathon data: the Black-advantage hypothesis fails
+
+Records: [`benchmarks/current/2026-09-04-colour-asymmetry-audit.md`](benchmarks/current/2026-09-04-colour-asymmetry-audit.md),
+`corpus/daily/public_verification.txt`, `corpus/daily/field_colour.txt`.
+143 publicly scraped top-50 games, verified before use: 143 distinct game ids,
+**143 of 143 PGNs replay legally** from their recorded start, `winner_colour`
+and `canonical_result` agree on all 143, and exactly one record
+(`01608c50-769c-40c7-95ef-7b2c2df92563`, `termination='init'`) contains no
+moves — which is the entire difference between the 143- and 142-game counts.
+Both totals are kept:
+
+| basis | White | Draw | Black | White score |
+|---|---|---|---|---|
+| all 143 records | 67 | 13 | 63 | 51.40% |
+| 142 with at least one move | 67 | 13 | 62 | 51.76% |
+
+122 of 143 starts have Black to move, and from exactly those White still scores
+50.83%. Outcomes are dominated by rating: White rated 100+ higher scores 96.2%,
+Black rated 100+ higher holds White to 1.0%. **No field-wide Black advantage
+and no ClaudeShark colour bug; the lane is closed.**
+
+The more useful finding in the same data is that the organisers reuse starting
+positions: 114 distinct FENs, **23 repeated covering 52 games**, including a
+four-game family that produced four different first moves and a 2–2 colour
+split.
