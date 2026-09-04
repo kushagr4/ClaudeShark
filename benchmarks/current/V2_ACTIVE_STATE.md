@@ -24,12 +24,48 @@ section 6 that is still running or already complete.**
   `tools.bench --depth 6`. 1,186 tests passed at the last full run, plus 11 new
   in `tests/test_matchlock.py`; `ruff check .` clean.
 
-## 3. Version status
+## 3. Version status — four distinct things, never conflated
+
+| name | what it is | status |
+|---|---|---|
+| **SUBMITTED-V2.1-KINGPAWN** | **the archive currently uploaded to Chessathon** | **this is what is playing rated games right now** |
+| **RATED-V1 BASELINE** | `98c48c89`, tag `rated-v1`, `main` | immutable frozen baseline; **strongest build supported by evidence** |
+| **LOCAL DEVELOPMENT HEAD** | `v2.2-development` | every term ships off; reproduces the rated-v1 fingerprint |
+| **OTHER EXPERIMENTAL CANDIDATES** | `v2_2a_low_material`, `_tempo*`, `_sf*` | none promoted |
+
+### The submitted build, identified exactly rather than guessed
+
+`corpus/v2/kp/submission_v2_1_kingpawn.zip`, **43,489 bytes**, SHA-256
+`a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`
+(independently re-hashed here), 13 Python files. Shipped defaults verified from
+the archive itself: `king_safety` False, `mopup` False, `passed` False,
+**`king_pawn` True**; `TEMPO = 8`; `KING_PAWN_EG = (0, 48, 36, 24, 12, 0, 0, 0)`.
+
+Recovered by content, not by assumption: all 13 archive entries are
+**byte-identical** to `champions/v2_1_kingpawn/`, and identical to that
+directory as committed once line endings are normalised (five files carry CRLF
+in the working tree, which is why their raw blob hashes differ while the other
+eight match git objects directly).
+
+| field | value |
+|---|---|
+| commit | **`10c92773c6770211cf56519c6757e9a90977e83c`** — "V2.1: endgame king-to-pawn proximity, keep for Daily confirmation" |
+| champion tree | `adaf2b6c6663fef7f7b0e6457abc768b9ef16bf0`, unchanged at HEAD |
+| history | that commit **added** the directory and is the **only** commit that has ever touched it |
+| also | `10c9277` is the tip of the stale `v2-development` branch |
+| submission time | not recoverable from the repository; the archive's mtime is 2026-09-04 00:28 local |
+
+**Consequence.** The running 226-game match is not an abstract candidate test:
+it measures **the engine that is currently deployed** against the frozen
+baseline. On the two populations already measured, the deployed feature set is
++19.1 Elo on mid-game starts and −11.6 on competition-profile starts, which
+means there is at present **no evidence that the submitted build is stronger
+than `rated-v1` on the distribution the competition actually uses**. That is a
+live competitive question, not only a research one.
 
 | build | status |
 |---|---|
-| **`rated-v1`** | **strongest supported build; the safe champion** |
-| `champions/v2_1_kingpawn` | **POPULATION-SENSITIVE, NOT PROMOTED** (`27a096d`) |
+| `champions/v2_1_kingpawn` | **POPULATION-SENSITIVE, NOT PROMOTED** (`27a096d`) — and currently submitted |
 | `champions/v2_2a_low_material` | targeted evaluator correction, **not strength-proven**, not promoted |
 | `TEMPO = 32` | **NEGATIVE, permanently rejected** (`304ecb6`), −23 Elo on 54 informative clusters |
 | colour-specific heuristics | **hypothesis CLOSED**; never implement one |
