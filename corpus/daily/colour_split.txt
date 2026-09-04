@@ -1,0 +1,48 @@
+== COLOUR AUDIT OVER RETAINED PAIRED FIXED-DEPTH CORPORA ==
+
+postmortem (rated-v1 self, 100 pairs)   n=200   corpus/postmortem/games/fixed_depth.jsonl
+   candidate as White     +18  =65  -17   score  50.5%  Elo     +3  cluster boot 44.5%..56.0%
+   candidate as Black     +7   =70  -23   score  42.0%  Elo    -56  cluster boot 37.0%..47.0%
+   WHITE (either engine)  +41  =135 -24   score  54.2%  Elo    +30  cluster boot 49.8%..58.8%
+   decomposition          candidate edge over baseline -3.7%   advantage of having White +4.3%
+
+mopup gate2   n=200   corpus/mopup/games/gate2_fixed_depth.jsonl
+   candidate as White     +21  =65  -14   score  53.5%  Elo    +24  cluster boot 47.5%..59.5%
+   candidate as Black     +14  =67  -19   score  47.5%  Elo    -17  cluster boot 42.0%..53.0%
+   WHITE (either engine)  +40  =132 -28   score  53.0%  Elo    +21  cluster boot 47.2%..58.8%
+   decomposition          candidate edge over baseline +0.5%   advantage of having White +3.0%
+
+passed gate2   n=200   corpus/passed/games/gate2_fixed_depth.jsonl
+   candidate as White     +20  =65  -15   score  52.5%  Elo    +17  cluster boot 46.5%..58.0%
+   candidate as Black     +15  =66  -19   score  48.0%  Elo    -14  cluster boot 42.5%..54.0%
+   WHITE (either engine)  +39  =131 -30   score  52.2%  Elo    +16  cluster boot 48.0%..56.5%
+   decomposition          candidate edge over baseline +0.2%   advantage of having White +2.3%
+
+kingpawn gate2 (V2.1 v rated-v1)   n=200   corpus/v2/kp/games/gate2_fixed_depth.jsonl
+   candidate as White     +24  =61  -15   score  54.5%  Elo    +31  cluster boot 48.5%..60.5%
+   candidate as Black     +17  =68  -15   score  51.0%  Elo     +7  cluster boot 45.5%..56.5%
+   WHITE (either engine)  +39  =129 -32   score  51.7%  Elo    +12  cluster boot 47.2%..56.2%
+   decomposition          candidate edge over baseline +2.8%   advantage of having White +1.8%
+
+kingpawn secondary (V2.1 v v0_8_passed)   n=200   corpus/v2/kp/games/secondary_vs_passed.jsonl
+   candidate as White     +23  =63  -14   score  54.5%  Elo    +31  cluster boot 48.5%..60.5%
+   candidate as Black     +13  =71  -16   score  48.5%  Elo    -10  cluster boot 43.5%..53.5%
+   WHITE (either engine)  +39  =134 -27   score  53.0%  Elo    +21  cluster boot 48.8%..57.5%
+   decomposition          candidate edge over baseline +1.5%   advantage of having White +3.0%
+
+lowmat gate2 (V2.2a v V2.1)   n=168   corpus/v2/fw/lowmat/games/gate2_fixed_depth.jsonl
+   candidate as White     +14  =53  -17   score  48.2%  Elo    -12  cluster boot 41.7%..54.8%
+   candidate as Black     +17  =54  -13   score  52.4%  Elo    +17  cluster boot 45.8%..58.9%
+   WHITE (either engine)  +27  =107 -34   score  47.9%  Elo    -14  cluster boot 41.7%..54.5%
+   decomposition          candidate edge over baseline +0.3%   advantage of having White -2.1%
+
+lowmat targeted (V2.2a v V2.1)   n=166   corpus/v2/fw/lowmat/games/targeted_fixed_depth.jsonl
+   candidate as White     +6   =74  -3    score  51.8%  Elo    +13  cluster boot 48.2%..55.4%
+   candidate as Black     +2   =72  -9    score  45.8%  Elo    -29  cluster boot 42.2%..49.4%
+   WHITE (either engine)  +15  =146 -5    score  53.0%  Elo    +21  cluster boot 49.7%..56.6%
+   decomposition          candidate edge over baseline -1.2%   advantage of having White +3.0%
+
+== POOLED SIDE-TO-MOVE RESULT ACROSS ALL CORPORA (clusters namespaced per corpus) ==
+   White +240 =914 -180   n=1334   score 52.2%   Elo +16   cluster boot 50.4%..54.1%   (667 clusters)
+   Note: both sides of every pair are the same two engines on the same start position,
+   so this is a property of the retained start-position pool and the move, not of either engine.

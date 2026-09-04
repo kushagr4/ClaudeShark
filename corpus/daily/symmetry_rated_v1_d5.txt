@@ -1,0 +1,96 @@
+== ENGINE COLOUR SYMMETRY: champions\rated_v1, depth 5, 600 mirrored position pairs ==
+P' is P mirrored vertically with the colours swapped. static and qsearch are white's view and must negate;
+the root score is the side to move's view and must be equal; the best move must be the mirrored move.
+
+   static   agree  600/600   divergent 0
+   qs       agree  600/600   divergent 0
+   root     agree  555/600   divergent 45
+   move     agree  567/600   divergent 33
+   nodes    agree   10/600   divergent 590
+
+first stage to diverge, per position: {'nodes': 532, 'root': 45, 'move': 14}
+
+by position feature (divergent / seen):
+   castling      136/136
+   check          37/43
+   few-pieces    132/135
+   pawnless       25/26
+   plain          31/31
+   promotable    485/493
+
+first 25 divergent positions:
+   ['nodes']  static    +89/   -89  qs    +69/   -69  root    +83/   +83  move f3g4/f6g5  nodes 3693/3462
+      P  8/8/5R2/5P2/3k4/5K2/8/5r2 w - - 1 57
+      P' 5R2/8/5k2/3K4/5p2/5r2/8/8 b - - 1 57
+   ['nodes']  static    -79/   +79  qs    -79/   +79  root    -58/   -58  move f2c2/f7c7  nodes 6207/6114
+      P  2b2k2/5p2/6p1/P3p3/8/6Kp/5R2/8 w - - 3 60
+      P' 8/5r2/6kP/8/p3P3/6P1/5P2/2B2K2 b - - 3 60
+   ['nodes']  static    +21/   -21  qs    +21/   -21  root    +31/   +31  move g1f2/g8f7  nodes 4891/4764
+      P  8/p1p4p/6p1/3B2Pk/1R3P1n/P2b3P/4p3/6K1 w - - 0 39
+      P' 6k1/4P3/p2B3p/1r3p1N/3b2pK/6P1/P1P4P/8 b - - 0 39
+   ['nodes']  static     -2/    +2  qs    -55/   +55  root    +26/   +26  move g6f5/g3f4  nodes 26348/26660
+      P  r1b2rk1/1p2q1bp/p1n3p1/4pP2/2PpP3/N2P4/PP1QNPBP/R3K2R b KQ - 0 14
+      P' r3k2r/pp1qnpbp/n2p4/2pPp3/4Pp2/P1N3P1/1P2Q1BP/R1B2RK1 w kq - 0 14
+   ['nodes']  static   -103/  +103  qs    -86/   +86  root   +149/  +149  move c3b2/c6b7  nodes 3007/3448
+      P  2R5/8/5K2/8/1p6/2k5/8/4r3 b - - 3 61
+      P' 4R3/8/2K5/1P6/8/5k2/8/2r5 w - - 3 61
+   ['nodes']  static   +307/  -307  qs   +307/  -307  root   +311/  +311  move a4a5/a5a4  nodes 4324/4549
+      P  8/8/2N1pk1p/8/P2P1KR1/8/8/1r6 w - - 4 53
+      P' 1R6/8/8/p2p1kr1/8/2n1PK1P/8/8 b - - 4 53
+   ['nodes']  static    -58/   +58  qs   +244/  -244  root   +255/  +255  move b2b6/b7b3  nodes 18567/18175
+      P  2r2rk1/pp2pp1p/1qn3p1/3b4/4P3/5N2/PQ2BPPP/3R1RK1 w - - 2 16
+      P' 3r1rk1/pq2bppp/5n2/4p3/3B4/1QN3P1/PP2PP1P/2R2RK1 b - - 2 16
+   ['root', 'nodes']  static   -166/  +166  qs   -166/  +166  root    -38/   -13  move e3f1/e6f8  nodes 4428/3690
+      P  8/8/1p6/p5k1/P1P5/1P2Nn2/6Kp/8 w - - 1 56
+      P' 8/6kP/1p2nN2/p1p5/P5K1/1P6/8/8 b - - 1 56
+   ['nodes']  static   +687/  -687  qs   +687/  -687  root   -727/  -727  move c6c5/c3c4  nodes 1692/1550
+      P  8/8/2k5/8/PR6/1P6/1K6/8 b - - 0 54
+      P' 8/1k6/1p6/pr6/8/2K5/8/8 w - - 0 54
+   ['nodes']  static   -170/  +170  qs   -158/  +158  root   +165/  +165  move g8h7/g1h2  nodes 3372/3368
+      P  3Q2k1/5p2/4b1p1/4p3/Pq6/6Kp/5R2/8 b - - 3 55
+      P' 8/5r2/6kP/pQ6/4P3/4B1P1/5P2/3q2K1 w - - 3 55
+   ['nodes']  static     -7/    +7  qs   -110/  +110  root   +161/  +161  move h5g4/h4g5  nodes 3623/3493
+      P  4B3/8/5p2/p3b2p/4P1Pk/4K3/6P1/8 b - - 0 43
+      P' 8/6p1/4k3/4p1pK/P3B2P/5P2/8/4b3 w - - 0 43
+   ['nodes']  static    +91/   -91  qs    +91/   -91  root   +918/  +918  move b5b6/b4b3  nodes 670/756
+      P  8/8/8/1P6/K7/8/1k6/8 w - - 0 55
+      P' 8/1K6/8/k7/1p6/8/8/8 b - - 0 55
+   ['root', 'move', 'nodes']  static   -320/  +320  qs   -320/  +320  root   -401/  -397  move b3d4/c6b5  nodes 14098/8543
+      P  8/8/3kp3/5bpp/8/1NB3qP/1PP3P1/2KN4 w - - 8 38
+      P' 2kn4/1pp3p1/1nb3Qp/8/5BPP/3KP3/8/8 b - - 8 38
+   ['nodes']  static    +72/   -72  qs    +72/   -72  root   -135/  -135  move f1c4/f8c5  nodes 3623/3795
+      P  8/8/3k4/5P2/4PKP1/8/7P/5b2 b - - 0 55
+      P' 5B2/7p/8/4pkp1/5p2/3K4/8/8 w - - 0 55
+   ['root', 'nodes']  static    -43/   +43  qs    -43/   +43  root    +44/   +46  move h5h4/h4h5  nodes 23706/23587
+      P  3r2k1/5pp1/3b4/3b3p/1p1B4/1P1K1P1P/2B3P1/4R3 b - - 3 41
+      P' 4r3/2b3p1/1p1k1p1p/1P1b4/3B3P/3B4/5PP1/3R2K1 w - - 3 41
+   ['nodes']  static   -134/  +134  qs   -134/  +134  root   +117/  +117  move b5c6/b4c3  nodes 3262/2531
+      P  8/8/1p2bBp1/1k5p/p1p2K1P/P1P3P1/8/8 b - - 1 48
+      P' 8/8/p1p3p1/P1P2k1p/1K5P/1P2BbP1/8/8 w - - 1 48
+   ['nodes']  static   -143/  +143  qs   -143/  +143  root   -159/  -159  move g1g2/g8g7  nodes 10836/9630
+      P  8/8/8/8/4nQ1P/3q2P1/8/3k2K1 w - - 28 82
+      P' 3K2k1/8/3Q2p1/4Nq1p/8/8/8/8 b - - 28 82
+   ['nodes']  static    +67/   -67  qs    +67/   -67  root    -73/   -73  move g6g3/g3g6  nodes 12999/13829
+      P  8/7p/p4pr1/1p1p1k2/1PrBbP2/PKP1P1R1/7P/3R4 b - - 14 36
+      P' 3r4/7p/pkp1p1r1/1pRbBp2/1P1P1K2/P4PR1/7P/8 w - - 14 36
+   ['nodes']  static    -82/   +82  qs    -34/   +34  root    -43/   -43  move h4g5/h5g4  nodes 29116/29303
+      P  rnbqk2r/ppp2pb1/4p2p/6p1/3Pp2P/6B1/PPP2PP1/R2QKBNR w KQkq - 1 9
+      P' r2qkbnr/ppp2pp1/6b1/3pP2p/6P1/4P2P/PPP2PB1/RNBQK2R b KQkq - 1 9
+   ['move', 'nodes']  static   -162/  +162  qs   -162/  +162  root   +177/  +177  move a6a5/b4b5  nodes 26975/28292
+      P  4r1k1/5pp1/p3p1q1/1p2P3/3B1Q2/7P/1Pr2PP1/4R1K1 b - - 1 34
+      P' 4r1k1/1pR2pp1/7p/3b1q2/1P2p3/P3P1Q1/5PP1/4R1K1 w - - 1 34
+   ['nodes']  static   -116/  +116  qs   -116/  +116  root   -129/  -129  move g4d4/g5d5  nodes 4187/4583
+      P  8/r7/8/8/6Rp/7k/8/4K3 w - - 1 72
+      P' 4k3/8/7K/6rP/8/8/R7/8 b - - 1 72
+   ['root', 'move', 'nodes']  static     -1/    +1  qs     -1/    +1  root    +59/   +12  move d6c6/c4c5  nodes 8566/7886
+      P  1R6/8/1P1k4/2pp4/8/7r/2K5/8 b - - 4 56
+      P' 8/2k5/7R/8/2PP4/1p1K4/8/1r6 w - - 4 56
+   ['root', 'nodes']  static   -130/  +130  qs   -130/  +130  root   -129/  -134  move c6e4/c3e5  nodes 4238/5772
+      P  8/8/2B2k2/6p1/1Pbn4/5P2/5KP1/8 w - - 9 52
+      P' 8/5kp1/5p2/1pBN4/6P1/2b2K2/8/8 b - - 9 52
+   ['nodes']  static    -41/   +41  qs    -41/   +41  root   +914/  +914  move h3h2/h6h7  nodes 3686/3227
+      P  8/6PP/8/8/8/r6K/5k2/8 w - - 1 60
+      P' 8/5K2/R6k/8/8/8/6pp/8 b - - 1 60
+   ['nodes']  static    -38/   +38  qs    -38/   +38  root    -35/   -35  move a1e1/a8e8  nodes 22483/21684
+      P  3rr1k1/1b1n2pp/8/p1pp1p2/8/1PnNPPPP/P1NR2B1/R5K1 w - - 0 24
+      P' r5k1/p1nr2b1/1pNnpppp/8/P1PP1P2/8/1B1N2PP/3RR1K1 b - - 0 24

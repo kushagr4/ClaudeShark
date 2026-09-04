@@ -1,0 +1,27 @@
+{
+ "provenance": {
+  "engine": "Stockfish 18",
+  "binary": "C:\\Users\\epick\\engines\\stockfish\\stockfish-windows-x86-64-avx2.exe",
+  "binary_sha256": "c86215fa1977d53b82ed854540a4c7b025be4cd042276c85ba3de53fb9118911",
+  "options": {
+   "Threads": 1,
+   "Hash": 256,
+   "UCI_ShowWDL": true
+  },
+  "limit": "nodes (fixed); hash cleared before each position"
+ },
+ "arguments": {
+  "count": "60",
+  "min_move": "6",
+  "max_move": "9",
+  "level": "40",
+  "spread": "35",
+  "multipv": "5",
+  "walk_nodes": "150000",
+  "score_nodes": "2000000",
+  "seed": "2026",
+  "out": "corpus\\daily\\pool\\competition_like_pairs.json"
+ },
+ "lines_tried": 100,
+ "kept": 60
+}

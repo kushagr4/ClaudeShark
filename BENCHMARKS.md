@@ -531,3 +531,22 @@ improved.
 Not promoted; the V2 champion remains `champions/v2_1_kingpawn`. The term is
 correct on its evaluation target and has never been shown to win a game.
 Resolving it needs roughly 800 family-reaching start positions.
+
+## 2026-09-04 — Colour asymmetry audit: no engine defect; the pool has the usual White edge
+
+Record: [`benchmarks/current/2026-09-04-colour-asymmetry-audit.md`](benchmarks/current/2026-09-04-colour-asymmetry-audit.md).
+Prompted by a competition-wide impression that bots win as Black and lose as
+White. ClaudeShark's evaluator is exactly colour-symmetric on 600 mirrored
+position pairs (static 600/600, quiescence 600/600); its fixed-depth search
+diverges on 45 of 600 root scores and 33 of 600 moves purely through
+move-ordering tie-breaks, with no direction (mean root difference -0.03 cp,
+sign split 27 against 18, total node ratio 0.9943). No colour appears anywhere
+in `cs_time.py` or `agent.py`, and the two rated games spent 74.8 s and 75.0 s
+with 57.3 s and 57.2 s left. Across 1,334 retained paired games White scores
+52.2% (bootstrap 50.4%..54.1%), and 53.2% even from Black-to-move starts, so
+the advantage belongs to the colour rather than to the move.
+
+All four known competition start positions have **Black to move** and Stockfish
+scores them +38, +26, -23, -7. ClaudeShark's own rated colour record is one loss
+as White and one win as Black; two games establish nothing, and no public
+per-colour field data exists. Nothing colour-specific was added to the engine.

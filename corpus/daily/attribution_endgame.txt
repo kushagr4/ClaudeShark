@@ -1,0 +1,94 @@
+== FEATURE ATTRIBUTION OF THE ENGINE-ORACLE RESIDUAL: 24787 positions, phase <= 9 ==
+residual = engine depth-6 root minus oracle, from the mover's point of view.
+overall mean residual -0 cp; a bucket is interesting when its residual departs from that, not from zero.
+
+-- our passers --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   0           12653      -68        -61             +8         +8           139
+   1            8220      +59        +56             -3         -3           154
+   2            2593     +151       +116            -35        -35           180
+   3            1321     +261       +274            +13        +14           239
+
+-- their passers --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   0           12280      +96        +85            -11        -11           144
+   1            8275      -23        -33            -10         -9           148
+   2            2789     -111        -57            +54        +54           203
+   3            1443     -223       -184            +39        +39           171
+
+-- our best passer rank --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   -1          12653      -68        -61             +8         +8           139
+   1             966      -35         +4            +39        +39           150
+   2            1764     +114        +80            -34        -34           139
+   3            2795      +48        +17            -31        -31           146
+   4            2780      +86        +47            -39        -39           173
+   5            2137     +137       +163            +26        +26           217
+   6            1692     +228       +265            +37        +37           183
+
+-- their best passer rank --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   -1          12280      +96        +85            -11        -11           144
+   1             935      +60         -2            -62        -61           155
+   2            1795      -82        -71            +12        +12           140
+   3            2780      -19         -1            +18        +18           142
+   4            2897      -39         -7            +32        +32           177
+   5            2301      -92        -56            +35        +36           193
+   6            1799     -199       -231            -32        -32           163
+
+-- their king inside our passer's square --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   False        3489     +176       +172             -4         -4           204
+   True         8645      +70        +60            -10        -10           155
+   None        12653      -68        -61             +8         +8           139
+
+-- our king inside their passer's square --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   False        5592     -113        -77            +36        +36           183
+   True         6915      -28        -38            -10        -10           147
+   None        12280      +96        +85            -11        -11           144
+
+-- rook behind our own passer --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   False       24180      +12        +12             -0         -0           155
+   True          607     +111       +116             +4         +4           113
+
+-- opposite-coloured bishops --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   False       22147      +14        +16             +1         +1           156
+   True         2640      +15         +3            -12        -12           136
+
+-- pawns on one wing only --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   False       19663      +16        +14             -2         -2           148
+   True         5124       +9        +17             +8         +8           176
+
+-- total pawns --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   0             536      +19        +41            +22        +22           170
+   1            1452      +10        +15             +5         +5           197
+   2            1895      +10        +27            +17        +17           172
+   3            1865      +25        +36            +10        +10           211
+   4            2334      +11         +4             -7         -7           170
+   5            2551      +15        +33            +17        +17           168
+   6            3385       +9         +5             -4         -4           131
+   7            2461      +16        +11             -5         -5           157
+   8            8308      +16         +7             -9         -9           128
+
+-- our king centralisation --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   0            1690      +36         +8            -28        -28           182
+   1            7451      +16         +7             -9         -9           150
+   2            9852       +6        +16             +9         +9           162
+   3            5794      +20        +23             +4         +4           136
+
+-- king centralisation edge --
+   value           n  mean SF  mean root  mean residual  departure  mean |resid|
+   -3            282      -59        -35            +24        +24           174
+   -2           2098       -5        +29            +33        +34           165
+   -1           5820      +38        +42             +4         +4           157
+   0            8646       +9        +10             +0         +0           143
+   1            5698       -7        -15             -8         -8           148
+   2            1945      +47        +21            -25        -25           189
+   3             298     +102        +62            -40        -40           174
+
