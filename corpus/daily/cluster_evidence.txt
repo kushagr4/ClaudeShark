@@ -1,0 +1,51 @@
+== HOW MUCH INFORMATION IS IN EACH PAIRED MATCH ==
+A cluster whose two games are mirror images of each other contributes a win and a loss and no information.
+
+corpus\v2\kp\games\gate2_fixed_depth.jsonl
+   200 games, 100 clusters, score 0.5275, Elo +19.1
+   clusters whose pair was NOT mirror-identical: 41 of 100
+   per-cluster mean distribution: {0.0: 1, 0.25: 16, 0.5: 59, 0.75: 19, 1.0: 5}
+   net cluster-units above 0.5: +2.75
+   leave-one-cluster-out Elo: +15.8 (dropping cluster 23) .. +22.8 (dropping cluster 96)
+   the 6 best clusters must be removed before the estimate reaches zero: [28, 42, 80, 32, 23, 12]
+
+corpus\v2\fw\lowmat\games\gate2_fixed_depth.jsonl
+   200 games, 100 clusters, score 0.5025, Elo +1.7
+   clusters whose pair was NOT mirror-identical: 1 of 100
+   per-cluster mean distribution: {0.5: 99, 0.75: 1}
+   net cluster-units above 0.5: +0.25
+   leave-one-cluster-out Elo: -0.0 (dropping cluster 41) .. +1.8 (dropping cluster 99)
+   the 1 best clusters must be removed before the estimate reaches zero: [41]
+
+corpus\v2\fw\lowmat\games\targeted_fixed_depth.jsonl
+   166 games, 83 clusters, score 0.4880, Elo -8.4
+   clusters whose pair was NOT mirror-identical: 4 of 83
+   per-cluster mean distribution: {0.25: 4, 0.5: 79}
+   net cluster-units above 0.5: -1.00
+   leave-one-cluster-out Elo: -8.5 (dropping cluster 5000) .. -6.4 (dropping cluster 5074)
+   the estimate is already at or below zero
+
+corpus\passed\games\gate2_fixed_depth.jsonl
+   200 games, 100 clusters, score 0.5025, Elo +1.7
+   clusters whose pair was NOT mirror-identical: 42 of 100
+   per-cluster mean distribution: {0.0: 4, 0.25: 16, 0.5: 58, 0.75: 19, 1.0: 3}
+   net cluster-units above 0.5: +0.25
+   leave-one-cluster-out Elo: -1.8 (dropping cluster 28) .. +5.3 (dropping cluster 76)
+   the 1 best clusters must be removed before the estimate reaches zero: [28]
+
+corpus\mopup\games\gate2_fixed_depth.jsonl
+   200 games, 100 clusters, score 0.5050, Elo +3.5
+   clusters whose pair was NOT mirror-identical: 2 of 100
+   per-cluster mean distribution: {0.5: 98, 0.75: 2}
+   net cluster-units above 0.5: +0.50
+   leave-one-cluster-out Elo: +1.8 (dropping cluster 32) .. +3.5 (dropping cluster 99)
+   the 2 best clusters must be removed before the estimate reaches zero: [32, 92]
+
+corpus\postmortem\games\fixed_depth.jsonl
+   200 games, 100 clusters, score 0.4625, Elo -26.1
+   clusters whose pair was NOT mirror-identical: 39 of 100
+   per-cluster mean distribution: {0.0: 1, 0.25: 26, 0.5: 61, 0.75: 11, 1.0: 1}
+   net cluster-units above 0.5: -3.75
+   leave-one-cluster-out Elo: -29.9 (dropping cluster 93) .. -22.8 (dropping cluster 97)
+   the estimate is already at or below zero
+

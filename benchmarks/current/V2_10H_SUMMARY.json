@@ -1,0 +1,76 @@
+{
+  "session": {
+    "date": "2026-09-04",
+    "branch": "v2.2-development",
+    "start_time_local": "09:37:20 +0100",
+    "git_identity": "kushagr4 <ratrakushagra@gmail.com>",
+    "rated_v1_commit": "98c48c89b3a8142e6567e5f46b2d2036df7297d1",
+    "main_commit": "98c48c89b3a8142e6567e5f46b2d2036df7297d1",
+    "pushed": false,
+    "deterministic_fingerprint_depth6_nodes": 1712405,
+    "fingerprint_note": "working tree with every experimental term off reproduces the rated-v1 fingerprint exactly"
+  },
+  "champions": {
+    "historical_rated": "champions/rated_v1",
+    "v2_current": "champions/v2_1_kingpawn",
+    "v2_current_source_hash": "6af9dea9c9041358",
+    "v2_current_package_sha256": "a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a",
+    "frozen_but_not_promoted": ["champions/v2_2a_low_material"]
+  },
+  "experiments": [
+    {
+      "experiment_id": "V2.2a-low-material",
+      "baseline": "champions/v2_1_kingpawn",
+      "hypothesis": "the material term pays almost the full tapered value for a single-unit surplus in eight low-material families where it rarely converts; removing a fixed fraction of that nominal surplus removes the false wins without damaging the genuine ones",
+      "motivation": "false-win audit: 429 of the audited drawn positions were scored >= +150, and the decomposition attributed the score to the material term to the centipawn",
+      "implementation": "cs_drawish.py, term low_material, stage post, flag CS_EVAL_LOW_MATERIAL, default off",
+      "parameters": "remove 3/4 of the surplus in families A and C, 1/2 in family B, computed from the evaluator's own tapered piece values",
+      "diagnostic_population": "983 oracle-labelled audit positions in eight families",
+      "affected_population": "0.9% of evaluations over 200 retained games; 2.5% of the calibration set",
+      "eval_cost": "+1.8% evaluator time",
+      "nps_cost": "-0.6%",
+      "gate0": "pass (40 semantic tests, fast == reference on 500 random-play positions, 4000 random placements and all 983 audit positions)",
+      "gate1": "pass (421 of 429 false wins removed, 0 of 112 genuine wins and 0 of 6 strategic wins under +100, 0 moves changed on blind-win, conversion, tactics and 240 suites)",
+      "gate2_games": 200,
+      "wins": 38, "draws": 125, "losses": 37,
+      "score": 0.502, "elo": 2,
+      "ci": "paired cluster bootstrap -0 .. +5 Elo",
+      "informative_clusters": "1 of 100",
+      "targeted_match": {"games": 166, "informative_clusters": "4 of 83", "verdict": "2 genuine regressions, 2 correct losses of objectively lost positions, 0 improvements"},
+      "conversion_metrics": "in-family false-win evaluations 17 of 65 -> 0 of 65",
+      "decision": "KEEP FOR MORE TESTING, not promoted",
+      "reason": "correct on its evaluation target and never shown to win a game; the Gate 2 instrument has one informative cluster of a hundred",
+      "commit": "0de5912da1486c1bd267c6ff6b588e3695d3408b",
+      "artifacts": ["benchmarks/current/2026-09-04-v2.2a-low-material.md", "corpus/v2/fw/lowmat/"]
+    },
+    {
+      "experiment_id": "colour-asymmetry-audit",
+      "baseline": "champions/rated_v1",
+      "hypothesis": "the competition-wide impression that bots win as Black and lose as White reflects a ClaudeShark implementation or time-management asymmetry",
+      "motivation": "user-reported field observation plus two rated games, one lost as White and one won as Black",
+      "implementation": "audit only; tools/daily/{whoami,symmetry,colour,calibrate,attribute}.py and tests/test_colour_symmetry.py",
+      "gate0": "static and quiescence scores mirror exactly on 600 of 600 colour-reflected position pairs",
+      "result": {
+        "evaluator_symmetry": "600/600 static, 600/600 quiescence",
+        "search_symmetry": "555/600 root score, 567/600 best move, 10/600 node count",
+        "directionality": "mean root difference -0.03 cp, sign split 27 vs 18 (z=+1.34), node ratio 0.9943 -- not directional",
+        "time_management": "no colour in cs_time.py or agent.py; rated games spent 74.8 s and 75.0 s, left 57.3 s and 57.2 s",
+        "internal_white_score": "52.2% over 1334 paired games (cluster bootstrap 50.4%..54.1%)",
+        "internal_white_score_from_black_to_move_starts": "53.2%",
+        "competition_start_positions": "all four known have Black to move; Stockfish +38, +26, -23, -7"
+      },
+      "decision": "no engine change; the hypothesis of an implementation or clock asymmetry is ruled out",
+      "commit": "70f526e",
+      "artifacts": ["benchmarks/current/2026-09-04-colour-asymmetry-audit.md", "corpus/daily/"]
+    },
+    {
+      "experiment_id": "V2.3-tempo",
+      "baseline": "champions/v2_1_kingpawn",
+      "hypothesis": "TEMPO = 8 under-values having the move; the static residual against the oracle implies about 43",
+      "motivation": "colour-split residual estimator over 35,202 unselected positions",
+      "status": "pre-registered; result pending",
+      "commit": "d059187",
+      "artifacts": ["benchmarks/current/2026-09-04-v2.3-tempo.md"]
+    }
+  ]
+}
