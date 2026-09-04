@@ -1,0 +1,18 @@
+== V2 ENDGAME CALIBRATION SUITE v1 (250 positions, hash a473da0823abf75c) engine C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\e3813b42-0a37-4aea-86be-348b96190e38\scratchpad\engines\kp\kp_MEDIUM ==
+SF = Stockfish from the side to move (clamped +-2000); 'below' = mean(SF - x) where the win is real; 'above' = mean(x - SF) where the position is level
+MAE = mean |x - SF|; a term is good when blind_win 'below' falls, false_win 'above' falls, and the recognised classes and controls do not move
+
+  class               n traj     SF  static static MAE      qs     qs MAE    root   root MAE   loss  serious  agree
+  blind_win          73   61   +555     +21        534     +47        508     +33        522    118      37%    52%
+  false_win          24   13     +1    +300        305    +325        324    +324        323      0       0%    17%
+  recognised_win     48   48  +1776   +1062        749   +4141       3510  +20808      19468     21       6%    73%
+  recognised_draw    45   45     +5     -32         90     -18         66      +1         36     43      13%    42%
+  losing             42   42  -1568    -919        701   -1593       1360  -17238      16326      7       2%    74%
+  control_middle     10   10     -2      -9         40     +14         39     -11         27     26      20%    30%
+  control_tactic      8    8  +1597    +277       1320    +655       1035  +15327      14349     66      12%    62%
+
+  static: blind wins sit +534 below Stockfish; false wins sit +298 above; blind rows with static < +100: 65/73; false rows with static >= +200: 19/24
+  qs: blind wins sit +508 below Stockfish; false wins sit +324 above; blind rows with qs < +100: 64/73; false rows with qs >= +200: 21/24
+  root: blind wins sit +522 below Stockfish; false wins sit +323 above; blind rows with root < +100: 70/73; false rows with root >= +200: 24/24
+
+  diagnostic: static blind-below +534 (73), false-above +298 (24)

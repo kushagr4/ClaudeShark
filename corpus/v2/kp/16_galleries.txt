@@ -1,0 +1,63 @@
+== BLIND-WIN GALLERY: king-geometry mechanisms, V1 (rated_v1) vs V2.1 (v2_1_kingpawn), depth 6 ==
+columns: id role cluster | SF best | V1 static/root move (loss) | V2.1 static/root move (loss)
+51 rows with a king-geometry mechanism; move changed in 13; mean loss 169 -> 142; root<100 48 -> 45
+  ec-141 diagn postmortem:59:cB     king activity              SF  +650 best g4f5   | V1   +56/  +81 e4f4   ( 650) | V2.1   +68/  +76 g4f5   (   0)  8/4k2p/1p4p1/p1pP1p1P/P1P1K1P1/3P4/8/8 w - - 0 38
+  ec-020 valid blindwin:79:cB       king-to-pawn coordination  SF  +537 best f4f8   | V1   +60/  +39 d2e3   ( 537) | V2.1   +52/  +49 f4f8   (  27)  5qk1/1p4p1/2p3p1/p1P3P1/P2P1Q2/1P6/3K4/8 w - - 7 39
+  ec-048 valid mopup:60:cB          pawn race / tempo          SF  +404 best e8d8   | V1   +55/  -14 e8g8   ( 404) | V2.1   +55/  +41 e8d8   (  35)  4R3/2p3p1/p1k1P3/1p6/7P/P4K2/r4P2/8 w - - 5 35
+  ec-075 valid passed:24:cW         king-to-pawn coordination  SF  +422 best d4d2   | V1   +12/  +45 d4c4   ( 283) | V2.1    +5/  +77 d4d5   (  16)  R7/8/2p3k1/2N5/3r3P/P3r1P1/1K6/8 b - - 11 48
+  ec-114 valid postmortem:24:cW     king-to-pawn coordination  SF  +515 best d4d2   | V1    -3/  +26 f8g8   ( 354) | V2.1   -20/  +23 f8e8   ( 177)  5k2/R7/2p5/2N5/3r3P/P3r1P1/1K6/8 b - - 5 45
+  ec-053 valid mopup:74:cB          king-to-pawn coordination  SF  +306 best e2f3   | V1   +77/  +86 d3c5   (  19) | V2.1   +77/  +88 e2f3   (   0)  8/2p2p2/3b4/1P1p1kp1/3P3p/3NP2P/4KPP1/8 w - - 2 33
+  ec-125 diagn postmortem:36:cW     king activity              SF  +454 best c5c4   | V1   +13/   +5 e6d7   ( 454) | V2.1   +33/  +12 e6d6   ( 450)  1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+  ec-056 diagn mopup:75:cW          pawn race / tempo          SF  +549 best c3d2   | V1   -10/  +59 c4e4   ( 549) | V2.1   -20/  +46 c4d4   ( 549)  1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69
+  ec-093 valid passed:62:cB         king activity              SF  +476 best f2f4   | V1   +21/  +65 c4c7   (   0) | V2.1   +31/  +71 g3g4   (   0)  8/8/5k2/7K/2R5/6P1/2p2P1P/2r5 w - - 5 48
+  ec-057 valid mopup:77:cB          king-to-pawn coordination  SF  +344 best g4d7   | V1   +60/  +17 b3b1   ( 353) | V2.1   +60/  +22 b3b2   ( 356)  2k5/1p1q1p2/p5p1/2P5/PP1p2QP/1R2r2P/6P1/7K w - - 2 32
+  ec-061 diagn mopup:79:cB          king-to-pawn coordination  SF  +652 best d5c4   | V1   +49/  +49 d5e5   ( 164) | V2.1   +61/  +39 d5d4   ( 190)  8/1p2k1p1/6p1/p1PK2P1/P7/1P6/8/8 w - - 11 51
+  ec-085 diagn passed:51:cB         king activity              SF  +325 best f4g6   | V1   +49/  +33 f4d5   ( 173) | V2.1   +60/  +25 f4d3   ( 220)  8/8/1pnk3p/p6P/P2pKNP1/1P6/8/8 w - - 1 49
+  ec-079 diagn passed:39:cW         king activity              SF  +322 best g3g5   | V1   +29/  +42 g3g5   (   1) | V2.1   +29/  +31 f6f5   ( 321)  7k/1p5P/2p2pr1/p6R/P7/1P3Br1/4PK2/8 b - - 4 49
+
+== ALL BLIND WINS: move changed between V1 and V2.1 ==
+170 blind-win rows, 29 moves changed: better 15, worse 10, same 4, net -1572 cp; by role: diagnostic 14, validation 15
+
+== FALSE-WIN GALLERY: every false-win row ==
+columns: id role | SF | V1 static / qs / root | V2.1 static / qs / root | mechanism
+  ec-194 diagn SF   +0 | V1 +718/+718/+764 | V2.1 +678/+678/+736 | extra-pawn conversion        KP-KQ        8/5PK1/8/8/8/q7/1k6/8 b - - 2 69
+  ec-195 diagn SF   +0 | V1 +778/+778/+759 | V2.1 +748/+748/+734 | extra-pawn conversion        KP-KQ        8/5PK1/8/8/5q2/2k5/8/8 b - - 10 73
+  ec-201 diagn SF   +0 | V1 +458/+458/+409 | V2.1 +448/+448/+389 | blocked/stoppable passer     KRPPP-KRP    1R6/1P4k1/6P1/3K3p/7P/1r6/8/8 w - - 7 60
+  ec-178 diagn SF   +0 | V1 +456/+456/+295 | V2.1 +446/+446/+379 | blocked/stoppable passer     KRPPP-KRP    1R6/1P4k1/6P1/4K2p/7P/1r6/8/8 w - - 11 62
+  ec-199 diagn SF   +0 | V1 +147/+147/+394 | V2.1 +147/+147/+376 | king activity                KRP-KRP      8/4rPK1/7R/6k1/7p/8/8/8 w - - 1 58
+  ec-209 diagn SF   +0 | V1 +372/+372/+361 | V2.1 +372/+372/+361 | mating gradient              KRB-KR       3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89
+  ec-191 diagn SF   +0 | V1   -4/+454/+365 | V2.1   -4/+454/+358 | king activity                KQRPP-KQRPPP 8/5R1p/5Qpk/8/5pP1/8/3q1P2/5rK1 w - - 0 45
+  ec-208 diagn SF   +0 | V1 +355/+355/+357 | V2.1 +355/+355/+357 | mating gradient              KRB-KR       4k3/7R/8/4K3/4B3/8/8/4r3 w - - 32 83
+  ec-175 valid SF   +0 | V1  +51/ +51/+358 | V2.1  +51/ +51/+334 | king activity                KRP-KRP      8/6K1/5P1R/6k1/7p/8/4r3/8 w - - 0 57
+  ec-181 valid SF   +0 | V1 +337/+337/+329 | V2.1 +315/+315/+328 | extra-pawn conversion        KPP-KR       8/8/8/6K1/5P1P/8/2k2r2/8 b - - 2 51
+  ec-177 diagn SF   +0 | V1 +451/+284/+295 | V2.1 +431/+271/+310 | blocked/stoppable passer     KRPPP-KRP    1R6/1P4k1/6P1/7p/7P/1r2K3/8/8 w - - 1 57
+  ec-172 diagn SF   +0 | V1 +304/+304/+307 | V2.1 +304/+304/+307 | mating gradient              KR-KRB       8/3Rbk2/8/4K3/8/8/5r2/8 b - - 5 70
+  ec-173 diagn SF   +0 | V1 +295/+295/+307 | V2.1 +295/+295/+307 | mating gradient              KR-KRB       8/3Rbk2/8/5K2/8/8/4r3/8 b - - 11 73
+  ec-200 diagn SF   +0 | V1  -62/+422/+339 | V2.1  -72/+411/+306 | king activity                KR-KRP       8/5r2/5RK1/8/6kp/8/8/8 w - - 0 61
+  ec-183 valid SF   +7 | V1 +304/+304/+302 | V2.1 +293/+293/+295 | extra-pawn conversion        KN-KNPP      8/6p1/8/3n4/1k4N1/7p/3K4/8 b - - 1 52
+  ec-202 diagn SF   +0 | V1 +458/+286/+293 | V2.1 +458/+286/+289 | blocked/stoppable passer     KRPPP-KRP    1R6/1P4k1/2K3P1/7p/7P/2r5/8/8 w - - 13 63
+  ec-179 valid SF   +0 | V1 +262/+349/+285 | V2.1 +273/+360/+288 | extra-pawn conversion        KRPP-KPPPP   8/3k4/6p1/2p5/pp4RP/8/5PK1/8 w - - 0 45
+  ec-176 valid SF   +0 | V1  +64/+339/+325 | V2.1  +64/+306/+281 | king activity                KRP-KRP      6R1/5PK1/8/8/6k1/7p/5r2/8 w - - 0 60
+  ec-185 valid SF   +0 | V1 +298/+298/+277 | V2.1 +298/+298/+264 | blocked/stoppable passer     KRPPP-KRPP   1R6/1P4k1/6P1/7p/7P/1r2pK2/8/8 w - - 1 55
+  ec-186 diagn SF   +0 | V1 +199/+199/+245 | V2.1 +199/+199/+256 | wrong rook pawn              K-KP         8/8/8/7k/8/7p/8/6K1 b - - 5 62
+  ec-170 diagn SF   +0 | V1 +227/+227/+235 | V2.1 +227/+227/+252 | opposite bishops / fortress  KBPP-KBPPP   5b2/8/5p2/6p1/4P1B1/pK3Pk1/8/8 b - - 7 50
+  ec-171 diagn SF   +0 | V1 +251/+251/+252 | V2.1 +251/+251/+252 | opposite bishops / fortress  KBPP-KBPPP   8/8/5p2/6p1/1b2P1B1/pK3Pk1/8/8 b - - 13 53
+  ec-188 diagn SF   +0 | V1 +120/+120/+252 | V2.1 +132/+132/+252 | blocked/stoppable passer     KP-K         8/3k4/8/3PK3/8/8/8/8 w - - 3 66
+  ec-182 valid SF   +0 | V1 +326/+326/+259 | V2.1 +304/+304/+252 | extra-pawn conversion        KPP-KR       8/8/8/5K1P/5P2/2k5/6r1/8 b - - 6 55
+  ec-193 valid SF   +0 | V1 +232/+232/+252 | V2.1 +232/+232/+252 | opposite bishops / fortress  KBPP-KBPPP   8/8/5p2/2b3p1/4P1B1/pK3P2/6k1/8 b - - 9 51
+  ec-198 valid SF   -6 | V1 +146/+259/+290 | V2.1 +146/+215/+249 | king activity                KRPPP-KRPPP  7r/PK2R2p/8/8/5p2/4p3/2P3kP/8 w - - 2 45
+  ec-192 valid SF   +0 | V1 +213/+213/+235 | V2.1 +224/+224/+246 | opposite bishops / fortress  KBPP-KBPPP   8/8/3b1p2/6pB/4P3/p1K2P2/6k1/8 b - - 1 47
+  ec-196 valid SF   +7 | V1 +231/+231/+241 | V2.1 +220/+220/+239 | opposite bishops / fortress  KBPPP-KBPPP  8/5k2/1B6/3p2P1/b7/4P2p/5PpK/8 b - - 1 40
+  ec-197 valid SF  +12 | V1 +231/+231/+238 | V2.1 +231/+231/+238 | opposite bishops / fortress  KBPPP-KBPPP  8/8/6k1/2Bp2P1/5P2/3bP2p/6pK/8 b - - 0 43
+  ec-204 diagn SF  +19 | V1 +231/+231/+235 | V2.1 +231/+231/+235 | mating gradient              KB-KR        8/8/3r4/8/4B3/6k1/4K3/8 b - - 1 56
+  ec-205 diagn SF  +12 | V1 +238/+238/+231 | V2.1 +238/+238/+231 | mating gradient              KB-KR        8/8/8/8/4K3/3B2k1/8/r7 b - - 7 59
+  ec-187 diagn SF   +0 | V1 +255/+255/+190 | V2.1 +267/+267/+229 | wrong rook pawn              K-KP         8/8/8/8/6k1/7p/8/7K b - - 11 65
+  ec-190 valid SF   +3 | V1 +232/+232/+222 | V2.1 +232/+232/+222 | extra-pawn conversion        KBP-KRP      8/5p2/8/8/P4k2/1B1K4/r7/8 b - - 15 58
+  ec-180 valid SF   -5 | V1 +295/+295/+221 | V2.1 +295/+295/+221 | extra-pawn conversion        KRPP-KPPP    8/8/2k5/1Rp5/p6P/1p6/5PK1/8 w - - 4 48
+  ec-184 diagn SF   +0 | V1 +349/+349/+220 | V2.1 +349/+349/+220 | opposite bishops / fortress  KBPP-KBPPP   8/8/1B4k1/6P1/4pP2/7p/2b3pK/8 b - - 0 43
+  ec-206 diagn SF   +0 | V1 +258/+258/+226 | V2.1 +246/+246/+215 | extra-pawn conversion        KNP-KPP      8/8/p1p5/1k1NK3/8/1P6/8/8 w - - 0 56
+  ec-207 diagn SF   +0 | V1 +226/+226/+226 | V2.1 +226/+226/+213 | extra-pawn conversion        KN-KP        8/8/2p5/2N1K3/2k5/8/8/8 w - - 2 59
+  ec-189 diagn SF   +0 | V1 +206/+206/+200 | V2.1 +218/+218/+212 | blocked/stoppable passer     KP-K         3k4/8/3P4/4K3/8/8/8/8 w - - 5 69
+  ec-203 valid SF   +0 | V1  -19/ -19/+213 | V2.1  -19/ -19/+183 | blocked/stoppable passer     KPP-KB       8/6K1/4kP2/1P5b/8/8/8/8 w - - 1 65
+  ec-174 valid SF   +0 | V1 +165/+225/+232 | V2.1 +153/+202/+143 | extra-pawn conversion        KPP-KN       8/8/8/K7/4nk2/1PP5/8/8 b - - 0 61
+false wins: mean root +301 -> +295; rows with root >= +200: 39 -> 38; by trajectory: 24 trajectories

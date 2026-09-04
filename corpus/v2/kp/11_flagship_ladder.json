@@ -1,0 +1,200 @@
+[
+ {
+  "cluster": 31,
+  "fen": "8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62",
+  "label": "flagship cluster 31",
+  "role": "target",
+  "baseline_verdict": "A +1 ply",
+  "baseline_moves": [
+   "f7e6",
+   "h6h5",
+   "h6h5",
+   "h6h5",
+   "h6h5"
+  ],
+  "baseline_scores": [
+   15,
+   64,
+   112,
+   112,
+   47
+  ],
+  "baseline_losses": [
+   519,
+   2,
+   2,
+   2,
+   2
+  ],
+  "sf_best": "h6h5",
+  "sf_cp_stm": 519,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "f7e6",
+   "h6h5",
+   "h6h5",
+   "h6h5",
+   "h6h5"
+  ],
+  "engine_scores": [
+   15,
+   40,
+   112,
+   110,
+   47
+  ],
+  "losses": [
+   519,
+   2,
+   2,
+   2,
+   2
+  ],
+  "nodes": [
+   1897,
+   3961,
+   7839,
+   13254,
+   45321
+  ],
+  "verdict": "A +1 ply"
+ },
+ {
+  "cluster": 45,
+  "fen": "8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38",
+  "label": "flagship cluster 45",
+  "role": "adversarial control",
+  "baseline_verdict": "D persists",
+  "baseline_moves": [
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3"
+  ],
+  "baseline_scores": [
+   9,
+   0,
+   0,
+   -4,
+   10
+  ],
+  "baseline_losses": [
+   442,
+   442,
+   442,
+   442,
+   442
+  ],
+  "sf_best": "g2g4",
+  "sf_cp_stm": 442,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "b2b3",
+   "g2g4"
+  ],
+  "engine_scores": [
+   9,
+   0,
+   0,
+   -4,
+   18
+  ],
+  "losses": [
+   442,
+   442,
+   442,
+   442,
+   0
+  ],
+  "nodes": [
+   3286,
+   6218,
+   13718,
+   32758,
+   63533
+  ],
+  "verdict": "C deeper"
+ },
+ {
+  "cluster": 14,
+  "fen": "8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38",
+  "label": "flagship cluster 14",
+  "role": "adversarial control",
+  "baseline_verdict": "D persists",
+  "baseline_moves": [
+   "e7d7",
+   "e7f7",
+   "e7f7",
+   "e7f7",
+   "e7f7"
+  ],
+  "baseline_scores": [
+   -229,
+   -231,
+   -234,
+   -267,
+   -267
+  ],
+  "baseline_losses": [
+   933,
+   889,
+   889,
+   889,
+   889
+  ],
+  "sf_best": "g6g5",
+  "sf_cp_stm": 380,
+  "depths": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "moves": [
+   "e7d7",
+   "e7f7",
+   "e7f7",
+   "e7f7",
+   "e7f7"
+  ],
+  "engine_scores": [
+   -229,
+   -231,
+   -234,
+   -267,
+   -267
+  ],
+  "losses": [
+   933,
+   889,
+   889,
+   889,
+   889
+  ],
+  "nodes": [
+   1859,
+   4360,
+   6996,
+   13303,
+   19824
+  ],
+  "verdict": "D persists"
+ }
+]

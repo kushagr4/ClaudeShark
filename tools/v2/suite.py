@@ -20,6 +20,8 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
+import chess
+
 from tools.corpus.oracle import Oracle
 from tools.postmortem.play import Engine
 
@@ -28,6 +30,19 @@ CLASSES = ("blind_win", "false_win", "recognised_win", "recognised_draw", "losin
 
 def clamp(v: int) -> int:
     return min(max(v, -2000), 2000)
+
+
+def loss_after(oracle: Oracle, fen: str, move: str, nodes: int, sf_cp: int) -> int:
+    """Oracle loss of a move, with terminal children scored by the rules rather than the engine."""
+    board = chess.Board(fen)
+    board.push_uci(move)
+    if board.is_checkmate():
+        child = -10000  # the side to move after the move is mated
+    elif board.is_game_over():
+        child = 0
+    else:
+        child = oracle.score_after(fen, move, nodes).cp_stm
+    return max(0, sf_cp + child)
 
 
 def run(suite: Path, engine_dir: Path, depth: int, static_only: bool, role: str) -> tuple[dict, list[dict]]:
@@ -49,9 +64,9 @@ def run(suite: Path, engine_dir: Path, depth: int, static_only: bool, role: str)
                     q = engine.ask(f"qs {r['fen']}")
                     engine.ask("new")
                     g = engine.ask(f"go {r['fen']}")
-                    child = oracle.score_after(r["fen"], g["move"], r.get("nodes", 1_000_000))
                     rec.update({"qs": q["qs"] if white else -q["qs"], "root": g["score"], "move": g["move"],
-                                "loss": max(0, r["sf_cp"] + child.cp_stm), "nodes_used": g["nodes"]})
+                                "loss": loss_after(oracle, r["fen"], g["move"], r.get("nodes", 1_000_000), r["sf_cp"]),
+                                "nodes_used": g["nodes"]})
                 out.append(rec)
         finally:
             if oracle is not None:

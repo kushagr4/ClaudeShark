@@ -24,6 +24,7 @@ off) that was measured and rejected; see
 | v0.6-material-scale | v0.5.2 with material scaled x1.47 | **rejected.** Passed every deterministic gate and then lost 40 Elo over 200 games (bootstrap CI -67..-14). See `benchmarks/current/2026-09-03-v0.6-material-scale.md` |
 | v0.7-mopup | v0.5.2 + a mating gradient for bare-king endings, `CS_EVAL_MOPUP` | **keep for confirmation; default off.** Fixes its class outright (18/19 bare-king endings converted in play, 12/12 on the bench, 0/240 root moves changed, identical node counts) and moves the paired-game score by +3 Elo, bootstrap -0..+9. Not yet arena-tested. See `benchmarks/current/2026-09-03-mop-up-v1.md` |
 | v0.8-passed | v0.5.2 + a rank-indexed passed-pawn bonus, `CS_EVAL_PASSED` | **inconclusive; default off.** Deterministic gates positive (blind-win suite robust loss 124->89 diagnostic, 149->123 validation read once; conversion diagnostic 226->181; root suite 35.3->34.0 with 29/240 moves changed; both adversarial flagship controls improved, none worsened) but the paired-game score is +2 Elo with a bootstrap of -26..+30. Not arena-tested. Failure audit: the term is a push incentive with no notion of consequence; no single corrective feature dominates, v2 deferred. See `benchmarks/current/2026-09-03-passed-pawn-v1.md` and `-failure-audit.md` |
+| v2.1-kingpawn | rated V1 + endgame king-to-pawn proximity, `CS_EVAL_KING_PAWN` (branch `v2-development`) | **keep for Daily confirmation; default off.** Both endgame failure classes improve on the validation half with the recognised classes flat; 200 paired games vs rated V1: +41 =129 -30, Elo +19, bootstrap -7..+45, every conversion and defence metric better, no advanced-passer pathology. Frozen as `champions/v2_1_kingpawn`. See `benchmarks/current/2026-09-04-v2.1-king-pawn-proximity.md` |
 
 **`submission.zip` is a build artefact, never authoritative.** It is
 gitignored and is rebuilt from source by `tools/release_check.py` into a
@@ -344,6 +345,15 @@ missing evaluation at the end of Stockfish's lines: the moves improve
 because the search now has a gradient toward keeping and advancing passers,
 not because the static sees the win. 200 paired games: +2 Elo, bootstrap
 -26..+30. Inconclusive; kept flag-gated.
+
+**King-to-pawn proximity, V2.1** (`cs_kingpawn.py`, term `king_pawn`,
+default off) is the first V2 feature: one endgame table by each king's
+Chebyshev distance to the nearest pawn of either colour, White minus Black,
+chosen from three predefined families on the diagnostic halves and frozen.
+It moves both failure classes the right way on validation, leaves the
+recognised classes flat, costs 2% of NPS, and scores +19 Elo over 200 paired
+games against rated V1 with every conversion metric improved. Kept for Daily
+confirmation; the bootstrap includes zero.
 
 **The conversion weakness is endgame knowledge, not search.** The 2026-09-03
 conversion audit (`benchmarks/current/2026-09-03-conversion-audit.md`) found

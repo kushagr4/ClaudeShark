@@ -1,0 +1,24 @@
+== GATE 2: 200 fixed-depth paired games, v2_1_kingpawn (candidate) vs rated_v1 ==
+
++41 =129 -30  score 52.8%  Elo +19
+naive 95% CI -29 .. +67   paired cluster bootstrap -7 .. +45  (100 clusters)
+terminations: {'checkmate': 71, 'threefold_repetition': 123, 'insufficient_material': 6}
+as white: cand 54.5%, as black: cand 51.0%
+
+== EVALUATION CLASSES IN PLAY (share of the engine's own moves) ==
+  v2_1_kingpawn      moves  5232  blind-win  118 (2.3%)  false-win   35 (0.7%)  robust loss 41.1  serious 11.1%  games with a first serious error 146
+  rated_v1           moves  5225  blind-win  132 (2.5%)  false-win   36 (0.7%)  robust loss 42.8  serious 11.4%  games with a first serious error 149
+
+== CONVERSION AND DEFENCE (first time the threshold is reached; won / drew / lost from that side) ==
+  situation                       cand n    won   drew   lost |  base n    won   drew   lost
+  ahead +200                          86    48%    49%     3% |      74    41%    53%     7%
+  ahead +500                          63    65%    35%     0% |      52    58%    38%     4%
+  behind -200                         61    51%    46%    49% |      71    42%    38%    58%   (won = held: draw or win)
+  ahead +200 in pawn ending           16    56%    38%     6% |      12    33%    58%     8%
+  ahead +200 in rook ending           22    55%    45%     0% |      20    30%    70%     0%
+  ahead +200 in low material          48    73%    27%     0% |      34    68%    32%     0%
+  ahead +200 in other                 60    50%    47%     3% |      52    50%    42%     8%
+
+== REPETITION OUTCOMES: 123 of 200 games ==
+  v2_1_kingpawn: repetition while Stockfish had it >= +200 at its last annotated move: 16
+  rated_v1: repetition while Stockfish had it >= +200 at its last annotated move: 18

@@ -1,0 +1,185 @@
+== DEPTH LADDER over 20 conversion-failure positions (production, depths [6, 7, 8, 9, 10]) ==
+loss = Stockfish cp given up by the chosen move at 1000000 nodes; 'fixed' = loss < 50
+
+-- [1] cluster 14 quiet / unresolved | blind | SF +380 root -229 static -86
+   8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+   Stockfish +380 best g6g5   verdict: D persists
+    depth move      score   loss      nodes
+        6 e7d7       -229    933      1,859
+        7 e7f7       -231    889      4,360
+        8 e7f7       -234    889      6,996
+        9 e7f7       -267    889     13,303
+       10 e7f7       -267    889     19,824
+-- [2] cluster 38 wins pawn(s) | blind | SF +380 root -8 static +0
+   1k1n2R1/8/1b6/3B4/p2pK2P/1p6/8/8 w - - 3 62
+   Stockfish +380 best h4h5   verdict: D persists
+    depth move      score   loss      nodes
+        6 g8g2        -13    107     25,752
+        7 g8g2        +14    107     44,676
+        8 g8g2         +0    107     80,092
+        9 g8g2        +37    107    165,905
+       10 g8g2        +48    107    255,185
+-- [3] cluster 51 wins pawn(s) | partly | SF +460 root +33 static +50
+   8/3k1p2/1pn1p1pp/p2pP2P/P2P2P1/1P1NKP2/8/8 w - - 0 50
+   Stockfish +460 best g4g5   verdict: D persists
+    depth move      score   loss      nodes
+        6 h5g6        +33    460     11,679
+        7 g4g5        +50     69     25,762
+        8 g4g5        +48     69     41,059
+        9 g4g5        +37     69     60,380
+       10 g4g5        +23     69     93,539
+-- [4] cluster 58 wins pawn(s) | blind | SF +304 root +22 static -77
+   6k1/p1r3p1/1p2p3/3p2p1/1Q1Pnn2/2P4P/2P5/R5K1 b - - 7 35
+   Stockfish +304 best c7c3   verdict: D persists
+    depth move      score   loss      nodes
+        6 f4h3        +36    149     66,825
+        7 f4h3        +62    149    106,804
+        8 f4h3        +67    149    220,482
+        9 f4h3        +64    149    393,231
+       10 f4h3        +74    149    747,899
+-- [5] cluster 61 quiet / unresolved | partly | SF +377 root +94 static +97
+   8/5p1k/4p1p1/1Q5p/8/PP3b1q/3R4/6K1 b - - 0 44
+   Stockfish +377 best h3g3   verdict: D persists
+    depth move      score   loss      nodes
+        6 h3g4       +109     94     53,920
+        7 h3g4       +124     94    115,994
+        8 h3g4       +114     94    266,956
+        9 h3g4       +114     94    507,033
+       10 f3d5       +117    155  1,170,950
+-- [6] cluster 86 wins a piece | horizon | SF +399 root +50 static +42
+   3r2k1/R4pp1/2bb4/8/1p5p/1P2BP1P/2B1K1P1/8 b - - 9 46
+   Stockfish +399 best c6b5   verdict: D persists
+    depth move      score   loss      nodes
+        6 d8e8        +50    398     68,509
+        7 d8e8        +79    398     93,984
+        8 d8e8        +79    398    216,276
+        9 d8e8        +85    398    398,537
+       10 d8e8        +94    398    731,578
+-- [7] cluster 36 quiet / unresolved | blind | SF +315 root +83 static +10
+   8/8/1R1pk3/1Pp5/7r/K7/7P/8 b - - 0 46
+   Stockfish +315 best e6d5   verdict: D persists
+    depth move      score   loss      nodes
+        6 h4h3        +88    262     23,784
+        7 h4h3        +87    262     39,995
+        8 h4h3        +47    262    103,108
+        9 h4h3        +84    262    147,009
+       10 h4h3        +42    262    369,442
+-- [8] cluster 36 king activity | blind | SF +440 root +21 static +68
+   1R6/8/3pk3/1Pp5/8/7r/2K5/8 b - - 9 52
+   Stockfish +440 best e6d5   verdict: D persists
+    depth move      score   loss      nodes
+        6 h3h2        +28     73     17,062
+        7 h3h2        +27     73     29,758
+        8 c5c4       +104    440    118,153
+        9 c5c4        +99    440    153,220
+       10 c5c4       +100    440    299,450
+-- [9] cluster 36 king activity | blind | SF +454 root +7 static +13
+   1R6/8/1P2k3/2pp4/8/7r/1K6/8 b - - 2 55
+   Stockfish +454 best c5c4   verdict: D persists
+    depth move      score   loss      nodes
+        6 e6d6        +12    450     18,393
+        7 e6d6        +18    450     35,931
+        8 e6d6        +86    450     87,000
+        9 e6d6        +81    450    127,847
+       10 e6d6       +105    450    192,501
+-- [10] cluster 45 quiet / unresolved | blind | SF +442 root +9 static +6
+   8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+   Stockfish +442 best g2g4   verdict: C deeper
+    depth move      score   loss      nodes
+        6 b2b3         +9    442      3,286
+        7 b2b3         +0    442      6,218
+        8 b2b3         +0    442     13,718
+        9 b2b3         -4    442     32,758
+       10 g2g4        +18      0     63,533
+-- [11] cluster 63 quiet / unresolved | blind | SF +328 root +89 static +115
+   4R3/5kp1/8/5p1p/5P1P/1Pr5/5KP1/8 w - - 9 54
+   Stockfish +328 best e8e3   verdict: D persists
+    depth move      score   loss      nodes
+        6 e8b8        +91    328     11,137
+        7 e8b8        +79    328     18,515
+        8 e8b8        +81    328     33,107
+        9 e8b8        +80    328     67,867
+       10 e8b8        +90    328     98,472
+-- [12] cluster 81 quiet / unresolved | partly | SF +363 root +68 static +7
+   8/1p5p/p4k2/P7/R2p1K2/4p2N/2r1P1rP/4R3 w - - 4 46
+   Stockfish +363 best f4f3   verdict: D persists
+    depth move      score   loss      nodes
+        6 a4d4        +79    332     27,535
+        7 a4d4        +86    332     52,337
+        8 a4d4        +95    332    112,934
+        9 a4d4       +102    332    257,121
+       10 a4d4       +131    332    380,267
+-- [13] cluster 90 wins a piece | horizon | SF +384 root -79 static -103
+   8/2r2p1k/p4p2/4pP2/4q3/1Q3R1P/6PK/8 w - - 0 33
+   Stockfish +384 best f3g3   verdict: D persists
+    depth move      score   loss      nodes
+        6 b3d3        -76    408     56,183
+        7 b3b8        -54    384    126,463
+        8 b3b8        -53    384    242,315
+        9 b3b8        -20    384    447,596
+       10 b3b8        -28    384    811,160
+-- [14] cluster 14 quiet / unresolved | blind | SF +380 root -229 static -86
+   8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+   Stockfish +380 best g6g5   verdict: D persists
+    depth move      score   loss      nodes
+        6 e7d7       -229    933      1,859
+        7 e7f7       -231    889      4,360
+        8 e7f7       -234    889      6,996
+        9 e7f7       -267    889     13,303
+       10 e7f7       -267    889     19,824
+-- [15] cluster 75 wins pawn(s) | partly | SF +349 root -41 static -43
+   R7/2r4k/5qp1/3p1r1p/1P2pP1P/P1p1P1Q1/2R3PK/8 b - - 1 43
+   Stockfish +349 best d5d4   verdict: D persists
+    depth move      score   loss      nodes
+        6 f6c6        -32    349     85,698
+        7 f6c6        -31    349    152,176
+        8 f6b6        -34    529    556,849
+        9 d5d4         -9     70    826,165
+       10 d5d4         -3     70  1,246,739
+-- [16] cluster 75 king activity | blind | SF +549 root +59 static -10
+   1R6/8/8/3P3p/2r4P/2k1p3/6P1/6K1 b - - 0 69
+   Stockfish +549 best c3d2   verdict: D persists
+    depth move      score   loss      nodes
+        6 c4d4        +46    549     17,835
+        7 c4h4        +61    549     44,178
+        8 c4d4        +56    549     91,074
+        9 c3d3        +79    549    157,450
+       10 c3d3        +85    549    218,161
+-- [17] cluster 96 quiet / unresolved | blind | SF +311 root +22 static +33
+   8/7p/3pN1pk/1Q1Pqp2/4p2P/3nP1P1/R4P1K/2r5 b - - 15 46
+   Stockfish +311 best e5c3   verdict: D persists
+    depth move      score   loss      nodes
+        6 d3e1        +22    311     72,887
+        7 d3e1        +35    311    125,341
+        8 d3e1        +35    311    238,804
+        9 d3e1        +42    311    435,717
+       10 d3e1        +34    311    884,251
+-- [18] cluster 99 wins pawn(s) | partly | SF +388 root -136 static +34
+   r3r1k1/4qppp/2p2n2/1p1p1P1b/1P1P2Pn/2NBP2P/2QN4/1R2R1K1 b - - 0 22
+   Stockfish +388 best h5g4   verdict: D persists
+    depth move      score   loss      nodes
+        6 e7d6       -133    165    146,841
+        7 e7d6        -66    165    241,741
+        8 e7d6        -66    165    549,897
+        9 e7d6        +15    165  1,288,927
+       10 e7d6        +30    165  2,369,377
+-- [19] cluster 45 quiet / unresolved | blind | SF +442 root +9 static +6
+   8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+   Stockfish +442 best g2g4   verdict: C deeper
+    depth move      score   loss      nodes
+        6 b2b3         +9    442      3,286
+        7 b2b3         +0    442      6,218
+        8 b2b3         +0    442     13,718
+        9 b2b3         -4    442     32,758
+       10 g2g4        +18      0     63,533
+-- [20] cluster 78 wins a piece | partly | SF +466 root +34 static +60
+   7k/6p1/4p3/4P2p/5n2/6P1/2r2N1P/4RK2 b - - 0 47
+   Stockfish +466 best c2f2   verdict: D persists
+    depth move      score   loss      nodes
+        6 f4d5        +34    466     18,086
+        7 f4d5        +36    466     26,744
+        8 f4d5        +34    466     53,294
+        9 f4d5        +24    466    126,903
+       10 f4d5        +26    466    190,907
+
+verdicts: {'D persists': 18, 'C deeper': 2}

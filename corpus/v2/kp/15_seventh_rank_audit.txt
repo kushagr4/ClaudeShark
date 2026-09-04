@@ -1,0 +1,165 @@
+== SEVENTH-RANK PASSER AUDIT: 172 episodes in 200 Gate 2 games, 155 after deduplication by entry position ==
+an episode = one pawn of the side to move standing on its seventh rank, from entry until it promotes, is captured or the game ends
+sf = Stockfish at entry from the mover's side (annotation budget); 'not winning' = sf < +100; 'won' = sf >= +300
+
+-- cand: 87 episodes, mean plies on the seventh 3.4; sf at entry mean +2979, not winning 22/87, won 62/87; fate {'promoted': 66, 'stuck at the end': 7, 'captured': 14}; game result for the mover 77.6%
+   created by the mover's own push in 84: creating-move loss mean 138, >= 100 in 11/84; Stockfish preferred a non-pawn move to the push in 25/84
+-- base: 68 episodes, mean plies on the seventh 3.1; sf at entry mean +2951, not winning 23/68, won 43/68; fate {'promoted': 47, 'captured': 14, 'stuck at the end': 7}; game result for the mover 69.1%
+   created by the mover's own push in 63: creating-move loss mean 196, >= 100 in 10/63; Stockfish preferred a non-pawn move to the push in 23/63
+
+== MECHANISM at entry, episodes where the passer was NOT winning (sf < +100) ==
+                                             cand   base
+  pawn immediately capturable                   7      5
+  blocked by enemy king                         1      2
+  piece blockade                                2      2
+  promotion square controlled                   5      5
+  enemy rook/queen behind or beside             2      4
+  losing mutual pawn race                       2      0
+  supporting king too far away                  1      1
+  advancement abandons another obligation       1      1
+  other                                         1      3
+  TOTAL                                        22     23
+
+== MECHANISM at entry, episodes where the passer WAS winning (sf >= +300), for contrast ==
+                                             cand   base
+  pawn immediately capturable                   2      1
+  blocked by enemy king                         2      1
+  piece blockade                                1      0
+  promotion square controlled                   5      7
+  enemy rook/queen behind or beside             5      5
+  defending king close enough                   0      1
+  supporting king too far away                  4      2
+  advancement abandons another obligation       3      2
+  search/horizon                                2      0
+  other                                        38     24
+  TOTAL                                        62     43
+
+== MECHANISM at entry, all episodes ==
+                                             cand   base
+  pawn immediately capturable                   9      6
+  blocked by enemy king                         3      3
+  piece blockade                                4      2
+  promotion square controlled                  10     13
+  enemy rook/queen behind or beside             9      9
+  losing mutual pawn race                       2      0
+  defending king close enough                   0      1
+  supporting king too far away                  5      3
+  advancement abandons another obligation       4      3
+  search/horizon                                2      0
+  other                                        39     28
+  TOTAL                                        87     68
+
+== FEATURE RATES at entry, cand vs base, not-winning episodes vs winning episodes ==
+  feature                     cand !win  base !win   cand win   base win
+  capturable                        32%        22%         3%         2%
+  attacked                          68%        70%        19%        28%
+  defended                          50%        48%        69%        51%
+  blocked_by_king                    5%        13%         3%         2%
+  piece_blockade                    23%         9%         2%         0%
+  heavy_behind_or_beside            55%        35%        13%        14%
+  corner_draw_shape                  0%         0%         0%         0%
+  pawn_ending                        0%         0%        21%        23%
+  rook_pawn                         27%        26%        29%        30%
+  enemy attackers on promo sq (mean)       0.32       0.39       0.15       0.23
+  their king to promo sq (mean)            3.45       3.30       4.37       4.30
+  our king to pawn (mean)                  4.00       3.87       2.98       3.28
+  their best passer rank (mean)            1.86       1.61       0.35       1.09
+  our pieces (mean)                        1.18       1.35       1.05       1.07
+  their pieces (mean)                      1.73       1.78       0.71       0.65
+  n                                  22         23         62         43
+
+== CONTROL of the promotion square, not-winning episodes: enemy attackers minus ours ==
+  cand: {-1: 4, 0: 12, 1: 5, 2: 1}
+  base: {-1: 2, 0: 14, 1: 7}
+
+== EPISODES, not winning at entry (hand-readable) ==
+  base cl  28 ply  15 pawn h7 sf -10000  pawn immediately capturable              fate captured           result 0.0  created by h6h7   loss    0 (SF best h6h7)  promo h8 atk 0/0 Kthem->promo 5 Kus->pawn 3 pieces 0/2
+        8/7P/7q/8/6K1/P2k2P1/5P2/6r1 w - - 1 53
+  base cl  80 ply  73 pawn d2 sf -10000  other                                    fate stuck at the end   result 0.0  created by d3d2   loss    0 (SF best d3d2)  promo d1 atk 0/0 Kthem->promo 5 Kus->pawn 4 pieces 1/2
+        8/8/2K1NQ1k/2b1p3/4P1p1/6P1/3p4/8 b - - 0 59
+  base cl  15 ply  31 pawn g7 sf -10000  pawn immediately capturable              fate stuck at the end   result 0.0  created by g6g7   loss    0 (SF best b8g3)  promo g8 atk 0/0 Kthem->promo 6 Kus->pawn 3 pieces 1/2
+        1B6/6P1/5q2/3p4/4b2K/8/6k1/8 w - - 1 56
+  base cl  62 ply  64 pawn g2 sf  -817  promotion square controlled              fate promoted           result 0.0  created by g3g2   loss 9034 (SF best e5e6)  promo g1 atk 1/0 Kthem->promo 3 Kus->pawn 3 pieces 0/1
+        8/8/p7/P3k3/1PpB1pK1/2P2P2/2P3p1/8 b - - 1 47
+  base cl  84 ply  38 pawn d2 sf  -590  pawn immediately capturable              fate captured           result 0.0  created by d3d2   loss    0 (SF best d3d2)  promo d1 atk 0/0 Kthem->promo 4 Kus->pawn 6 pieces 2/2
+        6k1/5rp1/5n1p/p7/2B5/3R1PP1/PP1p3P/7K b - - 1 36
+  base cl  42 ply  51 pawn b2 sf  -569  supporting king too far away             fate captured           result 0.0  created by b3b2   loss   15 (SF best e8e7)  promo b1 atk 0/0 Kthem->promo 3 Kus->pawn 6 pieces 0/1
+        4k2Q/8/8/8/3K4/8/1p6/8 b - - 0 61
+  base cl  92 ply  37 pawn e2 sf  -382  promotion square controlled              fate captured           result 0.0  created by e3e2   loss   79 (SF best h4f5)  promo e1 atk 1/0 Kthem->promo 1 Kus->pawn 3 pieces 2/2
+        8/p1p4p/6p1/3B2Pk/1R3P1n/P2b3P/4pK2/8 b - - 1 39
+  base cl  87 ply  10 pawn e7 sf  -255  piece blockade                           fate captured           result 0.5  created by e6e7   loss   30 (SF best c4f1)  promo e8 atk 0/0 Kthem->promo 3 Kus->pawn 6 pieces 4/5
+        4r2k/ppp1P1pp/3r1p2/2b5/2n2P2/2P5/P1bN2PP/R1B1R2K w - - 0 20
+  base cl  66 ply  23 pawn f7 sf  -190  pawn immediately capturable              fate captured           result 0.5  created by e6f7   loss  801 (SF best g1h2)  promo f8 atk 0/0 Kthem->promo 0 Kus->pawn 6 pieces 3/3
+        5k2/5P2/1q1p1P2/1p5p/2p5/1nP1NRr1/8/4R1K1 w - - 0 42
+  base cl  25 ply   6 pawn b2 sf    -6  other                                    fate promoted           result 0.5  created by b3b2   loss    2 (SF best b3b2)  promo b1 atk 0/1 Kthem->promo 4 Kus->pawn 2 pieces 1/2
+        8/R7/8/4BK2/k7/7P/pp4P1/1r6 b - - 1 53
+  base cl  75 ply  74 pawn a7 sf    -5  enemy rook/queen behind or beside        fate promoted           result 0.5  created by a6a7   loss    2 (SF best b7b6)  promo a8 atk 0/0 Kthem->promo 6 Kus->pawn 5 pieces 1/1
+        8/PR6/6k1/8/7p/r7/5K2/8 w - - 1 74
+  base cl  28 ply   2 pawn c2 sf    +0  promotion square controlled              fate promoted           result 0.0  created by c3c2   loss    0 (SF best c3c2)  promo c1 atk 1/0 Kthem->promo 4 Kus->pawn 2 pieces 1/1
+        8/8/8/2r5/2k4P/P5P1/2p2PK1/4R3 b - - 1 46
+  base cl  56 ply  13 pawn b7 sf    +0  enemy rook/queen behind or beside        fate promoted           result 0.5  created by b6b7   loss  327 (SF best f3f4)  promo b8 atk 0/0 Kthem->promo 4 Kus->pawn 3 pieces 1/1
+        1R6/1P3p2/5k2/5p1p/2K5/5PP1/8/1r6 w - - 1 55
+  base cl   1 ply  12 pawn g2 sf    +0  enemy rook/queen behind or beside        fate promoted           result 0.5  created by g3g2   loss    0 (SF best h3h2)  promo g1 atk 0/0 Kthem->promo 5 Kus->pawn 1 pieces 1/1
+        r7/P5R1/1K6/8/8/7k/6p1/8 b - - 1 55
+  base cl  21 ply   0 pawn a7 sf    +0  piece blockade                           fate promoted           result 0.5  created by -      loss    - (SF best -)  promo a8 atk 0/0 Kthem->promo 6 Kus->pawn 1 pieces 1/1
+        r7/P3R2p/1K6/8/5p2/4p3/2P3kP/8 w - - 0 44
+  base cl  25 ply   0 pawn a2 sf    +0  other                                    fate captured           result 0.5  created by -      loss    - (SF best -)  promo a1 atk 1/1 Kthem->promo 4 Kus->pawn 3 pieces 1/2
+        8/8/8/1k2B2R/1p2K3/7P/p5P1/1r6 b - - 2 50
+  base cl  32 ply  11 pawn e7 sf    +0  blocked by enemy king                    fate captured           result 0.0  created by e6e7   loss    1 (SF best b1c1)  promo e8 atk 0/0 Kthem->promo 0 Kus->pawn 6 pieces 1/1
+        4k3/4P3/2p5/p5p1/Pp2Rp2/1P3P2/2P4r/1K6 w - - 1 39
+  base cl  83 ply   1 pawn e7 sf    +0  enemy rook/queen behind or beside        fate stuck at the end   result 0.5  created by -      loss    - (SF best -)  promo e8 atk 1/1 Kthem->promo 3 Kus->pawn 5 pieces 2/3
+        6rk/p3P1pp/3P4/1Q6/4qPnP/6P1/1R4K1/8 w - - 5 45
+  base cl  15 ply   0 pawn g2 sf    +1  promotion square controlled              fate promoted           result 1.0  created by -      loss    - (SF best -)  promo g1 atk 1/0 Kthem->promo 1 Kus->pawn 5 pieces 1/1
+        8/5k2/1B6/3p2P1/b7/4P2p/5PpK/8 b - - 1 40
+  base cl  23 ply  25 pawn h2 sf    +1  advancement abandons another obligation  fate promoted           result 0.0  created by h3h2   loss  323 (SF best e4g2)  promo h1 atk 0/1 Kthem->promo 4 Kus->pawn 5 pieces 2/2
+        8/4Qnk1/1p2N3/p7/P3q3/2P5/1P1K3p/8 b - - 0 51
+  base cl   4 ply  23 pawn g7 sf    +8  blocked by enemy king                    fate promoted           result 0.5  created by g6g7   loss    2 (SF best g6g7)  promo g8 atk 1/0 Kthem->promo 0 Kus->pawn 3 pieces 2/2
+        2r3k1/6P1/7P/8/6K1/4R3/2pb4/5R2 w - - 1 53
+  base cl   5 ply   0 pawn b2 sf   +12  promotion square controlled              fate captured           result 0.5  created by -      loss    - (SF best -)  promo b1 atk 1/0 Kthem->promo 4 Kus->pawn 5 pieces 2/2
+        8/4k3/b5p1/3B3p/3n1P2/3PP2P/1p1N1K2/8 b - - 0 39
+  base cl   4 ply  29 pawn h7 sf   +18  pawn immediately capturable              fate stuck at the end   result 0.5  created by h6h7   loss   19 (SF best h6h7)  promo h8 atk 1/0 Kthem->promo 1 Kus->pawn 3 pieces 1/1
+        8/6kP/8/8/6K1/4R3/2pb4/8 w - - 1 56
+  cand cl  59 ply  33 pawn c2 sf -10000  losing mutual pawn race                  fate stuck at the end   result 0.0  created by c3c2   loss    0 (SF best c3c2)  promo c1 atk 0/0 Kthem->promo 5 Kus->pawn 1 pieces 0/1
+        8/7P/6K1/p7/P7/1k1Q4/2p5/8 b - - 1 52
+  cand cl  86 ply  75 pawn a2 sf -10000  losing mutual pawn race                  fate promoted           result 0.0  created by a3a2   loss    0 (SF best a3a2)  promo a1 atk 0/1 Kthem->promo 6 Kus->pawn 1 pieces 0/1
+        7Q/8/1P4K1/8/8/8/pk6/8 b - - 1 51
+  cand cl  35 ply  82 pawn b2 sf -10000  pawn immediately capturable              fate stuck at the end   result 0.0  created by b3b2   loss    0 (SF best b3b2)  promo b1 atk 0/0 Kthem->promo 3 Kus->pawn 4 pieces 0/2
+        8/2p5/1kP5/8/2KQ4/8/1p2B1P1/8 b - - 1 86
+  cand cl  92 ply  75 pawn g2 sf -10000  pawn immediately capturable              fate promoted           result 0.5  created by g3g2   loss 8948 (SF best g3g2)  promo g1 atk 0/0 Kthem->promo 4 Kus->pawn 3 pieces 0/1
+        8/P7/8/5kR1/2K5/8/6p1/8 b - - 0 58
+  cand cl  66 ply  49 pawn c7 sf  -595  pawn immediately capturable              fate captured           result 0.0  created by c6c7   loss   24 (SF best g2f2)  promo c8 atk 0/0 Kthem->promo 2 Kus->pawn 5 pieces 1/2
+        2r5/2P5/1R1pk1p1/8/2r5/8/6K1/8 w - - 1 55
+  cand cl  75 ply  64 pawn b7 sf  -526  other                                    fate stuck at the end   result 0.5  created by b6b7   loss    3 (SF best h4h5)  promo b8 atk 0/0 Kthem->promo 5 Kus->pawn 2 pieces 0/1
+        8/1P6/3K4/8/7P/3k4/8/4q3 w - - 0 69
+  cand cl  14 ply  29 pawn h2 sf  -429  supporting king too far away             fate promoted           result 0.0  created by h3h2   loss    7 (SF best h3h2)  promo h1 atk 0/0 Kthem->promo 5 Kus->pawn 5 pieces 0/1
+        1Q6/5k2/4p3/2K1P1P1/5P2/P1P5/7p/8 b - - 0 46
+  cand cl  72 ply  37 pawn e2 sf  -319  piece blockade                           fate captured           result 0.5  created by e3e2   loss  365 (SF best c4c2)  promo e1 atk 0/0 Kthem->promo 2 Kus->pawn 5 pieces 3/3
+        4r3/1p1R1pkp/pb6/3N2P1/1Pr5/5KP1/1PP1p2P/4R3 b - - 1 34
+  cand cl  75 ply  37 pawn e2 sf  -178  pawn immediately capturable              fate captured           result 0.5  created by e3e2   loss   12 (SF best e3e2)  promo e1 atk 1/0 Kthem->promo 1 Kus->pawn 5 pieces 2/2
+        R7/3r3k/6p1/7p/1P2RP1P/P1r3P1/4pK2/8 b - - 1 55
+  cand cl  69 ply  77 pawn e7 sf  -120  promotion square controlled              fate stuck at the end   result 0.5  created by e6e7   loss    7 (SF best d2e2)  promo e8 atk 1/0 Kthem->promo 1 Kus->pawn 5 pieces 1/1
+        8/3kP2R/1p4p1/p1p5/P1P1r1p1/4P3/1P1K4/8 w - - 1 54
+  cand cl  76 ply   2 pawn g7 sf   -53  piece blockade                           fate captured           result 0.5  created by f6g7   loss    0 (SF best f6g7)  promo g8 atk 0/0 Kthem->promo 2 Kus->pawn 6 pieces 6/6
+        r3k1r1/pppb1pPp/2npq3/2n5/2P1P3/2B5/PP4PP/RB2KQNR w KQq - 1 16
+  cand cl   4 ply  18 pawn c2 sf   -31  promotion square controlled              fate promoted           result 0.5  created by c3c2   loss    0 (SF best b4d5)  promo c1 atk 1/0 Kthem->promo 4 Kus->pawn 6 pieces 2/2
+        2r2b1k/8/7P/6P1/1P4K1/4R3/2p5/5R2 b - - 0 50
+  cand cl  40 ply  20 pawn d7 sf   -10  promotion square controlled              fate promoted           result 0.5  created by d6d7   loss    6 (SF best d6d7)  promo d8 atk 1/0 Kthem->promo 1 Kus->pawn 5 pieces 1/1
+        8/R2Pk1p1/1p5p/1P1r4/8/8/5KP1/8 w - - 1 55
+  cand cl  75 ply  83 pawn h2 sf    +0  blocked by enemy king                    fate captured           result 0.5  created by h3h2   loss    0 (SF best h3h2)  promo h1 atk 0/0 Kthem->promo 0 Kus->pawn 4 pieces 1/2
+        R7/1R6/5k2/8/8/8/r6p/7K b - - 0 78
+  cand cl  56 ply  34 pawn h2 sf    +0  pawn immediately capturable              fate promoted           result 0.5  created by h3h2   loss    0 (SF best h3h2)  promo h1 atk 0/1 Kthem->promo 5 Kus->pawn 2 pieces 1/1
+        7R/1P3p2/2K5/8/5k2/5P2/7p/1r6 b - - 1 65
+  cand cl   1 ply   1 pawn a7 sf    +0  pawn immediately capturable              fate promoted           result 0.5  created by -      loss    - (SF best -)  promo a8 atk 0/0 Kthem->promo 7 Kus->pawn 3 pieces 1/1
+        r7/P7/8/1R6/3K1ppk/8/5P2/8 w - - 4 50
+  cand cl  25 ply   8 pawn b2 sf    +0  enemy rook/queen behind or beside        fate captured           result 0.5  created by b3b2   loss    0 (SF best a2a1q)  promo b1 atk 0/1 Kthem->promo 4 Kus->pawn 3 pieces 1/2
+        1R6/8/8/1k2BK2/8/7P/pp4P1/1r6 b - - 1 54
+  cand cl  41 ply  33 pawn g7 sf    +0  promotion square controlled              fate stuck at the end   result 0.5  created by g6g7   loss  486 (SF best e5e6)  promo g8 atk 1/0 Kthem->promo 4 Kus->pawn 2 pieces 0/1
+        8/6P1/8/2k1KP2/8/8/b7/8 w - - 1 64
+  cand cl  16 ply   0 pawn b2 sf    +0  promotion square controlled              fate promoted           result 1.0  created by -      loss    - (SF best -)  promo b1 atk 2/0 Kthem->promo 5 Kus->pawn 5 pieces 2/3
+        8/Bp3k2/2p4p/4rP2/8/2bB4/1p5P/5RK1 b - - 1 40
+  cand cl  64 ply  24 pawn d2 sf    +5  pawn immediately capturable              fate captured           result 0.5  created by d3d2   loss    0 (SF best d3d2)  promo d1 atk 0/0 Kthem->promo 3 Kus->pawn 6 pieces 1/1
+        5k2/5p2/6p1/1r5p/7P/1P4P1/3p1PK1/3R4 b - - 1 46
+  cand cl  23 ply  25 pawn h2 sf   +14  advancement abandons another obligation  fate promoted           result 1.0  created by h3h2   loss  302 (SF best e4g2)  promo h1 atk 0/1 Kthem->promo 2 Kus->pawn 5 pieces 2/2
+        8/4Qnk1/1p2N3/p7/P3q3/2P5/1P3K1p/8 b - - 0 51
+  cand cl  31 ply   0 pawn b7 sf   +35  enemy rook/queen behind or beside        fate stuck at the end   result 0.5  created by -      loss    - (SF best -)  promo b8 atk 0/0 Kthem->promo 5 Kus->pawn 5 pieces 1/1
+        1R6/1P4p1/6k1/5p1p/5P1P/4P1K1/1r6/8 w - - 1 49

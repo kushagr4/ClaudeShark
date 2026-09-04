@@ -1,0 +1,14 @@
+[
+ {"name": "irrelevant far pawn", "fen": "8/8/8/8/1k6/8/p4K1P/8 w - - 0 1", "motif": "White's king sits beside its own dead h-pawn while Black's a-pawn queens; proximity credits the wrong thing"},
+ {"name": "opposition, white to move", "fen": "8/8/4k3/8/4K3/4P3/8/8 w - - 0 1", "motif": "geometric distance equal; the result turns on the move, not on distance"},
+ {"name": "opposition, black to move", "fen": "8/8/4k3/8/4K3/4P3/8/8 b - - 0 1", "motif": "same squares, other side to move"},
+ {"name": "rook pawn corner draw", "fen": "8/8/8/8/8/7k/7P/7K b - - 0 1", "motif": "both kings adjacent to the pawn; dead draw"},
+ {"name": "wrong bishop rook pawn", "fen": "7k/8/6KP/8/8/8/8/5B2 w - - 0 1", "motif": "white king closer, bishop the wrong colour: draw"},
+ {"name": "opposite bishops false win", "fen": "8/8/5p2/6p1/1b2P1B1/pK3Pk1/8/8 b - - 13 53", "motif": "calibration false win ec-171: V1 +251, Stockfish 0"},
+ {"name": "pawn race, tempo decides", "fen": "8/8/8/8/p6P/8/2k2K2/8 w - - 0 1", "motif": "both kings equidistant from their own pawn's path; tempo, not distance"},
+ {"name": "equidistant, side to move decides", "fen": "8/8/8/8/3k4/8/3KP3/8 w - - 0 1", "motif": "kings two apart from each other, both near the pawn"},
+ {"name": "king walled in by own pawns", "fen": "8/8/8/8/6k1/8/6PP/7K w - - 0 1", "motif": "white king is one square from its pawns and cannot use them; black king is one away and attacks"},
+ {"name": "king toward pawn, away from interception", "fen": "8/8/8/8/8/3K4/p6P/k7 w - - 0 1", "motif": "white king near its h-pawn cannot stop the a-pawn; geometry says it is doing well"},
+ {"name": "KRPPP-KRP blockade false win", "fen": "1R6/1P4k1/6P1/3K3p/7P/1r6/8/8 w - - 7 60", "motif": "calibration false win ec-201: V1 +458, Stockfish 0"},
+ {"name": "KRB-KR false win", "fen": "3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 0 1", "motif": "no pawns: the term is zero by definition; V1 +372, Stockfish 0"}
+]

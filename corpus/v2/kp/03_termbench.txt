@@ -1,0 +1,17 @@
+== TERM BENCH: king_pawn (stage packed, flag CS_EVAL_KING_PAWN) ==
+
+evaluator, 42 bench positions cache-hot: off 262,817/s (3.80 us), on 237,365/s (4.21 us), cost +9.7%
+depth-6 search, same positions: off 3,563,322 nodes 55,045 NPS; on 3,569,353 nodes 53,820 NPS; NPS cost +2.2%
+
+calibration set: 550 positions, active on 44.4%; |contribution| when active mean 13.8 cp, max 44
+retained games, every position: 9641 positions, active on 43.6%; |contribution| when active mean 13.0 cp, max 48
+
+static vs Stockfish by class, term off -> on (below = SF - static for wins; above = static - SF for level positions; MAE = mean |static - SF|):
+  class               n off static  on static  off MAE  on MAE  moved  active
+  blind_win         170        +14        +15      526     526     80     47%
+  false_win          40        -39        -37      266     262     17     42%
+  recognised_win    100       +151       +151     1718    1719     48     48%
+  recognised_draw   100        -11        -11       91      90     35     35%
+  losing            100       +251       +252     1798    1798     55     55%
+  control_middle     24        +13        +13       50      51      5     21%
+  control_tactic     16       +374       +368     1101    1103      4     25%

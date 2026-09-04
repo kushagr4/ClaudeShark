@@ -1,0 +1,37 @@
+extracted to C:\Users\epick\AppData\Local\Temp\cs_pkg_s4od0crc ['agent.py', 'cs_constants.py', 'cs_eval.py', 'cs_king.py', 'cs_kingpawn.py', 'cs_mopup.py', 'cs_ordering.py', 'cs_passed.py', 'cs_search.py', 'cs_see.py', 'cs_terms.py', 'cs_time.py', 'cs_tt.py']
+== fresh process 1: import chess 0.06s, import agent (incl. warm-up) 1.40s, whole run 56.9s ==
+  start (healthy clock)          clock  120000 -> d2d4   legal True    3170 ms  (20 legal)
+  middlegame (normal clock)      clock   30000 -> b7b6   legal True    1273 ms  (33 legal)
+  in check                       clock   20000 -> e1d2   legal True     915 ms  (4 legal)
+  castling available             clock   20000 -> f3g5   legal True     924 ms  (40 legal)
+  en passant                     clock   20000 -> e5e6   legal True     740 ms  (5 legal)
+  promotion                      clock   20000 -> e7e8q  legal True     818 ms  (12 legal)
+  exactly one legal move         clock   20000 -> h8h7   legal True       0 ms  (1 legal)
+  near fifty-move draw           clock   20000 -> h2h4   legal True    1019 ms  (22 legal)
+  repetition-prone rook ending   clock   20000 -> b1a1   legal True     865 ms  (2 legal)
+  checkmate (no move)            clock   20000 -> 0000   legal True       0 ms  (0 legal)
+  stalemate (no move)            clock   20000 -> 0000   legal True       0 ms  (0 legal)
+  low clock 3000                 clock    3000 -> b7b6   legal True     286 ms  (33 legal)
+  very low clock 300             clock     300 -> b7b6   legal True      21 ms  (33 legal)
+  very low clock 50              clock      50 -> h2h4   legal True       1 ms  (22 legal)
+  clock 1                        clock       1 -> h2h4   legal True       1 ms  (22 legal)
+  12-ply game in one process: d2d4(2893ms) d7d5(5070ms) g2g3(3769ms) c7c5(4803ms) d4c5(5156ms) e7e6(1955ms) c1e3(4402ms) b8a6(4236ms) c5c6(3270ms) b7c6(2993ms) f1g2(2833ms) g8f6(4024ms) all legal: True
+  illegal: 0  over-clock: 0
+== fresh process 2: import chess 0.07s, import agent (incl. warm-up) 1.30s, whole run 57.1s ==
+  start (healthy clock)          clock  120000 -> d2d4   legal True    3074 ms  (20 legal)
+  middlegame (normal clock)      clock   30000 -> b7b6   legal True    1204 ms  (33 legal)
+  in check                       clock   20000 -> e1d2   legal True     897 ms  (4 legal)
+  castling available             clock   20000 -> f3g5   legal True     936 ms  (40 legal)
+  en passant                     clock   20000 -> e5e6   legal True     821 ms  (5 legal)
+  promotion                      clock   20000 -> e7e8q  legal True     938 ms  (12 legal)
+  exactly one legal move         clock   20000 -> h8h7   legal True       0 ms  (1 legal)
+  near fifty-move draw           clock   20000 -> h2h4   legal True    1095 ms  (22 legal)
+  repetition-prone rook ending   clock   20000 -> b1a1   legal True     905 ms  (2 legal)
+  checkmate (no move)            clock   20000 -> 0000   legal True       0 ms  (0 legal)
+  stalemate (no move)            clock   20000 -> 0000   legal True       0 ms  (0 legal)
+  low clock 3000                 clock    3000 -> b7b6   legal True     295 ms  (33 legal)
+  very low clock 300             clock     300 -> b7b6   legal True      19 ms  (33 legal)
+  very low clock 50              clock      50 -> h2h4   legal True       1 ms  (22 legal)
+  clock 1                        clock       1 -> h2h4   legal True       1 ms  (22 legal)
+  12-ply game in one process: d2d4(2906ms) d7d5(5013ms) g2g3(3993ms) c7c5(4866ms) d4c5(4871ms) e7e6(1936ms) c1e3(4453ms) b8a6(4338ms) c5c6(3287ms) b7c6(2989ms) f1g2(2788ms) g8f6(4135ms) all legal: True
+  illegal: 0  over-clock: 0

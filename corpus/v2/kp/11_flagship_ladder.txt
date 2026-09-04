@@ -1,0 +1,32 @@
+== DEPTH LADDER over 3 conversion-failure positions (production, depths [6, 7, 8, 9, 10]) ==
+loss = Stockfish cp given up by the chosen move at 1000000 nodes; 'fixed' = loss < 50
+
+-- [1] cluster 31 flagship cluster 31
+   8/5k2/7p/5p2/3K1P2/4P3/8/8 b - - 1 62
+   Stockfish +519 best h6h5   verdict: A +1 ply
+    depth move      score   loss      nodes
+        6 f7e6        +15    519      1,897
+        7 h6h5        +40      2      3,961
+        8 h6h5       +112      2      7,839
+        9 h6h5       +110      2     13,254
+       10 h6h5        +47      2     45,321
+-- [2] cluster 45 flagship cluster 45
+   8/8/p4pp1/1p1p1k1p/1P3P1P/2P2K2/1P4P1/8 w - - 0 38
+   Stockfish +442 best g2g4   verdict: C deeper
+    depth move      score   loss      nodes
+        6 b2b3         +9    442      3,286
+        7 b2b3         +0    442      6,218
+        8 b2b3         +0    442     13,718
+        9 b2b3         -4    442     32,758
+       10 g2g4        +18      0     63,533
+-- [3] cluster 14 flagship cluster 14
+   8/4k3/K3p1p1/1p2Pp1p/1P5P/P1P3P1/8/8 b - - 0 38
+   Stockfish +380 best g6g5   verdict: D persists
+    depth move      score   loss      nodes
+        6 e7d7       -229    933      1,859
+        7 e7f7       -231    889      4,360
+        8 e7f7       -234    889      6,996
+        9 e7f7       -267    889     13,303
+       10 e7f7       -267    889     19,824
+
+verdicts: {'A +1 ply': 1, 'C deeper': 1, 'D persists': 1}

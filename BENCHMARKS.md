@@ -455,3 +455,15 @@ drawn-material and blocked-passer configurations dominate the 24 false-win
 trajectories. Single-feature scan: no linear feature explains the residual;
 only king-to-pawn proximity points the right way in both classes.
 Recommended V2.1 feature: endgame king-to-pawn proximity. Nothing implemented.
+
+## 2026-09-04 — V2.1 king-to-pawn proximity: keep for Daily confirmation
+
+Record: [`benchmarks/current/2026-09-04-v2.1-king-pawn-proximity.md`](benchmarks/current/2026-09-04-v2.1-king-pawn-proximity.md).
+Branch `v2-development`; term `king_pawn`, default off; candidate frozen as
+`champions/v2_1_kingpawn` (`6af9dea9c9041358`). Gate 1: validation blind-win
+depth-6 loss 123 -> 106, false-win root overestimate 266 -> 251, draws and
+wins flat, blind-win suite validation 148.5 -> 128.5, 240 suite 35.3 -> 33.2,
+tactics 16/16, NPS +2.2%. Gate 2 vs rated V1 (200 fixed-depth paired games,
+PGN and JSONL retained): +41 =129 -30, 52.8%, Elo +19, cluster bootstrap
+-7..+45; +200 conversion 41% -> 48%, -200 defence 42% -> 51% held, pawn
+endings 33% -> 56%, rook endings 30% -> 55%. Gate 3 not run.

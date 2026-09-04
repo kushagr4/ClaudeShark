@@ -1,0 +1,48 @@
+== KING-TO-PAWN TABLE SWEEP on the DIAGNOSTIC halves (depth 6); validation halves not read ==
+families fixed in advance. SF clamped +-2000. MAE = mean |x - SF|; 'below' = mean(SF - x) on blind wins; 'above' = mean(x - SF) on false wins;
+'traj' figures weight each source game equally. loss = oracle cp given up by the depth-6 move, winsorised at 500.
+
+-- off  table (0, 0, 0, 0, 0, 0, 0, 0)
+   class              n traj | static MAE  qs MAE root MAE |  static      qs    root |  loss serious  agree | extra
+   blind_win         73   61 |        537     512      525 |     +18     +43     +30 |   118     36%    53% | below(static/qs/root) +537/+512/+525; root<100 71/73; by traj below(static) +548
+   false_win         24   13 |        308     327      322 |    +304    +329    +323 |     0      0%    25% | above(static/qs/root) +302/+327/+322; root>=200 23/24; by traj above(static) +292
+   recognised_win    48   48 |        748    3510    19466 |   +1061   +4139  +20810 |    18      4%    75% | root deflated below +200: 0
+   recognised_draw   45   45 |         91      67       35 |     -32     -19      +1 |    50     16%    38% | static inflation >= +150: 2; root >= +150: 0
+   losing            42   42 |        702    1360    16327 |    -920   -1594  -17237 |     7      2%    79% | root above -100 (distortion): 9
+   control_middle    10   10 |         40      40       29 |      -9     +14     -12 |    22     10%    30% | 
+   control_tactic     8    8 |       1312    1032    14349 |    +285    +662  +15327 |    66     12%    62% | 
+   blind-win suite diagnostic: 36 rows, robust loss 124.0, serious 28%, root<100 36/36
+
+-- SMALL  table (0, 24, 18, 12, 6, 0, 0, 0)
+   class              n traj | static MAE  qs MAE root MAE |  static      qs    root |  loss serious  agree | extra
+   blind_win         73   61 |        536     510      523 |     +19     +45     +32 |   122     38%    51% | below(static/qs/root) +536/+510/+523; root<100 71/73; by traj below(static) +547
+   false_win         24   13 |        306     325      320 |    +302    +327    +321 |     0      0%    17% | above(static/qs/root) +300/+325/+320; root>=200 23/24; by traj above(static) +290
+   recognised_win    48   48 |        749    3510    19468 |   +1062   +4140  +20809 |    21      6%    73% | root deflated below +200: 0
+   recognised_draw   45   45 |         90      66       35 |     -32     -18      +2 |    47     16%    42% | static inflation >= +150: 2; root >= +150: 0
+   losing            42   42 |        702    1360    16326 |    -919   -1593  -17237 |     9      5%    76% | root above -100 (distortion): 9
+   control_middle    10   10 |         40      40       28 |      -9     +14     -12 |    26     20%    30% | 
+   control_tactic     8    8 |       1316    1034    14349 |    +281    +658  +15327 |    66     12%    62% | 
+   blind-win suite diagnostic: 36 rows, robust loss 121.0, serious 28%, root<100 35/36
+
+-- MEDIUM  table (0, 48, 36, 24, 12, 0, 0, 0)
+   class              n traj | static MAE  qs MAE root MAE |  static      qs    root |  loss serious  agree | extra
+   blind_win         73   61 |        534     508      522 |     +21     +47     +33 |   118     37%    52% | below(static/qs/root) +534/+508/+522; root<100 70/73; by traj below(static) +545
+   false_win         24   13 |        305     324      323 |    +300    +325    +324 |     0      0%    17% | above(static/qs/root) +298/+324/+323; root>=200 24/24; by traj above(static) +289
+   recognised_win    48   48 |        749    3510    19468 |   +1062   +4141  +20808 |    21      6%    73% | root deflated below +200: 0
+   recognised_draw   45   45 |         90      66       36 |     -32     -18      +1 |    43     13%    42% | static inflation >= +150: 2; root >= +150: 0
+   losing            42   42 |        701    1360    16326 |    -919   -1593  -17238 |     7      2%    74% | root above -100 (distortion): 9
+   control_middle    10   10 |         40      39       27 |      -9     +14     -11 |    26     20%    30% | 
+   control_tactic     8    8 |       1320    1035    14349 |    +277    +655  +15327 |    66     12%    62% | 
+   blind-win suite diagnostic: 36 rows, robust loss 121.2, serious 28%, root<100 34/36
+
+-- LARGE  table (0, 80, 60, 40, 20, 0, 0, 0)
+   class              n traj | static MAE  qs MAE root MAE |  static      qs    root |  loss serious  agree | extra
+   blind_win         73   61 |        531     505      518 |     +24     +50     +37 |   125     38%    51% | below(static/qs/root) +531/+505/+518; root<100 68/73; by traj below(static) +543
+   false_win         24   13 |        303     321      318 |    +297    +323    +319 |     0      0%    17% | above(static/qs/root) +296/+321/+318; root>=200 24/24; by traj above(static) +286
+   recognised_win    48   48 |        750    3510    19468 |   +1063   +4142  +20808 |    23      6%    73% | root deflated below +200: 0
+   recognised_draw   45   45 |         90      66       36 |     -32     -18      +2 |    40     11%    40% | static inflation >= +150: 2; root >= +150: 0
+   losing            42   42 |        701    1360    16324 |    -918   -1592  -17239 |     7      2%    74% | root above -100 (distortion): 9
+   control_middle    10   10 |         40      39       27 |      -8     +15     -11 |    26     20%    40% | 
+   control_tactic     8    8 |       1326    1038    14349 |    +271    +650  +15327 |    66     12%    62% | 
+   blind-win suite diagnostic: 36 rows, robust loss 129.2, serious 31%, root<100 33/36
+

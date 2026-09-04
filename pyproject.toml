@@ -55,6 +55,7 @@ files = [
     "cs_constants.py",
     "cs_eval.py",
     "cs_king.py",
+    "cs_kingpawn.py",
     "cs_mopup.py",
     "cs_passed.py",
     "cs_ordering.py",

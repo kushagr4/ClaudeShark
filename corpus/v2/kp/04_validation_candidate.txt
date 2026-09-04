@@ -1,0 +1,18 @@
+== V2 ENDGAME CALIBRATION SUITE v1 (300 positions, hash a473da0823abf75c) engine champions\v2_1_kingpawn ==
+SF = Stockfish from the side to move (clamped +-2000); 'below' = mean(SF - x) where the win is real; 'above' = mean(x - SF) where the position is level
+MAE = mean |x - SF|; a term is good when blind_win 'below' falls, false_win 'above' falls, and the recognised classes and controls do not move
+
+  class               n traj     SF  static static MAE      qs     qs MAE    root   root MAE   loss  serious  agree
+  blind_win          97   74   +528     +39        490     +79        459     +44        484    106      27%    54%
+  false_win          16   11     +1    +207        208    +235        236    +252        251      0       0%    56%
+  recognised_win     52   52  +1893   +1200        759   +5639       4957  +22081      20738     54      12%    60%
+  recognised_draw    55   55     +3     -64         91     -16         49      -6         32     47      13%    64%
+  losing             58   58  -1488    -947        622    -970        629  -16619      15761     12       5%    59%
+  control_middle     14   14     +7     +16         50     +34         54     +35         49     14       0%    57%
+  control_tactic      8    8   +890    +285        685   +3999       3971  +14925      14036      2       0%    88%
+
+  static: blind wins sit +490 below Stockfish; false wins sit +206 above; blind rows with static < +100: 86/97; false rows with static >= +200: 11/16
+  qs: blind wins sit +449 below Stockfish; false wins sit +234 above; blind rows with qs < +100: 80/97; false rows with qs >= +200: 14/16
+  root: blind wins sit +484 below Stockfish; false wins sit +251 above; blind rows with root < +100: 89/97; false rows with root >= +200: 14/16
+
+  validation: static blind-below +490 (97), false-above +206 (16)

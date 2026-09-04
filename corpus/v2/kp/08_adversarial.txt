@@ -1,0 +1,63 @@
+== ADVERSARIAL CASES: champions\rated_v1 (base) vs champions\v2_1_kingpawn (cand), depth 6, oracle 1000000 nodes ==
+all scores from the side to move; loss = Stockfish cp given up by the engine's move
+
+-- irrelevant far pawn: White's king sits beside its own dead h-pawn while Black's a-pawn queens; proximity credits the wrong thing
+   8/8/8/8/1k6/8/p4K1P/8 w - - 0 1
+   Stockfish -680 (mate None) best f2f3
+   base: static  -195  root  -914  move h2h4   loss 211
+   cand: static  -195  root  -874  move h2h4   loss 211
+-- opposition, white to move: geometric distance equal; the result turns on the move, not on distance
+   8/8/4k3/8/4K3/4P3/8/8 w - - 0 1
+   Stockfish +0 (mate None) best e4d4
+   base: static  +106  root  +101  move e4f4   loss 0
+   cand: static  +130  root   +99  move e4f4   loss 0
+-- opposition, black to move: same squares, other side to move
+   8/8/4k3/8/4K3/4P3/8/8 b - - 0 1
+   Stockfish -627 (mate None) best e6d6
+   base: static   -90  root  -103  move e6f6   loss 144
+   cand: static  -114  root  -100  move e6f6   loss 144
+-- rook pawn corner draw: both kings adjacent to the pawn; dead draw
+   8/8/8/8/8/7k/7P/7K b - - 0 1
+   Stockfish +0 (mate None) best h3h4
+   base: static   -23  root   -49  move h3h4   loss 0
+   cand: static   -23  root   -49  move h3h4   loss 0
+-- wrong bishop rook pawn: white king closer, bishop the wrong colour: draw
+   7k/8/6KP/8/8/8/8/5B2 w - - 0 1
+   Stockfish +74 (mate None) best f1e2
+   base: static  +548  root  +619  move f1d3   loss 0
+   cand: static  +560  root  +607  move f1d3   loss 0
+-- opposite bishops false win: calibration false win ec-171: V1 +251, Stockfish 0
+   8/8/5p2/6p1/1b2P1B1/pK3Pk1/8/8 b - - 13 53
+   Stockfish +0 (mate None) best g3f4
+   base: static  +251  root  +252  move g3f4   loss 0
+   cand: static  +251  root  +252  move b4d6   loss 0
+-- pawn race, tempo decides: both kings equidistant from their own pawn's path; tempo, not distance
+   8/8/8/8/p6P/8/2k2K2/8 w - - 0 1
+   Stockfish -7443 (mate None) best f2e3
+   base: static   -35  root  -692  move h4h5   loss 0
+   cand: static   -35  root  -692  move h4h5   loss 0
+-- equidistant, side to move decides: kings two apart from each other, both near the pawn
+   8/8/8/8/3k4/8/3KP3/8 w - - 0 1
+   Stockfish +0 (mate None) best e2e3
+   base: static  +101  root   +90  move e2e3   loss 0
+   cand: static  +113  root   +91  move e2e3   loss 0
+-- king walled in by own pawns: white king is one square from its pawns and cannot use them; black king is one away and attacks
+   8/8/8/8/6k1/8/6PP/7K w - - 0 1
+   Stockfish +712 (mate None) best h1g1
+   base: static  +122  root  +172  move h1g1   loss 0
+   cand: static  +134  root  +180  move h1g1   loss 0
+-- king toward pawn, away from interception: white king near its h-pawn cannot stop the a-pawn; geometry says it is doing well
+   8/8/8/8/8/3K4/p6P/k7 w - - 0 1
+   Stockfish +0 (mate None) best d3c2
+   base: static   -82  root    +0  move d3c2   loss 0
+   cand: static  -106  root    +0  move d3c2   loss 0
+-- KRPPP-KRP blockade false win: calibration false win ec-201: V1 +458, Stockfish 0
+   1R6/1P4k1/6P1/3K3p/7P/1r6/8/8 w - - 7 60
+   Stockfish +0 (mate None) best d5c6
+   base: static  +458  root  +409  move d5c6   loss 0
+   cand: static  +448  root  +389  move d5c6   loss 0
+-- KRB-KR false win: no pawns: the term is zero by definition; V1 +372, Stockfish 0
+   3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 0 1
+   Stockfish +0 (mate None) best e7a7
+   base: static  +372  root  +361  move f5f6   loss 0
+   cand: static  +372  root  +361  move f5f6   loss 0
