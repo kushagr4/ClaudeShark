@@ -14,11 +14,30 @@ Two phases, because the second is expensive and the first is free:
 
     parse   group the games by exact start FEN, find the first ply where the
             games of a family diverge, and rank the families by how much is
-            riding on that divergence. No engine, no oracle.
-    score   for the ranked families, ask the oracle what it prefers at the
-            divergence and ask a ClaudeShark snapshot what it would play, then
-            classify ClaudeShark's disagreement as a move error, a score error,
-            both or neither.
+            riding on that divergence. No engine, no oracle. **The ranking is
+            screening only.** A differing result is not evidence that one move
+            was better -- it is downstream of every later decision -- and a
+            leaderboard rating is a snapshot, not the player's strength at game
+            time. Neither is used as a proxy for move quality anywhere.
+    score   establish move quality independently. The first *literal*
+            divergence is often several interchangeable opening moves, so the
+            oracle scores every observed move there and, when it does not
+            materially separate them, the walk continues until it does. Two
+            plies are therefore recorded: the first literal divergence and the
+            **first meaningful oracle divergence**. A ClaudeShark snapshot is
+            then asked what it plays at that point.
+
+Every observation carries an explicit evidence level:
+
+    OBSERVATIONAL           different engines made different choices
+    ORACLE-SUPPORTED        the oracle materially separates those choices
+    CLAUDESHARK-ACTIONABLE  and rated-v1 takes the inferior line, or reads the
+                            position hundreds of centipawns wrong
+
+Nothing goes from observational divergence straight to a feature. The
+independence unit is the **start-FEN family**, not the game: a four-game family
+is one family, and its trajectories count separately only once they have
+genuinely diverged. Both counts are reported.
 
 Hypothesis formation is restricted to the diagnostic split by default, so the
 validation and holdout families stay unexamined.
@@ -91,9 +110,11 @@ def parse(arguments: argparse.Namespace) -> None:
         board = chess.Board(fen)
         outcomes = Counter(g.get("winner_colour") for g in games)
         ratings = [t["rating"] for g in games for t in (team(g, "white"), team(g, "black")) if t["rating"]]
-        # Research value: outcomes that differ are worth more than outcomes that
-        # agree, an early divergence is worth more than a late one, and more
-        # games in the family is worth more than fewer.
+        # Screening only, to decide where to spend oracle time. Differing
+        # outcomes and higher ratings are NOT evidence that one move is better:
+        # a result is downstream of every later decision, and a leaderboard
+        # rating is a snapshot rather than the player's strength at game time.
+        # Move quality is established in the scoring phase or not at all.
         value = (len(games)
                  + (3 if len(outcomes) > 1 else 0)
                  + (2 if ply >= 0 and ply < 6 else 1 if ply >= 0 else 0)
@@ -147,6 +168,125 @@ def parse(arguments: argparse.Namespace) -> None:
     print(text.encode(encoding, errors="replace").decode(encoding))
 
 
+SEPARATION = 50    # cp: below this the oracle has not distinguished the observed moves
+SCORE_ERROR = 200  # cp: a rated-v1 root this far from the oracle is a world-model error
+
+
+def score(arguments: argparse.Namespace) -> None:
+    from tools.corpus.oracle import MATE_CP, Oracle
+    from tools.postmortem.play import Engine
+
+    entries = json.loads(arguments.families.read_text(encoding="utf-8"))[: arguments.families_limit]
+    rows = {r["game_id"]: r for r in (json.loads(line) for line in arguments.games.open(encoding="utf-8"))}
+    oracle = Oracle()
+    engine = Engine(arguments.engine, arguments.depth)
+    results = []
+    try:
+        for e in entries:
+            lines = {d["game_id"]: mainline(rows[d["game_id"]]) for d in e["detail"]}
+            board = chess.Board(e["fen"])
+            meaningful = None
+            trail = []
+            depth = min(len(v) for v in lines.values())
+            for ply in range(min(depth, arguments.max_ply)):
+                observed: dict[str, list[str]] = {}
+                for gid, moves in lines.items():
+                    observed.setdefault(moves[ply].uci(), []).append(gid)
+                if len(observed) > 1:
+                    fen = board.fen()
+                    label = oracle.analyse(fen, arguments.nodes, multipv=arguments.multipv)
+                    best_value = label.cp_stm
+                    scored = {}
+                    for move in observed:
+                        after = oracle.score_after(fen, move, arguments.nodes)
+                        # score_after is from the point of view of whoever moves
+                        # next, so negate it to get the mover's view.
+                        value = max(-MATE_CP, min(MATE_CP, -after.cp_stm))
+                        scored[move] = {"value": value, "loss": max(0, best_value - value),
+                                        "games": len(observed[move])}
+                    spread = max(v["loss"] for v in scored.values())
+                    engine.ask("new")
+                    ours = engine.ask(f"go {fen}")
+                    our_move = ours["move"]
+                    if our_move and our_move not in scored:
+                        after = oracle.score_after(fen, our_move, arguments.nodes)
+                        value = max(-MATE_CP, min(MATE_CP, -after.cp_stm))
+                        scored[our_move] = {"value": value, "loss": max(0, best_value - value), "games": 0}
+                    step = {
+                        "ply": ply, "fen": fen, "oracle_best": label.best, "oracle_cp": best_value,
+                        "observed": scored, "spread": spread,
+                        "our_move": our_move, "our_root": ours["score"],
+                        "our_loss": scored.get(our_move, {}).get("loss"),
+                        "score_gap": abs(ours["score"] - best_value),
+                    }
+                    trail.append(step)
+                    if spread >= arguments.separation:
+                        meaningful = step
+                    break
+                board.push(next(iter(lines.values()))[ply])
+            classification = "NEITHER"
+            level = "OBSERVATIONAL"
+            if meaningful is not None:
+                level = "ORACLE-SUPPORTED"
+                move_error = (meaningful["our_loss"] or 0) >= arguments.separation
+                score_error = meaningful["score_gap"] >= SCORE_ERROR
+                classification = ("BOTH" if move_error and score_error else
+                                  "MOVE ERROR" if move_error else
+                                  "SCORE ERROR" if score_error else "NEITHER")
+                if move_error or score_error:
+                    level = "CLAUDESHARK-ACTIONABLE"
+            results.append({**e, "meaningful_divergence": meaningful, "trail": trail,
+                            "classification": classification, "evidence_level": level})
+            print(f"  {e['fen'][:46]}  {level}  {classification}", flush=True)
+        provenance = oracle.provenance()
+    finally:
+        engine.close()
+        oracle.close()
+
+    out = [f"== SAME-FEN DIVERGENCES, SCORED BY THE ORACLE ({len(results)} families) ==",
+           f"engine {arguments.engine} at depth {arguments.depth}; oracle at {arguments.nodes} nodes, multipv {arguments.multipv}",
+           f"a divergence counts as separated only when the observed moves differ by at least {arguments.separation} cp;",
+           f"a score error is a rated-v1 root at least {SCORE_ERROR} cp from the oracle.",
+           "Game results and leaderboard ratings are never used as evidence of move quality.", ""]
+    for r in results:
+        out.append(f"[{r['evidence_level']}] {r['classification']}   {r['games']} games   {r['fen']}")
+        out.append(f"   first literal divergence at ply {r['divergence_ply'] + 1}: {r['divergence_moves']}")
+        m = r["meaningful_divergence"]
+        if m is None:
+            out.append(f"   the oracle did not separate the observed moves by {arguments.separation} cp: "
+                       "interchangeable choices, not a capability difference")
+            if r["trail"]:
+                t = r["trail"][0]
+                out.append(f"      spread was only {t['spread']} cp; oracle prefers {t['oracle_best']} at {t['oracle_cp']:+}")
+        else:
+            same = "the same ply" if m["ply"] == r["divergence_ply"] else f"ply {m['ply'] + 1}"
+            out.append(f"   first MEANINGFUL oracle divergence at {same}: spread {m['spread']} cp, "
+                       f"oracle prefers {m['oracle_best']} at {m['oracle_cp']:+}")
+            for move, d in sorted(m["observed"].items(), key=lambda kv: kv[1]["loss"]):
+                tag = "  <- rated-v1 plays this" if move == m["our_move"] else ""
+                out.append(f"      {move}  oracle value {d['value']:>+6}  loss {d['loss']:>4}  "
+                           f"in {d['games']} public game(s){tag}")
+            out.append(f"      rated-v1 root {m['our_root']:+}, oracle {m['oracle_cp']:+}, gap {m['score_gap']}")
+        out.append("")
+    supported = [r for r in results if r["evidence_level"] != "OBSERVATIONAL"]
+    actionable = [r for r in results if r["evidence_level"] == "CLAUDESHARK-ACTIONABLE"]
+    out.append("== INDEPENDENCE ==")
+    out.append(f"   start-FEN families examined      {len(results)}")
+    out.append(f"   games inside them                {sum(r['games'] for r in results)}")
+    out.append(f"   ORACLE-SUPPORTED families        {len(supported)}")
+    out.append(f"   CLAUDESHARK-ACTIONABLE families  {len(actionable)}")
+    out.append("   The family is the independence unit. A four-game family is one family, not four")
+    out.append("   confirmations, and its games count separately only once their trajectories diverge.")
+    out.append("")
+    out.append(f"oracle provenance: {provenance['engine']}, {provenance['limit']}")
+    text = "\n".join(out)
+    arguments.out.parent.mkdir(parents=True, exist_ok=True)
+    arguments.out.write_text(text + "\n", encoding="utf-8")
+    arguments.out.with_suffix(".json").write_text(json.dumps(results, indent=1) + "\n", encoding="utf-8")
+    encoding = sys.stdout.encoding or "utf-8"
+    print(text.encode(encoding, errors="replace").decode(encoding))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="phase", required=True)
@@ -155,6 +295,18 @@ def main() -> None:
     p.add_argument("--split", type=Path, default=None, help="restrict to the FEN list of one split")
     p.add_argument("--out", type=Path, required=True)
     p.set_defaults(func=parse)
+    q = sub.add_parser("score", help="establish move quality with the oracle; CPU heavy")
+    q.add_argument("--families", type=Path, required=True, help="the .json written by the parse phase")
+    q.add_argument("--games", type=Path, required=True)
+    q.add_argument("--engine", type=Path, default=Path("champions/rated_v1"))
+    q.add_argument("--depth", type=int, default=6)
+    q.add_argument("--nodes", type=int, default=1_000_000)
+    q.add_argument("--multipv", type=int, default=6)
+    q.add_argument("--separation", type=int, default=SEPARATION)
+    q.add_argument("--max-ply", type=int, default=30)
+    q.add_argument("--families-limit", type=int, default=14)
+    q.add_argument("--out", type=Path, required=True)
+    q.set_defaults(func=score)
     arguments = parser.parse_args()
     arguments.func(arguments)
 
