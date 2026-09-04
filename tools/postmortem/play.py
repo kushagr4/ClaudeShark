@@ -25,6 +25,7 @@ from pathlib import Path
 import chess
 
 from harness.referee import DRAW_CLAIM_MODES, game_outcome
+from tools.matchlock import own
 
 WORKER = Path(__file__).with_name("worker.py")
 
@@ -136,6 +137,11 @@ def main() -> None:
     )
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--draw-claim", choices=DRAW_CLAIM_MODES, default="auto")
+    parser.add_argument(
+        "--force-unlock",
+        action="store_true",
+        help="take over an output path whose recorded owner process is dead; refuses while it lives",
+    )
     arguments = parser.parse_args()
 
     pairs = json.load(arguments.pairs.open())
@@ -159,7 +165,12 @@ def main() -> None:
     arguments.out.parent.mkdir(parents=True, exist_ok=True)
     done = 0
     score = 0.0
+    # Ownership is taken before the output is opened, because the failure this
+    # guards against is a second match truncating a file the first is still
+    # writing. Two independent runs against one path have happened twice in this
+    # project; the first corrupted a JSONL that had to be discarded.
     with (
+        own(arguments.out, sys.argv, force=arguments.force_unlock),
         arguments.out.open("w", encoding="utf-8") as fh,
         ProcessPoolExecutor(max_workers=arguments.workers) as pool,
     ):
