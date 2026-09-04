@@ -550,3 +550,25 @@ All four known competition start positions have **Black to move** and Stockfish
 scores them +38, +26, -23, -7. ClaudeShark's own rated colour record is one loss
 as White and one win as Black; two games establish nothing, and no public
 per-colour field data exists. Nothing colour-specific was added to the engine.
+
+## 2026-09-04 — Search ablation: no selective mechanism is at fault, depth is the lever
+
+Record: [`benchmarks/current/2026-09-04-search-ablation.md`](benchmarks/current/2026-09-04-search-ablation.md).
+Audit only; the engine is unchanged and the depth-6 fingerprint is still
+1,712,405 nodes. Eighty positions where the mover lost at least 200 cp, each
+searched under nine configurations of `champions/v2_1_kingpawn`, with every
+chosen move scored by Stockfish at 1,000,000 nodes.
+
+Null move −2, aspiration +19, quiescence SEE pruning +1, transposition cutoff
+on PV nodes +8: none of them is the cause. Late-move reductions cost +367 cp
+of move quality for 1.9x the nodes — but depth 7 is worth +647 cp at the same
+node count, so at an equal budget the extra reduced ply beats the unreduced
+search by 280 cp and LMR is paying for itself. Depth 7 is +647 and depth 8
++899 against a ceiling of +1177; oracle agreement goes 8 -> 17 -> 24 of 80.
+
+The sample is selected (positions where somebody blundered) so the magnitude
+does not transfer to a whole game; the ordering does. The one candidate it
+produces is not a search change: the engine finished both decisive rated games
+with 57 seconds of its 120 unspent, because the allocator stops starting new
+iterations at 45% of a soft budget it never reaches. Converting that clock into
+depth has to be measured at the competition's own time control.

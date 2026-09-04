@@ -1,0 +1,31 @@
+== DOES DEEPER SEARCH REPAIR IT? 16 positions, oracle at 2000000 nodes ==
+'value' is the oracle score after the chosen move, from the mover's point of view. Higher is better;
+the 'oracle move' column is the ceiling and the 'played' column is what actually happened.
+
+   position                             played   oracle | rated-v1 d6 | rated-v1 d8 | V2.1 king d6 | V2.1 king d8 | V2.2a low d6 | V2.2a low d8
+   round1 move 11 O-O                      +15      +83 | e1g1    +15 | e5f6    +83 | e1g1    +15 | e5f6    +83 | e1g1    +15 | e5f6    +83
+   round1 move 15 c4                       -33      +30 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33
+   round1 move 16 Bb2                     -102      -33 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102
+   round1 move 17 g3                      -214     -118 | g2g3   -214 | d1e1   -146 | g2g3   -214 | d1e1   -146 | g2g3   -214 | d1e1   -146
+   round1 move 21 Bb2                     -330     -250 | c1c2   -395 | a1b1   -389 | c1c2   -395 | a1b1   -389 | c1c2   -395 | a1b1   -389
+   round1 move 22 Nxd4                    -457     -350 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457
+   round1 move 23 Kh2                     -495     -462 | e2d3   -583 | a1a3   -501 | e2d3   -583 | a1a3   -501 | e2d3   -583 | a1a3   -501
+   round1 move 29 Bxe6+                   -795     -591 | c3b3 -10000 | g4f3   -591 | c3b3 -10000 | g4f3   -591 | c3b3 -10000 | g4f3   -591
+   round1 move 30 Bd5                     -950     -821 | e6d5   -950 | c3b4 -10000 | e6d5   -950 | c3b2 -10000 | e6d5   -950 | c3b2 -10000
+   round1 move 31 Qb3                   -10000   -10000 | a3f8 -10000 | c4d5 -10000 | a3f8 -10000 | c4d5 -10000 | a3f8 -10000 | c4d5 -10000
+   round2 move 9 Qb6                       -80       +6 | d8b6    -80 | d8b6    -80 | d8b6    -80 | d8b6    -80 | d8b6    -80 | d8b6    -80
+   round2 move 13 Bc3                      +82     +192 | b4c3    +82 | b4c3    +82 | b4c3    +82 | b4c3    +82 | b4c3    +82 | b4c3    +82
+   round2 move 15 c5                       +80     +115 | c6c5    +80 | c6c5    +80 | c6c5    +80 | c6c5    +80 | c6c5    +80 | c6c5    +80
+   round2 move 17 Qf6+                     +10      +94 | b6f6    +10 | b6f6    +10 | b6f6    +10 | b6f6    +10 | b6f6    +10 | b6f6    +10
+   round2 move 18 O-O                     -152       +0 | e8g8   -152 | e8g8   -152 | e8g8   -152 | e8g8   -152 | e8g8   -152 | e8g8   -152
+   round2 move 19 Qg5                     -147     -147 | f6g5   -147 | f6g5   -147 | f6g5   -147 | f6g5   -147 | f6g5   -147 | f6g5   -147
+
+means over the sample:
+   played                           -848
+   oracle first choice              -766
+   rated-v1 depth 6                -1433   repairs (>= +100 over the played move) 0 of 16
+   rated-v1 depth 8                -1396   repairs (>= +100 over the played move) 1 of 16
+   V2.1 king-pawn depth 6          -1433   repairs (>= +100 over the played move) 0 of 16
+   V2.1 king-pawn depth 8          -1396   repairs (>= +100 over the played move) 1 of 16
+   V2.2a low-material depth 6      -1433   repairs (>= +100 over the played move) 0 of 16
+   V2.2a low-material depth 8      -1396   repairs (>= +100 over the played move) 1 of 16

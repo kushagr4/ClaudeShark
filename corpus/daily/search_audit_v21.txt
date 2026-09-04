@@ -1,0 +1,50 @@
+== SEARCH ABLATION ON 80 ERROR POSITIONS: champions\v2_1_kingpawn ==
+Positions where the mover lost at least 200 cp with the oracle within 800 of level,
+sampled from four annotated corpora. Every configuration's chosen move is scored by the oracle at 1000000 nodes;
+'value' is the oracle score of the position after that move, from the mover's point of view. Higher is better.
+
+   configuration                 mean value  vs baseline  = oracle move  changed move  mean nodes
+   baseline d6                        -1222           +0          8/80              0      33,354
+   depth 7                             -575         +647         17/80             30      62,935
+   depth 8                             -323         +899         24/80             45     138,422
+   no null move                       -1224           -2          8/80              3      35,650
+   no late-move reductions             -855         +367          9/80             13      61,923
+   no aspiration window               -1203          +19          9/80              9      33,586
+   no quiescence SEE pruning          -1221           +1          8/80              3      36,494
+   no PVS                             -1114         +108         10/80              6      49,499
+   no TT cutoff on PV nodes           -1214           +8         10/80              2      33,647
+   the move actually played           -1175          +47
+   the oracle first choice              -45        +1177   (the ceiling for this sample)
+
+A configuration only matters if its mean value moves toward the ceiling. Changing many moves while
+gaining nothing means the mechanism was not the cause of the error.
+
+== WHERE DEPTH HELPS: positions bucketed by how much depth 8 improves on depth 6 ==
+   depth 8 gains at least 100 cp on 30 of 80 positions, loses at least 100 on 6
+   mean gain +899 cp for 4.2x the nodes
+
+   the ten positions depth 8 repairs most:
+      +10000 oracle  +446  d6 b5a4 -> d8 b5c6 (oracle move b1d1)  8/8/8/1k2B2R/8/1p1K3P/p5P1/1r6 b - - 1 51
+      + 9525 oracle  -485  d6 f5g6 -> d8 f5f8 (oracle move f5f8)  8/8/3Kp1P1/4Pq2/3Q1Pk1/P1P5/8/8 b - - 0 56
+      + 9392 oracle  -597  d6 e5d6 -> d8 h2g1 (oracle move g5g6)  8/8/8/3pB1P1/4bPk1/4P2p/6pK/8 w - - 5 46
+      + 9308 oracle  -405  d6 d3c2 -> d8 d1a1 (oracle move g3f1)  4r1k1/5pp1/2pq1n1p/1p1p1P2/1P1P2r1/3B2NK/3QN3/3R4 w - - 4 34
+      + 9219 oracle  -767  d6 g1e1 -> d8 g1c1 (oracle move g1c1)  7B/8/2k5/2p2q2/8/2N1p3/KPPr3p/6R1 w - - 0 52
+      + 9125 oracle  -705  d6 b2e5 -> d8 f4d3 (oracle move h8h7)  4k2r/p1q5/2p2p2/1pQ2Np1/4Pn1p/1B6/PbP3PP/3R3K b - - 1 31
+      + 9110 oracle  -614  d6 c3c4 -> d8 e4e1 (oracle move c3d3)  1Q3K2/5P2/8/8/4r3/2k5/8/8 b - - 0 66
+      +  727 oracle  +768  d6 d1h5 -> d8 d1b3 (oracle move d1b3)  4Q3/5p2/5k1p/2pB3P/2P2P2/7K/5b2/3q4 b - - 10 54
+      +  552 oracle    +0  d6 e4e5 -> d8 e4d4 (oracle move g3g4)  8/6p1/2k1p3/p1P4P/4K3/6P1/8/8 w - - 0 48
+      +  546 oracle  +149  d6 b6d4 -> d8 a6a7 (oracle move a6a7)  5r2/6pp/RBp1k3/P4p2/1bp5/8/2P2PPP/6K1 w - - 0 31
+
+   the ten positions depth 8 damages most:
+         -16 oracle    +0  d6 f7g6 -> d8 f7g7 (oracle move f7e7)  8/5k2/8/4K3/5P2/8/8/8 b - - 2 61
+         -29 oracle  +475  d6 a7a6 -> d8 e7d8 (oracle move g7g5)  8/p3k1p1/1p2p3/4Pp1p/PK5P/1P4P1/2P5/8 b - - 1 34
+         -44 oracle    +0  d6 e7d7 -> d8 a7a6 (oracle move g7g5)  8/p3k1p1/4p3/1p2Pp1p/1P1K3P/P5P1/2P5/8 b - - 1 34
+         -52 oracle    +0  d6 e4f3 -> d8 e4e3 (oracle move e4f5)  5B2/1p6/2p1b3/2P4K/4k1pP/6P1/8/8 b - - 0 45
+        -108 oracle  -329  d6 h7f7 -> d8 h7c7 (oracle move b4c5)  8/7r/7P/5PP1/1k6/8/6K1/8 b - - 0 54
+        -244 oracle  +272  d6 g2f3 -> d8 g2h3 (oracle move g2f3)  8/2R4p/8/3k4/8/6P1/2p2PKP/2r5 w - - 2 42
+        -280 oracle  +105  d6 f5h5 -> d8 f5f3 (oracle move f5h5)  6k1/5n1p/5P2/1ppP1R2/2p3PN/1nP1r3/2B5/6K1 w - - 1 39
+        -297 oracle   -38  d6 g3f3 -> d8 a1d1 (oracle move g3f3)  r1b3k1/ppp2ppp/6q1/8/6r1/2B1P1Q1/PP3PPP/R4RK1 w - - 2 16
+        -307 oracle  +311  d6 a4c6 -> d8 g5f5 (oracle move g5b5)  8/1k6/2nb4/p5R1/Bp1p2P1/3K4/8/8 w - - 3 56
+        -474 oracle  +466  d6 b7b6 -> d8 b2b5 (oracle move b7b6)  8/1k6/8/R4K2/8/7P/pr4P1/8 b - - 3 57
+
+oracle provenance: Stockfish 18, nodes (fixed); hash cleared before each position, options {'Threads': 1, 'Hash': 256, 'UCI_ShowWDL': True}
