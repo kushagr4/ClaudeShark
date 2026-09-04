@@ -1,0 +1,94 @@
+== REPEATED ORGANISER START POSITIONS AS NATURAL EXPERIMENTS ==
+source analysis\top50_games.jsonl, restricted to competition_diagnostic_fens.txt
+51 families with moves, 14 used more than once, covering 34 games
+
+ 1. value 11  4 games  outcomes {'white': 2, 'black': 2}  start move 6 Black to move
+    rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6
+    first divergence at ply 1: {'f8b4': 1, 'b8c6': 1, 'f8d6': 1, 'f8e7': 1}
+      Daddy_Long_Legs (1686) vs Negamaximus (1362)  1-0  114 plies  checkmate  first f8b4  at divergence f8b4
+      Good Morning (1638) vs NaJ (1362)  1-0  44 plies  checkmate  first b8c6  at divergence b8c6
+      Obligatory En Passant (1533) vs Daddy_Long_Legs (1686)  0-1  63 plies  checkmate  first f8d6  at divergence f8d6
+      Knight you will remember (1427) vs make_no_mistakes (1898)  0-1  55 plies  checkmate  first f8e7  at divergence f8e7
+
+ 2. value 10  3 games  outcomes {'white': 1, 'black': 2}  start move 6 Black to move
+    rnbq1rk1/ppp1ppbp/3p1np1/8/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 b - - 5 6
+    first divergence at ply 1: {'e7e5': 1, 'b8c6': 1, 'b8d7': 1}
+      LSE4-E5 (1686) vs Good Morning (1638)  1-0  300 plies  adjudication  first e7e5  at divergence e7e5
+      Tobias Carlsen (1735) vs R3 (1735)  0-1  103 plies  checkmate  first b8c6  at divergence b8c6
+      team (1662) vs Yumo (1662)  0-1  73 plies  checkmate  first b8d7  at divergence b8d7
+
+ 3. value  8  3 games  outcomes {'white': 2, 'black': 1}  start move 7 Black to move
+    rnbqk2r/pp2nppp/4p3/2ppP3/3P4/P1P5/2P2PPP/1RBQKBNR b Kkq - 2 7
+    first divergence at ply 1: {'b8c6': 2, 'c5d4': 1}
+      Mate in One (1792) vs First Bot (1314)  1-0  30 plies  checkmate  first b8c6  at divergence b8c6
+      Shashwat (1362) vs Loki 3.0 (1638)  0-1  55 plies  checkmate  first b8c6  at divergence b8c6
+      R3 (1735) vs hyperfish (1524)  1-0  74 plies  checkmate  first c5d4  at divergence c5d4
+
+ 4. value  8  3 games  outcomes {'white': 1, 'black': 1, 'draw': 1}  start move 7 Black to move
+    r1bq1rk1/pp1pppbp/2n2np1/2p5/2PP4/2N1PNP1/PP3PBP/R1BQK2R b KQ - 0 7
+    first divergence at ply 1: {'c5d4': 1, 'd7d5': 2}
+      Danya's Disciple (1686) vs hangingpawns (1533)  1-0  40 plies  checkmate  first c5d4  at divergence c5d4
+      Daddy_Long_Legs (1686) vs checkers (1898)  0-1  95 plies  checkmate  first d7d5  at divergence d7d5
+      Magnus Claudeson (1686) vs Le StockFish (1686)  ½-½  213 plies  fifty_moves  first d7d5  at divergence d7d5
+
+ 5. value  8  3 games  outcomes {'draw': 1, 'black': 1, 'white': 1}  start move 8 Black to move
+    1rbqk2r/pp2ppbp/2np1np1/2p5/P3P3/2NP1NP1/1PP2PBP/R1BQ1RK1 b k - 0 8
+    first divergence at ply 1: {'e8g8': 2, 'c8e6': 1}
+      Yumo (1662) vs KD (1662)  ½-½  88 plies  threefold_repetition  first e8g8  at divergence e8g8
+      Bartholomew (1427) vs blundered my queen 💔 (1638)  0-1  111 plies  checkmate  first c8e6  at divergence c8e6
+      APEX (1686) vs LSE4-E5 (1686)  1-0  60 plies  checkmate  first e8g8  at divergence e8g8
+
+ 6. value  7  2 games  outcomes {'black': 1, 'white': 1}  start move 8 Black to move
+    r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5P2/2NB1N2/PPP3PP/R1BQK2R b KQkq - 1 8
+    first divergence at ply 2: {'c1d2': 1, 'd1e2': 1}
+      DegreeGambit (1362) vs kingsgambit (1898)  0-1  75 plies  checkmate  first a7a6  at divergence c1d2
+      Anchoa (1792) vs Dark Sister (1792)  1-0  72 plies  checkmate  first a7a6  at divergence d1e2
+
+ 7. value  7  2 games  outcomes {'white': 1, 'black': 1}  start move 7 Black to move
+    r2qkb1r/pp2pppp/2n2n2/3p4/3P1Bb1/1QPB4/PP3PPP/RN2K1NR b KQkq - 4 7
+    first divergence at ply 1: {'d8b6': 1, 'c6a5': 1}
+      stockfish.py (1638) vs Tempo (1102)  1-0  76 plies  checkmate  first d8b6  at divergence d8b6
+      Samson (1638) vs KingofImperial (1898)  0-1  133 plies  checkmate  first c6a5  at divergence c6a5
+
+ 8. value  7  2 games  outcomes {'draw': 1, 'black': 1}  start move 6 Black to move
+    r1bqk2r/ppp1bppp/2np1n2/4p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 b kq - 0 6
+    first divergence at ply 1: {'e8f8': 1, 'e8g8': 1}
+      Tobias Carlsen (1735) vs Bishop (1370)  ½-½  167 plies  threefold_repetition  first e8f8  at divergence e8f8
+      Loki (1557) vs The Piece Sweeper (1768)  0-1  105 plies  checkmate  first e8g8  at divergence e8g8
+
+ 9. value  7  2 games  outcomes {'white': 1, 'black': 1}  start move 6 Black to move
+    rnbq1rk1/ppp1ppbp/3p1np1/6B1/3PP3/2N2N2/PPP1BPPP/R2QK2R b KQ - 5 6
+    first divergence at ply 1: {'c8g4': 1, 'd6d5': 1}
+      ms (1898) vs Capablanca (1638)  1-0  116 plies  checkmate  first c8g4  at divergence c8g4
+      OptiFish-V1 (1427) vs Minimaxnus (1638)  0-1  85 plies  checkmate  first d6d5  at divergence d6d5
+
+10. value  7  2 games  outcomes {'white': 1, 'black': 1}  start move 8 Black to move
+    r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N1P/PPPP1PP1/RNBQR1K1 b kq - 0 8
+    first divergence at ply 2: {'c2c3': 1, 'f3g5': 1}
+      ChessML (1654) vs KD (1662)  1-0  104 plies  checkmate  first e8g8  at divergence c2c3
+      Analphabet (1686) vs SaucyBeans (1686)  0-1  81 plies  checkmate  first e8g8  at divergence f3g5
+
+11. value  4  2 games  outcomes {'black': 2}  start move 7 Black to move
+    r1bqk2r/ppp2pp1/2np1n1p/2b1p3/4P3/1BPP1N2/PP3PPP/RNBQ1RK1 b kq - 1 7
+    first divergence at ply 1: {'e8g8': 1, 'c8g4': 1}
+      Muggsy_Bogues (1362) vs Chimera (1872)  0-1  41 plies  checkmate  first e8g8  at divergence e8g8
+      Pawn Street (1427) vs Samson (1638)  0-1  79 plies  checkmate  first c8g4  at divergence c8g4
+
+12. value  4  2 games  outcomes {'white': 2}  start move 7 Black to move
+    r1bqk2r/pppp1ppp/2n2n2/1Bb5/3NP3/2P5/PP3PPP/RNBQ1RK1 b kq - 2 7
+    first divergence at ply 1: {'c6d4': 1, 'e8g8': 1}
+      LSE4-E5 (1686) vs Greedy Material (1102)  1-0  12 plies  checkmate  first c6d4  at divergence c6d4
+      Good Morning (1638) vs FableEngine (1427)  1-0  62 plies  checkmate  first e8g8  at divergence e8g8
+
+13. value  4  2 games  outcomes {'black': 2}  start move 10 Black to move
+    r2qk2r/2p1bppp/p1np1n2/1p2p3/4P3/1BN2Q1P/PPPP1PP1/R1B1R1K1 b kq - 0 10
+    first divergence at ply 2: {'f3e3': 1, 'f3g3': 1}
+      Fight Club (1686) vs The Rookie (1898)  0-1  97 plies  checkmate  first c6d4  at divergence f3e3
+      CHINA MACHINE (1686) vs KingofImperial (1898)  0-1  115 plies  checkmate  first c6d4  at divergence f3g3
+
+14. value  4  2 games  outcomes {'white': 2}  start move 7 Black to move
+    rnbq1rk1/pp2bppp/4pn2/2pp4/2PP4/N4NP1/PP2PPBP/R1BQ1RK1 b - - 1 7
+    first divergence at ply 2: {'e2e3': 1, 'd4c5': 1}
+      keep_kann_and_caro_on (1735) vs GoodKnight (1733)  1-0  72 plies  checkmate  first b8c6  at divergence e2e3
+      Capablanca (1638) vs Only Blunders (1638)  1-0  90 plies  checkmate  first b8c6  at divergence d4c5
+
