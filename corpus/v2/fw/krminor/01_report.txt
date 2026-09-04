@@ -1,0 +1,109 @@
+== KRB v KR and KRN v KR: 310 positions ({'game': 10, 'synthetic': 300}), oracle 1000000 nodes, V2.1 ==
+all scores from the side with the minor ('strong'); win = SF >= +300 or mate for strong; draw = |SF| <= 60 and no mate; false win = draw with V2.1 depth-6 root >= +150
+
+-- KRB-KR: 159 positions, 153 trajectories; game positions 9 in 3 games
+   win     38 positions (38 traj); tactical 38, strategic 0; false wins 0
+   draw   121 positions (115 traj); tactical 48, strategic 73; false wins 84
+   other    0 positions (0 traj); tactical 0, strategic 0; false wins 0
+   false wins: 84 of 121 draws (69%); from the false-win corpus 0 rows
+
+   tactical contamination of the wins (a win may carry several flags):
+      forced_mate                wins  18/38   draws   0/121
+      material_change_in_pv6     wins  36/38   draws  33/121
+      hanging_rook_weak          wins  33/38   draws  23/121
+      hanging_minor              wins   7/38   draws  28/121
+      hanging_rook_strong        wins  22/38   draws  17/121
+      in_check                   wins   5/38   draws  35/121
+      trapped_king_weak          wins   1/38   draws   9/121
+      sf_best_is_check           wins   5/38   draws  19/121
+      sf_best_is_capture         wins  29/38   draws  27/121
+   wins remaining after excluding forced mate (<= 15), material change within 6 plies of the line, a hanging defending rook or a trapped defending king: 0 of 38
+
+   static decomposition (strong side's view) and depth behaviour, means:
+      class              n material  tables  tempo  static     qs     d4     d6     d8    d10  n10
+      draw             121     +311      +1     -2    +310   +213   +198   +198   +198   +212   42
+      false win         84     +311      +0     +0    +311   +313   +318   +320   +321   +321   31
+      win               38     +311      +5     +7    +322   +693   +768   +794   +804  +5020    7
+      tactical win      38     +311      +5     +7    +322   +693   +768   +794   +804  +5020    7
+
+   distributions of the depth-6 root (strong side's view):
+      draws            <..100:  37 100..200:   0 200..300:  12 300..:  72
+      wins             <..100:   0 100..200:   0 200..300:   0 300..:  38
+      strategic wins   <..100:   0 100..200:   0 200..300:   0 300..:   0
+
+   scaler screen: nominal minor value scaled by f; adjusted = score - (1 - f) * minor (root adjustment is the same shift, valid while the minor stays on the board)
+      f        draw static  draw d6 draws d6 < +100 false wins d6 < +150 win static  win d6 wins d6 < +100 strategic wins d6 < +100 tactical wins d6 < +100
+      off             +310     +198      37/121              0/84              +322    +794      0/38                 0/0                     0/38
+      mild            +154      +43      37/121             18/84              +167    +639      0/38                 0/0                     0/38
+      medium           +77      -35     103/121             84/84               +89    +561      0/38                 0/0                     0/38
+      strong           +38      -74     121/121             84/84               +50    +522      0/38                 0/0                     0/38
+
+   condition screen: within the family, does one condition separate draws from wins? (share of positions meeting the condition that are wins)
+      all family positions                       n 159  wins  38 (24%)  draws 121  | V2.1 d6 on the draws +198
+      not in check                               n 119  wins  33 (28%)  draws  86  | V2.1 d6 on the draws +196
+      no hanging piece (either side)             n  74  wins   4 (5%)  draws  70  | V2.1 d6 on the draws +296
+      no capture within 6 plies of SF's line     n  90  wins   2 (2%)  draws  88  | V2.1 d6 on the draws +297
+      no forced mate                             n 141  wins  20 (14%)  draws 121  | V2.1 d6 on the draws +198
+      defending king not trapped on the rim      n 149  wins  37 (25%)  draws 112  | V2.1 d6 on the draws +198
+      quiet: none of the above                   n  40  wins   0 (0%)  draws  40  | V2.1 d6 on the draws +317
+
+   game positions (retained self-play), strong side's view:
+      postmortem:92:cB           ply  92 draw  SF    +1 mate None  static +309 d6 +323 d10 329  tactical False  result for strong 0.5  fw-corpus False  8/R7/8/6k1/8/4K3/B7/3r4 w - - 0 67
+      postmortem:92:cB           ply  96 draw  SF    +0 mate None  static +323 d6 +322 d10 321  tactical False  result for strong 0.5  fw-corpus False  8/4R3/8/5k2/2B5/4K3/8/4r3 w - - 4 69
+      postmortem:92:cB           ply 100 draw  SF    +0 mate None  static +323 d6 +325 d10 321  tactical False  result for strong 0.5  fw-corpus False  4R3/8/8/5k2/8/4K3/4B3/4r3 w - - 8 71
+      mopup:16:cW                ply  55 draw  SF    +0 mate None  static +271 d6 +298 d10 312  tactical False  result for strong 0.5  fw-corpus False  8/2R1bk2/8/8/2K4r/8/8/8 w - - 0 68
+      mopup:16:cW                ply  59 draw  SF    +0 mate None  static +287 d6 +303 d10 304  tactical False  result for strong 0.5  fw-corpus False  8/2R1bk2/8/4K3/8/8/5r2/8 w - - 4 70
+      mopup:16:cW                ply  63 draw  SF    -6 mate None  static +287 d6 +303 d10 306  tactical False  result for strong 0.5  fw-corpus False  8/3Rbk2/8/5K2/8/8/2r5/8 w - - 8 72
+      v2:69:cB                   ply 112 draw  SF    +1 mate None  static +352 d6 +328 d10 324  tactical True  result for strong 0.5  fw-corpus False  8/1kb5/8/8/7R/7K/5r2/8 b - - 0 71
+      v2:69:cB                   ply 116 draw  SF   +14 mate None  static +342 d6 +318 d10 324  tactical False  result for strong 0.5  fw-corpus False  7R/8/2k5/8/5bK1/8/5r2/8 b - - 4 73
+      v2:69:cB                   ply 120 draw  SF   +16 mate None  static +324 d6 +328 d10 323  tactical False  result for strong 0.5  fw-corpus False  R7/8/8/3kb1K1/8/8/5r2/8 b - - 8 75
+
+-- KRN-KR: 151 positions, 151 trajectories; game positions 1 in 1 games
+   win     29 positions (29 traj); tactical 29, strategic 0; false wins 0
+   draw   118 positions (118 traj); tactical 47, strategic 71; false wins 79
+   other    4 positions (4 traj); tactical 4, strategic 0; false wins 0
+   false wins: 79 of 118 draws (67%); from the false-win corpus 0 rows
+
+   tactical contamination of the wins (a win may carry several flags):
+      forced_mate                wins  12/29   draws   0/118
+      material_change_in_pv6     wins  29/29   draws  41/118
+      hanging_rook_weak          wins  28/29   draws  22/118
+      hanging_minor              wins   7/29   draws  33/118
+      hanging_rook_strong        wins   9/29   draws  26/118
+      in_check                   wins   6/29   draws  28/118
+      trapped_king_weak          wins   0/29   draws   6/118
+      sf_best_is_check           wins   3/29   draws  11/118
+      sf_best_is_capture         wins  28/29   draws  34/118
+   wins remaining after excluding forced mate (<= 15), material change within 6 plies of the line, a hanging defending rook or a trapped defending king: 0 of 29
+
+   static decomposition (strong side's view) and depth behaviour, means:
+      class              n material  tables  tempo  static     qs     d4     d6     d8    d10  n10
+      draw             118     +292     -18     -3    +271   +156   +160   +165   +166   +146   31
+      false win         79     +292     -20     -1    +271   +272   +284   +293   +294   +300   21
+      win               29     +292      -3     +8    +298   +708   +734   +746   +756  +4922    7
+      tactical win      29     +292      -3     +8    +298   +708   +734   +746   +756  +4922    7
+
+   distributions of the depth-6 root (strong side's view):
+      draws            <..100:  39 100..200:   0 200..300:  45 300..:  34
+      wins             <..100:   0 100..200:   0 200..300:   0 300..:  29
+      strategic wins   <..100:   0 100..200:   0 200..300:   0 300..:   0
+
+   scaler screen: nominal minor value scaled by f; adjusted = score - (1 - f) * minor (root adjustment is the same shift, valid while the minor stays on the board)
+      f        draw static  draw d6 draws d6 < +100 false wins d6 < +150 win static  win d6 wins d6 < +100 strategic wins d6 < +100 tactical wins d6 < +100
+      off             +271     +165      39/118              0/79              +298    +746      0/29                 0/0                     0/29
+      mild            +125      +19      44/118             40/79              +152    +600      0/29                 0/0                     0/29
+      medium           +52      -54     104/118             79/79               +79    +527      0/29                 0/0                     0/29
+      strong           +15      -90     116/118             79/79               +42    +491      0/29                 0/0                     0/29
+
+   condition screen: within the family, does one condition separate draws from wins? (share of positions meeting the condition that are wins)
+      all family positions                       n 147  wins  29 (20%)  draws 118  | V2.1 d6 on the draws +165
+      not in check                               n 113  wins  23 (20%)  draws  90  | V2.1 d6 on the draws +155
+      no hanging piece (either side)             n  65  wins   1 (2%)  draws  64  | V2.1 d6 on the draws +279
+      no capture within 6 plies of SF's line     n  77  wins   0 (0%)  draws  77  | V2.1 d6 on the draws +284
+      no forced mate                             n 135  wins  17 (13%)  draws 118  | V2.1 d6 on the draws +165
+      defending king not trapped on the rim      n 141  wins  29 (21%)  draws 112  | V2.1 d6 on the draws +163
+      quiet: none of the above                   n  42  wins   0 (0%)  draws  42  | V2.1 d6 on the draws +288
+
+   game positions (retained self-play), strong side's view:
+      passed:46:cB               ply  94 win   SF +10000 mate 12  static +370 d6 +846 d10 849  tactical True  result for strong 1.0  fw-corpus False  3R4/1r6/2K1N3/8/8/8/k7/8 w - - 0 75
+

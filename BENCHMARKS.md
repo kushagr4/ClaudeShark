@@ -480,3 +480,15 @@ endgame pawn table's credit for a blockaded advanced passer (12). Fuzzy
 "pawn up" scalings reach 109 genuine-win trajectories and are rejected.
 Proposed V2.2a exact drawn-material recognition first, V2.2b blockaded-passer
 discount second; a 21-position gallery is the V2.2 regression set.
+
+## 2026-09-04 — V2.2a pre-implementation audit, KRB/KRN v KR: DEFER
+
+Record: [`benchmarks/current/2026-09-04-v2.2a-krminor-audit.md`](benchmarks/current/2026-09-04-v2.2a-krminor-audit.md).
+Audit only. 300 oracle-labelled random positions plus the 10 retained game
+positions: every Stockfish win in both families is tactical (0 of 38 and
+0 of 29 strategic), 69% and 67% of the draws are scored >= +150 by V2.1,
+and the static on a drawn position is the minor's nominal value (+311 of
++310). A quarter-scaling of the minor removes every false win and leaves
+every win above +490. Deferred as a standalone feature: the family occurs
+in 5 of 1,000 games and 3 of 52 false-win trajectories; the protocol is to
+be reused on the sibling low-material families before one exact term.
