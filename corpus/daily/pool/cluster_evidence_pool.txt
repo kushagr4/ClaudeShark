@@ -1,0 +1,11 @@
+== HOW MUCH INFORMATION IS IN EACH PAIRED MATCH ==
+A cluster whose two games are mirror images of each other contributes a win and a loss and no information.
+
+corpus\daily\pool\games\v21_vs_ratedv1.jsonl
+   52 games, 26 clusters, score 0.4327, Elo -47.1
+   clusters whose pair was NOT mirror-identical: 13 of 26
+   per-cluster mean distribution: {0.0: 2, 0.25: 7, 0.5: 13, 0.75: 4}
+   net cluster-units above 0.5: -1.75
+   leave-one-cluster-out Elo: -56.1 (dropping cluster 3) .. -34.9 (dropping cluster 20)
+   the estimate is already at or below zero
+
