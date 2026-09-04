@@ -1,0 +1,93 @@
+== FAILURE GALLERY: the 15 widest engine-oracle disagreements, one per source cluster ==
+Scores are from the mover's point of view. 'gap' is the depth-6 root minus the oracle.
+
+ 1. gap  +1901 (too optimistic)   phase  4
+    2Q5/8/6K1/3k1p1P/5P2/8/8/8 w - - 0 63
+    oracle  +1124 (prefers h5h6)   engine root  +3025 static  +1601 (played c8f5)
+    structure: own passers 1 (best rank 5); pawns on one wing
+    source: corpus/postmortem/games/annotated.jsonl cluster 93
+
+ 2. gap  -1578 (too pessimistic)   phase  0
+    8/8/3k4/8/P1P1p3/4K3/5P2/8 w - - 1 56
+    oracle  +1898 (prefers a4a5)   engine root   +320 static   +210 (played e3d4)
+    structure: own passers 2 (best rank 4)
+    source: corpus/postmortem/games/annotated.jsonl cluster 22
+
+ 3. gap  +1497 (too optimistic)   phase  4
+    8/1Q4p1/4Kp2/P4P2/7p/6P1/5k2/8 w - - 0 61
+    oracle  +1152 (prefers g3h4)   engine root  +2649 static  +1418 (played g3h4)
+    structure: own passers 1 (best rank 5)
+    source: corpus/postmortem/games/annotated.jsonl cluster 54
+
+ 4. gap  +1463 (too optimistic)   phase  1
+    8/1p2B3/2p5/2P2K2/6P1/8/5k2/8 b - - 0 60
+    oracle  -1910 (prefers f2e3)   engine root   -447 static   -298 (played f2f3)
+    structure: enemy passers 1 (best rank 4); our king outside the square of an enemy passer
+    source: corpus/v2/kp/games/gate2_annotated.jsonl cluster 50
+
+ 5. gap  -1432 (too pessimistic)   phase  8
+    5K1q/4P3/6P1/5Q2/5P2/6k1/8/8 w - - 3 72
+    oracle  +1432 (prefers f8f7)   engine root     +0 static   +496 (played f8f7)
+    structure: own passers 3 (best rank 7); pawns on one wing
+    source: corpus/mopup/games/gate2_annotated.jsonl cluster 14
+
+ 6. gap  +1413 (too optimistic)   phase  6
+    8/3k4/p7/Q7/1p2P3/1B4Pp/P1P1n2P/7K w - - 2 43
+    oracle   +728 (prefers a5d5)   engine root  +2141 static  +1610 (played a5b4)
+    structure: own passers 2 (best rank 4)
+    source: corpus/postmortem/games/annotated.jsonl cluster 95
+
+ 7. gap  -1354 (too pessimistic)   phase  5
+    1k6/8/3N4/5p2/8/1P1K3p/2P5/6q1 w - - 2 53
+    oracle   -819 (prefers d6c4)   engine root  -2173 static   -985 (played d6f5)
+    structure: enemy passers 2 (best rank 6); own passers 2 (best rank 3); our king outside the square of an enemy passer
+    source: corpus/postmortem/games/annotated.jsonl cluster 97
+
+ 8. gap  +1286 (too optimistic)   phase  2
+    8/8/2k2K2/5B2/3B4/8/1p6/8 b - - 3 77
+    oracle  -1970 (prefers b2b1q)   engine root   -684 static   -355 (played b2b1q)
+    structure: own passers 1 (best rank 7); pawns on one wing
+    source: corpus/passed/games/gate2_annotated.jsonl cluster 16
+
+ 9. gap  -1285 (too pessimistic)   phase  1
+    8/8/5p2/2p5/1p1b1K2/pP1P4/P1Pk4/8 b - - 5 58
+    oracle  +1849 (prefers d2c2)   engine root   +564 static   +395 (played d2c2)
+    structure: own passers 1 (best rank 3)
+    source: corpus/mopup/games/gate2_annotated.jsonl cluster 29
+
+10. gap  +1244 (too optimistic)   phase  0
+    8/8/8/8/KP6/8/1P1k4/8 b - - 0 53
+    oracle  -1486 (prefers d2c2)   engine root   -242 static   -162 (played d2c2)
+    structure: enemy passers 2 (best rank 4); our king outside the square of an enemy passer; pawns on one wing
+    source: corpus/postmortem/games/annotated.jsonl cluster 52
+
+11. gap  +1244 (too optimistic)   phase  0
+    8/8/8/8/KP6/8/1P1k4/8 b - - 0 53
+    oracle  -1486 (prefers d2c2)   engine root   -242 static   -162 (played d2c2)
+    structure: enemy passers 2 (best rank 4); our king outside the square of an enemy passer; pawns on one wing
+    source: corpus/v2/kp/games/gate2_annotated.jsonl cluster 52
+
+12. gap  +1244 (too optimistic)   phase  0
+    8/8/8/8/KP6/8/1P1k4/8 b - - 0 53
+    oracle  -1486 (prefers d2c2)   engine root   -242 static   -162 (played d2c2)
+    structure: enemy passers 2 (best rank 4); our king outside the square of an enemy passer; pawns on one wing
+    source: corpus/passed/games/gate2_annotated.jsonl cluster 52
+
+13. gap  +1244 (too optimistic)   phase  0
+    8/8/8/8/KP6/8/1P1k4/8 b - - 0 53
+    oracle  -1486 (prefers d2c2)   engine root   -242 static   -162 (played d2c2)
+    structure: enemy passers 2 (best rank 4); our king outside the square of an enemy passer; pawns on one wing
+    source: corpus/mopup/games/gate2_annotated.jsonl cluster 52
+
+14. gap  -1195 (too pessimistic)   phase  1
+    8/8/2k3K1/8/1n6/p7/8/8 w - - 0 65
+    oracle   -636 (prefers g6f5)   engine root  -1831 static   -605 (played g6f6)
+    structure: enemy passers 1 (best rank 6); our king outside the square of an enemy passer; pawns on one wing
+    source: corpus/postmortem/games/annotated.jsonl cluster 3
+
+15. gap  -1183 (too pessimistic)   phase  4
+    8/3qK3/4p1k1/4P1P1/5P2/P1P5/8/8 w - - 0 51
+    oracle  +1580 (prefers e7d7)   engine root   +397 static   -546 (played e7d7)
+    structure: own passers 3 (best rank 5)
+    source: corpus/v2/kp/games/gate2_annotated.jsonl cluster 14
+
