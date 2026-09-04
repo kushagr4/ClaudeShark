@@ -1,0 +1,19 @@
+== EXACT-FEN FAMILY SPLITS OF THE OBSERVED COMPETITION POSITIONS ==
+source analysis\top50_games.jsonl (sha256 37f821f4dfadf3ff...), seed 20260904
+113 families covering 141 games; ClaudeShark's own 3 rated starts excluded entirely
+
+competition_diagnostic   families   51  games   71 (50.4%)  repeated families  14  side to move {'b': 39, 'w': 12}
+   fens sha256 dba94b1223900e8a5d325847b950485bdfd1295f03b690f104ad6cae35013041
+   corpus\daily\splits\competition_diagnostic.json
+competition_validation   families   29  games   35 (24.8%)  repeated families   6  side to move {'b': 27, 'w': 2}
+   fens sha256 ef2189f5447b41bcab8db4b0eb58555c95254f85b4768de53df54ee2f125e4f4
+   corpus\daily\splits\competition_validation.json
+competition_holdout      families   33  games   35 (24.8%)  repeated families   2  side to move {'b': 26, 'w': 7}
+   fens sha256 a1806d7b05a6fbfa49b30f570c627ae9d7a719a9f94a302501e88a9c8f29d4af
+   corpus\daily\splits\competition_holdout.json
+
+families appearing in more than one split: 0 (must be 0)
+
+The 113-position match already run covers essentially this whole population, so it is
+exploratory distribution evidence. The holdout part is for candidates chosen after it
+and must not be inspected during feature design.

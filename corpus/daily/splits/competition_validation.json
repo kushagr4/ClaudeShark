@@ -1,0 +1,263 @@
+[
+ {
+  "id": "comp-000",
+  "cluster": 27417,
+  "fen": "1rbqk1nr/pp3pbp/2npp1p1/2p5/4PP2/2NPBNP1/PPP3BP/R2QK2R b KQk - 3 8",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-001",
+  "cluster": 98328,
+  "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/PB1P1N2/1PP2PPP/RNBQR1K1 b - - 0 9",
+  "uses_in_scrape": 2,
+  "side_to_move": "b",
+  "fullmove": 9,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-002",
+  "cluster": 86927,
+  "fen": "r1bq1rk1/2p1bppp/p2p1n2/np2p3/4P3/1B1P1N1P/PPP2PP1/RNBQR1K1 w - - 1 10",
+  "uses_in_scrape": 1,
+  "side_to_move": "w",
+  "fullmove": 10,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-003",
+  "cluster": 47585,
+  "fen": "r1bqk1nr/pp1p1ppp/1bn1p3/8/4P3/PNN5/1PP2PPP/R1BQKB1R b KQkq - 4 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-004",
+  "cluster": 74205,
+  "fen": "r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5P2/2NB4/PPP3PP/R1BQK1NR w KQkq - 0 8",
+  "uses_in_scrape": 1,
+  "side_to_move": "w",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-005",
+  "cluster": 103640,
+  "fen": "r1bqk2r/pp1pppbp/2n2np1/2p5/2P5/2N1PNP1/PP1P1PBP/R1BQK2R b KQkq - 0 6",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 6,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-006",
+  "cluster": 98963,
+  "fen": "r1bqk2r/pp2ppbp/2np1np1/2p5/4P2P/2NP2P1/PPP1NPB1/R1BQK2R b KQkq - 2 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-007",
+  "cluster": 68491,
+  "fen": "r1bqk2r/pp2ppbp/2np1np1/2p5/4P3/2NP1NP1/PPP2PBP/R1BQ1RK1 b kq - 3 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-008",
+  "cluster": 71745,
+  "fen": "r1bqkb1r/1p2pppp/p1np4/8/4P1n1/1NN5/PPPB1PPP/R2QKB1R b KQkq - 3 8",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-009",
+  "cluster": 66391,
+  "fen": "r1bqkb1r/1p3ppp/p1np1n2/4p3/4P3/N1N2P2/PPP3PP/R1BQKB1R b KQkq - 1 8",
+  "uses_in_scrape": 2,
+  "side_to_move": "b",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-010",
+  "cluster": 33262,
+  "fen": "r1bqkbnr/pp3ppp/2npp3/1N6/2P1P3/8/PP3PPP/RNBQKB1R b KQkq - 0 6",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 6,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-011",
+  "cluster": 89752,
+  "fen": "r2qk2r/2pbbppp/p1np1n2/1p2p3/P3P3/1BP2N2/1P1P1PPP/RNBQR1K1 b kq - 0 9",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 9,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-012",
+  "cluster": 25819,
+  "fen": "r2qkb1r/1p3ppp/p1npbn2/4p1B1/4P3/N1N2P2/PPP3PP/R2QKB1R b KQkq - 3 9",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 9,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-013",
+  "cluster": 105540,
+  "fen": "rn1qk2r/pbppbppp/1p2pn2/8/2PP1B2/5NP1/PP2PPBP/RN1QK2R b KQkq - 4 6",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 6,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-014",
+  "cluster": 103043,
+  "fen": "rn1qkb1r/pp1bpp1p/3p1np1/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 3 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-015",
+  "cluster": 89860,
+  "fen": "rn1qkb1r/pp2pppp/2p2nb1/8/3P1B2/5NN1/PPP2PPP/R2QKB1R b KQkq - 6 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-016",
+  "cluster": 58379,
+  "fen": "rn1qkbnr/pp2pppp/2p3b1/8/3P1B2/6N1/PPP2PPP/R2QKBNR b KQkq - 4 6",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 6,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-017",
+  "cluster": 97597,
+  "fen": "rn1qkbnr/pp3ppp/2p1p1b1/8/3P3P/4B1N1/PPP2PP1/R2QKBNR b KQkq - 0 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-018",
+  "cluster": 31983,
+  "fen": "rnbq1rk1/1pp2pbp/3p1np1/p2Pp3/2P1P3/2N2N1P/PP2BPP1/R1BQK2R b KQ - 0 8",
+  "uses_in_scrape": 2,
+  "side_to_move": "b",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-019",
+  "cluster": 35852,
+  "fen": "rnbq1rk1/pp2bppp/4pn2/2ppN3/2P5/3P2P1/PP2PPBP/RNBQ1RK1 b - - 0 7",
+  "uses_in_scrape": 2,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-020",
+  "cluster": 70079,
+  "fen": "rnbq1rk1/ppp2pbp/3p1np1/8/2PNP3/2N1B3/PP2BPPP/R2QK2R b KQ - 0 8",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-021",
+  "cluster": 82026,
+  "fen": "rnbq1rk1/ppp2pbp/5np1/4p3/2P1P3/2N1BN2/PP2BPPP/R2QK2R b KQ - 1 8",
+  "uses_in_scrape": 2,
+  "side_to_move": "b",
+  "fullmove": 8,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-022",
+  "cluster": 83956,
+  "fen": "rnbq1rk1/ppp2ppp/5n2/3p4/1b1P4/2NBP3/PP2NPPP/R1BQK2R b KQ - 1 7",
+  "uses_in_scrape": 2,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-023",
+  "cluster": 87890,
+  "fen": "rnbqk2r/ppp1bppp/4pn2/3p4/2P5/P4NP1/1P1PPPBP/RNBQK2R b KQkq - 0 5",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 5,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-024",
+  "cluster": 15274,
+  "fen": "rnbqk2r/ppp1ppbp/6p1/8/3PP3/2P2N2/P4PPP/R1BQKB1R b KQkq - 2 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-025",
+  "cluster": 99495,
+  "fen": "rnbqkb1r/1p3ppp/p3pn2/2p5/2BP4/2N1PN2/PP3PPP/R1BQ1RK1 b kq - 1 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-026",
+  "cluster": 78211,
+  "fen": "rnbqkb1r/pp3ppp/2p5/3p4/3Pn3/3B1N2/PPP2PPP/RNBQK2R b KQkq - 1 7",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 7,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-027",
+  "cluster": 42446,
+  "fen": "rnbqkb1r/ppp2ppp/8/3p4/3Pn3/P4N2/1PP2PPP/RNBQKB1R b KQkq - 0 6",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 6,
+  "phase": "opening"
+ },
+ {
+  "id": "comp-028",
+  "cluster": 106669,
+  "fen": "rnbqr1k1/ppp2pbp/3p1np1/8/2PNP3/2N1B3/PPQ1BPPP/R3K2R b KQ - 2 9",
+  "uses_in_scrape": 1,
+  "side_to_move": "b",
+  "fullmove": 9,
+  "phase": "opening"
+ }
+]

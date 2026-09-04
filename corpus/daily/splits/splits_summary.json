@@ -1,0 +1,54 @@
+{
+ "source": "analysis\\top50_games.jsonl",
+ "source_sha256": "37f821f4dfadf3ff68be908e59a522add534d9e3eddcc1e5fcc93215f6a9644b",
+ "seed": 20260904,
+ "algorithm": "shuffle families with the seed, then assign each to the split furthest below its target share of games; families are never split",
+ "excluded_our_own_rated_starts": [
+  "rn1qkbnr/pp2pppp/2p3b1/8/3P4/4B1N1/PPP2PPP/R2QKBNR b KQkq - 4 6",
+  "rnbqk2r/p3nppp/1p2p3/2ppP3/P2P4/2P2N2/2P2PPP/R1BQKB1R b KQkq - 0 8",
+  "rnbqk2r/ppp2ppp/3b4/3p4/2PPn3/5N2/PP2BPPP/RNBQK2R b KQkq - 0 7"
+ ],
+ "families_total": 113,
+ "games_total": 141,
+ "splits": {
+  "competition_diagnostic": {
+   "target_share_of_games": 0.5,
+   "families": 51,
+   "games": 71,
+   "pairs_file": "corpus\\daily\\splits\\competition_diagnostic.json",
+   "fens_file": "corpus\\daily\\splits\\competition_diagnostic_fens.txt",
+   "fens_sha256": "dba94b1223900e8a5d325847b950485bdfd1295f03b690f104ad6cae35013041",
+   "side_to_move": {
+    "b": 39,
+    "w": 12
+   },
+   "repeated_families": 14
+  },
+  "competition_validation": {
+   "target_share_of_games": 0.25,
+   "families": 29,
+   "games": 35,
+   "pairs_file": "corpus\\daily\\splits\\competition_validation.json",
+   "fens_file": "corpus\\daily\\splits\\competition_validation_fens.txt",
+   "fens_sha256": "ef2189f5447b41bcab8db4b0eb58555c95254f85b4768de53df54ee2f125e4f4",
+   "side_to_move": {
+    "b": 27,
+    "w": 2
+   },
+   "repeated_families": 6
+  },
+  "competition_holdout": {
+   "target_share_of_games": 0.25,
+   "families": 33,
+   "games": 35,
+   "pairs_file": "corpus\\daily\\splits\\competition_holdout.json",
+   "fens_file": "corpus\\daily\\splits\\competition_holdout_fens.txt",
+   "fens_sha256": "a1806d7b05a6fbfa49b30f570c627ae9d7a719a9f94a302501e88a9c8f29d4af",
+   "side_to_move": {
+    "b": 26,
+    "w": 7
+   },
+   "repeated_families": 2
+  }
+ }
+}
