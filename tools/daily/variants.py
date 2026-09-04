@@ -8,6 +8,17 @@ variant searches each position at a fixed depth, and the oracle scores the
 position that results. Higher is better, and the oracle's own first choice is
 reported as the ceiling.
 
+**The mean loss is reported alongside robust statistics, and the robust ones
+are the ones to read.** A single position where one variant walks into a mate
+contributes ten thousand centipawns to that variant's total and about three
+hundred to a thirty-position bucket mean, which is larger than any real
+difference between two builds of the same engine. The first run of this tool on
+the tempo family produced exactly that: a validation endgame bucket reading 326
+for two variants and 24 for the other two, entirely from one position. The
+count of losses at or above 100 and 300 centipawns, the median, and a mean with
+each loss clamped at 1,000 are printed for that reason, and the per-position
+losses are written to the JSONL so the outliers can be found.
+
 Positions are split by source cluster, never by row, so a variant chosen on the
 diagnostic half has not seen the validation half. The validation column is
 printed with both halves so the split is visible, but the intended use is to
@@ -151,13 +162,15 @@ def main() -> None:
     for half in ("diagnostic", "validation"):
         rows = [r for r in positions if r["half"] == half]
         lines.append(f"-- {half} ({len(rows)} positions) --")
-        lines.append(f"   {'engine':<44} {'mean loss':>10} {'median':>8} {'>=100 cp':>9} {'= oracle move':>14} {'mean nodes':>11}")
+        lines.append(f"   {'engine':<44} {'mean':>8} {'clamped':>8} {'median':>7} {'>=100':>6} {'>=300':>6} {'= oracle':>9} {'nodes':>10}")
         for name in names:
             losses = [loss(r, name) for r in rows]
             agree = sum(1 for r in rows if r[name]["move"] == r["sf_best"])
-            lines.append(f"   {name:<44} {statistics.mean(losses):>10.1f} {statistics.median(losses):>8.0f} "
-                         f"{sum(1 for x in losses if x >= 100):>9} {agree:>10}/{len(rows):<3} "
-                         f"{statistics.mean(r[name]['nodes'] or 0 for r in rows):>11,.0f}")
+            lines.append(f"   {name:<44} {statistics.mean(losses):>8.1f} "
+                         f"{statistics.mean(min(x, 1000) for x in losses):>8.1f} {statistics.median(losses):>7.0f} "
+                         f"{sum(1 for x in losses if x >= 100):>6} {sum(1 for x in losses if x >= 300):>6} "
+                         f"{agree:>5}/{len(rows):<3} "
+                         f"{statistics.mean(r[name]['nodes'] or 0 for r in rows):>10,.0f}")
         lines.append("")
         for phase in ("opening", "middlegame", "late", "endgame"):
             sub = [r for r in rows if r["phase"] == phase]

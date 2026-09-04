@@ -1,0 +1,28 @@
+== VARIANT MOVE QUALITY: 240 positions at depth 6, oracle at 1000000 nodes ==
+Loss is the oracle score of its first choice minus the oracle score after the variant's move, floored at zero.
+Split by source cluster: even clusters diagnostic, odd validation. Select on diagnostic, read validation once.
+
+-- diagnostic (120 positions) --
+   engine                                        mean loss   median  >=100 cp  = oracle move  mean nodes
+   champions\v2_1_kingpawn                           125.2        0        20         63/120      43,728
+   champions\v2_1_kingpawn_tempo16                   129.2        0        23         64/120      45,921
+   champions\v2_1_kingpawn_tempo24                   118.6        0        19         63/120      49,887
+   champions\v2_1_kingpawn_tempo32                   116.8        0        21         59/120      54,654
+
+   opening      n=30   champions\v2_1_kingpawn 56  champions\v2_1_kingpawn_tempo16 64  champions\v2_1_kingpawn_tempo24 50  champions\v2_1_kingpawn_tempo32 51
+   middlegame   n=30   champions\v2_1_kingpawn 60  champions\v2_1_kingpawn_tempo16 60  champions\v2_1_kingpawn_tempo24 38  champions\v2_1_kingpawn_tempo32 43
+   late         n=30   champions\v2_1_kingpawn 326  champions\v2_1_kingpawn_tempo16 325  champions\v2_1_kingpawn_tempo24 317  champions\v2_1_kingpawn_tempo32 323
+   endgame      n=30   champions\v2_1_kingpawn 59  champions\v2_1_kingpawn_tempo16 67  champions\v2_1_kingpawn_tempo24 69  champions\v2_1_kingpawn_tempo32 50
+
+-- validation (120 positions) --
+   engine                                        mean loss   median  >=100 cp  = oracle move  mean nodes
+   champions\v2_1_kingpawn                           120.6        0        18         51/120      53,580
+   champions\v2_1_kingpawn_tempo16                   119.2        0        18         49/120      57,534
+   champions\v2_1_kingpawn_tempo24                    41.5        0        17         55/120      60,313
+   champions\v2_1_kingpawn_tempo32                    39.7        0        17         53/120      63,857
+
+   opening      n=30   champions\v2_1_kingpawn 77  champions\v2_1_kingpawn_tempo16 62  champions\v2_1_kingpawn_tempo24 68  champions\v2_1_kingpawn_tempo32 60
+   middlegame   n=30   champions\v2_1_kingpawn 54  champions\v2_1_kingpawn_tempo16 57  champions\v2_1_kingpawn_tempo24 49  champions\v2_1_kingpawn_tempo32 49
+   late         n=30   champions\v2_1_kingpawn 25  champions\v2_1_kingpawn_tempo16 25  champions\v2_1_kingpawn_tempo24 25  champions\v2_1_kingpawn_tempo32 25
+   endgame      n=30   champions\v2_1_kingpawn 326  champions\v2_1_kingpawn_tempo16 334  champions\v2_1_kingpawn_tempo24 24  champions\v2_1_kingpawn_tempo32 24
+
