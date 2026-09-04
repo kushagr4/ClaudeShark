@@ -19,3 +19,6 @@ corpus/tune/engines/
 
 # nohup stdout of long runs; the .txt/.json reports beside them are the record.
 corpus/**/*.log
+
+# Transient single-writer ownership records for experiment outputs.
+*.jsonl.owner
