@@ -1,0 +1,10 @@
+== WHO IS WHICH COLOUR: champions\rated_v1 at depth 6 against the played moves ==
+
+round1-the-castle-gambit  (0-1, checkmate)
+   White  agreement  25/29  (86.2%)   non-forced  23/27  (85.2%)
+   Black  agreement  14/30  (46.7%)   non-forced  13/29  (44.8%)
+
+round2-trio-duo  (0-1, checkmate)
+   White  agreement  11/28  (39.3%)   non-forced   8/23  (34.8%)
+   Black  agreement  29/29  (100.0%)   non-forced  27/27  (100.0%)
+

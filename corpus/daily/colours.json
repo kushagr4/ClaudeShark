@@ -1,0 +1,10 @@
+{
+  "round1-the-castle-gambit": {
+    "colour": "w",
+    "evidence": "rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves, against 14/30 (46.7%) of Black's"
+  },
+  "round2-trio-duo": {
+    "colour": "b",
+    "evidence": "rated-v1 at depth 6 reproduces 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves, against 11/28 (39.3%) of White's"
+  }
+}

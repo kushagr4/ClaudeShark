@@ -1,0 +1,53 @@
+== REAL RATED GAMES: PER-MOVE ANALYSIS ==
+Colour attribution from tools.daily.whoami (move agreement), snapshots at depth 6.
+
+================================================================================================
+round1-the-castle-gambit   ClaudeShark played White   result 0-1 (LOSS for ClaudeShark)   termination checkmate
+   attribution: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves, against 14/30 (46.7%) of Black's
+   start FEN  rnbqk2r/p3nppp/1p2p3/2ppP3/P2P4/2P2N2/2P2PPP/R1BQKB1R b KQkq - 0 8
+   increment 0.5s; ClaudeShark spend mean 2.67s max 7.58s; opponent mean 3.74s max 13.30s
+   first inaccuracy (>=50)          move 11 O-O      (ply 6) SF before   +72 loss    62  Stockfish preferred e5f6
+   first serious error (>=100)      move 21 Bb2      (ply 26) SF before  -276 loss   145  Stockfish preferred a1a3
+   largest error                    move 31 Qb3      (ply 46) SF before -1017 loss  8983  Stockfish preferred c4d5
+   first position at -100 or worse  move 17 g3       (ply 18) SF before  -112 loss    96  Stockfish preferred f3h4
+   first position at -300 or worse  move 22 Nxd4     (ply 28) SF before  -328 loss   129  Stockfish preferred b2d4
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn     | V2.2a low-material
+       11 O-O       2.523    +72    62 e5f6    | e1g1 =   +74 st  +79 | e1g1 =   +74 st  +79 | e1g1 =   +74 st  +79
+       15 c4        2.737    +35    66 a4a5    | c3c4 =   +68 st +126 | c3c4 =   +68 st +126 | c3c4 =   +68 st +126
+       16 Bb2       2.161    -36    68 c4d5    | c1b2 =   +66 st  +91 | c1b2 =   +66 st  +91 | c1b2 =   +66 st  +91
+       17 g3        4.219   -112    96 f3h4    | g2g3 =   +51 st  +91 | g2g3 =   +51 st  +91 | g2g3 =   +51 st  +91
+       21 Bb2       1.793   -276   145 a1a3    | c1c2      -7 st  +47 | c1c2      -7 st  +47 | c1c2      -7 st  +47
+       22 Nxd4      1.791   -328   129 b2d4    | f3d4 =   -60 st   +6 | f3d4 =   -63 st   +6 | f3d4 =   -63 st   +6
+       23 Kh2       4.386   -452    79 e2g4    | e2d3     -64 st  +17 | e2d3     -64 st  +17 | e2d3     -64 st  +17
+       29 Bxe6+     2.288   -582   163 g4f3    | c3b3    -283 st -137 | c3b3    -283 st -137 | c3b3    -283 st -137
+       30 Bd5       1.297   -830   197 e6c8    | e6d5 =  -591 st  -17 | e6d5 =  -595 st  -17 | e6d5 =  -595 st  -17
+       31 Qb3       1.534  -1017  8983 c4d5    | a3f8    -731 st -408 | c3b2    -650 st -408 | c3b2    -650 st -408
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+================================================================================================
+round2-trio-duo   ClaudeShark played Black   result 0-1 (WIN for ClaudeShark)   termination checkmate
+   attribution: rated-v1 at depth 6 reproduces 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves, against 11/28 (39.3%) of White's
+   start FEN  rn1qkbnr/pp2pppp/2p3b1/8/3P4/4B1N1/PPP2PPP/R2QKBNR b KQkq - 4 6
+   increment 0.5s; ClaudeShark spend mean 2.68s max 6.40s; opponent mean 2.41s max 2.51s
+   first inaccuracy (>=50)          move 9 Qb6      (ply 7) SF before    +8 loss    89  Stockfish preferred b8d7
+   first serious error (>=100)      move 13 Bc3      (ply 15) SF before  +199 loss   113  Stockfish preferred b8d7
+   largest error                    move 18 O-O      (ply 25) SF before    +0 loss   149  Stockfish preferred f6e7
+   first position at -100 or worse  move 19 Qg5      (ply 27) SF before  -103 loss    65  Stockfish preferred f6g5
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 1
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn     | V2.2a low-material
+        9 Qb6       2.898     +8    89 b8d7    | d8b6 =   +19 st  +20 | d8b6 =   +21 st  +21 | d8b6 =   +21 st  +21
+       13 Bc3        2.67   +199   113 b8d7    | b4c3 =  +131 st  +63 | b4c3 =  +131 st  +63 | b4c3 =  +131 st  +63
+       15 c5        2.458   +127    68 b6c7    | c6c5 =  +105 st +191 | c6c5 =  +105 st +191 | c6c5 =  +105 st +191
+       17 Qf6+      2.409    +85    71 e8g8    | b6f6 =  +112 st +137 | b6f6 =  +112 st +137 | b6f6 =  +112 st +137
+       18 O-O       2.642     +0   149 f6e7    | e8g8 =  +128 st +152 | e8g8 =  +128 st +152 | e8g8 =  +128 st +152
+       19 Qg5       3.034   -103    65 f6g5    | f6g5 =  +111 st +191 | f6g5 =  +111 st +191 | f6g5 =  +111 st +191
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+

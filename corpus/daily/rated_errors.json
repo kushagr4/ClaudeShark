@@ -1,0 +1,130 @@
+[
+ {
+  "label": "round1 move 11 O-O",
+  "fen": "r1bq1rk1/p2nn1pp/1p2pp2/2ppP3/P2P4/2P2N1P/2P1BPP1/R1BQK2R w KQ - 0 11",
+  "played": "e1g1",
+  "sf_best": "e5f6",
+  "cp_loss": 62,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 15 c4",
+  "fen": "rnb2rk1/p1q1n1p1/1p2p2p/2ppP3/P7/2P2N1P/2P1BPP1/R1BQ1RK1 w - - 2 15",
+  "played": "c3c4",
+  "sf_best": "a4a5",
+  "cp_loss": 66,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 16 Bb2",
+  "fen": "r1b2rk1/p1q1n1p1/1pn1p2p/2ppP3/P1P5/5N1P/2P1BPP1/R1BQ1RK1 w - - 1 16",
+  "played": "c1b2",
+  "sf_best": "c4d5",
+  "cp_loss": 68,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 17 g3",
+  "fen": "r4rk1/pbq1n1p1/1pn1p2p/2ppP3/P1P5/5N1P/1BP1BPP1/R2Q1RK1 w - - 3 17",
+  "played": "g2g3",
+  "sf_best": "f3h4",
+  "cp_loss": 96,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 21 Bb2",
+  "fen": "3r1rk1/pbq3p1/1pn1p2p/2p1Pn2/P1P5/2B2NPP/4BP2/R1Q2RK1 w - - 3 21",
+  "played": "c3b2",
+  "sf_best": "a1a3",
+  "cp_loss": 145,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 22 Nxd4",
+  "fen": "3r1rk1/pbq3p1/1p2p2p/2p1Pn2/P1Pn4/5NPP/1B2BP2/R1Q2RK1 w - - 5 22",
+  "played": "f3d4",
+  "sf_best": "b2d4",
+  "cp_loss": 129,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 23 Kh2",
+  "fen": "3r1rk1/pbq3p1/1p2p2p/4Pn2/P1Pp4/6PP/1B2BP2/R1Q2RK1 w - - 0 23",
+  "played": "g1h2",
+  "sf_best": "e2g4",
+  "cp_loss": 79,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 29 Bxe6+",
+  "fen": "3r1rk1/pb4p1/1p2p2p/4P3/P1P1qPB1/B1Q3PP/3pn2K/R5R1 w - - 3 29",
+  "played": "g4e6",
+  "sf_best": "g4f3",
+  "cp_loss": 163,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 30 Bd5",
+  "fen": "3r1r2/pb4pk/1p2B2p/4P3/P1P1qP2/B1Q3PP/3pn2K/R5R1 w - - 1 30",
+  "played": "e6d5",
+  "sf_best": "e6c8",
+  "cp_loss": 197,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round1 move 31 Qb3",
+  "fen": "5r2/pb4pk/1p5p/3rP3/P1P1qP2/B1Q3PP/3pn2K/R5R1 w - - 0 31",
+  "played": "c3b3",
+  "sf_best": "c4d5",
+  "cp_loss": 8983,
+  "game": "round1-the-castle-gambit"
+ },
+ {
+  "label": "round2 move 9 Qb6",
+  "fen": "rn1qkb1r/pp2pppp/2p3b1/8/3P1N2/4P1N1/PPP3PP/R2QKB1R b KQkq - 0 9",
+  "played": "d8b6",
+  "sf_best": "b8d7",
+  "cp_loss": 89,
+  "game": "round2-trio-duo"
+ },
+ {
+  "label": "round2 move 13 Bc3",
+  "fen": "rn2k2r/pp3pp1/1qp3p1/4p3/1bBP4/1P2P1N1/P1P3PP/R2Q1K1R b kq - 3 13",
+  "played": "b4c3",
+  "sf_best": "b8d7",
+  "cp_loss": 113,
+  "game": "round2-trio-duo"
+ },
+ {
+  "label": "round2 move 15 c5",
+  "fen": "rn2k2r/pp3pp1/1qp3p1/8/2Bp4/1Pb1P3/P1P1N1PP/2RQ1K1R b kq - 1 15",
+  "played": "c6c5",
+  "sf_best": "b6c7",
+  "cp_loss": 68,
+  "game": "round2-trio-duo"
+ },
+ {
+  "label": "round2 move 17 Qf6+",
+  "fen": "rn2k2r/pp3pp1/1q4p1/2p5/2B5/1PpQP3/P1P3PP/2R2K1R b kq - 1 17",
+  "played": "b6f6",
+  "sf_best": "e8g8",
+  "cp_loss": 71,
+  "game": "round2-trio-duo"
+ },
+ {
+  "label": "round2 move 18 O-O",
+  "fen": "rn2k2r/pp3pp1/5qp1/2p5/2B5/1PpQP3/P1P1K1PP/2R4R b kq - 3 18",
+  "played": "e8g8",
+  "sf_best": "f6e7",
+  "cp_loss": 149,
+  "game": "round2-trio-duo"
+ },
+ {
+  "label": "round2 move 19 Qg5",
+  "fen": "rn3rk1/pp3pp1/5qp1/2p5/2B5/1PpQP3/P1P1K1PP/5R1R b - - 5 19",
+  "played": "f6g5",
+  "sf_best": "f6g5",
+  "cp_loss": 65,
+  "game": "round2-trio-duo"
+ }
+]
