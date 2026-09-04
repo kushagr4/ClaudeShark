@@ -1,0 +1,63 @@
+== VERIFICATION OF THE PUBLIC CHESSATHON SCRAPE ==
+
+artifact hashes:
+   PUBLIC_DATA_SOURCES.md                 3,958 bytes  sha256 079d9370e251fa6d77c3958fe074ffefe75ada8b00a47d28ea68064f511d960a
+   TOP50_OPUS_HANDOFF.md                 33,829 bytes  sha256 912c0bd03a9cef6ae0d7cf666fa02758c739534484681fcec6a0a29e633588f1
+   TOP_GAMES_FOR_CLAUDESHARK.md          21,301 bytes  sha256 06edd41d0dbe512753bfc0afc137525daf66a3ababb158331843f0ae50d9c83b
+   top50_analysis.json                   69,247 bytes  sha256 d57d6fe5593270facd93c9e8b8d891313587ace0fa8acf2a97a38e5cbcf3205b
+   top50_collection_log.json                179 bytes  sha256 6ddaf857aa54190adbe2982e2527aa2e48ed2798675db9f54898b5f486260492
+   top50_games.jsonl                  1,739,708 bytes  sha256 37f821f4dfadf3ff68be908e59a522add534d9e3eddcc1e5fcc93215f6a9644b
+   top50_leaderboard.csv                  7,837 bytes  sha256 b82d73251500ff24072b8a7affea999f6e8711ff5ce1ace77a97edc7354c3266
+   top50_leaderboard.json                21,486 bytes  sha256 5bb9b5e29bd4ecc2a4365dce4aaf1d581547c76110d09563319af79bd82b82d8
+   top50_pgn/                         143 files
+   collection log: {
+  "scraped_at_utc": "2026-09-04T10:27:59+00:00",
+  "completed_at_utc": "2026-09-04T10:29:18+00:00",
+  "completed_games_written": 143,
+  "live_games_without_final_pgn": []
+}
+
+records 143, distinct game_id 143, duplicated ids 0
+PGN replay: 143 of 143 replay legally from their recorded start
+   1 record(s) replay legally but contain NO MOVES:
+      01608c50-769c-40c7-95ef-7b2c2df92563  termination='init'  canonical_result='0-1'
+
+== RESULTS RECOMPUTED FROM STRUCTURED FIELDS ==
+   winner_colour: {'black': 63, 'draw': 13, 'white': 67}
+   canonical_result: {'0-1': 63, '½-½': 13, '1-0': 67}
+   winner_colour and canonical_result agree on 143 of 143
+
+   ALL 143 records:            White 67, Black 63, drawn 13
+   142 records WITH MOVES:  White 67, Black 62, drawn 13   White scores 51.76%
+   The two rows differ by the move-less record(s) listed above; both are reported
+   rather than one being chosen, because that is the whole of the discrepancy.
+
+== COLOURS AND STARTING POSITIONS ==
+   side to move in the start FEN: {'b': 122, 'w': 21}
+   Black to move: n= 121  White 56 draw 11 Black 54  White scores 50.83%
+   White to move: n=  21  White 11 draw 2 Black 8  White scores 57.14%
+
+== EXACT-FEN FAMILIES ==
+   114 distinct starting FENs; 23 used more than once, covering 52 games
+   4x  {'white': 2, 'black': 2}  rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6
+   3x  {'white': 2, 'black': 1}  rnbqk2r/pp2nppp/4p3/2ppP3/3P4/P1P5/2P2PPP/1RBQKBNR b Kkq - 2 7
+   3x  {'white': 1, 'black': 1, 'draw': 1}  r1bq1rk1/pp1pppbp/2n2np1/2p5/2PP4/2N1PNP1/PP3PBP/R1BQK2R b KQ - 0 7
+   3x  {'white': 1, 'black': 2}  rnbq1rk1/ppp1ppbp/3p1np1/8/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 b - - 5 6
+   3x  {'draw': 1, 'black': 1, 'white': 1}  1rbqk2r/pp2ppbp/2np1np1/2p5/P3P3/2NP1NP1/1PP2PBP/R1BQ1RK1 b k - 0 8
+   2x  {'white': 1, 'black': 1}  r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/PB1P1N2/1PP2PPP/RNBQR1K1 b - - 0 9
+   2x  {'black': 2}  rnbqk2r/ppp2ppp/3b4/3p4/3Pn3/2P2N1P/PP2BPP1/RNBQK2R b KQkq - 2 8
+   2x  {'black': 1, 'white': 1}  r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5P2/2NB1N2/PPP3PP/R1BQK2R b KQkq - 1 8
+
+== RANDOM SAMPLE CROSS-CHECK (12 records against their own PGN) ==
+   OK  6f23d17e-e9cf-45e2-bbe1-8d8abd265363  pgn Result '0-1' vs record '0-1'  winner 'black'  replay: 59 plies legal
+   OK  d17900b6-0a0d-4796-909f-2d4b80813c9c  pgn Result '1-0' vs record '1-0'  winner 'white'  replay: 30 plies legal
+   OK  c2018842-c71e-420c-b87a-a786b108ac7c  pgn Result '0-1' vs record '0-1'  winner 'black'  replay: 65 plies legal
+   OK  1eaf38d7-0b30-4ef7-8bd8-8a8aca45e900  pgn Result '1/2-1/2' vs record '½-½'  winner 'draw'  replay: 133 plies legal
+   OK  054e0a15-5c97-4474-9e14-52f0bda568de  pgn Result '0-1' vs record '0-1'  winner 'black'  replay: 63 plies legal
+   OK  fdbdb960-8b53-41fb-a4a9-d3f4d865ad53  pgn Result '1-0' vs record '1-0'  winner 'white'  replay: 74 plies legal
+   OK  110482de-a861-48b8-94f6-dd029e900b2b  pgn Result '1-0' vs record '1-0'  winner 'white'  replay: 146 plies legal
+   OK  01af9110-4240-45c8-bd00-cc57a7800e60  pgn Result '0-1' vs record '0-1'  winner 'black'  replay: 65 plies legal
+   OK  8c788d31-d6ee-4289-8c5f-6c62348ae2b8  pgn Result '1-0' vs record '1-0'  winner 'white'  replay: 30 plies legal
+   OK  c109b6ee-cab8-4655-8683-a9ca56cb3711  pgn Result '1-0' vs record '1-0'  winner 'white'  replay: 96 plies legal
+   OK  06a169d9-c50e-4f99-b478-b5e74f9e615b  pgn Result '1/2-1/2' vs record '½-½'  winner 'draw'  replay: 74 plies legal
+   OK  2a58bffb-e8d5-4654-af80-3f9419a5da1b  pgn Result '1-0' vs record '1-0'  winner 'white'  replay: 68 plies legal

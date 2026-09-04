@@ -1,0 +1,32 @@
+== FIELD-WIDE COLOUR STATISTICS: 143 scraped rows, 143 unique games, 142 with a result (1 dropped) ==
+Source: analysis\top50_games.jsonl. Read-only; results, starting positions and ratings are taken as recorded.
+
+== OVERALL ==
+   WHITE +67 =13 -62   n=142   White scores 51.8%   Elo +12   95% Wilson 43.6%..59.8%
+   BLACK +62 =13 -67   Black scores 48.2%
+   A field-wide Black advantage would show as a White score materially below 50%.
+
+== STARTING POSITIONS ==
+   side to move in the start FEN: {'b': 121, 'w': 21}
+   start FEN with Black to move: n= 121  White scores  50.8%  95% Wilson 42.0%..59.6%
+   start FEN with White to move: n=  21  White scores  57.1%  95% Wilson 36.5%..75.5%
+   full-move number of the start position: {5: 4, 6: 36, 7: 43, 8: 41, 9: 11, 10: 7}
+
+== IS IT THE RATING RATHER THAN THE COLOUR? ==
+   White rated 100+ higher    n=  52  White scores  96.2%  95% Wilson 87.0%..98.9%
+   White rated 25-99 higher   n=   5  White scores 100.0%  95% Wilson 56.6%..100.0%
+   within 25 points           n=  30  White scores  60.0%  95% Wilson 42.3%..75.4%
+   Black rated 25-99 higher   n=   3  White scores   0.0%  95% Wilson 0.0%..56.1%
+   Black rated 100+ higher    n=  51  White scores   1.0%  95% Wilson 0.1%..8.7%
+   mean rating gap (White minus Black) over 141 games: +10.6
+   A pool in which White is on average the lower-rated side would produce a
+   colour effect that is really a pairing effect.
+
+== BY ROUND ==
+   Rated 1      n=  46  White scores  53.3%
+   Rated 2      n=  35  White scores  48.6%
+   Rated 3      n=  36  White scores  44.4%
+   Rated 4      n=  25  White scores  64.0%
+
+== TERMINATIONS ==
+   {'checkmate': 127, 'threefold_repetition': 10, 'insufficient_material': 2, 'adjudication': 1, 'fifty_moves': 1, 'flag': 1}

@@ -1,0 +1,21 @@
+{
+ "provenance": {
+  "engine": "Stockfish 18",
+  "binary": "C:\\Users\\epick\\engines\\stockfish\\stockfish-windows-x86-64-avx2.exe",
+  "binary_sha256": "c86215fa1977d53b82ed854540a4c7b025be4cd042276c85ba3de53fb9118911",
+  "options": {
+   "Threads": 1,
+   "Hash": 256,
+   "UCI_ShowWDL": true
+  },
+  "limit": "nodes (fixed); hash cleared before each position"
+ },
+ "source": "analysis\\top50_games.jsonl",
+ "distinct_positions": 114,
+ "kept": 113,
+ "excluded_our_own_starts": [
+  "rn1qkbnr/pp2pppp/2p3b1/8/3P4/4B1N1/PPP2PPP/R2QKBNR b KQkq - 4 6",
+  "rnbqk2r/p3nppp/1p2p3/2ppP3/P2P4/2P2N2/2P2PPP/R1BQKB1R b KQkq - 0 8",
+  "rnbqk2r/ppp2ppp/3b4/3p4/2PPn3/5N2/PP2BPPP/RNBQK2R b KQkq - 0 7"
+ ]
+}
