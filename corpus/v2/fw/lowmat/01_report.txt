@@ -1,0 +1,222 @@
+== LOW-MATERIAL FAMILY EXPANSION: 673 new positions ({'game': 73, 'synthetic': 600}) + 310 reference rows; oracle 1000000 nodes; V2.1 ==
+scores from the side with the nominal surplus ('strong'); win/loss = SF >= +300 / <= -300 or mate; draw = |SF| <= 60; false win = draw with V2.1 depth-6 root >= +150
+
+== REAL-GAME REACH over the 1,000 retained games (5 x 200), all engines' moves ==
+   family   games per 1000  moves activation false-win traj (root>=150, |SF|<=60)
+   KRB-KR       4      4.0     90      0.18%                                    4
+   KRN-KR       1      1.0      1      0.00%                                    0
+   KR-KB        6      6.0     75      0.15%                                    2
+   KR-KN        3      3.0     37      0.07%                                    1
+   KB-KP       12     12.0    146      0.29%                                    3
+   KN-KP        8      8.0     92      0.18%                                    1
+   KB-KPP       9      9.0    102      0.20%                                    6
+   KN-KPP       8      8.0     75      0.15%                                    3
+   ALL         38     38.0    618      1.21%                                   19
+   (1000 games, 51153 moves)
+
+-- KRB-KR: 159 positions (9 from 3 games); win 38, draw 121, loss 0, other 0; false wins 84 of 121 draws (69%); tactical wins 38, strategic wins 0
+   tactical flags on the wins: forced_mate 18, material_change_in_pv6 36, hanging_rook_weak 33, hanging_minor 7, promotion_in_pv8 0, trapped_king_weak 1, in_check 5
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw       121     +311      +1     -2        +0    +310   +213   +198   +198   +198   +212   42     -1
+   false win   84     +311      +0     +0        +0    +311   +313   +318   +320   +321   +321   31     +2
+   win         38     +311      +5     +7        +0    +322   +693   +768   +794   +804  +5020    7  +1396
+   depth-6 root on the draws: <100 37, 100-200 0, 200-300 12, >=300 72; on the wins: <100 0, >=300 38; on the losses: > -100 0 of 0
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off            +310     +198     0/84      0/38     0/38        0/0          0/38        0/0
+      1/2            +154      +43    18/84      0/38     0/38        0/0          0/38        0/0
+      1/4             +77      -35    84/84      0/38     1/38        0/0          0/38        0/0
+      1/8             +38      -74    84/84      0/38     1/38        0/0          0/38        0/0
+   retained game positions (strong side's view):
+      postmortem:92:cB           ply  92 draw  SF    +1 static +309 d6 +323 d10 329  tactical False  result 0.5  fw-corpus False  8/R7/8/6k1/8/4K3/B7/3r4 w - - 0 67
+      postmortem:92:cB           ply  96 draw  SF    +0 static +323 d6 +322 d10 321  tactical False  result 0.5  fw-corpus False  8/4R3/8/5k2/2B5/4K3/8/4r3 w - - 4 69
+      postmortem:92:cB           ply 100 draw  SF    +0 static +323 d6 +325 d10 321  tactical False  result 0.5  fw-corpus False  4R3/8/8/5k2/8/4K3/4B3/4r3 w - - 8 71
+      mopup:16:cW                ply  55 draw  SF    +0 static +271 d6 +298 d10 312  tactical False  result 0.5  fw-corpus False  8/2R1bk2/8/8/2K4r/8/8/8 w - - 0 68
+      mopup:16:cW                ply  59 draw  SF    +0 static +287 d6 +303 d10 304  tactical False  result 0.5  fw-corpus False  8/2R1bk2/8/4K3/8/8/5r2/8 w - - 4 70
+      mopup:16:cW                ply  63 draw  SF    -6 static +287 d6 +303 d10 306  tactical False  result 0.5  fw-corpus False  8/3Rbk2/8/5K2/8/8/2r5/8 w - - 8 72
+      v2:69:cB                   ply 112 draw  SF    +1 static +352 d6 +328 d10 324  tactical True  result 0.5  fw-corpus False  8/1kb5/8/8/7R/7K/5r2/8 b - - 0 71
+      v2:69:cB                   ply 116 draw  SF   +14 static +342 d6 +318 d10 324  tactical False  result 0.5  fw-corpus False  7R/8/2k5/8/5bK1/8/5r2/8 b - - 4 73
+      v2:69:cB                   ply 120 draw  SF   +16 static +324 d6 +328 d10 323  tactical False  result 0.5  fw-corpus False  R7/8/8/3kb1K1/8/8/5r2/8 b - - 8 75
+
+-- KRN-KR: 151 positions (1 from 1 games); win 29, draw 118, loss 4, other 0; false wins 79 of 118 draws (67%); tactical wins 29, strategic wins 0
+   tactical flags on the wins: forced_mate 12, material_change_in_pv6 29, hanging_rook_weak 28, hanging_minor 7, promotion_in_pv8 0, trapped_king_weak 0, in_check 6
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw       118     +292     -18     -3        +0    +271   +156   +160   +165   +166   +146   31     -1
+   false win   79     +292     -20     -1        +0    +271   +272   +284   +293   +294   +300   21     +1
+   win         29     +292      -3     +8        +0    +298   +708   +734   +746   +756  +4922    7  +1150
+   loss         4     +292     -42     -8        +0    +242   -382   -391   -395   -410   -453    3   -805
+   depth-6 root on the draws: <100 39, 100-200 0, 200-300 45, >=300 34; on the wins: <100 0, >=300 29; on the losses: > -100 0 of 4
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off            +271     +165     0/79      0/29     0/29        0/0          0/29        0/4
+      1/2            +125      +19    40/79      0/29     0/29        0/0          0/29        0/4
+      1/4             +52      -54    79/79      0/29     0/29        0/0          0/29        0/4
+      1/8             +15      -90    79/79      0/29     0/29        0/0          0/29        0/4
+   retained game positions (strong side's view):
+      passed:46:cB               ply  94 win   SF +10000 static +370 d6 +846 d10 849  tactical True  result 1.0  fw-corpus False  3R4/1r6/2K1N3/8/8/8/k7/8 w - - 0 75
+
+-- KR-KB: 110 positions (10 from 6 games); win 14, draw 96, loss 0, other 0; false wins 83 of 96 draws (86%); tactical wins 13, strategic wins 1
+   tactical flags on the wins: forced_mate 10, material_change_in_pv6 13, hanging_rook_weak 0, hanging_minor 0, promotion_in_pv8 0, trapped_king_weak 0, in_check 3
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw        96     +202      +4     -1        +0    +205   +179   +183   +185   +186   +179   25    +19
+   false win   83     +202      +5     +0        +0    +207   +207   +212   +214   +215   +213   21    +22
+   win         14     +202      -1     +7        +0    +208   +417   +484   +494   +501   +477    5  +1678
+   strategic    1     +202     +50     +8        +0    +260   +260   +252   +245   +240   +244    1  +2000
+   depth-6 root on the draws: <100 13, 100-200 22, 200-300 61, >=300 0; on the wins: <100 0, >=300 13; on the losses: > -100 0 of 0
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off            +205     +185     0/83      0/14     0/14        0/1          0/13        0/0
+      1/2            +104      +84    81/83      0/14     1/14        0/1          0/13        0/0
+      1/4             +53      +33    83/83      1/14     1/14        1/1          0/13        0/0
+      1/8             +28       +8    83/83      1/14     1/14        1/1          0/13        0/0
+   retained game positions (strong side's view):
+      postmortem:71:cW           ply  35 draw  SF   +16 static +237 d6 +231 d10 225  tactical False  result 0.5  fw-corpus False  8/8/3r4/8/4B3/6k1/8/5K2 w - - 0 56
+      postmortem:71:cW           ply  39 draw  SF   +23 static +229 d6 +224 d10 226  tactical False  result 0.5  fw-corpus False  8/8/8/8/4B3/4K1k1/8/3r4 w - - 4 58
+      postmortem:71:cW           ply  43 draw  SF   +14 static +219 d6 +218 d10 215  tactical False  result 0.5  fw-corpus False  8/8/8/8/4K3/3B2k1/r7/8 w - - 8 60
+      postmortem:71:cB           ply  55 draw  SF    +2 static +208 d6   +0 d10 0  tactical True  result 0.5  fw-corpus False  8/rB6/1K6/8/8/6k1/8/8 w - - 0 66
+      mopup:42:cB                ply  52 win   SF +10000 static +224 d6 +530 d10 537  tactical True  result 1.0  fw-corpus False  5Rb1/8/8/8/6k1/4K3/8/8 w - - 0 62
+      passed:39:cB               ply  90 draw  SF    +0 static +141 d6   +0 d10 0  tactical True  result 0.5  fw-corpus False  8/2k2K2/r7/8/2B5/8/8/8 w - - 0 83
+      v2:71:cW                   ply  24 draw  SF   +20 static +177 d6 +200 d10 207  tactical False  result 0.5  fw-corpus False  7k/5B2/8/3r4/6K1/8/8/8 b - - 0 50
+      v2:71:cW                   ply  28 draw  SF   +29 static +198 d6 +211 d10 217  tactical False  result 0.5  fw-corpus False  8/6k1/8/2r5/4B1K1/8/8/8 b - - 4 52
+      v2:71:cW                   ply  32 draw  SF   +26 static +207 d6 +218 d10 232  tactical False  result 0.5  fw-corpus False  8/8/5k2/8/2r1B3/4K3/8/8 b - - 8 54
+      v2:42:cB                   ply  79 draw  SF    +0 static +215 d6   +0 d10 0  tactical True  result 0.5  fw-corpus False  8/8/1K6/6R1/b6k/8/8/8 b - - 0 75
+
+-- KR-KN: 107 positions (7 from 3 games); win 31, draw 76, loss 0, other 0; false wins 62 of 76 draws (82%); tactical wins 26, strategic wins 5
+   tactical flags on the wins: forced_mate 12, material_change_in_pv6 26, hanging_rook_weak 0, hanging_minor 0, promotion_in_pv8 0, trapped_king_weak 1, in_check 2
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw        76     +219     +12     -3        +0    +229   +191   +185   +187   +187   +191   19    +11
+   false win   62     +219     +13     -2        +0    +230   +231   +227   +229   +229   +227   16    +13
+   win         31     +219     +30     +6        +0    +255  +1352  +1418  +1436  +1451   +492    8  +1190
+   strategic    5     +219     +45     +2        +0    +267   +267   +252   +300   +349   +384    2   +482
+   depth-6 root on the draws: <100 14, 100-200 4, 200-300 58, >=300 0; on the wins: <100 0, >=300 27; on the losses: > -100 0 of 0
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off            +229     +187     0/62      0/31     0/31        0/5          0/26        0/0
+      1/2            +119      +78    56/62      0/31     4/31        0/5          0/26        0/0
+      1/4             +64      +23    62/62      3/31     4/31        3/5          0/26        0/0
+      1/8             +37       -4    62/62      4/31     4/31        4/5          0/26        0/0
+   retained game positions (strong side's view):
+      postmortem:34:cW           ply  49 win   SF  +677 static +274 d6 +526 d10 537  tactical True  result 1.0  fw-corpus False  8/8/R5Kn/8/6k1/8/8/8 w - - 0 72
+      passed:34:cW               ply  30 draw  SF    +6 static +238 d6 +232 d10 225  tactical False  result 0.5  fw-corpus False  8/3k4/1K6/7R/7n/8/8/8 b - - 0 62
+      passed:34:cW               ply  34 draw  SF   +14 static +231 d6 +219 d10 208  tactical False  result 0.5  fw-corpus False  8/8/4k1n1/R1K5/8/8/8/8 b - - 4 64
+      passed:34:cW               ply  38 draw  SF   +10 static +215 d6 +219 d10 222  tactical False  result 0.5  fw-corpus False  8/8/4k3/R7/8/3K4/4n3/8 b - - 8 66
+      v2:78:cW                   ply 120 win   SF  +542 static +253 d6 +261 d10 501  tactical False  result 0.5  fw-corpus False  8/8/6k1/R7/4K3/8/1n6/8 w - - 0 76
+      v2:78:cW                   ply 124 win   SF  +517 static +269 d6 +469 d10 501  tactical True  result 0.5  fw-corpus False  8/8/8/6k1/4K3/8/2R5/3n4 w - - 4 78
+      v2:78:cW                   ply 128 win   SF +8115 static +205 d6 +508 d10 527  tactical True  result 0.5  fw-corpus False  8/8/8/8/3K1k2/2n5/3R4/8 w - - 8 80
+
+-- KB-KP: 118 positions (18 from 7 games); win 0, draw 105, loss 13, other 0; false wins 49 of 105 draws (47%); tactical wins 0, strategic wins 0
+   tactical flags on the wins: forced_mate 0, material_change_in_pv6 0, hanging_rook_weak 0, hanging_minor 0, promotion_in_pv8 0, trapped_king_weak 0, in_check 0
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw       105     +206     -32     -0        -1    +173   +170   +143   +125   +110    +88   36     +0
+   false win   49     +206      +4     +1        +6    +217   +216   +218   +209   +193   +153   17     +0
+   loss        13     +206    -117     -8        +0     +80   -433   -786   -806   -821   -986    2  -1092
+   depth-6 root on the draws: <100 41, 100-200 35, 200-300 29, >=300 0; on the wins: <100 0, >=300 0; on the losses: > -100 0 of 13
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off            +173     +125     0/49      0/0      0/0         0/0          0/0         0/13
+      1/2             +70      +22    46/49      0/0      0/0         0/0          0/0         0/13
+      1/4             +18      -30    49/49      0/0      0/0         0/0          0/0         0/13
+      1/8              -8      -55    49/49      0/0      0/0         0/0          0/0         0/13
+   retained game positions (strong side's view):
+      postmortem:88:cB           ply 100 draw  SF    +0 static +209 d6 +201 d10 0  tactical True  result 0.5  fw-corpus False  8/8/4K3/8/8/8/4bP1k/8 w - - 0 65
+      postmortem:88:cB           ply 104 draw  SF    +0 static +188 d6 +201 d10 154  tactical False  result 0.5  fw-corpus False  8/8/8/5K2/8/3b4/5P1k/8 w - - 4 67
+      postmortem:88:cB           ply 108 draw  SF    +0 static +217 d6 +163 d10 0  tactical True  result 0.5  fw-corpus False  8/8/5K2/8/5P2/3b1k2/8/8 w - - 1 69
+      passed:41:cB               ply  30 draw  SF    +0 static +208 d6 +222 d10 219  tactical False  result 0.5  fw-corpus False  8/8/6K1/1b6/1P3k2/8/8/8 b - - 1 62
+      passed:41:cB               ply  34 draw  SF    +0 static +221 d6 +222 d10 217  tactical False  result 0.5  fw-corpus False  8/8/6K1/1b6/1P6/5k2/8/8 b - - 5 64
+      v2:4:cB                    ply  35 draw  SF    +0 static  -19 d6   +0 d10 0  tactical True  result 0.5  fw-corpus False  7k/7P/8/8/6K1/8/8/2b5 w - - 0 59
+      v2:4:cB                    ply  39 draw  SF    +5 static   +4 d6   +0 d10 0  tactical True  result 0.5  fw-corpus False  7k/7P/3b4/8/6K1/8/8/8 w - - 4 61
+      v2:70:cB                   ply  68 draw  SF    +0 static +181 d6 +191 d10 106  tactical False  result 0.5  fw-corpus False  8/3B4/1p4K1/8/2k5/8/8/8 w - - 0 51
+      v2:70:cB                   ply  72 draw  SF    +0 static +188 d6 +175 d10 40  tactical False  result 0.5  fw-corpus False  8/5K2/4B3/1pk5/8/8/8/8 w - - 0 53
+      v2:70:cB                   ply  76 draw  SF    +0 static +184 d6  +40 d10 8  tactical True  result 0.5  fw-corpus False  8/8/5K2/8/1p1k4/1B6/8/8 w - - 2 55
+      v2:2:cB                    ply  69 draw  SF    +0 static  +80 d6  +96 d10 0  tactical False  result 0.5  fw-corpus False  8/b7/P7/4K3/8/8/6k1/8 w - - 0 79
+      v2:2:cB                    ply  73 draw  SF    +0 static  +94 d6 +121 d10 0  tactical False  result 0.5  fw-corpus False  8/b4K2/P7/8/4k3/8/8/8 w - - 4 81
+      v2:2:cB                    ply  77 draw  SF    +0 static +109 d6 +124 d10 121  tactical False  result 0.5  fw-corpus False  8/b7/P7/3k1K2/8/8/8/8 w - - 8 83
+      v2:5:cB                    ply  55 draw  SF    +0 static +242 d6  +89 d10 60  tactical False  result 0.5  fw-corpus False  4b3/8/3k4/6P1/8/8/8/7K w - - 0 67
+      v2:5:cB                    ply  59 draw  SF    +0 static +183 d6  +67 d10 32  tactical False  result 0.5  fw-corpus False  8/8/3k2P1/3b4/8/8/7K/8 w - - 3 69
+      v2:53:cB                   ply  54 draw  SF    +0 static +212 d6 +124 d10 3  tactical True  result 0.5  fw-corpus False  8/8/3b4/3k3K/7P/8/8/8 b - - 0 65
+      v2:53:cB                   ply  58 draw  SF    +0 static +198 d6   +3 d10 0  tactical True  result 0.5  fw-corpus False  8/8/3b2K1/7P/8/5k2/8/8 b - - 0 67
+      v2:53:cB                   ply  62 draw  SF    +0 static +135 d6   +3 d10 0  tactical True  result 0.5  fw-corpus False  8/6K1/7P/8/8/b4k2/8/8 b - - 2 69
+
+-- KN-KP: 108 positions (8 from 4 games); win 0, draw 83, loss 25, other 0; false wins 36 of 83 draws (43%); tactical wins 0, strategic wins 0
+   tactical flags on the wins: forced_mate 0, material_change_in_pv6 0, hanging_rook_weak 0, hanging_minor 0, promotion_in_pv8 0, trapped_king_weak 0, in_check 0
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw        83     +189     -38     +2        -2    +152   +142   +125   +115    +98    +62   24     -0
+   false win   36     +189      -6     +2        +3    +188   +188   +191   +192   +177   +171    8     +0
+   loss        25     +189    -123     -3        -6     +57   -183   -567   -623   -688   -732    4   -654
+   depth-6 root on the draws: <100 31, 100-200 40, 200-300 12, >=300 0; on the wins: <100 0, >=300 0; on the losses: > -100 2 of 25
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off            +152     +115     0/36      0/0      0/0         0/0          0/0         2/25
+      1/2             +57      +20    36/36      0/0      0/0         0/0          0/0         1/25
+      1/4             +10      -27    36/36      0/0      0/0         0/0          0/0         1/25
+      1/8             -14      -50    36/36      0/0      0/0         0/0          0/0         1/25
+   retained game positions (strong side's view):
+      postmortem:76:cB           ply  86 draw  SF    +0 static +196 d6 +213 d10 205  tactical True  result 0.5  fw-corpus False  8/8/N1p5/4K3/8/1k6/8/8 w - - 0 58
+      postmortem:76:cB           ply  90 draw  SF    +0 static +190 d6 +197 d10 131  tactical True  result 0.5  fw-corpus False  8/3N4/8/2p1K3/2k5/8/8/8 w - - 0 60
+      postmortem:76:cB           ply  94 draw  SF    +0 static +196 d6 +134 d10 23  tactical False  result 0.5  fw-corpus False  8/8/8/4K3/2p1N3/1k6/8/8 w - - 0 62
+      mopup:23:cW                ply  49 draw  SF    +0 static +203 d6  +81 d10 0  tactical True  result 0.5  fw-corpus False  8/8/8/KP1n4/5k2/8/8/8 b - - 0 63
+      mopup:23:cW                ply  53 draw  SF    +0 static +128 d6   +0 d10 0  tactical False  result 0.5  fw-corpus False  8/8/1Pn5/8/K4k2/8/8/8 b - - 2 65
+      passed:51:cB               ply  55 loss  SF  -518 static +144 d6 -153 d10 -908  tactical True  result 0.0  fw-corpus False  8/8/6K1/p7/N7/1k6/8/8 b - - 0 62
+      passed:23:cW               ply  45 draw  SF    +0 static +168 d6 +127 d10 109  tactical True  result 0.5  fw-corpus False  8/8/8/1K3k2/2P5/8/1n6/8 b - - 0 61
+      passed:23:cW               ply  49 draw  SF    +0 static +174 d6  +60 d10 28  tactical True  result 0.5  fw-corpus False  8/8/8/2P2k2/2K5/2n5/8/8 b - - 2 63
+
+-- KB-KPP: 115 positions (15 from 7 games); win 0, draw 67, loss 48, other 0; false wins 19 of 67 draws (28%); tactical wins 0, strategic wins 0
+   tactical flags on the wins: forced_mate 0, material_change_in_pv6 0, hanging_rook_weak 0, hanging_minor 0, promotion_in_pv8 0, trapped_king_weak 0, in_check 0
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw        67     +112     -61     +3        -1     +54    +85    +94    +88    +81    +92   19     -1
+   false win   19     +112     -57     +5       +12     +73   +135   +181   +190   +170   +163    6     +0
+   loss        48     +112    -121     -4        -5     -18   -240   -516   -572   -669   -532   16  -1006
+   depth-6 root on the draws: <100 36, 100-200 23, 200-300 8, >=300 0; on the wins: <100 0, >=300 0; on the losses: > -100 10 of 48
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off             +54      +88     0/19      0/0      0/0         0/0          0/0        10/48
+      1/2              -2      +32    13/19      0/0      0/0         0/0          0/0         5/48
+      1/4             -30       +4    18/19      0/0      0/0         0/0          0/0         5/48
+      1/8             -44      -10    18/19      0/0      0/0         0/0          0/0         5/48
+   retained game positions (strong side's view):
+      postmortem:42:cB           ply  80 loss  SF -10000 static -116 d6 -1196 d10 -1991  tactical True  result 0.0  fw-corpus False  3Kb1k1/4P3/5P2/8/8/8/8/8 w - - 0 76
+      postmortem:41:cB           ply  20 draw  SF    +0 static +135 d6 +150 d10 108  tactical False  result 0.5  fw-corpus True  8/8/8/4k3/1Pb2P2/4K3/8/8 b - - 0 57
+      postmortem:41:cB           ply  24 draw  SF    +1 static +101 d6 +109 d10 67  tactical True  result 0.5  fw-corpus False  8/8/8/1b1k1P2/1P3K2/8/8/8 b - - 2 59
+      postmortem:41:cB           ply  28 draw  SF    +0 static  +60 d6  +36 d10 0  tactical True  result 0.5  fw-corpus False  8/8/5P2/6K1/1Pbk4/8/8/8 b - - 2 61
+      passed:41:cB               ply  26 draw  SF    +0 static +138 d6 +220 d10 222  tactical False  result 0.5  fw-corpus False  8/8/7K/5k2/1P3P2/8/4b3/8 b - - 0 60
+      passed:87:cW               ply  97 loss  SF  -786 static  +90 d6 -176 d10 -208  tactical True  result 0.5  fw-corpus False  8/6p1/5p2/2K5/8/8/5kB1/8 b - - 0 63
+      v2:41:cW                   ply  19 draw  SF    -3 static  +82 d6  +84 d10 29  tactical False  result 0.5  fw-corpus False  8/8/8/8/1kb1KP2/8/6P1/8 w - - 0 57
+      v2:41:cW                   ply  23 loss  SF  -502 static  +64 d6  +43 d10 -38  tactical False  result 0.5  fw-corpus False  6b1/8/8/4K3/1k3P2/8/6P1/8 w - - 4 59
+      v2:41:cW                   ply  27 loss  SF  -505 static  +63 d6  -63 d10 -100  tactical True  result 0.5  fw-corpus False  8/8/8/2k1KP2/6P1/1b6/8/8 w - - 1 61
+      v2:41:cB                   ply  24 draw  SF    +0 static +120 d6  +98 d10 118  tactical True  result 0.5  fw-corpus False  8/8/8/1P2kP2/2b5/4K3/8/8 b - - 0 59
+      v2:41:cB                   ply  28 draw  SF    +0 static  -18 d6  +82 d10 103  tactical True  result 0.5  fw-corpus False  8/1b6/1P3P2/4k3/8/4K3/8/8 b - - 0 61
+      v2:5:cB                    ply  51 draw  SF    +0 static +122 d6 +200 d10 106  tactical True  result 0.5  fw-corpus False  8/8/4P1b1/3k2P1/8/8/8/7K w - - 0 65
+      v2:41:cW                   ply  14 draw  SF    +0 static +100 d6 +115 d10 163  tactical False  result 0.5  fw-corpus False  8/8/5k2/8/1Pb2K2/5P2/8/8 b - - 0 54
+      v2:41:cW                   ply  18 draw  SF    +0 static  +96 d6 +127 d10 121  tactical True  result 0.5  fw-corpus False  8/8/2b2k2/8/1P3K2/5P2/8/8 b - - 4 56
+      v2:41:cW                   ply  22 draw  SF    +0 static  +96 d6 +127 d10 121  tactical True  result 0.5  fw-corpus False  8/8/2b2k2/8/1P3K2/5P2/8/8 b - - 8 58
+
+-- KN-KPP: 115 positions (15 from 7 games); win 0, draw 59, loss 56, other 0; false wins 17 of 59 draws (29%); tactical wins 0, strategic wins 0
+   tactical flags on the wins: forced_mate 0, material_change_in_pv6 0, hanging_rook_weak 0, hanging_minor 0, promotion_in_pv8 0, trapped_king_weak 0, in_check 0
+   class        n material  tables  tempo king-pawn  static     qs     d4     d6     d8    d10  n10     SF
+   draw        59      +96     -35     +1        +2     +64    +82   +102    +96    +85    +57   20     -3
+   false win   17      +96     -17     +5       +15     +99   +147   +189   +198   +191   +184    4     -1
+   loss        56      +96    -133     -2       -11     -50   -241   -527   -581   -676   -599   15   -986
+   depth-6 root on the draws: <100 28, 100-200 22, 200-300 9, >=300 0; on the wins: <100 0, >=300 0; on the losses: > -100 12 of 56
+   scaler screen (nominal surplus x f, applied to static and as the same shift to the root):
+      f       draw static  draw d6 FW removed wins<100 wins<200 strategic<100 tactical<100 losses>-100
+      off             +64      +96     0/17      0/0      0/0         0/0          0/0        12/56
+      1/2             +16      +48     8/17      0/0      0/0         0/0          0/0         7/56
+      1/4              -8      +24    13/17      0/0      0/0         0/0          0/0         7/56
+      1/8             -20      +12    16/17      0/0      0/0         0/0          0/0         7/56
+   retained game positions (strong side's view):
+      postmortem:41:cW           ply  19 draw  SF    +5 static  +69 d6  +52 d10 42  tactical False  result 0.5  fw-corpus False  8/8/8/6K1/2k2P2/4n3/6P1/8 w - - 0 57
+      postmortem:41:cW           ply  23 draw  SF    +0 static +131 d6 +109 d10 52  tactical True  result 0.5  fw-corpus False  8/8/8/8/4kPPK/4n3/8/8 w - - 3 59
+      postmortem:41:cW           ply  27 draw  SF    +0 static +101 d6  +48 d10 0  tactical False  result 0.5  fw-corpus False  8/4n3/8/5PP1/4k2K/8/8/8 w - - 1 61
+      mopup:23:cW                ply  45 draw  SF    +0 static +153 d6 +143 d10 127  tactical True  result 0.5  fw-corpus True  8/8/8/K7/4nk2/1PP5/8/8 b - - 0 61
+      passed:5:cB                ply  45 draw  SF    +0 static  +86 d6 -113 d10 -148  tactical True  result 0.5  fw-corpus False  8/8/5n2/4P1k1/3P4/5K2/8/8 w - - 0 62
+      passed:41:cW               ply  19 draw  SF    +0 static +128 d6 +127 d10 110  tactical True  result 0.5  fw-corpus False  8/8/8/3k4/5P1K/4n3/6P1/8 w - - 0 57
+      passed:41:cW               ply  23 draw  SF    +0 static +141 d6  +59 d10 8  tactical True  result 0.5  fw-corpus False  8/8/8/3n1P2/4k1PK/8/8/8 w - - 1 59
+      passed:41:cW               ply  27 draw  SF    +0 static  +24 d6   +0 d10 -17  tactical False  result 0.5  fw-corpus False  8/8/5Pn1/6P1/4k2K/8/8/8 w - - 1 61
+      passed:23:cW               ply  41 draw  SF    +0 static +134 d6 +173 d10 127  tactical False  result 0.5  fw-corpus False  8/8/3n4/K4k2/8/2P5/1P6/8 b - - 0 59
+      v2:23:cW                   ply  49 draw  SF    -1 static  +58 d6  +65 d10 42  tactical False  result 0.0  fw-corpus False  8/6k1/3n4/K7/P7/8/1P6/8 b - - 0 63
+      v2:23:cW                   ply  53 draw  SF    -6 static  +28 d6  +28 d10 0  tactical False  result 0.0  fw-corpus False  4n3/8/5k2/P7/1K6/8/1P6/8 b - - 0 65
+      v2:23:cW                   ply  57 loss  SF  -415 static  +46 d6   +0 d10 -68  tactical False  result 0.0  fw-corpus False  8/2n5/2K5/P3k3/8/8/1P6/8 b - - 4 67
+      v2:99:cB                   ply  82 loss  SF  -416 static  +95 d6  +79 d10 0  tactical True  result 0.0  fw-corpus False  8/5K2/2p5/1p6/1k3N2/8/8/8 b - - 0 59
+      v2:99:cB                   ply  86 loss  SF  -477 static  +93 d6  +19 d10 -40  tactical True  result 0.0  fw-corpus False  8/5K2/2p5/1p6/2k2N2/8/8/8 b - - 4 61
+      v2:99:cB                   ply  90 loss  SF  -393 static  +11 d6 -643 d10 -683  tactical True  result 0.0  fw-corpus False  8/5K2/2p5/4N3/2k5/1p6/8/8 b - - 1 63
+

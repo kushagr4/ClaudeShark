@@ -1,0 +1,15 @@
+== COMBINED-RULE SCREEN over all eight families (983 positions): nominal surplus x per-family factor, applied to the depth-6 root ==
+  A: 1/4, rook-v-minor 1/2     false wins removed 416/429  draw d6 mean    -0  wins <100  0/112  wins <200  6/112  strategic <100 0/6  losses > -100 13/142 (off 24)
+  B: 1/4 everywhere            false wins removed 424/429  draw d6 mean   -13  wins <100  4/112  wins <200  6/112  strategic <100 4/6  losses > -100 13/142 (off 24)
+  C: 1/2 everywhere            false wins removed 298/429  draw d6 mean   +42  wins <100  0/112  wins <200  5/112  strategic <100 0/6  losses > -100 13/142 (off 24)
+  D: 1/8 everywhere            false wins removed 427/429  draw d6 mean   -40  wins <100  5/112  wins <200  6/112  strategic <100 5/6  losses > -100 13/142 (off 24)
+
+per family under rule A:
+  KRB-KR   f=0.25  false wins removed  84/84  wins <100  0/38  wins <200  1/38  strategic <100 0/0
+  KRN-KR   f=0.25  false wins removed  79/79  wins <100  0/29  wins <200  0/29  strategic <100 0/0
+  KR-KB    f=0.5   false wins removed  81/83  wins <100  0/14  wins <200  1/14  strategic <100 0/1
+  KR-KN    f=0.5   false wins removed  56/62  wins <100  0/31  wins <200  4/31  strategic <100 0/5
+  KB-KP    f=0.25  false wins removed  49/49  wins <100  0/0   wins <200  0/0   strategic <100 0/0
+  KN-KP    f=0.25  false wins removed  36/36  wins <100  0/0   wins <200  0/0   strategic <100 0/0
+  KB-KPP   f=0.25  false wins removed  18/19  wins <100  0/0   wins <200  0/0   strategic <100 0/0
+  KN-KPP   f=0.25  false wins removed  13/17  wins <100  0/0   wins <200  0/0   strategic <100 0/0

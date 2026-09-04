@@ -492,3 +492,16 @@ and the static on a drawn position is the minor's nominal value (+311 of
 every win above +490. Deferred as a standalone feature: the family occurs
 in 5 of 1,000 games and 3 of 52 false-win trajectories; the protocol is to
 be reused on the sibling low-material families before one exact term.
+
+## 2026-09-04 — V2.2a low-material family expansion: implement combined
+
+Record: [`benchmarks/current/2026-09-04-v2.2a-lowmat-expansion-audit.md`](benchmarks/current/2026-09-04-v2.2a-lowmat-expansion-audit.md).
+Audit only. Eight pawnless or near-pawnless families (983 oracle-labelled
+positions, 83 from 38 retained games) share one mechanism: the material
+term counts a single-unit surplus almost in full where it rarely converts.
+Scaling that surplus to a quarter (a half where a rook faces a lone minor,
+where strategic wins exist) removes 416 of 429 false wins, keeps all 112
+genuine wins above +100 and all 6 strategic wins intact, and brings the
+drawn root to zero. Reach 38 games per 1,000, 19 false-win trajectories.
+Recommended: implement as one exact post-taper term, gated on the in-play
+false-win rate rather than Elo.

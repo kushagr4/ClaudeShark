@@ -1,0 +1,442 @@
+{
+ "KRB-KR": {
+  "n": 159,
+  "wins": 38,
+  "draws": 121,
+  "losses": 0,
+  "false_wins": 84,
+  "strategic_wins": 0,
+  "material_on_draws": 311,
+  "static_on_draws": 309.94214876033055,
+  "table": {
+   "off": {
+    "draw_static": 309.94214876033055,
+    "draw_d6": 198.20661157024793,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/2": {
+    "draw_static": 154.44214876033058,
+    "draw_d6": 42.70661157024794,
+    "fw_removed": 18,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/4": {
+    "draw_static": 76.69214876033058,
+    "draw_d6": -35.04338842975206,
+    "fw_removed": 84,
+    "wins_lt100": 0,
+    "wins_lt200": 1,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/8": {
+    "draw_static": 37.81714876033058,
+    "draw_d6": -73.91838842975207,
+    "fw_removed": 84,
+    "wins_lt100": 0,
+    "wins_lt200": 1,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   }
+  },
+  "reach_games": 4,
+  "reach_moves": 90,
+  "reach_false_win_traj": 4
+ },
+ "KRN-KR": {
+  "n": 151,
+  "wins": 29,
+  "draws": 118,
+  "losses": 4,
+  "false_wins": 79,
+  "strategic_wins": 0,
+  "material_on_draws": 292,
+  "static_on_draws": 270.864406779661,
+  "table": {
+   "off": {
+    "draw_static": 270.864406779661,
+    "draw_d6": 165.135593220339,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/2": {
+    "draw_static": 124.86440677966101,
+    "draw_d6": 19.135593220338983,
+    "fw_removed": 40,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/4": {
+    "draw_static": 51.86440677966102,
+    "draw_d6": -53.86440677966102,
+    "fw_removed": 79,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/8": {
+    "draw_static": 15.364406779661017,
+    "draw_d6": -90.36440677966101,
+    "fw_removed": 79,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   }
+  },
+  "reach_games": 1,
+  "reach_moves": 1,
+  "reach_false_win_traj": 0
+ },
+ "KR-KB": {
+  "n": 110,
+  "wins": 14,
+  "draws": 96,
+  "losses": 0,
+  "false_wins": 83,
+  "strategic_wins": 1,
+  "material_on_draws": 202,
+  "static_on_draws": 204.75,
+  "table": {
+   "off": {
+    "draw_static": 204.75,
+    "draw_d6": 184.59375,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/2": {
+    "draw_static": 103.75,
+    "draw_d6": 83.59375,
+    "fw_removed": 81,
+    "wins_lt100": 0,
+    "wins_lt200": 1,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/4": {
+    "draw_static": 53.25,
+    "draw_d6": 33.09375,
+    "fw_removed": 83,
+    "wins_lt100": 1,
+    "wins_lt200": 1,
+    "strategic_lt100": 1,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/8": {
+    "draw_static": 28.0,
+    "draw_d6": 7.84375,
+    "fw_removed": 83,
+    "wins_lt100": 1,
+    "wins_lt200": 1,
+    "strategic_lt100": 1,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   }
+  },
+  "reach_games": 6,
+  "reach_moves": 75,
+  "reach_false_win_traj": 2
+ },
+ "KR-KN": {
+  "n": 107,
+  "wins": 31,
+  "draws": 76,
+  "losses": 0,
+  "false_wins": 62,
+  "strategic_wins": 5,
+  "material_on_draws": 219,
+  "static_on_draws": 228.68421052631578,
+  "table": {
+   "off": {
+    "draw_static": 228.68421052631578,
+    "draw_d6": 187.1315789473684,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/2": {
+    "draw_static": 119.1842105263158,
+    "draw_d6": 77.63157894736842,
+    "fw_removed": 56,
+    "wins_lt100": 0,
+    "wins_lt200": 4,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/4": {
+    "draw_static": 64.4342105263158,
+    "draw_d6": 22.88157894736842,
+    "fw_removed": 62,
+    "wins_lt100": 3,
+    "wins_lt200": 4,
+    "strategic_lt100": 3,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/8": {
+    "draw_static": 37.05921052631579,
+    "draw_d6": -4.493421052631579,
+    "fw_removed": 62,
+    "wins_lt100": 4,
+    "wins_lt200": 4,
+    "strategic_lt100": 4,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   }
+  },
+  "reach_games": 3,
+  "reach_moves": 37,
+  "reach_false_win_traj": 1
+ },
+ "KB-KP": {
+  "n": 118,
+  "wins": 0,
+  "draws": 105,
+  "losses": 13,
+  "false_wins": 49,
+  "strategic_wins": 0,
+  "material_on_draws": 206,
+  "static_on_draws": 172.67619047619047,
+  "table": {
+   "off": {
+    "draw_static": 172.67619047619047,
+    "draw_d6": 124.8,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/2": {
+    "draw_static": 69.67619047619047,
+    "draw_d6": 21.8,
+    "fw_removed": 46,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/4": {
+    "draw_static": 18.176190476190477,
+    "draw_d6": -29.7,
+    "fw_removed": 49,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   },
+   "1/8": {
+    "draw_static": -7.5738095238095235,
+    "draw_d6": -55.45,
+    "fw_removed": 49,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 0
+   }
+  },
+  "reach_games": 12,
+  "reach_moves": 146,
+  "reach_false_win_traj": 3
+ },
+ "KN-KP": {
+  "n": 108,
+  "wins": 0,
+  "draws": 83,
+  "losses": 25,
+  "false_wins": 36,
+  "strategic_wins": 0,
+  "material_on_draws": 189,
+  "static_on_draws": 151.6144578313253,
+  "table": {
+   "off": {
+    "draw_static": 151.6144578313253,
+    "draw_d6": 114.98795180722891,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 2
+   },
+   "1/2": {
+    "draw_static": 57.1144578313253,
+    "draw_d6": 20.487951807228917,
+    "fw_removed": 36,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 1
+   },
+   "1/4": {
+    "draw_static": 9.864457831325302,
+    "draw_d6": -26.762048192771083,
+    "fw_removed": 36,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 1
+   },
+   "1/8": {
+    "draw_static": -13.760542168674698,
+    "draw_d6": -50.38704819277108,
+    "fw_removed": 36,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 1
+   }
+  },
+  "reach_games": 8,
+  "reach_moves": 92,
+  "reach_false_win_traj": 1
+ },
+ "KB-KPP": {
+  "n": 115,
+  "wins": 0,
+  "draws": 67,
+  "losses": 48,
+  "false_wins": 19,
+  "strategic_wins": 0,
+  "material_on_draws": 112,
+  "static_on_draws": 53.67164179104478,
+  "table": {
+   "off": {
+    "draw_static": 53.67164179104478,
+    "draw_d6": 88.01492537313433,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 10
+   },
+   "1/2": {
+    "draw_static": -2.328358208955224,
+    "draw_d6": 32.014925373134325,
+    "fw_removed": 13,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 5
+   },
+   "1/4": {
+    "draw_static": -30.328358208955223,
+    "draw_d6": 4.014925373134329,
+    "fw_removed": 18,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 5
+   },
+   "1/8": {
+    "draw_static": -44.32835820895522,
+    "draw_d6": -9.985074626865671,
+    "fw_removed": 18,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 5
+   }
+  },
+  "reach_games": 9,
+  "reach_moves": 102,
+  "reach_false_win_traj": 6
+ },
+ "KN-KPP": {
+  "n": 115,
+  "wins": 0,
+  "draws": 59,
+  "losses": 56,
+  "false_wins": 17,
+  "strategic_wins": 0,
+  "material_on_draws": 96,
+  "static_on_draws": 64.15254237288136,
+  "table": {
+   "off": {
+    "draw_static": 64.15254237288136,
+    "draw_d6": 95.96610169491525,
+    "fw_removed": 0,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 12
+   },
+   "1/2": {
+    "draw_static": 16.152542372881356,
+    "draw_d6": 47.96610169491525,
+    "fw_removed": 8,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 7
+   },
+   "1/4": {
+    "draw_static": -7.8474576271186445,
+    "draw_d6": 23.966101694915253,
+    "fw_removed": 13,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 7
+   },
+   "1/8": {
+    "draw_static": -19.847457627118644,
+    "draw_d6": 11.966101694915254,
+    "fw_removed": 16,
+    "wins_lt100": 0,
+    "wins_lt200": 0,
+    "strategic_lt100": 0,
+    "tactical_lt100": 0,
+    "losses_gt_m100": 7
+   }
+  },
+  "reach_games": 8,
+  "reach_moves": 75,
+  "reach_false_win_traj": 3
+ }
+}
