@@ -1,0 +1,24 @@
+== FALSE-WIN GALLERY (21 rows): V2.1 vs V2.2a, static / depth-6 root from the side to move ==
+id       family                   SF | V2.1 st   root | V2.2a st   root |  delta  mechanism
+fwg-000  K+1P v K+0P              +0 |    +132   +252 |     +132   +252 |     +0  defender king blockade (pawn ending)
+fwg-001  KBN+1P v KB+3P           +0 |    +162   +206 |     +162   +189 |    -17  extra pawn but blockaded
+fwg-002  KR+1P v KR+0P            +0 |    +133   +151 |     +133   +151 |     +0  extra pawn but blockaded
+fwg-003  KR+0P v KB+0P           +19 |    +231   +235 |     +130   +134 |   -101  insufficient / effectively drawn material
+fwg-004  KR+1P v KR+1P            +0 |    +147   +376 |     +147   +376 |     +0  no material edge: geometry over-credited
+fwg-005  KR+3P v KR+3P            -6 |    +146   +249 |     +146   +249 |     +0  no material edge: geometry over-credited
+fwg-006  KB+3P v KB+3P            +0 |    +265   +270 |     +265   +270 |     +0  opposite-coloured bishops
+fwg-007  KB+3P v KB+2P            +0 |    +227   +252 |     +227   +252 |     +0  opposite-coloured bishops
+fwg-008  KB+2P v KB+2P            +0 |    +239   +208 |     +239   +208 |     +0  opposite-coloured bishops
+fwg-009  KRB+1P v KR+0P           +0 |    +361   +344 |     +361   +104 |   -240  other
+fwg-010  KN+2P v KN+0P            +7 |    +293   +295 |     +293   +295 |     +0  other
+fwg-011  KRB+1P v KBN+4P         +59 |    +254   +258 |     +254   +258 |     +0  other
+fwg-012  KQ+0P v K+1P             +0 |    +678   +736 |     +678   +736 |     +0  queen perpetual resources
+fwg-013  KRB+0P v KR+0P           +0 |    +372   +361 |     +139   +128 |   -233  rook + minor vs rook
+fwg-014  KR+0P v K+1P             +0 |    +436   +407 |     +436   +407 |     +0  rook ending, extra pawn(s) not enough
+fwg-015  KR+3P v KR+1P            +0 |    +448   +389 |     +448   +389 |     +0  rook ending, extra pawn(s) not enough
+fwg-016  KR+0P v K+2P             +0 |    +315   +328 |     +315   +328 |     +0  rook ending, extra pawn(s) not enough
+fwg-017  KQR+3P v KQR+2P          +0 |      -4   +358 |       -4   +358 |     +0  search/horizon rather than static
+fwg-018  KR+1P v KR+1P            +0 |     +51   +334 |      +51   +334 |     +0  search/horizon rather than static
+fwg-019  KR+1P v KR+0P            +0 |     -72   +306 |      -72   +306 |     +0  search/horizon rather than static
+fwg-020  K+1P v K+0P              +0 |    +199   +256 |     +199   +256 |     +0  wrong rook pawn
+rows changed at the root: 4 of 21

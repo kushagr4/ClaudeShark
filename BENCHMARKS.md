@@ -505,3 +505,29 @@ genuine wins above +100 and all 6 strategic wins intact, and brings the
 drawn root to zero. Reach 38 games per 1,000, 19 false-win trajectories.
 Recommended: implement as one exact post-taper term, gated on the in-play
 false-win rate rather than Elo.
+
+## 2026-09-04 — V2.2a low-material nominal-surplus scaling: keep for more testing
+
+Record: [`benchmarks/current/2026-09-04-v2.2a-low-material.md`](benchmarks/current/2026-09-04-v2.2a-low-material.md).
+Branch `v2.2-development`; `cs_drawish.py`, term `low_material`, stage `post`,
+default off; candidate frozen as `champions/v2_2a_low_material`
+(`887ca53e0307fc0a`). Gate 1 passes on every stated target: 421 of 429 audited
+false wins removed, 0 of 112 genuine wins pushed under +100, 0 of 6 strategic
+wins under +100, +1.8% evaluator time and -0.6% search NPS. In 200 paired
+fixed-depth games against `champions/v2_1_kingpawn` the in-family false-win
+evaluations fall from 17 of 65 to 0 of 65 — and the overall score is +38 =125
+-37, 50.2%, Elo +2.
+
+**That match has one informative start cluster out of a hundred.** Grouped by
+start position, 99 of 100 clusters score exactly 0.5, because two nearly
+identical deterministic engines play the same game twice when the colours are
+swapped; the 38 wins and 37 losses are each other's mirror images. The 166-game
+targeted match from family-reaching positions has 4 informative clusters of 83
+and the candidate scored 0.25 in all four — verified against Stockfish at
+5,000,000 nodes, two of those are genuine regressions (a drawn position lost)
+and two are correct losses of objectively lost positions. Zero clusters
+improved.
+
+Not promoted; the V2 champion remains `champions/v2_1_kingpawn`. The term is
+correct on its evaluation target and has never been shown to win a game.
+Resolving it needs roughly 800 family-reaching start positions.

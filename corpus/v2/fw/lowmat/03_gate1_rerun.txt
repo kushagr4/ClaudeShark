@@ -1,0 +1,33 @@
+== GATE 1 RERUN: 983 audited positions, champions\v2_2a_low_material at depth 6, against V2.1's recorded scores ==
+strong side's view; false win = draw with V2.1 depth-6 root >= +150; 'removed' = candidate root < +150
+
+   family   draws   FW  removed draw d6 V2.1   cand wins  <100  <200 strat strat<100 losses >-100 V2.1  cand
+   KRB-KR     121   84   84/84          +198    +49   38     0     1     0         0      0          0     0
+   KRN-KR     118   79   79/79          +165    +34   29     0     0     0         0      0          0     0
+   KR-KB       96   83   81/83          +185    +97   14     0     1     1         0      0          0     0
+   KR-KN       76   62   56/62          +187    +98   31     0     4     5         0      0          0     0
+   KB-KP      105   49   49/49          +125     +8    0     0     0     0         0     13          0     0
+   KN-KP       83   36   36/36          +115     +7    0     0     0     0         0     25          2     1
+   KB-KPP      67   19   19/19           +88    -20    0     0     0     0         0     48         10     7
+   KN-KPP      59   17   17/17           +96     -5    0     0     0     0         0     56         12     7
+   ALL        725  429  421/429                      112     0     6     6         0    142         24    15
+
+targets: false wins removed >= 400/429 -> 421/429; wins under +100 = 0 -> 0; strategic wins under +100 = 0 -> 0; VERDICT PASS
+
+wins the candidate scores under +200 (all tactical unless marked):
+   KR-KN    STRATEGIC SF  +500 mate None  V2.1 d6  +231  cand d6  +122  8/1n3K2/8/8/1R6/6k1/8/8 b - - 0 1
+   KR-KB    STRATEGIC SF +10000 mate 24  V2.1 d6  +245  cand d6  +144  8/8/5R2/8/4K3/8/8/b1k5 w - - 0 1
+   KR-KN    STRATEGIC SF  +430 mate None  V2.1 d6  +253  cand d6  +144  8/2K5/8/8/r3k3/8/8/7N w - - 0 1
+   KR-KN    STRATEGIC SF  +542 mate None  V2.1 d6  +261  cand d6  +152  8/8/6k1/R7/4K3/8/1n6/8 w - - 0 76
+   KR-KN    STRATEGIC SF  +477 mate None  V2.1 d6  +267  cand d6  +158  4n3/8/8/5K1R/8/8/8/3k4 w - - 0 1
+   KRB-KR   tactical  SF +10000 mate 8  V2.1 d6  +393  cand d6  +160  8/8/8/1r6/6B1/2K5/3R4/k7 w - - 0 1
+
+false wins the candidate leaves at or above +150:
+   KR-KB    SF  +27  V2.1 d6  +287  cand static  +195 d6  +186  8/8/2b5/1R4K1/8/8/8/k7 w - - 0 1
+   KR-KN    SF  +16  V2.1 d6  +279  cand static  +206 d6  +170  kn6/8/3K4/8/8/3R4/8/8 b - - 0 1
+   KR-KN    SF  +15  V2.1 d6  +276  cand static  +165 d6  +167  8/8/8/5r2/2k5/8/2N5/4K3 b - - 0 1
+   KR-KN    SF  +18  V2.1 d6  +269  cand static  +172 d6  +160  7r/2N5/8/8/K7/5k2/8/8 b - - 0 1
+   KR-KN    SF  +10  V2.1 d6  +267  cand static  +138 d6  +158  8/4K3/7k/7n/6R1/8/8/8 b - - 0 1
+   KR-KN    SF  +22  V2.1 d6  +264  cand static  +138 d6  +155  1k6/8/4nR2/4K3/8/8/8/8 b - - 0 1
+   KR-KB    SF  +12  V2.1 d6  +255  cand static  +125 d6  +154  8/4r3/2B5/8/8/8/K6k/8 b - - 0 1
+   KR-KN    SF  +15  V2.1 d6  +262  cand static  +148 d6  +153  4N3/K7/8/8/8/8/r6k/8 w - - 0 1

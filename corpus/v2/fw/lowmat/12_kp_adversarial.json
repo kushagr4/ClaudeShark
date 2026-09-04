@@ -1,0 +1,242 @@
+[
+ {
+  "name": "irrelevant far pawn",
+  "fen": "8/8/8/8/1k6/8/p4K1P/8 w - - 0 1",
+  "motif": "White's king sits beside its own dead h-pawn while Black's a-pawn queens; proximity credits the wrong thing",
+  "sf": -680,
+  "sf_mate": null,
+  "sf_best": "f2f3",
+  "base": {
+   "static": -195,
+   "root": -874,
+   "move": "h2h4",
+   "loss": 211
+  },
+  "cand": {
+   "static": -195,
+   "root": -874,
+   "move": "h2h4",
+   "loss": 211
+  }
+ },
+ {
+  "name": "opposition, white to move",
+  "fen": "8/8/4k3/8/4K3/4P3/8/8 w - - 0 1",
+  "motif": "geometric distance equal; the result turns on the move, not on distance",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "e4d4",
+  "base": {
+   "static": 130,
+   "root": 99,
+   "move": "e4f4",
+   "loss": 0
+  },
+  "cand": {
+   "static": 130,
+   "root": 99,
+   "move": "e4f4",
+   "loss": 0
+  }
+ },
+ {
+  "name": "opposition, black to move",
+  "fen": "8/8/4k3/8/4K3/4P3/8/8 b - - 0 1",
+  "motif": "same squares, other side to move",
+  "sf": -627,
+  "sf_mate": null,
+  "sf_best": "e6d6",
+  "base": {
+   "static": -114,
+   "root": -100,
+   "move": "e6f6",
+   "loss": 144
+  },
+  "cand": {
+   "static": -114,
+   "root": -100,
+   "move": "e6f6",
+   "loss": 144
+  }
+ },
+ {
+  "name": "rook pawn corner draw",
+  "fen": "8/8/8/8/8/7k/7P/7K b - - 0 1",
+  "motif": "both kings adjacent to the pawn; dead draw",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "h3h4",
+  "base": {
+   "static": -23,
+   "root": -49,
+   "move": "h3h4",
+   "loss": 0
+  },
+  "cand": {
+   "static": -23,
+   "root": -49,
+   "move": "h3h4",
+   "loss": 0
+  }
+ },
+ {
+  "name": "wrong bishop rook pawn",
+  "fen": "7k/8/6KP/8/8/8/8/5B2 w - - 0 1",
+  "motif": "white king closer, bishop the wrong colour: draw",
+  "sf": 74,
+  "sf_mate": null,
+  "sf_best": "f1e2",
+  "base": {
+   "static": 560,
+   "root": 607,
+   "move": "f1d3",
+   "loss": 0
+  },
+  "cand": {
+   "static": 560,
+   "root": 607,
+   "move": "f1d3",
+   "loss": 0
+  }
+ },
+ {
+  "name": "opposite bishops false win",
+  "fen": "8/8/5p2/6p1/1b2P1B1/pK3Pk1/8/8 b - - 13 53",
+  "motif": "calibration false win ec-171: V1 +251, Stockfish 0",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "g3f4",
+  "base": {
+   "static": 251,
+   "root": 252,
+   "move": "b4d6",
+   "loss": 0
+  },
+  "cand": {
+   "static": 251,
+   "root": 252,
+   "move": "b4d6",
+   "loss": 0
+  }
+ },
+ {
+  "name": "pawn race, tempo decides",
+  "fen": "8/8/8/8/p6P/8/2k2K2/8 w - - 0 1",
+  "motif": "both kings equidistant from their own pawn's path; tempo, not distance",
+  "sf": -7443,
+  "sf_mate": null,
+  "sf_best": "f2e3",
+  "base": {
+   "static": -35,
+   "root": -692,
+   "move": "h4h5",
+   "loss": 0
+  },
+  "cand": {
+   "static": -35,
+   "root": -692,
+   "move": "h4h5",
+   "loss": 0
+  }
+ },
+ {
+  "name": "equidistant, side to move decides",
+  "fen": "8/8/8/8/3k4/8/3KP3/8 w - - 0 1",
+  "motif": "kings two apart from each other, both near the pawn",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "e2e3",
+  "base": {
+   "static": 113,
+   "root": 91,
+   "move": "e2e3",
+   "loss": 0
+  },
+  "cand": {
+   "static": 113,
+   "root": 91,
+   "move": "e2e3",
+   "loss": 0
+  }
+ },
+ {
+  "name": "king walled in by own pawns",
+  "fen": "8/8/8/8/6k1/8/6PP/7K w - - 0 1",
+  "motif": "white king is one square from its pawns and cannot use them; black king is one away and attacks",
+  "sf": 712,
+  "sf_mate": null,
+  "sf_best": "h1g1",
+  "base": {
+   "static": 134,
+   "root": 180,
+   "move": "h1g1",
+   "loss": 0
+  },
+  "cand": {
+   "static": 134,
+   "root": 180,
+   "move": "h1g1",
+   "loss": 0
+  }
+ },
+ {
+  "name": "king toward pawn, away from interception",
+  "fen": "8/8/8/8/8/3K4/p6P/k7 w - - 0 1",
+  "motif": "white king near its h-pawn cannot stop the a-pawn; geometry says it is doing well",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "d3c2",
+  "base": {
+   "static": -106,
+   "root": 0,
+   "move": "d3c2",
+   "loss": 0
+  },
+  "cand": {
+   "static": -106,
+   "root": 0,
+   "move": "d3c2",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KRPPP-KRP blockade false win",
+  "fen": "1R6/1P4k1/6P1/3K3p/7P/1r6/8/8 w - - 7 60",
+  "motif": "calibration false win ec-201: V1 +458, Stockfish 0",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "d5c6",
+  "base": {
+   "static": 448,
+   "root": 389,
+   "move": "d5c6",
+   "loss": 0
+  },
+  "cand": {
+   "static": 448,
+   "root": 389,
+   "move": "d5c6",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KRB-KR false win",
+  "fen": "3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 0 1",
+  "motif": "no pawns: the term is zero by definition; V1 +372, Stockfish 0",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "e7a7",
+  "base": {
+   "static": 372,
+   "root": 361,
+   "move": "f5f6",
+   "loss": 0
+  },
+  "cand": {
+   "static": 139,
+   "root": 128,
+   "move": "f5f6",
+   "loss": 0
+  }
+ }
+]

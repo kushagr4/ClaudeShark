@@ -34,7 +34,7 @@ import chess
 from tools.postmortem.play import Engine
 
 ROOT = Path(__file__).resolve().parents[2]
-ENGINE_FILES = ("agent.py", "cs_constants.py", "cs_eval.py", "cs_king.py", "cs_kingpawn.py", "cs_mopup.py", "cs_passed.py",
+ENGINE_FILES = ("agent.py", "cs_constants.py", "cs_drawish.py", "cs_eval.py", "cs_king.py", "cs_kingpawn.py", "cs_mopup.py", "cs_passed.py",
                 "cs_ordering.py", "cs_search.py", "cs_see.py", "cs_terms.py", "cs_time.py", "cs_tt.py")
 
 # The whole family, fixed before any of it was run. Index = relative rank.

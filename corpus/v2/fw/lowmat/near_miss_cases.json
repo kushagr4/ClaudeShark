@@ -1,0 +1,57 @@
+[
+ {
+  "name": "KRB+P v KR",
+  "fen": "3k4/4R3/8/5K2/4B3/P7/4r3/8 w - - 0 1",
+  "motif": "a strong-side pawn switches the term off"
+ },
+ {
+  "name": "KRN+P v KR",
+  "fen": "3k4/4R3/8/5K2/4N3/P7/4r3/8 w - - 0 1",
+  "motif": "a strong-side pawn switches the term off"
+ },
+ {
+  "name": "KRR v KR",
+  "fen": "3k4/4R3/8/5K2/8/8/4r3/R7 w - - 0 1",
+  "motif": "two rooks: not a family"
+ },
+ {
+  "name": "KRB v KRR",
+  "fen": "3k3r/4R3/8/5K2/4B3/8/4r3/8 w - - 0 1",
+  "motif": "two rooks on the weak side: not a family"
+ },
+ {
+  "name": "KR v KB+P",
+  "fen": "8/8/3R4/7p/4b3/6k1/4K3/8 w - - 0 1",
+  "motif": "weak-side pawn with a rook: not a family"
+ },
+ {
+  "name": "KB+P v K+P",
+  "fen": "8/8/8/4kp2/2B5/P3K3/8/8 w - - 0 1",
+  "motif": "pawns on both sides"
+ },
+ {
+  "name": "KB v K+3P",
+  "fen": "8/8/7p/p3kp2/2B5/4K3/8/8 w - - 0 1",
+  "motif": "three weak-side pawns"
+ },
+ {
+  "name": "KN v K+3P",
+  "fen": "8/8/7p/p3kp2/8/2N1K3/8/8 w - - 0 1",
+  "motif": "three weak-side pawns"
+ },
+ {
+  "name": "KQ v KB",
+  "fen": "8/3Q4/8/8/4b3/6k1/4K3/8 w - - 0 1",
+  "motif": "a queen switches the term off"
+ },
+ {
+  "name": "KBN v K",
+  "fen": "8/8/8/4k3/2B5/4K3/8/N7 w - - 0 1",
+  "motif": "two minors"
+ },
+ {
+  "name": "KRB v KRB",
+  "fen": "3k4/4R3/7b/5K2/4B3/8/4r3/8 w - - 0 1",
+  "motif": "a minor on each side"
+ }
+]

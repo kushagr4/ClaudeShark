@@ -1,0 +1,19 @@
+== V2 ENDGAME CALIBRATION SUITE v1 (550 positions, hash a473da0823abf75c) engine champions\v2_2a_low_material ==
+SF = Stockfish from the side to move (clamped +-2000); 'below' = mean(SF - x) where the win is real; 'above' = mean(x - SF) where the position is level
+MAE = mean |x - SF|; a term is good when blind_win 'below' falls, false_win 'above' falls, and the recognised classes and controls do not move
+
+  class               n traj     SF  static static MAE      qs     qs MAE    root   root MAE   loss  serious  agree
+  blind_win         170  135   +540     +31        509     +65        480     +39        501    111      31%    54%
+  false_win          40   24     +1    +231        234    +256        255    +255        254      0       0%    30%
+  recognised_win    100  100  +1837   +1134        754   +4920       4262  +21470      20129     38       9%    66%
+  recognised_draw   100  100     +4     -48         88     -16         54      -2         35     45      13%    53%
+  losing            100  100  -1521    -935        655   -1232        936  -16879      15998     10       4%    65%
+  control_middle     24   24     +3      +6         46     +26         48     +16         40     19       8%    46%
+  control_tactic     16   16  +1243    +265       1001   +2318       2494  +15117      14184     34       6%    75%
+
+  static: blind wins sit +509 below Stockfish; false wins sit +230 above; blind rows with static < +100: 151/170; false rows with static >= +200: 23/40
+  qs: blind wins sit +474 below Stockfish; false wins sit +255 above; blind rows with qs < +100: 144/170; false rows with qs >= +200: 27/40
+  root: blind wins sit +501 below Stockfish; false wins sit +254 above; blind rows with root < +100: 159/170; false rows with root >= +200: 29/40
+
+  diagnostic: static blind-below +534 (73), false-above +245 (24)
+  validation: static blind-below +490 (97), false-above +207 (16)

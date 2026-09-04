@@ -1,0 +1,666 @@
+[
+ {
+  "cluster": 5000,
+  "fen": "3Kb1k1/4P3/5P2/8/8/8/8/8 w - - 0 76",
+  "family": "KB-KPP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5001,
+  "fen": "8/8/R5Kn/8/6k1/8/8/8 w - - 0 72",
+  "family": "KR-KN",
+  "label": "win",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5002,
+  "fen": "8/8/8/6K1/2k2P2/4n3/6P1/8 w - - 0 57",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5003,
+  "fen": "8/8/8/8/4kPPK/4n3/8/8 w - - 3 59",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5004,
+  "fen": "8/4n3/8/5PP1/4k2K/8/8/8 w - - 1 61",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5005,
+  "fen": "8/8/8/4k3/1Pb2P2/4K3/8/8 b - - 0 57",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5006,
+  "fen": "8/8/8/1b1k1P2/1P3K2/8/8/8 b - - 2 59",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5007,
+  "fen": "8/8/5P2/6K1/1Pbk4/8/8/8 b - - 2 61",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5008,
+  "fen": "8/8/3r4/8/4B3/6k1/8/5K2 w - - 0 56",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5009,
+  "fen": "8/8/8/8/4B3/4K1k1/8/3r4 w - - 4 58",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5010,
+  "fen": "8/8/8/8/4K3/3B2k1/r7/8 w - - 8 60",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5011,
+  "fen": "8/rB6/1K6/8/8/6k1/8/8 w - - 0 66",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5012,
+  "fen": "8/8/N1p5/4K3/8/1k6/8/8 w - - 0 58",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5013,
+  "fen": "8/3N4/8/2p1K3/2k5/8/8/8 w - - 0 60",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5014,
+  "fen": "8/8/8/4K3/2p1N3/1k6/8/8 w - - 0 62",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5015,
+  "fen": "8/8/4K3/8/8/8/4bP1k/8 w - - 0 65",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5016,
+  "fen": "8/8/8/5K2/8/3b4/5P1k/8 w - - 4 67",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5017,
+  "fen": "8/8/5K2/8/5P2/3b1k2/8/8 w - - 1 69",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5018,
+  "fen": "5Rb1/8/8/8/6k1/4K3/8/8 w - - 0 62",
+  "family": "KR-KB",
+  "label": "win",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5019,
+  "fen": "8/8/8/K7/4nk2/1PP5/8/8 b - - 0 61",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5020,
+  "fen": "8/8/8/KP1n4/5k2/8/8/8 b - - 0 63",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5021,
+  "fen": "8/8/1Pn5/8/K4k2/8/8/8 b - - 2 65",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5022,
+  "fen": "8/8/6K1/p7/N7/1k6/8/8 b - - 0 62",
+  "family": "KN-KP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5023,
+  "fen": "8/8/5n2/4P1k1/3P4/5K2/8/8 w - - 0 62",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5024,
+  "fen": "8/3k4/1K6/7R/7n/8/8/8 b - - 0 62",
+  "family": "KR-KN",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5025,
+  "fen": "8/8/4k1n1/R1K5/8/8/8/8 b - - 4 64",
+  "family": "KR-KN",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5026,
+  "fen": "8/8/4k3/R7/8/3K4/4n3/8 b - - 8 66",
+  "family": "KR-KN",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5027,
+  "fen": "8/8/8/3k4/5P1K/4n3/6P1/8 w - - 0 57",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5028,
+  "fen": "8/8/8/3n1P2/4k1PK/8/8/8 w - - 1 59",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5029,
+  "fen": "8/8/5Pn1/6P1/4k2K/8/8/8 w - - 1 61",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5030,
+  "fen": "8/8/7K/5k2/1P3P2/8/4b3/8 b - - 0 60",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5031,
+  "fen": "8/8/6K1/1b6/1P3k2/8/8/8 b - - 1 62",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5032,
+  "fen": "8/8/6K1/1b6/1P6/5k2/8/8 b - - 5 64",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5033,
+  "fen": "8/6p1/5p2/2K5/8/8/5kB1/8 b - - 0 63",
+  "family": "KB-KPP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5034,
+  "fen": "8/8/3n4/K4k2/8/2P5/1P6/8 b - - 0 59",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5035,
+  "fen": "8/8/8/1K3k2/2P5/8/1n6/8 b - - 0 61",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5036,
+  "fen": "8/8/8/2P2k2/2K5/2n5/8/8 b - - 2 63",
+  "family": "KN-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5037,
+  "fen": "8/2k2K2/r7/8/2B5/8/8/8 w - - 0 83",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5038,
+  "fen": "7k/7P/8/8/6K1/8/8/2b5 w - - 0 59",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5039,
+  "fen": "7k/7P/3b4/8/6K1/8/8/8 w - - 4 61",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5040,
+  "fen": "8/8/8/8/1kb1KP2/8/6P1/8 w - - 0 57",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5041,
+  "fen": "6b1/8/8/4K3/1k3P2/8/6P1/8 w - - 4 59",
+  "family": "KB-KPP",
+  "label": "loss",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5042,
+  "fen": "8/8/8/2k1KP2/6P1/1b6/8/8 w - - 1 61",
+  "family": "KB-KPP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5043,
+  "fen": "8/8/8/1P2kP2/2b5/4K3/8/8 b - - 0 59",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5044,
+  "fen": "8/1b6/1P3P2/4k3/8/4K3/8/8 b - - 0 61",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5045,
+  "fen": "7k/5B2/8/3r4/6K1/8/8/8 b - - 0 50",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5046,
+  "fen": "8/6k1/8/2r5/4B1K1/8/8/8 b - - 4 52",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5047,
+  "fen": "8/8/5k2/8/2r1B3/4K3/8/8 b - - 8 54",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5048,
+  "fen": "8/6k1/3n4/K7/P7/8/1P6/8 b - - 0 63",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5049,
+  "fen": "4n3/8/5k2/P7/1K6/8/1P6/8 b - - 0 65",
+  "family": "KN-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5050,
+  "fen": "8/2n5/2K5/P3k3/8/8/1P6/8 b - - 4 67",
+  "family": "KN-KPP",
+  "label": "loss",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5051,
+  "fen": "8/8/6k1/R7/4K3/8/1n6/8 w - - 0 76",
+  "family": "KR-KN",
+  "label": "win",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5052,
+  "fen": "8/8/8/6k1/4K3/8/2R5/3n4 w - - 4 78",
+  "family": "KR-KN",
+  "label": "win",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5053,
+  "fen": "8/8/8/8/3K1k2/2n5/3R4/8 w - - 8 80",
+  "family": "KR-KN",
+  "label": "win",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5054,
+  "fen": "8/8/1K6/6R1/b6k/8/8/8 b - - 0 75",
+  "family": "KR-KB",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5055,
+  "fen": "8/3B4/1p4K1/8/2k5/8/8/8 w - - 0 51",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5056,
+  "fen": "8/5K2/4B3/1pk5/8/8/8/8 w - - 0 53",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5057,
+  "fen": "8/8/5K2/8/1p1k4/1B6/8/8 w - - 2 55",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5058,
+  "fen": "8/b7/P7/4K3/8/8/6k1/8 w - - 0 79",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5059,
+  "fen": "8/b4K2/P7/8/4k3/8/8/8 w - - 4 81",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5060,
+  "fen": "8/b7/P7/3k1K2/8/8/8/8 w - - 8 83",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5061,
+  "fen": "8/8/4P1b1/3k2P1/8/8/8/7K w - - 0 65",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5062,
+  "fen": "4b3/8/3k4/6P1/8/8/8/7K w - - 0 67",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5063,
+  "fen": "8/8/3k2P1/3b4/8/8/7K/8 w - - 3 69",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5064,
+  "fen": "8/5K2/2p5/1p6/1k3N2/8/8/8 b - - 0 59",
+  "family": "KN-KPP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5065,
+  "fen": "8/5K2/2p5/1p6/2k2N2/8/8/8 b - - 4 61",
+  "family": "KN-KPP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5066,
+  "fen": "8/5K2/2p5/4N3/2k5/1p6/8/8 b - - 1 63",
+  "family": "KN-KPP",
+  "label": "loss",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5067,
+  "fen": "8/8/5k2/8/1Pb2K2/5P2/8/8 b - - 0 54",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5068,
+  "fen": "8/8/2b2k2/8/1P3K2/5P2/8/8 b - - 4 56",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5069,
+  "fen": "8/8/2b2k2/8/1P3K2/5P2/8/8 b - - 8 58",
+  "family": "KB-KPP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5070,
+  "fen": "8/8/3b4/3k3K/7P/8/8/8 b - - 0 65",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5071,
+  "fen": "8/8/3b2K1/7P/8/5k2/8/8 b - - 0 67",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5072,
+  "fen": "8/6K1/7P/8/8/b4k2/8/8 b - - 2 69",
+  "family": "KB-KP",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5073,
+  "fen": "8/R7/8/6k1/8/4K3/B7/3r4 w - - 0 67",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5074,
+  "fen": "8/4R3/8/5k2/2B5/4K3/8/4r3 w - - 4 69",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5075,
+  "fen": "4R3/8/8/5k2/8/4K3/4B3/4r3 w - - 8 71",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": true
+ },
+ {
+  "cluster": 5076,
+  "fen": "8/2R1bk2/8/8/2K4r/8/8/8 w - - 0 68",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5077,
+  "fen": "8/2R1bk2/8/4K3/8/8/5r2/8 w - - 4 70",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5078,
+  "fen": "8/3Rbk2/8/5K2/8/8/2r5/8 w - - 8 72",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5079,
+  "fen": "3R4/1r6/2K1N3/8/8/8/k7/8 w - - 0 75",
+  "family": "KRN-KR",
+  "label": "win",
+  "tactical": true,
+  "strong_white": true
+ },
+ {
+  "cluster": 5080,
+  "fen": "8/1kb5/8/8/7R/7K/5r2/8 b - - 0 71",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": true,
+  "strong_white": false
+ },
+ {
+  "cluster": 5081,
+  "fen": "7R/8/2k5/8/5bK1/8/5r2/8 b - - 4 73",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ },
+ {
+  "cluster": 5082,
+  "fen": "R7/8/8/3kb1K1/8/8/5r2/8 b - - 8 75",
+  "family": "KRB-KR",
+  "label": "draw",
+  "tactical": false,
+  "strong_white": false
+ }
+]

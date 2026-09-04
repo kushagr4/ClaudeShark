@@ -44,6 +44,7 @@ ignore = ["N818"]
 "tools/blindwin/*" = ["E501"]
 "tools/passed/*" = ["E501"]
 "tools/v2/*" = ["E501"]
+"tools/daily/*" = ["E501"]
 
 [tool.mypy]
 strict = true
@@ -53,6 +54,7 @@ strict = true
 files = [
     "agent.py",
     "cs_constants.py",
+    "cs_drawish.py",
     "cs_eval.py",
     "cs_king.py",
     "cs_kingpawn.py",

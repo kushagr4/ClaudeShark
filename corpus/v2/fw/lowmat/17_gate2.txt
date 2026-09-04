@@ -1,0 +1,31 @@
+== GATE 2: 200 fixed-depth paired games, v2_2a_low_material (candidate) vs v2_1_kingpawn ==
+
++38 =125 -37  score 50.2%  Elo +2
+naive 95% CI -46 .. +50   paired cluster bootstrap -0 .. +5  (100 clusters)
+terminations: {'threefold_repetition': 119, 'checkmate': 75, 'insufficient_material': 6}
+
+== IN-FAMILY EXPOSURE: 135 annotated positions in 8 games; families {'KB-KP': 80, 'KN-KP': 44, 'KB-KPP': 6, 'KN-KPP': 4, 'KRN-KR': 1} ==
+first serious errors: cand 146, base 146 games
+
+== FALSE-WIN EVALUATIONS IN FAMILY (side to move holds the surplus, Stockfish within 60, root >= +150) ==
+   v2_2a_low_material   scores 0 of 65 level in-family positions >= +150 (mean root -17)
+   v2_1_kingpawn        scores 17 of 65 level in-family positions >= +150 (mean root +96)
+   as played: cand's own false-win moves 0 of 1, base's 17 of 64
+
+== GENUINE WINS IN FAMILY (Stockfish >= +300 for the surplus side): both engines' roots ==
+   v2_2a_low_material   root < +100 on 0 of 0 won in-family positions (mean +0)
+   v2_1_kingpawn        root < +100 on 0 of 0 won in-family positions (mean +0)
+
+== RESULTS OF THE GAMES THAT REACHED A FAMILY (score for the engine holding the surplus at first entry) ==
+   cluster   4 cB  KB-KP   surplus held by cand  SF for the surplus side at entry    +0  result for it 0.5  (insufficient_material)
+   cluster   4 cW  KB-KP   surplus held by base  SF for the surplus side at entry    +0  result for it 0.5  (insufficient_material)
+   cluster   5 cB  KN-KP   surplus held by base  SF for the surplus side at entry    +4  result for it 0.5  (threefold_repetition)
+   cluster  34 cB  KB-KPP  surplus held by base  SF for the surplus side at entry    +0  result for it 0.5  (threefold_repetition)
+   cluster  41 cB  KB-KP   surplus held by base  SF for the surplus side at entry    +5  result for it 0.5  (threefold_repetition)
+   cluster  41 cW  KN-KPP  surplus held by base  SF for the surplus side at entry  -561  result for it 0.0  (checkmate)
+   cluster  89 cB  KRN-KR  surplus held by base  SF for the surplus side at entry    +0  result for it 0.5  (threefold_repetition)
+   cluster  23 cW  KN-KPP  surplus held by base  SF for the surplus side at entry    -6  result for it 0.5  (threefold_repetition)
+   v2_2a_low_material held the surplus in 1 games: won 0, drew 1, lost 0
+   v2_1_kingpawn held the surplus in 7 games: won 0, drew 6, lost 1
+   v2_2a_low_material was the weaker side in 7 games: held (draw or better) 7, lost 0
+   v2_1_kingpawn was the weaker side in 1 games: held (draw or better) 1, lost 0

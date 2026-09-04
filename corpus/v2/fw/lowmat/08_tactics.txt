@@ -1,0 +1,40 @@
+== v2_1_kingpawn ==
+PASS  back_rank_m1             played a1a8   depth  1 nodes       40
+PASS  queen_m1                 played e1e8   depth  1 nodes       48
+PASS  queen_takes_defender_m1  played d1d8   depth  1 nodes       67
+PASS  knight_m1                played g5f7   depth  1 nodes       23
+PASS  rook_ladder_g8_m2        played a2a7   depth  3 nodes     2278
+PASS  rook_ladder_h8_m2        played a2a7   depth  3 nodes     2085
+PASS  queen_king_m2            played e6f6   depth  3 nodes     1869
+PASS  hanging_queen            played e4d5   depth 17 nodes    16008
+PASS  must_take_the_queen      played e1d1   depth 20 nodes    22066
+PASS  recapture_on_d5          played c3d5   depth  5 nodes    15198
+PASS  save_the_knight          played e5d3   depth  8 nodes    18232
+PASS  promote_to_win           played e7e8q  depth  8 nodes    25645
+PASS  win_the_pinned_piece     played d1d3   depth  9 nodes    21009
+PASS  make_luft_or_lose        played b8d7   depth  9 nodes    27585
+PASS  king_must_not_step_into_the_net played h7h5   depth  7 nodes    18921
+PASS  do_not_stalemate         played g1g5   depth  3 nodes     1470
+
+engine: champions\v2_1_kingpawn   budget: 1000 ms
+solved 16/16   avg depth 6.19   nodes 172,544
+== v2_2a_low_material ==
+PASS  back_rank_m1             played a1a8   depth  1 nodes       40
+PASS  queen_m1                 played e1e8   depth  1 nodes       48
+PASS  queen_takes_defender_m1  played d1d8   depth  1 nodes       67
+PASS  knight_m1                played g5f7   depth  1 nodes       23
+PASS  rook_ladder_g8_m2        played a2a7   depth  3 nodes     2278
+PASS  rook_ladder_h8_m2        played a2a7   depth  3 nodes     2085
+PASS  queen_king_m2            played e6f6   depth  3 nodes     1869
+PASS  hanging_queen            played e4d5   depth 16 nodes    13498
+PASS  must_take_the_queen      played e1d1   depth 20 nodes    22066
+PASS  recapture_on_d5          played c3d5   depth  5 nodes    15198
+PASS  save_the_knight          played e5d3   depth  8 nodes    18210
+PASS  promote_to_win           played e7e8q  depth  8 nodes    25645
+PASS  win_the_pinned_piece     played d1d3   depth  9 nodes    21009
+PASS  make_luft_or_lose        played b8d7   depth  9 nodes    27585
+PASS  king_must_not_step_into_the_net played h7h5   depth  7 nodes    18921
+PASS  do_not_stalemate         played g1g5   depth  3 nodes     1470
+
+engine: champions\v2_2a_low_material   budget: 1000 ms
+solved 16/16   avg depth 6.12   nodes 170,012

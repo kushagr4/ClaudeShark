@@ -1,0 +1,222 @@
+[
+ {
+  "name": "KRB+P v KR",
+  "fen": "3k4/4R3/8/5K2/4B3/P7/4r3/8 w - - 0 1",
+  "motif": "a strong-side pawn switches the term off",
+  "sf": 588,
+  "sf_mate": null,
+  "sf_best": "e7a7",
+  "base": {
+   "static": 461,
+   "root": 455,
+   "move": "e7a7",
+   "loss": 0
+  },
+  "cand": {
+   "static": 461,
+   "root": 455,
+   "move": "e7a7",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KRN+P v KR",
+  "fen": "3k4/4R3/8/5K2/4N3/P7/4r3/8 w - - 0 1",
+  "motif": "a strong-side pawn switches the term off",
+  "sf": 396,
+  "sf_mate": null,
+  "sf_best": "e7a7",
+  "base": {
+   "static": 449,
+   "root": 443,
+   "move": "e7b7",
+   "loss": 28
+  },
+  "cand": {
+   "static": 449,
+   "root": 443,
+   "move": "e7b7",
+   "loss": 28
+  }
+ },
+ {
+  "name": "KRR v KR",
+  "fen": "3k4/4R3/8/5K2/8/8/4r3/R7 w - - 0 1",
+  "motif": "two rooks: not a family",
+  "sf": 10000,
+  "sf_mate": 5,
+  "sf_best": "e7e2",
+  "base": {
+   "static": 540,
+   "root": 1066,
+   "move": "e7e2",
+   "loss": 0
+  },
+  "cand": {
+   "static": 540,
+   "root": 1066,
+   "move": "e7e2",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KRB v KRR",
+  "fen": "3k3r/4R3/8/5K2/4B3/8/4r3/8 w - - 0 1",
+  "motif": "two rooks on the weak side: not a family",
+  "sf": -1,
+  "sf_mate": null,
+  "sf_best": "e7e6",
+  "base": {
+   "static": -100,
+   "root": -161,
+   "move": "e7e6",
+   "loss": 14
+  },
+  "cand": {
+   "static": -100,
+   "root": -139,
+   "move": "e7f7",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KR v KB+P",
+  "fen": "8/8/3R4/7p/4b3/6k1/4K3/8 w - - 0 1",
+  "motif": "weak-side pawn with a rook: not a family",
+  "sf": 0,
+  "sf_mate": null,
+  "sf_best": "e2e3",
+  "base": {
+   "static": 68,
+   "root": 66,
+   "move": "e2e3",
+   "loss": 0
+  },
+  "cand": {
+   "static": 68,
+   "root": 66,
+   "move": "e2e3",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KB+P v K+P",
+  "fen": "8/8/8/4kp2/2B5/P3K3/8/8 w - - 0 1",
+  "motif": "pawns on both sides",
+  "sf": 651,
+  "sf_mate": null,
+  "sf_best": "c4e2",
+  "base": {
+   "static": 315,
+   "root": 313,
+   "move": "a3a4",
+   "loss": 0
+  },
+  "cand": {
+   "static": 315,
+   "root": 313,
+   "move": "a3a4",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KB v K+3P",
+  "fen": "8/8/7p/p3kp2/2B5/4K3/8/8 w - - 0 1",
+  "motif": "three weak-side pawns",
+  "sf": -18,
+  "sf_mate": null,
+  "sf_best": "c4b3",
+  "base": {
+   "static": 29,
+   "root": -34,
+   "move": "c4b5",
+   "loss": 12
+  },
+  "cand": {
+   "static": 29,
+   "root": -34,
+   "move": "c4b5",
+   "loss": 12
+  }
+ },
+ {
+  "name": "KN v K+3P",
+  "fen": "8/8/7p/p3kp2/8/2N1K3/8/8 w - - 0 1",
+  "motif": "three weak-side pawns",
+  "sf": -373,
+  "sf_mate": null,
+  "sf_best": "c3a4",
+  "base": {
+   "static": 0,
+   "root": -8,
+   "move": "c3a4",
+   "loss": 0
+  },
+  "cand": {
+   "static": 0,
+   "root": -9,
+   "move": "c3a4",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KQ v KB",
+  "fen": "8/3Q4/8/8/4b3/6k1/4K3/8 w - - 0 1",
+  "motif": "a queen switches the term off",
+  "sf": 10000,
+  "sf_mate": 6,
+  "sf_best": "e2e3",
+  "base": {
+   "static": 627,
+   "root": 689,
+   "move": "e2e3",
+   "loss": 0
+  },
+  "cand": {
+   "static": 627,
+   "root": 689,
+   "move": "e2e3",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KBN v K",
+  "fen": "8/8/8/4k3/2B5/4K3/8/N7 w - - 0 1",
+  "motif": "two minors",
+  "sf": 172,
+  "sf_mate": null,
+  "sf_best": "c4b3",
+  "base": {
+   "static": 570,
+   "root": 626,
+   "move": "a1b3",
+   "loss": 0
+  },
+  "cand": {
+   "static": 570,
+   "root": 626,
+   "move": "a1b3",
+   "loss": 0
+  }
+ },
+ {
+  "name": "KRB v KRB",
+  "fen": "3k4/4R3/7b/5K2/4B3/8/4r3/8 w - - 0 1",
+  "motif": "a minor on each side",
+  "sf": 3,
+  "sf_mate": null,
+  "sf_best": "e7h7",
+  "base": {
+   "static": 70,
+   "root": 54,
+   "move": "e7f7",
+   "loss": 0
+  },
+  "cand": {
+   "static": 70,
+   "root": 54,
+   "move": "e7f7",
+   "loss": 0
+  }
+ }
+]

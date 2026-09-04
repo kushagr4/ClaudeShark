@@ -55,8 +55,8 @@ DEFAULTS: dict[str, bool] = {
     "king_safety": False,
     "mopup": False,
     "passed": False,
-    "king_pawn": False,
-    "low_material": False,
+    "king_pawn": True,
+    "low_material": True,
 }
 
 
