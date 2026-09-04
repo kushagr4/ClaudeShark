@@ -1,0 +1,30 @@
+== EXACT RULE SCREEN: 'blockaded advanced passer' = own passer on relative rank >= R whose front square holds an enemy piece or king (or the enemy king sits on its promotion square) ==
+credit = the endgame pawn-table advancement bonus the evaluator currently pays for that pawn
+  rank >= 4: false-win rows 18 / traj 12 of 52 (mean table credit of the blockaded pawn +87, mean V2.1 static +314) | genuine-win controls rows 77 / traj 36 of 323 (mean V2.1 root +761, SF +901)
+  rank >= 5: false-win rows 18 / traj 12 of 52 (mean table credit of the blockaded pawn +87, mean V2.1 static +314) | genuine-win controls rows 53 / traj 21 of 323 (mean V2.1 root +970, SF +1019)
+  rank >= 6: false-win rows 1 / traj 1 of 52 (mean table credit of the blockaded pawn +173, mean V2.1 static +254) | genuine-win controls rows 29 / traj 9 of 323 (mean V2.1 root +1430, SF +1322)
+
+-- false-win rows the rank>=5 rule reaches, by mechanism
+   opposite-coloured bishops                    4 traj
+   rook ending, extra pawn(s) not enough        4 traj
+   extra pawn but blockaded                     1 traj
+   other                                        1 traj
+   wrong rook pawn                              1 traj
+   defender king blockade (pawn ending)         1 traj
+
+-- genuine-win controls the rank>=5 rule reaches, by family (these must not be flattened)
+   KB+3P v KB+2P              7 rows  SF +735  V2.1 root +296
+   KR+4P v KN+0P              7 rows  SF +872  V2.1 root +765
+   KQRR+6P v KQRR+4P          3 rows  SF +454  V2.1 root +220
+   KQRR+5P v KQRR+4P          3 rows  SF +558  V2.1 root +257
+   KQRR+6P v KQRR+5P          2 rows  SF +374  V2.1 root +88
+   KR+5P v KN+1P              2 rows  SF +695  V2.1 root +746
+   KQRN+6P v KQRN+3P          2 rows  SF +610  V2.1 root +416
+   KQRRBN+4P v KQRRNN+4P      2 rows  SF +432  V2.1 root +30
+   KR+3P v K+2P               2 rows  SF +928  V2.1 root +905
+   KRR+5P v KRB+2P            2 rows  SF +468  V2.1 root +382
+   KN+2P v KN+0P              2 rows  SF +529  V2.1 root +328
+   KRB+2P v KR+3P             1 rows  SF +391  V2.1 root +34
+
+-- in the controls, is the blockade *also* a genuine win because other material decides? share of reached controls with a non-pawn material edge >= 3:
+   2/53 have a piece edge >= 3; 38/53 have no piece edge

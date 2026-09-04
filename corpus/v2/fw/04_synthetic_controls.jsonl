@@ -1,0 +1,480 @@
+{"family": "KRB-KR", "fen": "8/6R1/7k/7r/8/6K1/8/5B2 w - - 0 1", "sf_white": 9, "sf_mate": null, "v21_static_white": 344, "v21_root_white": 338}
+{"family": "KRB-KR", "fen": "1r6/8/8/6KR/B7/8/8/2k5 b - - 0 1", "sf_white": -7, "sf_mate": null, "v21_static_white": 324, "v21_root_white": 331}
+{"family": "KRB-KR", "fen": "8/8/k7/7B/6r1/8/8/1R5K b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 292, "v21_root_white": 28}
+{"family": "KRB-KR", "fen": "8/8/3B4/8/7r/3KR3/1k6/8 w - - 0 1", "sf_white": 12, "sf_mate": null, "v21_static_white": 318, "v21_root_white": 336}
+{"family": "KRB-KR", "fen": "k7/5B2/7R/8/8/2r5/K7/8 w - - 0 1", "sf_white": 4, "sf_mate": null, "v21_static_white": 335, "v21_root_white": 337}
+{"family": "KRB-KR", "fen": "8/3B4/3k4/8/1K6/4R3/8/3r4 w - - 0 1", "sf_white": -5, "sf_mate": null, "v21_static_white": 269, "v21_root_white": 304}
+{"family": "KRB-KR", "fen": "4rk2/3R4/6K1/8/8/8/3B4/8 b - - 0 1", "sf_white": 26, "sf_mate": null, "v21_static_white": 380, "v21_root_white": 360}
+{"family": "KRB-KR", "fen": "8/8/7k/2B4R/7K/8/8/r7 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 290, "v21_root_white": 311}
+{"family": "KRB-KR", "fen": "5kr1/8/1RK5/8/8/8/8/6B1 w - - 0 1", "sf_white": 6, "sf_mate": null, "v21_static_white": 356, "v21_root_white": 361}
+{"family": "KRB-KR", "fen": "8/8/8/8/r7/8/1K1Bk3/6R1 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 296, "v21_root_white": 291}
+{"family": "KRB-KR", "fen": "6B1/8/8/8/1r6/7K/kR6/8 b - - 0 1", "sf_white": -31, "sf_mate": null, "v21_static_white": 273, "v21_root_white": -226}
+{"family": "KRB-KR", "fen": "8/8/2K5/8/5B2/r7/8/1R3k2 b - - 0 1", "sf_white": 7, "sf_mate": null, "v21_static_white": 321, "v21_root_white": 308}
+{"family": "KRB-KR", "fen": "8/8/3k1B2/5K2/r1R5/8/8/8 b - - 0 1", "sf_white": -34, "sf_mate": null, "v21_static_white": 337, "v21_root_white": -190}
+{"family": "KRB-KR", "fen": "5Br1/8/8/8/7k/6R1/8/1K6 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 270, "v21_root_white": -243}
+{"family": "KRB-KR", "fen": "8/8/4B3/1r6/2K4k/R7/8/8 b - - 0 1", "sf_white": 17, "sf_mate": null, "v21_static_white": 313, "v21_root_white": 311}
+{"family": "KRB-KR", "fen": "8/6K1/3R4/8/8/8/4r2B/3k4 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 306, "v21_root_white": 315}
+{"family": "KRB-KR", "fen": "7r/4K3/8/8/8/8/2B5/1Rk5 b - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": 343, "v21_root_white": 13}
+{"family": "KRB-KR", "fen": "8/8/3B3K/6R1/8/4k2r/8/8 w - - 0 1", "sf_white": 7, "sf_mate": null, "v21_static_white": 317, "v21_root_white": 341}
+{"family": "KRB-KR", "fen": "6R1/6r1/8/8/1K6/8/Bk6/8 w - - 0 1", "sf_white": 10000, "sf_mate": 7, "v21_static_white": 315, "v21_root_white": 552}
+{"family": "KRB-KR", "fen": "r7/8/8/8/3R4/8/3Bk2K/8 b - - 0 1", "sf_white": -4, "sf_mate": null, "v21_static_white": 292, "v21_root_white": 269}
+{"family": "KRB-KR", "fen": "8/4R3/3k4/5r2/8/K7/8/2B5 b - - 0 1", "sf_white": -27, "sf_mate": null, "v21_static_white": 277, "v21_root_white": -214}
+{"family": "KRB-KR", "fen": "8/k1r5/8/4R3/8/5K2/8/5B2 b - - 0 1", "sf_white": 10, "sf_mate": null, "v21_static_white": 326, "v21_root_white": 326}
+{"family": "KRB-KR", "fen": "2B5/8/6R1/8/K7/8/5k2/2r5 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 211, "v21_root_white": -24}
+{"family": "KRB-KR", "fen": "2R2r2/8/6K1/8/3k4/8/8/3B4 b - - 0 1", "sf_white": -12, "sf_mate": null, "v21_static_white": 348, "v21_root_white": -200}
+{"family": "KRB-KR", "fen": "6k1/8/2R5/5r2/8/1K6/8/4B3 w - - 0 1", "sf_white": 13, "sf_mate": null, "v21_static_white": 335, "v21_root_white": 336}
+{"family": "KRB-KR", "fen": "8/R2k4/5rB1/8/8/K7/8/8 b - - 0 1", "sf_white": -10, "sf_mate": null, "v21_static_white": 319, "v21_root_white": 305}
+{"family": "KRB-KR", "fen": "8/8/8/1B6/1r6/2K4R/6k1/8 b - - 0 1", "sf_white": -18, "sf_mate": null, "v21_static_white": 285, "v21_root_white": -13}
+{"family": "KRB-KR", "fen": "8/6k1/8/8/BK1R4/8/8/2r5 w - - 0 1", "sf_white": 6, "sf_mate": null, "v21_static_white": 293, "v21_root_white": 315}
+{"family": "KRB-KR", "fen": "1r6/8/1B5K/8/4k3/8/2R5/8 w - - 0 1", "sf_white": -3, "sf_mate": null, "v21_static_white": 308, "v21_root_white": 312}
+{"family": "KRB-KR", "fen": "8/8/8/5KB1/4r3/2k5/8/7R w - - 0 1", "sf_white": 720, "sf_mate": null, "v21_static_white": 297, "v21_root_white": 844}
+{"family": "KRB-KR", "fen": "R7/5k2/5B2/8/1K6/8/r7/8 w - - 0 1", "sf_white": 462, "sf_mate": null, "v21_static_white": 333, "v21_root_white": 524}
+{"family": "KRB-KR", "fen": "1r2K3/B7/8/8/5R2/8/8/k7 w - - 0 1", "sf_white": 542, "sf_mate": null, "v21_static_white": 354, "v21_root_white": 846}
+{"family": "KRB-KR", "fen": "8/8/6r1/6B1/8/1RK5/8/6k1 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 309, "v21_root_white": -8}
+{"family": "KRB-KR", "fen": "5R2/2r5/8/2kB4/8/8/8/6K1 b - - 0 1", "sf_white": 1, "sf_mate": null, "v21_static_white": 311, "v21_root_white": -8}
+{"family": "KRB-KR", "fen": "8/8/8/6kB/3R4/1r6/K7/8 b - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 276, "v21_root_white": 288}
+{"family": "KRB-KR", "fen": "3k4/4B3/7R/8/5r2/8/8/6K1 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 305, "v21_root_white": -8}
+{"family": "KRB-KR", "fen": "8/7k/6R1/7B/6r1/1K6/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 9, "v21_static_white": 338, "v21_root_white": 851}
+{"family": "KRB-KR", "fen": "r6B/8/8/k7/8/8/8/1R1K4 b - - 0 1", "sf_white": 2, "sf_mate": null, "v21_static_white": 296, "v21_root_white": 19}
+{"family": "KRB-KR", "fen": "1B6/8/7k/8/4rK2/8/2R5/8 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 314, "v21_root_white": 854}
+{"family": "KRB-KR", "fen": "2k1R3/8/B7/8/8/8/3r4/2K5 b - - 0 1", "sf_white": 507, "sf_mate": null, "v21_static_white": 302, "v21_root_white": 822}
+{"family": "KRN-KR", "fen": "k3R3/8/8/8/7K/2N5/4r3/8 b - - 0 1", "sf_white": -8, "sf_mate": null, "v21_static_white": 320, "v21_root_white": -190}
+{"family": "KRN-KR", "fen": "8/5K1k/NR6/8/8/8/8/3r4 w - - 0 1", "sf_white": 6, "sf_mate": null, "v21_static_white": 299, "v21_root_white": 327}
+{"family": "KRN-KR", "fen": "6K1/8/8/6N1/8/2k1r3/7R/8 w - - 0 1", "sf_white": -4, "sf_mate": null, "v21_static_white": 271, "v21_root_white": 321}
+{"family": "KRN-KR", "fen": "1K5N/8/8/k7/8/4R2r/8/8 b - - 0 1", "sf_white": -20, "sf_mate": null, "v21_static_white": 179, "v21_root_white": -241}
+{"family": "KRN-KR", "fen": "4k3/5r2/5R2/8/8/8/7K/6N1 w - - 0 1", "sf_white": -4, "sf_mate": null, "v21_static_white": 277, "v21_root_white": 278}
+{"family": "KRN-KR", "fen": "R7/5N2/8/8/4kr2/8/8/1K6 w - - 0 1", "sf_white": 4, "sf_mate": null, "v21_static_white": 268, "v21_root_white": 283}
+{"family": "KRN-KR", "fen": "4r3/8/N7/8/8/3R4/2k1K3/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 263, "v21_root_white": 0}
+{"family": "KRN-KR", "fen": "8/8/5K2/2rR4/1N6/8/8/k7 w - - 0 1", "sf_white": 505, "sf_mate": null, "v21_static_white": 408, "v21_root_white": 871}
+{"family": "KRN-KR", "fen": "1k6/7R/8/8/8/7N/2K2r2/8 w - - 0 1", "sf_white": 517, "sf_mate": null, "v21_static_white": 296, "v21_root_white": 858}
+{"family": "KRN-KR", "fen": "8/1k2N3/8/8/4r3/1K2R3/8/8 b - - 0 1", "sf_white": -625, "sf_mate": null, "v21_static_white": 272, "v21_root_white": -501}
+{"family": "KRN-KR", "fen": "4K1N1/8/8/4k3/4r3/8/8/R7 w - - 0 1", "sf_white": -3, "sf_mate": null, "v21_static_white": 197, "v21_root_white": 284}
+{"family": "KRN-KR", "fen": "6Rk/6r1/5N2/8/8/8/8/K7 b - - 0 1", "sf_white": -16, "sf_mate": null, "v21_static_white": 313, "v21_root_white": 0}
+{"family": "KRN-KR", "fen": "2r5/4K3/8/5k2/6R1/8/8/3N4 b - - 0 1", "sf_white": -10, "sf_mate": null, "v21_static_white": 261, "v21_root_white": -232}
+{"family": "KRN-KR", "fen": "5R2/8/2r5/8/5K2/8/k1N5/8 w - - 0 1", "sf_white": 515, "sf_mate": null, "v21_static_white": 321, "v21_root_white": 834}
+{"family": "KRN-KR", "fen": "3k3K/8/8/R7/r7/8/8/2N5 b - - 0 1", "sf_white": -9, "sf_mate": null, "v21_static_white": 263, "v21_root_white": -205}
+{"family": "KRN-KR", "fen": "8/8/4R3/8/K2k1r2/6N1/8/8 w - - 0 1", "sf_white": 504, "sf_mate": null, "v21_static_white": 248, "v21_root_white": 797}
+{"family": "KRN-KR", "fen": "4R3/8/8/4N3/1k6/8/3r4/3K4 w - - 0 1", "sf_white": 502, "sf_mate": null, "v21_static_white": 293, "v21_root_white": 841}
+{"family": "KRN-KR", "fen": "7r/8/8/k6N/8/8/2R5/3K4 w - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": 312, "v21_root_white": 280}
+{"family": "KRN-KR", "fen": "8/7r/8/8/2R5/4N1k1/8/1K6 b - - 0 1", "sf_white": -4, "sf_mate": null, "v21_static_white": 258, "v21_root_white": 268}
+{"family": "KRN-KR", "fen": "8/3r4/8/3k4/7R/4K3/8/6N1 w - - 0 1", "sf_white": 12, "sf_mate": null, "v21_static_white": 242, "v21_root_white": 302}
+{"family": "KRN-KR", "fen": "7r/8/4N1k1/8/2K5/8/1R6/8 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 323, "v21_root_white": 314}
+{"family": "KRN-KR", "fen": "7k/1K6/8/8/1N6/4R3/8/1r6 w - - 0 1", "sf_white": 13, "sf_mate": null, "v21_static_white": 319, "v21_root_white": 293}
+{"family": "KRN-KR", "fen": "3r4/k7/6K1/2N5/8/8/8/2R5 b - - 0 1", "sf_white": 5, "sf_mate": null, "v21_static_white": 366, "v21_root_white": 345}
+{"family": "KRN-KR", "fen": "8/3R4/4k3/8/8/6r1/2K3N1/8 w - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 284, "v21_root_white": 275}
+{"family": "KRN-KR", "fen": "8/8/8/5k2/2r5/K7/N7/R7 b - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": 195, "v21_root_white": 253}
+{"family": "KRN-KR", "fen": "8/8/1N6/1k6/8/8/2Rr4/4K3 w - - 0 1", "sf_white": 513, "sf_mate": null, "v21_static_white": 254, "v21_root_white": 540}
+{"family": "KRN-KR", "fen": "1r4k1/8/8/8/8/1N6/3R4/4K3 b - - 0 1", "sf_white": -16, "sf_mate": null, "v21_static_white": 274, "v21_root_white": 1}
+{"family": "KRN-KR", "fen": "6rN/8/8/2R5/8/k7/8/K7 b - - 0 1", "sf_white": -10000, "sf_mate": 2, "v21_static_white": 149, "v21_root_white": -29997}
+{"family": "KRN-KR", "fen": "8/8/8/1N1k4/4R3/8/3Kr3/8 w - - 0 1", "sf_white": 527, "sf_mate": null, "v21_static_white": 276, "v21_root_white": 809}
+{"family": "KRN-KR", "fen": "8/3r4/6N1/7k/4K1R1/8/8/8 b - - 0 1", "sf_white": -9, "sf_mate": null, "v21_static_white": 311, "v21_root_white": 0}
+{"family": "KRN-KR", "fen": "8/7N/1R6/7k/6r1/4K3/8/8 w - - 0 1", "sf_white": 560, "sf_mate": null, "v21_static_white": 296, "v21_root_white": 517}
+{"family": "KRN-KR", "fen": "8/4KR2/8/8/4k3/8/8/N5r1 w - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": 256, "v21_root_white": 287}
+{"family": "KRN-KR", "fen": "8/7k/5r2/1R6/8/4N3/K7/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 312, "v21_root_white": 313}
+{"family": "KRN-KR", "fen": "8/6R1/8/3K4/8/1r6/3N4/6k1 b - - 0 1", "sf_white": 502, "sf_mate": null, "v21_static_white": 294, "v21_root_white": 817}
+{"family": "KRN-KR", "fen": "8/8/1k6/8/4R1K1/1N6/8/7r b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 270, "v21_root_white": 301}
+{"family": "KRN-KR", "fen": "7r/8/8/1K6/8/8/8/N1R1k3 b - - 0 1", "sf_white": -3, "sf_mate": null, "v21_static_white": 297, "v21_root_white": 282}
+{"family": "KRN-KR", "fen": "5R2/4N3/5K2/1k6/7r/8/8/8 b - - 0 1", "sf_white": 4, "sf_mate": null, "v21_static_white": 336, "v21_root_white": 340}
+{"family": "KRN-KR", "fen": "8/R7/8/1r6/1K6/7k/8/1N6 w - - 0 1", "sf_white": 503, "sf_mate": null, "v21_static_white": 262, "v21_root_white": 818}
+{"family": "KRN-KR", "fen": "2R5/8/8/3k4/3N4/2r1K3/8/8 w - - 0 1", "sf_white": 511, "sf_mate": null, "v21_static_white": 331, "v21_root_white": 844}
+{"family": "KRN-KR", "fen": "5N2/6k1/8/8/2r5/4R3/8/6K1 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 214, "v21_root_white": -11}
+{"family": "KB-KR", "fen": "8/7r/8/4B3/8/7K/8/6k1 w - - 0 1", "sf_white": -23, "sf_mate": null, "v21_static_white": -180, "v21_root_white": -189}
+{"family": "KB-KR", "fen": "5K2/8/8/8/8/8/1k2r3/5B2 w - - 0 1", "sf_white": -16, "sf_mate": null, "v21_static_white": -222, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "8/8/5k2/6r1/7K/8/8/5B2 w - - 0 1", "sf_white": -21, "sf_mate": null, "v21_static_white": -229, "v21_root_white": -231}
+{"family": "KB-KR", "fen": "8/B1K5/8/8/8/8/2k4r/8 w - - 0 1", "sf_white": -12, "sf_mate": null, "v21_static_white": -212, "v21_root_white": -205}
+{"family": "KB-KR", "fen": "4r3/8/8/4B3/3K4/5k2/8/8 b - - 0 1", "sf_white": -22, "sf_mate": null, "v21_static_white": -214, "v21_root_white": -228}
+{"family": "KB-KR", "fen": "8/3B4/6r1/7k/8/7K/8/8 w - - 0 1", "sf_white": -15, "sf_mate": null, "v21_static_white": -193, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "8/6r1/8/8/8/K5B1/4k3/8 b - - 0 1", "sf_white": -10000, "sf_mate": 13, "v21_static_white": -235, "v21_root_white": -546}
+{"family": "KB-KR", "fen": "8/5k2/6B1/8/8/8/4K3/3r4 b - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": -219, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "1k6/8/8/8/8/4K3/6r1/2B5 w - - 0 1", "sf_white": -11, "sf_mate": null, "v21_static_white": -186, "v21_root_white": -184}
+{"family": "KB-KR", "fen": "5K2/8/8/4B3/8/8/8/5kr1 b - - 0 1", "sf_white": -14, "sf_mate": null, "v21_static_white": -204, "v21_root_white": -211}
+{"family": "KB-KR", "fen": "8/2K5/8/8/k7/7B/6r1/8 w - - 0 1", "sf_white": -7, "sf_mate": null, "v21_static_white": -197, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "3K4/5r2/3k4/8/B7/8/8/8 b - - 0 1", "sf_white": -10000, "sf_mate": 10, "v21_static_white": -239, "v21_root_white": -513}
+{"family": "KB-KR", "fen": "8/8/B2r4/8/8/k7/8/1K6 w - - 0 1", "sf_white": -51, "sf_mate": null, "v21_static_white": -224, "v21_root_white": -237}
+{"family": "KB-KR", "fen": "k7/8/8/3r4/8/8/6B1/2K5 b - - 0 1", "sf_white": -29, "sf_mate": null, "v21_static_white": -191, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "8/4B3/2K5/k7/8/8/8/7r w - - 0 1", "sf_white": -23, "sf_mate": null, "v21_static_white": -160, "v21_root_white": -191}
+{"family": "KB-KR", "fen": "8/8/8/8/8/3K2Bk/8/7r w - - 0 1", "sf_white": -16, "sf_mate": null, "v21_static_white": -203, "v21_root_white": -216}
+{"family": "KB-KR", "fen": "8/8/1K6/7k/8/1B6/8/1r6 w - - 0 1", "sf_white": -460, "sf_mate": null, "v21_static_white": -175, "v21_root_white": -502}
+{"family": "KB-KR", "fen": "K7/8/3r4/8/7k/1B6/8/8 b - - 0 1", "sf_white": -9, "sf_mate": null, "v21_static_white": -278, "v21_root_white": -264}
+{"family": "KB-KR", "fen": "8/3r1B2/8/8/8/4k3/8/5K2 w - - 0 1", "sf_white": -18, "sf_mate": null, "v21_static_white": -229, "v21_root_white": -255}
+{"family": "KB-KR", "fen": "4K3/8/1k6/3B4/2r5/8/8/8 w - - 0 1", "sf_white": -9, "sf_mate": null, "v21_static_white": -204, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "8/8/2k5/8/6BK/8/7r/8 w - - 0 1", "sf_white": -21, "sf_mate": null, "v21_static_white": -226, "v21_root_white": -196}
+{"family": "KB-KR", "fen": "8/8/1k6/8/3r4/5B1K/8/8 b - - 0 1", "sf_white": -12, "sf_mate": null, "v21_static_white": -215, "v21_root_white": -227}
+{"family": "KB-KR", "fen": "8/8/2K5/2r5/5B2/2k5/8/8 w - - 0 1", "sf_white": -19, "sf_mate": null, "v21_static_white": -189, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "8/7B/8/8/2K5/8/5k2/5r2 w - - 0 1", "sf_white": -15, "sf_mate": null, "v21_static_white": -241, "v21_root_white": -225}
+{"family": "KB-KR", "fen": "6r1/8/8/8/7B/8/4k1K1/8 w - - 0 1", "sf_white": -38, "sf_mate": null, "v21_static_white": -217, "v21_root_white": -239}
+{"family": "KB-KR", "fen": "8/4K3/k7/8/8/1B1r4/8/8 w - - 0 1", "sf_white": -25, "sf_mate": null, "v21_static_white": -171, "v21_root_white": 0}
+{"family": "KB-KR", "fen": "8/k3r3/7K/8/8/8/8/3B4 w - - 0 1", "sf_white": -14, "sf_mate": null, "v21_static_white": -161, "v21_root_white": -172}
+{"family": "KB-KR", "fen": "8/K7/8/8/8/7k/7B/3r4 b - - 0 1", "sf_white": -445, "sf_mate": null, "v21_static_white": -268, "v21_root_white": -559}
+{"family": "KB-KR", "fen": "4kB2/8/8/5r2/8/6K1/8/8 w - - 0 1", "sf_white": -15, "sf_mate": null, "v21_static_white": -173, "v21_root_white": -196}
+{"family": "KB-KR", "fen": "8/k7/8/8/4r1K1/8/8/3B4 w - - 0 1", "sf_white": -19, "sf_mate": null, "v21_static_white": -178, "v21_root_white": -180}
+{"family": "KB-KR", "fen": "5K1r/8/2k5/8/8/4B3/8/8 w - - 0 1", "sf_white": -22, "sf_mate": null, "v21_static_white": -158, "v21_root_white": -183}
+{"family": "KB-KR", "fen": "8/4k1r1/8/8/8/8/8/B2K4 b - - 0 1", "sf_white": -432, "sf_mate": null, "v21_static_white": -247, "v21_root_white": -528}
+{"family": "KB-KR", "fen": "8/2K5/8/4B2r/7k/8/8/8 w - - 0 1", "sf_white": -15, "sf_mate": null, "v21_static_white": -153, "v21_root_white": -191}
+{"family": "KB-KR", "fen": "8/8/8/3B4/8/4K1r1/8/1k6 w - - 0 1", "sf_white": -13, "sf_mate": null, "v21_static_white": -140, "v21_root_white": -173}
+{"family": "KB-KR", "fen": "8/8/8/4k3/4r3/K7/8/5B2 b - - 0 1", "sf_white": -24, "sf_mate": null, "v21_static_white": -266, "v21_root_white": -246}
+{"family": "KB-KR", "fen": "8/8/4r3/8/8/2B5/8/3k3K w - - 0 1", "sf_white": -25, "sf_mate": null, "v21_static_white": -197, "v21_root_white": -220}
+{"family": "KB-KR", "fen": "8/8/8/2k5/8/8/7B/K3r3 w - - 0 1", "sf_white": -441, "sf_mate": null, "v21_static_white": -299, "v21_root_white": -517}
+{"family": "KB-KR", "fen": "8/1k6/3K4/8/8/5r2/4B3/8 b - - 0 1", "sf_white": -6, "sf_mate": null, "v21_static_white": -188, "v21_root_white": -191}
+{"family": "KB-KR", "fen": "3B1k2/2K5/8/8/8/1r6/8/8 w - - 0 1", "sf_white": -11, "sf_mate": null, "v21_static_white": -188, "v21_root_white": -191}
+{"family": "KB-KR", "fen": "1K3r2/8/8/k7/8/3B4/8/8 w - - 0 1", "sf_white": -10, "sf_mate": null, "v21_static_white": -178, "v21_root_white": -199}
+{"family": "KBP(rook pawn)-K", "fen": "4k3/8/8/8/P7/8/K5B1/8 b - - 0 1", "sf_white": 752, "sf_mate": null, "v21_static_white": 407, "v21_root_white": 419}
+{"family": "KBP(rook pawn)-K", "fen": "1k6/8/8/2K5/8/8/P7/5B2 w - - 0 1", "sf_white": 1015, "sf_mate": null, "v21_static_white": 473, "v21_root_white": 494}
+{"family": "KBP(rook pawn)-K", "fen": "1k2K3/8/8/7P/8/8/8/4B3 b - - 0 1", "sf_white": 10000, "sf_mate": -10, "v21_static_white": 432, "v21_root_white": 1241}
+{"family": "KBP(rook pawn)-K", "fen": "8/1K6/8/P1B5/8/8/8/k7 b - - 0 1", "sf_white": 10000, "sf_mate": -11, "v21_static_white": 540, "v21_root_white": 947}
+{"family": "KBP(rook pawn)-K", "fen": "8/K7/7P/4B3/8/8/8/1k6 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 518, "v21_root_white": 1317}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/8/1k6/4B3/3K3P/8 w - - 0 1", "sf_white": 10000, "sf_mate": 16, "v21_static_white": 407, "v21_root_white": 468}
+{"family": "KBP(rook pawn)-K", "fen": "2k5/8/8/8/8/P5B1/8/6K1 b - - 0 1", "sf_white": 28, "sf_mate": null, "v21_static_white": 379, "v21_root_white": 381}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/7P/4k3/3B4/8/8/2K5 b - - 0 1", "sf_white": 519, "sf_mate": null, "v21_static_white": 417, "v21_root_white": 941}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/7P/2Bk4/8/8/8/2K5 w - - 0 1", "sf_white": 889, "sf_mate": null, "v21_static_white": 440, "v21_root_white": 1249}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/8/7P/3k4/8/2B4K b - - 0 1", "sf_white": 689, "sf_mate": null, "v21_static_white": 317, "v21_root_white": 393}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/6B1/8/P7/3k4/K7/8 b - - 0 1", "sf_white": 728, "sf_mate": null, "v21_static_white": 370, "v21_root_white": 402}
+{"family": "KBP(rook pawn)-K", "fen": "8/7P/8/8/k7/8/8/K4B2 b - - 0 1", "sf_white": 10000, "sf_mate": -7, "v21_static_white": 505, "v21_root_white": 1256}
+{"family": "KBP(rook pawn)-K", "fen": "B7/8/8/8/6K1/7P/1k6/8 b - - 0 1", "sf_white": 975, "sf_mate": null, "v21_static_white": 399, "v21_root_white": 417}
+{"family": "KBP(rook pawn)-K", "fen": "8/2K5/7P/8/8/5k2/7B/8 w - - 0 1", "sf_white": 903, "sf_mate": null, "v21_static_white": 401, "v21_root_white": 1287}
+{"family": "KBP(rook pawn)-K", "fen": "5K2/7B/7P/6k1/8/8/8/8 b - - 0 1", "sf_white": -6, "sf_mate": null, "v21_static_white": 443, "v21_root_white": 0}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/8/5B2/1k2K2P/8/8 b - - 0 1", "sf_white": 10000, "sf_mate": -17, "v21_static_white": 413, "v21_root_white": 475}
+{"family": "KBP(rook pawn)-K", "fen": "8/k7/5B2/6K1/P7/8/8/8 w - - 0 1", "sf_white": 161, "sf_mate": null, "v21_static_white": 447, "v21_root_white": 426}
+{"family": "KBP(rook pawn)-K", "fen": "k7/P7/8/2K4B/8/8/8/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 640, "v21_root_white": 0}
+{"family": "KBP(rook pawn)-K", "fen": "8/7K/8/P7/8/k1B5/8/8 b - - 0 1", "sf_white": 530, "sf_mate": null, "v21_static_white": 389, "v21_root_white": 915}
+{"family": "KBP(rook pawn)-K", "fen": "8/4k3/8/K7/4B2P/8/8/8 w - - 0 1", "sf_white": 32, "sf_mate": null, "v21_static_white": 364, "v21_root_white": 538}
+{"family": "KBP(rook pawn)-K", "fen": "8/2k5/8/8/2K5/P7/B7/8 b - - 0 1", "sf_white": 750, "sf_mate": null, "v21_static_white": 413, "v21_root_white": 425}
+{"family": "KBP(rook pawn)-K", "fen": "k4B2/8/P3K3/8/8/8/8/8 w - - 0 1", "sf_white": 40, "sf_mate": null, "v21_static_white": 527, "v21_root_white": 600}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/7P/1k6/8/B7/7K/8 w - - 0 1", "sf_white": 737, "sf_mate": null, "v21_static_white": 468, "v21_root_white": 1275}
+{"family": "KBP(rook pawn)-K", "fen": "1K6/8/7P/4k3/7B/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 393, "v21_root_white": 1271}
+{"family": "KBP(rook pawn)-K", "fen": "8/3K4/1B6/8/8/P1k5/8/8 w - - 0 1", "sf_white": 737, "sf_mate": null, "v21_static_white": 368, "v21_root_white": 410}
+{"family": "KBP(rook pawn)-K", "fen": "3B4/7K/k7/8/8/7P/8/8 w - - 0 1", "sf_white": 748, "sf_mate": null, "v21_static_white": 423, "v21_root_white": 463}
+{"family": "KBP(rook pawn)-K", "fen": "7B/7P/8/8/8/1k6/5K2/8 w - - 0 1", "sf_white": 10000, "sf_mate": 9, "v21_static_white": 542, "v21_root_white": 1320}
+{"family": "KBP(rook pawn)-K", "fen": "8/7B/8/5K2/8/4k3/P7/8 w - - 0 1", "sf_white": 903, "sf_mate": null, "v21_static_white": 397, "v21_root_white": 449}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/2K5/8/8/8/P7/6kB w - - 0 1", "sf_white": 652, "sf_mate": null, "v21_static_white": 424, "v21_root_white": 451}
+{"family": "KBP(rook pawn)-K", "fen": "8/7P/8/8/8/8/8/B1k2K2 w - - 0 1", "sf_white": 10000, "sf_mate": 5, "v21_static_white": 558, "v21_root_white": 1305}
+{"family": "KBP(rook pawn)-K", "fen": "3B4/7P/8/8/6k1/8/8/3K4 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 510, "v21_root_white": 1286}
+{"family": "KBP(rook pawn)-K", "fen": "3k4/7P/8/6B1/8/8/8/4K3 b - - 0 1", "sf_white": 10000, "sf_mate": -9, "v21_static_white": 542, "v21_root_white": 1292}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/1k6/3K4/6B1/P7/8 w - - 0 1", "sf_white": 60, "sf_mate": null, "v21_static_white": 431, "v21_root_white": 452}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/P7/8/K6k/B7/8 w - - 0 1", "sf_white": 750, "sf_mate": null, "v21_static_white": 422, "v21_root_white": 1204}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/7K/8/P7/8/4B3/6k1 w - - 0 1", "sf_white": 733, "sf_mate": null, "v21_static_white": 424, "v21_root_white": 906}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/1KB4P/8/8/8/4k3 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 450, "v21_root_white": 1286}
+{"family": "KBP(rook pawn)-K", "fen": "4k3/8/1K2B3/8/P7/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 479, "v21_root_white": 934}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/8/8/kB6/7P/5K2/8 w - - 0 1", "sf_white": 545, "sf_mate": null, "v21_static_white": 442, "v21_root_white": 427}
+{"family": "KBP(rook pawn)-K", "fen": "3K4/8/8/8/8/P7/5k2/1B6 w - - 0 1", "sf_white": 767, "sf_mate": null, "v21_static_white": 341, "v21_root_white": 430}
+{"family": "KBP(rook pawn)-K", "fen": "8/8/7K/8/8/2B3k1/P7/8 w - - 0 1", "sf_white": 743, "sf_mate": null, "v21_static_white": 389, "v21_root_white": 466}
+{"family": "KBP(other pawn)-K", "fen": "8/5B2/8/6K1/8/1P6/8/k7 b - - 0 1", "sf_white": 10000, "sf_mate": -14, "v21_static_white": 445, "v21_root_white": 393}
+{"family": "KBP(other pawn)-K", "fen": "8/2B5/8/3P4/7K/2k5/8/8 b - - 0 1", "sf_white": 10000, "sf_mate": -12, "v21_static_white": 339, "v21_root_white": 1227}
+{"family": "KBP(other pawn)-K", "fen": "4k3/8/8/3B3K/8/8/2P5/8 b - - 0 1", "sf_white": 635, "sf_mate": null, "v21_static_white": 430, "v21_root_white": 410}
+{"family": "KBP(other pawn)-K", "fen": "8/8/1P6/2B5/8/5k2/K7/8 b - - 0 1", "sf_white": 731, "sf_mate": null, "v21_static_white": 424, "v21_root_white": 1242}
+{"family": "KBP(other pawn)-K", "fen": "5k2/1P6/8/2K5/8/8/8/1B6 b - - 0 1", "sf_white": 10000, "sf_mate": -6, "v21_static_white": 608, "v21_root_white": 1330}
+{"family": "KBP(other pawn)-K", "fen": "8/8/1K1P4/8/1k6/8/6B1/8 b - - 0 1", "sf_white": 10000, "sf_mate": -13, "v21_static_white": 434, "v21_root_white": 1305}
+{"family": "KBP(other pawn)-K", "fen": "4B3/8/6P1/4k3/8/8/8/4K3 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 388, "v21_root_white": 1261}
+{"family": "KBP(other pawn)-K", "fen": "1K6/8/8/8/2B5/8/3P4/7k b - - 0 1", "sf_white": 719, "sf_mate": null, "v21_static_white": 378, "v21_root_white": 383}
+{"family": "KBP(other pawn)-K", "fen": "k7/8/8/3P4/8/2K5/8/3B4 w - - 0 1", "sf_white": 10000, "sf_mate": 17, "v21_static_white": 473, "v21_root_white": 519}
+{"family": "KBP(other pawn)-K", "fen": "8/2KB4/8/1P6/8/8/5k2/8 w - - 0 1", "sf_white": 929, "sf_mate": null, "v21_static_white": 412, "v21_root_white": 1251}
+{"family": "KBP(other pawn)-K", "fen": "8/1KP3k1/8/8/8/8/2B5/8 w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 604, "v21_root_white": 1345}
+{"family": "KBP(other pawn)-K", "fen": "8/8/1P6/8/8/1K4k1/1B6/8 w - - 0 1", "sf_white": 753, "sf_mate": null, "v21_static_white": 457, "v21_root_white": 1269}
+{"family": "KBP(other pawn)-K", "fen": "8/8/K7/8/8/2B3P1/8/3k4 b - - 0 1", "sf_white": 687, "sf_mate": null, "v21_static_white": 398, "v21_root_white": 361}
+{"family": "KBP(other pawn)-K", "fen": "2K5/B7/2k5/8/2P5/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 15, "v21_static_white": 340, "v21_root_white": 470}
+{"family": "KBP(other pawn)-K", "fen": "3K4/2B5/8/3P4/8/8/1k6/8 w - - 0 1", "sf_white": 766, "sf_mate": null, "v21_static_white": 378, "v21_root_white": 1276}
+{"family": "KBP(other pawn)-K", "fen": "8/8/8/5kB1/8/2P5/K7/8 b - - 0 1", "sf_white": 518, "sf_mate": null, "v21_static_white": 348, "v21_root_white": 80}
+{"family": "KBP(other pawn)-K", "fen": "2K5/8/3P4/k7/8/8/8/1B6 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 472, "v21_root_white": 1291}
+{"family": "KBP(other pawn)-K", "fen": "8/3P4/8/1K6/5k1B/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 7, "v21_static_white": 526, "v21_root_white": 1308}
+{"family": "KBP(other pawn)-K", "fen": "8/6K1/1B2k3/8/5P2/8/8/8 w - - 0 1", "sf_white": 1026, "sf_mate": null, "v21_static_white": 376, "v21_root_white": 458}
+{"family": "KBP(other pawn)-K", "fen": "4B3/8/8/5P2/8/4K3/8/5k2 b - - 0 1", "sf_white": 10000, "sf_mate": -7, "v21_static_white": 412, "v21_root_white": 1240}
+{"family": "KBP(other pawn)-K", "fen": "8/1P5K/8/8/k7/3B4/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 4, "v21_static_white": 577, "v21_root_white": 1376}
+{"family": "KBP(other pawn)-K", "fen": "8/k1P5/3B4/8/8/8/8/1K6 w - - 0 1", "sf_white": 10000, "sf_mate": 5, "v21_static_white": 516, "v21_root_white": 1321}
+{"family": "KBP(other pawn)-K", "fen": "8/8/8/8/6B1/1K6/4Pk2/8 w - - 0 1", "sf_white": 702, "sf_mate": null, "v21_static_white": 348, "v21_root_white": 403}
+{"family": "KBP(other pawn)-K", "fen": "8/5k2/8/1P5K/3B4/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 13, "v21_static_white": 430, "v21_root_white": 1254}
+{"family": "KBP(other pawn)-K", "fen": "B7/8/5k2/5P2/4K3/8/8/8 b - - 0 1", "sf_white": 6274, "sf_mate": null, "v21_static_white": 384, "v21_root_white": 479}
+{"family": "KBP(other pawn)-K", "fen": "8/8/2P3k1/4B3/7K/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 11, "v21_static_white": 468, "v21_root_white": 1261}
+{"family": "KBP(other pawn)-K", "fen": "8/8/5B2/8/4K3/8/k2P4/8 w - - 0 1", "sf_white": 989, "sf_mate": null, "v21_static_white": 463, "v21_root_white": 468}
+{"family": "KBP(other pawn)-K", "fen": "8/4P3/8/5K2/2B5/8/8/4k3 w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 636, "v21_root_white": 1335}
+{"family": "KBP(other pawn)-K", "fen": "8/8/8/1k2P3/8/1B6/8/2K5 b - - 0 1", "sf_white": 753, "sf_mate": null, "v21_static_white": 354, "v21_root_white": 418}
+{"family": "KBP(other pawn)-K", "fen": "8/4P3/2k5/8/8/8/8/3B1K2 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 464, "v21_root_white": 0}
+{"family": "KBP(other pawn)-K", "fen": "8/3kP3/6K1/8/8/8/1B6/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 534, "v21_root_white": 0}
+{"family": "KBP(other pawn)-K", "fen": "8/8/B3k3/8/1P5K/8/8/8 b - - 0 1", "sf_white": 777, "sf_mate": null, "v21_static_white": 339, "v21_root_white": 422}
+{"family": "KBP(other pawn)-K", "fen": "8/8/4B1K1/8/8/3k4/3P4/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 388, "v21_root_white": 0}
+{"family": "KBP(other pawn)-K", "fen": "8/8/1P6/1K2k3/8/8/4B3/8 w - - 0 1", "sf_white": 10000, "sf_mate": 15, "v21_static_white": 520, "v21_root_white": 1307}
+{"family": "KBP(other pawn)-K", "fen": "8/5B2/8/7K/8/4kP2/8/8 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 342, "v21_root_white": 0}
+{"family": "KBP(other pawn)-K", "fen": "2B5/5K2/8/1P6/8/k7/8/8 b - - 0 1", "sf_white": 743, "sf_mate": null, "v21_static_white": 398, "v21_root_white": 1259}
+{"family": "KBP(other pawn)-K", "fen": "8/2k2P2/8/8/8/4B3/5K2/8 w - - 0 1", "sf_white": 10000, "sf_mate": 7, "v21_static_white": 522, "v21_root_white": 1327}
+{"family": "KBP(other pawn)-K", "fen": "8/8/k7/3P4/1B6/7K/8/8 b - - 0 1", "sf_white": 6699, "sf_mate": null, "v21_static_white": 391, "v21_root_white": 463}
+{"family": "KBP(other pawn)-K", "fen": "8/6P1/8/8/4k3/8/8/K2B4 b - - 0 1", "sf_white": 10000, "sf_mate": -11, "v21_static_white": 441, "v21_root_white": 1256}
+{"family": "KBP(other pawn)-K", "fen": "1k6/8/3P2K1/8/8/7B/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 10, "v21_static_white": 515, "v21_root_white": 1279}
+{"family": "KNP-K", "fen": "6K1/8/8/8/1P1Nk3/8/8/8 w - - 0 1", "sf_white": 537, "sf_mate": null, "v21_static_white": 375, "v21_root_white": 535}
+{"family": "KNP-K", "fen": "4k3/2P5/6K1/8/8/8/N7/8 w - - 0 1", "sf_white": 10000, "sf_mate": 5, "v21_static_white": 543, "v21_root_white": 1327}
+{"family": "KNP-K", "fen": "5K2/8/2N1k3/8/8/2P5/8/8 w - - 0 1", "sf_white": 530, "sf_mate": null, "v21_static_white": 359, "v21_root_white": 370}
+{"family": "KNP-K", "fen": "8/8/8/8/8/6K1/2kP3N/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 305, "v21_root_white": 0}
+{"family": "KNP-K", "fen": "4N3/4k3/8/8/3P4/8/8/4K3 b - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 297, "v21_root_white": 95}
+{"family": "KNP-K", "fen": "2k5/8/6N1/8/8/8/3P2K1/8 w - - 0 1", "sf_white": 519, "sf_mate": null, "v21_static_white": 416, "v21_root_white": 432}
+{"family": "KNP-K", "fen": "8/8/k7/8/3N4/8/3P4/2K5 w - - 0 1", "sf_white": 548, "sf_mate": null, "v21_static_white": 451, "v21_root_white": 429}
+{"family": "KNP-K", "fen": "8/8/3P4/2K3N1/8/2k5/8/8 b - - 0 1", "sf_white": 10000, "sf_mate": -8, "v21_static_white": 466, "v21_root_white": 1281}
+{"family": "KNP-K", "fen": "8/8/K7/5N2/8/2k5/6P1/8 b - - 0 1", "sf_white": 515, "sf_mate": null, "v21_static_white": 361, "v21_root_white": 348}
+{"family": "KNP-K", "fen": "8/8/8/2K5/6P1/5N2/8/1k6 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 452, "v21_root_white": 1255}
+{"family": "KNP-K", "fen": "5K2/8/8/8/3P4/6k1/5N2/8 w - - 0 1", "sf_white": 516, "sf_mate": null, "v21_static_white": 318, "v21_root_white": 933}
+{"family": "KNP-K", "fen": "1k6/8/8/5P1K/8/8/8/6N1 b - - 0 1", "sf_white": 612, "sf_mate": null, "v21_static_white": 379, "v21_root_white": 483}
+{"family": "KNP-K", "fen": "8/4P3/8/8/8/2kN4/7K/8 w - - 0 1", "sf_white": 10000, "sf_mate": 11, "v21_static_white": 493, "v21_root_white": 1297}
+{"family": "KNP-K", "fen": "8/3NK3/7P/8/8/8/3k4/8 b - - 0 1", "sf_white": 639, "sf_mate": null, "v21_static_white": 459, "v21_root_white": 1277}
+{"family": "KNP-K", "fen": "8/8/8/KN6/8/8/4k2P/8 b - - 0 1", "sf_white": 479, "sf_mate": null, "v21_static_white": 317, "v21_root_white": 318}
+{"family": "KNP-K", "fen": "8/7K/8/k7/8/6N1/P7/8 b - - 0 1", "sf_white": 526, "sf_mate": null, "v21_static_white": 367, "v21_root_white": 141}
+{"family": "KNP-K", "fen": "8/1P6/8/8/2N5/8/4k3/7K w - - 0 1", "sf_white": 10000, "sf_mate": 10, "v21_static_white": 515, "v21_root_white": 1274}
+{"family": "KNP-K", "fen": "8/8/2K5/P7/8/8/k5N1/8 w - - 0 1", "sf_white": 624, "sf_mate": null, "v21_static_white": 436, "v21_root_white": 1243}
+{"family": "KNP-K", "fen": "6N1/8/4P3/7K/8/8/8/1k6 b - - 0 1", "sf_white": 610, "sf_mate": null, "v21_static_white": 421, "v21_root_white": 1268}
+{"family": "KNP-K", "fen": "1k6/8/8/P6K/8/5N2/8/8 w - - 0 1", "sf_white": 526, "sf_mate": null, "v21_static_white": 422, "v21_root_white": 431}
+{"family": "KNP-K", "fen": "N7/8/5P2/8/K3k3/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 11, "v21_static_white": 297, "v21_root_white": 1233}
+{"family": "KNP-K", "fen": "K7/8/1N6/2P5/8/5k2/8/8 w - - 0 1", "sf_white": 775, "sf_mate": null, "v21_static_white": 263, "v21_root_white": 1233}
+{"family": "KNP-K", "fen": "8/1k6/8/N7/8/8/2P2K2/8 b - - 0 1", "sf_white": 535, "sf_mate": null, "v21_static_white": 395, "v21_root_white": 397}
+{"family": "KNP-K", "fen": "7N/8/8/8/8/1KP4k/8/8 w - - 0 1", "sf_white": 593, "sf_mate": null, "v21_static_white": 310, "v21_root_white": 388}
+{"family": "KNP-K", "fen": "8/8/8/2k5/P7/8/4K3/1N6 b - - 0 1", "sf_white": 525, "sf_mate": null, "v21_static_white": 300, "v21_root_white": 146}
+{"family": "KNP-K", "fen": "8/2P5/8/8/8/8/2k4K/2N5 b - - 0 1", "sf_white": 517, "sf_mate": null, "v21_static_white": 469, "v21_root_white": 976}
+{"family": "KNP-K", "fen": "8/8/1k6/4N3/6P1/2K5/8/8 b - - 0 1", "sf_white": 536, "sf_mate": null, "v21_static_white": 419, "v21_root_white": 427}
+{"family": "KNP-K", "fen": "8/2K5/8/3P4/3N4/8/6k1/8 w - - 0 1", "sf_white": 726, "sf_mate": null, "v21_static_white": 418, "v21_root_white": 1269}
+{"family": "KNP-K", "fen": "8/8/8/5N2/8/2K5/1P6/4k3 w - - 0 1", "sf_white": 621, "sf_mate": null, "v21_static_white": 451, "v21_root_white": 472}
+{"family": "KNP-K", "fen": "6K1/8/8/7P/8/5N2/8/k7 w - - 0 1", "sf_white": 630, "sf_mate": null, "v21_static_white": 498, "v21_root_white": 1276}
+{"family": "KNP-K", "fen": "8/8/2P5/N4K2/8/8/2k5/8 w - - 0 1", "sf_white": 10000, "sf_mate": 9, "v21_static_white": 480, "v21_root_white": 1280}
+{"family": "KNP-K", "fen": "8/8/8/3kP3/6K1/8/1N6/8 b - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 320, "v21_root_white": 0}
+{"family": "KNP-K", "fen": "8/8/P7/6k1/8/1N5K/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 12, "v21_static_white": 454, "v21_root_white": 1248}
+{"family": "KNP-K", "fen": "8/8/8/8/1k6/1N1P4/2K5/8 b - - 0 1", "sf_white": 534, "sf_mate": null, "v21_static_white": 360, "v21_root_white": 406}
+{"family": "KNP-K", "fen": "8/6N1/8/8/5P2/8/3k4/K7 b - - 0 1", "sf_white": 8078, "sf_mate": null, "v21_static_white": 236, "v21_root_white": 368}
+{"family": "KNP-K", "fen": "8/7K/8/6P1/1N4k1/8/8/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 353, "v21_root_white": 0}
+{"family": "KNP-K", "fen": "8/7N/1k6/8/K7/8/6P1/8 b - - 0 1", "sf_white": 534, "sf_mate": null, "v21_static_white": 305, "v21_root_white": 353}
+{"family": "KNP-K", "fen": "4k3/6P1/N7/5K2/8/8/8/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 560, "v21_root_white": 0}
+{"family": "KNP-K", "fen": "8/1k6/8/5K2/2P3N1/8/8/8 b - - 0 1", "sf_white": 529, "sf_mate": null, "v21_static_white": 411, "v21_root_white": 392}
+{"family": "KNP-K", "fen": "8/3k4/N3P3/8/8/8/5K2/8 b - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 359, "v21_root_white": 0}
+{"family": "KP-K", "fen": "8/8/5K2/8/8/3P1k2/8/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 75, "v21_root_white": 0}
+{"family": "KP-K", "fen": "8/8/7K/8/2k5/5P2/8/8 w - - 0 1", "sf_white": 501, "sf_mate": null, "v21_static_white": 86, "v21_root_white": 117}
+{"family": "KP-K", "fen": "8/8/2K5/8/8/7k/2P5/8 b - - 0 1", "sf_white": 525, "sf_mate": null, "v21_static_white": 116, "v21_root_white": 105}
+{"family": "KP-K", "fen": "1k6/8/8/8/6KP/8/8/8 b - - 0 1", "sf_white": 523, "sf_mate": null, "v21_static_white": 176, "v21_root_white": 255}
+{"family": "KP-K", "fen": "4k3/8/P7/5K2/8/8/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 10, "v21_static_white": 245, "v21_root_white": 1001}
+{"family": "KP-K", "fen": "8/2k2K2/8/8/8/3P4/8/8 w - - 0 1", "sf_white": 504, "sf_mate": null, "v21_static_white": 137, "v21_root_white": 112}
+{"family": "KP-K", "fen": "8/7K/8/5P2/4k3/8/8/8 w - - 0 1", "sf_white": 508, "sf_mate": null, "v21_static_white": 79, "v21_root_white": 966}
+{"family": "KP-K", "fen": "8/2P3K1/8/8/8/8/8/4k3 w - - 0 1", "sf_white": 581, "sf_mate": null, "v21_static_white": 306, "v21_root_white": 1003}
+{"family": "KP-K", "fen": "8/8/5P2/5K1k/8/8/8/8 b - - 0 1", "sf_white": 522, "sf_mate": null, "v21_static_white": 195, "v21_root_white": 240}
+{"family": "KP-K", "fen": "8/6k1/8/8/3K4/1P6/8/8 w - - 0 1", "sf_white": 523, "sf_mate": null, "v21_static_white": 174, "v21_root_white": 205}
+{"family": "KP-K", "fen": "8/8/3P4/1K3k2/8/8/8/8 b - - 0 1", "sf_white": 490, "sf_mate": null, "v21_static_white": 152, "v21_root_white": 220}
+{"family": "KP-K", "fen": "8/k7/8/6P1/8/8/3K4/8 b - - 0 1", "sf_white": 521, "sf_mate": null, "v21_static_white": 167, "v21_root_white": 940}
+{"family": "KP-K", "fen": "5K2/8/1P6/8/8/8/8/7k w - - 0 1", "sf_white": 616, "sf_mate": null, "v21_static_white": 246, "v21_root_white": 980}
+{"family": "KP-K", "fen": "5k2/3P4/8/8/8/8/3K4/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 211, "v21_root_white": 0}
+{"family": "KP-K", "fen": "8/8/5K2/1P6/7k/8/8/8 b - - 0 1", "sf_white": 542, "sf_mate": null, "v21_static_white": 164, "v21_root_white": 961}
+{"family": "KP-K", "fen": "8/7P/5K2/8/8/1k6/8/8 b - - 0 1", "sf_white": 562, "sf_mate": null, "v21_static_white": 337, "v21_root_white": 1015}
+{"family": "KP-K", "fen": "8/4P3/8/8/8/8/2k4K/8 w - - 0 1", "sf_white": 516, "sf_mate": null, "v21_static_white": 218, "v21_root_white": 991}
+{"family": "KP-K", "fen": "8/8/5K2/5P2/8/8/4k3/8 w - - 0 1", "sf_white": 528, "sf_mate": null, "v21_static_white": 158, "v21_root_white": 966}
+{"family": "KP-K", "fen": "8/8/5P2/8/k7/8/3K4/8 w - - 0 1", "sf_white": 523, "sf_mate": null, "v21_static_white": 188, "v21_root_white": 986}
+{"family": "KP-K", "fen": "8/8/2P3k1/8/8/8/7K/8 w - - 0 1", "sf_white": 503, "sf_mate": null, "v21_static_white": 151, "v21_root_white": 967}
+{"family": "KP-K", "fen": "4K3/8/8/8/8/3P3k/8/8 b - - 0 1", "sf_white": -7, "sf_mate": null, "v21_static_white": 51, "v21_root_white": 0}
+{"family": "KP-K", "fen": "8/6k1/8/8/4P3/8/8/7K w - - 0 1", "sf_white": 13, "sf_mate": null, "v21_static_white": 57, "v21_root_white": 104}
+{"family": "KP-K", "fen": "8/8/8/8/8/3K3k/4P3/8 w - - 0 1", "sf_white": 518, "sf_mate": null, "v21_static_white": 147, "v21_root_white": 99}
+{"family": "KP-K", "fen": "8/8/8/8/3k4/1P6/8/1K6 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 48, "v21_root_white": 113}
+{"family": "KP-K", "fen": "7K/8/8/8/8/3P4/8/1k6 b - - 0 1", "sf_white": 484, "sf_mate": null, "v21_static_white": 69, "v21_root_white": 85}
+{"family": "KP-K", "fen": "5K2/8/5P2/8/8/8/1k6/8 b - - 0 1", "sf_white": 542, "sf_mate": null, "v21_static_white": 161, "v21_root_white": 959}
+{"family": "KP-K", "fen": "k7/8/8/1K6/8/8/7P/8 b - - 0 1", "sf_white": 483, "sf_mate": null, "v21_static_white": 154, "v21_root_white": 117}
+{"family": "KP-K", "fen": "8/8/2P5/2k5/8/8/6K1/8 w - - 0 1", "sf_white": 482, "sf_mate": null, "v21_static_white": 125, "v21_root_white": 974}
+{"family": "KP-K", "fen": "8/8/K7/3P4/8/4k3/8/8 b - - 0 1", "sf_white": 470, "sf_mate": null, "v21_static_white": 69, "v21_root_white": 933}
+{"family": "KP-K", "fen": "8/1k6/8/8/4K3/2P5/8/8 w - - 0 1", "sf_white": 508, "sf_mate": null, "v21_static_white": 158, "v21_root_white": 140}
+{"family": "KP-K", "fen": "8/8/8/8/4P3/8/2k5/6K1 w - - 0 1", "sf_white": 497, "sf_mate": null, "v21_static_white": 45, "v21_root_white": 920}
+{"family": "KP-K", "fen": "8/3K4/8/8/3P4/8/8/5k2 b - - 0 1", "sf_white": 517, "sf_mate": null, "v21_static_white": 81, "v21_root_white": 155}
+{"family": "KP-K", "fen": "8/8/4K3/8/5k2/7P/8/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 53, "v21_root_white": 0}
+{"family": "KP-K", "fen": "8/3k4/7K/8/8/8/4P3/8 w - - 0 1", "sf_white": 525, "sf_mate": null, "v21_static_white": 127, "v21_root_white": 126}
+{"family": "KP-K", "fen": "8/3k4/8/8/8/1K2P3/8/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 82, "v21_root_white": 89}
+{"family": "KP-K", "fen": "8/6K1/7P/8/8/8/k7/8 w - - 0 1", "sf_white": 532, "sf_mate": null, "v21_static_white": 269, "v21_root_white": 1005}
+{"family": "KP-K", "fen": "8/3K4/8/8/8/8/1P6/6k1 w - - 0 1", "sf_white": 534, "sf_mate": null, "v21_static_white": 123, "v21_root_white": 192}
+{"family": "KP-K", "fen": "5k2/8/2P5/8/8/8/8/1K6 w - - 0 1", "sf_white": 499, "sf_mate": null, "v21_static_white": 143, "v21_root_white": 969}
+{"family": "KP-K", "fen": "8/3P2K1/8/8/8/3k4/8/8 b - - 0 1", "sf_white": 512, "sf_mate": null, "v21_static_white": 240, "v21_root_white": 997}
+{"family": "KP-K", "fen": "8/8/1P4k1/8/2K5/8/8/8 b - - 0 1", "sf_white": 532, "sf_mate": null, "v21_static_white": 236, "v21_root_white": 964}
+{"family": "KRP-KR", "fen": "8/8/7r/8/K4k2/P7/8/1R6 w - - 0 1", "sf_white": 8, "sf_mate": null, "v21_static_white": 110, "v21_root_white": 103}
+{"family": "KRP-KR", "fen": "6r1/8/8/1R6/7P/7k/4K3/8 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 59, "v21_root_white": 6}
+{"family": "KRP-KR", "fen": "4k3/R7/5K2/8/8/8/2P5/7r w - - 0 1", "sf_white": 1, "sf_mate": null, "v21_static_white": 176, "v21_root_white": 155}
+{"family": "KRP-KR", "fen": "4k3/2K4r/8/1R6/6P1/8/8/8 w - - 0 1", "sf_white": 11, "sf_mate": null, "v21_static_white": 149, "v21_root_white": 137}
+{"family": "KRP-KR", "fen": "8/8/5P2/8/6K1/2r5/4k3/6R1 b - - 0 1", "sf_white": 469, "sf_mate": null, "v21_static_white": 133, "v21_root_white": 164}
+{"family": "KRP-KR", "fen": "6K1/8/3R4/8/5P2/8/8/r6k b - - 0 1", "sf_white": 458, "sf_mate": null, "v21_static_white": 78, "v21_root_white": 73}
+{"family": "KRP-KR", "fen": "8/8/4R3/8/2P5/8/2k4K/3r4 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 14, "v21_root_white": 66}
+{"family": "KRP-KR", "fen": "8/K2R4/3P4/8/5k2/8/6r1/8 b - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": 115, "v21_root_white": 137}
+{"family": "KRP-KR", "fen": "1r6/8/8/5R2/5K2/2P5/5k2/8 w - - 0 1", "sf_white": 417, "sf_mate": null, "v21_static_white": 82, "v21_root_white": 100}
+{"family": "KRP-KR", "fen": "3r4/4k3/8/K7/8/8/5R1P/8 b - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": 52, "v21_root_white": 56}
+{"family": "KRP-KR", "fen": "3K4/6k1/4P3/8/8/6r1/8/6R1 b - - 0 1", "sf_white": -471, "sf_mate": null, "v21_static_white": 117, "v21_root_white": -302}
+{"family": "KRP-KR", "fen": "8/8/8/8/4k3/3r4/1K5P/R7 w - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 25, "v21_root_white": 30}
+{"family": "KRP-KR", "fen": "8/1K6/2R5/5Pk1/3r4/8/8/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 92, "v21_root_white": 28}
+{"family": "KRP-KR", "fen": "3r4/1P6/2k5/8/8/1R4K1/8/8 w - - 0 1", "sf_white": 424, "sf_mate": null, "v21_static_white": 218, "v21_root_white": 523}
+{"family": "KRP-KR", "fen": "2k5/3R4/8/3r4/8/6P1/4K3/8 b - - 0 1", "sf_white": -509, "sf_mate": null, "v21_static_white": 155, "v21_root_white": -418}
+{"family": "KRP-KR", "fen": "8/8/Rr6/8/K7/4k3/3P4/8 b - - 0 1", "sf_white": 440, "sf_mate": null, "v21_static_white": 41, "v21_root_white": 494}
+{"family": "KRP-KR", "fen": "8/7r/8/3RK1P1/8/1k6/8/8 w - - 0 1", "sf_white": 478, "sf_mate": null, "v21_static_white": 165, "v21_root_white": 207}
+{"family": "KRP-KR", "fen": "8/r7/P2K4/8/7R/5k2/8/8 w - - 0 1", "sf_white": 444, "sf_mate": null, "v21_static_white": 168, "v21_root_white": 197}
+{"family": "KRP-KR", "fen": "8/7K/8/8/8/5k1P/6r1/2R5 w - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 28, "v21_root_white": 46}
+{"family": "KRP-KR", "fen": "8/8/KR4P1/1r6/8/2k5/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 9, "v21_static_white": 159, "v21_root_white": 1474}
+{"family": "KRP-KR", "fen": "3R4/5r2/8/8/3K1P2/8/4k3/8 b - - 0 1", "sf_white": -16, "sf_mate": null, "v21_static_white": 105, "v21_root_white": 3}
+{"family": "KRP-KR", "fen": "8/8/r3k3/7P/8/2K4R/8/8 b - - 0 1", "sf_white": -474, "sf_mate": null, "v21_static_white": 60, "v21_root_white": -496}
+{"family": "KRP-KR", "fen": "8/4K3/8/P7/3r4/5R2/k7/8 w - - 0 1", "sf_white": 424, "sf_mate": null, "v21_static_white": 117, "v21_root_white": 161}
+{"family": "KRP-KR", "fen": "8/K3k3/8/r7/8/6R1/1P6/8 w - - 0 1", "sf_white": 400, "sf_mate": null, "v21_static_white": 92, "v21_root_white": 112}
+{"family": "KRP-KR", "fen": "3K4/7R/4P3/2r5/8/8/8/1k6 w - - 0 1", "sf_white": 469, "sf_mate": null, "v21_static_white": 200, "v21_root_white": 303}
+{"family": "KRP-KR", "fen": "1k6/6R1/K7/8/P7/3r4/8/8 w - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 156, "v21_root_white": 159}
+{"family": "KRP-KR", "fen": "5R1r/6K1/8/8/8/2P5/7k/8 w - - 0 1", "sf_white": 1103, "sf_mate": null, "v21_static_white": 145, "v21_root_white": 623}
+{"family": "KRP-KR", "fen": "4K3/7P/8/8/5k2/8/1r6/1R6 w - - 0 1", "sf_white": 10000, "sf_mate": 7, "v21_static_white": 195, "v21_root_white": 1486}
+{"family": "KRP-KR", "fen": "8/4r3/8/8/4P3/8/4K1kR/8 b - - 0 1", "sf_white": -497, "sf_mate": null, "v21_static_white": 66, "v21_root_white": -417}
+{"family": "KRP-KR", "fen": "8/8/3P4/5R2/8/3K4/k7/r7 w - - 0 1", "sf_white": 877, "sf_mate": null, "v21_static_white": 176, "v21_root_white": 963}
+{"family": "KRP-KR", "fen": "8/8/6k1/2R5/6r1/5P2/8/3K4 b - - 0 1", "sf_white": 1, "sf_mate": null, "v21_static_white": 83, "v21_root_white": 66}
+{"family": "KRP-KR", "fen": "8/8/7K/8/4r3/3Pk3/8/R7 w - - 0 1", "sf_white": 455, "sf_mate": null, "v21_static_white": 46, "v21_root_white": 531}
+{"family": "KRP-KR", "fen": "8/8/6k1/4P3/1K1R4/8/1r6/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 72, "v21_root_white": 73}
+{"family": "KRP-KR", "fen": "8/8/1R6/7P/8/2k5/1r6/2K5 b - - 0 1", "sf_white": -10000, "sf_mate": 13, "v21_static_white": 52, "v21_root_white": -511}
+{"family": "KRP-KR", "fen": "8/8/2K5/6R1/4P3/1k6/r7/8 b - - 0 1", "sf_white": 387, "sf_mate": null, "v21_static_white": 76, "v21_root_white": 82}
+{"family": "KRP-KR", "fen": "8/8/k7/8/P2K4/r6R/8/8 b - - 0 1", "sf_white": -450, "sf_mate": null, "v21_static_white": 88, "v21_root_white": -464}
+{"family": "KRP-KR", "fen": "8/2K5/8/3Pk3/5R1r/8/8/8 b - - 0 1", "sf_white": -446, "sf_mate": null, "v21_static_white": 70, "v21_root_white": -504}
+{"family": "KRP-KR", "fen": "4k3/8/8/6r1/6R1/5P2/7K/8 b - - 0 1", "sf_white": 1, "sf_mate": null, "v21_static_white": 119, "v21_root_white": 101}
+{"family": "KRP-KR", "fen": "6K1/8/3k4/6R1/3P4/4r3/8/8 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 45, "v21_root_white": 24}
+{"family": "KRP-KR", "fen": "1R6/5P2/7K/6r1/8/8/2k5/8 b - - 0 1", "sf_white": 436, "sf_mate": null, "v21_static_white": 264, "v21_root_white": 543}
+{"family": "KRPP-KRP", "fen": "4r3/P7/8/8/2R5/1Kp3P1/8/1k6 w - - 0 1", "sf_white": 530, "sf_mate": null, "v21_static_white": 230, "v21_root_white": 507}
+{"family": "KRPP-KRP", "fen": "8/7p/3P4/6r1/k6K/3P2R1/8/8 b - - 0 1", "sf_white": 9, "sf_mate": null, "v21_static_white": 143, "v21_root_white": 13}
+{"family": "KRPP-KRP", "fen": "8/R3K3/8/8/6k1/1P4P1/4p3/7r b - - 0 1", "sf_white": -10000, "sf_mate": 9, "v21_static_white": -74, "v21_root_white": -1311}
+{"family": "KRPP-KRP", "fen": "8/8/P4k2/1Pp5/7r/2R5/8/5K2 w - - 0 1", "sf_white": 509, "sf_mate": null, "v21_static_white": 163, "v21_root_white": 295}
+{"family": "KRPP-KRP", "fen": "K7/5k2/8/2R2p2/6r1/7P/6P1/8 w - - 0 1", "sf_white": 783, "sf_mate": null, "v21_static_white": 16, "v21_root_white": 680}
+{"family": "KRPP-KRP", "fen": "8/3P4/1k6/5P2/8/Rr6/6p1/6K1 w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 68, "v21_root_white": 1572}
+{"family": "KRPP-KRP", "fen": "1k3r2/1P6/8/8/3P1K2/1p6/4R3/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 204, "v21_root_white": -57}
+{"family": "KRPP-KRP", "fen": "8/p3P3/8/3R4/4Pr2/6k1/K7/8 b - - 0 1", "sf_white": -5, "sf_mate": null, "v21_static_white": 125, "v21_root_white": 103}
+{"family": "KRPP-KRP", "fen": "8/8/6P1/6Kp/3r4/2R5/1P6/7k w - - 0 1", "sf_white": 498, "sf_mate": null, "v21_static_white": 233, "v21_root_white": 319}
+{"family": "KRPP-KRP", "fen": "R5K1/5P2/8/8/4p3/3P1k2/4r3/8 b - - 0 1", "sf_white": 443, "sf_mate": null, "v21_static_white": 182, "v21_root_white": 217}
+{"family": "KRPP-KRP", "fen": "7K/1R3r2/8/6P1/P2p4/8/4k3/8 w - - 0 1", "sf_white": 801, "sf_mate": null, "v21_static_white": 102, "v21_root_white": 557}
+{"family": "KRPP-KRP", "fen": "8/8/8/1P6/3p3r/P4R2/2k5/5K2 b - - 0 1", "sf_white": -273, "sf_mate": null, "v21_static_white": 54, "v21_root_white": -29}
+{"family": "KRPP-KRP", "fen": "8/8/8/3kP1P1/1r6/2K1p3/8/3R4 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 29, "v21_root_white": 18}
+{"family": "KRPP-KRP", "fen": "8/1P6/5K2/3r1p2/8/k1PR4/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 301, "v21_root_white": 1515}
+{"family": "KRPP-KRP", "fen": "K7/3R4/8/8/8/6pk/4PP2/1r6 w - - 0 1", "sf_white": -2, "sf_mate": null, "v21_static_white": -75, "v21_root_white": 22}
+{"family": "KRPP-KRP", "fen": "3r3R/8/8/p5P1/4P3/7K/8/3k4 b - - 0 1", "sf_white": -824, "sf_mate": null, "v21_static_white": 116, "v21_root_white": -337}
+{"family": "KRPP-KRP", "fen": "8/rk6/7P/4R3/8/K2p4/1P6/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 150, "v21_root_white": 134}
+{"family": "KRPP-KRP", "fen": "3R4/1k6/1P6/1p2P3/7K/8/8/1r6 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 155, "v21_root_white": 173}
+{"family": "KRPP-KRP", "fen": "4k3/8/3P4/1p1R4/4K1P1/8/r7/8 w - - 0 1", "sf_white": 450, "sf_mate": null, "v21_static_white": 186, "v21_root_white": 258}
+{"family": "KRPP-KRP", "fen": "8/5P2/6k1/P7/8/rK6/p4R2/8 w - - 0 1", "sf_white": -247, "sf_mate": null, "v21_static_white": 71, "v21_root_white": 24}
+{"family": "KRPP-KRP", "fen": "2r3R1/7K/8/8/1P2Pp2/8/8/7k w - - 0 1", "sf_white": 926, "sf_mate": null, "v21_static_white": 124, "v21_root_white": 521}
+{"family": "KRPP-KRP", "fen": "R7/8/3p4/6r1/6P1/K2P4/3k4/8 b - - 0 1", "sf_white": -12, "sf_mate": null, "v21_static_white": 58, "v21_root_white": -98}
+{"family": "KRPP-KRP", "fen": "5R2/2r5/2P4p/8/5PK1/8/8/5k2 w - - 0 1", "sf_white": 482, "sf_mate": null, "v21_static_white": 208, "v21_root_white": 230}
+{"family": "KRPP-KRP", "fen": "8/r2P3R/8/5P2/5K2/8/3pk3/8 b - - 0 1", "sf_white": -522, "sf_mate": null, "v21_static_white": 110, "v21_root_white": -588}
+{"family": "KRPP-KRP", "fen": "3R4/7k/8/3K4/5P2/8/r2p2P1/8 w - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 23, "v21_root_white": 78}
+{"family": "KRPP-KRP", "fen": "8/4P3/1k4Pr/5p2/8/7R/8/K7 w - - 0 1", "sf_white": 10000, "sf_mate": 7, "v21_static_white": 250, "v21_root_white": 2309}
+{"family": "KRPP-KRP", "fen": "8/3k4/PK3P2/8/3p3r/7R/8/8 w - - 0 1", "sf_white": 1157, "sf_mate": null, "v21_static_white": 234, "v21_root_white": 1319}
+{"family": "KRPP-KRP", "fen": "8/7P/8/R7/5P2/5k2/1p2r3/K7 w - - 0 1", "sf_white": -9, "sf_mate": null, "v21_static_white": -14, "v21_root_white": 26}
+{"family": "KRPP-KRP", "fen": "8/4K3/P7/8/3p4/r3PR2/8/1k6 w - - 0 1", "sf_white": 449, "sf_mate": null, "v21_static_white": 193, "v21_root_white": 93}
+{"family": "KRPP-KRP", "fen": "5k2/7K/1P6/8/3r4/4p3/4P3/1R6 b - - 0 1", "sf_white": 420, "sf_mate": null, "v21_static_white": 134, "v21_root_white": 156}
+{"family": "KRPP-KRP", "fen": "8/8/k1P3r1/4K3/6P1/8/2p5/4R3 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 62, "v21_root_white": -105}
+{"family": "KRPP-KRP", "fen": "8/6p1/K4rP1/2k5/8/6R1/7P/8 w - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 141, "v21_root_white": 117}
+{"family": "KRPP-KRP", "fen": "8/6K1/8/3r4/5PpP/2R5/5k2/8 w - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 34, "v21_root_white": -24}
+{"family": "KRPP-KRP", "fen": "K1k5/5rP1/8/1P6/8/2p5/5R2/8 w - - 0 1", "sf_white": 10000, "sf_mate": 2, "v21_static_white": 133, "v21_root_white": 29997}
+{"family": "KRPP-KRP", "fen": "4r3/K5pR/2k5/8/2P5/8/5P2/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 67, "v21_root_white": -5}
+{"family": "KRPP-KRP", "fen": "4R3/2P5/Kp6/3r2P1/8/8/5k2/8 w - - 0 1", "sf_white": 973, "sf_mate": null, "v21_static_white": 266, "v21_root_white": 999}
+{"family": "KRPP-KRP", "fen": "8/2r5/8/8/5p2/3k4/3P2P1/3K2R1 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": 63, "v21_root_white": -63}
+{"family": "KRPP-KRP", "fen": "8/r5P1/8/K3kp2/P7/8/5R2/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 237, "v21_root_white": 20}
+{"family": "KRPP-KRP", "fen": "8/r6P/4P2p/4K2k/8/8/1R6/8 b - - 0 1", "sf_white": 470, "sf_mate": null, "v21_static_white": 343, "v21_root_white": 182}
+{"family": "KRPP-KRP", "fen": "8/4r3/P7/8/Pp6/5K2/7k/1R6 w - - 0 1", "sf_white": 418, "sf_mate": null, "v21_static_white": 182, "v21_root_white": 271}
+{"family": "OCB, one pawn up", "fen": "7K/5P2/8/5B2/4p3/b7/k1P5/8 w - - 0 1", "sf_white": 653, "sf_mate": null, "v21_static_white": 243, "v21_root_white": 348}
+{"family": "OCB, one pawn up", "fen": "8/8/4P3/4k1P1/1b6/4pB2/2K5/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 85, "v21_root_white": 78}
+{"family": "OCB, one pawn up", "fen": "8/1Pkb4/8/8/8/3P2p1/1B2K3/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 169, "v21_root_white": -89}
+{"family": "OCB, one pawn up", "fen": "8/2k5/8/8/5P2/2B3P1/4b1p1/1K6 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": -91, "v21_root_white": -73}
+{"family": "OCB, one pawn up", "fen": "8/8/3k4/8/b6p/7K/3P2P1/2B5 b - - 0 1", "sf_white": 23, "sf_mate": null, "v21_static_white": 71, "v21_root_white": 99}
+{"family": "OCB, one pawn up", "fen": "k7/8/2K5/4PP2/8/B1p5/8/1b6 b - - 0 1", "sf_white": 1, "sf_mate": null, "v21_static_white": 110, "v21_root_white": 0}
+{"family": "OCB, one pawn up", "fen": "8/6P1/K7/2p5/3k4/2P5/3B2b1/8 b - - 0 1", "sf_white": 604, "sf_mate": null, "v21_static_white": 212, "v21_root_white": 888}
+{"family": "OCB, one pawn up", "fen": "8/3KP3/8/8/6kB/7p/7P/1b6 w - - 0 1", "sf_white": 716, "sf_mate": null, "v21_static_white": 161, "v21_root_white": 602}
+{"family": "OCB, one pawn up", "fen": "8/8/4KbB1/P7/k3p3/6P1/8/8 w - - 0 1", "sf_white": 646, "sf_mate": null, "v21_static_white": 143, "v21_root_white": 416}
+{"family": "OCB, one pawn up", "fen": "8/P7/2KP1p2/2b5/3k4/5B2/8/8 w - - 0 1", "sf_white": 1355, "sf_mate": null, "v21_static_white": 342, "v21_root_white": 1257}
+{"family": "OCB, one pawn up", "fen": "3k3b/8/2K5/4p2P/B7/8/5P2/8 w - - 0 1", "sf_white": 371, "sf_mate": null, "v21_static_white": 179, "v21_root_white": 287}
+{"family": "OCB, one pawn up", "fen": "8/4P3/b5p1/3P4/1B2k3/8/5K2/8 w - - 0 1", "sf_white": 1021, "sf_mate": null, "v21_static_white": 219, "v21_root_white": 985}
+{"family": "OCB, one pawn up", "fen": "8/5Bb1/5P2/7P/8/8/5kpK/8 w - - 0 1", "sf_white": -10000, "sf_mate": -2, "v21_static_white": -31, "v21_root_white": -29996}
+{"family": "OCB, one pawn up", "fen": "5k2/8/P7/8/8/2p3K1/4P3/B6b w - - 0 1", "sf_white": 2, "sf_mate": null, "v21_static_white": 169, "v21_root_white": 381}
+{"family": "OCB, one pawn up", "fen": "8/Pp6/7P/8/3K4/8/4B2b/k7 w - - 0 1", "sf_white": 10000, "sf_mate": 5, "v21_static_white": 475, "v21_root_white": 1405}
+{"family": "OCB, one pawn up", "fen": "8/p2P4/4K3/8/3k3b/8/4P3/1B6 w - - 0 1", "sf_white": 3, "sf_mate": null, "v21_static_white": 228, "v21_root_white": 229}
+{"family": "OCB, one pawn up", "fen": "1B4K1/8/1P6/8/3p2k1/7b/P7/8 w - - 0 1", "sf_white": 399, "sf_mate": null, "v21_static_white": 143, "v21_root_white": 103}
+{"family": "OCB, one pawn up", "fen": "8/6k1/8/1Bp5/4P3/1P6/5bK1/8 w - - 0 1", "sf_white": 807, "sf_mate": null, "v21_static_white": 131, "v21_root_white": 415}
+{"family": "OCB, one pawn up", "fen": "8/4b3/8/1P1K1p2/1P6/7B/7k/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 131, "v21_root_white": -9}
+{"family": "OCB, one pawn up", "fen": "8/7p/8/8/4P3/2K5/1P6/1bB1k3 w - - 0 1", "sf_white": 400, "sf_mate": null, "v21_static_white": 153, "v21_root_white": 107}
+{"family": "OCB, one pawn up", "fen": "8/k1b1PK2/1P2B3/8/8/6p1/8/8 b - - 0 1", "sf_white": 702, "sf_mate": null, "v21_static_white": 305, "v21_root_white": 855}
+{"family": "OCB, one pawn up", "fen": "8/4kP2/8/3B4/8/7P/pb6/5K2 b - - 0 1", "sf_white": -626, "sf_mate": null, "v21_static_white": 16, "v21_root_white": -711}
+{"family": "OCB, one pawn up", "fen": "8/4K3/8/2P1P3/5b1p/7B/2k5/8 w - - 0 1", "sf_white": 687, "sf_mate": null, "v21_static_white": 89, "v21_root_white": 214}
+{"family": "OCB, one pawn up", "fen": "8/3P4/1P4bB/K5p1/8/8/8/1k6 w - - 0 1", "sf_white": 10000, "sf_mate": 7, "v21_static_white": 394, "v21_root_white": 1844}
+{"family": "OCB, one pawn up", "fen": "8/5p1k/8/1K6/1BP5/Pb6/8/8 b - - 0 1", "sf_white": 521, "sf_mate": null, "v21_static_white": 133, "v21_root_white": 178}
+{"family": "OCB, one pawn up", "fen": "8/8/6Pp/6k1/2P1b3/2B3K1/8/8 w - - 0 1", "sf_white": 406, "sf_mate": null, "v21_static_white": 153, "v21_root_white": 310}
+{"family": "OCB, one pawn up", "fen": "3b2K1/8/8/p7/8/1k1P3P/2B5/8 b - - 0 1", "sf_white": -692, "sf_mate": null, "v21_static_white": 21, "v21_root_white": -261}
+{"family": "OCB, one pawn up", "fen": "4B3/2b5/8/4p3/8/6P1/3k2P1/K7 b - - 0 1", "sf_white": -3, "sf_mate": null, "v21_static_white": 17, "v21_root_white": -155}
+{"family": "OCB, one pawn up", "fen": "8/4P3/3P2pK/2B5/8/3k4/8/5b2 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 347, "v21_root_white": 1327}
+{"family": "OCB, one pawn up", "fen": "8/6P1/8/6Pk/K7/7B/p6b/8 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 87, "v21_root_white": 56}
+{"family": "OCB, one pawn up", "fen": "8/5P2/8/1P6/8/Bk6/1pb2K2/8 w - - 0 1", "sf_white": 705, "sf_mate": null, "v21_static_white": 21, "v21_root_white": 803}
+{"family": "OCB, one pawn up", "fen": "8/3PP3/K7/2B5/4k3/4p3/8/7b w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 315, "v21_root_white": 1995}
+{"family": "OCB, one pawn up", "fen": "2K5/4k1p1/8/1Pb1P3/8/8/6B1/8 w - - 0 1", "sf_white": 2, "sf_mate": null, "v21_static_white": 59, "v21_root_white": 134}
+{"family": "OCB, one pawn up", "fen": "8/3p1K2/8/b7/5k2/5P1P/8/3B4 w - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 76, "v21_root_white": 86}
+{"family": "OCB, one pawn up", "fen": "1K6/8/b6P/7P/8/4k3/5p2/6B1 b - - 0 1", "sf_white": -926, "sf_mate": null, "v21_static_white": -45, "v21_root_white": -1180}
+{"family": "OCB, one pawn up", "fen": "3B4/P4K2/8/1P6/b7/8/3p4/2k5 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 158, "v21_root_white": -4}
+{"family": "OCB, one pawn up", "fen": "b3k3/8/5B2/p7/8/6PP/5K2/8 w - - 0 1", "sf_white": 5, "sf_mate": null, "v21_static_white": 178, "v21_root_white": 99}
+{"family": "OCB, one pawn up", "fen": "4B3/1PP5/p7/8/7K/8/1b6/4k3 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 413, "v21_root_white": 1797}
+{"family": "OCB, one pawn up", "fen": "7K/8/6b1/2P1k3/2p5/4P3/7B/8 b - - 0 1", "sf_white": -1, "sf_mate": null, "v21_static_white": -3, "v21_root_white": 5}
+{"family": "OCB, one pawn up", "fen": "3B4/K7/8/8/2pP4/8/3Pb3/5k2 b - - 0 1", "sf_white": 4, "sf_mate": null, "v21_static_white": 33, "v21_root_white": 65}
+{"family": "OCB, two pawns up", "fen": "8/7P/3p4/1b5P/1K5k/B6P/8/8 w - - 0 1", "sf_white": 10000, "sf_mate": 10, "v21_static_white": 340, "v21_root_white": 1351}
+{"family": "OCB, two pawns up", "fen": "4k3/8/P7/1P6/K6P/2b1p3/8/5B2 b - - 0 1", "sf_white": 684, "sf_mate": null, "v21_static_white": 234, "v21_root_white": 267}
+{"family": "OCB, two pawns up", "fen": "8/7P/8/5P2/1p6/1b2B1P1/1k3K2/8 b - - 0 1", "sf_white": 757, "sf_mate": null, "v21_static_white": 347, "v21_root_white": 1085}
+{"family": "OCB, two pawns up", "fen": "8/7P/1pK5/8/2B5/8/P3Pb2/5k2 b - - 0 1", "sf_white": 854, "sf_mate": null, "v21_static_white": 392, "v21_root_white": 766}
+{"family": "OCB, two pawns up", "fen": "3K4/8/8/2b1P3/2p1BP2/8/4P3/6k1 b - - 0 1", "sf_white": 503, "sf_mate": null, "v21_static_white": 133, "v21_root_white": 166}
+{"family": "OCB, two pawns up", "fen": "8/4p2b/2P5/2P3k1/7P/6K1/8/B7 b - - 0 1", "sf_white": 456, "sf_mate": null, "v21_static_white": 257, "v21_root_white": 414}
+{"family": "OCB, two pawns up", "fen": "8/pKP5/1P6/8/8/2P2k2/5b2/3B4 b - - 0 1", "sf_white": 1153, "sf_mate": null, "v21_static_white": 401, "v21_root_white": 1315}
+{"family": "OCB, two pawns up", "fen": "8/1k2b2P/8/8/3Pp3/8/4B1P1/2K5 w - - 0 1", "sf_white": 718, "sf_mate": null, "v21_static_white": 355, "v21_root_white": 1137}
+{"family": "OCB, two pawns up", "fen": "8/5pk1/1P6/7b/8/1K6/PB3P2/8 b - - 0 1", "sf_white": 723, "sf_mate": null, "v21_static_white": 271, "v21_root_white": 964}
+{"family": "OCB, two pawns up", "fen": "8/2P5/3K4/B1p2P2/7P/7b/8/2k5 w - - 0 1", "sf_white": 1457, "sf_mate": null, "v21_static_white": 402, "v21_root_white": 1175}
+{"family": "OCB, two pawns up", "fen": "1b6/5P2/1P6/4k3/8/2P5/3p4/3BK3 w - - 0 1", "sf_white": 710, "sf_mate": null, "v21_static_white": 248, "v21_root_white": 1059}
+{"family": "OCB, two pawns up", "fen": "1B6/2K4P/1Pb2p2/6P1/8/8/5k2/8 b - - 0 1", "sf_white": 749, "sf_mate": null, "v21_static_white": 433, "v21_root_white": 1133}
+{"family": "OCB, two pawns up", "fen": "8/8/P3p3/k7/8/2bP2P1/6B1/2K5 w - - 0 1", "sf_white": 789, "sf_mate": null, "v21_static_white": 258, "v21_root_white": 1052}
+{"family": "OCB, two pawns up", "fen": "8/P7/8/k7/5P2/4B1P1/4p3/K4b2 b - - 0 1", "sf_white": -10000, "sf_mate": 11, "v21_static_white": 177, "v21_root_white": -642}
+{"family": "OCB, two pawns up", "fen": "8/7P/8/3p4/3b2B1/8/P5KP/4k3 w - - 0 1", "sf_white": 620, "sf_mate": null, "v21_static_white": 389, "v21_root_white": 443}
+{"family": "OCB, two pawns up", "fen": "8/P1K5/8/2b2P2/2B1k3/3p3P/8/8 w - - 0 1", "sf_white": 748, "sf_mate": null, "v21_static_white": 276, "v21_root_white": 1075}
+{"family": "OCB, two pawns up", "fen": "8/5Pp1/b7/7P/1Bk1K3/4P3/8/8 b - - 0 1", "sf_white": 756, "sf_mate": null, "v21_static_white": 344, "v21_root_white": 872}
+{"family": "OCB, two pawns up", "fen": "8/2k5/8/4P3/1B3p2/2P1P3/8/K6b b - - 0 1", "sf_white": -564, "sf_mate": null, "v21_static_white": 141, "v21_root_white": -51}
+{"family": "OCB, two pawns up", "fen": "8/1B5p/8/3P1P2/5P2/6k1/7b/7K w - - 0 1", "sf_white": 903, "sf_mate": null, "v21_static_white": 118, "v21_root_white": 919}
+{"family": "OCB, two pawns up", "fen": "8/2B5/P7/3P3b/8/5P2/2Kpk3/8 b - - 0 1", "sf_white": -725, "sf_mate": null, "v21_static_white": 135, "v21_root_white": -858}
+{"family": "OCB, two pawns up", "fen": "8/5k2/P2P1B2/8/8/3p1b2/6P1/6K1 b - - 0 1", "sf_white": -530, "sf_mate": null, "v21_static_white": 257, "v21_root_white": -572}
+{"family": "OCB, two pawns up", "fen": "5B2/1P6/5K2/4Pp2/k2P4/8/8/1b6 w - - 0 1", "sf_white": 10000, "sf_mate": 4, "v21_static_white": 444, "v21_root_white": 1502}
+{"family": "OCB, two pawns up", "fen": "8/P4P1B/7b/8/4P3/6p1/8/3K2k1 b - - 0 1", "sf_white": 533, "sf_mate": null, "v21_static_white": 365, "v21_root_white": 771}
+{"family": "OCB, two pawns up", "fen": "8/5p1P/8/1P6/k7/7P/b4B2/7K w - - 0 1", "sf_white": 771, "sf_mate": null, "v21_static_white": 339, "v21_root_white": 1112}
+{"family": "OCB, two pawns up", "fen": "2K5/b7/4P1P1/8/1P1p4/8/8/5k1B w - - 0 1", "sf_white": 1425, "sf_mate": null, "v21_static_white": 309, "v21_root_white": 1105}
+{"family": "OCB, two pawns up", "fen": "8/2PbB3/5K2/1p4P1/P5k1/8/8/8 b - - 0 1", "sf_white": 729, "sf_mate": null, "v21_static_white": 366, "v21_root_white": 613}
+{"family": "OCB, two pawns up", "fen": "7K/3p2P1/8/8/1P4k1/7P/1B6/3b4 b - - 0 1", "sf_white": 706, "sf_mate": null, "v21_static_white": 282, "v21_root_white": 1012}
+{"family": "OCB, two pawns up", "fen": "1k4B1/1p6/3P2K1/7P/8/b2P4/8/8 b - - 0 1", "sf_white": 395, "sf_mate": null, "v21_static_white": 303, "v21_root_white": 291}
+{"family": "OCB, two pawns up", "fen": "7b/7B/7k/4P3/7P/2P4K/5p2/8 b - - 0 1", "sf_white": -10000, "sf_mate": 4, "v21_static_white": 49, "v21_root_white": -1061}
+{"family": "OCB, two pawns up", "fen": "8/4k1B1/2p1P3/4P3/8/8/bP6/K7 w - - 0 1", "sf_white": 793, "sf_mate": null, "v21_static_white": 212, "v21_root_white": 389}
+{"family": "OCB, two pawns up", "fen": "8/P7/b2B4/8/8/7P/pP6/3K1k2 w - - 0 1", "sf_white": -394, "sf_mate": null, "v21_static_white": 180, "v21_root_white": -244}
+{"family": "OCB, two pawns up", "fen": "8/4P3/8/1K6/1PB5/4P3/2k3p1/2b5 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 220, "v21_root_white": 112}
+{"family": "OCB, two pawns up", "fen": "8/8/8/5P1k/p5P1/5P2/4Bb2/3K4 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 153, "v21_root_white": 99}
+{"family": "OCB, two pawns up", "fen": "6K1/1P6/7p/2B5/4P3/2P5/1k6/1b6 b - - 0 1", "sf_white": 681, "sf_mate": null, "v21_static_white": 354, "v21_root_white": 1013}
+{"family": "OCB, two pawns up", "fen": "8/1P4b1/5P2/3B3k/3P4/6K1/4p3/8 b - - 0 1", "sf_white": -422, "sf_mate": null, "v21_static_white": 298, "v21_root_white": -442}
+{"family": "OCB, two pawns up", "fen": "1b6/8/1kP5/6P1/6P1/1B2p3/2K5/8 w - - 0 1", "sf_white": 405, "sf_mate": null, "v21_static_white": 240, "v21_root_white": 277}
+{"family": "OCB, two pawns up", "fen": "8/6K1/3P2P1/2b2p2/8/1k6/4B2P/8 b - - 0 1", "sf_white": 596, "sf_mate": null, "v21_static_white": 331, "v21_root_white": 299}
+{"family": "OCB, two pawns up", "fen": "8/1P1P4/8/6P1/1bp3B1/8/8/2K1k3 w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 485, "v21_root_white": 1978}
+{"family": "OCB, two pawns up", "fen": "8/3P4/P7/4P2p/3K4/3B3k/5b2/8 w - - 0 1", "sf_white": 884, "sf_mate": null, "v21_static_white": 450, "v21_root_white": 1005}
+{"family": "OCB, two pawns up", "fen": "5k2/8/5P2/5K2/8/P7/p6P/B4b2 w - - 0 1", "sf_white": 528, "sf_mate": null, "v21_static_white": 111, "v21_root_white": 102}
+{"family": "KQ-KP(7th)", "fen": "4k3/1Q6/8/8/7K/8/2p5/8 w - - 0 1", "sf_white": 487, "sf_mate": null, "v21_static_white": 739, "v21_root_white": 967}
+{"family": "KQ-KP(7th)", "fen": "8/3Q2K1/2k5/8/8/8/2p5/8 b - - 0 1", "sf_white": -630, "sf_mate": null, "v21_static_white": 740, "v21_root_white": -962}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/8/3K4/4Q3/3pk3/8 b - - 0 1", "sf_white": 10000, "sf_mate": -4, "v21_static_white": 720, "v21_root_white": 999}
+{"family": "KQ-KP(7th)", "fen": "k7/8/8/8/1K2Q3/8/6p1/8 b - - 0 1", "sf_white": 10000, "sf_mate": -6, "v21_static_white": 776, "v21_root_white": 1001}
+{"family": "KQ-KP(7th)", "fen": "1Q6/8/8/8/8/k7/p7/1K6 w - - 0 1", "sf_white": 10000, "sf_mate": 5, "v21_static_white": 691, "v21_root_white": 990}
+{"family": "KQ-KP(7th)", "fen": "8/8/3Q2k1/8/3K4/8/1p6/8 b - - 0 1", "sf_white": 6142, "sf_mate": null, "v21_static_white": 766, "v21_root_white": 952}
+{"family": "KQ-KP(7th)", "fen": "6Q1/8/8/1K6/8/8/3kp3/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 714, "v21_root_white": 0}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/8/2K5/4Q3/1p5k/8 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 745, "v21_root_white": 980}
+{"family": "KQ-KP(7th)", "fen": "7Q/8/5k2/8/8/K7/4p3/8 b - - 0 1", "sf_white": 481, "sf_mate": null, "v21_static_white": 714, "v21_root_white": 947}
+{"family": "KQ-KP(7th)", "fen": "8/5K2/8/8/8/5k2/p7/4Q3 w - - 0 1", "sf_white": 517, "sf_mate": null, "v21_static_white": 688, "v21_root_white": 993}
+{"family": "KQ-KP(7th)", "fen": "8/8/3k4/7Q/8/8/3p4/3K4 b - - 0 1", "sf_white": 529, "sf_mate": null, "v21_static_white": 755, "v21_root_white": 990}
+{"family": "KQ-KP(7th)", "fen": "8/2k5/K7/8/8/8/3p4/1Q6 b - - 0 1", "sf_white": 695, "sf_mate": null, "v21_static_white": 711, "v21_root_white": 978}
+{"family": "KQ-KP(7th)", "fen": "8/4k3/8/3Q4/8/8/6p1/3K4 w - - 0 1", "sf_white": 631, "sf_mate": null, "v21_static_white": 755, "v21_root_white": 989}
+{"family": "KQ-KP(7th)", "fen": "8/6K1/8/8/5k2/8/5p2/6Q1 b - - 0 1", "sf_white": -10000, "sf_mate": 6, "v21_static_white": 657, "v21_root_white": -1007}
+{"family": "KQ-KP(7th)", "fen": "2K5/8/8/5Q2/8/5k2/1p6/8 b - - 0 1", "sf_white": 489, "sf_mate": null, "v21_static_white": 659, "v21_root_white": 944}
+{"family": "KQ-KP(7th)", "fen": "8/8/1KQ5/8/8/8/p7/5k2 w - - 0 1", "sf_white": 657, "sf_mate": null, "v21_static_white": 732, "v21_root_white": 980}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/4k3/8/8/3p2Q1/3K4 b - - 0 1", "sf_white": 529, "sf_mate": null, "v21_static_white": 679, "v21_root_white": 968}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/4Qk2/8/8/6Kp/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 749, "v21_root_white": 0}
+{"family": "KQ-KP(7th)", "fen": "K7/4Q3/2k5/8/8/8/7p/8 w - - 0 1", "sf_white": 503, "sf_mate": null, "v21_static_white": 680, "v21_root_white": 912}
+{"family": "KQ-KP(7th)", "fen": "8/6Q1/1K6/8/8/8/1p6/7k b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 754, "v21_root_white": 7}
+{"family": "KQ-KP(7th)", "fen": "6k1/K7/8/8/8/8/p7/6Q1 b - - 0 1", "sf_white": 490, "sf_mate": null, "v21_static_white": 675, "v21_root_white": 953}
+{"family": "KQ-KP(7th)", "fen": "4kQ2/8/8/8/8/8/p7/3K4 b - - 0 1", "sf_white": -486, "sf_mate": null, "v21_static_white": 733, "v21_root_white": -961}
+{"family": "KQ-KP(7th)", "fen": "8/K7/8/8/8/3k4/3p4/2Q5 b - - 0 1", "sf_white": -10000, "sf_mate": 8, "v21_static_white": 648, "v21_root_white": -1002}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/3Q4/5K2/8/7p/1k6 w - - 0 1", "sf_white": 10000, "sf_mate": 8, "v21_static_white": 814, "v21_root_white": 986}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/K7/8/7k/1p6/Q7 w - - 0 1", "sf_white": 10000, "sf_mate": 11, "v21_static_white": 676, "v21_root_white": 985}
+{"family": "KQ-KP(7th)", "fen": "3K4/8/8/8/8/8/k2p1Q2/8 b - - 0 1", "sf_white": 10000, "sf_mate": -7, "v21_static_white": 674, "v21_root_white": 983}
+{"family": "KQ-KP(7th)", "fen": "8/1K6/8/8/3k4/8/1p6/2Q5 b - - 0 1", "sf_white": -10000, "sf_mate": 6, "v21_static_white": 630, "v21_root_white": -1006}
+{"family": "KQ-KP(7th)", "fen": "8/3k4/8/8/K7/8/p5Q1/8 b - - 0 1", "sf_white": 7, "sf_mate": null, "v21_static_white": 662, "v21_root_white": -31}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/8/8/7Q/3K2p1/k7 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 805, "v21_root_white": 65}
+{"family": "KQ-KP(7th)", "fen": "2Q5/8/8/4K3/8/8/2pk4/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 715, "v21_root_white": 8}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/5k2/8/8/K3Q2p/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 630, "v21_root_white": -12}
+{"family": "KQ-KP(7th)", "fen": "4k3/8/8/8/8/8/2p3K1/Q7 w - - 0 1", "sf_white": 519, "sf_mate": null, "v21_static_white": 726, "v21_root_white": 971}
+{"family": "KQ-KP(7th)", "fen": "8/8/6K1/8/1Q2k3/8/7p/8 b - - 0 1", "sf_white": 513, "sf_mate": null, "v21_static_white": 729, "v21_root_white": 738}
+{"family": "KQ-KP(7th)", "fen": "8/7Q/8/8/1K6/8/7p/k7 b - - 0 1", "sf_white": 10000, "sf_mate": -4, "v21_static_white": 774, "v21_root_white": 999}
+{"family": "KQ-KP(7th)", "fen": "8/8/8/8/4k2Q/8/2p4K/8 b - - 0 1", "sf_white": 514, "sf_mate": null, "v21_static_white": 668, "v21_root_white": 726}
+{"family": "KQ-KP(7th)", "fen": "8/3k3K/8/8/1Q6/8/7p/8 w - - 0 1", "sf_white": 728, "sf_mate": null, "v21_static_white": 736, "v21_root_white": 977}
+{"family": "KQ-KP(7th)", "fen": "4K3/8/8/8/8/8/2k1Qp2/8 b - - 0 1", "sf_white": 10000, "sf_mate": -10, "v21_static_white": 661, "v21_root_white": 994}
+{"family": "KQ-KP(7th)", "fen": "8/6QK/1k6/8/8/8/2p5/8 w - - 0 1", "sf_white": 10000, "sf_mate": 13, "v21_static_white": 753, "v21_root_white": 979}
+{"family": "KQ-KP(7th)", "fen": "1k6/8/8/5K2/8/8/4Q1p1/8 b - - 0 1", "sf_white": 0, "sf_mate": null, "v21_static_white": 761, "v21_root_white": 38}
+{"family": "KQ-KP(7th)", "fen": "2k5/8/8/8/1K6/8/1p3Q2/8 w - - 0 1", "sf_white": 10000, "sf_mate": 6, "v21_static_white": 725, "v21_root_white": 1019}

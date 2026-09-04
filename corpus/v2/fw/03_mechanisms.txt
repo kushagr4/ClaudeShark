@@ -1,0 +1,128 @@
+== FALSE-WIN MECHANISMS: 82 rows, 52 trajectories (counts by trajectory; a trajectory counts once per label) ==
+
+-- mechanism
+   search/horizon rather than static             15 traj  17 rows  V2.1 static   +25 root  +218  V1 root  +231  pawnless 0
+   other                                         13 traj  16 rows  V2.1 static  +211 root  +208  V1 root  +217  pawnless 0
+   opposite-coloured bishops                     10 traj  19 rows  V2.1 static  +215 root  +212  V1 root  +209  pawnless 0
+   rook ending, extra pawn(s) not enough          7 traj  13 rows  V2.1 static  +385 root  +310  V1 root  +310  pawnless 0
+   rook + minor vs rook                           3 traj   5 rows  V2.1 static  +326 root  +332  V1 root  +332  pawnless 5
+   extra pawn but blockaded                       2 traj   2 rows  V2.1 static  +148 root  +178  V1 root  +175  pawnless 0
+   no material edge: geometry over-credited       2 traj   2 rows  V2.1 static  +146 root  +312  V1 root  +342  pawnless 0
+   wrong rook pawn                                1 traj   2 rows  V2.1 static  +233 root  +242  V1 root  +218  pawnless 0
+   defender king blockade (pawn ending)           1 traj   2 rows  V2.1 static  +175 root  +232  V1 root  +226  pawnless 0
+   queen perpetual resources                      1 traj   2 rows  V2.1 static  +713 root  +735  V1 root  +762  pawnless 0
+   insufficient / effectively drawn material      1 traj   2 rows  V2.1 static  +234 root  +233  V1 root  +233  pawnless 2
+
+-- attribution (where V2.1's static score comes from)
+   A material                                    16 traj  27 rows  material  +307 tables   -11 king-pawn   -8  static  +296 root  +295
+   D search                                      15 traj  17 rows  material   +20 tables   -10 king-pawn   +6  static   +25 root  +218
+   E combination                                 14 traj  21 rows  material   +95 tables   +90 king-pawn   +4  static  +197 root  +200
+   B piece geometry (tables)                      7 traj  10 rows  material   +16 tables  +210 king-pawn   -3  static  +230 root  +254
+   E combination (material + tables)              4 traj   7 rows  material  +184 tables  +243 king-pawn   -9  static  +427 root  +317
+
+-- mechanism x attribution (trajectories)
+   search/horizon rather than static            D search                              15
+   other                                        A material                             8
+   opposite-coloured bishops                    E combination                          6
+   opposite-coloured bishops                    B piece geometry (tables)              4
+   rook + minor vs rook                         A material                             3
+   other                                        E combination                          3
+   rook ending, extra pawn(s) not enough        E combination (material + tables)      3
+   rook ending, extra pawn(s) not enough        A material                             3
+   extra pawn but blockaded                     E combination                          2
+   no material edge: geometry over-credited     B piece geometry (tables)              2
+   other                                        B piece geometry (tables)              1
+   other                                        E combination (material + tables)      1
+   rook ending, extra pawn(s) not enough        E combination                          1
+   wrong rook pawn                              E combination                          1
+   defender king blockade (pawn ending)         A material                             1
+   defender king blockade (pawn ending)         E combination                          1
+   queen perpetual resources                    A material                             1
+   insufficient / effectively drawn material    A material                             1
+
+-- material family (trajectories)
+   KB+3P v KB+2P              5
+   KB+3P v KB+3P              3
+   KRB+0P v KR+0P             3
+   KR+3P v KR+1P              3
+   KB+5P v KB+4P              2
+   KB+0P v K+2P               2
+   KR+1P v KR+0P              2
+   KR+1P v KR+1P              2
+   K+1P v K+0P                2
+   KN+0P v K+1P               2
+   KQRRBBN+7P v KQRRBNN+7P    1
+   KB+2P v KB+2P              1
+   KR+1P v KN+2P              1
+   KB+1P v K+2P               1
+   KBN+1P v KB+3P             1
+   KBN+0P v KB+3P             1
+   KRB+1P v KR+0P             1
+   KRB+3P v KRB+2P            1
+   KR+3P v KR+3P              1
+   KQN+3P v KQN+3P            1
+   KQN+1P v KQ+3P             1
+   KQN+6P v KQN+5P            1
+   KR+4P v KR+1P              1
+   KR+2P v KR+2P              1
+   KRB+1P v KBN+4P            1
+   KR+0P v K+1P               1
+   KRRN+2P v KQN+4P           1
+   KQRRB+8P v KQRRB+7P        1
+   KR+1P v KN+1P              1
+   KQR+5P v KRRB+4P           1
+   KQR+5P v KQR+4P            1
+   KQRRBNN+6P v KQRRBNN+6P    1
+   KN+0P v K+2P               1
+   KR+2P v K+4P               1
+   KR+2P v K+3P               1
+   KR+0P v K+2P               1
+   KN+2P v KN+0P              1
+   KR+3P v KR+2P              1
+   KR+1P v KB+1P              1
+   KQR+3P v KQR+2P            1
+   KQ+0P v K+1P               1
+   KR+0P v KB+0P              1
+   KN+1P v K+2P               1
+
+-- pawnless rows
+   fw-013 KR-KRB       SF   +0  V1 +302/+329  V2.1 +302/+329  material +311 tables  -17  rook + minor vs rook  R7/8/5r2/4b1K1/4k3/8/8/8 b - - 12 77
+   fw-044 KR-KRB       SF   +0  V1 +304/+307  V2.1 +304/+307  material +311 tables  -15  rook + minor vs rook  8/3Rbk2/8/4K3/8/8/5r2/8 b - - 5 70
+   fw-045 KR-KRB       SF   +0  V1 +295/+307  V2.1 +295/+307  material +311 tables  -23  rook + minor vs rook  8/3Rbk2/8/5K2/8/8/4r3/8 b - - 11 73
+   fw-075 KB-KR        SF  +19  V1 +231/+235  V2.1 +231/+235  material +202 tables  +21  insufficient / effectively drawn material  8/8/3r4/8/4B3/6k1/4K3/8 b - - 1 56
+   fw-076 KB-KR        SF  +12  V1 +238/+231  V2.1 +238/+231  material +202 tables  +28  insufficient / effectively drawn material  8/8/8/8/4K3/3B2k1/8/r7 b - - 7 59
+   fw-079 KRB-KR       SF   +0  V1 +355/+357  V2.1 +355/+357  material +311 tables  +36  rook + minor vs rook  4k3/7R/8/4K3/4B3/8/8/4r3 w - - 32 83
+   fw-080 KRB-KR       SF   +0  V1 +372/+361  V2.1 +372/+361  material +311 tables  +53  rook + minor vs rook  3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89
+
+== CANDIDATE FEATURE SCREEN: false-win trajectories reached vs genuine-win controls reached (1942 control positions, 323 trajectories, Stockfish >= +300, V2.1 root) ==
+   feature                                                          FW traj FW rows FW static ctrl traj ctrl rows ctrl root
+   material_signature_draw_scaling (pawnless, edge <= minor)              4       7      +300         1         5      +434
+   rook_plus_minor_vs_rook                                                3       5      +326         0         0        +0
+   wrong_rook_pawn_exact                                                  1       2      +233         0         0        +0
+   opposite_bishop_scaling                                               10      19      +215         8        39      +267
+   low_material_conversion_scaling (<=1 pawn edge, no pieces up)         17      25      +189       109       366      +355
+   defender_king_blockade (all passers held)                             11      16      +184        61       175      +351
+   insufficient_winning_material (minor or lone pawn vs bare)             2       4      +204        11        42      +709
+   rook_ending_pawn_up_scaling                                            2       2      +216        24        75      +566
+
+-- control positions by family, with the share V2.1 scores >= +300 at the root
+   K+1P v K+0P                33 rows  SF   +814  V2.1 root   +748  root >= 300: 70%
+   KQR+6P v KRRB+5P           30 rows  SF   +349  V2.1 root   +276  root >= 300: 0%
+   KR+2P v KR+1P              24 rows  SF   +525  V2.1 root   +173  root >= 300: 12%
+   KR+4P v KR+3P              23 rows  SF   +834  V2.1 root  +1459  root >= 300: 4%
+   KR+5P v KN+2P              20 rows  SF   +655  V2.1 root   +583  root >= 300: 100%
+   K+4P v K+4P                18 rows  SF   +600  V2.1 root   +302  root >= 300: 28%
+   K+4P v K+3P                18 rows  SF   +796  V2.1 root   +403  root >= 300: 33%
+   KR+5P v KN+1P              17 rows  SF   +678  V2.1 root   +691  root >= 300: 100%
+   KR+3P v KR+2P              16 rows  SF   +498  V2.1 root   +236  root >= 300: 31%
+   K+5P v K+4P                16 rows  SF   +625  V2.1 root   +225  root >= 300: 12%
+   K+6P v K+5P                16 rows  SF   +534  V2.1 root   +112  root >= 300: 0%
+   KR+0P v K+0P               16 rows  SF  +1652  V2.1 root  +2376  root >= 300: 100%
+   KR+1P v KN+1P              15 rows  SF   +454  V2.1 root   +273  root >= 300: 33%
+   K+3P v K+2P                14 rows  SF   +655  V2.1 root   +333  root >= 300: 29%
+   KB+3P v KN+3P              13 rows  SF   +602  V2.1 root   +232  root >= 300: 23%
+   KQ+0P v K+0P               13 rows  SF  +3418  V2.1 root  +3253  root >= 300: 100%
+   KR+3P v KB+3P              13 rows  SF   +504  V2.1 root   +219  root >= 300: 8%
+   KR+1P v K+3P               13 rows  SF   +490  V2.1 root   +386  root >= 300: 100%
+   KB+3P v KB+2P              13 rows  SF   +669  V2.1 root   +280  root >= 300: 23%
+   KN+0P v K+2P               13 rows  SF   +425  V2.1 root   +215  root >= 300: 31%

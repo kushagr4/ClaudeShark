@@ -467,3 +467,16 @@ tactics 16/16, NPS +2.2%. Gate 2 vs rated V1 (200 fixed-depth paired games,
 PGN and JSONL retained): +41 =129 -30, 52.8%, Elo +19, cluster bootstrap
 -7..+45; +200 conversion 41% -> 48%, -200 defence 42% -> 51% held, pawn
 endings 33% -> 56%, rook endings 30% -> 55%. Gate 3 not run.
+
+## 2026-09-04 — V2.2 false-win audit: DEFER / SPLIT
+
+Record: [`benchmarks/current/2026-09-04-v2.2-false-win-audit.md`](benchmarks/current/2026-09-04-v2.2-false-win-audit.md).
+Branch `v2.2-development`; audit only, no engine change. 82-row, 52-trajectory
+false-win corpus (V2.1 root >= +150, Stockfish level): 32 trajectories are
+static false wins that depth 10 does not cure. Two carriers: the material
+term for a piece that cannot convert in pawnless or near-pawnless endings
+(~14 trajectories; KRB v KR is +372 on the bishop's price alone), and the
+endgame pawn table's credit for a blockaded advanced passer (12). Fuzzy
+"pawn up" scalings reach 109 genuine-win trajectories and are rejected.
+Proposed V2.2a exact drawn-material recognition first, V2.2b blockaded-passer
+discount second; a 21-position gallery is the V2.2 regression set.

@@ -1,0 +1,86 @@
+== V2.2 FALSE-WIN GALLERY: 21 positions, hash 2babc16ba49658b7 ==
+
+fwg-000  defender king blockade (pawn ending)  [A material]
+   8/3k4/8/3PK3/8/8/8/8 w - - 3 66
+   K+1P v K+0P            SF   +0 best d5d6   V1 +120/+252  V2.1 +132/+252 (d5d6)  material  +94 tables  +18 king-pawn +12
+   pawn ending where the defending king holds every passer
+fwg-001  extra pawn but blockaded  [E combination]
+   8/4n3/3kP3/3P1bP1/8/5B1p/8/7K b - - 3 58
+   KBN+1P v KB+3P         SF   +0 best f5e6   V1 +151/+217  V2.1 +162/+206 (e7g6)  material +103 tables  +40 king-pawn +10
+   the extra pawn is held by the defending king or a piece in front of it
+fwg-002  extra pawn but blockaded  [E combination]
+   7R/8/r7/4pk2/8/8/8/5K2 b - - 1 45
+   KR+1P v KR+0P          SF   +0 best f5g5   V1 +103/+133  V2.1 +133/+151 (a6a2)  material  +92 tables   +3 king-pawn +30
+   the extra pawn is held by the defending king or a piece in front of it
+fwg-003  insufficient / effectively drawn material  [A material]
+   8/8/3r4/8/4B3/6k1/4K3/8 b - - 1 56
+   KR+0P v KB+0P          SF  +19 best g3f4   V1 +231/+235  V2.1 +231/+235 (d6a6)  material +202 tables  +21 king-pawn  +0
+   the material cannot win against a bare king or a single pawn
+fwg-004  no material edge: geometry over-credited  [B piece geometry (tables)]
+   8/4rPK1/7R/6k1/7p/8/8/8 w - - 1 58
+   KR+1P v KR+1P          SF   +0 best h6h8   V1 +147/+394  V2.1 +147/+376 (h6g6)  material   +0 tables +139 king-pawn  +0
+   no material edge at all; the advanced-pawn tables carry the whole score
+fwg-005  no material edge: geometry over-credited  [B piece geometry (tables)]
+   7r/PK2R2p/8/8/5p2/4p3/2P3kP/8 w - - 2 45
+   KR+3P v KR+3P          SF   -6 best c2c4   V1 +146/+290  V2.1 +146/+249 (a7a8q)  material   +0 tables +138 king-pawn  +0
+   no material edge at all; the advanced-pawn tables carry the whole score
+fwg-006  opposite-coloured bishops  [B piece geometry (tables)]
+   3B4/8/8/3p1kP1/8/4Pb1p/5PpK/8 b - - 11 45
+   KB+3P v KB+3P          SF   +0 best f3h5   V1 +265/+270  V2.1 +265/+270 (f3e4)  material   +0 tables +257 king-pawn  +0
+   the extra pawn or pawns cannot pass a bishop that guards the other colour; material and pawn tables both count them
+fwg-007  opposite-coloured bishops  [E combination]
+   5b2/8/5p2/6p1/4P1B1/pK3Pk1/8/8 b - - 7 50
+   KB+3P v KB+2P          SF   +0 best g3f2   V1 +227/+235  V2.1 +227/+252 (f8d6)  material  +93 tables +126 king-pawn  +0
+   the extra pawn or pawns cannot pass a bishop that guards the other colour; material and pawn tables both count them
+fwg-008  opposite-coloured bishops  [B piece geometry (tables)]
+   8/8/6k1/6P1/5P2/4B2p/2b3pK/8 b - - 0 44
+   KB+2P v KB+2P          SF   +0 best c2f5   V1 +239/+210  V2.1 +239/+208 (c2f5)  material   +0 tables +231 king-pawn  +0
+   the extra pawn or pawns cannot pass a bishop that guards the other colour; material and pawn tables both count them
+fwg-009  other  [A material]
+   8/1kb4R/8/5K2/7p/8/8/6r1 b - - 3 68
+   KRB+1P v KR+0P         SF   +0 best g1f1   V1 +390/+355  V2.1 +361/+344 (g1f1)  material +402 tables  -20 king-pawn -28
+   a lone minor or the exchange with a pawn or two on the board, counted at full value where it cannot win
+fwg-010  other  [E combination (material + tables)]
+   8/6p1/8/3n4/1k4N1/7p/3K4/8 b - - 1 52
+   KN+2P v KN+0P          SF   +7 best b4c5   V1 +304/+302  V2.1 +293/+295 (d5f6)  material +186 tables +110 king-pawn -11
+   a lone minor or the exchange with a pawn or two on the board, counted at full value where it cannot win
+fwg-011  other  [B piece geometry (tables)]
+   1R6/5k2/4n3/p2p2p1/1b6/3K3P/1p6/1B6 b - - 5 57
+   KRB+1P v KBN+4P        SF  +59 best e6f4   V1 +254/+247  V2.1 +254/+258 (f7f6)  material  +62 tables +183 king-pawn  +0
+   a lone minor or the exchange with a pawn or two on the board, counted at full value where it cannot win
+fwg-012  queen perpetual resources  [A material]
+   8/5PK1/8/8/8/q7/1k6/8 b - - 2 69
+   KQ+0P v K+1P           SF   +0 best a3g3   V1 +718/+764  V2.1 +678/+736 (a3e7)  material +858 tables -148 king-pawn -40
+   queen against a pawn on the seventh: the fortress draws by stalemate and perpetual resources
+fwg-013  rook + minor vs rook  [A material]
+   3k4/4R3/8/5K2/4B3/8/4r3/8 w - - 44 89
+   KRB+0P v KR+0P         SF   +0 best e7a7   V1 +372/+361  V2.1 +372/+361 (f5f6)  material +311 tables  +53 king-pawn  +0
+   a bishop or knight beside a rook does not beat a lone rook without pawns; the evaluator counts the minor at full value
+fwg-014  rook ending, extra pawn(s) not enough  [A material]
+   7R/5K2/8/7p/6k1/8/8/8 w - - 2 63
+   KR+0P v K+1P           SF   +0 best h8g8   V1 +447/+422  V2.1 +436/+407 (h8g8)  material +416 tables  +23 king-pawn -11
+   a rook ending a pawn or two up with the defender's rook active and the pawns held; material plus advanced-pawn tables
+fwg-015  rook ending, extra pawn(s) not enough  [E combination (material + tables)]
+   1R6/1P4k1/6P1/3K3p/7P/1r6/8/8 w - - 7 60
+   KR+3P v KR+1P          SF   +0 best d5c6   V1 +458/+409  V2.1 +448/+389 (d5c6)  material +184 tables +266 king-pawn -10
+   a rook ending a pawn or two up with the defender's rook active and the pawns held; material plus advanced-pawn tables
+fwg-016  rook ending, extra pawn(s) not enough  [A material]
+   8/8/8/6K1/5P1P/8/2k2r2/8 b - - 2 51
+   KR+0P v K+2P           SF   +0 best c2d3   V1 +337/+329  V2.1 +315/+328 (c2d3)  material +323 tables   +6 king-pawn -22
+   a rook ending a pawn or two up with the defender's rook active and the pawns held; material plus advanced-pawn tables
+fwg-017  search/horizon rather than static  [D search]
+   8/5R1p/5Qpk/8/5pP1/8/3q1P2/5rK1 w - - 0 45
+   KQR+3P v KQR+2P        SF   +0 best g1f1   V1   -4/+365  V2.1   -4/+358 (g1f1)  material  -88 tables  +76 king-pawn  +0
+   the static is near level; the depth-6 search inflates the root, usually through a pawn it believes will promote
+fwg-018  search/horizon rather than static  [D search]
+   8/6K1/5P1R/6k1/7p/8/4r3/8 w - - 0 57
+   KR+1P v KR+1P          SF   +0 best f6f7   V1  +51/+358  V2.1  +51/+334 (f6f7)  material   +0 tables  +43 king-pawn  +0
+   the static is near level; the depth-6 search inflates the root, usually through a pawn it believes will promote
+fwg-019  search/horizon rather than static  [D search]
+   8/5r2/5RK1/8/6kp/8/8/8 w - - 0 61
+   KR+1P v KR+0P          SF   +0 best f6f7   V1  -62/+339  V2.1  -72/+306 (g6f7)  material  -92 tables  +21 king-pawn -10
+   the static is near level; the depth-6 search inflates the root, usually through a pawn it believes will promote
+fwg-020  wrong rook pawn  [E combination]
+   8/8/8/7k/8/7p/8/6K1 b - - 5 62
+   K+1P v K+0P            SF   +0 best h5g5   V1 +199/+245  V2.1 +199/+256 (h5h4)  material  +94 tables  +97 king-pawn  +0
+   bishop of the wrong colour for the rook pawn's queening corner; the defending king sits in the corner

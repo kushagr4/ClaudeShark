@@ -355,6 +355,14 @@ recognised classes flat, costs 2% of NPS, and scores +19 Elo over 200 paired
 games against rated V1 with every conversion metric improved. Kept for Daily
 confirmation; the bootstrap includes zero.
 
+**False wins are material and pawn tables, not search** (V2.2 audit,
+`benchmarks/current/2026-09-04-v2.2-false-win-audit.md`): of 52 false-win
+trajectories, 32 start wrong at the static and stay wrong to depth 10. The
+carriers are the material term in pawnless and near-pawnless endings and
+the pawn table's credit for blockaded advanced passers; the king-pawn term
+touches 1 of 52. Next: V2.2a exact drawn-material recognition, then V2.2b a
+bounded blockaded-passer discount, separately.
+
 **The conversion weakness is endgame knowledge, not search.** The 2026-09-03
 conversion audit (`benchmarks/current/2026-09-03-conversion-audit.md`) found
 production converts +200 into a win 44% of the time and loses only 3%; half

@@ -1,0 +1,16 @@
+== SYNTHETIC CONTROLS: 40 random legal positions per family, oracle 300000 nodes, V2.1 static and depth-6 root ==
+scores from White's side (the side with the extra material). win = SF >= +300, draw = |SF| <= 60.
+
+family                 n  wins  draws  V2.1 static on draws  V2.1 root on draws  draws V2.1 calls >= +200  wins V2.1 calls < +150
+KRB-KR                40     7     33                  +308                +161         20/33                      0/7           
+KRN-KR                40    11     27                  +277                +165         18/27                      0/11          
+KB-KR                 40     0     34                  -200                -160          0/34                      0/0           
+KBP(rook pawn)-K      40    33      6                  +464                +328          4/6                       0/33          
+KBP(other pawn)-K     40    36      4                  +432                  +0          0/4                       1/36          
+KNP-K                 40    34      6                  +366                 +16          0/6                       2/34          
+KP-K                  40    33      7                   +82                 +44          0/7                       8/33          
+KRP-KR                40    17     16                   +88                 +74          0/16                      4/17          
+KRPP-KRP              40    19     16                   +88                 +22          0/16                      1/19          
+OCB, one pawn up      40    20     16                   +92                 +56          2/16                      2/20          
+OCB, two pawns up     40    31      2                  +186                +106          0/2                       1/31          
+KQ-KP(7th)            40    27      8                  +724                  +9          0/8                       0/27          
