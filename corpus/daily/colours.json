@@ -1,10 +1,14 @@
 {
   "round1-the-castle-gambit": {
     "colour": "w",
-    "evidence": "rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves, against 14/30 (46.7%) of Black's"
+    "evidence": "move agreement: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves against 14/30 (46.7%) of Black's; clock shape: White sd 1.59s max 7.58s (ClaudeShark's varying allocator), Black sd 2.65s max 13.30s"
   },
   "round2-trio-duo": {
     "colour": "b",
-    "evidence": "rated-v1 at depth 6 reproduces 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves, against 11/28 (39.3%) of White's"
+    "evidence": "move agreement: 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves against 11/28 (39.3%) of White's; clock shape: Black sd 1.44s max 6.40s, White sd 0.47s max 2.51s (a fixed per-move budget)"
+  },
+  "round3-baryon": {
+    "colour": "b",
+    "evidence": "move agreement: 38/49 (77.6%) of Black's moves and 36/47 (76.6%) of Black's non-forced moves against 29/49 (59.2%) of White's; clock shape: Black sd 1.33s max 7.58s matching ClaudeShark in rounds 1 and 2, White sd 0.52s max 2.95s matching the round-2 opponent's fixed budget"
   }
 }

