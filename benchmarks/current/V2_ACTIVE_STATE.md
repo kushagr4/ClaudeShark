@@ -1,19 +1,32 @@
 # Active research state — read this first after any compaction or machine change
 
-Written **2026-09-05 07:20 local (Windows)**; last updated **2026-09-05 21:40
+Written **2026-09-05 07:20 local (Windows)**; last updated **2026-09-05 21:45
 local (Windows PC)**. CURRENT MACHINE: Windows PC (AMD Ryzen 5 5600X, 6 cores;
-RC-B runs at ~75 knps at depth 6 here against ~152 knps on the Mac).
+RC-B runs at ~76 knps at depth 6 here against ~152 knps on the Mac).
 
 **Branch architecture from 21:40 (multi-developer RC-C cycle; protocol in
 root `spec.md`, canonical copy on `rc-c-integration`):**
 `rc-c-integration` = coordination + proven integration, engine files exact
 RC-B (blobs equal to `3d918a5` / `champions/rc_b`; depth-6 fingerprint
 1,708,269; 1,214 tests pass on the PC); `kushagra/rcc-speed-validation` =
-candidate 3 lane (engine files at `f2543bd`); `friend/rcc-tactical-horizon`
-= the second developer's lane, to be branched from `rc-c-integration`;
-`mac-full-development` = historical handoff branch, closed. Only the
-coordinator edits canonical `spec.md`; nobody pushes to another owner's
-branch; combined candidates are tested separately (spec.md section 12).
+candidate 3 lane (engine files at `f2543bd`);
+`friend/rcc-tactical-horizon` = the second developer's lane, branched from
+`rc-c-integration` (not yet created at 22:25). Only the coordinator edits
+canonical `spec.md`; nobody pushes to another owner's branch; combined
+candidates are tested separately (spec.md section 12).
+**Branch audit 22:20:** `mac-full-development`, `v2.2-development` and
+`v2-development` were deleted locally and on origin after verifying zero
+unique commits; the handoffs live on as tags `handoff/mac-to-pc-2026-09-05`
+(`335bb8a`, the branch `PC_HANDOFF.md` refers to) and
+`handoff/pc-to-mac-2026-09-05` (`9d22cef`, the branch `MAC_HANDOFF.md` refers
+to); V2.1 stays as tag `v2.1-daily-candidate`. The clean `audit/*`
+worktrees and the local `backup/pre-history-cleanup-20260903` twin (identical
+trees) were removed. Details in `spec.md` section 3.
+
+**Candidate 3 on the PC (21:38–21:42):** speed transfer PASS (+16.5% knps,
+identical 1,708,269-node tree, alternated twice,
+`corpus/daily/rcc/pc_speed_transfer_depth6.txt`); Gate 0 PASS (1,228 tests).
+Gate 2A screen vs RC-B launched 21:42, see section 8.
 Mac environment used today: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 `.venv`, Stockfish 18 from Homebrew (`tools/corpus/oracle.py` finds it on
 PATH); Mac knps are about 2.5× the Windows machine's, so compare speed only
@@ -168,7 +181,16 @@ only: candidate 3 speed (+18.7% knps, identical tree).
 
 ## 8. Live background jobs
 
-**NONE.** Final sweep 14:50 (Mac): the candidate-3 arena tree (PIDs 35196/35198, 16 runners, caffeinate 35250) was terminated for the handoff and verified gone; no python, Stockfish, uv, waiters or `.owner` sidecars.
+**ONE (PC, launched 21:42:27):** candidate 3 Gate 2A, `tools.arena --agent
+champions/rcc_speed --opponent champions/rc_b --games 100 --base-ms 120000
+--increment-ms 500 --ply-cap 300 --workers 6 --corpus
+corpus/daily/pool/competition_actual_suite.jsonl --jsonl
+corpus/daily/rcc/speed_vs_rcb_120s_100_pc.jsonl`; PIDs 24324 (uv) → 22576
+(arena) + 6 workers; log `speed_vs_rcb_120s_100_pc.log`; expected finish
+~22:55; max 90 min; kill on any candidate-side failure or a clear decision,
+renaming the artifact `PARTIAL-NON-DECISIVE` if stopped early. Sweep before
+launch: no python, Stockfish, uv, waiters or `.owner` sidecars.
+(Mac 14:50: the earlier candidate-3 arena tree was terminated for the handoff and verified gone.)
 
 ## 9. Known DO-NOT-USE artifacts
 

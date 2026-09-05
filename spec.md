@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 2
+SPEC_REVISION: 3
 
-LAST_UPDATED: 2026-09-05 21:50 UK (Windows PC)
+LAST_UPDATED: 2026-09-05 22:25 UK (Windows PC)
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -47,13 +47,43 @@ engine; 50 MB unzipped; 90 s init; 10 uploads/day, close 11 Sept 11:00.
 
 ## 3. Branch Ownership
 
-| branch | owner | purpose |
+Branch audit 2026-09-05 22:25 UK: every branch below has a stated reason to
+exist; everything else was verified redundant (zero unique commits, or a
+message-only rewrite twin with identical trees) and removed.
+
+ACTIVE:
+
+| branch | owner | baseline | purpose | status |
+|---|---|---|---|---|
+| `rc-c-integration` | Kushagra / Fable | exact RC-B (`3d918a5` engine blobs) | canonical coordination + proven integration | engine unchanged; spec revision 3 |
+| `kushagra/rcc-speed-validation` | Kushagra / Fable | RC-B + candidate 3 (`f2543bd` engine files) | Candidate 3 identity-preserving speed validation | Gate 0 PASS on Mac and PC; Gate 2A screen running (section 17) |
+| `friend/rcc-tactical-horizon` | Friend / Claude | exact RC-B (branch from `origin/rc-c-integration`) | tactical horizon / forcing-line robustness + R21+ loss audit | not yet created on origin as of 22:25 |
+
+FROZEN:
+
+| ref | commit | meaning |
 |---|---|---|
-| `rc-c-integration` | Kushagra / Fable | canonical coordination + proven integration; engine files are exact RC-B until a candidate earns promotion |
-| `kushagra/rcc-speed-validation` | Kushagra / Fable | Candidate 3 (identity-preserving speed) validation |
-| `friend/rcc-tactical-horizon` | Friend / Claude | tactical horizon / forcing-line robustness research, from exact RC-B |
-| `mac-full-development` | historical | cross-machine handoff branch; no further development |
-| `main`, tag `rated-v1` | frozen | RC-A history; never modified |
+| `main` = tag `rated-v1` | `98c48c8` | RC-A / exact rated-v1, the fallback archive's source; never modified |
+| tag `v2.1-daily-candidate` | `10c9277` | V2.1 king-pawn, the build that played rated rounds 1–15; rejected for the locked build |
+| RC-B frozen engine | `3d918a5` | reachable from `rc-c-integration`; snapshot `champions/rc_b`, archive `corpus/release/claudeshark_rc_b.zip` |
+
+HISTORICAL (tags only, no branch):
+
+| tag | commit | meaning |
+|---|---|---|
+| `handoff/pc-to-mac-2026-09-05` | `9d22cef` | Windows → Mac handoff (RC-A submitted, staged picker unwired); was branch `v2.2-development` |
+| `handoff/mac-to-pc-2026-09-05` | `335bb8a` | Mac → PC handoff (RC-B champion, candidate 3 in the tree); was branch `mac-full-development` |
+
+DELETED 2026-09-05 22:20 UK (local and origin unless noted): `mac-full-development`
+(`335bb8a`, ancestor of both active branches); `v2.2-development` (`9d22cef`,
+ancestor); `v2-development` (`10c9277`, ancestor, kept as the tag above);
+`audit/aggression` and `audit/rook-endings` (local only, `f20a408`, ancestor
+of `main`, their worktrees were clean and were removed);
+`backup/pre-history-cleanup-20260903` (local only, `bf8845f`, a 23-commit
+message-only rewrite twin of the history ending `bfc69ec` with identical
+trees at every position; its only distinct content was the old commit
+messages). No file content was lost: every deleted branch's tree is
+reachable from `rc-c-integration`.
 
 RULES:
 
@@ -309,7 +339,7 @@ separately earn promotion under section 11.
 
 ## 13. Fable → Friend Instructions
 
-SPEC_REVISION: 2
+SPEC_REVISION: 3
 
 CURRENT FRIEND SCOPE: tactical horizon / forcing-line robustness (section 8)
 and the R21+ loss audit (section 9).
@@ -368,11 +398,12 @@ the losses are not horizon-driven — report and await re-scoping.
 MAX SUGGESTED TIME: audit 60–90 minutes; diagnosis 30 minutes; one
 mechanism implementation 25 minutes + Gate 0/1 30 minutes before any arena.
 
-LATEST COORDINATOR MESSAGE: 2026-09-05 21:50 UK — revision 2: the R21+
-game list above is now known (three losses, R23/R24/R25, all RC-B). Start
-the audit there. Candidate 3's speed transferred to the PC (+16.5% knps,
-identical tree) and its 100-game screen vs RC-B is running until ~22:55; I
-will read your section 14 at that boundary.
+LATEST COORDINATOR MESSAGE: 2026-09-05 22:25 UK — revision 3: branch
+cleanup only, no scope change. `mac-full-development`, `v2-development` and
+`v2.2-development` no longer exist on origin (their commits are tags and
+ancestors of `rc-c-integration`); branch from `origin/rc-c-integration` as
+before. The R21+ losses are R23/R24/R25 (revision 2 text above). Candidate
+3's 100-game screen vs RC-B runs until ~23:25.
 
 ## 14. Friend → Fable Findings
 
@@ -434,6 +465,9 @@ kill condition. Remove it immediately after completion.)
 * 2026-09-05 21:50 UK — Fable → Friend: revision 2. Rounds 21–29 fetched;
   losses are R23, R24, R25 (details in section 13). Candidate 3 screen
   running on the PC until ~22:55.
+* 2026-09-05 22:25 UK — Fable → Friend: revision 3, branch audit. Origin now
+  carries only `main`, `rc-c-integration`, `kushagra/rcc-speed-validation`
+  and the tags in section 3. Nothing about your scope changed.
 
 ## 19. Codex Monday
 
