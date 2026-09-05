@@ -1,0 +1,117 @@
+
+== R9 after 16.Qe1 (opp loss 113) ==  side to move: Black
+  oracle: best f8e8 cp +392 (stm)   second: ('c5c4', 388)
+  rc_b         timed f8e8   score  +141 static  +186 depth  7 nodes   176301  oracle after  +428  loss    +0  pv 
+
+== R11 after 22...Bd6 (opp loss 163) ==  side to move: White
+  oracle: best g4g5 cp +355 (stm)   second: ('d1e2', 188)
+  rc_b         timed g4g5   score  +246 static   -25 depth  6 nodes   193476  oracle after  +369  loss    +0  pv 
+
+== R11 after 29...gxh6 (opp loss 160) ==  side to move: White
+  oracle: best e4g4 cp +560 (stm)   second: ('g1h1', 510)
+  rc_b         timed f3f6   score  +378 static  +283 depth  6 nodes   178190  oracle after  +582  loss   -47  pv 
+
+== R11 after 32...Qd6 (opp loss 209) ==  side to move: White
+  oracle: best d5e6 cp +832 (stm)   second: ('g3g5', 767)
+  rc_b         timed g1g2   score  +351 static  +308 depth  6 nodes   254345  oracle after  +586  loss  +233  pv 
+
+== R12 after 18...Rf8 (opp loss 103) ==  side to move: White
+  oracle: best d1e1 cp +115 (stm)   second: ('h1e1', 110)
+  rc_b         timed h1e1   score   +80 static   +27 depth  7 nodes   265928  oracle after  +152  loss   -36  pv 
+
+== R12 after 23...b3 (opp loss 158) ==  side to move: White
+  oracle: best a2b3 cp +385 (stm)   second: ('d3d5', 310)
+  rc_b         timed a2b3   score  +200 static  +135 depth  7 nodes   271985  oracle after  +373  loss    +0  pv 
+
+== R12 after 29...Bg5 (opp loss 118) ==  side to move: White
+  oracle: best f4f7 cp +531 (stm)   second: ('f4e4', 222)
+  rc_b         timed f4f7   score  +461 static  +306 depth  9 nodes   262744  oracle after  +536  loss    +0  pv 
+
+== R12 after 34...Kb7 (opp loss 111) ==  side to move: White
+  oracle: best f2f3 cp +633 (stm)   second: ('h5h7', 604)
+  rc_b         timed h5h7   score  +664 static  +623 depth  6 nodes   204631  oracle after  +640  loss   +13  pv 
+
+== R13 after 45.Qf2 (opp loss 162) ==  side to move: Black
+  oracle: best b5b1 cp +255 (stm)   second: ('b5b3', 92)
+  rc_b         timed e8d7   score  +104 static   +58 depth 10 nodes   236621  oracle after   +18  loss  +216  pv 
+
+== R13 after 50.Qxc5+ (opp loss 321) ==  side to move: Black
+  oracle: best d6c5 cp +569 (stm)   second: ('c6c5', -686)
+  rc_b         timed d6c5   score  +207 static  -925 depth 15 nodes   203752  oracle after  +552  loss    +0  pv 
+
+== R14 after 33...Qc7 (opp loss 102) ==  side to move: White
+  oracle: best e4e5 cp +745 (stm)   second: ('e7c6', 482)
+  rc_b         timed e4e5   score  +328 static   +45 depth  7 nodes   262091  oracle after  +804  loss    +0  pv 
+
+== R16 after 21...Rb8 (opp loss 128) ==  side to move: White
+  oracle: best f5g6 cp +269 (stm)   second: ('a1f1', 182)
+  rc_b         timed f5g6   score   +34 static   -30 depth  7 nodes   178975  oracle after  +268  loss    +0  pv 
+
+== R16 after 24...h5 (opp loss 162) ==  side to move: White
+  oracle: best g3g4 cp +403 (stm)   second: ('c3c4', 368)
+  rc_b         timed g2f3   score   +59 static   +21 depth  7 nodes   144768  oracle after  +295  loss  +133  pv 
+
+== R16 after 27...Na7 (opp loss 296) ==  side to move: White
+  oracle: best f5f6 cp +710 (stm)   second: ('g3h5', 553)
+  rc_b         timed g3e4   score   +92 static   -14 depth  8 nodes   344933  oracle after  +484  loss  +262  pv 
+
+== R17 after 39...Be1 (opp loss 147) ==  side to move: White
+  oracle: best c5c6 cp +174 (stm)   second: ('a2a3', 153)
+  rc_b         timed c5c6   score  +176 static  +203 depth  9 nodes   247554  oracle after  +188  loss    +0  pv 
+
+== R17 after 46...Qxe3 (opp loss 387) ==  side to move: White
+  oracle: best d1c1 cp +631 (stm)   second: ('a4b5', 298)
+  rc_b         timed d1c1   score  +404 static  +202 depth 10 nodes   269765  oracle after  +653  loss    +0  pv 
+
+== R18 after 31.Re2 (opp loss 131) ==  side to move: Black
+  oracle: best e7f5 cp +211 (stm)   second: ('d7d6', 165)
+  rc_b         timed e7f5   score   +77 static   +14 depth  8 nodes   326259  oracle after  +201  loss    +0  pv 
+
+== R19 after 73.Qb5+ (opp loss 315) ==  side to move: Black
+  oracle: best f5f4 cp +654 (stm)   second: ('f5g4', 519)
+  rc_b         timed f5g4   score  +591 static  +563 depth 10 nodes   241640  oracle after  +681  loss   +30  pv 
+
+== R20 after 99...Nxh3 (opp loss 534) ==  side to move: White
+  oracle: best g4h3 cp +771 (stm)   second: ('d4e3', 214)
+  rc_b         timed g4h3   score  +619 static  +357 depth 12 nodes   286481  oracle after +1066  loss    +0  pv 
+
+== R21 after 77...Kg7 (opp loss 244) ==  side to move: White
+  oracle: best d5f4 cp +216 (stm)   second: ('f3h4', 31)
+  rc_b         timed f3h4   score  +202 static  +168 depth 11 nodes   287016  oracle after    +0  loss  +244  pv 
+
+== R21 after 79...Kg6 (opp loss 518) ==  side to move: White
+  oracle: best d5f4 cp +520 (stm)   second: ('f5e3', 44)
+  rc_b         timed d5f4   score  +383 static  +213 depth 12 nodes   230061  oracle after  +539  loss    +0  pv 
+
+== R22 after 35...Rxe2+ (opp loss 176) ==  side to move: White
+  oracle: best e3e2 cp +180 (stm)   second: ('f2e2', 0)
+  rc_b         timed e3e2   score  +205 static  -396 depth  8 nodes   154451  oracle after  +196  loss    +0  pv 
+
+== R23 after 41.Rc1 (opp loss 136) ==  side to move: Black
+  oracle: best c4f7 cp +312 (stm)   second: ('c4d5', 166)
+  rc_b         timed c4f7   score  +220 static  +214 depth  8 nodes   201957  oracle after  +309  loss    +0  pv 
+
+== R25 after 29.Bxa6 (opp loss 9409) ==  side to move: Black
+  oracle: best e8e1 cp +10000 (stm)   second: ('e8e6', 561)
+  rc_b         timed e8e1   score  +473 static  +405 depth  8 nodes   319761  oracle after +10000  loss    +0  pv 
+
+== R27 after 37...Nf4 (opp loss 128) ==  side to move: White
+  oracle: best g1h2 cp +15 (stm)   second: ('f1e1', -46)
+  rc_b         timed g1h2   score   +78 static  +127 depth 10 nodes   185693  oracle after    +2  loss    +0  pv 
+
+== R27 after 44...c5 (opp loss 239) ==  side to move: White
+  oracle: best e7g6 cp +291 (stm)   second: ('e7c6', 10)
+  rc_b         timed e7g6   score  +104 static   +12 depth  8 nodes   186551  oracle after  +303  loss    +0  pv 
+
+== R29 after 38.g6 (opp loss 102) ==  side to move: Black
+  oracle: best c8a6 cp +300 (stm)   second: ('e4d3', 148)
+  rc_b         timed c8a6   score  +208 static  +116 depth  8 nodes   276632  oracle after  +301  loss    +0  pv 
+
+== R30 after 90...Nb2 (opp loss 161) ==  side to move: White
+  oracle: best f4e5 cp +173 (stm)   second: ('d5b6', 17)
+  rc_b         timed f4e5   score  +128 static   +85 depth 10 nodes   213033  oracle after  +177  loss    +0  pv 
+
+== R30 after 92...g5+ (opp loss 118) ==  side to move: White
+  oracle: best h4g5 cp +290 (stm)   second: ('f4g3', 31)
+  rc_b         timed h4g5   score  +212 static  +149 depth 12 nodes   217946  oracle after  +304  loss    +0  pv 
+PUNISH_DONE

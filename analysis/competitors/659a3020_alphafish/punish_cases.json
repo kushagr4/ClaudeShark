@@ -1,0 +1,176 @@
+[
+ [
+  "R9 after 16.Qe1 (opp loss 113)",
+  "r2q1rk1/pb2npbp/6p1/2p5/1p1pPN2/5NPP/PPPK1PB1/R3Q2R b - - 2 16",
+  "Re8",
+  0
+ ],
+ [
+  "R11 after 22...Bd6 (opp loss 163)",
+  "2rr2k1/pp3ppp/q2bpn2/4N3/P1PPb1PP/1B2R3/1B3P2/R2Q2K1 w - - 1 23",
+  "g5",
+  9
+ ],
+ [
+  "R11 after 29...gxh6 (opp loss 160)",
+  "2r3k1/pp1r1p1p/1q2pb1p/8/P1PPR3/1B3Q2/1B3P2/3R2K1 w - - 0 30",
+  "Rg4+",
+  97
+ ],
+ [
+  "R11 after 32...Qd6 (opp loss 209)",
+  "2r3k1/pp1r3p/3qp2p/3P1pb1/P1P5/1B3QR1/1B3P2/3R2K1 w - - 2 33",
+  "dxe6",
+  0
+ ],
+ [
+  "R12 after 18...Rf8 (opp loss 103)",
+  "4kr2/ppq1bpQ1/2p1pn1p/4N2P/3r4/8/PPPB1PP1/2KR3R w - - 1 19",
+  "Rhe1",
+  21
+ ],
+ [
+  "R12 after 23...b3 (opp loss 158)",
+  "4kr2/p3bp2/2pqpn1Q/3rN2P/8/1p1R4/PPPB1PP1/2K1R3 w - - 0 24",
+  "axb3",
+  0
+ ],
+ [
+  "R12 after 29...Bg5 (opp loss 118)",
+  "4kr2/p4p1P/q3p3/3pN1b1/4nQ2/1P6/1PPB1PP1/1K2R3 w - - 1 30",
+  "Qxf7+",
+  62
+ ],
+ [
+  "R12 after 34...Kb7 (opp loss 111)",
+  "5r2/pk6/q3p3/3pN2Q/4n3/1P2B3/1PP2PP1/1K2R3 w - - 3 35",
+  "f3",
+  46
+ ],
+ [
+  "R13 after 45.Qf2 (opp loss 162)",
+  "4k3/4p3/1P1p1p1p/1q4p1/2p1P1P1/2P2P2/5Q2/5K2 b - - 1 45",
+  "Qb1+",
+  35
+ ],
+ [
+  "R13 after 50.Qxc5+ (opp loss 321)",
+  "8/4p3/1Pkp1p1p/2Q3p1/2p1P1P1/2P2P2/6K1/8 b - - 0 50",
+  "dxc5",
+  131
+ ],
+ [
+  "R14 after 33...Qc7 (opp loss 102)",
+  "kr1r4/2q1Np1p/p3bQp1/1P6/P2pP2P/3n2P1/6B1/1R3RK1 w - - 4 34",
+  "e5+",
+  0
+ ],
+ [
+  "R16 after 21...Rb8 (opp loss 128)",
+  "1r1qr1k1/1p1b1p1p/2np1bpB/p1p1pP2/P3P2P/2PP2P1/1P1QNRB1/R5K1 w - - 5 22",
+  "Raf1",
+  55
+ ],
+ [
+  "R16 after 24...h5 (opp loss 162)",
+  "1r1qr1k1/3b1p2/1pnp1b2/p1p1pPBp/P6P/2PP2P1/1P1QNRB1/5RK1 w - - 0 25",
+  "g4",
+  31
+ ],
+ [
+  "R16 after 27...Na7 (opp loss 296)",
+  "1r1qr1k1/n2b1p2/1p1p4/p1p1pPP1/P5p1/2PP2N1/1P1Q1RB1/5RK1 w - - 1 28",
+  "f6",
+  51
+ ],
+ [
+  "R17 after 39...Be1 (opp loss 147)",
+  "8/5pk1/4p3/1QP5/K3P1p1/2q1P3/PR6/4b3 w - - 6 40",
+  "c6",
+  20
+ ],
+ [
+  "R17 after 46...Qxe3 (opp loss 387)",
+  "8/5p2/4p2k/8/K3P3/4q3/P5p1/3Q2R1 w - - 0 47",
+  "Qc1",
+  0
+ ],
+ [
+  "R18 after 31.Re2 (opp loss 131)",
+  "2rqb1k1/3rnpp1/1p2p2p/p7/P1PP1P2/3N1N1P/4RQP1/R5K1 b - - 8 31",
+  "Nf5",
+  21
+ ],
+ [
+  "R19 after 73.Qb5+ (opp loss 315)",
+  "8/8/6p1/1Q3k2/8/K1p5/1p6/4q3 b - - 1 73",
+  "Kf4",
+  241
+ ],
+ [
+  "R20 after 99...Nxh3 (opp loss 534)",
+  "8/8/8/5Nk1/3K2Bp/5P1n/8/8 w - - 0 100",
+  "Bxh3",
+  0
+ ],
+ [
+  "R21 after 77...Kg7 (opp loss 244)",
+  "8/6k1/8/3N4/7p/1K1P1N1P/8/7r w - - 3 78",
+  "Nxh4",
+  250
+ ],
+ [
+  "R21 after 79...Kg6 (opp loss 518)",
+  "8/8/6k1/3N1N2/8/1K1P3r/8/8 w - - 2 80",
+  "Nf4+",
+  0
+ ],
+ [
+  "R22 after 35...Rxe2+ (opp loss 176)",
+  "5rk1/R4pp1/7p/2Q1p3/2p5/2P1R1Pb/4rK2/1q2N3 w - - 0 36",
+  "Rxe2",
+  19
+ ],
+ [
+  "R23 after 41.Rc1 (opp loss 136)",
+  "6k1/1p1r2b1/pR4p1/P3p2p/2q1p2P/B2r2P1/5PK1/2R1Q3 b - - 1 41",
+  "Qf7",
+  68
+ ],
+ [
+  "R25 after 29.Bxa6 (opp loss 9409)",
+  "4r1k1/5pp1/B7/5b2/Pp1r3P/1P4R1/2P2P2/2K5 b - - 0 29",
+  "Re1+",
+  0
+ ],
+ [
+  "R27 after 37...Nf4 (opp loss 128)",
+  "8/1kp1Np2/3p1P2/P1p5/P4nP1/8/1r3P2/5RK1 w - - 1 38",
+  "Kh2",
+  3
+ ],
+ [
+  "R27 after 44...c5 (opp loss 239)",
+  "8/4NP2/k2pn1p1/P1p5/P4P2/6K1/1rp5/2R5 w - - 0 45",
+  "Nxg6",
+  42
+ ],
+ [
+  "R29 after 38.g6 (opp loss 102)",
+  "2q1r1k1/p5p1/P5P1/1p1pr2p/2p1b2N/2P1Q2P/1P3R2/5RK1 b - - 0 38",
+  "Qxa6",
+  7
+ ],
+ [
+  "R30 after 90...Nb2 (opp loss 161)",
+  "BB6/5k2/5pp1/1n1Np2p/4PP1P/1b2K3/1n4P1/8 w - - 9 91",
+  "fxe5",
+  0
+ ],
+ [
+  "R30 after 92...g5+ (opp loss 118)",
+  "BB6/5k2/5p2/1n1NP1pp/2n1PK1P/1b6/6P1/8 w - - 0 93",
+  "hxg5",
+  56
+ ]
+]

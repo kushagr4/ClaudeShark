@@ -1,0 +1,31 @@
+R9 after 16.Qe1 (opp loss 113)               AlphaFish played Re8     (loss   0) | RC-B f8e8   d7 loss   +0 | oracle f8e8
+R11 after 22...Bd6 (opp loss 163)            AlphaFish played g5      (loss   9) | RC-B g4g5   d6 loss   +0 | oracle g4g5
+R11 after 29...gxh6 (opp loss 160)           AlphaFish played Rg4+    (loss  97) | RC-B f3f6   d6 loss  -47 | oracle e4g4
+R11 after 32...Qd6 (opp loss 209)            AlphaFish played dxe6    (loss   0) | RC-B g1g2   d6 loss +233 | oracle d5e6
+R12 after 18...Rf8 (opp loss 103)            AlphaFish played Rhe1    (loss  21) | RC-B h1e1   d7 loss  -36 | oracle d1e1
+R12 after 23...b3 (opp loss 158)             AlphaFish played axb3    (loss   0) | RC-B a2b3   d7 loss   +0 | oracle a2b3
+R12 after 29...Bg5 (opp loss 118)            AlphaFish played Qxf7+   (loss  62) | RC-B f4f7   d9 loss   +0 | oracle f4f7
+R12 after 34...Kb7 (opp loss 111)            AlphaFish played f3      (loss  46) | RC-B h5h7   d6 loss  +13 | oracle f2f3
+R13 after 45.Qf2 (opp loss 162)              AlphaFish played Qb1+    (loss  35) | RC-B e8d7   d10 loss +216 | oracle b5b1
+R13 after 50.Qxc5+ (opp loss 321)            AlphaFish played dxc5    (loss 131) | RC-B d6c5   d15 loss   +0 | oracle d6c5
+R14 after 33...Qc7 (opp loss 102)            AlphaFish played e5+     (loss   0) | RC-B e4e5   d7 loss   +0 | oracle e4e5
+R16 after 21...Rb8 (opp loss 128)            AlphaFish played Raf1    (loss  55) | RC-B f5g6   d7 loss   +0 | oracle f5g6
+R16 after 24...h5 (opp loss 162)             AlphaFish played g4      (loss  31) | RC-B g2f3   d7 loss +133 | oracle g3g4
+R16 after 27...Na7 (opp loss 296)            AlphaFish played f6      (loss  51) | RC-B g3e4   d8 loss +262 | oracle f5f6
+R17 after 39...Be1 (opp loss 147)            AlphaFish played c6      (loss  20) | RC-B c5c6   d9 loss   +0 | oracle c5c6
+R17 after 46...Qxe3 (opp loss 387)           AlphaFish played Qc1     (loss   0) | RC-B d1c1   d10 loss   +0 | oracle d1c1
+R18 after 31.Re2 (opp loss 131)              AlphaFish played Nf5     (loss  21) | RC-B e7f5   d8 loss   +0 | oracle e7f5
+R19 after 73.Qb5+ (opp loss 315)             AlphaFish played Kf4     (loss 241) | RC-B f5g4   d10 loss  +30 | oracle f5f4
+R20 after 99...Nxh3 (opp loss 534)           AlphaFish played Bxh3    (loss   0) | RC-B g4h3   d12 loss   +0 | oracle g4h3
+R21 after 77...Kg7 (opp loss 244)            AlphaFish played Nxh4    (loss 250) | RC-B f3h4   d11 loss +244 | oracle d5f4
+R21 after 79...Kg6 (opp loss 518)            AlphaFish played Nf4+    (loss   0) | RC-B d5f4   d12 loss   +0 | oracle d5f4
+R22 after 35...Rxe2+ (opp loss 176)          AlphaFish played Rxe2    (loss  19) | RC-B e3e2   d8 loss   +0 | oracle e3e2
+R23 after 41.Rc1 (opp loss 136)              AlphaFish played Qf7     (loss  68) | RC-B c4f7   d8 loss   +0 | oracle c4f7
+R25 after 29.Bxa6 (opp loss 9409)            AlphaFish played Re1+    (loss   0) | RC-B e8e1   d8 loss   +0 | oracle e8e1
+R27 after 37...Nf4 (opp loss 128)            AlphaFish played Kh2     (loss   3) | RC-B g1h2   d10 loss   +0 | oracle g1h2
+R27 after 44...c5 (opp loss 239)             AlphaFish played Nxg6    (loss  42) | RC-B e7g6   d8 loss   +0 | oracle e7g6
+R29 after 38.g6 (opp loss 102)               AlphaFish played Qxa6    (loss   7) | RC-B c8a6   d8 loss   +0 | oracle c8a6
+R30 after 90...Nb2 (opp loss 161)            AlphaFish played fxe5    (loss   0) | RC-B f4e5   d10 loss   +0 | oracle f4e5
+R30 after 92...g5+ (opp loss 118)            AlphaFish played hxg5    (loss  56) | RC-B h4g5   d12 loss   +0 | oracle h4g5
+
+29 positions after an AlphaFish-opponent error >=100 cp: AlphaFish kept the gain (loss<50) in 20/29; RC-B at 2.5 s keeps it in 24/29; RC-B mean loss 36 cp, >=100 in 5

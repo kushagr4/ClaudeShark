@@ -1,0 +1,7 @@
+games 22: score 18.5/22 = 84.1%; W 16 D 5 L 1
+mean opponent rating (ladder now) 1936; performance rating ~ 2288 (ladder rating 2216 after R29)
+vs opponents rated >=1970 (n=14): score 85.7%  W10 D4 L0
+as White: 10.5/12  as Black: 8.0/10
+loss: [('Rated 10', 'Oyinda', 1639)]
+draws: [('Rated 15', 'Fuzzydafool', 1921, 'Threefold repetition'), ('Rated 22', 'Capablanca', 2174, 'Fifty moves'), ('Rated 24', 'AI Fellow', 2014, 'Insufficient material'), ('Rated 26', 'Blank Shooter', 1993, 'Threefold repetition'), ('Rated 28', "Danya's Disciple", 2057, 'Threefold repetition')]
+wins by checkmate: 16 of 16

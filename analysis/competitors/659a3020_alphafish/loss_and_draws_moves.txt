@@ -1,0 +1,23 @@
+
+== Rated 10: AlphaFish Black vs Oyinda — 1 Checkmate — start rnbqk2r/ppp1bppp/4pn2/3p4/2P5/1P3NP1/P2PPPBP/RNBQK2R b KQkq - 0 5
+c5 cxd5 exd5 d4 Ne4 Nbd2 Nc6 e3 O-O O-O Nc3 Qc2 Ne2+ Kh1 cxd4 Qd3 Nxc1 Rfxc1 dxe3 fxe3 Bf6 Nd4 Re8 Nxc6 bxc6 Rab1 Qb6 e4 Ba6 Qc2 Rad8 Rd1 h5 b4 Qf2 Rbc1 dxe4 Qxc6 Re6 Nxe4 Rxd1+ Rxd1 Qxg2+ Kxg2 Rxc6 Nxf6+ Rxf6 a3 Bb5 Rc1 Rc6 Rc5 Rxc5 bxc5 f6 Kg1 Kf7 h3 Bd7 h4 ...
+... last 24: Bb7 a6 Bxa6 Kf3 Bc8 Kf2 Bb7 c8=Q a5 Qxb7 f4 gxf4 Kg4 Qe4 a4 f5+ Kh3 fxg6 a3 Qg2+ Kxh4 g7 a2 Qg3#
+
+== Rated 28: AlphaFish Black vs Danya's Disciple — ½ Threefold repetition — start r3kbnr/pp1b1ppp/1qn1p3/3pP3/3P4/5N1P/PP2BPP1/RNBQK2R b KQkq - 0 8
+Nge7 Nc3 Nf5 Na4 Qa5+ Nc3 Qb6 Na4 Qa5+ Nc3
+
+== Rated 26: AlphaFish White vs Blank Shooter — ½ Threefold repetition — start r1bq1rk1/2p1bppp/p2p1n2/np2p3/4P3/1B1P1N1P/PPPN1PP1/R1BQR1K1 b - - 2 10
+Nxb3 axb3 c5 Nf1 a5 Ne3 h6 Nh2 Re8 Bd2 Bf8 Nhf1 Re6 c4 b4 Ng3 g6 Ngf1 Re7 Ng4 Nxg4 hxg4 Bg7 Ne3 Rea7 g3 Qd7 Ra4 Qe6 Qe2 Bd7 Ra2 Kh7 Rea1 Bc6 f3 Qd7 Qh2 a4 bxa4 Bxa4 Nd5 Bc6 Nb6 Rxa2 Rxa2 Rxa2 Nxd7 Rxb2 Nb8 Be8 Qe2 b3 Qd1 Bf6 Na6 Rc2 Qb1 Ba4 Bc1 ...
+... last 24: Bb2 Re2 Bc3 Rc2 Qa1 Bf2+ Kf1 Bd4 Bxd4 cxd4 Qxa4 Rc1+ Kg2 b2 Qd7 b1=Q Qxf7+ Kh8 Qf8+ Kh7 Qf7+ Kh8 Qf8+ Kh7
+
+== Rated 15: AlphaFish Black vs Fuzzydafool — ½ Threefold repetition — start rnbqk2r/ppp1ppbp/6p1/8/3PP3/2P1B3/P4PPP/R2QKBNR b KQkq - 2 7
+c5 Bc4 Qa5 Bd2 O-O Ne2 Nc6 O-O b6 Bd5 Bb7 Rc1 Qa6 Bb3 Na5 Bc2 Rac8 Bg5 e6 Bd3 Nc4 e5 h6 Be7 Rfe8 Bf6 Bxf6 exf6 Qb5 Ng3 cxd4 cxd4 Qd5 Be4 Qd7 Bxb7 Qxb7 h4 Red8 h5 g5 Re1 Rd5 Ne4 Qd7 f4 Rxd4 Qg4 Qd5 fxg5 Qxg5 Qxg5+ hxg5 Nxg5 Rd5 Nf3 Rxh5 Ne5 b5 a4 ...
+... last 24: Nc3 Kc7 Rf8 Ra5 Rf6 Nf5 Rxf5 Rxf5 Nxe4 Kd8 Nd6 Ke7 Nc8+ Kf8 Nd6 Kg8 Nc8 Kh8 Na7 Kg8 Nc8 Kh8 Na7 Kg8
+
+== Rated 22: AlphaFish White vs Capablanca — ½ Fifty moves — start r1bqk2r/2p1bppp/p2p1n2/np2p3/4P3/1BNP1N2/PPP2PPP/R1BQR1K1 b kq - 2 9
+O-O Bg5 c6 h3 h6 Bh4 b4 Nb1 Nh5 Bxe7 Qxe7 Ba4 Nf4 a3 Rb8 Nbd2 bxa3 Rxa3 Rxb2 Qa1 Rb4 c3 Rb8 Bd1 Bxh3 g3 Nxd3 Re3 Nxf2 Kxf2 Nb7 Rxa6 Nc5 Ra5 Qc7 Qa3 Rb5 Ra7 Qb8 Be2 Rb2 Nc4 Rc2 Nfd2 d5 exd5 cxd5 Qxc5 dxc4 Nf3 Qb1 Ne1 Rxe2+ Rxe2 Qf5+ Nf3 Qb1 Qd6 Qf1+ Ke3 ...
+... last 24: Qe4+ Kh8 Kd2 Kg8 Qc4+ Kh7 Qc2+ Kg8 Qc8+ Kh7 Qc7 Rf1 Qc2+ Kh8 Qc5 Kh7 Qe7 Kg6 Qe4+ Kf6 Qc6+ Ke7 Qb5 Rf2+
+
+== Rated 24: AlphaFish White vs AI Fellow — ½ Insufficient material — start r3kb1r/pp1qpppp/2n2n2/3p4/3P1Bb1/1QPB3P/PP3PP1/RN2K1NR b KQkq - 0 8
+Bh5 Nd2 e6 Ngf3 Bd6 Bxd6 Qxd6 O-O O-O Qxb7 Rab8 Qa6 Rb6 Qa3 Qxa3 bxa3 Bg6 Bxg6 hxg6 Rfc1 Rb2 Nb3 Ne4 c4 Ne7 Nc5 Nd2 Nxd2 Rxd2 Nb3 Re2 a4 Rb8 a5 g5 cxd5 Nxd5 g3 Kh7 Kf1 Rb2 Nc5 Nf6 Nd3 Rd2 Rd1 Rc2 Rab1 Rd8 Rb2 Rxb2 Nxb2 Ne4 Nc4 Rd5 Kg2 Nc3 Rd2 Nb5 Ne5 ...
+... last 24: Kf6 Rf2+ Kg5 Rf1 Rg6 Rg1+ Kf5 Ra1 Rg2 Rf1+ Ke6 Rd1 Rg5 Re1+ Kd7 Ra1 Ke7 Ra7+ Kf6 Rf7+ Ke5 Rxg7 Rxg7+ Kxg7

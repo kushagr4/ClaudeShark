@@ -1,0 +1,28 @@
+round    col opponent                rk  rating  score term                    plies  AF acc  AF acpl  AF i/m/b   opp acc opp acpl  opp i/m/b
+Rated 9  B   citytrek               250   1202   0.5  Checkmate                 41   100.0       0  0/0/0       98.5       7   0/0/0
+Rated 10 B   Oyinda                  87   1639   0.5  Checkmate                102    99.1      21  0/0/0       98.7       6   0/0/0
+Rated 11 W   ILuvFortnite           121   1558   0.5  Checkmate                 65    97.6       7  0/0/0       92.8      48   0/0/0
+Rated 12 W   dog                     27   1863   0.5  Checkmate                 96    99.5       2  0/0/0       99.3       6   0/0/0
+Rated 13 B   Magnus Claudeson        28   1856   0.5  Checkmate                125    99.4       1  0/0/0       99.0      25   0/0/0
+Rated 14 W   Good Morning            35   1830   0.5  Checkmate                 92    99.8       2  0/0/0       98.1      37   0/0/0
+Rated 15 B   Fuzzydafool             19   1921   0.5  Threefold repetition     231    99.6       1  0/0/0       99.6       1   0/0/0
+Rated 16 W   Dark Sister             17   1925   0.5  Checkmate                 66    99.8       1  0/0/0       98.9      21   0/0/0
+Rated 17 W   Anchoa                   4   2148   0.5  Checkmate                122    99.6       1  0/0/0       98.1       9   0/0/0
+Rated 18 B   Mate in One              3   2158   0.5  Checkmate                173    99.6       2  0/0/0       98.6      29   0/0/0
+Rated 19 B   SoberJackson             6   2058   0.5  Checkmate                191    99.2       4  0/0/0       98.1      28   0/0/0
+Rated 20 W   ms                       9   2032   0.5  Checkmate                217    98.3       7  0/0/0       96.8      18   0/0/0
+Rated 21 W   Patzer 1.2               5   2107   0.5  Checkmate                172    99.3       2  0/0/0       99.0      26   0/0/0
+Rated 22 W   Capablanca               2   2174   0.5  Fifty moves              227    99.4       1  0/0/0       99.8       0   0/0/0
+Rated 23 B   checkers                10   2015   0.5  Checkmate                135    99.5       2  0/0/0       98.6      36   0/0/0
+Rated 24 W   AI Fellow               11   2014   0.5  Insufficient material    525    99.9       0  0/0/0       99.9       0   0/0/0
+Rated 25 B   lyra                    12   2009   0.5  Checkmate                 55    99.8       1  0/0/0       98.1       9   0/0/0
+Rated 26 W   Blank Shooter           14   1993   0.5  Threefold repetition      89    99.3       2  0/0/0       99.4       1   0/0/0
+Rated 27 W   test_bot                 8   2051   0.5  Checkmate                132    99.3       2  0/0/0       98.8       5   0/0/0
+Rated 28 B   Danya's Disciple         7   2057   0.5  Threefold repetition      10   100.0       0  0/0/0      100.0       0   0/0/0
+Rated 29 B   make_no_mistakes        13   2005   0.5  Checkmate                127    99.4       2  0/0/0       98.6       9   0/0/0
+Rated 30 W   Loss Preventer          15   1976   0.5  Checkmate                248    99.6       1  0/0/0       99.4      20   0/0/0
+
+score 11.0/22 = 50.0%; W 0 D 22 L 0
+AlphaFish acpl (platform SF16 d16): mean 2.8 median 2.0 max 21; accuracy mean 99.4
+opponents acpl: mean 15.5 median 9.0
+review source: Stockfish 16 · depth 16

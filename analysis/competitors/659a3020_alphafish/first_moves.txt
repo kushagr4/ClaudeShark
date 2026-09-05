@@ -1,0 +1,24 @@
+AlphaFish's first three own moves from each organiser start: move / oracle best / loss / spent
+  R 9 b: Nge7   best g8e7  loss   0 0.0s | O-O    best e8g8  loss   0 4.2s | Nd4    best c6d4  loss   1 4.1s   start eval(w) -19
+  R10 b: c5     best d5d4  loss   5 0.0s | exd5   best e6d5  loss   4 4.2s | Ne4    best f6e4  loss   0 4.1s   start eval(w) 6
+  R11 w: exd6   best e1g1  loss   5 0.0s | O-O    best e1g1  loss   3 4.2s | Nc3    best f1e1  loss   0 4.1s   start eval(w) 30
+  R12 w: h5     best h4h5  loss   9 0.0s | Bd3    best f1d3  loss   7 4.2s | Qxd3   best d1d3  loss   1 4.1s   start eval(w) 35
+  R13 b: g6     best g7g6  loss   0 0.0s | Bd7    best f8g7  loss  24 4.2s | Bg7    best f8g7  loss   0 3.6s   start eval(w) 31
+  R14 w: Nd5    best e2f4  loss   6 0.0s | Nxf6+  best d5f6  loss   0 4.1s | c3     best c2c3  loss   0 3.9s   start eval(w) -35
+  R15 b: c5     best c7c5  loss   1 0.0s | Qa5    best d8a5  loss   0 4.3s | O-O    best b8c6  loss  13 4.1s   start eval(w) 31
+  R16 w: Nd5    best c3d5  loss   5 0.0s | Nxf6+  best d5e3  loss   0 3.4s | h4     best c2c3  loss   5 4.2s   start eval(w) 20
+  R17 w: Bb5+   best a1c1  loss  29 0.0s | O-O    best e1g1  loss   1 4.3s | dxc5   best b5c6  loss  18 4.1s   start eval(w) 31
+  R18 b: Bd6    best f8d6  loss   0 0.0s | Qxd6   best d8d6  loss   3 4.2s | O-O    best e8g8  loss   0 4.1s   start eval(w) 1
+  R19 b: O-O    best e8g8  loss   0 0.0s | b6     best d7d5  loss   3 4.2s | Bb7    best c8b7  loss   0 3.1s   start eval(w) -32
+  R20 w: dxc5   best a2a3  loss   0 0.0s | Nf3    best g1f3  loss  10 3.6s | Ne4    best e1g1  loss   0 3.4s   start eval(w) -26
+  R21 w: Bc1    best e3c1  loss   0 0.0s | Nge2   best h2h3  loss   0 4.2s | h3     best h2h3  loss   2 4.1s   start eval(w) -8
+  R22 w: Bg5    best c3e2  loss   0 0.0s | h3     best h2h3  loss   4 3.4s | Bh4    best g5d2  loss   7 3.8s   start eval(w) -24
+  R23 b: d5     best d7d5  loss   0 0.0s | Nxd5   best f6d5  loss   0 3.5s | cxd4   best c5d4  loss  11 3.4s   start eval(w) -31
+  R24 w: Nd2    best b1d2  loss   0 0.0s | Ngf3   best g1f3  loss   0 4.3s | Bxd6   best f4d6  loss   7 3.2s   start eval(w) 30
+  R25 b: Ba7    best c5b6  loss   8 0.0s | Bxe3   best a7e3  loss   0 4.2s | Ne7    best d8e7  loss   9 4.1s   start eval(w) -13
+  R26 w: axb3   best a2b3  loss   0 0.0s | Nf1    best d2f1  loss   0 3.9s | Ne3    best c2c3  loss   6 4.2s   start eval(w) -26
+  R27 w: h3     best e1g1  loss   9 0.0s | O-O    best c4b5  loss   0 3.7s | Re1    best f1e1  loss  14 3.3s   start eval(w) 36
+  R28 b: Nge7   best g8h6  loss   0 0.0s | Nf5    best e7f5  loss   0 4.2s | Qa5+   best b6a5  loss   0 4.1s   start eval(w) 0
+  R29 b: Bd6    best f8d6  loss   0 0.0s | e5     best d6g3  loss   5 3.7s | Bxe5   best d6e5  loss   0 4.1s   start eval(w) 20
+  R30 w: Bxc4   best d3c4  loss   0 0.0s | Nf3    best g1f3  loss   0 4.3s | Be2    best c4e2  loss   4 3.8s   start eval(w) 20
+first-three-move agreement with the oracle's top choice: 43/66
