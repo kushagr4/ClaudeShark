@@ -119,7 +119,7 @@ def top_level_imports(path: Path) -> set[str]:
     return names
 
 
-def check_contents(extracted: Path, names: list[str]) -> list[Check]:
+def check_contents(extracted: Path, names: list[str], source: Path = ROOT) -> list[Check]:
     checks = []
 
     checks.append(
@@ -127,7 +127,7 @@ def check_contents(extracted: Path, names: list[str]) -> list[Check]:
               "the platform imports agent by name from the root")
     )
 
-    expected = {path.name for path in ROOT.glob("cs_*.py")}
+    expected = {path.name for path in source.glob("cs_*.py")}
     missing = sorted(expected - set(names))
     checks.append(
         Check("engine modules packaged", not missing,
@@ -328,17 +328,27 @@ def check_tests() -> list[Check]:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Pre-upload release gate.")
     parser.add_argument("--fast", action="store_true", help="skip the pytest run")
+    parser.add_argument("--source", type=Path, default=ROOT,
+                        help="directory to package instead of the working tree (a frozen champion)")
+    parser.add_argument("--keep", type=Path, default=None,
+                        help="also copy the built archive to this path (for a release candidate)")
     arguments = parser.parse_args()
+    source = arguments.source.resolve()
 
     with tempfile.TemporaryDirectory() as workspace:
         archive = Path(workspace) / "submission.zip"
-        names = build(ROOT, archive, DEFAULT_INCLUDES)
+        names = build(source, archive, DEFAULT_INCLUDES)
+        if arguments.keep is not None:
+            import shutil
+
+            arguments.keep.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(archive, arguments.keep)
         extracted = Path(workspace) / "extracted"
         with zipfile.ZipFile(archive) as opened:
             opened.extractall(extracted)
 
         checks: list[Check] = []
-        checks += check_contents(extracted, names)
+        checks += check_contents(extracted, names, source)
         checks += check_imports(extracted)
         checks += check_source_hygiene(extracted)
         checks += check_runtime(extracted)

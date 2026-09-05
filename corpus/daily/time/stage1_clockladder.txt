@@ -1,0 +1,57 @@
+=== clockladder rated_v1_sf60
+engine: champions\rated_v1_sf60   START_FRACTION = 0.6
+   clock    legal   worst used   worst ms  over hard
+       1      yes       202.4%         2          0   <-- below the fixed-cost floor, legality only
+       5      yes        38.3%         2          0
+      20      yes         9.5%         2          0
+      50      yes         3.8%         2          0
+     100      yes         2.3%         2          0
+     250      yes         5.2%        13          0
+     500      yes        18.0%        90          0
+    1000      yes        26.4%       264          0
+    2000      yes        23.8%       476          0
+    5000      yes        15.5%       773          0
+   10000      yes        14.9%      1490          0
+   30000      yes         7.7%      2309          0
+   60000      yes         7.0%      4227          0
+  120000      yes         5.6%      6717          0
+
+PASS
+=== clockladder rated_v1_sf75
+engine: champions\rated_v1_sf75   START_FRACTION = 0.75
+   clock    legal   worst used   worst ms  over hard
+       1      yes       193.8%         2          0   <-- below the fixed-cost floor, legality only
+       5      yes        38.4%         2          0
+      20      yes         9.5%         2          0
+      50      yes         3.8%         2          0
+     100      yes         2.0%         2          0
+     250      yes         5.7%        14          0
+     500      yes        19.2%        96          0
+    1000      yes        27.6%       276          0
+    2000      yes        29.2%       584          0
+    5000      yes        15.7%       783          0
+   10000      yes        15.6%      1556          0
+   30000      yes         7.8%      2351          0
+   60000      yes         7.0%      4180          0
+  120000      yes         9.0%     10826          0
+
+PASS
+=== clockladder rated_v1_sf90
+engine: champions\rated_v1_sf90   START_FRACTION = 0.9
+   clock    legal   worst used   worst ms  over hard
+       1      yes       209.9%         2          0   <-- below the fixed-cost floor, legality only
+       5      yes        37.8%         2          0
+      20      yes         9.5%         2          0
+      50      yes         3.8%         2          0
+     100      yes         1.9%         2          0
+     250      yes         5.3%        13          0
+     500      yes        24.4%       122          0
+    1000      yes        27.6%       276          0
+    2000      yes        29.5%       590          0
+    5000      yes        19.1%       953          0
+   10000      yes        17.7%      1774          0
+   30000      yes         9.1%      2725          0
+   60000      yes         8.0%      4788          0
+  120000      yes         9.2%     11040          0
+
+PASS
