@@ -6,10 +6,27 @@ run `git status`, `git log --oneline -n 20`, list python processes with
 `wmic process where "name like '%python%'" get ProcessId,ParentProcessId,CommandLine`,
 check `.owner` sidecars, then continue from section 10.
 
-## 1. Clock
+## 1. Clock and mode
 
 * Fable take-over session began **2026-09-05 01:05 local**. Last update to this
-  file: **06:10**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
+  file: **06:50**.
+* **TIME-BUDGET CHANGE at 06:40: RAPID MODE.** No new task over 15 minutes; no
+  arenas, annotation sweeps, depth sweeps, rescoring, public-data research or
+  feature development. Reliability and exact release identity only.
+* **LONG TASKS: cancelled/deferred.** The timed V2.1-vs-rated-v1 confirmation
+  was **stopped intentionally at 06:40 for the time budget** (69 of 226 games,
+  partial +16 =35 −18 = 48.6%, 0 failures), retained as
+  `corpus/daily/time/games/v21_vs_ratedv1_120s.PARTIAL-NON-DECISIVE-STOPPED-FOR-TIME-BUDGET.jsonl`
+  with a note beside it. **It is non-decisive and must not be used to revise
+  the completed 226-game fixed-depth result.** This is a budget decision, not an
+  experiment failure. Two stale five-hour Stage 1 waiter shells were also
+  stopped (they matched their own command line in a liveness probe; owned
+  nothing).
+* **CURRENT SUBMITTED: V2.1 KING-PAWN** (`submission_v2_1_kingpawn.zip`, sha256
+  `a8b95a5c…35bbd0a`). **CURRENT RECOMMENDED: RC-A, exact rated-v1**
+  (`corpus/release/claudeshark_rated_v1_rc_a.zip`, sha256 `3a89bf3e…67ff9b`).
+  Card: `benchmarks/current/RC_A_UPLOAD_CARD.md`. Nothing uploaded, nothing
+  pushed.
 
 ## 2. Repository
 
@@ -110,22 +127,23 @@ worth shipping.**
 
 ## 9. Running jobs — verify before touching anything
 
-**Timed V2.1 confirmation running since 06:05**: `tools.arena` `champions/v2_1_kingpawn` vs `champions/rated_v1`, 226 timed games, output `corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl`, log `corpus/daily/time/stage_v21_timed.log`, expected about 08:05. Do not start CPU-heavy work beside it. **V2.4b REJECTED** (49.3%, −4.6 Elo, 65 informative, lowest clock 4.1 s v 6.1 s; `2026-09-05-v2.4b-early-surplus-design.md`); the time lane is closed. Complete: V2.4 Stage 2 (`corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, 226 games, **sf60 REJECTED**: +1.5 Elo on 70 informative families, lowest clock 2.2 s against the baseline's 6.7 s; see `2026-09-05-v2.4-time-policy-results.md`). Next CPU job: V2.4b Gate 0 then Gate 2 on `champions/rated_v1_early16`, output under `corpus/daily/time/`.
+**None.** At 06:41 no python or uv process remained after the timed
+confirmation was stopped (tree `uv 23936 → python 9508 → python 13576` and
+32 runners, verified exited). `tools.arena` writes no `.owner` sidecar; none
+existed to release.
 
-**Release candidate RC-A frozen:** `corpus/release/claudeshark_rated_v1_rc_a.zip`, 39,125 bytes, 106,863 unzipped, 11 files, sha256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, built from `champions/rated_v1` by `tools.release_check --source champions/rated_v1 --keep …` (15/15 PASS), full suite 1,202 passed, startup 1.49 s.
+Complete tonight: V2.4 Stage 2 (sf60 rejected), V2.4b (early16 rejected),
+RC-A frozen and re-verified in rapid mode (see the card).
 
-**Never smoke-test infrastructure on a live path.** Corrupt artifacts that must never enter statistics: `corpus/daily/pool/games/v21_vs_ratedv1.CORRUPT-DISCARDED.jsonl`, `…_actual.CORRUPT-DISCARDED-2.jsonl`.
+**Never smoke-test infrastructure on a live path.** Corrupt artifacts that
+must never enter statistics:
+`corpus/daily/pool/games/v21_vs_ratedv1.CORRUPT-DISCARDED.jsonl`,
+`…_actual.CORRUPT-DISCARDED-2.jsonl`.
 
 ## 10. Plan
 
-1. When the report finishes: rerun `tools.daily.dataset`, classify each game's
-   mechanism (`corpus/daily/rated_classes.json`), write the postmortem record.
-2. V2.4 time policy, on the **rated-v1 base** (not V2.1): Stage 1
-   `tools.clocksim` + `tools.clockladder` for `champions/rated_v1_sf60/75/90`;
-   Stage 2 timed arena 120 s + 0.5 s on actual organiser starts, sf-variant vs
-   `champions/rated_v1`, with informative-cluster reporting and a Swiss risk
-   table (flags, crashes, ≥300 cp errors).
-3. If time remains: timed confirmation of V2.1 vs rated-v1 on organiser starts.
-4. Freeze a release candidate (rated-v1 features, plus the time constant only
-   if Stage 2 is positive and safe), run `tools.release_check`, write
-   `FABLE_OVERNIGHT_HANDOFF.md`.
+Rapid mode: **stop after RC-A is verified and carded; wait for the user.**
+Do not fill time with another experiment. Deferred, in this order, for when
+the budget returns: own-engine start book (legal form only), narrow causal
+audit of attack blindness on the round 1/10/11 positions, timed
+confirmation of V2.1 (optional).

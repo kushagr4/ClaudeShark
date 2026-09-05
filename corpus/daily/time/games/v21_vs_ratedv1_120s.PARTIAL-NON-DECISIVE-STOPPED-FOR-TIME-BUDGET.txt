@@ -1,0 +1,18 @@
+PARTIAL — NON-DECISIVE — STOPPED FOR TIME BUDGET
+
+Timed confirmation of SUBMITTED V2.1 KING-PAWN (champions/v2_1_kingpawn) vs
+RATED-V1 (champions/rated_v1), 120 s + 0.5 s, 113 organiser starts, 8 workers.
+Started 2026-09-05 06:05 local; stopped intentionally at 06:40 on the user's
+instruction because the time budget changed to rapid mode.
+
+Retained: 69 of 226 planned games (header + 69 valid game rows, 0 malformed),
+partial V2.1 score +16 =35 -18 = 48.6%, 0 failures either side. No PGN was
+written (the arena writes move history only at the end). tools.arena does not
+use the tools.matchlock sidecar, so there was no .owner file to release; the
+process tree (uv 23936 -> python 9508 -> python 13576 and 32 runners) was
+verified exited before this note was written.
+
+This partial result MUST NOT be used to overturn or refine the completed
+226-game fixed-depth result (45.8%, -29.3 Elo, 54 informative families,
+bootstrap -55.8..-4.6), which stands as the decision-relevant evidence.
+The stop is a budget decision, not an experiment failure.
