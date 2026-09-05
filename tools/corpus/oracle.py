@@ -24,6 +24,7 @@ import contextlib
 import hashlib
 import json
 import os
+import shutil
 from collections.abc import Iterable
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -45,7 +46,13 @@ MATE_CP = 10_000
 
 
 def oracle_path() -> Path:
-    return Path(os.environ.get(ORACLE_ENV, ORACLE_DEFAULT))
+    """The oracle binary: the environment override, else a ``stockfish`` on
+    PATH (Homebrew on the Mac), else the Windows default."""
+    override = os.environ.get(ORACLE_ENV)
+    if override:
+        return Path(override)
+    found = shutil.which("stockfish")
+    return Path(found) if found else Path(ORACLE_DEFAULT)
 
 
 def _sha256(path: Path) -> str:

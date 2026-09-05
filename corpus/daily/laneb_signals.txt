@@ -1,0 +1,105 @@
+rows 7169; middlegame with queens: POS 1068 (rated 271), NEG 2974, hard NEG 117
+signal             AUC  sign agree POS  zero POS  mean|D| POS  mean|D| NEG  mean|D| hard  rated AUC  rated agree
+safe_checks      0.580           0.182      0.74         0.68         0.14          0.35      0.632        0.236
+escapes          0.580           0.344      0.26         1.29         0.94          1.18      0.602        0.292
+ring_attackers   0.610           0.362      0.39         0.83         0.49          0.84      0.598        0.332
+ring_net         0.532           0.390      0.22         1.40         1.26          1.21      0.513        0.384
+pinned           0.535           0.117      0.79         0.22         0.15          0.20      0.533        0.092
+
+game         ply stm  sf_w mat_w label  root  stat | chk esc ratt rnet pin  san
+round1-the-c  19 b    -196    10  -206     -     - |   0   0    0    1   0  d4
+round1-the-c  20 w    -197    10  -207    61    77 |   0   0    0    1   0  c3
+round1-the-c  21 b    -191    10  -201     -     - |   0   0    0    1   0  dxc3
+round1-the-c  22 w    -194   -90  -104    41     1 |   0   0    0    1   0  Bxc3
+round1-the-c  23 b    -226    10  -236     -     - |   0   0    0    1   0  Rad8
+round1-the-c  24 w    -184    10  -194     8    83 |   0   0    0    1   0  Qc1
+round1-the-c  25 b    -233    10  -243     -     - |   0   0    0    1   0  Nf5
+round1-the-c  26 w    -274    10  -284    -7    47 |   0   0    0    0   0  Bb2
+round1-the-c  27 b    -319    10  -329     -     - |   0   0    0    0   0  Ncd4
+round1-the-c  28 w    -334    10  -344   -60     6 |  -1   0    0    0   0  Nxd4
+round1-the-c  29 b    -448   330  -778     -     - |   0   2   -1   -2   0  cxd4
+round1-the-c  30 w    -434    10  -444   -64    17 |   0   2   -1   -2   0  Kh2
+round1-the-c  31 b    -452    10  -462     -     - |   0   2   -2   -4   0  Qc6
+round1-the-c  32 w    -487    10  -497  -109    16 |   0   2   -2   -3   0  Rg1
+round1-the-c  33 b    -430    10  -440     -     - |   0   3   -2   -2   0  d3
+round1-the-c  34 w    -475    10  -485  -142   -36 |   0   3   -2   -2   0  Bg4
+round1-the-c  35 b    -493    10  -503     -     - |   0   3   -2   -1   0  d2
+round1-the-c  36 w    -518    10  -528  -114   -99 |   0   3   -2   -1   0  Qc3
+round1-the-c  37 b    -430    10  -440     -     - |   0   3   -2    0   0  Nd4
+round1-the-c  38 w    -469    10  -479  -170  -124 |  -1   3   -1    2   0  f4
+round1-the-c  39 b    -514    10  -524     -     - |   0   3   -1    1   0  Qe4
+round1-the-c  40 w    -549    10  -559   -99  -155 |   0   3   -1    0   0  Ba3
+round1-the-c  41 b    -557    10  -567     -     - |   0   3    0    1   0  Ne2
+round1-the-c  42 w    -563    10  -573  -283  -137 |   1   3   -1    0   0  Bxe6+
+round5-stonk  31 b    -461   170  -631     -     - |   0   1    0   -1   0  Qg5
+round5-stonk  32 w    -412   170  -582   -10    20 |  -1   1    0   -1  -1  f3
+round5-stonk  33 b    -471   170  -641     -     - |  -3   0    0   -1  -1  Qh4
+round5-stonk  34 w    -347   170  -517    -8     6 |  -2   3   -1   -3   0  Rxb7
+round5-stonk  36 w    -812   270 -1082     0   100 | -22   3   -1   -2   0  Kh1
+round5-stonk  37 b    -740   270 -1010     -     - |  -2   4   -1   -3   0  Be5
+round5-stonk  38 w    -726   270  -996  -418    92 |  -2   4   -1   -3   0  Rf2
+round5-stonk  39 b    -727   270  -997     -     - |  -2   4   -1   -2   0  Qxf2
+round5-stonk  40 w    -737  -230  -507  -467  -394 |  -2   4   -2   -4   0  Qg1
+round10-elbo  14 w     116  -100   216     -     - |   0  -1    0    1   0  Ra4
+round10-elbo  15 b     114  -100   214   -98  -150 |   0  -1    0    1   0  Qd7
+round10-elbo  16 w     145  -100   245     -     - |   0  -1    0    0   0  b3
+round10-elbo  17 b     168  -100   268   -99  -148 |   0  -1    0    0   0  Rbd8
+round10-elbo  18 w     211  -100   311     -     - |   0  -1    0    0   0  Nc3
+round10-elbo  19 b     180  -100   280   -86  -163 |   0  -2    0    1   0  Qf5
+round10-elbo  20 w     286  -100   386     -     - |   0  -2   -1    0   0  Rah4
+round10-elbo  21 b     241  -100   341   -79  -151 |   0  -2   -1    0   0  Rfe8
+round10-elbo  22 w     397  -100   497     -     - |   0  -1   -1    1   0  hxg6
+round10-elbo  23 b     375     0   375   -79     1 |   1  -1    1    3   0  hxg6
+round10-elbo  24 w     517  -100   617     -     - |   0  -2    0    2   0  Ke2
+round10-elbo  25 b     231  -100   331  -107  -205 |   0  -3    0    4   0  e4
+round10-elbo  26 w     240  -100   340     -     - |   0  -3   -1    3   0  dxe4
+round10-elbo  27 b     228     0   228   -31   -82 |  -1  -4    0    4  -1  Qe5
+round10-elbo  28 w     234     0   234     -     - |  -1  -5    1    5  -1  Bb2
+round10-elbo  29 b     235     0   235    -9   -57 |  -1  -5    1    4  -1  Bxd5
+round11-mang  19 b    -192     0  -192     -     - |   0   0    1    1   0  Bb7
+round11-mang  20 w    -202     0  -202    31    39 |   0   0    1    1   0  h3
+round11-mang  21 b    -224     0  -224     -     - |   0  -1    1    1   0  Ne4
+round11-mang  22 w    -202     0  -202    18    29 |   0  -1   -1    0   0  Nxe4
+round11-mang  23 b    -212   320  -532     -     - |   0  -1    0    1   0  dxe4
+round11-mang  24 w    -201     0  -201    12    28 |   0  -1    0    0   0  Ng3
+round11-mang  25 b    -208     0  -208     -     - |   0  -1    0    0   0  Nf6
+round11-mang  26 w    -180     0  -180    -9    31 |   0  -1    0    0   0  Qa1
+round11-mang  27 b    -261     0  -261     -     - |   0  -1    0    0   0  a5
+round11-mang  28 w    -261     0  -261    -1    22 |   0  -1    0    0   0  Qd1
+round11-mang  29 b    -254     0  -254     -     - |   0  -1    0    0   0  Rc8
+round11-mang  30 w    -262     0  -262   -13    12 |   0  -1    0    0   0  Qe2
+round11-mang  31 b    -289     0  -289     -     - |   0  -1    0    1   0  g6
+round11-mang  32 w    -285     0  -285   -45    18 |   0   0    0    1   0  Rd1
+round11-mang  33 b    -299     0  -299     -     - |   0   0    0    1   0  Bd6
+round11-mang  34 w    -296     0  -296   -46    -7 |   0   1    0    1   0  Be1
+round11-mang  35 b    -322     0  -322     -     - |   0   1    0    1   0  Bb8
+round11-mang  36 w    -321     0  -321   -30    -2 |   0   1    0    2   0  Bd2
+round11-mang  37 b    -336     0  -336     -     - |   0   1    0    2   0  h5
+round11-mang  38 w    -354     0  -354   -66    12 |   0   2    0    2   0  Rfe1
+round11-mang  39 b    -379     0  -379     -     - |   0   1    0    1   0  Qd6
+round11-mang  40 w    -352     0  -352   -27    28 |   0   1    0    0   0  h4
+round11-mang  41 b    -490     0  -490     -     - |   0   1    0    0   0  c3
+round11-mang  42 w    -462     0  -462  -296    -7 |   0   1    0    0   0  Bxc3
+round11-mang  43 b    -481   100  -581     -     - |   0   1    0    0   0  Ba6
+round11-mang  44 w    -478   100  -578  -222   134 |   0   1    0    0   0  Qd2
+round11-mang  45 b    -454   100  -554     -     - |   0   2   -1   -1   0  Ng4
+round11-mang  46 w    -471   100  -571  -208   127 |   0   3   -2   -1   0  Rb1
+round11-mang  47 b    -471   100  -571     -     - |   0   3   -2   -1   0  Qf6
+round11-mang  48 w    -456   100  -556  -261    95 |   0   3   -3   -2   0  Nxe4
+round11-mang  49 b    -693   200  -893     -     - |  -1   3   -4   -3   0  Qxh4
+round11-mang  50 w    -659   100  -759  -329   144 |  -2   4   -4   -2   0  Bd3
+round11-mang  51 b    -781   100  -881     -     - |  -2   3   -3    0   0  bxc3
+round11-mang  52 w    -703  -230  -473  -329  -272 |  -2   3   -3    0   0  bxc3
+round3-baryo  35 b     -24    90  -114     4    25 |  -1  -2    1    2   0  g6
+round3-baryo  36 w       3    90   -87     -     - |  -1   0   -1    0   0  Qd5
+round3-baryo  37 b     -27    90  -117    -3    21 |  -1   0    0    2   1  Qg4
+round3-baryo  38 w      15    90   -75     -     - |  -1  -2    1    4   1  Bc4
+round3-baryo  39 b      18    90   -72    19    28 |  -1  -3    1    3   1  Bf5+
+round3-baryo  40 w      23    90   -67     -     - | -15  -2    0    2   1  Kb3
+
+sign agreement with SF - material where the signal is non-zero:
+  safe_checks     21/25
+  escapes         15/72
+  ring_attackers  32/42
+  ring_net        34/62
+  pinned          2/9
