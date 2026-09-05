@@ -229,6 +229,60 @@ def rules_outcome(board: chess.Board, in_check: bool, ply: int) -> int | None:
     return None
 
 
+_KNIGHT_ATTACKS = chess.BB_KNIGHT_ATTACKS
+_PAWN_ATTACKS = chess.BB_PAWN_ATTACKS
+
+
+def _has_legal_move(board: chess.Board) -> bool:
+    """True if the side to move, **which must not be in check**, has a legal move.
+
+    The quiescence stand-pat exits have to know whether a position is stalemate,
+    and ``any(board.generate_legal_moves())`` answers that at the cost of
+    python-chess's full generator set-up on every call. Out of check the rule is
+    simpler: a piece that is not pinned can go anywhere it attacks, a pinned
+    piece is the only one that needs the ray test. So this looks for one move by
+    an unpinned knight, slider or pawn, which nearly every position has, and
+    falls back to the full generator only when it finds none. The fallback
+    keeps it exact: the answer is identical to the generator's on every
+    position (tests/test_has_legal_move.py), so the search tree is unchanged.
+    """
+    us = board.turn
+    own = board.occupied_co[us]
+    king = board.king(us)
+    if king is None:
+        return any(board.generate_legal_moves())
+    blockers = board._slider_blockers(king)
+    free = own & ~blockers
+    not_own = ~own
+    knights = board.knights & free
+    while knights:
+        square = knights.bit_length() - 1
+        if _KNIGHT_ATTACKS[square] & not_own:
+            return True
+        knights ^= 1 << square
+    pawns = board.pawns & free
+    if pawns:
+        occupied = board.occupied
+        if (pawns << 8 if us else pawns >> 8) & ~occupied:
+            return True
+        them = board.occupied_co[not us]
+        pawn_attacks = _PAWN_ATTACKS[us]
+        scan = pawns
+        while scan:
+            square = scan.bit_length() - 1
+            if pawn_attacks[square] & them:
+                return True
+            scan ^= 1 << square
+    sliders = (board.bishops | board.rooks | board.queens) & free
+    attacks_mask = board.attacks_mask
+    while sliders:
+        square = sliders.bit_length() - 1
+        if attacks_mask(square) & not_own:
+            return True
+        sliders ^= 1 << square
+    return any(board.generate_legal_moves())
+
+
 def no_legal_move_score(board: chess.Board, in_check: bool, ply: int) -> int | None:
     """Checkmate or stalemate score, or None if a legal move exists.
 
@@ -831,15 +885,15 @@ class Searcher:
             stand_pat = evaluate(board)
 
             # Both exits below return a static score, and both are wrong if the
-            # position is stalemate. `any(generate_legal_moves())` stops at the
-            # first legal move, so in a normal position it costs one move's
-            # worth of generation; only a genuine stalemate scans the whole
-            # list. An earlier attempt hoisted the full capture list above the
-            # beta cutoff instead, which was also correct but cost 30% of
-            # nodes/second, because listing every capture is far dearer than
-            # finding one legal move.
+            # position is stalemate. `_has_legal_move` finds one move by an
+            # unpinned piece without python-chess's generator set-up, and only
+            # a position with none pays for the full generation. An earlier
+            # attempt hoisted the full capture list above the beta cutoff
+            # instead, which was also correct but cost 30% of nodes/second,
+            # because listing every capture is far dearer than finding one
+            # legal move.
             if stand_pat >= beta:
-                if any(board.generate_legal_moves()):
+                if _has_legal_move(board):
                     return stand_pat
                 return DRAW_SCORE
             if stand_pat > alpha:
@@ -847,7 +901,7 @@ class Searcher:
             best_score = stand_pat
             moves = _tactical_moves(board)
             if not moves:
-                if any(board.generate_legal_moves()):
+                if _has_legal_move(board):
                     return stand_pat
                 return DRAW_SCORE
             moves = order_captures(board, moves)
