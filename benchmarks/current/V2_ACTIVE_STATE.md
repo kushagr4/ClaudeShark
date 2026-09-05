@@ -15,7 +15,7 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
 | **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **CHAMPION and SUBMITTED** (uploaded 12:01); every candidate is measured against `champions/rc_b`. |
-| **CURRENT DEVELOPMENT CANDIDATE** | **RC-C candidate 1: check extension** (`CS_CHECK_EXT`, default off in the working tree; candidate = flag on). Preregistered `2026-09-05-rcc-check-extension-prereg.md`. Gate 0 passed (fingerprint off unchanged; +12.5% nodes on; tactics 16/16; controls neutral; one depth-artifact test documented). Gate 1 passed: repairs R20 12…Nxd5 at d7, R20 11…d5 at d8, R17 47.Re1 at d7; R18/R19 unchanged. Next: equal-time 80-position screen, then a short timed screen vs `champions/rc_b`. |
+| **CURRENT DEVELOPMENT CANDIDATE** | **RC-C candidate 1: check extension** (`CS_CHECK_EXT`, default off in the working tree; candidate = flag on). Preregistered `2026-09-05-rcc-check-extension-prereg.md`. Gate 0 passed (fingerprint off unchanged; +12.5% nodes on; tactics 16/16; controls neutral; one depth-artifact test documented). Gate 1 passed: repairs R20 12…Nxd5 at d7, R20 11…d5 at d8, R17 47.Re1 at d7; R18/R19 unchanged. Equal-time 80-position screen PASSED (robust mean 116 v 138, ≥300 cp errors 13 v 18, +21.6 cp paired). Gate 2a timed screen running (section 8). |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and
@@ -146,12 +146,19 @@ evidence order of the user's plan for what remains:
 
 ## 8. Live background jobs
 
-**ONE (light, single core).** Equal-time 80-position screen for the check
-extension, `tools.corpus.analyse --ms 3000 --workers 1`, base (flag off)
-then candidate (flag on), launched 13:03, expected finish about 13:20,
-output `corpus/daily/rcc/sa80_{rcb_3000ms_quiet,checkext_3000ms}.jsonl`,
-log `corpus/daily/rcc/sa80_checkext_screen.log`. Kill condition: none
-(short). No arena is running.
+**ONE (CPU-heavy).** Gate 2a timed screen of the check extension:
+
+* PID 30573 (`tools.arena`, via `uv run`, `nohup`), 16 `harness/runner.py`
+  children; `caffeinate -i -w 30573` (PID 30618) holds off idle sleep. AC power.
+* Command: `tools.arena --agent champions/rcc_checkext --opponent champions/rc_b
+  --games 100 --base-ms 120000 --increment-ms 500 --ply-cap 300 --workers 8
+  --corpus corpus/daily/pool/competition_actual_suite.jsonl
+  --jsonl corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl --set-env CS_CHECK_EXT=1`
+* Started 12:42:15; expected finish about 13:40 (1.75 games/min on 8 workers).
+* Output `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl` + `.pgn`; log
+  `corpus/daily/rcc/checkext_vs_rcb_120s_100.log`.
+* Kill condition: a failure termination attributable to the candidate, or the
+  user asks. Do not start a second CPU-heavy job.
 
 Rules: one CPU-heavy job at a time, registered here, removed when it ends;
 no waiter shells; keep the lid open and the charger in during timed screens.
