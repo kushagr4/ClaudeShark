@@ -1,8 +1,19 @@
 # Active research state — read this first after any compaction or machine change
 
-Written **2026-09-05 07:20 local (Windows)**; last updated **2026-09-05 14:50
-local (Mac) as the Mac → PC handoff**. CURRENT MACHINE: Mac handoff complete;
-development continues on the Windows PC from `benchmarks/current/PC_HANDOFF.md`.
+Written **2026-09-05 07:20 local (Windows)**; last updated **2026-09-05 21:40
+local (Windows PC)**. CURRENT MACHINE: Windows PC (AMD Ryzen 5 5600X, 6 cores;
+RC-B runs at ~75 knps at depth 6 here against ~152 knps on the Mac).
+
+**Branch architecture from 21:40 (multi-developer RC-C cycle; protocol in
+root `spec.md`, canonical copy on `rc-c-integration`):**
+`rc-c-integration` = coordination + proven integration, engine files exact
+RC-B (blobs equal to `3d918a5` / `champions/rc_b`; depth-6 fingerprint
+1,708,269; 1,214 tests pass on the PC); `kushagra/rcc-speed-validation` =
+candidate 3 lane (engine files at `f2543bd`); `friend/rcc-tactical-horizon`
+= the second developer's lane, to be branched from `rc-c-integration`;
+`mac-full-development` = historical handoff branch, closed. Only the
+coordinator edits canonical `spec.md`; nobody pushes to another owner's
+branch; combined candidates are tested separately (spec.md section 12).
 Mac environment used today: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 `.venv`, Stockfish 18 from Homebrew (`tools/corpus/oracle.py` finds it on
 PATH); Mac knps are about 2.5× the Windows machine's, so compare speed only
