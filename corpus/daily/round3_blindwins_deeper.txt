@@ -1,0 +1,22 @@
+== DOES DEEPER SEARCH REPAIR IT? 7 positions, oracle at 2000000 nodes ==
+'value' is the oracle score after the chosen move, from the mover's point of view. Higher is better;
+the 'oracle move' column is the ceiling and the 'played' column is what actually happened.
+
+   position                             played   oracle | rated-v1 d6 | rated-v1 d8 | V2.1 king d6 | V2.1 king d8 | V2.2a low d6 | V2.2a low d8
+   r3 move 13 Nb4                         +288     +288 | c6b4   +288 | c6b4   +288 | c6b4   +288 | c6b4   +288 | c6b4   +288 | c6b4   +288
+   r3 move 14 Bd7                         +110     +308 | f5d7   +110 | b4c2   +308 | f5d7   +110 | b4c2   +308 | f5d7   +110 | b4c2   +308
+   r3 move 18 Qe4                         +304     +304 | e7e4   +304 | e7e4   +304 | e7e4   +304 | e7e4   +304 | e7e4   +304 | e7e4   +304
+   r3 move 19 Bb4+                        +410     +368 | d6b4   +410 | d6b4   +410 | d6b4   +410 | d6b4   +410 | d6b4   +410 | d6b4   +410
+   r3 move 20 Qf4+                         -31     +447 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31
+   r3 move 39 g5                          +350     +350 | a5a4   +191 | a5a4   +191 | a5a4   +191 | g6g5   +350 | a5a4   +191 | g6g5   +350
+   r3 move 40 a4                          +318     +384 | a5a4   +318 | h6h5   +384 | a5a4   +318 | a5a4   +318 | a5a4   +318 | a5a4   +318
+
+means over the sample:
+   played                           +250
+   oracle first choice              +350
+   rated-v1 depth 6                 +227   repairs (>= +100 over the played move) 0 of 7
+   rated-v1 depth 8                 +265   repairs (>= +100 over the played move) 1 of 7
+   V2.1 king-pawn depth 6           +227   repairs (>= +100 over the played move) 0 of 7
+   V2.1 king-pawn depth 8           +278   repairs (>= +100 over the played move) 1 of 7
+   V2.2a low-material depth 6       +227   repairs (>= +100 over the played move) 0 of 7
+   V2.2a low-material depth 8       +278   repairs (>= +100 over the played move) 1 of 7

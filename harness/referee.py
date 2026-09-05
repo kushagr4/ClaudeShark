@@ -21,6 +21,11 @@ class Outcome:
     result: Result
     termination: str
     pgn: str
+    # One entry per ply actually played: (ply, "w"/"b", ms spent, ms left after
+    # the increment). Empty for games that ended before a move was made. Lets a
+    # match record report each side's lowest clock and largest think, which is
+    # the evidence a time-policy change has to produce before it is trusted.
+    clock_trace: tuple[tuple[int, str, float, float], ...] = ()
 
 
 
@@ -98,29 +103,35 @@ def _play(
         return _outcome(board, "white", black_failure)
 
     clock = {chess.WHITE: float(base_ms), chess.BLACK: float(base_ms)}
+    trace: list[tuple[int, str, float, float]] = []
 
     while True:
         finish = game_outcome(board, draw_claim)
         if finish is not None:
-            return _outcome(board, _decide(finish), finish.termination.name.lower())
+            return _outcome(board, _decide(finish), finish.termination.name.lower(), trace)
         if len(board.move_stack) >= ply_cap:
-            return _outcome(board, _adjudicate(board), "adjudication")
+            return _outcome(board, _adjudicate(board), "adjudication", trace)
 
         mover = board.turn
         started_at = time.monotonic()
         try:
             uci = agents[mover].move(board.fen(), int(clock[mover]))
         except AgentFailure as failure:
-            return _outcome(board, _opponent_wins(mover), failure.reason)
-        clock[mover] -= (time.monotonic() - started_at) * 1000.0
+            return _outcome(board, _opponent_wins(mover), failure.reason, trace)
+        spent_ms = (time.monotonic() - started_at) * 1000.0
+        clock[mover] -= spent_ms
         if clock[mover] < 0:
-            return _outcome(board, _opponent_wins(mover), "flag")
+            trace.append((len(board.move_stack) + 1, "w" if mover == chess.WHITE else "b",
+                          round(spent_ms, 1), round(clock[mover], 1)))
+            return _outcome(board, _opponent_wins(mover), "flag", trace)
 
         move = _legal_move(board, uci)
         if move is None:
-            return _outcome(board, _opponent_wins(mover), "illegal")
+            return _outcome(board, _opponent_wins(mover), "illegal", trace)
         board.push(move)
         clock[mover] += increment_ms
+        trace.append((len(board.move_stack), "w" if mover == chess.WHITE else "b",
+                      round(spent_ms, 1), round(clock[mover], 1)))
 
 
 def _start(agent: Agent) -> str | None:
@@ -161,8 +172,29 @@ def _adjudicate(board: chess.Board) -> Decision:
     return "draw"
 
 
-def _outcome(board: chess.Board, result: Result, termination: str) -> Outcome:
+def _outcome(
+    board: chess.Board, result: Result, termination: str,
+    trace: list[tuple[int, str, float, float]] | None = None,
+) -> Outcome:
     game = chess.pgn.Game.from_board(board)
     game.headers["Result"] = RESULT_HEADERS[result]
     game.headers["Termination"] = termination
-    return Outcome(result=result, termination=termination, pgn=str(game))
+    return Outcome(result=result, termination=termination, pgn=str(game),
+                   clock_trace=tuple(trace or ()))
+
+
+def clock_summary(
+    trace: tuple[tuple[int, str, float, float], ...], side: str
+) -> dict[str, float | int | None]:
+    """Lowest clock, largest and mean think for one side of a clock trace."""
+    mine = [entry for entry in trace if entry[1] == side]
+    if not mine:
+        return {"plies": 0, "min_clock_ms": None, "max_spend_ms": None, "mean_spend_ms": None,
+                "final_clock_ms": None}
+    return {
+        "plies": len(mine),
+        "min_clock_ms": min(entry[3] for entry in mine),
+        "max_spend_ms": max(entry[2] for entry in mine),
+        "mean_spend_ms": round(sum(entry[2] for entry in mine) / len(mine), 1),
+        "final_clock_ms": mine[-1][3],
+    }

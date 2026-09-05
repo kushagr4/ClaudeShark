@@ -1,14 +1,152 @@
 {
   "round1-the-castle-gambit": {
     "colour": "w",
-    "evidence": "move agreement: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves against 14/30 (46.7%) of Black's; clock shape: White sd 1.59s max 7.58s (ClaudeShark's varying allocator), Black sd 2.65s max 13.30s"
+    "result_for_us": "loss",
+    "opponent": "The Castle Gambit",
+    "opponent_id": "6a43144c-53b1-40d0-b620-8833a255f82f",
+    "match_id": "dd7b41da-4334-4d22-9636-e8a02bce4bad",
+    "opening": "French Winawer",
+    "colour_source": "official public metadata + move agreement + clock",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 1 vs The Castle Gambit as white (loss), match dd7b41da-4334-4d22-9636-e8a02bce4bad, fetched 2026-09-05 01:20 local; move agreement: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves against 14/30 (46.7%) of Black's; clock shape: White sd 1.59s max 7.58s (ClaudeShark's varying allocator), Black sd 2.65s max 13.30s"
   },
   "round2-trio-duo": {
     "colour": "b",
-    "evidence": "move agreement: 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves against 11/28 (39.3%) of White's; clock shape: Black sd 1.44s max 6.40s, White sd 0.47s max 2.51s (a fixed per-move budget)"
+    "result_for_us": "win",
+    "opponent": "Trio Duo",
+    "opponent_id": "72832654-6178-4745-9f8d-f824ddf66ffd",
+    "match_id": "7e26137e-f1e5-47fe-84ee-bb9fdb8d8b4d",
+    "opening": "Caro-Kann Classical",
+    "colour_source": "official public metadata + move agreement + clock",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 2 vs Trio Duo as black (win), match 7e26137e-f1e5-47fe-84ee-bb9fdb8d8b4d, fetched 2026-09-05 01:20 local; move agreement: 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves against 11/28 (39.3%) of White's; clock shape: Black sd 1.44s max 6.40s, White sd 0.47s max 2.51s (a fixed per-move budget)"
   },
   "round3-baryon": {
     "colour": "b",
-    "evidence": "move agreement: 38/49 (77.6%) of Black's moves and 36/47 (76.6%) of Black's non-forced moves against 29/49 (59.2%) of White's; clock shape: Black sd 1.33s max 7.58s matching ClaudeShark in rounds 1 and 2, White sd 0.52s max 2.95s matching the round-2 opponent's fixed budget"
+    "result_for_us": "draw",
+    "opponent": "Baryon",
+    "opponent_id": "5cd0612a-399e-4aff-9aa7-a52e02991202",
+    "match_id": "6ef84b4c-6572-43c1-842a-2a151a236021",
+    "opening": "Petroff Defence",
+    "colour_source": "official public metadata + direct log + move agreement + clock",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 3 vs Baryon as black (draw), match 6ef84b4c-6572-43c1-842a-2a151a236021, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour; move agreement: 38/49 (77.6%) of Black's moves and 36/47 (76.6%) of Black's non-forced moves against 29/49 (59.2%) of White's; clock shape: Black sd 1.33s max 7.58s matching ClaudeShark in rounds 1 and 2, White sd 0.52s max 2.95s matching the round-2 opponent's fixed budget"
+  },
+  "round4-prophylaxis": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "Prophylaxis",
+    "opponent_id": "2658b7a0-8c20-4fcb-91ab-1fad8d05c0d7",
+    "match_id": "ac7cea6f-2684-4cf6-b013-d6f6f2bd0b76",
+    "opening": "Ruy Lopez, Closed",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 4 vs Prophylaxis as black (win), match ac7cea6f-2684-4cf6-b013-d6f6f2bd0b76, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour; clock fingerprint had leaned Black (sd 1.19, max 6.02) before the log and metadata settled it"
+  },
+  "round5-stonkfish": {
+    "colour": "w",
+    "result_for_us": "loss",
+    "opponent": "Stonkfish",
+    "opponent_id": "385a6db2-1c05-46db-ae91-7218700f83b3",
+    "match_id": "55ffef72-c908-4692-ab16-25bf9b2b2261",
+    "opening": "English Symmetrical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 5 vs Stonkfish as white (loss), match 55ffef72-c908-4692-ab16-25bf9b2b2261, fetched 2026-09-05 01:20 local; clock fingerprint had leaned White (sd 1.54, max 6.94) before the metadata settled it"
+  },
+  "round6-e-2": {
+    "colour": "w",
+    "result_for_us": "win",
+    "opponent": "e=π=2",
+    "opponent_id": "3e68dab5-8421-4113-9aa0-dbe165e997f5",
+    "match_id": "4e8925b8-95e4-4daa-8120-7adb8483c2e5",
+    "opening": "King's Indian Classical",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 6 vs e=π=2 as white (win), match 4e8925b8-95e4-4daa-8120-7adb8483c2e5, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round7-desai": {
+    "colour": "w",
+    "result_for_us": "draw",
+    "opponent": "Desai",
+    "opponent_id": "8aa0c5f7-4af1-48d7-8dde-3b26f9b7459d",
+    "match_id": "a02be254-dca4-4ce6-8fe8-3cab04793e5b",
+    "opening": "French Classical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 7 vs Desai as white (draw), match a02be254-dca4-4ce6-8fe8-3cab04793e5b, fetched 2026-09-05 01:20 local"
+  },
+  "round8-404-not-found": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "404 Not Found",
+    "opponent_id": "0507e5e2-d40f-4565-8e16-ca6feacebe42",
+    "match_id": "817f3ff5-9ea7-4bad-9903-b32aa6d26e33",
+    "opening": "Sicilian Dragon",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 8 vs 404 Not Found as black (win), match 817f3ff5-9ea7-4bad-9903-b32aa6d26e33, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round9-pawnstorm": {
+    "colour": "w",
+    "result_for_us": "win",
+    "opponent": "PawnStorm",
+    "opponent_id": "e2a3a86e-7b1b-4926-8873-b396674733fb",
+    "match_id": "56dd271e-122d-4141-8c23-3f0b6a9469bb",
+    "opening": "French Classical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 9 vs PawnStorm as white (win), match 56dd271e-122d-4141-8c23-3f0b6a9469bb, fetched 2026-09-05 01:20 local"
+  },
+  "round10-elbow-grease": {
+    "colour": "b",
+    "result_for_us": "loss",
+    "opponent": "Elbow Grease",
+    "opponent_id": "5413ad8a-a0f1-4379-90c1-281f5c365fb7",
+    "match_id": "cb831cb6-f01d-497d-905f-9b5c5f0b1056",
+    "opening": "Sicilian Closed",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 10 vs Elbow Grease as black (loss), match cb831cb6-f01d-497d-905f-9b5c5f0b1056, fetched 2026-09-05 01:20 local"
+  },
+  "round11-mangodogo": {
+    "colour": "w",
+    "result_for_us": "loss",
+    "opponent": "mangodogo",
+    "opponent_id": "1eabeb57-6e3c-46bd-902b-e3b7b5aacc73",
+    "match_id": "37d429a0-1708-4e67-bee1-2f438816817e",
+    "opening": "Nimzo-Indian Defence",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 11 vs mangodogo as white (loss), match 37d429a0-1708-4e67-bee1-2f438816817e, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round12-rudra": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "Rudra",
+    "opponent_id": "d44726a1-2c96-4cca-99dc-bfecf2dfee7a",
+    "match_id": "7dccf013-3a87-4424-8054-f96619ed625b",
+    "opening": "Sicilian Classical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 12 vs Rudra as black (win), match 7dccf013-3a87-4424-8054-f96619ed625b, fetched 2026-09-05 01:20 local"
+  },
+  "round13-tobias-carlsen": {
+    "colour": "w",
+    "result_for_us": "draw",
+    "opponent": "Tobias Carlsen",
+    "opponent_id": "903d9bc9-e89a-4c0d-bd2f-61ed92481fad",
+    "match_id": "32746849-9b35-484f-aef2-12ba1fff1d6b",
+    "opening": "Reti Opening",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 13 vs Tobias Carlsen as white (draw), match 32746849-9b35-484f-aef2-12ba1fff1d6b, fetched 2026-09-05 01:20 local"
+  },
+  "round14-does-4th-place-get-a-trophy": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "does 4th place get a trophy",
+    "opponent_id": "def2de4e-859c-4571-9bfe-55c5242fcbff",
+    "match_id": "2fd9abaf-e220-4c5d-8a6f-5f75f298af00",
+    "opening": "Pirc Defence",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 14 vs does 4th place get a trophy as black (win), match 2fd9abaf-e220-4c5d-8a6f-5f75f298af00, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round15-zagreus-5-0": {
+    "colour": "b",
+    "result_for_us": "loss",
+    "opponent": "Zagreus 5.0",
+    "opponent_id": "298458f5-3c10-4357-ae00-f3c43bd86386",
+    "match_id": "e173cdfe-c9ee-4f85-8d27-e480eeaf948d",
+    "opening": "Sicilian Taimanov",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 15 vs Zagreus 5.0 as black (loss), match e173cdfe-c9ee-4f85-8d27-e480eeaf948d, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
   }
 }

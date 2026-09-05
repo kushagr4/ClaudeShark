@@ -94,3 +94,38 @@ Black it is a submitted-build **win** in which the same engine that mis-scored
 a winning attack in round 3 executed one correctly here, which would be a
 positive control isolating what made round 3 different. No causal conclusion is
 drawn until the identity is settled by a second method.
+
+## Settled on 2026-09-05: every colour through Round 15, from official metadata
+
+Our public team page (`https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b`,
+fetched 2026-09-05 01:20 local with the unauthenticated collector, saved as
+`analysis/refresh_2026-09-05/claudeshark_team_page.html` and parsed into
+`claudeshark_team_games.json`) lists all fifteen rated games with our colour,
+the opponent, the opening and the match id. That is **Method C for every
+round**, and it is cross-checked in `corpus/daily/rated_games.txt` against the
+seven direct match logs the dashboard offers (`corpus/daily/logs/`) and the PGN
+results: fifteen of fifteen consistent.
+
+| round | opponent | our colour | result | sources agreeing |
+|---|---|---|---|---|
+| 1 | The Castle Gambit | White | loss | team page, log-free; earlier A+B+C |
+| 2 | Trio Duo | Black | win | team page; earlier A+B |
+| 3 | Baryon | Black | draw | team page, direct log; earlier A+B |
+| 4 | Prophylaxis | Black | win | team page, direct log (clock had leaned Black) |
+| 5 | Stonkfish | White | loss | team page (clock had leaned White) |
+| 6 | e=π=2 | White | win | team page, direct log |
+| 7 | Desai | White | draw | team page |
+| 8 | 404 Not Found | Black | win | team page, direct log |
+| 9 | PawnStorm | White | win | team page |
+| 10 | Elbow Grease | Black | loss | team page |
+| 11 | mangodogo | White | loss | team page, direct log |
+| 12 | Rudra | Black | win | team page |
+| 13 | Tobias Carlsen | White | draw | team page |
+| 14 | does 4th place get a trophy | Black | win | team page, direct log |
+| 15 | Zagreus 5.0 | Black | loss | team page, direct log |
+
+Both provisional clock-fingerprint calls (round 4 Black, round 5 White) were
+right, which is mild validation of Method A; it is still never used alone.
+The move-fingerprint replay (Method B) was not run for rounds 4–15 because
+Method C made it unnecessary. Round 5 is therefore a **submitted-build loss as
+White**, and its analysis proceeds on that basis.

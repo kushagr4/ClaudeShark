@@ -1,0 +1,51 @@
+﻿rank,team_name,team_subtitle,team_id,university,rating,games_played,wins,draws,losses,provisional,public_team_url
+1,My Gambit My Legacy,Alien Gambit,0e8ca369-000d-44d4-a7c8-d505bf0a3a30,International,1898,3,3,0,0,True,https://aichessathon.com/team/0e8ca369-000d-44d4-a7c8-d505bf0a3a30
+2,KingofImperial,omega3 fish,1daad2c3-adda-4ae6-945c-e82c4015ee72,Imperial,1898,3,3,0,0,True,https://aichessathon.com/team/1daad2c3-adda-4ae6-945c-e82c4015ee72
+3,SoberJackson,Sobriety,258a9828-7442-4bea-97cb-eed1845ad2cc,Mixed,1898,3,3,0,0,True,https://aichessathon.com/team/258a9828-7442-4bea-97cb-eed1845ad2cc
+4,Fuzzydafool,FuzzyBot,3241cef5-6b1c-41f2-b275-f0e50fc52ed5,Warwick,1898,3,3,0,0,True,https://aichessathon.com/team/3241cef5-6b1c-41f2-b275-f0e50fc52ed5
+5,Patzer 1.0,Gijs Smit,3f0e0e44-cdce-485f-b5b6-3691e34f9f44,International,1898,3,3,0,0,True,https://aichessathon.com/team/3f0e0e44-cdce-485f-b5b6-3691e34f9f44
+6,Blunderbuss,Blunder Buss,5e10f7ae-b545-4ce9-bb7a-d2ec55f9387c,Mixed,1898,3,3,0,0,True,https://aichessathon.com/team/5e10f7ae-b545-4ce9-bb7a-d2ec55f9387c
+7,checkers,,9e5e613a-ca80-4fd9-aa68-76f184ef7bac,Imperial,1898,3,3,0,0,True,https://aichessathon.com/team/9e5e613a-ca80-4fd9-aa68-76f184ef7bac
+8,make_no_mistakes,Make_no_mistakes,ba636320-7bda-41ab-835d-3799a11613d8,Oxford,1898,3,3,0,0,True,https://aichessathon.com/team/ba636320-7bda-41ab-835d-3799a11613d8
+9,ms,ms,c3e1bc09-3d21-4279-ace0-16bb3742f5da,Imperial,1898,3,3,0,0,True,https://aichessathon.com/team/c3e1bc09-3d21-4279-ace0-16bb3742f5da
+10,kingsgambit,IM_master,ea00da98-023a-42bf-8560-495e84d8df1c,QMUL,1898,3,3,0,0,True,https://aichessathon.com/team/ea00da98-023a-42bf-8560-495e84d8df1c
+11,The Rookie,Waterside Research,f1289d23-f983-4de4-8d7e-283fe2656c41,Durham,1898,3,3,0,0,True,https://aichessathon.com/team/f1289d23-f983-4de4-8d7e-283fe2656c41
+12,Chimera,chimera,f7e8b14e-458d-489f-a2d5-0934c2b7d877,Mixed,1872,3,3,0,0,True,https://aichessathon.com/team/f7e8b14e-458d-489f-a2d5-0934c2b7d877
+13,Anchoa,Lubina,34fd9228-11bf-4e7a-ba8f-b452d96ad8c9,Imperial,1792,3,2,1,0,True,https://aichessathon.com/team/34fd9228-11bf-4e7a-ba8f-b452d96ad8c9
+14,Mate in One,Mate in One,3be637a8-e78d-4da4-8016-d13e00170433,Manchester,1792,3,2,1,0,True,https://aichessathon.com/team/3be637a8-e78d-4da4-8016-d13e00170433
+15,Dark Sister,Abhi's chess demon,7af404ee-389f-427c-9433-40ebe5902fc6,Imperial,1792,3,2,1,0,True,https://aichessathon.com/team/7af404ee-389f-427c-9433-40ebe5902fc6
+16,bot1,pgn,8b738da9-e5bb-4122-89ce-0caf6466ba80,UCL,1792,3,2,1,0,True,https://aichessathon.com/team/8b738da9-e5bb-4122-89ce-0caf6466ba80
+17,Blank Shooter,No More Ammo,b49586d0-218d-4491-a460-90d0d9cf321c,Mixed,1768,3,2,1,0,True,https://aichessathon.com/team/b49586d0-218d-4491-a460-90d0d9cf321c
+18,AI Fellow,AI Fellows,b574c0ea-e994-4a16-9918-7fbc989c4234,International,1768,3,2,1,0,True,https://aichessathon.com/team/b574c0ea-e994-4a16-9918-7fbc989c4234
+19,The Piece Sweeper,Binvengers,e0a34e4b-17e8-4e9d-a8bf-d145164b4bb1,Mixed,1768,3,2,1,0,True,https://aichessathon.com/team/e0a34e4b-17e8-4e9d-a8bf-d145164b4bb1
+20,Sirloin v2,Elbow Grease,5413ad8a-a0f1-4379-90c1-281f5c365fb7,Greenwich,1766,3,2,1,0,True,https://aichessathon.com/team/5413ad8a-a0f1-4379-90c1-281f5c365fb7
+21,Tobias Carlsen,,903d9bc9-e89a-4c0d-bd2f-61ed92481fad,Imperial,1735,3,2,1,0,True,https://aichessathon.com/team/903d9bc9-e89a-4c0d-bd2f-61ed92481fad
+22,R3,Team1,9efa4b9d-296d-4ee0-b2e4-319dace8d318,Mixed,1735,3,2,1,0,True,https://aichessathon.com/team/9efa4b9d-296d-4ee0-b2e4-319dace8d318
+23,keep_kann_and_caro_on,keep kann and caro on,9f1cfbea-48c3-4345-8741-021152dbe77c,Imperial,1735,3,2,1,0,True,https://aichessathon.com/team/9f1cfbea-48c3-4345-8741-021152dbe77c
+24,GoodKnight,tristanize_chess,b1d4ae25-42a4-474a-b5bb-8e42066abda4,Imperial,1733,3,2,1,0,True,https://aichessathon.com/team/b1d4ae25-42a4-474a-b5bb-8e42066abda4
+25,lefischer,,0900c279-5ede-4155-a850-436c28af6ea9,International,1686,3,2,0,1,True,https://aichessathon.com/team/0900c279-5ede-4155-a850-436c28af6ea9
+26,CHINA MACHINE,Sillycats,17719f6d-f1dc-4078-8606-2fe63a632ea0,International,1686,3,2,0,1,True,https://aichessathon.com/team/17719f6d-f1dc-4078-8606-2fe63a632ea0
+27,Magnus Claudeson,AlphaBeta,1f234cf3-2829-4107-8a5f-2d0e15e978da,Imperial,1686,3,2,0,1,True,https://aichessathon.com/team/1f234cf3-2829-4107-8a5f-2d0e15e978da
+28,Le StockFish,French Carlsen,2dc678cd-2e7c-4894-aeb5-ef273c023c01,Oxford,1686,3,2,0,1,True,https://aichessathon.com/team/2dc678cd-2e7c-4894-aeb5-ef273c023c01
+29,Analphabet,YouU-AreR,4c0e2889-26cd-41bb-b6e0-2471a3963ef1,International,1686,3,2,0,1,True,https://aichessathon.com/team/4c0e2889-26cd-41bb-b6e0-2471a3963ef1
+30,SaucyBeans,,6fbef6df-7fc0-4b3c-ab73-240d8600df0d,Durham,1686,3,2,0,1,True,https://aichessathon.com/team/6fbef6df-7fc0-4b3c-ab73-240d8600df0d
+31,Daddy_Long_Legs,Johnny's Sins,925cb1e5-1634-46c4-b6a6-ca87b4b1a520,York,1686,3,2,0,1,True,https://aichessathon.com/team/925cb1e5-1634-46c4-b6a6-ca87b4b1a520
+32,Danya's Disciple,,a4b26c08-0fa5-48ae-b15e-69a622ee81bb,Leeds,1686,3,2,0,1,True,https://aichessathon.com/team/a4b26c08-0fa5-48ae-b15e-69a622ee81bb
+33,LSE4-E5,jlu,d935d7bf-978d-4483-8995-8bac436da1d1,LSE,1686,3,2,0,1,True,https://aichessathon.com/team/d935d7bf-978d-4483-8995-8bac436da1d1
+34,APEX,APEX,dbe5877f-f1ea-410f-8fea-c759d58fe09a,Warwick,1686,3,2,0,1,True,https://aichessathon.com/team/dbe5877f-f1ea-410f-8fea-c759d58fe09a
+35,Fight Club,,edc3ae56-ebc8-4a39-9e46-11db2179faf8,Mixed,1686,3,2,0,1,True,https://aichessathon.com/team/edc3ae56-ebc8-4a39-9e46-11db2179faf8
+36,lyra,slopfish,1d137be0-3a3e-4cda-a7ba-b22d8d178e66,Warwick,1662,1,1,0,0,True,https://aichessathon.com/team/1d137be0-3a3e-4cda-a7ba-b22d8d178e66
+37,team,,55b6ba0f-26a3-4ffa-929d-8615bdc10153,Oxford,1662,1,1,0,0,True,https://aichessathon.com/team/55b6ba0f-26a3-4ffa-929d-8615bdc10153
+38,Yumo,,5aa0e1ef-c640-45f9-b4b4-1389de2a609b,Warwick,1662,3,1,2,0,True,https://aichessathon.com/team/5aa0e1ef-c640-45f9-b4b4-1389de2a609b
+39,KD,Dominated Horses,74427349-a24e-498e-8508-a8a80d225133,International,1662,3,1,2,0,True,https://aichessathon.com/team/74427349-a24e-498e-8508-a8a80d225133
+40,ChessML,,e152b64e-0c6d-4341-b02b-09c09b098f8c,QMUL,1654,3,1,2,0,True,https://aichessathon.com/team/e152b64e-0c6d-4341-b02b-09c09b098f8c
+41,TheROOK,,13367195-d3ed-4c05-bba6-25ee8f416520,UCL,1638,3,2,0,1,True,https://aichessathon.com/team/13367195-d3ed-4c05-bba6-25ee8f416520
+42,Samson,Finlay Phillips,1a7f24af-0e65-4f49-b084-a7fd513ddb14,UCL,1638,3,2,0,1,True,https://aichessathon.com/team/1a7f24af-0e65-4f49-b084-a7fd513ddb14
+43,Loki 3.0,,239fb36b-5e2f-4bb7-9a8a-5832363a0c25,,1638,3,2,0,1,True,https://aichessathon.com/team/239fb36b-5e2f-4bb7-9a8a-5832363a0c25
+44,Minimaxnus,Stonkfish,385a6db2-1c05-46db-ae91-7218700f83b3,Warwick,1638,3,2,0,1,True,https://aichessathon.com/team/385a6db2-1c05-46db-ae91-7218700f83b3
+45,stockfish.py,Asher Falcon,39c268bf-a894-4fb1-9d76-6b5343700832,Manchester,1638,3,2,0,1,True,https://aichessathon.com/team/39c268bf-a894-4fb1-9d76-6b5343700832
+46,The Castle Gambit,The Castle Gambit,6a43144c-53b1-40d0-b620-8833a255f82f,UCL,1638,3,2,0,1,True,https://aichessathon.com/team/6a43144c-53b1-40d0-b620-8833a255f82f
+47,Only Blunders,OnlyBlunder,72e19bc4-a390-4dbd-9df8-04c55e39bf7b,UCL,1638,3,2,0,1,True,https://aichessathon.com/team/72e19bc4-a390-4dbd-9df8-04c55e39bf7b
+48,Capablanca,THE ROOOOOKKK!!!!,c7fad433-1020-4b2a-a0e3-8e86720d23de,Imperial,1638,3,2,0,1,True,https://aichessathon.com/team/c7fad433-1020-4b2a-a0e3-8e86720d23de
+49,Good Morning,JSP,dab1e77e-ebb1-49f5-92d4-2a013e3288c4,Mixed,1638,3,2,0,1,True,https://aichessathon.com/team/dab1e77e-ebb1-49f5-92d4-2a013e3288c4
+50,blundered my queen 💔,,ea0db44a-0888-4b54-b7ff-ec805c7befb6,International,1638,3,2,0,1,True,https://aichessathon.com/team/ea0db44a-0888-4b54-b7ff-ec805c7befb6

@@ -1,0 +1,64 @@
+AI CHESSATHON MATCH LOG
+=======================
+
+MATCH
+  Round          Rated 4
+  Team           claudeshark
+  Colour         Black
+  Opponent       Prophylaxis
+  Opening        Ruy Lopez, Closed
+  Start FEN      r2q1rk1/1bp1bppp/p2p1n2/np2p3/4P3/1BNP1N1P/PPP2PP1/R1BQR1K1 w - - 1 11
+  You moved      Second
+  Machine        w-909a54
+  Finished       2026-09-04 10:32:36 UTC
+  Match ID       ac7cea6f-2684-4cf6-b013-d6f6f2bd0b76
+
+INIT
+  Ready in       NA
+  Budget         90.0 s
+  Used           NA
+
+CLOCK
+  Base           120.0 s plus 0.5 s per move
+  Moves          22
+  Time used      59.8 s
+  Slowest        6.0 s on move 5
+  Fastest        0.0 s on move 22
+  Average        2.7 s
+  Left at end    71.2 s
+
+RESULT
+  Won by checkmate
+  Game lasted 134.3 s
+
+MOVES
+    #  move          time     clock left
+    1  Nxd5          4.1 s      116.4 s
+    2  c6            2.9 s      114.1 s
+    3  Rc8           2.3 s      112.3 s
+    4  Bf6           3.0 s      109.8 s
+    5  Re8           6.0 s      104.3 s
+    6  Nxb3          2.3 s      102.6 s
+    7  dxe5          3.2 s       99.9 s
+    8  Rcxd8         3.0 s       97.4 s
+    9  h5            2.5 s       95.4 s
+   10  Rd3           3.1 s       92.7 s
+   11  Rc8           3.1 s       90.2 s
+   12  c5            2.2 s       88.4 s
+   13  Bh4           1.8 s       87.1 s
+   14  Rd1+          2.2 s       85.4 s
+   15  Bg3           3.4 s       82.5 s
+   16  Rcd8          3.2 s       79.8 s
+   17  Rb1           3.4 s       76.9 s
+   18  f5            3.2 s       74.2 s
+   19  fxe4          2.9 s       71.8 s
+   20  Rdd1          2.1 s       70.2 s
+   21  Rxe1          0.0 s       70.7 s
+   22  Rxg1#         0.0 s       71.2 s
+
+OUTPUT
+  NA. This game was played before agent logs were kept, so the output
+  and the init time were never recorded. Everything above comes from
+  the clocks in the game itself.
+
+Email hello@aichessathon.com with this file if anything here is unclear.

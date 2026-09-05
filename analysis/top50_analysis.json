@@ -1,0 +1,2195 @@
+{
+  "scraped_at_utc": "2026-09-04T10:27:59+00:00",
+  "analysed_at_utc": "2026-09-04T10:36:01+00:00",
+  "scope": "Unique public games involving at least one team in the captured top 50",
+  "overall": {
+    "games": 143,
+    "white_wins": 67,
+    "draws": 13,
+    "black_wins": 63,
+    "white_score_pct": 51.4,
+    "black_score_pct": 48.6,
+    "black_share_of_decisive_pct": 48.46,
+    "black_decisive_share_95pct_wilson": [
+      40.04,
+      56.97
+    ],
+    "two_sided_exact_binomial_p": 0.792583,
+    "statistically_credible_at_0_05": false
+  },
+  "by_rank_bucket": {
+    "1-10": {
+      "games": 35,
+      "white_wins": 16,
+      "draws": 0,
+      "black_wins": 19,
+      "white_score_pct": 45.71,
+      "black_score_pct": 54.29,
+      "black_share_of_decisive_pct": 54.29,
+      "black_decisive_share_95pct_wilson": [
+        38.19,
+        69.53
+      ],
+      "two_sided_exact_binomial_p": 0.735879,
+      "statistically_credible_at_0_05": false
+    },
+    "11-25": {
+      "games": 49,
+      "white_wins": 22,
+      "draws": 9,
+      "black_wins": 18,
+      "white_score_pct": 54.08,
+      "black_score_pct": 45.92,
+      "black_share_of_decisive_pct": 45.0,
+      "black_decisive_share_95pct_wilson": [
+        30.71,
+        60.17
+      ],
+      "two_sided_exact_binomial_p": 0.635828,
+      "statistically_credible_at_0_05": false
+    },
+    "26-50": {
+      "games": 79,
+      "white_wins": 35,
+      "draws": 7,
+      "black_wins": 37,
+      "white_score_pct": 48.73,
+      "black_score_pct": 51.27,
+      "black_share_of_decisive_pct": 51.39,
+      "black_decisive_share_95pct_wilson": [
+        40.07,
+        62.57
+      ],
+      "two_sided_exact_binomial_p": 0.906294,
+      "statistically_credible_at_0_05": false
+    }
+  },
+  "by_opening_family": {
+    "Caro-Kann Advance": {
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false
+    },
+    "Caro-Kann Classical": {
+      "games": 4,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 3,
+      "white_score_pct": 25.0,
+      "black_score_pct": 75.0,
+      "black_share_of_decisive_pct": 75.0,
+      "black_decisive_share_95pct_wilson": [
+        30.06,
+        95.44
+      ],
+      "two_sided_exact_binomial_p": 0.625,
+      "statistically_credible_at_0_05": false
+    },
+    "Caro-Kann Exchange": {
+      "games": 3,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 33.33,
+      "black_score_pct": 66.67,
+      "black_share_of_decisive_pct": 66.67,
+      "black_decisive_share_95pct_wilson": [
+        20.77,
+        93.85
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Catalan Opening": {
+      "games": 5,
+      "white_wins": 3,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 60.0,
+      "black_score_pct": 40.0,
+      "black_share_of_decisive_pct": 40.0,
+      "black_decisive_share_95pct_wilson": [
+        11.76,
+        76.93
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Dutch Stonewall": {
+      "games": 1,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        79.35
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "English Symmetrical": {
+      "games": 9,
+      "white_wins": 4,
+      "draws": 1,
+      "black_wins": 4,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        21.52,
+        78.48
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Four Knights Game": {
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false
+    },
+    "French Advance": {
+      "games": 2,
+      "white_wins": 1,
+      "draws": 1,
+      "black_wins": 0,
+      "white_score_pct": 75.0,
+      "black_score_pct": 25.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        79.35
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "French Classical": {
+      "games": 5,
+      "white_wins": 2,
+      "draws": 1,
+      "black_wins": 2,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        15.0,
+        85.0
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "French Tarrasch": {
+      "games": 3,
+      "white_wins": 3,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        56.15
+      ],
+      "two_sided_exact_binomial_p": 0.25,
+      "statistically_credible_at_0_05": false
+    },
+    "French Winawer": {
+      "games": 6,
+      "white_wins": 4,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 66.67,
+      "black_score_pct": 33.33,
+      "black_share_of_decisive_pct": 33.33,
+      "black_decisive_share_95pct_wilson": [
+        9.68,
+        70.0
+      ],
+      "two_sided_exact_binomial_p": 0.6875,
+      "statistically_credible_at_0_05": false
+    },
+    "Grunfeld Defence": {
+      "games": 2,
+      "white_wins": 0,
+      "draws": 1,
+      "black_wins": 1,
+      "white_score_pct": 25.0,
+      "black_score_pct": 75.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        20.65,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Italian Game": {
+      "games": 4,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 3,
+      "white_score_pct": 25.0,
+      "black_score_pct": 75.0,
+      "black_share_of_decisive_pct": 75.0,
+      "black_decisive_share_95pct_wilson": [
+        30.06,
+        95.44
+      ],
+      "two_sided_exact_binomial_p": 0.625,
+      "statistically_credible_at_0_05": false
+    },
+    "King's Indian Classical": {
+      "games": 9,
+      "white_wins": 5,
+      "draws": 1,
+      "black_wins": 3,
+      "white_score_pct": 61.11,
+      "black_score_pct": 38.89,
+      "black_share_of_decisive_pct": 37.5,
+      "black_decisive_share_95pct_wilson": [
+        13.68,
+        69.43
+      ],
+      "two_sided_exact_binomial_p": 0.726562,
+      "statistically_credible_at_0_05": false
+    },
+    "London System": {
+      "games": 4,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        15.0,
+        85.0
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Nimzo-Indian Defence": {
+      "games": 6,
+      "white_wins": 3,
+      "draws": 0,
+      "black_wins": 3,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        18.76,
+        81.24
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Petroff Defence": {
+      "games": 10,
+      "white_wins": 4,
+      "draws": 2,
+      "black_wins": 4,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        21.52,
+        78.48
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Pirc Defence": {
+      "games": 5,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 3,
+      "white_score_pct": 40.0,
+      "black_score_pct": 60.0,
+      "black_share_of_decisive_pct": 60.0,
+      "black_decisive_share_95pct_wilson": [
+        23.07,
+        88.24
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Queen's Gambit Accepted": {
+      "games": 1,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        20.65,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Queen's Indian Defence": {
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false
+    },
+    "Reti Opening": {
+      "games": 9,
+      "white_wins": 8,
+      "draws": 1,
+      "black_wins": 0,
+      "white_score_pct": 94.44,
+      "black_score_pct": 5.56,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        32.44
+      ],
+      "two_sided_exact_binomial_p": 0.007812,
+      "statistically_credible_at_0_05": true
+    },
+    "Ruy Lopez, Closed": {
+      "games": 13,
+      "white_wins": 6,
+      "draws": 1,
+      "black_wins": 6,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        25.38,
+        74.62
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Scotch Game": {
+      "games": 5,
+      "white_wins": 5,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        43.45
+      ],
+      "two_sided_exact_binomial_p": 0.0625,
+      "statistically_credible_at_0_05": false
+    },
+    "Sicilian Classical": {
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Sicilian Closed": {
+      "games": 14,
+      "white_wins": 6,
+      "draws": 3,
+      "black_wins": 5,
+      "white_score_pct": 53.57,
+      "black_score_pct": 46.43,
+      "black_share_of_decisive_pct": 45.45,
+      "black_decisive_share_95pct_wilson": [
+        21.27,
+        71.99
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Sicilian Dragon": {
+      "games": 3,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 3,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        43.85,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.25,
+      "statistically_credible_at_0_05": false
+    },
+    "Sicilian Najdorf": {
+      "games": 2,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        65.76
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false
+    },
+    "Sicilian Sveshnikov": {
+      "games": 4,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 3,
+      "white_score_pct": 25.0,
+      "black_score_pct": 75.0,
+      "black_share_of_decisive_pct": 75.0,
+      "black_decisive_share_95pct_wilson": [
+        30.06,
+        95.44
+      ],
+      "two_sided_exact_binomial_p": 0.625,
+      "statistically_credible_at_0_05": false
+    },
+    "Sicilian Taimanov": {
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false
+    },
+    "Slav Defence": {
+      "games": 1,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        79.35
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "Two Knights Defence": {
+      "games": 3,
+      "white_wins": 0,
+      "draws": 1,
+      "black_wins": 2,
+      "white_score_pct": 16.67,
+      "black_score_pct": 83.33,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false
+    }
+  },
+  "by_side_to_move": {
+    "black": {
+      "games": 122,
+      "white_wins": 56,
+      "draws": 11,
+      "black_wins": 55,
+      "white_score_pct": 50.41,
+      "black_score_pct": 49.59,
+      "black_share_of_decisive_pct": 49.55,
+      "black_decisive_share_95pct_wilson": [
+        40.42,
+        58.71
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false
+    },
+    "white": {
+      "games": 21,
+      "white_wins": 11,
+      "draws": 2,
+      "black_wins": 8,
+      "white_score_pct": 57.14,
+      "black_score_pct": 42.86,
+      "black_share_of_decisive_pct": 42.11,
+      "black_decisive_share_95pct_wilson": [
+        23.14,
+        63.72
+      ],
+      "two_sided_exact_binomial_p": 0.647606,
+      "statistically_credible_at_0_05": false
+    }
+  },
+  "repeated_starting_fens": [
+    {
+      "starting_fen": "rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6",
+      "games": 4,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        15.0,
+        85.0
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "925cb1e5-1634-46c4-b6a6-ca87b4b1a520",
+        "team_name": "Daddy_Long_Legs",
+        "rank": 31,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "ba636320-7bda-41ab-835d-3799a11613d8",
+        "team_name": "make_no_mistakes",
+        "rank": 8,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "75ed5090-6f22-4d2b-9d3c-40f68a0d3b5f",
+        "white": "Knight you will remember",
+        "black": "make_no_mistakes",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/75ed5090-6f22-4d2b-9d3c-40f68a0d3b5f"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Bb4+",
+        "Bd6",
+        "Be7",
+        "Nc6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "dafa0b07-1c29-418e-ba66-654a877fb742",
+          "white": "Daddy_Long_Legs",
+          "black": "Negamaximus",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/dafa0b07-1c29-418e-ba66-654a877fb742"
+        },
+        {
+          "game_id": "f4bf197f-829e-48bd-83f9-e872432f05d6",
+          "white": "Good Morning",
+          "black": "NaJ",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/f4bf197f-829e-48bd-83f9-e872432f05d6"
+        },
+        {
+          "game_id": "054e0a15-5c97-4474-9e14-52f0bda568de",
+          "white": "Obligatory En Passant",
+          "black": "Daddy_Long_Legs",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/054e0a15-5c97-4474-9e14-52f0bda568de"
+        },
+        {
+          "game_id": "75ed5090-6f22-4d2b-9d3c-40f68a0d3b5f",
+          "white": "Knight you will remember",
+          "black": "make_no_mistakes",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/75ed5090-6f22-4d2b-9d3c-40f68a0d3b5f"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "1rbqk2r/pp2ppbp/2np1np1/2p5/P3P3/2NP1NP1/1PP2PBP/R1BQ1RK1 b k - 0 8",
+      "games": 3,
+      "white_wins": 1,
+      "draws": 1,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "dbe5877f-f1ea-410f-8fea-c759d58fe09a",
+        "team_name": "APEX",
+        "rank": 34,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "d935d7bf-978d-4483-8995-8bac436da1d1",
+        "team_name": "LSE4-E5",
+        "rank": 33,
+        "rating": 1686
+      },
+      "strongest_win": {
+        "game_id": "cd7bbf75-51b7-48ef-a975-84d3c19b7357",
+        "white": "APEX",
+        "black": "LSE4-E5",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/cd7bbf75-51b7-48ef-a975-84d3c19b7357"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Be6",
+        "O-O"
+      ],
+      "games_detail": [
+        {
+          "game_id": "20640575-1867-4fb9-9105-21b6f81582af",
+          "white": "Yumo",
+          "black": "KD",
+          "result": "½-½",
+          "source_url": "https://aichessathon.com/game/20640575-1867-4fb9-9105-21b6f81582af"
+        },
+        {
+          "game_id": "88ab3a9a-45ec-4b7c-881d-d6102b18daaa",
+          "white": "Bartholomew",
+          "black": "blundered my queen 💔",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/88ab3a9a-45ec-4b7c-881d-d6102b18daaa"
+        },
+        {
+          "game_id": "cd7bbf75-51b7-48ef-a975-84d3c19b7357",
+          "white": "APEX",
+          "black": "LSE4-E5",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/cd7bbf75-51b7-48ef-a975-84d3c19b7357"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bq1rk1/pp1pppbp/2n2np1/2p5/2PP4/2N1PNP1/PP3PBP/R1BQK2R b KQ - 0 7",
+      "games": 3,
+      "white_wins": 1,
+      "draws": 1,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "1f234cf3-2829-4107-8a5f-2d0e15e978da",
+        "team_name": "Magnus Claudeson",
+        "rank": 27,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "9e5e613a-ca80-4fd9-aa68-76f184ef7bac",
+        "team_name": "checkers",
+        "rank": 7,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "c596a081-18c4-4a0f-b8bf-e2d091612316",
+        "white": "Daddy_Long_Legs",
+        "black": "checkers",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/c596a081-18c4-4a0f-b8bf-e2d091612316"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "cxd4",
+        "d5"
+      ],
+      "games_detail": [
+        {
+          "game_id": "a728f692-9d4c-4067-9539-afcbc771ce6b",
+          "white": "Danya's Disciple",
+          "black": "hangingpawns",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/a728f692-9d4c-4067-9539-afcbc771ce6b"
+        },
+        {
+          "game_id": "c596a081-18c4-4a0f-b8bf-e2d091612316",
+          "white": "Daddy_Long_Legs",
+          "black": "checkers",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/c596a081-18c4-4a0f-b8bf-e2d091612316"
+        },
+        {
+          "game_id": "7ad68871-bc0d-44dc-9bcf-15713212b43d",
+          "white": "Magnus Claudeson",
+          "black": "Le StockFish",
+          "result": "½-½",
+          "source_url": "https://aichessathon.com/game/7ad68871-bc0d-44dc-9bcf-15713212b43d"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 b - - 5 6",
+      "games": 3,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 33.33,
+      "black_score_pct": 66.67,
+      "black_share_of_decisive_pct": 66.67,
+      "black_decisive_share_95pct_wilson": [
+        20.77,
+        93.85
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "903d9bc9-e89a-4c0d-bd2f-61ed92481fad",
+        "team_name": "Tobias Carlsen",
+        "rank": 21,
+        "rating": 1735
+      },
+      "highest_ranked_black": {
+        "team_id": "9efa4b9d-296d-4ee0-b2e4-319dace8d318",
+        "team_name": "R3",
+        "rank": 22,
+        "rating": 1735
+      },
+      "strongest_win": {
+        "game_id": "69e42a25-8236-4a49-b1e1-6cf44b7e2ebd",
+        "white": "Tobias Carlsen",
+        "black": "R3",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/69e42a25-8236-4a49-b1e1-6cf44b7e2ebd"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nbd7",
+        "Nc6",
+        "e5"
+      ],
+      "games_detail": [
+        {
+          "game_id": "fda76239-1392-4e4a-aa3f-148b16d6c137",
+          "white": "LSE4-E5",
+          "black": "Good Morning",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/fda76239-1392-4e4a-aa3f-148b16d6c137"
+        },
+        {
+          "game_id": "69e42a25-8236-4a49-b1e1-6cf44b7e2ebd",
+          "white": "Tobias Carlsen",
+          "black": "R3",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/69e42a25-8236-4a49-b1e1-6cf44b7e2ebd"
+        },
+        {
+          "game_id": "df2c2dab-3e8b-437b-8f1c-2ce579043eaa",
+          "white": "team",
+          "black": "Yumo",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/df2c2dab-3e8b-437b-8f1c-2ce579043eaa"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbqk2r/pp2nppp/4p3/2ppP3/3P4/P1P5/2P2PPP/1RBQKBNR b Kkq - 2 7",
+      "games": 3,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 66.67,
+      "black_score_pct": 33.33,
+      "black_share_of_decisive_pct": 33.33,
+      "black_decisive_share_95pct_wilson": [
+        6.15,
+        79.23
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "3be637a8-e78d-4da4-8016-d13e00170433",
+        "team_name": "Mate in One",
+        "rank": 14,
+        "rating": 1792
+      },
+      "highest_ranked_black": {
+        "team_id": "239fb36b-5e2f-4bb7-9a8a-5832363a0c25",
+        "team_name": "Loki 3.0",
+        "rank": 43,
+        "rating": 1638
+      },
+      "strongest_win": {
+        "game_id": "8c788d31-d6ee-4289-8c5f-6c62348ae2b8",
+        "white": "Mate in One",
+        "black": "First Bot",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/8c788d31-d6ee-4289-8c5f-6c62348ae2b8"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nbc6",
+        "cxd4"
+      ],
+      "games_detail": [
+        {
+          "game_id": "8c788d31-d6ee-4289-8c5f-6c62348ae2b8",
+          "white": "Mate in One",
+          "black": "First Bot",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/8c788d31-d6ee-4289-8c5f-6c62348ae2b8"
+        },
+        {
+          "game_id": "d7bdb245-ece2-45ef-81b9-2aaa69bdb221",
+          "white": "Shashwat",
+          "black": "Loki 3.0",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/d7bdb245-ece2-45ef-81b9-2aaa69bdb221"
+        },
+        {
+          "game_id": "fdbdb960-8b53-41fb-a4a9-d3f4d865ad53",
+          "white": "R3",
+          "black": "hyperfish",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/fdbdb960-8b53-41fb-a4a9-d3f4d865ad53"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/PB1P1N2/1PP2PPP/RNBQR1K1 b - - 0 9",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "0900c279-5ede-4155-a850-436c28af6ea9",
+        "team_name": "lefischer",
+        "rank": 25,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "0e8ca369-000d-44d4-a7c8-d505bf0a3a30",
+        "team_name": "My Gambit My Legacy",
+        "rank": 1,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "ed5b4695-55ac-4adf-b8c2-e65819185e87",
+        "white": "lefischer",
+        "black": "My Gambit My Legacy",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/ed5b4695-55ac-4adf-b8c2-e65819185e87"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Na5",
+        "h6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "2a58bffb-e8d5-4654-af80-3f9419a5da1b",
+          "white": "KD",
+          "black": "Vibs",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/2a58bffb-e8d5-4654-af80-3f9419a5da1b"
+        },
+        {
+          "game_id": "ed5b4695-55ac-4adf-b8c2-e65819185e87",
+          "white": "lefischer",
+          "black": "My Gambit My Legacy",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/ed5b4695-55ac-4adf-b8c2-e65819185e87"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bq1rk1/2p1bppp/p2p1n2/np2p3/4P3/1BNP1N1P/PPP2PP1/R1BQR1K1 b - - 0 10",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "b574c0ea-e994-4a16-9918-7fbc989c4234",
+        "team_name": "AI Fellow",
+        "rank": 18,
+        "rating": 1768
+      },
+      "highest_ranked_black": {
+        "team_id": "3241cef5-6b1c-41f2-b275-f0e50fc52ed5",
+        "team_name": "Fuzzydafool",
+        "rank": 4,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "2daf2008-756a-4f6e-8aae-38aa3bae94b1",
+        "white": "Le StockFish",
+        "black": "Fuzzydafool",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/2daf2008-756a-4f6e-8aae-38aa3bae94b1"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nxb3"
+      ],
+      "games_detail": [
+        {
+          "game_id": "2daf2008-756a-4f6e-8aae-38aa3bae94b1",
+          "white": "Le StockFish",
+          "black": "Fuzzydafool",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/2daf2008-756a-4f6e-8aae-38aa3bae94b1"
+        },
+        {
+          "game_id": "6f4a2bd0-4a3b-4718-be0b-cadf0d18d13f",
+          "white": "AI Fellow",
+          "black": "Sirloin v2",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/6f4a2bd0-4a3b-4718-be0b-cadf0d18d13f"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N1P/PPPP1PP1/RNBQR1K1 b kq - 0 8",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "4c0e2889-26cd-41bb-b6e0-2471a3963ef1",
+        "team_name": "Analphabet",
+        "rank": 29,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "6fbef6df-7fc0-4b3c-ab73-240d8600df0d",
+        "team_name": "SaucyBeans",
+        "rank": 30,
+        "rating": 1686
+      },
+      "strongest_win": {
+        "game_id": "7d641e6e-a999-4b1b-9779-5611bbfb26fd",
+        "white": "Analphabet",
+        "black": "SaucyBeans",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/7d641e6e-a999-4b1b-9779-5611bbfb26fd"
+      },
+      "biggest_upset": {
+        "game_id": "538d9144-fede-47bb-9d27-a46cc1901181",
+        "white": "ChessML",
+        "black": "KD",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/538d9144-fede-47bb-9d27-a46cc1901181"
+      },
+      "first_moves": [
+        "O-O"
+      ],
+      "games_detail": [
+        {
+          "game_id": "538d9144-fede-47bb-9d27-a46cc1901181",
+          "white": "ChessML",
+          "black": "KD",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/538d9144-fede-47bb-9d27-a46cc1901181"
+        },
+        {
+          "game_id": "7d641e6e-a999-4b1b-9779-5611bbfb26fd",
+          "white": "Analphabet",
+          "black": "SaucyBeans",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/7d641e6e-a999-4b1b-9779-5611bbfb26fd"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5P2/2NB1N2/PPP3PP/R1BQK2R b KQkq - 1 8",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "34fd9228-11bf-4e7a-ba8f-b452d96ad8c9",
+        "team_name": "Anchoa",
+        "rank": 13,
+        "rating": 1792
+      },
+      "highest_ranked_black": {
+        "team_id": "ea00da98-023a-42bf-8560-495e84d8df1c",
+        "team_name": "kingsgambit",
+        "rank": 10,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "564d26f9-667e-4f87-aa76-0bb91aa6a837",
+        "white": "DegreeGambit",
+        "black": "kingsgambit",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/564d26f9-667e-4f87-aa76-0bb91aa6a837"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "a6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "564d26f9-667e-4f87-aa76-0bb91aa6a837",
+          "white": "DegreeGambit",
+          "black": "kingsgambit",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/564d26f9-667e-4f87-aa76-0bb91aa6a837"
+        },
+        {
+          "game_id": "f625f2ef-5014-4495-8a70-8ce2b816bd0f",
+          "white": "Anchoa",
+          "black": "Dark Sister",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/f625f2ef-5014-4495-8a70-8ce2b816bd0f"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bqk2r/ppp1bppp/2np1n2/4p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 b kq - 0 6",
+      "games": 2,
+      "white_wins": 0,
+      "draws": 1,
+      "black_wins": 1,
+      "white_score_pct": 25.0,
+      "black_score_pct": 75.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        20.65,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "903d9bc9-e89a-4c0d-bd2f-61ed92481fad",
+        "team_name": "Tobias Carlsen",
+        "rank": 21,
+        "rating": 1735
+      },
+      "highest_ranked_black": {
+        "team_id": "e0a34e4b-17e8-4e9d-a8bf-d145164b4bb1",
+        "team_name": "The Piece Sweeper",
+        "rank": 19,
+        "rating": 1768
+      },
+      "strongest_win": {
+        "game_id": "b6fd338e-3f2d-45fb-9152-3b75a8069980",
+        "white": "Loki",
+        "black": "The Piece Sweeper",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/b6fd338e-3f2d-45fb-9152-3b75a8069980"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Kf8",
+        "O-O"
+      ],
+      "games_detail": [
+        {
+          "game_id": "ed8b2022-bee8-44fc-bc39-41d8af078d4a",
+          "white": "Tobias Carlsen",
+          "black": "Bishop",
+          "result": "½-½",
+          "source_url": "https://aichessathon.com/game/ed8b2022-bee8-44fc-bc39-41d8af078d4a"
+        },
+        {
+          "game_id": "b6fd338e-3f2d-45fb-9152-3b75a8069980",
+          "white": "Loki",
+          "black": "The Piece Sweeper",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/b6fd338e-3f2d-45fb-9152-3b75a8069980"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "r1bqk2r/ppp2pp1/2np1n1p/2b1p3/4P3/1BPP1N2/PP3PPP/RNBQ1RK1 b kq - 1 7",
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "20847793-5055-429f-bf31-027877f796af",
+        "team_name": "Pawn Street",
+        "rank": 101,
+        "rating": 1427
+      },
+      "highest_ranked_black": {
+        "team_id": "f7e8b14e-458d-489f-a2d5-0934c2b7d877",
+        "team_name": "Chimera",
+        "rank": 12,
+        "rating": 1872
+      },
+      "strongest_win": {
+        "game_id": "8e702143-8787-4408-ae7f-11892f9bb21a",
+        "white": "Muggsy_Bogues",
+        "black": "Chimera",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/8e702143-8787-4408-ae7f-11892f9bb21a"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Bg4",
+        "O-O"
+      ],
+      "games_detail": [
+        {
+          "game_id": "8e702143-8787-4408-ae7f-11892f9bb21a",
+          "white": "Muggsy_Bogues",
+          "black": "Chimera",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/8e702143-8787-4408-ae7f-11892f9bb21a"
+        },
+        {
+          "game_id": "b4c72f0d-4254-4012-84f9-767e03a82292",
+          "white": "Pawn Street",
+          "black": "Samson",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/b4c72f0d-4254-4012-84f9-767e03a82292"
+        }
+      ],
+      "flags": [
+        "Black dominates this exact FEN in the observed sample"
+      ]
+    },
+    {
+      "starting_fen": "r1bqk2r/pppp1ppp/2n2n2/1Bb5/3NP3/2P5/PP3PPP/RNBQ1RK1 b kq - 2 7",
+      "games": 2,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        65.76
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "d935d7bf-978d-4483-8995-8bac436da1d1",
+        "team_name": "LSE4-E5",
+        "rank": 33,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "ddf27983-07d0-4a0a-bb15-032ed889bcf9",
+        "team_name": "FableEngine",
+        "rank": 108,
+        "rating": 1427
+      },
+      "strongest_win": {
+        "game_id": "c3605dda-298d-44c3-9d61-0e7973d98940",
+        "white": "LSE4-E5",
+        "black": "Greedy Material",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/c3605dda-298d-44c3-9d61-0e7973d98940"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nxd4",
+        "O-O"
+      ],
+      "games_detail": [
+        {
+          "game_id": "c3605dda-298d-44c3-9d61-0e7973d98940",
+          "white": "LSE4-E5",
+          "black": "Greedy Material",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/c3605dda-298d-44c3-9d61-0e7973d98940"
+        },
+        {
+          "game_id": "f16a9825-929a-4ddb-bd29-2f30885ef26f",
+          "white": "Good Morning",
+          "black": "FableEngine",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/f16a9825-929a-4ddb-bd29-2f30885ef26f"
+        }
+      ],
+      "flags": [
+        "White dominates this exact FEN in the observed sample"
+      ]
+    },
+    {
+      "starting_fen": "r1bqkb1r/1p3ppp/p1np1n2/4p3/4P3/N1N2P2/PPP3PP/R1BQKB1R b KQkq - 1 8",
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "8110ff4a-a69c-4644-ae5d-9ad79ea47224",
+        "team_name": "femboy number 1",
+        "rank": 76,
+        "rating": 1533
+      },
+      "highest_ranked_black": {
+        "team_id": "8b738da9-e5bb-4122-89ce-0caf6466ba80",
+        "team_name": "bot1",
+        "rank": 16,
+        "rating": 1792
+      },
+      "strongest_win": {
+        "game_id": "4c26d6af-e179-40aa-8aa3-94cc3e3be4ac",
+        "white": "femboy number 1",
+        "black": "bot1",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/4c26d6af-e179-40aa-8aa3-94cc3e3be4ac"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Be6",
+        "Be7"
+      ],
+      "games_detail": [
+        {
+          "game_id": "4c26d6af-e179-40aa-8aa3-94cc3e3be4ac",
+          "white": "femboy number 1",
+          "black": "bot1",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/4c26d6af-e179-40aa-8aa3-94cc3e3be4ac"
+        },
+        {
+          "game_id": "847b8a6a-ca9a-4cb6-b0a2-df3b376c1a36",
+          "white": "FableEngine",
+          "black": "APEX",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/847b8a6a-ca9a-4cb6-b0a2-df3b376c1a36"
+        }
+      ],
+      "flags": [
+        "Black dominates this exact FEN in the observed sample"
+      ]
+    },
+    {
+      "starting_fen": "r2qk2r/2p1bppp/p1np1n2/1p2p3/4P3/1BN2Q1P/PPPP1PP1/R1B1R1K1 b kq - 0 10",
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "17719f6d-f1dc-4078-8606-2fe63a632ea0",
+        "team_name": "CHINA MACHINE",
+        "rank": 26,
+        "rating": 1686
+      },
+      "highest_ranked_black": {
+        "team_id": "1daad2c3-adda-4ae6-945c-e82c4015ee72",
+        "team_name": "KingofImperial",
+        "rank": 2,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "ca0167ae-c875-410f-91a5-31c7cf621916",
+        "white": "CHINA MACHINE",
+        "black": "KingofImperial",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/ca0167ae-c875-410f-91a5-31c7cf621916"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nd4"
+      ],
+      "games_detail": [
+        {
+          "game_id": "a16c7c19-9916-4759-b50a-c8bec9bd3ce9",
+          "white": "Fight Club",
+          "black": "The Rookie",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/a16c7c19-9916-4759-b50a-c8bec9bd3ce9"
+        },
+        {
+          "game_id": "ca0167ae-c875-410f-91a5-31c7cf621916",
+          "white": "CHINA MACHINE",
+          "black": "KingofImperial",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/ca0167ae-c875-410f-91a5-31c7cf621916"
+        }
+      ],
+      "flags": [
+        "Black dominates this exact FEN in the observed sample"
+      ]
+    },
+    {
+      "starting_fen": "r2qkb1r/pp2pppp/2n2n2/3p4/3P1Bb1/1QPB4/PP3PPP/RN2K1NR b KQkq - 4 7",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "1a7f24af-0e65-4f49-b084-a7fd513ddb14",
+        "team_name": "Samson",
+        "rank": 42,
+        "rating": 1638
+      },
+      "highest_ranked_black": {
+        "team_id": "1daad2c3-adda-4ae6-945c-e82c4015ee72",
+        "team_name": "KingofImperial",
+        "rank": 2,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "9269bc52-0658-4de8-a981-8dbe5a663e4b",
+        "white": "Samson",
+        "black": "KingofImperial",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/9269bc52-0658-4de8-a981-8dbe5a663e4b"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Na5",
+        "Qb6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "d05477d9-b5a2-4f27-a6a9-5763431b1973",
+          "white": "stockfish.py",
+          "black": "Tempo",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/d05477d9-b5a2-4f27-a6a9-5763431b1973"
+        },
+        {
+          "game_id": "9269bc52-0658-4de8-a981-8dbe5a663e4b",
+          "white": "Samson",
+          "black": "KingofImperial",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/9269bc52-0658-4de8-a981-8dbe5a663e4b"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/1pp2pbp/3p1np1/p2Pp3/2P1P3/2N2N1P/PP2BPP1/R1BQK2R b KQ - 0 8",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 1,
+      "black_wins": 0,
+      "white_score_pct": 75.0,
+      "black_score_pct": 25.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        79.35
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "3f0e0e44-cdce-485f-b5b6-3691e34f9f44",
+        "team_name": "Patzer 1.0",
+        "rank": 5,
+        "rating": 1898
+      },
+      "highest_ranked_black": {
+        "team_id": "5e10f7ae-b545-4ce9-bb7a-d2ec55f9387c",
+        "team_name": "Blunderbuss",
+        "rank": 6,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "becf034c-d4dd-4464-aaff-056578dd9268",
+        "white": "Patzer 1.0",
+        "black": "Blunderbuss",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/becf034c-d4dd-4464-aaff-056578dd9268"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Na6",
+        "a4"
+      ],
+      "games_detail": [
+        {
+          "game_id": "1eaf38d7-0b30-4ef7-8bd8-8a8aca45e900",
+          "white": "lefischer",
+          "black": "CHINA MACHINE",
+          "result": "½-½",
+          "source_url": "https://aichessathon.com/game/1eaf38d7-0b30-4ef7-8bd8-8a8aca45e900"
+        },
+        {
+          "game_id": "becf034c-d4dd-4464-aaff-056578dd9268",
+          "white": "Patzer 1.0",
+          "black": "Blunderbuss",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/becf034c-d4dd-4464-aaff-056578dd9268"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/pp2bppp/4pn2/2pp4/2PP4/N4NP1/PP2PPBP/R1BQ1RK1 b - - 1 7",
+      "games": 2,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        65.76
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "9f1cfbea-48c3-4345-8741-021152dbe77c",
+        "team_name": "keep_kann_and_caro_on",
+        "rank": 23,
+        "rating": 1735
+      },
+      "highest_ranked_black": {
+        "team_id": "b1d4ae25-42a4-474a-b5bb-8e42066abda4",
+        "team_name": "GoodKnight",
+        "rank": 24,
+        "rating": 1733
+      },
+      "strongest_win": {
+        "game_id": "0b2dd09e-8cb7-40e2-a2f4-52412d4f529e",
+        "white": "keep_kann_and_caro_on",
+        "black": "GoodKnight",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/0b2dd09e-8cb7-40e2-a2f4-52412d4f529e"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nc6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "0b2dd09e-8cb7-40e2-a2f4-52412d4f529e",
+          "white": "keep_kann_and_caro_on",
+          "black": "GoodKnight",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/0b2dd09e-8cb7-40e2-a2f4-52412d4f529e"
+        },
+        {
+          "game_id": "ed05c218-390e-429c-8c75-770fd601ecf0",
+          "white": "Capablanca",
+          "black": "Only Blunders",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/ed05c218-390e-429c-8c75-770fd601ecf0"
+        }
+      ],
+      "flags": [
+        "White dominates this exact FEN in the observed sample"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/pp2bppp/4pn2/2ppN3/2P5/3P2P1/PP2PPBP/RNBQ1RK1 b - - 0 7",
+      "games": 2,
+      "white_wins": 2,
+      "draws": 0,
+      "black_wins": 0,
+      "white_score_pct": 100.0,
+      "black_score_pct": 0.0,
+      "black_share_of_decisive_pct": 0.0,
+      "black_decisive_share_95pct_wilson": [
+        0.0,
+        65.76
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "f7e8b14e-458d-489f-a2d5-0934c2b7d877",
+        "team_name": "Chimera",
+        "rank": 12,
+        "rating": 1872
+      },
+      "highest_ranked_black": {
+        "team_id": "003ebf62-f643-48e1-8967-9c1cfcfedb37",
+        "team_name": "kilobyte",
+        "rank": 58,
+        "rating": 1596
+      },
+      "strongest_win": {
+        "game_id": "b2124674-efe4-49cc-81b5-10693ec2869d",
+        "white": "Chimera",
+        "black": "kilobyte",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/b2124674-efe4-49cc-81b5-10693ec2869d"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nc6",
+        "Qc7"
+      ],
+      "games_detail": [
+        {
+          "game_id": "3c50f46d-14cf-46a7-8523-9955bcdb16db",
+          "white": "AI Fellow",
+          "black": "Bonjour Oui Oui Baguette",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/3c50f46d-14cf-46a7-8523-9955bcdb16db"
+        },
+        {
+          "game_id": "b2124674-efe4-49cc-81b5-10693ec2869d",
+          "white": "Chimera",
+          "black": "kilobyte",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/b2124674-efe4-49cc-81b5-10693ec2869d"
+        }
+      ],
+      "flags": [
+        "White dominates this exact FEN in the observed sample"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/ppp1ppbp/3p1np1/6B1/3PP3/2N2N2/PPP1BPPP/R2QK2R b KQ - 5 6",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "c3e1bc09-3d21-4279-ace0-16bb3742f5da",
+        "team_name": "ms",
+        "rank": 9,
+        "rating": 1898
+      },
+      "highest_ranked_black": {
+        "team_id": "385a6db2-1c05-46db-ae91-7218700f83b3",
+        "team_name": "Minimaxnus",
+        "rank": 44,
+        "rating": 1638
+      },
+      "strongest_win": {
+        "game_id": "cd1240a9-1c5f-4ad5-a8db-a4d4f54e70bf",
+        "white": "ms",
+        "black": "Capablanca",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/cd1240a9-1c5f-4ad5-a8db-a4d4f54e70bf"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Bg4",
+        "d5"
+      ],
+      "games_detail": [
+        {
+          "game_id": "cd1240a9-1c5f-4ad5-a8db-a4d4f54e70bf",
+          "white": "ms",
+          "black": "Capablanca",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/cd1240a9-1c5f-4ad5-a8db-a4d4f54e70bf"
+        },
+        {
+          "game_id": "e5702a81-ef7b-4bce-992e-91e858f3d5a2",
+          "white": "OptiFish-V1",
+          "black": "Minimaxnus",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/e5702a81-ef7b-4bce-992e-91e858f3d5a2"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/ppp2pbp/5np1/4p3/2P1P3/2N1BN2/PP2BPPP/R2QK2R b KQ - 1 8",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "72e19bc4-a390-4dbd-9df8-04c55e39bf7b",
+        "team_name": "Only Blunders",
+        "rank": 47,
+        "rating": 1638
+      },
+      "highest_ranked_black": {
+        "team_id": "c7fad433-1020-4b2a-a0e3-8e86720d23de",
+        "team_name": "Capablanca",
+        "rank": 48,
+        "rating": 1638
+      },
+      "strongest_win": {
+        "game_id": "5109d8df-21db-484b-ab0f-0eaa0cf8afaa",
+        "white": "Only Blunders",
+        "black": "HaveFaith",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/5109d8df-21db-484b-ab0f-0eaa0cf8afaa"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Ng4",
+        "b6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "5109d8df-21db-484b-ab0f-0eaa0cf8afaa",
+          "white": "Only Blunders",
+          "black": "HaveFaith",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/5109d8df-21db-484b-ab0f-0eaa0cf8afaa"
+        },
+        {
+          "game_id": "8bf6f6fd-bd60-45e5-abd9-b8c330e9e610",
+          "white": "Knight you will remember",
+          "black": "Capablanca",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/8bf6f6fd-bd60-45e5-abd9-b8c330e9e610"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbq1rk1/ppp2ppp/5n2/3p4/1b1P4/2NBP3/PP2NPPP/R1BQK2R b KQ - 1 7",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "1a7f24af-0e65-4f49-b084-a7fd513ddb14",
+        "team_name": "Samson",
+        "rank": 42,
+        "rating": 1638
+      },
+      "highest_ranked_black": {
+        "team_id": "6a43144c-53b1-40d0-b620-8833a255f82f",
+        "team_name": "The Castle Gambit",
+        "rank": 46,
+        "rating": 1638
+      },
+      "strongest_win": {
+        "game_id": "6b05fd72-72ea-4e44-818f-3b7c7c7a9ce7",
+        "white": "Samson",
+        "black": "Blunderbus",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/6b05fd72-72ea-4e44-818f-3b7c7c7a9ce7"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nc6",
+        "Re8"
+      ],
+      "games_detail": [
+        {
+          "game_id": "6b05fd72-72ea-4e44-818f-3b7c7c7a9ce7",
+          "white": "Samson",
+          "black": "Blunderbus",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/6b05fd72-72ea-4e44-818f-3b7c7c7a9ce7"
+        },
+        {
+          "game_id": "8252e777-f83b-4476-b43d-09156d777030",
+          "white": "Chess",
+          "black": "The Castle Gambit",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/8252e777-f83b-4476-b43d-09156d777030"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbqk2r/p3nppp/1p2p3/2ppP3/P2P4/2P2N2/2P2PPP/R1BQKB1R b KQkq - 0 8",
+      "games": 2,
+      "white_wins": 1,
+      "draws": 0,
+      "black_wins": 1,
+      "white_score_pct": 50.0,
+      "black_score_pct": 50.0,
+      "black_share_of_decisive_pct": 50.0,
+      "black_decisive_share_95pct_wilson": [
+        9.45,
+        90.55
+      ],
+      "two_sided_exact_binomial_p": 1.0,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "8b738da9-e5bb-4122-89ce-0caf6466ba80",
+        "team_name": "bot1",
+        "rank": 16,
+        "rating": 1792
+      },
+      "highest_ranked_black": {
+        "team_id": "6a43144c-53b1-40d0-b620-8833a255f82f",
+        "team_name": "The Castle Gambit",
+        "rank": 46,
+        "rating": 1638
+      },
+      "strongest_win": {
+        "game_id": "db587de1-51ff-4483-abba-6f13b37e61da",
+        "white": "bot1",
+        "black": "RMFE",
+        "result": "1-0",
+        "source_url": "https://aichessathon.com/game/db587de1-51ff-4483-abba-6f13b37e61da"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "Nd7",
+        "h6"
+      ],
+      "games_detail": [
+        {
+          "game_id": "db587de1-51ff-4483-abba-6f13b37e61da",
+          "white": "bot1",
+          "black": "RMFE",
+          "result": "1-0",
+          "source_url": "https://aichessathon.com/game/db587de1-51ff-4483-abba-6f13b37e61da"
+        },
+        {
+          "game_id": "dd7b41da-4334-4d22-9636-e8a02bce4bad",
+          "white": "ClaudeShark v2",
+          "black": "The Castle Gambit",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/dd7b41da-4334-4d22-9636-e8a02bce4bad"
+        }
+      ],
+      "flags": [
+        "Outcomes vary by engine/pairing"
+      ]
+    },
+    {
+      "starting_fen": "rnbqk2r/ppp2ppp/3b4/3p4/3Pn3/2P2N1P/PP2BPP1/RNBQK2R b KQkq - 2 8",
+      "games": 2,
+      "white_wins": 0,
+      "draws": 0,
+      "black_wins": 2,
+      "white_score_pct": 0.0,
+      "black_score_pct": 100.0,
+      "black_share_of_decisive_pct": 100.0,
+      "black_decisive_share_95pct_wilson": [
+        34.24,
+        100.0
+      ],
+      "two_sided_exact_binomial_p": 0.5,
+      "statistically_credible_at_0_05": false,
+      "side_to_move": "black",
+      "highest_ranked_white": {
+        "team_id": "239fb36b-5e2f-4bb7-9a8a-5832363a0c25",
+        "team_name": "Loki 3.0",
+        "rank": 43,
+        "rating": 1638
+      },
+      "highest_ranked_black": {
+        "team_id": "258a9828-7442-4bea-97cb-eed1845ad2cc",
+        "team_name": "SoberJackson",
+        "rank": 3,
+        "rating": 1898
+      },
+      "strongest_win": {
+        "game_id": "0c14f8de-2029-4ba5-9853-ca74efe6649b",
+        "white": "Loki 3.0",
+        "black": "SoberJackson",
+        "result": "0-1",
+        "source_url": "https://aichessathon.com/game/0c14f8de-2029-4ba5-9853-ca74efe6649b"
+      },
+      "biggest_upset": null,
+      "first_moves": [
+        "O-O"
+      ],
+      "games_detail": [
+        {
+          "game_id": "4963020b-f005-480d-b3c3-a8cfb289e025",
+          "white": "dinosaur",
+          "black": "Fuzzydafool",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/4963020b-f005-480d-b3c3-a8cfb289e025"
+        },
+        {
+          "game_id": "0c14f8de-2029-4ba5-9853-ca74efe6649b",
+          "white": "Loki 3.0",
+          "black": "SoberJackson",
+          "result": "0-1",
+          "source_url": "https://aichessathon.com/game/0c14f8de-2029-4ba5-9853-ca74efe6649b"
+        }
+      ],
+      "flags": [
+        "Black dominates this exact FEN in the observed sample"
+      ]
+    }
+  ],
+  "research_games": [
+    {
+      "game_id": "fda76239-1392-4e4a-aa3f-148b16d6c137",
+      "white": "LSE4-E5",
+      "black": "Good Morning",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/fda76239-1392-4e4a-aa3f-148b16d6c137",
+      "research_rank": 1,
+      "research_score": 31.476,
+      "starting_fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 b - - 5 6"
+    },
+    {
+      "game_id": "dafa0b07-1c29-418e-ba66-654a877fb742",
+      "white": "Daddy_Long_Legs",
+      "black": "Negamaximus",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/dafa0b07-1c29-418e-ba66-654a877fb742",
+      "research_rank": 2,
+      "research_score": 30.646,
+      "starting_fen": "rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6"
+    },
+    {
+      "game_id": "c596a081-18c4-4a0f-b8bf-e2d091612316",
+      "white": "Daddy_Long_Legs",
+      "black": "checkers",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/c596a081-18c4-4a0f-b8bf-e2d091612316",
+      "research_rank": 3,
+      "research_score": 26.552,
+      "starting_fen": "r1bq1rk1/pp1pppbp/2n2np1/2p5/2PP4/2N1PNP1/PP3PBP/R1BQK2R b KQ - 0 7"
+    },
+    {
+      "game_id": "75ed5090-6f22-4d2b-9d3c-40f68a0d3b5f",
+      "white": "Knight you will remember",
+      "black": "make_no_mistakes",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/75ed5090-6f22-4d2b-9d3c-40f68a0d3b5f",
+      "research_rank": 4,
+      "research_score": 25.73,
+      "starting_fen": "rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6"
+    },
+    {
+      "game_id": "2daf2008-756a-4f6e-8aae-38aa3bae94b1",
+      "white": "Le StockFish",
+      "black": "Fuzzydafool",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/2daf2008-756a-4f6e-8aae-38aa3bae94b1",
+      "research_rank": 5,
+      "research_score": 25.32,
+      "starting_fen": "r1bq1rk1/2p1bppp/p2p1n2/np2p3/4P3/1BNP1N1P/PPP2PP1/R1BQR1K1 b - - 0 10"
+    },
+    {
+      "game_id": "7ad68871-bc0d-44dc-9bcf-15713212b43d",
+      "white": "Magnus Claudeson",
+      "black": "Le StockFish",
+      "result": "½-½",
+      "source_url": "https://aichessathon.com/game/7ad68871-bc0d-44dc-9bcf-15713212b43d",
+      "research_rank": 6,
+      "research_score": 24.881,
+      "starting_fen": "r1bq1rk1/pp1pppbp/2n2np1/2p5/2PP4/2N1PNP1/PP3PBP/R1BQK2R b KQ - 0 7"
+    },
+    {
+      "game_id": "88ab3a9a-45ec-4b7c-881d-d6102b18daaa",
+      "white": "Bartholomew",
+      "black": "blundered my queen 💔",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/88ab3a9a-45ec-4b7c-881d-d6102b18daaa",
+      "research_rank": 7,
+      "research_score": 23.452,
+      "starting_fen": "1rbqk2r/pp2ppbp/2np1np1/2p5/P3P3/2NP1NP1/1PP2PBP/R1BQ1RK1 b k - 0 8"
+    },
+    {
+      "game_id": "c108926e-5b0f-47af-a471-7b2827a8b261",
+      "white": "Fuzzydafool",
+      "black": "OptiFish-V1",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/c108926e-5b0f-47af-a471-7b2827a8b261",
+      "research_rank": 8,
+      "research_score": 22.871,
+      "starting_fen": "rnbq1rk1/pp3ppp/4pn2/b1p5/2BP4/P1N1P2P/1P3PP1/R1BQK1NR w KQ - 1 9"
+    },
+    {
+      "game_id": "f4bf197f-829e-48bd-83f9-e872432f05d6",
+      "white": "Good Morning",
+      "black": "NaJ",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/f4bf197f-829e-48bd-83f9-e872432f05d6",
+      "research_rank": 9,
+      "research_score": 22.468,
+      "starting_fen": "rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6"
+    },
+    {
+      "game_id": "054e0a15-5c97-4474-9e14-52f0bda568de",
+      "white": "Obligatory En Passant",
+      "black": "Daddy_Long_Legs",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/054e0a15-5c97-4474-9e14-52f0bda568de",
+      "research_rank": 10,
+      "research_score": 22.329,
+      "starting_fen": "rnbqkb1r/ppp2ppp/8/3p4/3Pn3/5N2/PPP1BPPP/RNBQK2R b KQkq - 1 6"
+    },
+    {
+      "game_id": "4ab96e2e-ee32-4524-9233-69c64be6a826",
+      "white": "SaucyBeans",
+      "black": "Only Blunders",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/4ab96e2e-ee32-4524-9233-69c64be6a826",
+      "research_rank": 11,
+      "research_score": 21.811,
+      "starting_fen": "r1bqk2r/pppp1ppp/2n2n2/1B6/1b1NP3/2P5/PP3PPP/RNBQK2R b KQkq - 0 6"
+    },
+    {
+      "game_id": "9269bc52-0658-4de8-a981-8dbe5a663e4b",
+      "white": "Samson",
+      "black": "KingofImperial",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/9269bc52-0658-4de8-a981-8dbe5a663e4b",
+      "research_rank": 12,
+      "research_score": 21.8,
+      "starting_fen": "r2qkb1r/pp2pppp/2n2n2/3p4/3P1Bb1/1QPB4/PP3PPP/RN2K1NR b KQkq - 4 7"
+    },
+    {
+      "game_id": "6f4a2bd0-4a3b-4718-be0b-cadf0d18d13f",
+      "white": "AI Fellow",
+      "black": "Sirloin v2",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/6f4a2bd0-4a3b-4718-be0b-cadf0d18d13f",
+      "research_rank": 13,
+      "research_score": 21.545,
+      "starting_fen": "r1bq1rk1/2p1bppp/p2p1n2/np2p3/4P3/1BNP1N1P/PPP2PP1/R1BQR1K1 b - - 0 10"
+    },
+    {
+      "game_id": "fdbdb960-8b53-41fb-a4a9-d3f4d865ad53",
+      "white": "R3",
+      "black": "hyperfish",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/fdbdb960-8b53-41fb-a4a9-d3f4d865ad53",
+      "research_rank": 14,
+      "research_score": 20.585,
+      "starting_fen": "rnbqk2r/pp2nppp/4p3/2ppP3/3P4/P1P5/2P2PPP/1RBQKBNR b Kkq - 2 7"
+    },
+    {
+      "game_id": "00b0efea-d366-4bfe-9de0-f18eb73dbceb",
+      "white": "Check Republic",
+      "black": "The Rookie",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/00b0efea-d366-4bfe-9de0-f18eb73dbceb",
+      "research_rank": 15,
+      "research_score": 20.493,
+      "starting_fen": "r1bqkb1r/pp2pppp/2np1n2/1B6/3NP3/2N5/PPP2PPP/R1BQK2R b KQkq - 4 6"
+    },
+    {
+      "game_id": "ed05c218-390e-429c-8c75-770fd601ecf0",
+      "white": "Capablanca",
+      "black": "Only Blunders",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/ed05c218-390e-429c-8c75-770fd601ecf0",
+      "research_rank": 16,
+      "research_score": 20.349,
+      "starting_fen": "rnbq1rk1/pp2bppp/4pn2/2pp4/2PP4/N4NP1/PP2PPBP/R1BQ1RK1 b - - 1 7"
+    },
+    {
+      "game_id": "69e42a25-8236-4a49-b1e1-6cf44b7e2ebd",
+      "white": "Tobias Carlsen",
+      "black": "R3",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/69e42a25-8236-4a49-b1e1-6cf44b7e2ebd",
+      "research_rank": 17,
+      "research_score": 20.209,
+      "starting_fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 b - - 5 6"
+    },
+    {
+      "game_id": "4b8d5dfd-ae0a-4b99-8661-f53046175147",
+      "white": "Friday",
+      "black": "Tobias Carlsen",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/4b8d5dfd-ae0a-4b99-8661-f53046175147",
+      "research_rank": 18,
+      "research_score": 20.054,
+      "starting_fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/8/PPP1N1PP/R1BQKBNR b KQkq - 1 6"
+    },
+    {
+      "game_id": "df2c2dab-3e8b-437b-8f1c-2ce579043eaa",
+      "white": "team",
+      "black": "Yumo",
+      "result": "0-1",
+      "source_url": "https://aichessathon.com/game/df2c2dab-3e8b-437b-8f1c-2ce579043eaa",
+      "research_rank": 19,
+      "research_score": 19.898,
+      "starting_fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 b - - 5 6"
+    },
+    {
+      "game_id": "e9e2fabf-1850-4620-8172-3d44cdec0520",
+      "white": "Analphabet",
+      "black": "Chess",
+      "result": "1-0",
+      "source_url": "https://aichessathon.com/game/e9e2fabf-1850-4620-8172-3d44cdec0520",
+      "research_rank": 20,
+      "research_score": 18.711,
+      "starting_fen": "rnbq1rk1/pp2bppp/2p1pn2/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 w - - 0 7"
+    }
+  ]
+}

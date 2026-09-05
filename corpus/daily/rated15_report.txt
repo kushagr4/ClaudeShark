@@ -1,0 +1,361 @@
+== REAL RATED GAMES: PER-MOVE ANALYSIS ==
+Colour attribution from tools.daily.whoami (move agreement), snapshots at depth 6.
+================================================================================================
+round1-the-castle-gambit   ClaudeShark played White   result 0-1 (LOSS for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 1 vs The Castle Gambit as white (loss), match dd7b41da-4334-4d22-9636-e8a02bce4bad, fetched 2026-09-05 01:20 local; move agreement: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves against 14/30 (46.7%) of Black's; clock shape: White sd 1.59s max 7.58s (ClaudeShark's varying allocator), Black sd 2.65s max 13.30s
+   start FEN  rnbqk2r/p3nppp/1p2p3/2ppP3/P2P4/2P2N2/2P2PPP/R1BQKB1R b KQkq - 0 8
+   increment 0.5s; ClaudeShark spend mean 2.67s max 7.58s; opponent mean 3.74s max 13.30s
+   first inaccuracy (>=50)          move 11 O-O      (ply 6) SF before   +77 loss    58  Stockfish preferred e5f6
+   first serious error (>=100)      move 22 Nxd4     (ply 28) SF before  -334 loss   114  Stockfish preferred b2d4
+   largest error                    move 31 Qb3      (ply 46) SF before  -925 loss  9075  Stockfish preferred e5e6
+   first position at -100 or worse  move 17 g3       (ply 18) SF before  -113 loss    83  Stockfish preferred f3h4
+   first position at -300 or worse  move 22 Nxd4     (ply 28) SF before  -334 loss   114  Stockfish preferred b2d4
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       11 O-O       2.523    +77    58 e5f6    | e1g1 =   +74 st  +79 | e1g1 =   +74 st  +79
+       15 c4        2.737    +25    63 a4a5    | c3c4 =   +68 st +126 | c3c4 =   +68 st +126
+       16 Bb2       2.161    -40    61 c4d5    | c1b2 =   +66 st  +91 | c1b2 =   +66 st  +91
+       17 g3        4.219   -113    83 f3h4    | g2g3 =   +51 st  +91 | g2g3 =   +51 st  +91
+       22 Nxd4      1.791   -334   114 b2d4    | f3d4 =   -60 st   +6 | f3d4 =   -63 st   +6
+       29 Bxe6+     2.288   -563   161 c3f3    | c3b3    -283 st -137 | c3b3    -283 st -137
+       30 Bd5       1.297   -751   138 a3f8    | e6d5 =  -591 st  -17 | e6d5 =  -595 st  -17
+       31 Qb3       1.534   -925  9075 e5e6    | a3f8    -731 st -408 | c3b2    -650 st -408
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round2-trio-duo   ClaudeShark played Black   result 0-1 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 2 vs Trio Duo as black (win), match 7e26137e-f1e5-47fe-84ee-bb9fdb8d8b4d, fetched 2026-09-05 01:20 local; move agreement: 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves against 11/28 (39.3%) of White's; clock shape: Black sd 1.44s max 6.40s, White sd 0.47s max 2.51s (a fixed per-move budget)
+   start FEN  rn1qkbnr/pp2pppp/2p3b1/8/3P4/4B1N1/PPP2PPP/R2QKBNR b KQkq - 4 6
+   increment 0.5s; ClaudeShark spend mean 2.68s max 6.40s; opponent mean 2.41s max 2.51s
+   first inaccuracy (>=50)          move 13 Bc3      (ply 15) SF before  +190 loss    94  Stockfish preferred b8d7
+   first serious error (>=100)      move 18 O-O      (ply 25) SF before    +0 loss   157  Stockfish preferred f6e7
+   largest error                    move 18 O-O      (ply 25) SF before    +0 loss   157  Stockfish preferred f6e7
+   first position at -100 or worse  none
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 1
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       13 Bc3        2.67   +190    94 b8d7    | b4c3 =  +131 st  +63 | b4c3 =  +131 st  +63
+       17 Qf6+      2.409    +96    84 e8g8    | b6f6 =  +112 st +137 | b6f6 =  +112 st +137
+       18 O-O       2.642     +0   157 f6e7    | e8g8 =  +128 st +152 | e8g8 =  +128 st +152
+       19 Qg5       3.034    -86    58 f6g5    | f6g5 =  +111 st +191 | f6g5 =  +111 st +191
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round3-baryon   ClaudeShark played Black   result 1/2-1/2 (WIN for ClaudeShark)   termination threefold_repetition
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 3 vs Baryon as black (draw), match 6ef84b4c-6572-43c1-842a-2a151a236021, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour; move agreement: 38/49 (77.6%) of Black's moves and 36/47 (76.6%) of Black's non-forced moves against 29/49 (59.2%) of White's; clock shape: Black sd 1.33s max 7.58s matching ClaudeShark in rounds 1 and 2, White sd 0.52s max 2.95s matching the round-2 opponent's fixed budget
+   start FEN  rnbqk2r/ppp2ppp/3b4/3p4/2PPn3/5N2/PP2BPPP/RNBQK2R b KQkq - 0 7
+   increment 0.5s; ClaudeShark spend mean 2.34s max 7.58s; opponent mean 2.08s max 2.95s
+   first inaccuracy (>=50)          move 14 Bd7      (ply 15) SF before  +291 loss   182  Stockfish preferred b4c2
+   first serious error (>=100)      move 14 Bd7      (ply 15) SF before  +291 loss   182  Stockfish preferred b4c2
+   largest error                    move 20 Qf4+     (ply 27) SF before  +396 loss   426  Stockfish preferred d7f5
+   first position at -100 or worse  none
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 2
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       14 Bd7       2.061   +291   182 b4c2    | f5d7 =   +92 st  -28 | f5d7 =   +92 st  -28
+       20 Qf4+      1.735   +396   426 d7f5    | e4f4 =   -26 st -378 | e4f4 =   -26 st -378
+       40 a4        1.873   +376    61 h6h5    | a5a4 =   +56 st  +37 | a5a4 =   +56 st  +37
+       41 Rd3       1.471   +376    52 d4d1    | d4d3 =  +156 st  +83 | d4d3 =  +145 st  +83
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round4-prophylaxis   ClaudeShark played Black   result 0-1 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 4 vs Prophylaxis as black (win), match ac7cea6f-2684-4cf6-b013-d6f6f2bd0b76, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour; clock fingerprint had leaned Black (sd 1.19, max 6.02) before the log and metadata settled it
+   start FEN  r2q1rk1/1bp1bppp/p2p1n2/np2p3/4P3/1BNP1N1P/PPP2PP1/R1BQR1K1 w - - 1 11
+   increment 0.5s; ClaudeShark spend mean 2.66s max 6.02s; opponent mean 3.32s max 4.67s
+   first inaccuracy (>=50)          move 14 Bf6      (ply 8) SF before   +84 loss    90  Stockfish preferred e5d4
+   first serious error (>=100)      move 15 Re8      (ply 10) SF before   +82 loss   107  Stockfish preferred e5d4
+   largest error                    move 15 Re8      (ply 10) SF before   +82 loss   107  Stockfish preferred e5d4
+   first position at -100 or worse  none
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       14 Bf6       3.005    +84    90 e5d4    | e7f6 =   +49 st   +2 | e7f6 =   +49 st   +2
+       15 Re8       6.021    +82   107 e5d4    | a5c4     +47 st   -8 | a5c4     +47 st   -8
+       19 h5         2.53    +14    54 f6e7    | h7h6     +46 st  +56 | h7h6     +46 st  +56
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round5-stonkfish   ClaudeShark played White   result 0-1 (LOSS for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 5 vs Stonkfish as white (loss), match 55ffef72-c908-4692-ab16-25bf9b2b2261, fetched 2026-09-05 01:20 local; clock fingerprint had leaned White (sd 1.54, max 6.94) before the metadata settled it
+   start FEN  r1bq1rk1/pp2ppbp/2np1np1/2pP4/2P5/2N2NP1/PP2PPBP/R1BQ1RK1 b - - 0 8
+   increment 0.5s; ClaudeShark spend mean 2.40s max 6.94s; opponent mean 1.87s max 4.19s
+   first inaccuracy (>=50)          move 12 Bxa7     (ply 8) SF before  +184 loss    84  Stockfish preferred c5a3
+   first serious error (>=100)      move 17 bxc3     (ply 18) SF before  +156 loss   109  Stockfish preferred e2e4
+   largest error                    move 25 Rxb7     (ply 34) SF before  -347 loss  9653  Stockfish preferred f1f2
+   first position at -100 or worse  move 23 hxg4     (ply 30) SF before  -123 loss   338  Stockfish preferred b1b5
+   first position at -300 or worse  move 24 f3       (ply 32) SF before  -412 loss    59  Stockfish preferred f2f3
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       12 Bxa7      2.878   +184    84 c5a3    | c5a7 =   +50 st  +73 | c5a7 =   +50 st  +73
+       17 bxc3      3.099   +156   109 e2e4    | b2c3 =   +79 st -414 | b2c3 =   +79 st -414
+       18 g4        2.022    +67    77 d1b3    | g3g4 =   +57 st  +87 | g3g4 =   +57 st  +87
+       19 Bxe4      2.165    +28    65 d1c2    | g2e4 =   +26 st  +67 | g2e4 =   +26 st  +67
+       23 hxg4      1.736   -123   338 b1b5    | h3g4 =   -10 st  -76 | h3g4 =   -10 st  -76
+       24 f3        2.189   -412    59 f2f3    | f2f3 =   -10 st  +20 | f2f3 =   -10 st  +20
+       25 Rxb7      2.257   -347  9653 f1f2    | b1b7 =    -8 st   +6 | b1b7 =    -8 st   +3
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round6-e-2   ClaudeShark played White   result 1-0 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 6 vs e=π=2 as white (win), match 4e8925b8-95e4-4daa-8120-7adb8483c2e5, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour
+   start FEN  r1bq1rk1/ppp2pbp/2np1np1/3Pp3/2P1P3/P1N2N2/1P2BPPP/R1BQK2R b KQ - 0 8
+   increment 0.5s; ClaudeShark spend mean 2.38s max 6.84s; opponent mean 2.20s max 3.48s
+   first inaccuracy (>=50)          move 19 Qd3      (ply 22) SF before  +145 loss   123  Stockfish preferred c2b1
+   first serious error (>=100)      move 19 Qd3      (ply 22) SF before  +145 loss   123  Stockfish preferred c2b1
+   largest error                    move 44 Bf1      (ply 72) SF before  +675 loss   147  Stockfish preferred d3e4
+   first position at -100 or worse  none
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       19 Qd3       2.886   +145   123 c2b1    | c2d3 =  +107 st +140 | c2d3 =  +107 st +140
+       25 Bc4        4.02   +179    55 f3d2    | b3c4 =  +123 st +156 | b3c4 =  +123 st +156
+       27 Bb6       1.299   +226    74 f3d2    | f3h2    +151 st +163 | f3h2    +151 st +163
+       29 g3        2.699   +338    55 d3c3    | g2g3 =  +172 st +169 | g2g3 =  +172 st +169
+       37 Qb7       3.857   +562    57 f3d2    | a6b7 =  +592 st +554 | a6b7 =  +592 st +554
+       44 Bf1       1.089   +675   147 d3e4    | f3e1    +614 st +633 | f3e1    +620 st +639
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round7-desai   ClaudeShark played White   result 1/2-1/2 (LOSS for ClaudeShark)   termination threefold_repetition
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 7 vs Desai as white (draw), match a02be254-dca4-4ce6-8fe8-3cab04793e5b, fetched 2026-09-05 01:20 local
+   start FEN  r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5P2/2NB4/PPP3PP/R1BQK1NR w KQkq - 0 8
+   increment 0.5s; ClaudeShark spend mean 2.22s max 5.23s; opponent mean 2.82s max 7.95s
+   first inaccuracy (>=50)          move 17 Bc2      (ply 19) SF before   -75 loss    74  Stockfish preferred f3e5
+   first serious error (>=100)      move 33 Bb4      (ply 51) SF before  +521 loss   159  Stockfish preferred d6b4
+   largest error                    move 48 Ke2      (ply 81) SF before  +272 loss   272  Stockfish preferred d2d3
+   first position at -100 or worse  move 18 Qxf3     (ply 21) SF before  -150 loss     7  Stockfish preferred f1f3
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 1
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       17 Bc2        2.44    -75    74 f3e5    | d3c2 =    -4 st +268 | d3c2 =    -4 st +268
+       20 Qxd4      4.281   -185    55 c2d1    | d3d4 =   +98 st  +17 | d3d4 =   +77 st  +17
+       21 Qf2       2.414   -189    76 f1f3    | d4f2 =   +95 st +132 | d4f2 =   +95 st +132
+       33 Bb4       2.158   +521   159 d6b4    | a3b4 =  +575 st +590 | a3b4 =  +575 st +590
+       34 Bxa5      1.883   +531   211 d6d4    | b4a5 =  +606 st +598 | b4a5 =  +606 st +598
+       38 Re7       1.258   +460   120 e6e8    | e6e7 =  +614 st +664 | e6e7 =  +607 st +664
+       44 Ke2       3.447   +373   135 d1d2    | e1e2 =  +356 st +639 | e1e2 =  +356 st +631
+       45 Ke3        0.97   +377   121 e2e1    | e2e3 =  +568 st +629 | e2e3 =  +564 st +625
+       48 Ke2       1.595   +272   272 d2d3    | e3e2 =  +509 st +605 | e3e2 =  +501 st +605
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round8-404-not-found   ClaudeShark played Black   result 0-1 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 8 vs 404 Not Found as black (win), match 817f3ff5-9ea7-4bad-9903-b32aa6d26e33, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour
+   start FEN  r1bqk2r/pp2ppbp/2np1np1/8/3NP3/2N1B3/PPPQBPPP/R3K2R b KQkq - 5 8
+   increment 0.5s; ClaudeShark spend mean 3.28s max 5.92s; opponent mean 1.76s max 2.01s
+   first inaccuracy (>=50)          none
+   first serious error (>=100)      none
+   largest error                    move 10 Ng4      (ply 5) SF before   +22 loss    40  Stockfish preferred c8e6
+   first position at -100 or worse  none
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round9-pawnstorm   ClaudeShark played White   result 1-0 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 9 vs PawnStorm as white (win), match 56dd271e-122d-4141-8c23-3f0b6a9469bb, fetched 2026-09-05 01:20 local
+   start FEN  rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2NB4/PPP3PP/R1BQK1NR b KQkq - 1 6
+   increment 0.5s; ClaudeShark spend mean 3.60s max 7.21s; opponent mean 0.50s max 0.52s
+   first inaccuracy (>=50)          move 7 Nb5      (ply 2) SF before    +9 loss    86  Stockfish preferred c3e2
+   first serious error (>=100)      none
+   largest error                    move 7 Nb5      (ply 2) SF before    +9 loss    86  Stockfish preferred c3e2
+   first position at -100 or worse  none
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+        7 Nb5        None     +9    86 c3e2    | c3b5 =   -68 st  -81 | c3b5 =   -68 st  -81
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round10-elbow-grease   ClaudeShark played Black   result 1-0 (LOSS for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 10 vs Elbow Grease as black (loss), match cb831cb6-f01d-497d-905f-9b5c5f0b1056, fetched 2026-09-05 01:20 local
+   start FEN  1rbqk1nr/pp2ppbp/2np2p1/2p5/P3P3/2NP2P1/1PP1NPBP/R1BQK2R b KQk - 0 7
+   increment 0.5s; ClaudeShark spend mean 2.32s max 7.20s; opponent mean 2.35s max 4.85s
+   first inaccuracy (>=50)          move 13 Bb7      (ply 13) SF before   +34 loss   150  Stockfish preferred f8e8
+   first serious error (>=100)      move 13 Bb7      (ply 13) SF before   +34 loss   150  Stockfish preferred f8e8
+   largest error                    move 50 b3       (ply 87) SF before -1347 loss  8653  Stockfish preferred f3g3
+   first position at -100 or worse  move 14 Qd7      (ply 15) SF before  -114 loss    31  Stockfish preferred e5e4
+   first position at -300 or worse  move 18 hxg6     (ply 23) SF before  -375 loss   142  Stockfish preferred h7g6
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       13 Bb7       3.558    +34   150 f8e8    | c8b7 =   +77 st +109 | c8b7 =   +77 st +109
+       16 Qf5       1.996   -180   106 d7e7    | d7f5 =   +86 st +163 | d7f5 =   +86 st +163
+       17 Rfe8      1.792   -241   156 g6g5    | f8e8 =   +79 st +151 | f8e8 =   +79 st +151
+       18 hxg6      3.214   -375   142 h7g6    | h7g6 =   +79 st   -1 | h7g6 =   +79 st   -1
+       21 Bxd5      2.192   -235   106 b7a6    | e5d4      +9 st  +57 | e5d4      +9 st  +57
+       36 Kf6       1.552   -608    96 g7f6    | g7f6 =  -414 st -239 | g7f6 =  -414 st -239
+       39 cxb4      3.169   -644    71 c5b4    | c5b4 =  -407 st -360 | c5b4 =  -407 st -360
+       45 d5        3.345   -777   497 c6b6    | d6d5 =  -866 st -758 | d6d5 =  -866 st -758
+       49 Kxf3      1.821  -1347   107 e4e5    | e4f3 =  -921 st -773 | e4f3 =  -910 st -763
+       50 b3        2.477  -1347  8653 f3g3    | f3g3 * -1002 st -719 | b4b3 = -1004 st -709
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round11-mangodogo   ClaudeShark played White   result 0-1 (LOSS for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 11 vs mangodogo as white (loss), match 37d429a0-1708-4e67-bee1-2f438816817e, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour
+   start FEN  rnbq1rk1/ppp2ppp/5n2/3p4/1b1P4/2NBP3/PP2NPPP/R1BQK2R b KQ - 1 7
+   increment 0.5s; ClaudeShark spend mean 2.28s max 7.03s; opponent mean 2.52s max 4.20s
+   first inaccuracy (>=50)          move 13 a4       (ply 12) SF before   -18 loss   154  Stockfish preferred e3e4
+   first serious error (>=100)      move 13 a4       (ply 12) SF before   -18 loss   154  Stockfish preferred e3e4
+   largest error                    move 37 fxg3     (ply 60) SF before -1039 loss  8961  Stockfish preferred g1f1
+   first position at -100 or worse  move 14 Nce2     (ply 14) SF before  -148 loss     0  Stockfish preferred c3e2
+   first position at -300 or worse  move 25 Bd2      (ply 36) SF before  -321 loss    15  Stockfish preferred g1h1
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       13 a4        5.694    -18   154 e3e4    | a2a4 =   +85 st  +89 | a2a4 =   +85 st  +89
+       20 Qa1       4.107   -180    81 f2f3    | d1e2      -9 st  +31 | d1e2      -9 st  +31
+       27 h4        1.718   -352   138 d1a1    | h3h4 =   -27 st  +28 | h3h4 =   -27 st  +28
+       31 Nxe4       2.05   -456   237 c2d1    | g3e4 =  -261 st  +95 | g3e4 =  -261 st  +95
+       32 Bd3       2.123   -659   122 e4f6    | c2d3 =  -329 st +144 | c2d3 =  -329 st +144
+       37 fxg3      2.013  -1039  8961 g1f1    | f2g3 =  -863 st -570 | f2g3 =  -863 st -570
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round12-rudra   ClaudeShark played Black   result 0-1 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 12 vs Rudra as black (win), match 7dccf013-3a87-4424-8054-f96619ed625b, fetched 2026-09-05 01:20 local
+   start FEN  r1bqkb1r/pp2pppp/2np1n2/1B6/3NP3/2N5/PPP2PPP/R1BQK2R b KQkq - 4 6
+   increment 0.5s; ClaudeShark spend mean 1.99s max 5.16s; opponent mean 2.22s max 3.96s
+   first inaccuracy (>=50)          move 10 e5       (ply 9) SF before    +0 loss    68  Stockfish preferred e7e6
+   first serious error (>=100)      move 43 e3       (ply 75) SF before  +324 loss   324  Stockfish preferred g6h5
+   largest error                    move 43 e3       (ply 75) SF before  +324 loss   324  Stockfish preferred g6h5
+   first position at -100 or worse  move 12 O-O      (ply 13) SF before  -119 loss     0  Stockfish preferred e8g8
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       10 e5        2.277     +0    68 e7e6    | e7e5 =   -20 st  -44 | e7e5 =   -20 st  -44
+       23 Qc6       1.741    -55    82 d8a8    | d7c6 =    -3 st  +32 | d7c6 =    -3 st  +32
+       24 Qc5       1.802    -40    56 b6b5    | e8e6      +6 st  +18 | e8e6      +6 st  +18
+       43 e3        1.437   +324   324 g6h5    | g6h5 *  +153 st +145 | g6h5 *  +153 st +145
+       47 Ra2+      3.089   +407    72 a3a1    | a3a2 =  +195 st +140 | a3a2 =  +195 st +140
+       54 Rxe3+     1.092   +716   231 a3a2    | e2e3 =  +300 st +274 | e2e3 =  +300 st +264
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round13-tobias-carlsen   ClaudeShark played White   result 1/2-1/2 (LOSS for ClaudeShark)   termination threefold_repetition
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 13 vs Tobias Carlsen as white (draw), match 32746849-9b35-484f-aef2-12ba1fff1d6b, fetched 2026-09-05 01:20 local
+   start FEN  r1bq1rk1/ppp1bppp/2n1pn2/3p4/2P5/1P1P1NP1/P3PPBP/RNBQ1RK1 b - - 0 7
+   increment 0.5s; ClaudeShark spend mean 3.11s max 6.21s; opponent mean 1.27s max 2.86s
+   first inaccuracy (>=50)          move 10 Nxe5     (ply 6) SF before   +34 loss   117  Stockfish preferred c1b2
+   first serious error (>=100)      move 10 Nxe5     (ply 6) SF before   +34 loss   117  Stockfish preferred c1b2
+   largest error                    move 10 Nxe5     (ply 6) SF before   +34 loss   117  Stockfish preferred c1b2
+   first position at -100 or worse  move 12 Rf2      (ply 10) SF before  -110 loss    47  Stockfish preferred g2d5
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       10 Nxe5      3.343    +34   117 c1b2    | f3e5 =   +48 st  -57 | f3e5 =   +48 st  -57
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round14-does-4th-place-get-a-trophy   ClaudeShark played Black   result 0-1 (WIN for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 14 vs does 4th place get a trophy as black (win), match 2fd9abaf-e220-4c5d-8a6f-5f75f298af00, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour
+   start FEN  rnbq1rk1/ppp1ppbp/3p1np1/8/P2PP3/2N2N2/1PP1BPPP/R1BQK2R b KQ - 0 6
+   increment 0.5s; ClaudeShark spend mean 2.34s max 5.20s; opponent mean 2.41s max 5.78s
+   first inaccuracy (>=50)          move 12 Qc7      (ply 13) SF before   -86 loss    54  Stockfish preferred f6e8
+   first serious error (>=100)      move 16 Rde8     (ply 21) SF before  -135 loss   124  Stockfish preferred f7f6
+   largest error                    move 42 Qe2      (ply 73) SF before +10000 loss  9193  Stockfish preferred d2e2
+   first position at -100 or worse  move 14 a6       (ply 17) SF before  -122 loss    48  Stockfish preferred c7b8
+   first position at -300 or worse  none
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+       12 Qc7       4.143    -86    54 f6e8    | d8c7 =    +5 st  -17 | d8c7 =    +5 st  -17
+       16 Rde8      2.884   -135   124 f7f6    | d8e8 =   +14 st  +39 | d8e8 =   +14 st  +39
+       18 Rc8       3.548   -102   112 f7f5    | e8c8 =   +21 st  +49 | e8c8 =   +21 st  +49
+       21 Nf4       4.077    +17    73 g8h7    | h5f4 =   +52 st   -4 | h5f4 =   +52 st   -4
+       25 Bg4       4.646    +57    76 e8e7    | d7g4 =   +83 st +127 | d7g4 =   +83 st +127
+       26 Bd4       1.422    -11    52 e8e7    | g4h5     +76 st +108 | g4h5     +76 st +108
+       27 b5        1.634    -53   148 c7e7    | b7b5 =   +83 st +140 | b7b5 =   +83 st +140
+       36 Rd4       3.504   +449    81 d8e8    | e4d4 =  +320 st +300 | e4d4 =  +320 st +300
+       39 Nc2       0.995   +563    55 b4d5    | b4c2 =  +574 st +561 | b4c2 =  +574 st +561
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+
+
+================================================================================================
+round15-zagreus-5-0   ClaudeShark played Black   result 1-0 (LOSS for ClaudeShark)   termination checkmate
+   attribution: official public metadata: team page https://aichessathon.com/team/6532bc56-58ba-48b5-977d-0c039fe3fd7b lists Rated 15 vs Zagreus 5.0 as black (loss), match e173cdfe-c9ee-4f85-8d27-e480eeaf948d, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour
+   start FEN  r1bqkbnr/pp1p1ppp/2n1p3/1N6/4P3/8/PPP2PPP/RNBQKB1R b KQkq - 2 5
+   increment 0.5s; ClaudeShark spend mean 1.86s max 11.21s; opponent mean 2.02s max 4.44s
+   first inaccuracy (>=50)          move 5 d5       (ply 1) SF before   -23 loss   127  Stockfish preferred d7d6
+   first serious error (>=100)      move 5 d5       (ply 1) SF before   -23 loss   127  Stockfish preferred d7d6
+   largest error                    move 54 Kxb4     (ply 99) SF before  -739 loss  9261  Stockfish preferred b5b4
+   first position at -100 or worse  move 6 exd5     (ply 3) SF before  -154 loss     0  Stockfish preferred e6d5
+   first position at -300 or worse  move 8 Qb4+     (ply 7) SF before  -324 loss     6  Stockfish preferred e7b4
+   blind-win positions (SF >= +300, rated-v1 root < +100): 0
+   false-win positions (|SF| <= 60, rated-v1 root >= +150): 0
+
+   ClaudeShark decisions costing at least 50 cp, and what each snapshot plays there:
+       mv san       spent     SF  loss SF best | rated-v1           | V2.1 king-pawn    
+        5 d5         None    -23   127 d7d6    | d7d5 =   +21 st  -12 | d7d5 =   +21 st  -12
+        7 Qe7+      2.163   -186   151 f8b4    | d8e7 =   -53 st  +11 | d8e7 =   -53 st  +11
+       10 Ne5       3.592   -354    94 c8g4    | e7b4      +0 st  -10 | e7b4      +0 st  -10
+       14 Qe7       3.707   -480   119 b4c5    | b4e7 =  -128 st  -91 | b4e7 =  -128 st  -91
+       15 Nd7       2.792   -560    87 e5c6    | e5d3    -461 st  -59 | e5d3    -467 st  -59
+       18 Ba6       3.078   -594   272 e7c5    | e7c5 *  -515 st -484 | c8a6 =  -522 st -486
+       20 axb6     11.213   -972  9028 d8e8    | a7b6 =  -462 st -381 | a7b6 =  -476 st -384
+       23 Qb7       1.931   -606   141 e7b7    | e7b7 =  -453 st  -20 | e7b7 =  -476 st  -26
+       27 Kc6       2.123   -627   104 e2g4    | g7g6    -578 st -430 | g7g6    -601 st -453
+       29 Kd5       1.694   -783    89 c6b5    | c6b7    -689 st -432 | c6b7    -712 st -447
+       34 Ka5       4.518   -794    70 b4c5    | a6c4    -751 st -455 | a6c4    -762 st -455
+       35 Bb5       1.611   -848  9152 a6c4    | a6b7    -865 st -484 | a6b7    -891 st -492
+       43 Rd6       2.147   -806    65 a6b7    | a6b7 *  -964 st -872 | a6b7 *  -978 st -880
+       53 Rc4        1.27   -768    87 c3c2    | c3c4 = -1071 st-1056 | c3c2 * -1071 st-1056
+       54 Kxb4      1.665   -739  9261 b5b4    | b5b4 =  -942 st-1063 | b5b4 =  -957 st-1063
+       56 Kd5       1.341  -1244  8756 c5b4    | c5d4   -1372 st -860 | c5b4 * -1372 st -869
+      '=' the snapshot plays the move actually played; '*' it plays Stockfish's move instead.
+

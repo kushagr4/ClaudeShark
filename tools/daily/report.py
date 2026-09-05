@@ -38,11 +38,18 @@ def main() -> None:
     parser.add_argument("--depth", type=int, default=6)
     parser.add_argument("--threshold", type=int, default=50)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--snapshots", default=",".join(SNAPSHOTS),
+                        help="comma-separated subset of the named snapshots to ask")
     arguments = parser.parse_args()
     colours = json.loads(arguments.colours.read_text(encoding="utf-8"))
     games = [json.loads(line) for line in arguments.games.open(encoding="utf-8")]
+    chosen = [s.strip() for s in arguments.snapshots.split(",") if s.strip()]
+    unknown = [s for s in chosen if s not in SNAPSHOTS]
+    if unknown:
+        raise SystemExit(f"unknown snapshot(s): {unknown}; known: {list(SNAPSHOTS)}")
+    snapshots = {name: SNAPSHOTS[name] for name in chosen}
 
-    engines = {name: Engine(Path(path), arguments.depth) for name, path in SNAPSHOTS.items()}
+    engines = {name: Engine(Path(path), arguments.depth) for name, path in snapshots.items()}
     rows = []
     try:
         for g in games:
@@ -110,12 +117,12 @@ def main() -> None:
         lines.append("")
         lines.append(f"   ClaudeShark decisions costing at least {arguments.threshold} cp, and what each snapshot plays there:")
         header = f"      {'mv':>3} {'san':<8} {'spent':>6} {'SF':>6} {'loss':>5} {'SF best':<7}"
-        for name in SNAPSHOTS:
+        for name in snapshots:
             header += f" | {name:<18}"
         lines.append(header)
         for r in losses:
             line = f"      {r['fullmove']:>3} {r['san']:<8} {r['spent']!s:>6} {r['sf_before']:>+6} {r['cp_loss']:>5} {r['sf_best']!s:<7}"
-            for name in SNAPSHOTS:
+            for name in snapshots:
                 d = r.get(name)
                 if d is None:
                     line += f" | {'-':<18}"

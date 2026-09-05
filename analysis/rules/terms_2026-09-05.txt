@@ -1,0 +1,31 @@
+Rules | AI Chessathon
+Skip to content
+AI ChessathonDocsLeaderboardDaily FiveRulesDocsLeaderboardDaily FiveRulesSign inSign inRegister
+Competition · 2026-08-31.v3
+Rules and code of conduct
+Competition framework · The technical specification is published in the documentation.
+FormatAgent rulesFair playCode of conductData and IPPrizesUpdates1. Competition format
+AI Chessathon is an AI chess engineering competition. It begins with an online qualification phase from 4–11 September 2026. Selected participants will be invited to an in-person final at Encode Club, London on 12 September 2026. The match format, clocks, compute and network limits, submission rules, and the qualification and selection process are set out in the documentation. Teams are limited to three members.
+Registration and the online qualification are open worldwide. A team enters the final qualification stage if at least one member is a UK university student, and only its UK members may take a seat at the in-person final. Teams are verified before invites are confirmed. Seats are limited and confirmed in the order replies are received. Participants must provide accurate registration information. An invitation to the final is personal to the selected participant or team and may not be transferred without organiser approval.
+2. Agents and submissions
+Participants must build and operate their own chess agent within the published interface, compute, network, and time limits. Permitted open-source libraries, models, external services, hardware, and collaboration rules are set out in the documentation. Participants must disclose components and assistance when the specification requires it.
+Agents must produce legal moves, operate reliably, and must not attempt to access another participant’s system, hidden match data, organiser infrastructure, or credentials.
+3. Fair play and enforcement
+No participant may manipulate pairings, coordinate match outcomes, impersonate another entrant, exploit infrastructure outside the intended game interface, or misrepresent authorship or eligibility. The Daily Five is solved alone, on your own account, without an engine, another person or a second account, and an invitation earned from it is personal. Wildcard invitations follow the same verification as finalist invitations, and where a review raises a question the participant may be asked to solve a position in person at the final. Suspected vulnerabilities should be reported privately to hello@aichessathon.com and not used for advantage.
+Organisers may pause a match, request logs or a reproducible build, rerun a match affected by a verified technical problem, or disqualify a submission for a material breach. Decisions will be based on the published rules, available evidence, and consistent treatment of participants. An appeal process will accompany the final technical rules.
+4. Code of conduct
+Participants must treat other participants, organisers, venue staff, and online communities with respect. Harassment, discrimination, threats, deliberate disruption, doxxing, or retaliation are not permitted. Communicate constructively, respect personal boundaries, and follow reasonable safety and venue instructions.
+Report conduct concerns to hello@aichessathon.com. Reports will be handled as privately as reasonably possible and shared only with people who need to respond.
+5. Intellectual property and event data
+Participants retain ownership of their original agent code. Entry grants the organisers only the limited rights needed to run, test, review, and record the competition. Any separate request to publish code, demonstrations, participant profiles, photography, or recordings will be explained before use.
+Match results, pairings, rulings, and factual event records may be published. Private registration data and CVs are handled under the privacy notice.
+6. Prizes
+Prize money is awarded at the in-person final. £1,000 goes to the winning team, £500 to the runner-up, and £250 to third place. Third place is the losing semi-finalist with the better standing in the final qualification Swiss. Prizes are awarded to the team. A team of more than one member decides how its prize is divided between its members.
+Payment is made after the final to bank details the team provides, and the organisers may require proof of identity and of eligibility before paying. Participants are responsible for any tax arising on a prize. A team disqualified under these rules forfeits any prize, and the organisers may award it to the next placed team.
+7. Updates and precedence
+This page is the competition framework. The operational detail lives in the documentation. Material changes will be versioned and communicated to registered participants, who will be asked to acknowledge any change that materially affects participation. If documents conflict, the latest dated competition rules take precedence for competition matters.
+Questions can be sent to hello@aichessathon.com.
+AI ChessathonSponsored by
+EventFormatTeamRegisterArchive
+LegalCompetition rulesPrivacy notice
+ContactEmail us

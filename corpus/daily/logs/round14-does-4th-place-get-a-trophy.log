@@ -1,0 +1,90 @@
+AI CHESSATHON MATCH LOG
+=======================
+
+MATCH
+  Round          Rated 14
+  Team           claudeshark
+  Colour         Black
+  Opponent       does 4th place get a trophy
+  Opening        Pirc Defence
+  Start FEN      rnbq1rk1/ppp1ppbp/3p1np1/8/P2PP3/2N2N2/1PP1BPPP/R1BQK2R b KQ - 0 6
+  You moved      First
+  Machine        w-b1bbdd
+  Finished       2026-09-04 20:15:38 UTC
+  Match ID       2fd9abaf-e220-4c5d-8a6f-5f75f298af00
+
+INIT
+  Ready in       2.1 s
+  Budget         90.0 s
+  Used           2 percent
+
+CLOCK
+  Base           120.0 s plus 0.5 s per move
+  Moves          50
+  Time used      117.3 s
+  Slowest        5.2 s on move 9
+  Fastest        0.0 s on move 48
+  Average        2.3 s
+  Left at end    27.7 s
+
+RESULT
+  Won by checkmate
+  Game lasted 239.1 s
+
+MOVES
+    #  move          time     clock left
+    1  Nc6           2.4 s      118.1 s
+    2  Nb4           3.6 s      115.0 s
+    3  e5            3.5 s      112.0 s
+    4  c6            2.8 s      109.7 s
+    5  c5            3.6 s      106.6 s
+    6  Bd7           3.1 s      104.0 s
+    7  Qc7           4.1 s      100.4 s
+    8  Rad8          4.9 s       96.0 s
+    9  a6            5.2 s       91.3 s
+   10  Ng4           4.0 s       87.7 s
+   11  Rde8          2.9 s       85.4 s
+   12  h6            3.4 s       82.4 s
+   13  Rc8           3.5 s       79.4 s
+   14  Nf6           3.3 s       76.5 s
+   15  Nh5           3.6 s       73.5 s
+   16  Nf4           4.1 s       69.9 s
+   17  exf4          2.9 s       67.5 s
+   18  Rcd8          3.8 s       64.2 s
+   19  Rfe8          3.6 s       61.1 s
+   20  Bg4           4.6 s       56.9 s
+   21  Bd4           1.4 s       56.0 s
+   22  b5            1.6 s       54.9 s
+   23  Qxb6          3.1 s       52.3 s
+   24  Bd7           2.1 s       50.8 s
+   25  Bb5           1.4 s       49.8 s
+   26  axb5          2.5 s       47.8 s
+   27  Bxb2          3.2 s       45.1 s
+   28  Bxc3          2.4 s       43.2 s
+   29  Bxd2          3.9 s       39.8 s
+   30  Rxe4          2.0 s       38.4 s
+   31  Rd4           3.5 s       35.4 s
+   32  c4            2.8 s       33.1 s
+   33  bxa4          0.8 s       32.7 s
+   34  Nc2           1.0 s       32.2 s
+   35  Rd2           1.0 s       31.7 s
+   36  Qxf2+         0.8 s       31.5 s
+   37  Qe2           1.1 s       30.9 s
+   38  Qxc4          0.8 s       30.6 s
+   39  Qxd5          1.0 s       30.1 s
+   40  Qe5           0.9 s       29.8 s
+   41  Ne3           0.7 s       29.6 s
+   42  Qf5           1.0 s       29.0 s
+   43  d5            0.7 s       28.9 s
+   44  Rxg2          1.0 s       28.4 s
+   45  fxe3          1.5 s       27.4 s
+   46  Qf2+          1.9 s       26.0 s
+   47  Qf3+          0.3 s       26.3 s
+   48  e2            0.0 s       26.8 s
+   49  Qxh3+         0.0 s       27.2 s
+   50  e1=Q#         0.0 s       27.7 s
+
+OUTPUT
+  Nothing written to stderr
+
+Email hello@aichessathon.com with this file if anything here is unclear.

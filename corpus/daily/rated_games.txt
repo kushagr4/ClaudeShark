@@ -1,0 +1,16 @@
+ R colour result opponent                     term                 moves   used   left  slow >=100 >=300 first serious      largest            consistent colour_source
+ 1 white  loss  The Castle Gambit            checkmate               29   77.2 57.346 7.581     4     1 22 Nxd4 -114       31 Qb3 -9075       True       official public metadata + move agreement + clock
+ 2 black  win   Trio Duo                     checkmate               29   77.3 57.199 6.397     1     0 18 O-O -157        18 O-O -157        True       official public metadata + move agreement + clock
+ 3 black  draw  Baryon                       threefold_repetition    49  117.0 27.532 7.585     2     1 14 Bd7 -182        20 Qf4+ -426       True       official public metadata + direct log + move agreement + clock
+ 4 black  win   Prophylaxis                  checkmate               22   59.8 71.173 6.021     1     0 15 Re8 -107        15 Re8 -107        True       official public metadata + direct log
+ 5 white  loss  Stonkfish                    checkmate               33   80.9 55.564 6.937     3     2 17 bxc3 -109       25 Rxb7 -9653      True       official public metadata
+ 6 white  win   e=π=2                        checkmate               52  125.2 20.811 6.841     2     0 19 Qd3 -123        44 Bf1 -147        True       official public metadata + direct log
+ 7 white  draw  Desai                        threefold_repetition    46  103.4 39.641 5.226     6     0 33 Bb4 -159        48 Ke2 -272        True       official public metadata
+ 8 black  win   404 Not Found                checkmate               18   59.4 69.633 5.919     0     0 none               10 Ng4 -40         True       official public metadata + direct log
+ 9 white  win   PawnStorm                    checkmate               13   46.2 80.28999999999999 7.205     0     0 none               7 Nb5 -86          True       official public metadata
+10 black  loss  Elbow Grease                 checkmate               49  114.2 30.287 7.201     8     2 13 Bb7 -150        50 b3 -8653        True       official public metadata
+11 white  loss  mangodogo                    checkmate               41   95.2 45.314  7.03     5     1 13 a4 -154         37 fxg3 -8961      True       official public metadata + direct log
+12 black  win   Rudra                        checkmate               66  131.7 21.287 5.156     2     1 43 e3 -324         43 e3 -324         True       official public metadata
+13 white  draw  Tobias Carlsen               threefold_repetition    15   45.8 81.67099999999999 6.215     1     0 10 Nxe5 -117       10 Nxe5 -117       True       official public metadata
+14 black  win   does 4th place get a trophy  checkmate               50  117.3 27.744 5.201     3     0 16 Rde8 -124       27 b5 -148         True       official public metadata + direct log
+15 black  loss  Zagreus 5.0                  checkmate               67  126.1  27.37 11.213    10     4 5 d5 -127          54 Kxb4 -9261      True       official public metadata + direct log

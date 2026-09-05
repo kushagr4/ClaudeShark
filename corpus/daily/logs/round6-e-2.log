@@ -1,0 +1,94 @@
+AI CHESSATHON MATCH LOG
+=======================
+
+MATCH
+  Round          Rated 6
+  Team           claudeshark
+  Colour         White
+  Opponent       e=π=2
+  Opening        King's Indian Classical
+  Start FEN      r1bq1rk1/ppp2pbp/2np1np1/3Pp3/2P1P3/P1N2N2/1P2BPPP/R1BQK2R b KQ - 0 8
+  You moved      Second
+  Machine        w-b1bbdd
+  Finished       2026-09-04 12:33:33 UTC
+  Match ID       4e8925b8-95e4-4daa-8120-7adb8483c2e5
+
+INIT
+  Ready in       NA
+  Budget         90.0 s
+  Used           NA
+
+CLOCK
+  Base           120.0 s plus 0.5 s per move
+  Moves          52
+  Time used      125.2 s
+  Slowest        6.8 s on move 7
+  Fastest        0.0 s on move 52
+  Average        2.4 s
+  Left at end    20.8 s
+
+RESULT
+  Won by checkmate
+  Game lasted 241.0 s
+
+MOVES
+    #  move          time     clock left
+    1  O-O           4.0 s      116.5 s
+    2  h3            3.2 s      113.8 s
+    3  Be3           2.9 s      111.4 s
+    4  cxd5          3.8 s      108.1 s
+    5  Qb3           5.9 s      102.7 s
+    6  Rac1          1.9 s      101.2 s
+    7  Bd3           6.8 s       94.9 s
+    8  Nb5           6.3 s       89.1 s
+    9  Bxb5          3.6 s       86.0 s
+   10  Qc2           6.5 s       80.0 s
+   11  Qd3           2.9 s       77.6 s
+   12  Bc4           3.0 s       75.1 s
+   13  Bb3           2.9 s       72.7 s
+   14  Rxc1          2.2 s       70.9 s
+   15  Rd1           1.6 s       69.9 s
+   16  axb4          4.5 s       65.9 s
+   17  Bc4           4.0 s       62.3 s
+   18  b3            1.8 s       61.1 s
+   19  Bb6           1.3 s       60.3 s
+   20  Re1           5.7 s       55.1 s
+   21  g3            2.7 s       52.9 s
+   22  Qc3           4.0 s       49.4 s
+   23  Ra1           1.4 s       48.5 s
+   24  Qc1           1.4 s       47.7 s
+   25  Qxa1          1.4 s       46.8 s
+   26  Qa4           2.3 s       44.9 s
+   27  Be3           1.8 s       43.6 s
+   28  Qxa6          3.6 s       40.5 s
+   29  Qb7           3.9 s       37.1 s
+   30  Qd7           0.9 s       36.7 s
+   31  Qe6+          1.4 s       35.8 s
+   32  Kg2           2.9 s       33.4 s
+   33  b4            1.0 s       32.9 s
+   34  b5            1.2 s       32.2 s
+   35  Bd3           0.9 s       31.8 s
+   36  Bf1           1.1 s       31.2 s
+   37  Qxd6          0.9 s       30.8 s
+   38  Nxe5          2.0 s       29.3 s
+   39  fxe3          1.0 s       28.8 s
+   40  Qxe5          1.2 s       28.1 s
+   41  b6            1.6 s       26.9 s
+   42  Kg1           0.9 s       26.5 s
+   43  b7            1.8 s       25.3 s
+   44  Qf6           1.0 s       24.8 s
+   45  Bb5+          2.3 s       23.0 s
+   46  Qxe7+         1.9 s       21.6 s
+   47  Qxd8+         0.8 s       21.3 s
+   48  Qd7+          0.7 s       21.1 s
+   49  Qxf5          1.9 s       19.7 s
+   50  Qc5           0.4 s       19.8 s
+   51  Bd7+          0.0 s       20.3 s
+   52  Bc8#          0.0 s       20.8 s
+
+OUTPUT
+  NA. This game was played before agent logs were kept, so the output
+  and the init time were never recorded. Everything above comes from
+  the clocks in the game itself.
+
+Email hello@aichessathon.com with this file if anything here is unclear.
