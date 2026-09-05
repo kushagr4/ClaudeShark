@@ -1,0 +1,3 @@
+40 quiet positions: root move changed 1, |score change|>30cp 1, mean |dscore| 1.6, nodes ratio on/off 1.125
+   r3rbk1/1p1n1p1p/1qp2np1/p2p4/P2P1Q2/1PP3NP/2BB1PP1/R2R2K1 b - - 0 19 {'0': {'move': 'f8g7', 'score': -56, 'nodes': 131830}, '1': {'move': 'h7h6', 'score': -66, 'nodes': 206213}}
+   3r2k1/3r1p2/p2q2p1/1p5p/1P2P3/2Qp1P1P/P2R2P1/3R1K2 w - - 0 31 {'0': {'move': 'd2d3', 'score': 59, 'nodes': 60608}, '1': {'move': 'd2d3', 'score': 20, 'nodes': 96338}}

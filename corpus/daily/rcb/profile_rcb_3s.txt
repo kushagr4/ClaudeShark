@@ -1,0 +1,38 @@
+         50833589 function calls (50404296 primitive calls) in 11.518 seconds
+
+   Ordered by: internal time
+   List reduced from 123 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   343862    1.651    0.000    2.228    0.000 /Users/kushagra/Documents/ClaudeShark/cs_eval.py:108(evaluate)
+   455158    0.909    0.000    2.002    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:2310(push)
+   759021    0.859    0.000    1.894    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:1819(generate_pseudo_legal_moves)
+376891/1398    0.721    0.000   11.589    0.008 /Users/kushagra/Documents/ClaudeShark/cs_search.py:589(_negamax)
+ 14288564    0.662    0.000    0.662    0.000 {method 'bit_length' of 'int' objects}
+  5909806    0.500    0.000    0.626    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:414(scan_reversed)
+356971/303171    0.380    0.000    5.928    0.000 /Users/kushagra/Documents/ClaudeShark/cs_search.py:875(_quiescence)
+   699872    0.359    0.000    0.359    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:905(attackers_mask)
+   921513    0.298    0.000    0.406    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:1014(_remove_piece_at)
+  1013694    0.277    0.000    0.277    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:875(attacks_mask)
+   766898    0.275    0.000    2.660    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:3702(generate_legal_moves)
+  2381816    0.272    0.000    0.272    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:835(piece_type_at)
+   427021    0.254    0.000    2.528    0.000 /Users/kushagra/Documents/ClaudeShark/cs_ordering.py:204(staged_moves)
+   140890    0.246    0.000    0.561    0.000 /Users/kushagra/Documents/ClaudeShark/cs_see.py:92(see)
+   449522    0.220    0.000    0.280    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:3645(_slider_blockers)
+   294959    0.185    0.000    0.185    0.000 /Users/kushagra/Documents/ClaudeShark/cs_see.py:47(attackers_to)
+   668444    0.157    0.000    0.288    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:3664(_is_safe)
+     9862    0.155    0.000    0.340    0.000 /Users/kushagra/Documents/ClaudeShark/cs_ordering.py:80(order_moves)
+   455158    0.152    0.000    0.297    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:2431(pop)
+   777588    0.150    0.000    0.275    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:864(king)
+   458662    0.143    0.000    0.299    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:1052(_set_piece_at)
+   281980    0.138    0.000    0.407    0.000 /Users/kushagra/Documents/ClaudeShark/cs_search.py:261(_has_legal_move)
+   461676    0.138    0.000    0.549    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:1906(checkers_mask)
+   376897    0.119    0.000    0.220    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:3797(_transposition_key)
+   465931    0.118    0.000    0.154    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:3768(_from_chess960)
+  1035665    0.116    0.000    0.168    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:411(msb)
+   132731    0.111    0.000    0.177    0.000 /Users/kushagra/Documents/ClaudeShark/.venv/lib/python3.12/site-packages/chess/__init__.py:3738(generate_castling_moves)
+   733862    0.108    0.000    0.147    0.000 /Users/kushagra/Documents/ClaudeShark/cs_search.py:205(rules_outcome)
+  1719310    0.107    0.000    0.107    0.000 {method 'bit_count' of 'int' objects}
+  1214086    0.104    0.000    0.104    0.000 <string>:2(__eq__)
+
+

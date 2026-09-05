@@ -1,0 +1,47 @@
+  9... played f8e7  rc_a a8c8 d7  rc_b a8c8 d7  SAME
+ 10... played b7b5  rc_a e8g8 d7  rc_b e8g8 d7  SAME
+ 11... played d6d5  rc_a d6d5 d7  rc_b d6d5 d8  SAME
+ 12... played f6d5  rc_a f6d5 d7  rc_b f6d5 d7  SAME
+ 13... played e7h4  rc_a e7h4 d7  rc_b e7h4 d8  SAME
+ 14... played h4f2  rc_a h4f2 d8  rc_b h4f2 d8  SAME
+ 15... played d8d5  rc_a d8d5 d9  rc_b d8d5 d10  SAME
+ 16... played e8f8  rc_a e8f8 d9  rc_b e8f8 d10  SAME
+ 17... played a8d8  rc_a h5g6 d8  rc_b h5g6 d8  SAME
+ 18... played h5g6  rc_a h5g6 d8  rc_b h5g6 d8  SAME
+ 19... played d8b8  rc_a d8b8 d7  rc_b d8b8 d8  SAME
+ 20... played f8g8  rc_a c6d4 d7  rc_b c6d4 d7  SAME
+ 21... played e5e4  rc_a e5e4 d8  rc_b e5e4 d9  SAME
+ 22... played c6e5  rc_a c6e5 d9  rc_b c6e5 d9  SAME
+ 23... played g8f8  rc_a g8f8 d0  rc_b g8f8 d0  SAME
+ 24... played e5c6  rc_a e5c6 d9  rc_b e5c6 d10  SAME
+ 25... played e4f3  rc_a e4f3 d9  rc_b e4f3 d9  SAME
+ 26... played f8e7  rc_a a7a5 d7  rc_b f8e7 d8  PLAYED=RC-B
+ 27... played e7f8  rc_a e7f8 d8  rc_b e7f8 d9  SAME
+ 28... played b8d8  rc_a b8d8 d7  rc_b b8e8 d8  PLAYED=RC-A
+ 29... played d8c8  rc_a d8c8 d9  rc_b d8c8 d10  SAME
+ 30... played f8g8  rc_a f8g8 d0  rc_b f8g8 d0  SAME
+ 31... played c8d8  rc_a c8d8 d9  rc_b c8d8 d9  SAME
+ 32... played g7f6  rc_a g7f6 d12  rc_b g7f6 d12  SAME
+ 33... played g8g7  rc_a g8g7 d0  rc_b g8g7 d0  SAME
+ 34... played g7h8  rc_a g7h8 d11  rc_b g7h8 d12  SAME
+ 35... played h8g7  rc_a h8g7 d0  rc_b h8g7 d0  SAME
+ 36... played a7a5  rc_a g6f5 d10  rc_b g6f5 d10  SAME
+ 37... played f6f5  rc_a h7h6 d10  rc_b h7h6 d11  SAME
+ 38... played g7f6  rc_a h7h5 d11  rc_b h7h5 d11  SAME
+ 39... played f6g5  rc_a f6g5 d12  rc_b f6g5 d12  SAME
+ 40... played h7h6  rc_a h7h5 d12  rc_b h7h5 d12  SAME
+ 41... played g5f6  rc_a g5f6 d10  rc_b f7f6 d11  PLAYED=RC-A
+ 42... played f6g7  rc_a g6h5 d11  rc_b g6h5 d11  SAME
+ 43... played f7f6  rc_a f7f6 d10  rc_b f7f6 d11  SAME
+ 44... played g7f8  rc_a g7f8 d12  rc_b g7f8 d12  SAME
+ 45... played g6e8  rc_a g6e8 d14  rc_b g6e8 d14  SAME
+ 46... played e8d7  rc_a e8d7 d12  rc_b e8d7 d12  SAME
+ 47... played h6h5  rc_a f8e7 d10  rc_b f8e7 d10  SAME
+ 48... played f8e7  rc_a f8e7 d9  rc_b f8e7 d9  SAME
+ 49... played e7d6  rc_a e7d6 d0  rc_b e7d6 d0  SAME
+ 50... played h5h4  rc_a h5h4 d4  rc_b h5h4 d4  SAME
+ 51... played d6e6  rc_a d6e6 d2  rc_b d6e6 d2  SAME
+
+43 positions; engines differ at 3; of those played==RC-B 1, played==RC-A 2
+overall agreement: RC-A 32/43, RC-B 31/43
+exit=0

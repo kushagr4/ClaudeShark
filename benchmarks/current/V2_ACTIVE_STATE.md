@@ -10,12 +10,12 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 
 | identity | exact value |
 |---|---|
-| **CURRENT SUBMITTED BUILD** | **RC-A / exact rated-v1** — stays the submitted build until the user explicitly confirms the RC-B upload |
+| **CURRENT SUBMITTED BUILD** | **RC-B** — uploaded by the user **2026-09-05 12:01 UK local**: `corpus/release/claudeshark_rc_b.zip`, sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11`. RC-A (`3a89bf3e…ff9b`, commit `98c48c8`) is the historical fallback/control. |
 | submitted archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` (39,125 bytes; 106,863 unzipped; 11 files) |
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
-| **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **Recommended GO 2026-09-05 12:05; NOT YET UPLOADED** — card `RC_B_UPLOAD_CARD.md`. |
-| **CURRENT DEVELOPMENT CANDIDATE** | none in flight; next work per section 6 (speed lane, fingerprint-gated). |
+| **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **CHAMPION and SUBMITTED** (uploaded 12:01); every candidate is measured against `champions/rc_b`. |
+| **CURRENT DEVELOPMENT CANDIDATE** | **RC-C candidate 1: check extension** (`CS_CHECK_EXT`, default off in the working tree; candidate = flag on). Preregistered `2026-09-05-rcc-check-extension-prereg.md`. Gate 0 passed (fingerprint off unchanged; +12.5% nodes on; tactics 16/16; controls neutral; one depth-artifact test documented). Gate 1 passed: repairs R20 12…Nxd5 at d7, R20 11…d5 at d8, R17 47.Re1 at d7; R18/R19 unchanged. Next: equal-time 80-position screen, then a short timed screen vs `champions/rc_b`. |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and
@@ -49,6 +49,17 @@ new one under a new name.
   new mechanism. Page snapshots in
   `analysis/refresh_2026-09-05/` (`_0853`). Keep RC-A games in `corpus/daily/rca/`,
   never merged into the V2.1 dataset.
+  **Round 20 (loss, Black, vs The Huxley Knights) = RC-B, HIGH confidence by
+  timing, not proven by moves:** uploaded 12:01 UK; the game finished 11:10:35
+  UTC = 12:10:35 UK after 194 s, so it started about 12:07; the platform log
+  carries no build identity (init 2.2 s, both builds start in ~1.6 s here); a
+  cold replay of all 43 Black moves has the two builds differing at only 3
+  positions (1 matches RC-B, 2 RC-A), so move agreement is neutral. Files
+  `corpus/daily/rcb/round20-huxley-knights.{pgn,log,jsonl,_annotated.jsonl}`.
+  Mechanism: five consecutive 100–143 cp errors on moves 8–12 (Bh5, Be7, b5,
+  d5, Nxd5), the last two walking into 13.Qxd5! … 16.Nc7+; root +9 at 12…
+  against a true −481 because the fork is a check one ply past the
+  capture-only quiescence. This selected the check-extension lane.
   **RC-A live record today: R16 W, R17 D, R18 L, R19 W** (files
   `corpus/daily/rca/round1{6,7,8,9}-*.{pgn,jsonl,_annotated.jsonl}`, record
   `2026-09-05-rca-live-games-r16-r19.md`). Not an Elo test; mechanisms only:
@@ -135,17 +146,15 @@ evidence order of the user's plan for what remains:
 
 ## 8. Live background jobs
 
-**NONE.** Sweep at 11:40 (Mac): the C1 arena (PID 19304) exited at 11:37 with
-226/226 games; its `caffeinate` guard exited with it; no python, uv, Stockfish
-or sleep pollers. The only job after that is the RC-B test + release-check
-chain, which is foreground work of the session, not an experiment.
+**ONE (light, single core).** Equal-time 80-position screen for the check
+extension, `tools.corpus.analyse --ms 3000 --workers 1`, base (flag off)
+then candidate (flag on), launched 13:03, expected finish about 13:20,
+output `corpus/daily/rcc/sa80_{rcb_3000ms_quiet,checkext_3000ms}.jsonl`,
+log `corpus/daily/rcc/sa80_checkext_screen.log`. Kill condition: none
+(short). No arena is running.
 
-Rules for future jobs: one CPU-heavy job at a time, registered here (PID,
-parent, purpose, command, start, expected finish, output, sidecar, CPU-heavy,
-kill condition), removed when it ends; no waiter shells; a probe must never
-match its own command line. **Keep the lid open and the charger in during a
-timed screen**: the 10:20–11:31 sleep did not distort clocks (monotonic
-timer) but it stalled the run for over an hour on a 31% battery.
+Rules: one CPU-heavy job at a time, registered here, removed when it ends;
+no waiter shells; keep the lid open and the charger in during timed screens.
 
 ## 9. Known DO-NOT-USE artifacts
 

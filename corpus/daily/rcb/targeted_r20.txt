@@ -1,0 +1,42 @@
+
+== R20 8...Bh5 ==  side to move: Black
+  oracle: best g4e6 cp +15 (stm)   second: ('g4c8', -82)
+  rated_v1     timed g4h5   score   +63 static  +100 depth  8 nodes   312043  oracle after  -130  loss  +144  pv 
+  rated_v1     fixed g4h5   score   +63 static  +100 depth  8 nodes   312043  oracle after  -130  loss  +144  pv 
+  rc_b         timed g4h5   score   +62 static  +100 depth  8 nodes   322731  oracle after  -130  loss  +144  pv 
+  rc_b         fixed g4h5   score   +62 static  +100 depth  8 nodes   322731  oracle after  -130  loss  +144  pv 
+
+== R20 9...Be7 ==  side to move: Black
+  oracle: best d6d5 cp -76 (stm)   second: ('f8e7', -153)
+  rated_v1     timed a8c8   score   +52 static   +69 depth  7 nodes   245743  oracle after  -145  loss   +74  pv 
+  rated_v1     fixed a8c8   score   +44 static   +69 depth  8 nodes   561722  oracle after  -145  loss   +74  pv 
+  rc_b         timed a8c8   score   +52 static   +69 depth  7 nodes   245743  oracle after  -145  loss   +74  pv 
+  rc_b         fixed a8c8   score   +44 static   +69 depth  8 nodes   561262  oracle after  -145  loss   +74  pv 
+
+== R20 10...b5 ==  side to move: Black
+  oracle: best e8g8 cp -94 (stm)   second: ('a8b8', -132)
+  rated_v1     timed e8g8   score   +40 static   +49 depth  7 nodes   270678  oracle after   -94  loss    +0  pv 
+  rated_v1     fixed e8g8   score   +37 static   +49 depth  8 nodes   671046  oracle after   -94  loss    +0  pv 
+  rc_b         timed e8g8   score   +40 static   +49 depth  7 nodes   269776  oracle after   -94  loss    +0  pv 
+  rc_b         fixed e8g8   score   +37 static   +49 depth  8 nodes   670144  oracle after   -94  loss    +0  pv 
+
+== R20 11...d5 ==  side to move: Black
+  oracle: best e8g8 cp -207 (stm)   second: ('f6e4', -240)
+  rated_v1     timed d6d5   score    -5 static   -37 depth  7 nodes   164402  oracle after  -342  loss  +137  pv 
+  rated_v1     fixed d6d5   score    -5 static   -37 depth  8 nodes   325897  oracle after  -342  loss  +137  pv 
+  rc_b         timed d6d5   score    -5 static   -37 depth  8 nodes   325902  oracle after  -342  loss  +137  pv 
+  rc_b         fixed d6d5   score    -5 static   -37 depth  8 nodes   325902  oracle after  -342  loss  +137  pv 
+
+== R20 12...Nxd5 ==  side to move: Black
+  oracle: best c6d4 cp -341 (stm)   second: ('e8g8', -361)
+  rated_v1     timed f6d5   score    +9 static  -113 depth  7 nodes   217283  oracle after  -481  loss  +146  pv 
+  rated_v1     fixed c6d4   score  -244 static  -113 depth  8 nodes  1346165  oracle after  -335  loss    +0  pv 
+  rc_b         timed f6d5   score    +9 static  -113 depth  7 nodes   217262  oracle after  -481  loss  +146  pv 
+  rc_b         fixed c6d4   score  -244 static  -113 depth  8 nodes  1317558  oracle after  -335  loss    +0  pv 
+
+== R20 15...Qxd5 ==  side to move: Black
+  oracle: best e8g8 cp -464 (stm)   second: ('d8d5', -495)
+  rated_v1     timed d8d5   score  -384 static  -333 depth  8 nodes   157683  oracle after  -531  loss   +43  pv 
+  rated_v1     fixed d8d5   score  -384 static  -333 depth  8 nodes   157683  oracle after  -531  loss   +43  pv 
+  rc_b         timed d8d5   score  -391 static  -333 depth  9 nodes   294218  oracle after  -531  loss   +43  pv 
+  rc_b         fixed d8d5   score  -384 static  -333 depth  8 nodes   157681  oracle after  -531  loss   +43  pv 
