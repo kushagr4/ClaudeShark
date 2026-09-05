@@ -8,9 +8,19 @@
     "sha256": "a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a",
     "commit": "10c92773c6770211cf56519c6757e9a90977e83c",
     "champion_dir": "champions/v2_1_kingpawn",
-    "features": {"king_pawn": true, "king_safety": false, "passed": false, "mopup": false, "TEMPO": 8}
+    "features": {
+      "king_pawn": true,
+      "king_safety": false,
+      "passed": false,
+      "mopup": false,
+      "TEMPO": 8
+    }
   },
-  "rated_v1_baseline": {"commit": "98c48c8", "tag": "rated-v1", "champion_dir": "champions/rated_v1"},
+  "rated_v1_baseline": {
+    "commit": "98c48c8",
+    "tag": "rated-v1",
+    "champion_dir": "champions/rated_v1"
+  },
   "rules_snapshot": {
     "file": "benchmarks/current/2026-09-05-official-rules-snapshot.md",
     "pondering_possible": false,
@@ -19,43 +29,191 @@
     "uploads_per_day": 10,
     "uploads_close": "2026-09-11T11:00 London",
     "swiss_rounds": 13,
-    "tiebreaks": ["points", "Buchholz", "head-to-head", "earlier final submission"],
+    "tiebreaks": [
+      "points",
+      "Buchholz",
+      "head-to-head",
+      "earlier final submission"
+    ],
     "eligibility_action": "user must get written organiser clarification (UK university student rule)"
   },
   "rated_record": {
-    "games": 15, "wins": 7, "draws": 3, "losses": 5, "points": 8.5,
-    "white": {"w": 2, "d": 2, "l": 3}, "black": {"w": 5, "d": 1, "l": 2},
-    "colours_confirmed": 15, "colours_inferred": 0,
+    "games": 15,
+    "wins": 7,
+    "draws": 3,
+    "losses": 5,
+    "points": 8.5,
+    "white": {
+      "w": 2,
+      "d": 2,
+      "l": 3
+    },
+    "black": {
+      "w": 5,
+      "d": 1,
+      "l": 2
+    },
+    "colours_confirmed": 15,
+    "colours_inferred": 0,
     "colour_source": "public team page + direct logs + PGN results, all consistent",
     "dataset": "corpus/daily/rated_games.json"
   },
   "recurring_failures": [
-    {"mechanism": "evaluation blind to a dynamic attack", "games": [1, 3, 5, 10, 11]},
-    {"mechanism": "conversion of a won position (blind win / perpetual horizon)", "games": [3, 7]},
-    {"mechanism": "opening error from a sharp curated start", "games": [15]}
+    {
+      "mechanism": "evaluation blind to a dynamic attack",
+      "games": [
+        1,
+        3,
+        5,
+        10,
+        11
+      ]
+    },
+    {
+      "mechanism": "conversion of a won position (blind win / perpetual horizon)",
+      "games": [
+        3,
+        7
+      ]
+    },
+    {
+      "mechanism": "opening error from a sharp curated start",
+      "games": [
+        15
+      ]
+    }
   ],
-  "decision_classes_491": {"correct_move_wrong_score": 104, "wrong_move_wrong_score": 18, "wrong_move_right_score": 30, "blind_wins": 4, "false_wins": 0},
-  "depth_repair_27_key_positions": {"rated_v1_d7": 6, "rated_v1_d8": 6, "v21_d8": 6},
+  "decision_classes_491": {
+    "correct_move_wrong_score": 104,
+    "wrong_move_wrong_score": 18,
+    "wrong_move_right_score": 30,
+    "blind_wins": 4,
+    "false_wins": 0
+  },
+  "depth_repair_27_key_positions": {
+    "rated_v1_d7": 6,
+    "rated_v1_d8": 6,
+    "v21_d8": 6
+  },
   "match_226_actual_starts": {
     "file": "corpus/daily/pool/games/v21_vs_ratedv1_actual.jsonl",
-    "candidate": "champions/v2_1_kingpawn", "baseline": "champions/rated_v1", "depth": 6,
-    "wdl": [41, 125, 60], "score": 0.458, "elo": -29.3,
-    "families": 113, "informative_families": 54,
-    "bootstrap_elo": [-55.8, -4.6], "loo_elo": [-32.7, -26.4],
+    "candidate": "champions/v2_1_kingpawn",
+    "baseline": "champions/rated_v1",
+    "depth": 6,
+    "wdl": [
+      41,
+      125,
+      60
+    ],
+    "score": 0.458,
+    "elo": -29.3,
+    "families": 113,
+    "informative_families": 54,
+    "bootstrap_elo": [
+      -55.8,
+      -4.6
+    ],
+    "loo_elo": [
+      -32.7,
+      -26.4
+    ],
     "verdict": "V2.1 king-pawn rejected for the locked build"
   },
   "v21_helping_deployment": false,
-  "pondering": {"implemented": false, "allowed_by_rules": false, "tested": false},
-  "start_fen_recurrence": {"public_games": 447, "distinct_starts": 239, "round14_share_seen_earlier": 0.87, "round15_share_seen_earlier": 0.84, "our_rounds_6_15_from_public_starts": 4, "book_worth_shipping_tonight": false, "legal_book_source": "own engine offline search only"},
-  "time_management": {"errors_in_time_trouble": 0, "clock_at_first_serious_error_s": [45, 113], "unused_at_end_s": [21, 82], "soft_budget_used": 0.694},
+  "pondering": {
+    "implemented": false,
+    "allowed_by_rules": false,
+    "tested": false
+  },
+  "start_fen_recurrence": {
+    "public_games": 447,
+    "distinct_starts": 239,
+    "round14_share_seen_earlier": 0.87,
+    "round15_share_seen_earlier": 0.84,
+    "our_rounds_6_15_from_public_starts": 4,
+    "book_worth_shipping_tonight": false,
+    "legal_book_source": "own engine offline search only"
+  },
+  "time_management": {
+    "errors_in_time_trouble": 0,
+    "clock_at_first_serious_error_s": [
+      45,
+      113
+    ],
+    "unused_at_end_s": [
+      21,
+      82
+    ],
+    "soft_budget_used": 0.694
+  },
   "v24_time_policy": {
     "base": "champions/rated_v1",
-    "stage1": {"sf60": {"depth_gain": 0.50, "budget_used": 0.932, "ladder": "PASS"}, "sf75": {"depth_gain": 0.67, "budget_used": 1.117, "ladder": "PASS"}, "sf90": {"depth_gain": 1.04, "budget_used": 1.405, "ladder": "PASS"}},
+    "stage1": {
+      "sf60": {
+        "depth_gain": 0.5,
+        "budget_used": 0.932,
+        "ladder": "PASS"
+      },
+      "sf75": {
+        "depth_gain": 0.67,
+        "budget_used": 1.117,
+        "ladder": "PASS"
+      },
+      "sf90": {
+        "depth_gain": 1.04,
+        "budget_used": 1.405,
+        "ladder": "PASS"
+      }
+    },
     "selected": "sf60",
-    "stage2": "pending"
+    "stage2": {
+      "file": "corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl",
+      "games": 226,
+      "wdl": [
+        68,
+        91,
+        67
+      ],
+      "score": 0.502,
+      "elo": 1.5,
+      "informative_families": 70,
+      "bootstrap_elo": [
+        -30.8,
+        32.4
+      ],
+      "failures": 0,
+      "min_clock_s": {
+        "sf60": 2.2,
+        "rated_v1": 6.7
+      },
+      "verdict": "sf60 rejected"
+    }
   },
   "strongest_supported_build": "rated-v1",
-  "release_candidate": "pending",
-  "recommendation": "pending",
-  "do_not_touch": ["main", "rated-v1 98c48c8", "submission_v2_1_kingpawn.zip", "10c9277", "corpus/daily/splits", "corpus/daily/pool/games/*CORRUPT-DISCARDED*"]
+  "release_candidate": {
+    "name": "RC-A rated-v1 exactly",
+    "archive": "corpus/release/claudeshark_rated_v1_rc_a.zip",
+    "bytes": 39125,
+    "unzipped_bytes": 106863,
+    "files": 11,
+    "sha256": "3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b",
+    "source_commit": "98c48c8",
+    "tests_passed": 1202,
+    "release_check": "15/15 PASS",
+    "startup_s": 1.49
+  },
+  "recommendation": "RECOMMEND SUBMIT RC-A unless V2.4b finishes positive and safe; never uploaded by the assistant",
+  "do_not_touch": [
+    "main",
+    "rated-v1 98c48c8",
+    "submission_v2_1_kingpawn.zip",
+    "10c9277",
+    "corpus/daily/splits",
+    "corpus/daily/pool/games/*CORRUPT-DISCARDED*"
+  ],
+  "v24b_early_surplus": {
+    "variant": "champions/rated_v1_early16",
+    "design": "benchmarks/current/2026-09-05-v2.4b-early-surplus-design.md",
+    "status": "gate 0 running"
+  }
 }
