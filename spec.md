@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 1
+SPEC_REVISION: 2
 
-LAST_UPDATED: 2026-09-05 21:35 UK (Windows PC)
+LAST_UPDATED: 2026-09-05 21:50 UK (Windows PC)
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -309,7 +309,7 @@ separately earn promotion under section 11.
 
 ## 13. Fable → Friend Instructions
 
-SPEC_REVISION: 1
+SPEC_REVISION: 2
 
 CURRENT FRIEND SCOPE: tactical horizon / forcing-line robustness (section 8)
 and the R21+ loss audit (section 9).
@@ -319,7 +319,19 @@ PRIORITY:
    confirm the engine is exact RC-B (`uv run python -m tools.bench --depth 6`
    = 1,708,269 nodes; `uv run python -m pytest -q` passes).
 2. R21+ loss audit (section 9) — the cheapest source of new information; it
-   drives both lanes.
+   drives both lanes. Public team page fetched 21:50 UK
+   (`analysis/refresh_2026-09-05/claudeshark_team_games_2150.json`, 29
+   games listed): rounds 21–29 are all RC-B, 3W 3D 3L. The three losses:
+   **Rated 23** (Black vs David Naylor, Caro-Kann Classical), **Rated 24**
+   (Black vs Rustic Alpha 3, Sicilian Closed), **Rated 25** (White, opponent
+   name did not parse, Semi-Slav Defence). Draws: R21 (White vs "AI < human",
+   Sicilian Dragon), R22 (Black vs "this team", Sicilian Closed), R29 (White
+   vs NotLLM, Catalan). Wins: R26, R27, R28. Game pages are
+   `https://aichessathon.com/game/<game_id>` from that JSON; ingest with
+   `tools.daily.ingest` under BUILD = RC-B and annotate with
+   `tools.postmortem.annotate`. The three draws are worth the same
+   first-deterioration pass if time allows (R17-style conversion failures
+   count as losses of half a point).
 3. Tactical-horizon diagnosis on the R20 / R18 / R17 positions, then a
    mechanism only if the diagnosis supports one.
 
@@ -356,9 +368,11 @@ the losses are not horizon-driven — report and await re-scoping.
 MAX SUGGESTED TIME: audit 60–90 minutes; diagnosis 30 minutes; one
 mechanism implementation 25 minutes + Gate 0/1 30 minutes before any arena.
 
-LATEST COORDINATOR MESSAGE: 2026-09-05 21:35 UK — spec revision 1 published;
-`rc-c-integration` engine normalised to exact RC-B; Kushagra's lane is
-reproducing Candidate 3 speed on Windows and will run a fresh screen vs RC-B.
+LATEST COORDINATOR MESSAGE: 2026-09-05 21:50 UK — revision 2: the R21+
+game list above is now known (three losses, R23/R24/R25, all RC-B). Start
+the audit there. Candidate 3's speed transferred to the PC (+16.5% knps,
+identical tree) and its 100-game screen vs RC-B is running until ~22:55; I
+will read your section 14 at that boundary.
 
 ## 14. Friend → Fable Findings
 
@@ -385,9 +399,15 @@ ACTIVE JOBS: NONE
 the Mac (identical fingerprints, 1,227 tests, +18.7% knps). Windows: process
 sweep clean; `rc-c-integration` normalised to exact RC-B (engine blobs equal
 to `3d918a5` and `champions/rc_b`; the two candidate-3 tests removed from the
-integration branch, kept on the lane branch). Next: PC speed transfer check
-RC-B vs Candidate 3, then a fresh 100-game screen vs RC-B. The Mac partial
-(59 games) is historical non-decisive data only.
+integration branch, kept on the lane branch). The Mac partial (59 games) is
+historical non-decisive data only.
+
+2026-09-05 21:42 UK — **PC speed transfer: PASS.** Depth-6 suite, alternated
+RC-B / candidate / RC-B / candidate on a quiet machine: RC-B 75,764 and
+76,234 knps; candidate 88,104 and 89,056 knps (**+16.5%**; Mac +18.7%);
+1,708,269 nodes in all four runs (`corpus/daily/rcc/pc_speed_transfer_depth6.txt`).
+**PC Gate 0: PASS** — 1,228 tests pass on the lane. Fresh Gate 2A screen
+launched 21:42 (section 17); the decision is made from that artifact only.
 
 ## 16. Integration Queue
 
@@ -399,7 +419,9 @@ Nothing enters here without evidence.
 
 ## 17. Active Jobs
 
-NONE.
+| agent | PID | task | output | start | expected finish | max runtime | kill condition |
+|---|---|---|---|---|---|---|---|
+| Fable (PC) | 24324 (uv) → 22576 (arena) + 6 workers | Gate 2A: `champions/rcc_speed` vs `champions/rc_b`, 100 games, 120 s + 0.5 s, 300-ply cap, 6 workers, `competition_actual_suite` | `corpus/daily/rcc/speed_vs_rcb_120s_100_pc.jsonl` (+ `.pgn` at the end, `.log`) | 2026-09-05 21:42 UK | ~22:55 UK | 90 min | any flag / crash / illegal move on the candidate side; or a clearly negative decision before 100 games; if stopped early the artifact is renamed `PARTIAL-NON-DECISIVE` |
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)
@@ -409,6 +431,9 @@ kill condition. Remove it immediately after completion.)
 * 2026-09-05 21:35 UK — Fable → Friend: revision 1 published. Branch from
   `origin/rc-c-integration`. Your scope is sections 8, 9 and 13. Report in
   section 14 on your branch; I read it at my task boundaries, not by polling.
+* 2026-09-05 21:50 UK — Fable → Friend: revision 2. Rounds 21–29 fetched;
+  losses are R23, R24, R25 (details in section 13). Candidate 3 screen
+  running on the PC until ~22:55.
 
 ## 19. Codex Monday
 
