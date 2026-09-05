@@ -201,12 +201,55 @@ def update_history(
     history[index] = value
 
 
+_BB_ALL = chess.BB_ALL
+_ray = chess.ray
+
+
+def legal_captures(board: chess.Board, in_check: bool) -> Iterator[chess.Move]:
+    """The moves ``board.generate_legal_captures()`` yields, in the same order.
+
+    python-chess sets up every legal-move generator by finding the king, its
+    pinned pieces and its checkers, and then asks ``_is_safe`` about every
+    pseudo-legal move. Out of check the checkers scan is wasted and the safety
+    question has a short answer: a capture is legal unless a pinned piece
+    leaves its pin ray or the king steps onto an attacked square. This does
+    that inline for the two capture sites that already know they are not in
+    check; in check it defers to python-chess, whose evasion generator has its
+    own order. En passant is rare and has its own discovered-check case, so it
+    is left to python-chess as well. tests/test_legal_captures.py holds the
+    sequence equal to the library's on random positions.
+    """
+    if in_check:
+        yield from board.generate_legal_captures()
+        return
+    us = board.turn
+    king = board.king(us)
+    if king is None:
+        yield from board.generate_legal_captures()
+        return
+    blockers = board._slider_blockers(king)
+    them = board.occupied_co[not us]
+    king_mask = 1 << king
+    is_attacked_by = board.is_attacked_by
+    for move in board.generate_pseudo_legal_moves(_BB_ALL, them):
+        from_mask = 1 << move.from_square
+        if from_mask & blockers:
+            if not _ray(move.from_square, move.to_square) & king_mask:
+                continue
+        elif from_mask == king_mask and is_attacked_by(not us, move.to_square):
+            continue
+        yield move
+    if board.ep_square is not None:
+        yield from board.generate_legal_ep()
+
+
 def staged_moves(
     board: chess.Board,
     tt_move: chess.Move | None,
     ply: int,
     heuristics: Heuristics,
     see_losing: Callable[[chess.Board, chess.Move], bool] | None = None,
+    in_check: bool = True,
 ) -> Iterator[chess.Move]:
     """Yield the moves ``order_moves`` would return, in the same order, lazily.
 
@@ -224,6 +267,9 @@ def staged_moves(
     100,000, under-promotions at or below 0), and the relative order inside
     each head band is the same stable sort over the same generation order.
 
+    ``in_check`` lets the capture stage skip python-chess's checkers scan;
+    pass True when unknown, which is always correct.
+
     **Only valid when the side to move has no pawn on its seventh rank.**
     Promotions score above the table move (queen-promotion captures) or
     between it and the captures (queen-promotion pushes), and under-promotion
@@ -240,7 +286,7 @@ def staged_moves(
         done.append(tt_move)
 
     winning: list[tuple[int, chess.Move]] = []
-    for move in board.generate_legal_captures():
+    for move in legal_captures(board, in_check):
         if move == tt_move:
             continue
         to_square = move.to_square

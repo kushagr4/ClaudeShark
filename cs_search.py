@@ -37,7 +37,14 @@ from cs_constants import (
     TOTAL_PHASE,
 )
 from cs_eval import evaluate, is_material_draw
-from cs_ordering import Heuristics, order_captures, order_moves, staged_moves, update_history
+from cs_ordering import (
+    Heuristics,
+    legal_captures,
+    order_captures,
+    order_moves,
+    staged_moves,
+    update_history,
+)
 from cs_see import see
 from cs_time import CHECK_INTERVAL, TimeManager
 from cs_tt import TranspositionTable, score_from_tt, score_to_tt
@@ -767,7 +774,7 @@ class Searcher:
             # the full list is only built if the search asks for the tail. A
             # side with a pawn on its seventh rank has promotions, whose
             # ordering the picker does not reproduce, so it takes the sort.
-            moves = staged_moves(board, tt_move, ply, self.heuristics, see_losing)
+            moves = staged_moves(board, tt_move, ply, self.heuristics, see_losing, in_check)
         else:
             legal = list(board.legal_moves)
             if not legal:
@@ -1008,8 +1015,10 @@ class Searcher:
 
 
 def _tactical_moves(board: chess.Board) -> list[chess.Move]:
-    """Captures plus queen promotions -- the moves quiescence is allowed to make."""
-    moves = list(board.generate_legal_captures())
+    """Captures plus queen promotions -- the moves quiescence is allowed to make.
+
+    Only called out of check (the in-check branch takes every evasion)."""
+    moves = list(legal_captures(board, False))
     promotion_rank = _RANK_7 if board.turn else _RANK_2
     candidates = board.pawns & board.occupied_co[board.turn] & promotion_rank
     if candidates:
