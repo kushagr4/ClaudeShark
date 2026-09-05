@@ -37,6 +37,13 @@ overwrite an RC archive; freeze a new one under a new name.
   user-confirmed submission exists. None had been played at 07:05 (team page
   listed 15 games; `analysis/refresh_2026-09-05/claudeshark_team_games_0700.json`).
   Ingest new games with `tools.daily.ingest` under BUILD = RC-A.
+  **RC-A games so far (public team page fetched 08:53, 16 games listed):**
+  Rated 16, ClaudeShark **White, won by checkmate** vs darKnight (Sicilian
+  Sveshnikov start, 142 plies, mean spend 1.92 s, max 7.94 s). PGN
+  `corpus/daily/rca/round16-darknight.pgn`, ingested
+  `corpus/daily/rca/round16-darknight.jsonl`; page snapshots in
+  `analysis/refresh_2026-09-05/` (`_0853`). Keep RC-A games in `corpus/daily/rca/`,
+  never merged into the V2.1 dataset.
 
 ## 3. Experiments — status, result, artifact
 
