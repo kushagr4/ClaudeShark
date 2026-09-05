@@ -45,6 +45,7 @@ from harness.referee import (
     play_match,
 )
 from harness.sandbox import local
+from harness.uci_agent import UciAgent, uci_identity
 from tools.positions import (
     BALANCED_OPENINGS,
     CORPUS_VERSION,
@@ -163,12 +164,15 @@ def tag_pgn(pgn: str, tags: dict[str, object]) -> str:
     return str(game)
 
 
-def _play(spec: GameSpec, agent: Path, opponent: Path, base_ms: int, increment_ms: int,
+def _play(spec: GameSpec, agent: Path, make_opponent, base_ms: int, increment_ms: int,
           ply_cap: int, draw_claim: str = "auto") -> tuple[GameSpec, Outcome, float]:
-    white, black = (agent, opponent) if spec.agent_is_white else (opponent, agent)
+    # make_opponent builds a fresh opponent Agent per game: a local champion
+    # directory through the runner, or a UCI engine at a limited strength.
+    ours, theirs = local(agent), make_opponent()
+    white, black = (ours, theirs) if spec.agent_is_white else (theirs, ours)
     started = time.time()
     outcome = play_match(
-        local(white), local(black), base_ms, increment_ms, ply_cap=ply_cap,
+        white, black, base_ms, increment_ms, ply_cap=ply_cap,
         start_fen=spec.fen, draw_claim=draw_claim,
     )
     return spec, outcome, time.time() - started
@@ -196,6 +200,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Score an agent over many games.")
     parser.add_argument("--agent", type=Path, default=Path("."))
     parser.add_argument("--opponent", type=Path, default=Path("champions/v0_3"))
+    parser.add_argument("--opponent-uci", type=Path, default=None,
+                        help="a UCI engine binary as the opponent instead of a champion "
+                             "directory (external strength benchmark); --uci-elo sets "
+                             "UCI_LimitStrength/UCI_Elo, one thread, small hash")
+    parser.add_argument("--uci-elo", type=int, default=None,
+                        help="UCI_Elo for --opponent-uci; omitted means full strength")
+    parser.add_argument("--uci-hash", type=int, default=16, help="Hash MB for --opponent-uci")
     parser.add_argument("--games", type=int, default=96)
     parser.add_argument("--base-ms", type=int, default=20_000)
     parser.add_argument("--increment-ms", type=int, default=200)
@@ -280,11 +291,33 @@ def main() -> None:
     environment = sanitise_environment(allow)
 
     agent = arguments.agent.resolve()
-    opponent = arguments.opponent.resolve()
     fens = selected
     schedule = build_schedule(arguments.games, fens)
 
-    match_id = f"{int(time.time())}-{agent.name}-vs-{opponent.name}"
+    if arguments.opponent_uci is not None:
+        binary = arguments.opponent_uci.resolve()
+        if not binary.is_file():
+            raise SystemExit(f"--opponent-uci: {binary} is not a file")
+        uci_options: dict[str, object] = {"Threads": 1, "Hash": arguments.uci_hash}
+        if arguments.uci_elo is not None:
+            uci_options.update({"UCI_LimitStrength": True, "UCI_Elo": arguments.uci_elo})
+        opponent_label = f"uci:{binary.name}" + (
+            f"@elo{arguments.uci_elo}" if arguments.uci_elo is not None else "@full")
+        opponent_snapshot = uci_identity(binary, uci_options)
+        opponent_short = f"{binary.stem}-elo{arguments.uci_elo}"
+
+        def make_opponent(binary=binary, options=uci_options, inc=arguments.increment_ms):
+            return UciAgent(binary, options, inc)
+    else:
+        opponent = arguments.opponent.resolve()
+        opponent_label = str(arguments.opponent)
+        opponent_snapshot = snapshot_identity(opponent)
+        opponent_short = opponent.name
+
+        def make_opponent(directory=opponent):
+            return local(directory)
+
+    match_id = f"{int(time.time())}-{agent.name}-vs-{opponent_short}"
     pgn_path = resolve_pgn_path(arguments.pgn, arguments.jsonl, arguments.no_pgn)
     header = {
         "record": "match_header",
@@ -293,8 +326,8 @@ def main() -> None:
         "git_commit": git_commit(),
         "agent": str(arguments.agent),
         "agent_snapshot": snapshot_identity(agent),
-        "opponent": str(arguments.opponent),
-        "opponent_snapshot": snapshot_identity(opponent),
+        "opponent": opponent_label,
+        "opponent_snapshot": opponent_snapshot,
         "corpus_version": corpus_version,
         "corpus_hash": corpus_hash(fens),
         "corpus_file": str(arguments.corpus) if arguments.corpus else None,
@@ -319,7 +352,7 @@ def main() -> None:
         handle.flush()
 
     print(
-        f"{arguments.agent} vs {arguments.opponent}: {arguments.games} games at "
+        f"{arguments.agent} vs {opponent_label}: {arguments.games} games at "
         f"{arguments.base_ms / 1000:g}s+{arguments.increment_ms / 1000:g}s, "
         f"ply cap {arguments.ply_cap}, {arguments.workers} concurrent, "
         f"corpus {corpus_version} ({corpus_hash(fens)}, {len(fens)} positions)",
@@ -338,7 +371,7 @@ def main() -> None:
 
     with ThreadPoolExecutor(max_workers=arguments.workers) as pool:
         futures = [
-            pool.submit(_play, spec, agent, opponent, arguments.base_ms,
+            pool.submit(_play, spec, agent, make_opponent, arguments.base_ms,
                         arguments.increment_ms, arguments.ply_cap, arguments.draw_claim)
             for spec in schedule
         ]
@@ -349,8 +382,8 @@ def main() -> None:
             pgns.append(tag_pgn(outcome.pgn, {
                 "Event": match_id,
                 "Round": spec.index,
-                "White": str(arguments.agent if spec.agent_is_white else arguments.opponent),
-                "Black": str(arguments.opponent if spec.agent_is_white else arguments.agent),
+                "White": str(arguments.agent) if spec.agent_is_white else opponent_label,
+                "Black": opponent_label if spec.agent_is_white else str(arguments.agent),
                 "MatchId": match_id,
                 "GameIndex": spec.index,
                 "PgnIndex": pgn_index,
@@ -382,8 +415,8 @@ def main() -> None:
                     "pgn_file": str(pgn_path) if pgn_path else None,
                     "cluster": spec.cluster,
                     "start_fen": spec.fen,
-                    "white": str(arguments.agent if spec.agent_is_white else arguments.opponent),
-                    "black": str(arguments.opponent if spec.agent_is_white else arguments.agent),
+                    "white": str(arguments.agent) if spec.agent_is_white else opponent_label,
+                    "black": opponent_label if spec.agent_is_white else str(arguments.agent),
                     "agent_is_white": spec.agent_is_white,
                     "result": outcome.result,
                     "termination": outcome.termination,
@@ -407,7 +440,7 @@ def main() -> None:
 
     stats = summarise(outcomes, iterations=arguments.bootstrap)
 
-    print(f"\n{arguments.agent} vs {arguments.opponent} over {stats.games} games")
+    print(f"\n{arguments.agent} vs {opponent_label} over {stats.games} games")
     print(stats.describe())
     print("terminations: " + ", ".join(f"{k} {v}" for k, v in sorted(terminations.items())))
 
