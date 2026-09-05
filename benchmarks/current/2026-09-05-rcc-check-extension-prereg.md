@@ -159,3 +159,27 @@ stays off; the snapshot `champions/rcc_checkext` is kept as the record.
 What survives: the mechanism is real (R20, R17, R7 all resolve with the
 extension), the cost model is wrong. A bounded form that extends only at
 the frontier, where the R20 fork sits, is the next preregistered test.
+
+## Candidate 2: frontier-bounded check extension — preregistration (13:41)
+
+* **HYPOTHESIS.** Candidate 1's benefit lives at the frontier (the R20
+  fork is a check at the last main-search ply) while its cost is spread over
+  every check at every depth. Extending only checks whose child would be
+  searched at depth ≤ 2 (`CS_CHECK_EXT_MAXDEPTH=2`) keeps the repairs and
+  removes most of the cost.
+* **Gate 0/1 (13:40, `corpus/daily/rcc/checkext_frontier_gate01.txt`).**
+  Bound 1: +4.5% suite nodes, repairs nothing new at the depths that
+  matter. **Bound 2: +7.0% suite nodes** (1,828,076); R20 12…Nxd5 → Nd4 at
+  d7; R17 47.Re1 → a6 at d8 (RC-B: never); R20 11…d5 not repaired at d8;
+  R18/R19 unchanged.
+* **Discriminator before any timed screen.** Candidate 1 won the 80-blunder
+  equal-time screen and lost at the clock, so that screen is not trusted
+  alone. The 240 competition-like positions (near-balanced, ordinary play)
+  at 3,000 ms are run for base, candidate 1 and candidate 2. Candidate 1
+  must come out worse than base there for the suite to be a usable
+  predictor; candidate 2 must not be worse than base by more than 3 cp
+  robust mean and must not add ≥300 cp errors.
+* **REJECTION.** Any of: candidate 2 worse than base on the 240 suite; the
+  100-game timed screen vs RC-B below 50% or with a clock floor under
+  RC-B's in the same match; any correctness failure.
+* Everything else as for candidate 1.

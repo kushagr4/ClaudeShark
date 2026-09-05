@@ -177,6 +177,11 @@ USE_STAGED_MOVES = _flag("CS_STAGED_MOVES", True)
 # Bounded by ply < 2 * root depth. Off until measured; see
 # benchmarks/current/2026-09-05-rcc-check-extension-prereg.md.
 USE_CHECK_EXT = _flag("CS_CHECK_EXT", False)
+# Frontier bound for the extension: when positive, only a check whose child
+# would otherwise be searched at this depth or less is extended, so the cost
+# stays near the leaves where a fork one ply past the horizon lives. 0 means
+# every check is extended (candidate 1, rejected at the competition clock).
+CHECK_EXT_MAXDEPTH = _int_var("CS_CHECK_EXT_MAXDEPTH", 0)
 
 MAX_DEPTH = 64
 # Quiescence is bounded by its own ply counter as well as by delta pruning, so a
@@ -836,7 +841,9 @@ class Searcher:
                     # Extend by one ply so a sequence of checks is resolved
                     # at this nominal depth rather than one check short of
                     # its point; the ply bound stops it running away.
-                    if ply < 2 * self._root_depth:
+                    if ply < 2 * self._root_depth and (
+                        not CHECK_EXT_MAXDEPTH or child_depth <= CHECK_EXT_MAXDEPTH
+                    ):
                         depth_here = child_depth + 1
             elif reduction and LMR_SAFE and board.is_check():
                 reduction = 0
