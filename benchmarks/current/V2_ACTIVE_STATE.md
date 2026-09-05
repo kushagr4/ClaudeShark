@@ -14,8 +14,8 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 | submitted archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` (39,125 bytes; 106,863 unzipped; 11 files) |
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
-| **CURRENT BEST PROVEN BUILD** | **RC-B candidate = `champions/rc_b`** (C1 staged picker on by default + fast stalemate probe): +59 Elo over RC-A at the competition clock on the organiser starts, 226 games, bootstrap +25..+93. RC-A remains the **submitted** build and the immutable fallback until the user confirms an upload. |
-| **CURRENT DEVELOPMENT CANDIDATE** | none in flight. RC-B (`champions/rc_b`, working tree at the commit that carries this line) is in the release gate; see `RC_B_UPLOAD_CARD.md` once written. |
+| **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5`: C1 staged picker on by default + fast stalemate probe; +59 Elo over RC-A at the competition clock, 226 games, bootstrap +25..+93; release gate 15/15, ladder PASS, py3.12 smoke. **Not uploaded** — card `RC_B_UPLOAD_CARD.md`; RC-A remains submitted and the fallback until the user confirms. |
+| **CURRENT DEVELOPMENT CANDIDATE** | none in flight; next work per section 6 (speed lane, fingerprint-gated). |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and

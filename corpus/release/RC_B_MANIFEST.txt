@@ -1,0 +1,10 @@
+claudeshark_rc_b.zip
+  sha256   f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a
+  bytes    48167 compressed, 131795 uncompressed, 14 files
+  source   champions/rc_b == working tree at commit 3d918a5 (branch mac-full-development)
+  built    2026-09-05 11:41 (Mac) by tools.release_check --fast --keep corpus/release/claudeshark_rc_b.zip
+  verified 2026-09-05 11:41-11:46: byte match to champions/rc_b and to the working tree,
+           release gate 15/15 READY TO UPLOAD, 1213 tests + 1 skip, depth-6 fingerprint
+           1,708,269 from the extracted zip, clockladder PASS 1 ms..120 s (worst 6.3 s at 120 s),
+           Python 3.12.14 fresh-extraction smoke (rc_b_smoke_py312.json), 0 failures in
+           226 timed games as champions/c1_staged with the same search (the probe is tree-identical)
