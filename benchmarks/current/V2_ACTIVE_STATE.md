@@ -41,7 +41,11 @@ overwrite an RC archive; freeze a new one under a new name.
   Rated 16, ClaudeShark **White, won by checkmate** vs darKnight (Sicilian
   Sveshnikov start, 142 plies, mean spend 1.92 s, max 7.94 s). PGN
   `corpus/daily/rca/round16-darknight.pgn`, ingested
-  `corpus/daily/rca/round16-darknight.jsonl`; page snapshots in
+  `corpus/daily/rca/round16-darknight.jsonl`, annotated
+  `round16-darknight_annotated.jsonl` (Stockfish 18, 200k/1M nodes): won from
+  +529 at move 34, but 34.Qxe4 (−457) let it fall to +22 by move 39 and the
+  win was re-earned on opponent errors — the conversion weakness again, not a
+  new mechanism. Page snapshots in
   `analysis/refresh_2026-09-05/` (`_0853`). Keep RC-A games in `corpus/daily/rca/`,
   never merged into the V2.1 dataset.
 
