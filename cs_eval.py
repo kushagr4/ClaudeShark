@@ -62,6 +62,13 @@ _B_KING = _pack(MG_BLACK, EG_BLACK, chess.KING)
 
 _BISHOP_PAIR = (BISHOP_PAIR_MG << 16) + BISHOP_PAIR_EG
 
+# Indexed by piece type (0 unused) for the incremental path below.
+_PST_W = ((), _W_PAWN, _W_KNIGHT, _W_BISHOP, _W_ROOK, _W_QUEEN, _W_KING)
+_PST_B = ((), _B_PAWN, _B_KNIGHT, _B_BISHOP, _B_ROOK, _B_QUEEN, _B_KING)
+_PAWN = chess.PAWN
+_ROOK = chess.ROOK
+_KING = chess.KING
+
 # Optional positional terms, from the registry in cs_terms. The active set is
 # decided once at import from the environment and the shipped DEFAULTS table;
 # tests and tools change it with set_terms / set_term. With nothing active the
@@ -105,8 +112,13 @@ def set_term(name: str, on: bool) -> None:
 set_terms(cs_terms.enabled_from_environment())
 
 
-def evaluate(board: chess.Board) -> int:
-    """Score the position in centipawns from the side to move's point of view."""
+def pst_packed(board: chess.Board) -> int:
+    """The packed piece-square sum of the position, white-positive.
+
+    This is the term the search maintains incrementally through
+    :func:`pst_delta`; it is computed in full here at the root of every search
+    and by :func:`evaluate` when no running sum is available.
+    """
     white = board.occupied_co[chess.WHITE]
     black = board.occupied_co[chess.BLACK]
 
@@ -116,10 +128,6 @@ def evaluate(board: chess.Board) -> int:
     rooks = board.rooks
     queens = board.queens
     kings = board.kings
-
-    phase = (knights | bishops).bit_count() + 2 * rooks.bit_count() + 4 * queens.bit_count()
-    if phase > TOTAL_PHASE:
-        phase = TOTAL_PHASE  # promotions can push the count past a full board
 
     packed = 0
 
@@ -172,6 +180,75 @@ def evaluate(board: chess.Board) -> int:
     while bb:
         packed -= _B_KING[(bb & -bb).bit_length() - 1]
         bb &= bb - 1
+    return packed
+
+
+def pst_delta(board: chess.Board, move: chess.Move) -> int:
+    """``pst_packed`` after ``move`` minus ``pst_packed`` before it.
+
+    Called **before** ``board.push(move)`` on a legal move. Covers the moving
+    piece, a captured piece (including en passant), a promotion and the rook
+    of a castling move; those are the only ways a legal move changes the
+    piece placement. tests/test_pst_incremental.py holds it equal to the full
+    recomputation along random games.
+    """
+    from_square = move.from_square
+    to_square = move.to_square
+    piece = board.piece_type_at(from_square)
+    if piece is None:  # pragma: no cover - a legal move always has a piece
+        return 0
+    landing = move.promotion or piece
+    victim = board.piece_type_at(to_square)
+    if board.turn:
+        delta = _PST_W[landing][to_square] - _PST_W[piece][from_square]
+        if victim:
+            delta += _PST_B[victim][to_square]
+        elif piece == _PAWN:
+            if (from_square & 7) != (to_square & 7):
+                delta += _B_PAWN[to_square - 8]  # en passant
+        elif piece == _KING and abs((from_square & 7) - (to_square & 7)) == 2:
+            if to_square > from_square:
+                delta += _W_ROOK[to_square - 1] - _W_ROOK[from_square + 3]
+            else:
+                delta += _W_ROOK[to_square + 1] - _W_ROOK[from_square - 4]
+        return delta
+    delta = _PST_B[piece][from_square] - _PST_B[landing][to_square]
+    if victim:
+        delta -= _PST_W[victim][to_square]
+    elif piece == _PAWN:
+        if (from_square & 7) != (to_square & 7):
+            delta -= _W_PAWN[to_square + 8]  # en passant
+    elif piece == _KING and abs((from_square & 7) - (to_square & 7)) == 2:
+        if to_square > from_square:
+            delta += _B_ROOK[from_square + 3] - _B_ROOK[to_square - 1]
+        else:
+            delta += _B_ROOK[from_square - 4] - _B_ROOK[to_square + 1]
+    return delta
+
+
+def evaluate(board: chess.Board) -> int:
+    """Score the position in centipawns from the side to move's point of view."""
+    return evaluate_packed(board, pst_packed(board))
+
+
+def evaluate_packed(board: chess.Board, packed: int) -> int:
+    """:func:`evaluate` given the position's :func:`pst_packed` sum.
+
+    The search maintains the sum incrementally, so the per-piece scan is not
+    repeated at every leaf; everything else (phase, bishop pair, the registry
+    terms, the taper, tempo) is computed here exactly as before.
+    """
+    white = board.occupied_co[chess.WHITE]
+    black = board.occupied_co[chess.BLACK]
+    bishops = board.bishops
+
+    phase = (
+        (board.knights | bishops).bit_count()
+        + 2 * board.rooks.bit_count()
+        + 4 * board.queens.bit_count()
+    )
+    if phase > TOTAL_PHASE:
+        phase = TOTAL_PHASE  # promotions can push the count past a full board
 
     if (bishops & white).bit_count() > 1:
         packed += _BISHOP_PAIR
