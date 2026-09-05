@@ -15,7 +15,7 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
 | **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **CHAMPION and SUBMITTED** (uploaded 12:01); every candidate is measured against `champions/rc_b`. |
-| **CURRENT DEVELOPMENT CANDIDATE** | Check-extension lane **closed** (candidate 1 rejected at Gate 2a, candidate 2 rejected on the 240-suite equal-time screen, 13:54). Next: identity-preserving speed (capture generation), fingerprint-gated. RC-B remains champion. |
+| **CURRENT DEVELOPMENT CANDIDATE** | **RC-C candidate 3: identity-preserving speed** = `champions/rcc_speed` (commit `f2543bd`): incremental piece-square sum + inline capture generation; fingerprints unchanged, 1,227 tests, **+18.7% knps** over RC-B. Record `2026-09-05-rcc-speed-candidate.md`. Gate 2a timed screen vs `rc_b` running (section 8). Check-extension lane closed (candidates 1 and 2 rejected). |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and
@@ -148,7 +148,18 @@ evidence order of the user's plan for what remains:
 
 ## 8. Live background jobs
 
-**NONE.** Sweep 13:40: the candidate-1 arena (PID 30573) and its caffeinate guard exited; no python, Stockfish or waiters.
+**ONE (CPU-heavy).** Gate 2a timed screen of the speed candidate:
+
+* PID 35196 (`tools.arena`, `uv run`, `nohup`), 16 `harness/runner.py`
+  children; `caffeinate -i -w 35196` (PID 35250). AC power.
+* Command: `tools.arena --agent champions/rcc_speed --opponent champions/rc_b
+  --games 100 --base-ms 120000 --increment-ms 500 --ply-cap 300 --workers 8
+  --corpus corpus/daily/pool/competition_actual_suite.jsonl
+  --jsonl corpus/daily/rcc/speed_vs_rcb_120s_100.jsonl`
+* Started 14:12:00; expected finish about 15:10.
+* Output `corpus/daily/rcc/speed_vs_rcb_120s_100.jsonl` + `.pgn`; log `.log`.
+* Kill condition: a failure termination attributable to the candidate, or
+  the user asks. No second CPU-heavy job.
 
 Rules: one CPU-heavy job at a time, registered here, removed when it ends;
 no waiter shells; keep the lid open and the charger in during timed screens.
