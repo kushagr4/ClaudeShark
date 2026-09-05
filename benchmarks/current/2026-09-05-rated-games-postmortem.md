@@ -149,7 +149,30 @@ and fixed-depth evidence against it.
 
 `corpus/daily/rated15_key_deeper.txt` — 27 positions from the seven non-wins,
 each snapshot at depths 6, 7 and 8, the chosen move scored by the oracle at
-2M nodes. Filled in below once the run completes.
+2M nodes. A "repair" is a chosen move the oracle rates at least 100 cp better
+than the move actually played.
+
+| snapshot | depth 6 | depth 7 | depth 8 |
+|---|---|---|---|
+| rated-v1 | 2 of 27 | **6 of 27** | **6 of 27** |
+| V2.1 king-pawn | 2 | 5 | 6 |
+| V2.2a low-material | 2 | 5 | 6 |
+
+The two depth-6 "repairs" are positions the fixed-depth snapshot happens to
+play differently from the game (round 3 move 55, round 7 move 44); the game
+engine had more time and chose worse, which is search instability, not
+strength. Depth 7 repairs round 1 move 17, round 3 move 14, round 7 move 33,
+round 10 move 16 (partly), round 11 moves 13 and 27; depth 8 additionally
+repairs round 10 move 13, round 15 moves 5 and 20 and round 5 move 25 (the
+mate-in-n blunder) while losing round 10 move 16 and round 15 move 10. Neither
+depth touches the perpetual at round 7 move 48, the attack blindness at round
+3 move 20, round 5 move 23, round 11 move 31 or round 15 move 7: those need a
+different evaluator, not a deeper one.
+
+**About one serious error in four is a depth error; the rest are evaluation
+errors that depth does not reach.** The three snapshots are almost
+interchangeable on these positions, which is the fixed-depth face of section
+5: nothing in V2.1 or V2.2a addresses what lost these games.
 
 ## 7. Time management
 

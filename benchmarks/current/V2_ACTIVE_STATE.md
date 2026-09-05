@@ -9,11 +9,11 @@ check `.owner` sidecars, then continue from section 10.
 ## 1. Clock
 
 * Fable take-over session began **2026-09-05 01:05 local**. Last update to this
-  file: **01:50**. The user is asleep; a morning handoff is due.
+  file: **01:52**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
 
 ## 2. Repository
 
-* Branch **`v2.2-development`**, HEAD `3421401` at take-over; `rated-v1` =
+* Branch **`v2.2-development`**, HEAD `3421401` at take-over, **`ff36869`** after the 01:33 checkpoint (rounds 6–15, rules, 226 verdict, tools); `rated-v1` =
   `98c48c8` = `main` = `origin/main`, untouched. Nothing pushed. Identity
   `kushagr4 <ratrakushagra@gmail.com>` verified.
 * Untracked work at take-over (from the previous session): `analysis/`,
@@ -112,11 +112,16 @@ worth shipping.**
 
 | job | output | status |
 |---|---|---|
-| `tools.daily.report` over 15 games, 3 snapshots at depth 6 | `corpus/daily/rated15_report.txt/.jsonl`, log `corpus/daily/report15.log` | running since 01:35 |
+| **V2.4 Stage 2: timed arena 120 s + 0.5 s, `champions/rated_v1_sf60` vs `champions/rated_v1`, 226 games on the 113 organiser starts, 8 workers** | `corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl` (+ `.pgn`), log `corpus/daily/time/stage2_sf60.log` | started **01:45**, python pids 23168/23136 (uv shim + arena); expected 3–3.5 h |
 
-Do not start a timed match while it runs. **Never smoke-test infrastructure on
-a live path.** Corrupt artifacts that must never enter statistics:
-`corpus/daily/pool/games/v21_vs_ratedv1.CORRUPT-DISCARDED.jsonl`,
+Complete: report shards (merged into `corpus/daily/rated15_report.*`),
+`tools.daily.deeper` (`corpus/daily/rated15_key_deeper.txt`), V2.4 Stage 1
+(`corpus/daily/time/stage1_*.txt`, sf60 selected by the pre-registered rule).
+
+Do not start another CPU-heavy job while the arena runs; it is a timed match
+and contention changes what is being measured. **Never smoke-test
+infrastructure on a live path.** Corrupt artifacts that must never enter
+statistics: `corpus/daily/pool/games/v21_vs_ratedv1.CORRUPT-DISCARDED.jsonl`,
 `…_actual.CORRUPT-DISCARDED-2.jsonl`.
 
 ## 10. Plan

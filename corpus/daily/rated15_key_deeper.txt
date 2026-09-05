@@ -1,0 +1,45 @@
+== DOES DEEPER SEARCH REPAIR IT? 27 positions, oracle at 2000000 nodes ==
+'value' is the oracle score after the chosen move, from the mover's point of view. Higher is better;
+the 'oracle move' column is the ceiling and the 'played' column is what actually happened.
+
+   position                             played   oracle | rated-v1 d6 | rated-v1 d7 | rated-v1 d8 | V2.1 king d6 | V2.1 king d7 | V2.1 king d8 | V2.2a low d6 | V2.2a low d7 | V2.2a low d8
+   round1 move 15 c4                       -33      +30 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33 | c3c4    -33
+   round1 move 16 Bb2                     -102      -33 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102 | c1b2   -102
+   round1 move 17 g3                      -214     -118 | g2g3   -214 | d1e1   -146 | d1e1   -146 | g2g3   -214 | d1e1   -146 | d1e1   -146 | g2g3   -214 | d1e1   -146 | d1e1   -146
+   round1 move 22 Nxd4                    -457     -350 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457 | f3d4   -457
+   round3 move 14 Bd7                     +110     +308 | f5d7   +110 | b4c2   +308 | b4c2   +308 | f5d7   +110 | b4c2   +308 | b4c2   +308 | f5d7   +110 | b4c2   +308 | b4c2   +308
+   round3 move 20 Qf4+                     -31     +447 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31 | e4f4    -31
+   round3 move 52 Ke5                     +521     +549 | d6e5   +521 | g2f2   +518 | g2f2   +518 | d6c5   +489 | g2f2   +518 | g2f2   +518 | d6c5   +489 | g2f2   +518 | g2f2   +518
+   round3 move 55 Rg3                     +463     +546 | e5d6   +546 | e5d6   +546 | e5d6   +546 | e5d6   +546 | e5d6   +546 | e5d6   +546 | e5d6   +546 | e5d6   +546 | e5d6   +546
+   round5 move 17 bxc3                     +62     +151 | b2c3    +62 | b2c3    +62 | b2c3    +62 | b2c3    +62 | b2c3    +62 | b2c3    +62 | b2c3    +62 | b2c3    +62 | b2c3    +62
+   round5 move 23 hxg4                    -475     -133 | h3g4   -475 | h3g4   -475 | h3g4   -475 | h3g4   -475 | h3g4   -475 | h3g4   -475 | h3g4   -475 | h3g4   -475 | h3g4   -475
+   round5 move 25 Rxb7                  -10000     -403 | b1b7 -10000 | g1g2   -448 | g1g2   -448 | b1b7 -10000 | b1b7 -10000 | d1c1   -718 | b1b7 -10000 | b1b7 -10000 | d1c1   -718
+   round7 move 33 Bb4                     +364     +554 | a3b4   +364 | a3c5   +538 | a3c5   +538 | a3b4   +364 | a3c5   +538 | a3c5   +538 | a3b4   +364 | a3c5   +538 | a3c5   +538
+   round7 move 34 Bxa5                    +341     +538 | b4a5   +341 | b4a5   +341 | b4a5   +341 | b4a5   +341 | b4a5   +341 | b4a5   +341 | b4a5   +341 | b4a5   +341 | b4a5   +341
+   round7 move 44 Ke2                     +253     +408 | d1d2   +408 | d1d2   +408 | d1d2   +408 | d1d2   +408 | d1d2   +408 | d1d2   +408 | d1d2   +408 | d1d2   +408 | d1d2   +408
+   round7 move 48 Ke2                       +0     +297 | e3e2     +0 | e3e2     +0 | e3e2     +0 | e3e2     +0 | e3e2     +0 | e3e2     +0 | e3e2     +0 | e3e2     +0 | e3e2     +0
+   round10 move 13 Bb7                    -112      +37 | c8b7   -112 | c8b7   -112 | c8f5    -15 | c8b7   -112 | c8b7   -112 | c8f5    -15 | c8b7   -112 | c8b7   -112 | c8f5    -15
+   round10 move 16 Qf5                    -287     -184 | d7f5   -287 | f8e8   -260 | f8e8   -260 | d7f5   -287 | d7c7   -322 | d7c7   -322 | d7f5   -287 | d7c7   -322 | d7c7   -322
+   round10 move 17 Rfe8                   -405     -259 | f8e8   -405 | a7a6   -429 | a7a6   -429 | f8e8   -405 | a7a6   -429 | a7a6   -429 | f8e8   -405 | a7a6   -429 | a7a6   -429
+   round10 move 18 hxg6                   -540     -540 | h7g6   -540 | h7g6   -540 | h7g6   -540 | h7g6   -540 | h7g6   -540 | h7g6   -540 | h7g6   -540 | h7g6   -540 | h7g6   -540
+   round11 move 13 a4                     -173      -19 | a2a4   -173 | a2a3    -52 | a2a3    -52 | a2a4   -173 | a2a3    -52 | a2a3    -52 | a2a4   -173 | a2a3    -52 | a2a3    -52
+   round11 move 27 h4                     -498     -347 | h3h4   -498 | d2c1   -459 | d2c1   -459 | h3h4   -498 | d2c1   -459 | d2c1   -459 | h3h4   -498 | d2c1   -459 | d2c1   -459
+   round11 move 31 Nxe4                   -679     -465 | g3e4   -679 | g3e4   -679 | g3e4   -679 | g3e4   -679 | g3e4   -679 | g3e4   -679 | g3e4   -679 | g3e4   -679 | g3e4   -679
+   round15 move 5 d5                      -135      -21 | d7d5   -135 | d7d5   -135 | g8f6    -52 | d7d5   -135 | d7d5   -135 | g8f6    -52 | d7d5   -135 | d7d5   -135 | g8f6    -52
+   round15 move 7 Qe7+                    -344     -136 | d8e7   -344 | d8e7   -344 | d8e7   -344 | d8e7   -344 | d8e7   -344 | d8e7   -344 | d8e7   -344 | d8e7   -344 | d8e7   -344
+   round15 move 10 Ne5                    -458     -390 | e7b4   -352 | e7b4   -352 | c6e5   -458 | e7b4   -352 | e7b4   -352 | c6e5   -458 | e7b4   -352 | e7b4   -352 | c6e5   -458
+   round15 move 18 Ba6                    -876     -577 | c8a6   -876 | c8a6   -876 | c8a6   -876 | c8a6   -876 | c8a6   -876 | c8a6   -876 | c8a6   -876 | c8a6   -876 | c8a6   -876
+   round15 move 20 axb6                 -10000    -1002 | a7b6 -10000 | a7b6 -10000 | d8e8  -1002 | a7b6 -10000 | a7b6 -10000 | d8e8  -1002 | a7b6 -10000 | a7b6 -10000 | d8e8  -1002
+
+means over the sample:
+   played                           -878
+   oracle first choice               -41
+   rated-v1 depth 6                 -865   repairs (>= +100 over the played move) 2 of 27
+   rated-v1 depth 7                 -489   repairs (>= +100 over the played move) 6 of 27
+   rated-v1 depth 8                 -153   repairs (>= +100 over the played move) 6 of 27
+   V2.1 king-pawn depth 6           -866   repairs (>= +100 over the played move) 2 of 27
+   V2.1 king-pawn depth 7           -845   repairs (>= +100 over the played move) 5 of 27
+   V2.1 king-pawn depth 8           -166   repairs (>= +100 over the played move) 6 of 27
+   V2.2a low-material depth 6       -866   repairs (>= +100 over the played move) 2 of 27
+   V2.2a low-material depth 7       -845   repairs (>= +100 over the played move) 5 of 27
+   V2.2a low-material depth 8       -166   repairs (>= +100 over the played move) 6 of 27

@@ -1,0 +1,32 @@
+=== clocksim rated_v1
+engine        champions\rated_v1
+clock         120000 ms
+soft budget     5441.8 ms average
+time spent      3785.8 ms average (median 3407)
+budget used       69.4% average
+depth             8.54 average (min 6, max 15)
+total spent       90.9 s over 24 moves
+=== clocksim rated_v1_sf60
+engine        champions\rated_v1_sf60
+clock         120000 ms
+soft budget     5441.8 ms average
+time spent      5085.8 ms average (median 4957)
+budget used       93.2% average
+depth             9.04 average (min 7, max 16)
+total spent      122.1 s over 24 moves
+=== clocksim rated_v1_sf75
+engine        champions\rated_v1_sf75
+clock         120000 ms
+soft budget     5441.8 ms average
+time spent      6068.6 ms average (median 5550)
+budget used      111.7% average
+depth             9.21 average (min 7, max 16)
+total spent      145.6 s over 24 moves
+=== clocksim rated_v1_sf90
+engine        champions\rated_v1_sf90
+clock         120000 ms
+soft budget     5441.8 ms average
+time spent      7614.5 ms average (median 7941)
+budget used      140.5% average
+depth             9.58 average (min 7, max 17)
+total spent      182.7 s over 24 moves
