@@ -9,7 +9,7 @@ check `.owner` sidecars, then continue from section 10.
 ## 1. Clock
 
 * Fable take-over session began **2026-09-05 01:05 local**. Last update to this
-  file: **03:55**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
+  file: **04:06**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
 
 ## 2. Repository
 
@@ -110,7 +110,7 @@ worth shipping.**
 
 ## 9. Running jobs — verify before touching anything
 
-None at the time of writing (03:55). Complete: V2.4 Stage 2 (`corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, 226 games, **sf60 REJECTED**: +1.5 Elo on 70 informative families, lowest clock 2.2 s against the baseline's 6.7 s; see `2026-09-05-v2.4-time-policy-results.md`). Next CPU job: V2.4b Gate 0 then Gate 2 on `champions/rated_v1_early16`, output under `corpus/daily/time/`.
+**V2.4b Gate 2 running since 04:05 (restarted under the arena PGN fix)**: `tools.arena` `champions/rated_v1_early16` vs `champions/rated_v1`, 226 timed games, output `corpus/daily/time/games/early16_vs_ratedv1_120s.jsonl`, log `corpus/daily/time/stage2_early16.log`, expected to finish about 06:10. Do not start CPU-heavy work beside it. Complete: V2.4 Stage 2 (`corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, 226 games, **sf60 REJECTED**: +1.5 Elo on 70 informative families, lowest clock 2.2 s against the baseline's 6.7 s; see `2026-09-05-v2.4-time-policy-results.md`). Next CPU job: V2.4b Gate 0 then Gate 2 on `champions/rated_v1_early16`, output under `corpus/daily/time/`.
 
 **Release candidate RC-A frozen:** `corpus/release/claudeshark_rated_v1_rc_a.zip`, 39,125 bytes, 106,863 unzipped, 11 files, sha256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, built from `champions/rated_v1` by `tools.release_check --source champions/rated_v1 --keep …` (15/15 PASS), full suite 1,202 passed, startup 1.49 s.
 
