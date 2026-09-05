@@ -1,0 +1,33 @@
+== SWISS RISK REPORT ==
+champions\rc_c (snapshot 08e368f84bd55511) vs uci:stockfish-windows-x86-64-avx2.exe@elo2300 (snapshot c86215fa1977d53b[Hash=16,Threads=1,UCI_Elo=2300,UCI_LimitStrength=True]); 120000 ms + 500 ms; ply cap 300; draw claim auto; corpus corpus\strength\dev.jsonl
+
+-- strength (the usual Gate 2 numbers) --
+   games 100   clusters 50   informative clusters 35 (70%)
+   +49 =29 -22   score 63.5%   nominal Elo +96.2
+   cluster bootstrap 95%: score 55.5%..71.0%, Elo +38.4..+155.5
+   leave-one-cluster-out Elo +90.6..+106.0
+   cluster-mean histogram {0.0: 2, 0.25: 7, 0.5: 15, 0.75: 14, 1.0: 12}
+
+-- failures attributable to each side --
+   agent: none
+   opponent: none
+
+-- clock safety --
+   agent: lowest clock ever held 3.8 s; games under 5 s: 1, under 10 s: 3, under 20 s: 16
+   agent: largest single think 11.8 s; mean think 2.23 s; median final clock 44.2 s
+   opponent: lowest clock ever held 0.6 s; games under 5 s: 95, under 10 s: 98, under 20 s: 100
+   opponent: largest single think 32.4 s; mean think 3.46 s; median final clock 2.3 s
+
+-- terminations and conversion --
+   all terminations: {'checkmate': 69, 'threefold_repetition': 29, 'adjudication': 2}
+   agent wins by: {'checkmate': 47, 'adjudication': 2}
+   draws by: {'threefold_repetition': 29}
+   agent losses by: {'checkmate': 22}
+   mean plies 96, max 300, games at the ply cap: 2
+
+-- population sensitivity --
+   agent as White: +27 =16 -7  score 70.0%  Elo +147.2
+   agent as Black: +22 =13 -15  score 57.0%  Elo +49.0
+
+No single Swiss score is computed. Read the components: a candidate that gains Elo but adds a flag,
+a crash or a drop in the lowest clock has not earned a place in a 13-round locked-build Swiss.

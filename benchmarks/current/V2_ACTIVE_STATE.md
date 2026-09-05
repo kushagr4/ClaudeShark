@@ -189,11 +189,30 @@ only: candidate 3 speed (+18.7% knps, identical tree).
 
 ## 8. Live background jobs
 
-**NONE.** The candidate-3 Gate 2A arena (PID 22576, launched 21:42:27)
-exited normally at 22:56:28 with all 100 games written; sweep after exit:
-0 python processes, 0 `.owner` sidecars. The release checks that followed
-(release gate, fingerprint, clock ladder, Python 3.12.13 smoke) all
-completed. Nothing is running.
+ACTIVE JOBS REGISTER (ten-minute health-check rule in force; the agent
+inspects every owned job at intervals of at most ten minutes by regaining
+control, never by a poller):
+
+| field | value |
+|---|---|
+| TASK | RC-C_2300_BASELINE: `champions/rc_c` vs Stockfish 18 UCI_Elo 2300 (Threads 1, Hash 16), 100 games, 120 s + 0.5 s, 300-ply cap, 6 workers, `corpus/strength/dev.jsonl` |
+| OWNER | Fable (PC) |
+| PID | 7216 (uv) → 15968 (arena) + 6 runner + 6 Stockfish children |
+| START | 2026-09-05 23:34:40 UK |
+| LAST HEALTH CHECK | 23:35 (launch verified: header written, 6 Stockfish + 6 runners alive) |
+| NEXT HEALTH CHECK DUE | 23:45 |
+| OUTPUT | `corpus/strength/games/rcc_vs_sf2300_dev_100.jsonl` (+ `.pgn` at the end, `.log`) |
+| PROGRESS | 0/100 at launch |
+| EXPECTED FINISH | ~01:00 UK |
+| MAX RUNTIME | 120 min (hard stop 01:35) |
+| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing for 15 min with live processes → stalled procedure; finish at 100 games. A result cannot be "decisive early" here: the baseline exists to measure a rate, so it runs to 100 |
+| STATUS | HEALTHY — CONTINUE |
+
+Previous job: the candidate-3 Gate 2A arena (PID 22576) exited normally at
+22:56:28 with all 100 games written; sweep after exit: 0 python processes,
+0 sidecars. The RC-C release checks completed. The two-game synthetic smoke
+of the UCI opponent path (scratchpad only, 23:31) exited with 0 Stockfish and
+0 python processes left.
 
 ## 9. Known DO-NOT-USE artifacts
 
