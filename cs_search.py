@@ -36,7 +36,7 @@ from cs_constants import (
     PIECE_VALUE,
     TOTAL_PHASE,
 )
-from cs_eval import evaluate, is_material_draw
+from cs_eval import evaluate_packed, is_material_draw, pst_delta, pst_packed
 from cs_ordering import (
     Heuristics,
     legal_captures,
@@ -381,6 +381,7 @@ class Searcher:
         self._game_counts: dict[int, int] = {}
         self._partial_move: chess.Move | None = None
         self._root_depth = 0
+        self._root_packed = 0
         self._partial_score = 0
 
     def new_game(self) -> None:
@@ -443,6 +444,7 @@ class Searcher:
 
         best_score = 0
 
+        self._root_packed = pst_packed(board)
         depth_limit = MAX_DEPTH if max_depth is None else max_depth
         for depth in range(1, depth_limit + 1):
             self._partial_move = None
@@ -547,9 +549,11 @@ class Searcher:
         push = board.push
         pop = board.pop
 
+        root_packed = self._root_packed
         for move in root_moves:
+            child_packed = root_packed + pst_delta(board, move)
             push(move)
-            score = -self._negamax(board, depth - 1, -beta, -alpha, 1)
+            score = -self._negamax(board, depth - 1, -beta, -alpha, 1, True, child_packed)
             pop()
 
             scored.append((score, move))
@@ -614,7 +618,11 @@ class Searcher:
         beta: int,
         ply: int,
         allow_null: bool = True,
+        packed: int | None = None,
     ) -> int:
+        if packed is None:
+            # Direct callers (tests, tools) may not carry the running sum.
+            packed = pst_packed(board)
         self.nodes += 1
         if not (self.nodes & _CHECK_MASK) and self.time.hard_expired():
             raise SearchAbort
@@ -726,13 +734,13 @@ class Searcher:
                         return score
 
         if depth <= 0:
-            return self._quiescence(board, alpha, beta, ply, 0)
+            return self._quiescence(board, alpha, beta, ply, 0, packed)
 
         if ply >= MAX_PLY - 2:
             # Same rule as the quiescence cap: a static score must never
             # pre-empt a terminal position, even at the ply ceiling.
             terminal = no_legal_move_score(board, board.is_check(), ply)
-            return terminal if terminal is not None else evaluate(board)
+            return terminal if terminal is not None else evaluate_packed(board, packed)
 
         in_check = board.is_check()
 
@@ -758,7 +766,7 @@ class Searcher:
             # nothing about the position and wastes the subtree. Measured before
             # the fix: 1125 lines containing consecutive nulls at depth 10.
             null_score = -self._negamax(
-                board, depth - 1 - reduction, -beta, -beta + 1, ply + 1, False
+                board, depth - 1 - reduction, -beta, -beta + 1, ply + 1, False, packed
             )
             board.pop()
             if null_score >= beta:
@@ -836,6 +844,7 @@ class Searcher:
                 if reduction > child_depth - 1:
                     reduction = child_depth - 1
 
+            child_packed = packed + pst_delta(board, move)
             push(move)
 
             # A move that gives check is forcing, and reducing it is how a
@@ -856,23 +865,31 @@ class Searcher:
                 reduction = 0
 
             if move_index == 0:
-                score = -self._negamax(board, depth_here, -beta, -alpha, child_ply)
+                score = -self._negamax(
+                    board, depth_here, -beta, -alpha, child_ply, True, child_packed
+                )
             elif USE_PVS:
                 # Principal variation search: every move after the first gets a
                 # null-window probe, which is much cheaper than a full window.
                 score = -self._negamax(
-                    board, depth_here - reduction, -alpha - 1, -alpha, child_ply
+                    board, depth_here - reduction, -alpha - 1, -alpha, child_ply, True, child_packed
                 )
                 if reduction and score > alpha:
-                    score = -self._negamax(board, depth_here, -alpha - 1, -alpha, child_ply)
+                    score = -self._negamax(
+                        board, depth_here, -alpha - 1, -alpha, child_ply, True, child_packed
+                    )
                 if alpha < score < beta:
-                    score = -self._negamax(board, depth_here, -beta, -alpha, child_ply)
+                    score = -self._negamax(
+                    board, depth_here, -beta, -alpha, child_ply, True, child_packed
+                )
             else:
                 score = -self._negamax(
-                    board, depth_here - reduction, -beta, -alpha, child_ply
+                    board, depth_here - reduction, -beta, -alpha, child_ply, True, child_packed
                 )
                 if reduction and score > alpha:
-                    score = -self._negamax(board, depth_here, -beta, -alpha, child_ply)
+                    score = -self._negamax(
+                    board, depth_here, -beta, -alpha, child_ply, True, child_packed
+                )
             pop()
 
             if score > best_score:
@@ -904,8 +921,16 @@ class Searcher:
     # ----------------------------------------------------------- quiescence
 
     def _quiescence(
-        self, board: chess.Board, alpha: int, beta: int, ply: int, qply: int
+        self,
+        board: chess.Board,
+        alpha: int,
+        beta: int,
+        ply: int,
+        qply: int,
+        packed: int | None = None,
     ) -> int:
+        if packed is None:
+            packed = pst_packed(board)
         self.nodes += 1
         self.qnodes += 1
         if not (self.nodes & _CHECK_MASK) and self.time.hard_expired():
@@ -928,7 +953,7 @@ class Searcher:
             if not moves:
                 return -MATE_SCORE + ply
             if at_cap:
-                return evaluate(board)
+                return evaluate_packed(board, packed)
             moves = order_captures(board, moves)
             best_score = -INFINITY
             stand_pat = -INFINITY
@@ -941,9 +966,9 @@ class Searcher:
                 terminal = no_legal_move_score(board, in_check, ply)
                 if terminal is not None:
                     return terminal
-                return evaluate(board)
+                return evaluate_packed(board, packed)
 
-            stand_pat = evaluate(board)
+            stand_pat = evaluate_packed(board, packed)
 
             # Both exits below return a static score, and both are wrong if the
             # position is stalemate. `_has_legal_move` finds one move by an
@@ -991,6 +1016,7 @@ class Searcher:
                 if losing_capture and not SEE_KEEP_CHECKS:
                     continue
 
+            child_packed = packed + pst_delta(board, move)
             push(move)
             # Measured: 20.7% of negative-SEE captures give check. A sacrifice
             # that forces a reply is exactly the move a material heuristic
@@ -1000,7 +1026,7 @@ class Searcher:
             if losing_capture and not board.is_check():
                 pop()
                 continue
-            score = -self._quiescence(board, -beta, -alpha, child_ply, child_qply)
+            score = -self._quiescence(board, -beta, -alpha, child_ply, child_qply, child_packed)
             pop()
 
             if score > best_score:
