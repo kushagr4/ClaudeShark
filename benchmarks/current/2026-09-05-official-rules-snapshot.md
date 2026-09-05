@@ -63,3 +63,28 @@ competition matters" and delegates every operational number to the docs.
 * **Eligibility:** the page ties Swiss entry to a UK university student on the
   team. Not interpreted here. Action item for the user: **get written organiser
   clarification.**
+
+## Rules of record for the development day (re-fetched 07:00 local)
+
+Both pages re-fetched at 07:00 (`analysis/rules/*_2026-09-05T0700.html/.txt`)
+are **line-for-line identical** to the 01:11 snapshot. No organiser
+`rules.md` or e-mail text exists on this machine; the user's summary of the
+organiser e-mail (90 s init, 10 uploads/day, process suspended while the
+opponent thinks) agrees with the live docs page on every point, and the
+"60 s / 6 uploads / pondering allowed" wording exists only in stale search
+caches. The live docs page is therefore taken as the frozen rules of record:
+
+| clause | value of record |
+|---|---|
+| init budget | 90 s |
+| uploads | 10 per team per day; close 11 Sept 11:00; latest passing plays |
+| process | suspended while the opponent moves; **no pondering possible** |
+| threads | one is fastest; extra threads cost time |
+| books | permitted as shipped data (chess.polyglot available) |
+| tablebases | permitted as shipped data (chess.syzygy available) |
+| engine-annotated training data | permitted for training a model we ship |
+| **lookup data** | "a database of engine moves or evaluations shipped for lookup at runtime is an engine" — **prohibited**; a book may not contain Stockfish choices |
+| submission | 50 MB unzipped, files at the zip root, readable source, no native binaries |
+| environment | Python 3.12; torch 2.13.0+cpu, numpy 2.5.2, python-chess 1.11.2, onnxruntime 1.29.0, numba 0.67.0; nothing else |
+
+Not revisited again today unless the organisers issue an update.
