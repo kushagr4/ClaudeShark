@@ -202,7 +202,7 @@
     "release_check": "15/15 PASS",
     "startup_s": 1.49
   },
-  "recommendation": "RECOMMEND SUBMIT RC-A unless V2.4b finishes positive and safe; never uploaded by the assistant",
+  "recommendation": "RECOMMEND SUBMIT RC-A (exact rated-v1); classification NO V2 CANDIDATE BEATS RATED-V1 YET; never uploaded by the assistant",
   "do_not_touch": [
     "main",
     "rated-v1 98c48c8",
@@ -214,6 +214,37 @@
   "v24b_early_surplus": {
     "variant": "champions/rated_v1_early16",
     "design": "benchmarks/current/2026-09-05-v2.4b-early-surplus-design.md",
-    "status": "gate 0 running"
+    "gate0": {
+      "depth_gain": 0.58,
+      "fingerprint_unchanged": true,
+      "ladder": "PASS"
+    },
+    "gate2": {
+      "file": "corpus/daily/time/games/early16_vs_ratedv1_120s.jsonl",
+      "games": 226,
+      "wdl": [
+        61,
+        101,
+        64
+      ],
+      "score": 0.493,
+      "elo": -4.6,
+      "informative_families": 65,
+      "bootstrap_elo": [
+        -40.1,
+        30.8
+      ],
+      "failures": 0,
+      "min_clock_s": {
+        "early16": 4.1,
+        "rated_v1": 6.1
+      },
+      "verdict": "rejected"
+    },
+    "time_lane": "closed: five experiments, five nulls"
+  },
+  "timed_v21_confirmation": {
+    "status": "running since 06:05, expected 08:05",
+    "file": "corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl"
   }
 }
