@@ -1,6 +1,6 @@
 # RC-C candidate 1: check extension — preregistration
 
-**Date:** 2026-09-05 12:40 (Mac). **Champion:** RC-B (`champions/rc_b`,
+**Date:** 2026-09-05 12:25 (Mac). **Champion:** RC-B (`champions/rc_b`,
 fingerprint 1,708,269). Written before implementation.
 
 ## Evidence that selected this lane (not a roadmap item)
@@ -65,7 +65,7 @@ controls that must not regress.
    evaluation miss (bishop walks into g4–h4–h5), but a single instance and
    itself tactical in nature; parked.
 
-## Gate 0 (13:05)
+## Gate 0 (about 12:33)
 
 * Flag off: fingerprint 1,708,269 (RC-B unchanged). Flag on: 1,921,543
   (+12.5%; limit 40%). Sharp suite 18/18 root moves identical (+16% nodes).
@@ -83,7 +83,7 @@ controls that must not regress.
   move is the oracle-better one. Not a regression; if the extension ships
   the test is rewritten around the oracle finding. Flag off passes.
 
-## Gate 1 (13:00) — causal targets, flag on (`corpus/daily/rcb/checkext_causal_on.txt`)
+## Gate 1 (about 12:30) — causal targets, flag on (`corpus/daily/rcb/checkext_causal_on.txt`)
 
 | target | RC-B | candidate | oracle |
 |---|---|---|---|
@@ -96,3 +96,34 @@ controls that must not regress.
 All three targets repaired; both positive controls preserved. The cost is
 concentrated in check-rich positions (R20 12… at d7 3.5× the nodes; R17 at
 d8 2.3×), so the equal-time screen decides whether the extension pays.
+
+## Equal-time screen (12:35–12:41, quiet machine): 80 blunder positions, 3,000 ms per move
+
+Base = RC-B code with the flag off; candidate = flag on. Same suite and
+protocol as the LMR screen (`corpus/daily/rcc/sa80_{rcb_3000ms_quiet,checkext_3000ms}.{jsonl,md}`).
+
+| | RC-B | + check extension |
+|---|---|---|
+| agree with the oracle | 45% | 46% |
+| within 25 cp | 54% | 57% |
+| robust mean loss (winsorised 500) | 138 | **116** |
+| p90 / p95 | 436 / 570 | 344 / 440 |
+| ≥ 100 cp / **≥ 300 cp** | 41% / 22.5% (18) | 39% / **16.2% (13)** |
+| expected-score loss, sum | 0.174 | **0.146** |
+| mean depth / nodes | 10.24 / 268,554 | 9.38 / 278,163 |
+| moves changed | — | 25 |
+| better / worse by ≥ 50 cp | — | **10 / 6** |
+| mean paired winsorised gain | — | **+21.6 cp** |
+
+Passes the preregistered bar (not worse by 5 cp; fewer ≥300 errors). The
+extension trades about 0.9 nominal ply for resolving the forcing lines, and
+on positions where somebody blundered that trade is worth +22 cp per move.
+
+## Short timed screen (Gate 2a) — launched 12:42
+
+`tools.arena --agent champions/rcc_checkext --opponent champions/rc_b
+--games 100 --base-ms 120000 --increment-ms 500 --ply-cap 300 --workers 8
+--corpus corpus/daily/pool/competition_actual_suite.jsonl --set-env CS_CHECK_EXT=1`
+(the first 50 organiser families, both colours; `rc_b` does not declare the
+flag and ignores it). Output `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl`
++ `.pgn`. Result appended when complete.
