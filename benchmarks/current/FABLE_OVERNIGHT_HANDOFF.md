@@ -120,26 +120,53 @@ V2.4 (below) is the response.
 ## 14. What is the strongest currently supported build?
 
 **RATED-V1** (`champions/rated_v1`, commit `98c48c8`, tag `rated-v1`).
-Nothing has beaten it on the competition distribution. *Pending:* whether
-rated-v1 with `START_FRACTION = 0.60` beats it under the real clock.
+Nothing has beaten it on the competition distribution, at fixed depth or
+under the clock. The V2.4 time policy (`START_FRACTION = 0.60`) measured
+**+1.5 Elo over 226 timed games on the organiser starts, 70 informative
+families, bootstrap −31..+32**, with zero failures but a lowest clock of
+2.2 s against the baseline's 6.7 s: rejected
+(`benchmarks/current/2026-09-05-v2.4-time-policy-results.md`). *Pending:*
+V2.4b, the floor-preserving variant, per its pre-registration.
 
 ## 15. Is there an exact release candidate ready?
 
-*Pending Stage 2.* The candidate is one of:
+**Yes: RC-A.**
 
-* **RC-A: rated-v1 exactly** (`champions/rated_v1`) — passes the release gate
-  now (`tools.release_check --fast --source champions/rated_v1`: 15/15 PASS,
-  39,125 bytes compressed, 106,863 unzipped).
-* **RC-B: rated-v1 + `START_FRACTION = 0.60`** (`champions/rated_v1_sf60`) —
-  Stage 1 passed (+0.50 ply, 93% budget used, ladder PASS); Stage 2 running.
-
-Either is a **reversion of the submitted feature**, which the evidence
-supports on its own.
+| field | value |
+|---|---|
+| semantic name | RATED-V1 RELEASE CANDIDATE A (the historical baseline, exactly) |
+| source | `champions/rated_v1`, commit `98c48c8`, tag `rated-v1` |
+| enabled features | none of the experimental terms; `TEMPO = 8`; `START_FRACTION = 0.45` |
+| archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` |
+| size | **39,125 bytes** compressed, **106,863 bytes** unzipped, 11 files |
+| SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
+| startup | 1.49 s (import including warm-up) against a 90 s budget |
+| deterministic fingerprint | **1,712,405 nodes** over the 24-position suite at `tools.bench --depth 6 --engine champions/rated_v1` (60.5 knps on this machine); identical to the working tree with every experimental term off |
+| tests | 1,202 passed (`pytest -q`, 1 min 58 s) |
+| release gate | `tools.release_check --fast --source champions/rated_v1`: 15 of 15 PASS, smoke game from the extracted zip |
+| rules compatibility | Python 3.12 stdlib + python-chess only; no native code, no network, no writes, no book, no tablebase; source readable |
+| relation to the past | content-identical (modulo line endings) to the root `submission.zip` built 2026-09-03 22:47, ten minutes after the rated-v1 commit |
 
 ## 16. Should the user submit it?
 
-*Pending Stage 2.* See section 19 for the decision rule written before the
-result.
+**RECOMMEND SUBMIT RC-A**, subject to one condition below, for these reasons:
+
+* The build currently on the ladder (V2.1 king-pawn) is measurably weaker
+  than RC-A on the organiser's own positions (−29 Elo, bootstrap excluding
+  zero), and in fifteen rated games its distinguishing feature changed
+  nothing.
+* RC-A is the only build with a validated release gate, a full test pass and
+  a content match to a previously uploaded archive.
+* Uploading now costs nothing under the tie-breaks: "earlier final
+  submission" is measured on the *final* upload, which any later, better
+  build would reset anyway, and a stronger ladder build improves the Swiss
+  seed in the meantime.
+
+Condition: if V2.4b (section 14) finishes positive and safe by the morning,
+prefer the candidate built from it; that result is recorded in the same
+V2.4 file and the summary JSON. If it is not positive, RC-A stands.
+
+Never uploaded by me; the user decides.
 
 ## 17. Top unresolved risks before the final Swiss
 
@@ -166,15 +193,20 @@ result.
 
 ## 19. What should be done next
 
-Decision rule for Stage 2, fixed before the result: RC-B is recommended only
-if (a) zero flags, crashes or illegal moves in 226 games, (b) the lowest clock
-it ever held is at least 10 s, (c) its score is not below rated-v1's with the
-cluster bootstrap not excluding a positive value, and (d) informative
-families are reported. If (a) or (b) fails, RC-A. If (c) fails, RC-A. In
-every case the recommendation is to **revert the submitted king-pawn
-feature**.
-
-After that: the own-engine start book (section 12); a timed confirmation of
-V2.1 vs rated-v1 if anyone still doubts the fixed-depth result; and, for the
-attack-blindness mechanism, a narrow causal audit on the round-1/10/11
-positions rather than another broad king-safety term.
+1. Decide on RC-A (section 16) — the user's call, made with the eligibility
+   question (section 3) in mind.
+2. Read the V2.4b result. Its acceptance rule was fixed before any
+   measurement: zero failures, a lowest clock not below rated-v1's own, and
+   a score not below rated-v1 with the bootstrap spanning positive values.
+   The stated expectation is that it measures near zero, which would close
+   the time lane for good: four experiments, four nulls.
+3. The own-engine start book (section 12) is the best-supported next idea
+   and is legal; it is mechanical to build and cheap to test under the
+   timed-arena instrument, which at 62% informative families is the better
+   Gate 2 for anything that touches the clock.
+4. For the attack-blindness mechanism, a narrow causal audit on the round
+   1/10/11 positions rather than another broad king-safety term; depth
+   repairs one such error in four, an evaluator change would need to reach
+   the other three.
+5. Optional: a timed confirmation of V2.1 vs rated-v1 on the organiser
+   starts, two hours, if anyone still doubts the fixed-depth result.
