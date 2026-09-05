@@ -1,0 +1,13 @@
+AlphaFish moves under 0.3 s by category: {'other': 120, 'capture': 9, 'single legal move': 3, 'in check, 4 evasions': 1, 'in check, 3 evasions': 1, 'in check, 7 evasions': 1, 'repeats an earlier position': 2}
+   ('Rated 9', 35, 0.013, 'Ba6+', 'other', 46)
+   ('Rated 9', 37, 0.001, 'Bxc4+', 'capture', 49)
+   ('Rated 9', 39, 0.002, 'Qc7+', 'other', 46)
+   ('Rated 9', 41, 0.001, 'Qc2#', 'other', 56)
+   ('Rated 10', 89, 0.141, 'f4', 'other', 5)
+   ('Rated 10', 93, 0.003, 'a4', 'other', 4)
+   ('Rated 10', 95, 0.001, 'Kh3', 'single legal move', 1)
+   ('Rated 10', 97, 0.002, 'a3', 'other', 2)
+   ('Rated 10', 99, 0.002, 'Kxh4', 'single legal move', 1)
+   ('Rated 10', 101, 0.002, 'a2', 'single legal move', 1)
+   ('Rated 11', 61, 0.072, 'Qf6', 'other', 44)
+   ('Rated 11', 63, 0.001, 'Kxg1', 'in check, 4 evasions', 4)

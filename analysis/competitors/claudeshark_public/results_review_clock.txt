@@ -1,0 +1,34 @@
+round    col opponent               rk  rating  res  term                  plies  CS acc  CS acpl  i/m/b    opp acpl  CS mean-spend  CS last-clock
+Rated 1  W   The Castle Gambit       59   1720  None Checkmate               59    98.9       5  0/0/0          1     2.66        57.346
+Rated 2  B   SahMatik               124   1549  None Checkmate               57    99.2       2  0/0/0          6     2.67        57.199
+Rated 3  B   Brrrrrrrr               97   1617  None Threefold repetition    98    99.3       2  0/0/0          6     2.39        27.532
+Rated 4  B   Frankfurt Airport      211   1320  None Checkmate               44    92.7      22  0/0/0        115     2.72        71.173
+Rated 5  W   Eazy-E                 100   1609  None Checkmate               67    97.4     104  0/0/0          5     2.45        55.564
+Rated 6  W   e=π=2                  120   1561  None Checkmate              104    99.9       1  0/0/0         34     2.41        20.811
+Rated 7  W   silly silly silly ches 104   1598  None Threefold repetition    92    90.7      37  1/1/0         34     2.25        39.641
+Rated 8  B   404 Not Found          178   1412  None Checkmate               35   100.0       0  0/0/0          8     3.30        69.633
+Rated 9  W   Bartholomew             86   1642  None Checkmate               26    99.9       0  0/0/0          7     3.55        80.28999999999999
+Rated 10 B   Sirloin v2.5           117   1574  None Checkmate               98    98.1      28  0/0/0          3     2.33        30.287
+Rated 11 W   dog                     27   1863  None Checkmate               83    99.6       3  0/0/0          1     2.32        45.314
+Rated 12 B   Artemis                172   1420  None Checkmate              131    99.7       1  0/0/0         24     2.00        21.287
+Rated 13 W   Tobias Carlsen         108   1589  None Threefold repetition    31    99.7       1  0/0/0          2     3.06        81.67099999999999
+Rated 14 B   Stinkfish              181   1405  None Checkmate               99    99.6       1  0/0/0         40     2.35        27.744
+Rated 15 B   Zagreus 5.0             75   1677  None Checkmate              134    98.7      38  0/0/0          2     1.88        27.37
+Rated 16 W   Oyinda                  87   1639  None Checkmate              142    99.4       2  0/0/0         34     1.94        17.499
+Rated 17 W   Pwn                    103   1601  None Threefold repetition    93    99.5       1  0/0/0          5     2.46        29.928
+Rated 18 B   CHINA MACHINE          118   1570  None Checkmate               98    99.3      24  0/0/0          2     2.21        36.345
+Rated 19 W   TK-Bravo               122   1557  None Checkmate               10   100.0       0  0/0/0          1     2.11        111.973
+Rated 20 B   Clore Bot VI            68   1697  None Checkmate               88    98.9      58  0/0/0          1     2.28        41.541
+Rated 21 W   BuildedBlunderer       131   1536  None Insufficient materia   160    98.6       4  0/0/0          3     1.80        15.978
+Rated 22 B   femboy number 2         89   1633  None Threefold repetition    48    99.3       2  0/0/0          1     2.80        64.899
+Rated 23 B   David Naylor            40   1795  None Checkmate               46    99.0       6  0/0/0          0     2.61        71.563
+Rated 24 B   Rustic Alpha 3         102   1603  None Checkmate               99    91.5      35  4/0/0         21     2.18        37.524
+Rated 25 W   None                   132   1532  None Checkmate              129    99.3      30  0/0/0          2     1.97        25.648
+Rated 26 W   Hallucinated Gambits   140   1516  None Checkmate              116    99.5       2  0/0/0         39     2.10        27.215
+Rated 27 W   kilobyte               137   1521  None Checkmate              100    99.4       3  0/0/0         20     2.24        33.179
+Rated 28 B   Pawn Street            133   1530  None Checkmate              125    99.5       1  0/0/0          8     1.98        26.829
+Rated 29 W   OptiFish               110   1586  None Threefold repetition    79    89.3      41  0/2/0         32     2.33        46.827
+Rated 30 B   KD                     107   1591  None Threefold repetition   195    90.6      33  8/0/1         31     1.62        11.041
+
+ClaudeShark acpl mean 16.2 median 3.0 max 104; accuracy mean 97.9; opponents acpl mean 16.3
+ClaudeShark spend: n=1342 mean 2.21 median 2.03 p90 3.88 max 11.21

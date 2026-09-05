@@ -498,3 +498,50 @@ Reserve Codex primarily for: independent red-team; candidate review;
 statistical / methodological challenge; independent failure diagnosis; or a
 genuinely separate third lane. Do not automatically use Codex to reproduce
 work Claude already completed.
+
+## 20. Competitor Study — AlphaFish (`659a3020`), 2026-09-05 22:45 UK (Mac, analysis only)
+
+Branch `kushagra/competitor-659a3020-study`; full report
+`analysis/competitors/659a3020_alphafish/REPORT.md` with all public data
+(22 games R9–R30, PGNs, platform review, our Stockfish annotation of both
+sides, 3,241 labelled moves). No engine change; nothing uploaded.
+
+FINDINGS:
+1. AlphaFish is **rank 1, 2216** after R29 (rank 20 / 1867 at 00:12 UTC):
+   16W 5D 1L (84%), performance ≈ 2290, **10W 4D 0L vs opponents ≥ 1970**,
+   all 16 wins by checkmate. ClaudeShark is rank 109 / 1589; no meeting yet,
+   unlikely at a 630-point gap.
+2. **The gap is unforced error rate.** Per-move oracle loss (|eval| < 800):
+   AlphaFish mean 6.5 cp, median 0, **≥ 100 cp on 0.6% of moves, ≥ 300 cp
+   never**; its top-15 opponents 15.2 / 2.6% / 0.6%; **RC-B (R16–R20) 41.7
+   / 14.5% / 1.7%**; V2.1 31.8 / 7.7%. Flat across phases (opening 5.5,
+   middlegame 8.6, endings 4.0). Platform review: acpl 2.8 mean, max 21.
+3. **Not tactical exploitation**: in AlphaFish's seat at the 29 positions
+   where its opponents erred ≥ 100 cp, RC-B at 2.5 s keeps the gain 24/29
+   (AlphaFish 20/29). Our deficit is the 1-in-7 ordinary move where RC-B
+   gives ≥ 100 cp away unprovoked.
+4. **Time policy**: spend ≈ 0.033 × clock + 0.19 s (89% of variance
+   explained; ours 40%), hard cap 4.4 s, 3.9 s median in the first 20
+   moves (ours 3.0 s), smooth decay to 0.5 s, lowest clock 4.9 s, never
+   flags; found mates are played instantly. No opening book (full time on
+   move 1).
+5. **Contempt zero**: took a 0.00 repetition at move 9 as Black vs a
+   lower-rated top-10 team (R28). Its one visible weakness is conversion
+   (R22 +203 → fifty-move draw; R24 525-ply shuffle from +35). Its only loss
+   was a positional grind (no blunder ≥ 100 cp) to a 1639 team.
+6. **Likely build (inference only)**: numba-compiled search and/or an
+   NNUE-style numpy/torch/onnxruntime evaluator; the flat, phase-independent
+   error profile and the positional loss point at the evaluator.
+
+IMPLICATIONS (for the coordinator, not instructions):
+* every lane that lowers RC-B's unforced ≥ 100 cp rate at equal time
+  (speed → depth, horizon) is aimed at the right variable; books,
+  tablebases and new evaluation terms are not what separates us from the top;
+* a proportional time policy (clock/30 + increment, cap ~4.4 s, no
+  early-iteration gamble) is a cheap controlled test once the speed lane
+  settles — it changes a different variable from the closed sf60/early16
+  tests;
+* conversion of +200 has cross-engine evidence (their R22, our R17);
+* the standings bar we can realistically target is their *opponents'*
+  profile: 2.6% ≥ 100 cp errors.
+

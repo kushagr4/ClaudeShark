@@ -1,0 +1,30 @@
+
+== Rated 15: AlphaFish Black vs Fuzzydafool (1921) — threefold_repetition after 231 plies
+  AlphaFish-relative eval: start -31, peak +88 at ply 42, final +5; own moves with loss>=100: []
+  own mean loss 4.2; opponent mean loss 4.9
+
+== Rated 22: AlphaFish White vs Capablanca (2174) — fifty_moves after 227 plies
+  AlphaFish-relative eval: start -24, peak +203 at ply 54, final +0; own moves with loss>=100: [(38, 'Qd6', 166, 'e2e1')]
+  own mean loss 5.7; opponent mean loss 5.9
+
+== Rated 24: AlphaFish White vs AI Fellow (2014) — insufficient_material after 525 plies
+  AlphaFish-relative eval: start +30, peak +35 at ply 3, final +0; own moves with loss>=100: []
+  own mean loss 2.3; opponent mean loss 1.8
+
+== Rated 26: AlphaFish White vs Blank Shooter (1993) — threefold_repetition after 89 plies
+  AlphaFish-relative eval: start -26, peak +46 at ply 42, final +0; own moves with loss>=100: []
+  own mean loss 8.3; opponent mean loss 8.2
+
+== Rated 28: AlphaFish Black vs Danya's Disciple (2057) — threefold_repetition after 10 plies
+  AlphaFish-relative eval: start +0, peak +0 at ply 1, final +0; own moves with loss>=100: []
+  own mean loss 0.0; opponent mean loss 0.0
+    8 b Nge7 0 -> 0 loss 0 best g8h6 spent None
+    9 w Nc3 0 -> 0 loss 0 best b1a3 spent None
+    9 b Nf5 0 -> 0 loss 0 best e7f5 spent 4.246
+    10 w Na4 0 -> 0 loss 0 best c3a4 spent 4.759
+    10 b Qa5+ 0 -> 0 loss 0 best b6a5 spent 4.121
+    11 w Nc3 0 -> 0 loss 0 best a4c3 spent 4.595
+    11 b Qb6 0 -> 0 loss 0 best a5b6 spent 4.0
+    12 w Na4 0 -> 0 loss 0 best c3a4 spent 4.436
+    12 b Qa5+ 0 -> 0 loss 0 best b6a5 spent 3.882
+    13 w Nc3 0 -> 0 loss 0 best a4c3 spent 4.287

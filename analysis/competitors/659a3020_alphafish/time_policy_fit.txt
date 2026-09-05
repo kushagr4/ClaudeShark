@@ -1,0 +1,10 @@
+n=1624 spend/clock_before: median 0.0396 (=1/25.2) mean 0.0433 p10 0.0290 p90 0.0724
+  clock 100-121s: n= 140 spend median 3.89 max 4.38  ratio median 0.0365
+  clock  60-100s: n= 363 spend median 2.75 max 3.70  ratio median 0.0373
+  clock  30- 60s: n= 443 spend median 1.65 max 2.36  ratio median 0.0402
+  clock  15- 30s: n= 330 spend median 0.98 max 1.37  ratio median 0.0465
+  clock   8- 15s: n= 207 spend median 0.67 max 0.87  ratio median 0.0599
+  clock   0-  8s: n= 141 spend median 0.53 max 0.64  ratio median 0.0906
+fit spend = 0.0328*clock_before + 0.191; residual sd 0.38s; explains 88.8% of variance
+with ply: spend = 0.0337*clock + 0.0004*ply + 0.105; residual sd 0.38s; explains 88.8%
+moves under 0.3s: 137 of 1624; examples [(69.03999999999999, 0.012999999999991019, 35), (69.527, 0.0010000000000047748, 37), (70.026, 0.001999999999995339, 39), (70.524, 0.0010000000000047748, 41), (29.832, 0.1410000000000018, 89)]
