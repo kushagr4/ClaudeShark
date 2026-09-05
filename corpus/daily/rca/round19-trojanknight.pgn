@@ -1,0 +1,12 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "?"]
+[Black "?"]
+[Result "1-0"]
+[FEN "r1bq1rk1/pp2ppbp/2np1np1/2pP4/2P5/2N2NP1/PP2PPBP/R1BQ1RK1 b - - 0 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+
+8... Bh6 { [%clk 0:01:56.176] } 9. Bxh6 { [%clk 0:01:55.898] } 9... g5 { [%clk 0:01:52.57] } 10. dxc6 { [%clk 0:01:53.768] } 10... Qc7 { [%clk 0:01:50.255] } 11. Qd2 { [%clk 0:01:51.047] } 11... b6 { [%clk 0:01:46.798] } 12. Qxg5+ { [%clk 0:01:51.476] } 12... Kh8 { [%clk 0:01:47.259] } 13. Qg7# { [%clk 0:01:51.973] } 1-0
