@@ -9,7 +9,7 @@ check `.owner` sidecars, then continue from section 10.
 ## 1. Clock
 
 * Fable take-over session began **2026-09-05 01:05 local**. Last update to this
-  file: **04:06**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
+  file: **06:10**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
 
 ## 2. Repository
 
@@ -27,7 +27,7 @@ check `.owner` sidecars, then continue from section 10.
 | **SUBMITTED V2.1 KING-PAWN** | `corpus/v2/kp/submission_v2_1_kingpawn.zip`, 43,489 B, sha256 `a8b95a5c…35bbd0a`, commit `10c9277`, tree `adaf2b6c` = `champions/v2_1_kingpawn` | playing the ladder; **measured −29 Elo vs rated-v1 on the organiser's own starts** (section 5) |
 | **RATED-V1 HISTORICAL BASELINE** | `98c48c8`, tag `rated-v1`, `champions/rated_v1` | immutable; **strongest build supported by evidence** |
 | **LOCAL DEVELOPMENT HEAD** | `v2.2-development` | every term ships off; reproduces the rated-v1 fingerprint (1,712,405 nodes at depth 6) |
-| **CURRENT EXPERIMENTAL CANDIDATE** | none promoted; time-policy variants `champions/rated_v1_sf{60,75,90}` exist untested under V2.4 | see section 9 |
+| **CURRENT EXPERIMENTAL CANDIDATE** | none; sf60 and early16 rejected at the competition clock | **RC-A = rated-v1 exactly, frozen in `corpus/release/`** |
 
 ## 4. Official rules snapshot (2026-09-05 01:11)
 
@@ -110,7 +110,7 @@ worth shipping.**
 
 ## 9. Running jobs — verify before touching anything
 
-**V2.4b Gate 2 running since 04:05 (restarted under the arena PGN fix)**: `tools.arena` `champions/rated_v1_early16` vs `champions/rated_v1`, 226 timed games, output `corpus/daily/time/games/early16_vs_ratedv1_120s.jsonl`, log `corpus/daily/time/stage2_early16.log`, expected to finish about 06:10. Do not start CPU-heavy work beside it. Complete: V2.4 Stage 2 (`corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, 226 games, **sf60 REJECTED**: +1.5 Elo on 70 informative families, lowest clock 2.2 s against the baseline's 6.7 s; see `2026-09-05-v2.4-time-policy-results.md`). Next CPU job: V2.4b Gate 0 then Gate 2 on `champions/rated_v1_early16`, output under `corpus/daily/time/`.
+**Timed V2.1 confirmation running since 06:05**: `tools.arena` `champions/v2_1_kingpawn` vs `champions/rated_v1`, 226 timed games, output `corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl`, log `corpus/daily/time/stage_v21_timed.log`, expected about 08:05. Do not start CPU-heavy work beside it. **V2.4b REJECTED** (49.3%, −4.6 Elo, 65 informative, lowest clock 4.1 s v 6.1 s; `2026-09-05-v2.4b-early-surplus-design.md`); the time lane is closed. Complete: V2.4 Stage 2 (`corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, 226 games, **sf60 REJECTED**: +1.5 Elo on 70 informative families, lowest clock 2.2 s against the baseline's 6.7 s; see `2026-09-05-v2.4-time-policy-results.md`). Next CPU job: V2.4b Gate 0 then Gate 2 on `champions/rated_v1_early16`, output under `corpus/daily/time/`.
 
 **Release candidate RC-A frozen:** `corpus/release/claudeshark_rated_v1_rc_a.zip`, 39,125 bytes, 106,863 unzipped, 11 files, sha256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, built from `champions/rated_v1` by `tools.release_check --source champions/rated_v1 --keep …` (15/15 PASS), full suite 1,202 passed, startup 1.49 s.
 

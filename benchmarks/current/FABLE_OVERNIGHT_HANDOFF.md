@@ -125,8 +125,20 @@ under the clock. The V2.4 time policy (`START_FRACTION = 0.60`) measured
 **+1.5 Elo over 226 timed games on the organiser starts, 70 informative
 families, bootstrap −31..+32**, with zero failures but a lowest clock of
 2.2 s against the baseline's 6.7 s: rejected
-(`benchmarks/current/2026-09-05-v2.4-time-policy-results.md`). *Pending:*
-V2.4b, the floor-preserving variant, per its pre-registration.
+(`benchmarks/current/2026-09-05-v2.4-time-policy-results.md`). V2.4b, the
+floor-preserving variant, measured **−4.6 Elo over 226 timed games, 65
+informative families, bootstrap −40..+31**, lowest clock 4.1 s against 6.1 s,
+largest think 18.4 s: also rejected
+(`2026-09-05-v2.4b-early-surplus-design.md`). **The time lane is closed:**
+five experiments on three bases and two clocks, five nulls. `cs_time.py`
+stays exactly as shipped in rated-v1.
+
+*Running at hand-over:* a timed confirmation of the submitted V2.1 king-pawn
+against rated-v1, same 226-game instrument, started 06:05, expected to finish
+about 08:05 (`corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl`, log
+`corpus/daily/time/stage_v21_timed.log`). It can only strengthen or soften
+section 8; it does not change the recommendation, because RC-A is the
+baseline either way.
 
 ## 15. Is there an exact release candidate ready?
 
@@ -149,7 +161,8 @@ V2.4b, the floor-preserving variant, per its pre-registration.
 
 ## 16. Should the user submit it?
 
-**RECOMMEND SUBMIT RC-A**, subject to one condition below, for these reasons:
+**RECOMMEND SUBMIT RC-A.** No condition remains: V2.4b was the last
+candidate and it failed its pre-registered rule. Reasons:
 
 * The build currently on the ladder (V2.1 king-pawn) is measurably weaker
   than RC-A on the organiser's own positions (−29 Elo, bootstrap excluding
@@ -162,11 +175,9 @@ V2.4b, the floor-preserving variant, per its pre-registration.
   build would reset anyway, and a stronger ladder build improves the Swiss
   seed in the meantime.
 
-Condition: if V2.4b (section 14) finishes positive and safe by the morning,
-prefer the candidate built from it; that result is recorded in the same
-V2.4 file and the summary JSON. If it is not positive, RC-A stands.
-
-Never uploaded by me; the user decides.
+Never uploaded by me; the user decides. Classification for the record:
+**NO V2 CANDIDATE BEATS RATED-V1 YET**, and the build that does beat the
+submitted one is rated-v1 itself.
 
 ## 17. Top unresolved risks before the final Swiss
 
@@ -195,11 +206,10 @@ Never uploaded by me; the user decides.
 
 1. Decide on RC-A (section 16) — the user's call, made with the eligibility
    question (section 3) in mind.
-2. Read the V2.4b result. Its acceptance rule was fixed before any
-   measurement: zero failures, a lowest clock not below rated-v1's own, and
-   a score not below rated-v1 with the bootstrap spanning positive values.
-   The stated expectation is that it measures near zero, which would close
-   the time lane for good: four experiments, four nulls.
+2. Read the timed V2.1 confirmation when it finishes (about 08:05); run
+   `uv run python -m tools.daily.swissrisk --games corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl --out corpus/daily/time/swissrisk_v21.txt`
+   if it has not been run. Do not run another time-policy experiment without
+   a new mechanism: five constants, five nulls.
 3. The own-engine start book (section 12) is the best-supported next idea
    and is legal; it is mechanical to build and cheap to test under the
    timed-arena instrument, which at 62% informative families is the better
