@@ -1,7 +1,9 @@
 # Active research state — read this first after any compaction or machine change
 
-Written **2026-09-05 07:20 local (Windows)** as the machine handoff before
-development continues on the user's Mac. This file, the repository and
+Written **2026-09-05 07:20 local (Windows)** as the machine handoff; updated
+**2026-09-05 08:35 local (Mac)** after the C1 Gate 0 and the launch of its timed
+screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
+`.venv`, Stockfish from Homebrew; fingerprint 1,712,405 reproduced. This file, the repository and
 `benchmarks/current/MAC_HANDOFF.md` are the source of truth.
 
 ## 1. Builds and hashes
@@ -13,7 +15,7 @@ development continues on the user's Mac. This file, the repository and
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
 | **CURRENT BEST PROVEN BUILD** | **RC-A** (nothing has beaten it on the competition distribution) |
-| **CURRENT DEVELOPMENT CANDIDATE** | **C1-search-staged**, design only: `staged_moves` in `cs_ordering.py` is written and identity-tested (`tests/test_staged_moves.py`, 2 tests, 300+ random positions) but **not wired into `cs_search.py`**; engine behaviour is unchanged. Gate 0 (fingerprint identical with the flag on and off, NPS) and a short timed screen are still to do. |
+| **CURRENT DEVELOPMENT CANDIDATE** | **C1-search-staged**, wired: `staged_moves` feeds `_negamax` behind `CS_STAGED_MOVES` (default off; on = the candidate). Gate 0 passed 2026-09-05 08:25 (record `2026-09-05-c1-staged-move-picker.md`): tree not byte-identical (history refreshed at the tail, 93 of 133,487 staged nodes, 0 unexplained), 0/24 and 0/18 root moves changed, +17% knps, tactics 16/16, 1,204 tests. Frozen as `champions/c1_staged`. Timed screen running (section 8). |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted and best proven; no RC-B. Never
@@ -44,13 +46,14 @@ overwrite an RC archive; freeze a new one under a new name.
 | V2.4 sf60 (`START_FRACTION` 0.60) vs rated-v1, 226 timed games | complete | 50.2%, +1.5 Elo, 70 informative, bootstrap −31..+32, lowest clock 2.2 s v 6.7 s; **rejected** | `corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, `swissrisk_sf60.txt` (its PGN was never written: arena bug, fixed in `03af6ab`) |
 | V2.4b early16 (fewer moves-to-go above 60 s) vs rated-v1, 226 timed games | complete | 49.3%, −4.6 Elo, 65 informative, bootstrap −40..+31, lowest clock 4.1 s v 6.1 s; **rejected** | `corpus/daily/time/games/early16_vs_ratedv1_120s.jsonl` + `.pgn`, `swissrisk_early16.txt` |
 | Timed confirmation V2.1 vs rated-v1 | **PARTIAL — NON-DECISIVE — STOPPED FOR TIME BUDGET** at 69/226 (48.6%) | must not revise the fixed-depth verdict | `corpus/daily/time/games/v21_vs_ratedv1_120s.PARTIAL-NON-DECISIVE-STOPPED-FOR-TIME-BUDGET.jsonl` + `.txt` |
+| C1-search-staged Gate 0 | **complete, passed** | −0.24% nodes, 0/42 root moves changed, +17% knps, 16/16 tactics | `2026-09-05-c1-staged-move-picker.md`, `corpus/daily/time/gate0_c1staged.txt` |
+| C1-search-staged timed screen vs rated-v1, 226 games | **RUNNING** (section 8) | — | `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` |
 | depth repair on 27 key rated decisions | complete | depth 7 or 8 repairs 6 of 27 | `corpus/daily/rated15_key_deeper.txt` |
 | public start-FEN recurrence | complete | 84–87% by rounds 14–15; a book is legal only from our own engine's moves | `2026-09-05-start-book-recurrence.md` |
 | tablebases | measured | ≤5-piece positions in 1 of 15 rated games; not worth shipping | `FABLE_OVERNIGHT_HANDOFF.md` |
 | RC-A release verification | complete | 15/15 gate twice, 1,202 tests, Python 3.12.13 fresh-extraction smoke, ladder PASS, 0 failures in 521 timed games | `corpus/release/RC_A_MANIFEST.txt`, `rc_a_smoke_py312.json`, `RC_A_UPLOAD_CARD.md` |
 
-No experiment is running. Nothing had to be stopped for this handoff: nothing
-was running when it began (C1 had not reached Gate 0).
+One experiment is running (the C1 timed screen, section 8).
 
 ## 4. Rejected candidates (do not reopen without new evidence)
 
@@ -106,12 +109,28 @@ university student on the team) needs written organiser clarification.
 
 ## 8. Live background jobs
 
-**NONE.** Sweep at 07:10: no python, uv or Stockfish processes; no sleep
-pollers; only the tool harness's own shells; no `.owner` sidecars; no output
-file growing. Rules for future jobs: one CPU-heavy job at a time, registered
-here (PID, parent, purpose, command, start, expected finish, output, sidecar,
-CPU-heavy, kill condition), removed when it ends; no waiter shells; a probe
-must never match its own command line.
+**ONE (CPU-heavy).** C1 timed screen, registered 2026-09-05 08:31 local (Mac):
+
+* PID 19304 (`.venv/bin/python3 -m tools.arena`), parent 19302 (`uv run`, launched
+  with `nohup` from the Claude session shell); 16 `harness/runner.py` children.
+* Purpose: Gate 2 timed screen of C1-search-staged against RC-A at the
+  competition clock on the 113 organiser starts, both colours.
+* Command: `tools.arena --agent champions/c1_staged --opponent champions/rated_v1
+  --games 226 --base-ms 120000 --increment-ms 500 --ply-cap 300 --workers 8
+  --corpus corpus/daily/pool/competition_actual_suite.jsonl
+  --jsonl corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl --set-env CS_STAGED_MOVES=1`.
+* Started 08:30:03 local; expected finish about 10:30 (the two Windows
+  226-game runs at this control took 1 h 57 min and 2 h 04 min on 8 workers).
+* Output: `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` (+ `.pgn`),
+  stdout in `corpus/daily/time/games/c1staged_vs_ratedv1_120s.log` (gitignored).
+* Kill condition: only if a failure termination attributable to the candidate
+  appears, or the user asks. Otherwise let it finish; do not start a second
+  CPU-heavy job while it runs.
+
+Rules for future jobs: one CPU-heavy job at a time, registered here (PID,
+parent, purpose, command, start, expected finish, output, sidecar, CPU-heavy,
+kill condition), removed when it ends; no waiter shells; a probe must never
+match its own command line.
 
 ## 9. Known DO-NOT-USE artifacts
 
