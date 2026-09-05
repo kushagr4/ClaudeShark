@@ -1,0 +1,26 @@
+=== CS_CHECK_EXT=1 MAXDEPTH=1 ===
+depth-6 suite:   total nodes     1,785,905 (47% quiescence)
+R20 12...Nxd5 (want Nd4)     d6: Nxd5       +9 nodes   148832   1.3s  PV Nxd5 Be2 O-O O-O a6 Nc3
+R20 12...Nxd5 (want Nd4)     d7: Nxd5       +9 nodes   230148   1.9s  PV Nxd5 Be2 O-O O-O a6 Nc3 Nxe3
+R20 12...Nxd5 (want Nd4)     d8: Nd4      -244 nodes  1501590  13.2s  PV Nd4 Bxd4 exd4 d6 Rb8 Nc7+ Kf8 Qxd4
+R20 11...d5 (want O-O/Ne4)   d7: d5         -5 nodes   179222   1.6s  PV d5 exd5 Nxd5 Bg5 Bb4+ Bd2 Qh4+ g3
+R20 11...d5 (want O-O/Ne4)   d8: d5         +9 nodes   402418   3.8s  PV d5 exd5 Nxd5 Be2 O-O O-O a6 Nc3
+R17 47.Re1 (want Qc2/a6)     d7: Re1      +320 nodes   275617   1.9s  PV Re1 Rb4 Qxe5 Rg4+ Kf2 Qg2+ Ke3 Rg3+ Kf4
+R17 47.Re1 (want Qc2/a6)     d8: Re1      +320 nodes   522797   3.5s  PV Re1 Rb4 Qxe5 Rg4+ Kf2 Qg2+ Ke3 Rg3+ Kf4
+R17 47.Re1 (want Qc2/a6)     d9: a6       +174 nodes  1956534  14.2s  PV a6 Re8 a7 Rbc8 Nf4 Qd4+ Kg2 Kh7 Ne6
+R18 15...g6 (want f6/a4)     d6: g6        +27 nodes   128479   1.0s  PV g6 Nc5 Bf5 Qe2 Re8 Bf4
+R18 15...g6 (want f6/a4)     d7: f6        +29 nodes   289631   2.4s  PV f6 h3 a4 hxg4 axb3 Qxb3
+R19 12.Qxg5+ (mate)          d3: Qxg5+  +29997 nodes     4293   0.0s  PV Qxg5+ Kh8 Qg7#
+=== CS_CHECK_EXT=1 MAXDEPTH=2 ===
+depth-6 suite:   total nodes     1,828,076 (47% quiescence)
+R20 12...Nxd5 (want Nd4)     d6: Nxd5       +9 nodes   156698   1.4s  PV Nxd5 Be2 O-O O-O a6 Nc3
+R20 12...Nxd5 (want Nd4)     d7: Nd4      -244 nodes   830851   7.8s  PV Nd4 Bxd4 exd4 d6 Rb8 Nc7+ Kf8 Qxd4
+R20 12...Nxd5 (want Nd4)     d8: Nd4      -256 nodes  1215558  11.0s  PV Nd4 Bxd4 exd4 d6 Rb8 Nc7+ Kf8 Na6 Bxd6
+R20 11...d5 (want O-O/Ne4)   d7: d5         +4 nodes   203842   1.8s  PV d5 exd5 Nxd5 Be2 Nxe3 Qxd8+ Rxd8 Nxe3
+R20 11...d5 (want O-O/Ne4)   d8: d5         +8 nodes   407154   3.5s  PV d5 exd5 Nxd5 Be2 Nxe3 Nxe3 O-O O-O
+R17 47.Re1 (want Qc2/a6)     d7: Re1      +320 nodes   304742   2.1s  PV Re1 Rb4 Qxe5 Rg4+ Kf2 Qg2+ Ke3 Rg3+ Kf4
+R17 47.Re1 (want Qc2/a6)     d8: a6       +168 nodes  1108105   8.0s  PV a6 Re8 a7 Rbc8 Qd1 Qxd1 Rxd1 Nf3+ Rxf3
+R17 47.Re1 (want Qc2/a6)     d9: a6       +174 nodes  1588191  11.6s  PV a6 Re8 a7 Rbc8 Nf4 Qd4+ Kg2 Kh7 Ne6
+R18 15...g6 (want f6/a4)     d6: g6        +27 nodes   129518   1.1s  PV g6 Nc5 Bf5 Qe2 Re8 Bf4
+R18 15...g6 (want f6/a4)     d7: f6        +29 nodes   295209   2.6s  PV f6 h3 a4 hxg4 axb3 Qxb3
+R19 12.Qxg5+ (mate)          d3: Qxg5+  +29997 nodes     4293   0.0s  PV Qxg5+ Kh8 Qg7#
