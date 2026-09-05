@@ -1,0 +1,34 @@
+header: agent champions/c1_staged fc4fbc4f7a987d35 | opponent champions/rated_v1 55446e6f4741b9a3 | env {'CS_STAGED_MOVES': '1'} | python 3.12.14
+
+== FULL RUN ==
+ games 226  families 113  informative 80 (71%)
+ W/D/L +83 =98 -45  score 58.4%  Elo +59.0
+ family bootstrap 95%: score 53.5%..63.3%  Elo +24.6..+94.5
+ leave-one-informative-family-out Elo +56.3..+62.7
+ family-mean histogram: 0.00×6 0.25×18 0.50×33 0.75×44 1.00×12
+ as White: n=113 score 55.8% Elo +40.1
+ as Black: n=113 score 61.1% Elo +78.2
+ failed flags 0; terminations Counter({'checkmate': 128, 'threefold_repetition': 86, 'insufficient_material': 10, 'fifty_moves': 2})
+
+wall seconds per game: median 254.45999999999998 p90 316.26 top 12: [372, 705, 939, 988, 3690, 3740, 3926, 4430, 4441, 4455, 4482, 4517]
+games in flight across the sleep (wall > 1500 s): [(211, 105, 1.0, 3740, 3991.3, 5134.0), (212, 106, 0.0, 4455, 5380.2, 5876.4), (213, 106, 1.0, 4441, 7442.8, 5336.5), (214, 107, 0.5, 3690, 4906.1, 6236.2), (215, 107, 1.0, 4482, 5062.0, 6868.6), (216, 108, 1.0, 4430, 7278.3, 5254.6), (217, 108, 0.5, 4517, 4708.3, 6604.4), (218, 109, 0.5, 3926, 6677.8, 5236.4)]
+
+== SLEEP-EXCLUDED (drop 8 games and their 5 families entirely) ==
+ games 216  families 108  informative 77 (71%)
+ W/D/L +79 =93 -44  score 58.1%  Elo +56.8
+ family bootstrap 95%: score 53.0%..63.0%  Elo +20.9..+92.2
+ leave-one-informative-family-out Elo +54.0..+60.7
+ family-mean histogram: 0.00×6 0.25×18 0.50×31 0.75×41 1.00×12
+ as White: n=108 score 56.0% Elo +42.0
+ as Black: n=108 score 60.2% Elo +71.8
+ failed flags 0; terminations Counter({'checkmate': 123, 'threefold_repetition': 82, 'insufficient_material': 9, 'fifty_moves': 2})
+
+== SLEEP-EXCLUDED (drop only the 8 games) ==
+ games 218  families 110  informative 77 (70%)
+ W/D/L +79 =95 -44  score 58.0%  Elo +56.3
+ family bootstrap 95%: score 53.2%..62.8%  Elo +22.2..+90.9
+ leave-one-informative-family-out Elo +53.5..+60.1
+ family-mean histogram: 0.00×6 0.25×18 0.50×33 0.75×41 1.00×12
+ as White: n=109 score 56.0% Elo +41.6
+ as Black: n=109 score 60.1% Elo +71.1
+ failed flags 0; terminations Counter({'checkmate': 123, 'threefold_repetition': 83, 'insufficient_material': 10, 'fifty_moves': 2})

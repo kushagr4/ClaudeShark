@@ -1,0 +1,40 @@
+
+== R17 39.Re3 ==  side to move: White
+  oracle: best c1f1 cp +229 (stm)   second: ('e4f4', 230)
+  rated_v1     timed e4e3   score  +190 static  +238 depth  7 nodes   225488  oracle after    +4  loss  +291  pv 
+  rc_b         timed e4e3   score  +190 static  +238 depth  7 nodes   225494  oracle after    +4  loss  +291  pv 
+
+== R17 42.Rcf1 ==  side to move: White
+  oracle: best c4c5 cp +258 (stm)   second: ('c1f1', 210)
+  rated_v1     timed c1f1   score  +225 static  +230 depth  7 nodes   136401  oracle after  +247  loss   +77  pv 
+  rc_b         timed c1f1   score  +225 static  +230 depth  8 nodes   289462  oracle after  +247  loss   +77  pv 
+
+== R17 43.Ra1 ==  side to move: White
+  oracle: best c4c5 cp +294 (stm)   second: ('f6f4', 235)
+  rated_v1     timed c4c5   score  +194 static  +256 depth  7 nodes   295557  oracle after  +293  loss    +0  pv 
+  rc_b         timed c4c5   score  +194 static  +256 depth  7 nodes   295293  oracle after  +293  loss    +0  pv 
+
+== R17 44.Raf1 ==  side to move: White
+  oracle: best c4c5 cp +319 (stm)   second: ('a1f1', 236)
+  rated_v1     timed a1f1   score  +225 static  +212 depth  7 nodes   154542  oracle after  +237  loss   +90  pv 
+  rc_b         timed a1f1   score  +225 static  +212 depth  7 nodes   154474  oracle after  +237  loss   +90  pv 
+
+== R17 45.c5 ==  side to move: White
+  oracle: best c4c5 cp +302 (stm)   second: ('f6f4', 220)
+  rated_v1     timed c4c5   score  +194 static  +256 depth  7 nodes   295557  oracle after  +293  loss    +0  pv 
+  rc_b         timed c4c5   score  +194 static  +256 depth  7 nodes   295293  oracle after  +293  loss    +0  pv 
+
+== R17 46.Qe2 ==  side to move: White
+  oracle: best a6e2 cp +449 (stm)   second: ('f1e1', 294)
+  rated_v1     timed a6e2   score  +235 static  +172 depth  7 nodes   170181  oracle after  +455  loss    +0  pv 
+  rc_b         timed a6e2   score  +235 static  +172 depth  7 nodes   170182  oracle after  +455  loss    +0  pv 
+
+== R17 47.Re1 ==  side to move: White
+  oracle: best e2c2 cp +435 (stm)   second: ('a5a6', 300)
+  rated_v1     timed f1e1   score  +354 static   +80 depth  7 nodes   165267  oracle after    +2  loss  +440  pv 
+  rc_b         timed f1e1   score  +354 static   +80 depth  7 nodes   480256  oracle after    +2  loss  +440  pv 
+
+== R17 48.Qxe5 ==  side to move: White
+  oracle: best e2f2 cp +0 (stm)   second: ('e2f1', 0)
+  rated_v1     timed e2e5   score  +320 static   +87 depth  7 nodes   159117  oracle after   -17  loss   +17  pv 
+  rc_b         timed e2e5   score  +320 static   +87 depth  7 nodes   467968  oracle after   -17  loss   +17  pv 

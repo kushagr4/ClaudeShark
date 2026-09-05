@@ -10,11 +10,11 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 
 | identity | exact value |
 |---|---|
-| **CURRENT SUBMITTED BUILD** | **RC-A / exact rated-v1** |
+| **CURRENT SUBMITTED BUILD** | **RC-A / exact rated-v1** — stays the submitted build until the user explicitly confirms the RC-B upload |
 | submitted archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` (39,125 bytes; 106,863 unzipped; 11 files) |
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
-| **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5`: C1 staged picker on by default + fast stalemate probe; +59 Elo over RC-A at the competition clock, 226 games, bootstrap +25..+93; release gate 15/15, ladder PASS, py3.12 smoke. **Not uploaded** — card `RC_B_UPLOAD_CARD.md`; RC-A remains submitted and the fallback until the user confirms. |
+| **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **Recommended GO 2026-09-05 12:05; NOT YET UPLOADED** — card `RC_B_UPLOAD_CARD.md`. |
 | **CURRENT DEVELOPMENT CANDIDATE** | none in flight; next work per section 6 (speed lane, fingerprint-gated). |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
@@ -49,6 +49,13 @@ new one under a new name.
   new mechanism. Page snapshots in
   `analysis/refresh_2026-09-05/` (`_0853`). Keep RC-A games in `corpus/daily/rca/`,
   never merged into the V2.1 dataset.
+  **RC-A live record today: R16 W, R17 D, R18 L, R19 W** (files
+  `corpus/daily/rca/round1{6,7,8,9}-*.{pgn,jsonl,_annotated.jsonl}`, record
+  `2026-09-05-rca-live-games-r16-r19.md`). Not an Elo test; mechanisms only:
+  R17 = conversion failure by perpetual-check horizon at 47.Re1 (root +354,
+  truth 0, not repaired by depth 9; RC-B identical); R18 = tactical horizon at
+  15…g6 (piece trap one ply past depth 6; **RC-B plays 15…f6 at the game
+  budget and repairs it**); R19 = mate found, RC-B identical.
 
 ## 3. Experiments — status, result, artifact
 
@@ -59,7 +66,7 @@ new one under a new name.
 | V2.4b early16 (fewer moves-to-go above 60 s) vs rated-v1, 226 timed games | complete | 49.3%, −4.6 Elo, 65 informative, bootstrap −40..+31, lowest clock 4.1 s v 6.1 s; **rejected** | `corpus/daily/time/games/early16_vs_ratedv1_120s.jsonl` + `.pgn`, `swissrisk_early16.txt` |
 | Timed confirmation V2.1 vs rated-v1 | **PARTIAL — NON-DECISIVE — STOPPED FOR TIME BUDGET** at 69/226 (48.6%) | must not revise the fixed-depth verdict | `corpus/daily/time/games/v21_vs_ratedv1_120s.PARTIAL-NON-DECISIVE-STOPPED-FOR-TIME-BUDGET.jsonl` + `.txt` |
 | C1-search-staged Gate 0 | **complete, passed** | −0.24% nodes, 0/42 root moves changed, +17% knps, 16/16 tactics | `2026-09-05-c1-staged-move-picker.md`, `corpus/daily/time/gate0_c1staged.txt` |
-| C1-search-staged timed screen vs rated-v1, 226 games, competition clock | **complete, decisive, PROMOTED** | +83 =98 −45, 58.4%, **+59 Elo**, 80 informative, bootstrap +25..+93, clock floor 5.7 s v 4.7 s, 0 failures | `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` + `.pgn`, `swissrisk_c1staged.txt` |
+| C1-search-staged timed screen vs rated-v1, 226 games, competition clock (family + sleep sensitivity in `c1staged_family_sensitivity.txt`) | **complete, decisive, PROMOTED** | +83 =98 −45, 58.4%, **+59 Elo**, 80 informative, bootstrap +25..+93, clock floor 5.7 s v 4.7 s, 0 failures | `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` + `.pgn`, `swissrisk_c1staged.txt` |
 | fast stalemate probe (identical tree) | complete | +11% knps on top of C1, fingerprints unchanged | `2026-09-05-c1-staged-move-picker.md`, `tests/test_has_legal_move.py` |
 | Lane B static king-attack signals | **complete, negative, closed** | best AUC 0.61, sign agreement <40%, signals zero through the early phase of the R1/R11 attacks | `2026-09-05-lane-b-static-attack-signals.md`, `corpus/daily/laneb_signals.txt` |
 | LMR schedule variants (r=2 from depth 4 etc.) | complete, flat, closed | −38% nodes at depth 8 but 5 better / 5 worse at equal time, E-loss slightly worse | `2026-09-05-lmr-schedule-screen.md`, `corpus/daily/lmr/` |
