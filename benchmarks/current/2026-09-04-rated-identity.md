@@ -90,3 +90,36 @@ Black it is a submitted-build **win** in which the same engine that mis-scored
 a winning attack in round 3 executed one correctly here, which would be a
 positive control isolating what made round 3 different. No causal conclusion is
 drawn until the identity is settled by a second method.
+
+## Settled on 2026-09-05: every colour through Round 15, from official metadata
+
+Our public team page (fetched 2026-09-05 01:20 local and parsed into
+`corpus/daily/public/team_games.json`) lists all fifteen rated games with our colour,
+the opponent, the opening and the match id. That is **Method C for every
+round**, and it is cross-checked in `corpus/daily/rated_games.txt` against the
+seven direct match logs the dashboard offers (`corpus/daily/logs/`) and the PGN
+results: fifteen of fifteen consistent.
+
+| round | opponent | our colour | result | sources agreeing |
+|---|---|---|---|---|
+| 1 | Opponent A | White | loss | team page, log-free; earlier A+B+C |
+| 2 | Opponent B | Black | win | team page; earlier A+B |
+| 3 | Opponent C | Black | draw | team page, direct log; earlier A+B |
+| 4 | Opponent D | Black | win | team page, direct log (clock had leaned Black) |
+| 5 | Opponent E | White | loss | team page (clock had leaned White) |
+| 6 | Opponent F | White | win | team page, direct log |
+| 7 | Opponent G | White | draw | team page |
+| 8 | Opponent H | Black | win | team page, direct log |
+| 9 | Opponent I | White | win | team page |
+| 10 | Opponent J | Black | loss | team page |
+| 11 | Opponent K | White | loss | team page, direct log |
+| 12 | Opponent L | Black | win | team page |
+| 13 | Opponent M | White | draw | team page |
+| 14 | Opponent N | Black | win | team page, direct log |
+| 15 | Opponent O | Black | loss | team page, direct log |
+
+Both provisional clock-fingerprint calls (round 4 Black, round 5 White) were
+right, which is mild validation of Method A; it is still never used alone.
+The move-fingerprint replay (Method B) was not run for rounds 4–15 because
+Method C made it unnecessary. Round 5 is therefore a **submitted-build loss as
+White**, and its analysis proceeds on that basis.

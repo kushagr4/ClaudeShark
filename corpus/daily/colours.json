@@ -1,14 +1,152 @@
 {
   "round1": {
     "colour": "w",
-    "evidence": "move agreement: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves against 14/30 (46.7%) of Black's; clock shape: White sd 1.59s max 7.58s (ClaudeShark's varying allocator), Black sd 2.65s max 13.30s"
+    "result_for_us": "loss",
+    "opponent": "Opponent A",
+    "opponent_id": "Opponent A",
+    "match_id": "game-001",
+    "opening": "French Winawer",
+    "colour_source": "official public metadata + move agreement + clock",
+    "evidence": "official public metadata: our public team page lists Rated 1 vs Opponent A as white (loss), match game-001, fetched 2026-09-05 01:20 local; move agreement: rated-v1 at depth 6 reproduces 25/29 (86.2%) of White's moves and 23/27 (85.2%) of White's non-forced moves against 14/30 (46.7%) of Black's; clock shape: White sd 1.59s max 7.58s (ClaudeShark's varying allocator), Black sd 2.65s max 13.30s"
   },
   "round2": {
     "colour": "b",
-    "evidence": "move agreement: 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves against 11/28 (39.3%) of White's; clock shape: Black sd 1.44s max 6.40s, White sd 0.47s max 2.51s (a fixed per-move budget)"
+    "result_for_us": "win",
+    "opponent": "Opponent B",
+    "opponent_id": "Opponent B",
+    "match_id": "game-002",
+    "opening": "Caro-Kann Classical",
+    "colour_source": "official public metadata + move agreement + clock",
+    "evidence": "official public metadata: our public team page lists Rated 2 vs Opponent B as black (win), match game-002, fetched 2026-09-05 01:20 local; move agreement: 29/29 (100%) of Black's moves and 27/27 of Black's non-forced moves against 11/28 (39.3%) of White's; clock shape: Black sd 1.44s max 6.40s, White sd 0.47s max 2.51s (a fixed per-move budget)"
   },
   "round3": {
     "colour": "b",
-    "evidence": "move agreement: 38/49 (77.6%) of Black's moves and 36/47 (76.6%) of Black's non-forced moves against 29/49 (59.2%) of White's; clock shape: Black sd 1.33s max 7.58s matching ClaudeShark in rounds 1 and 2, White sd 0.52s max 2.95s matching the round-2 opponent's fixed budget"
+    "result_for_us": "draw",
+    "opponent": "Opponent C",
+    "opponent_id": "Opponent C",
+    "match_id": "game-003",
+    "opening": "Petroff Defence",
+    "colour_source": "official public metadata + direct log + move agreement + clock",
+    "evidence": "official public metadata: our public team page lists Rated 3 vs Opponent C as black (draw), match game-003, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour; move agreement: 38/49 (77.6%) of Black's moves and 36/47 (76.6%) of Black's non-forced moves against 29/49 (59.2%) of White's; clock shape: Black sd 1.33s max 7.58s matching ClaudeShark in rounds 1 and 2, White sd 0.52s max 2.95s matching the round-2 opponent's fixed budget"
+  },
+  "round4": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "Opponent D",
+    "opponent_id": "Opponent D",
+    "match_id": "game-004",
+    "opening": "Ruy Lopez, Closed",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: our public team page lists Rated 4 vs Opponent D as black (win), match game-004, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour; clock fingerprint had leaned Black (sd 1.19, max 6.02) before the log and metadata settled it"
+  },
+  "round5": {
+    "colour": "w",
+    "result_for_us": "loss",
+    "opponent": "Opponent E",
+    "opponent_id": "Opponent E",
+    "match_id": "game-005",
+    "opening": "English Symmetrical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: our public team page lists Rated 5 vs Opponent E as white (loss), match game-005, fetched 2026-09-05 01:20 local; clock fingerprint had leaned White (sd 1.54, max 6.94) before the metadata settled it"
+  },
+  "round6": {
+    "colour": "w",
+    "result_for_us": "win",
+    "opponent": "Opponent F",
+    "opponent_id": "Opponent F",
+    "match_id": "game-006",
+    "opening": "King's Indian Classical",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: our public team page lists Rated 6 vs Opponent F as white (win), match game-006, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round7": {
+    "colour": "w",
+    "result_for_us": "draw",
+    "opponent": "Opponent G",
+    "opponent_id": "Opponent G",
+    "match_id": "game-007",
+    "opening": "French Classical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: our public team page lists Rated 7 vs Opponent G as white (draw), match game-007, fetched 2026-09-05 01:20 local"
+  },
+  "round8": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "Opponent H",
+    "opponent_id": "Opponent H",
+    "match_id": "game-008",
+    "opening": "Sicilian Dragon",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: our public team page lists Rated 8 vs Opponent H as black (win), match game-008, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round9": {
+    "colour": "w",
+    "result_for_us": "win",
+    "opponent": "Opponent I",
+    "opponent_id": "Opponent I",
+    "match_id": "game-009",
+    "opening": "French Classical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: our public team page lists Rated 9 vs Opponent I as white (win), match game-009, fetched 2026-09-05 01:20 local"
+  },
+  "round10": {
+    "colour": "b",
+    "result_for_us": "loss",
+    "opponent": "Opponent J",
+    "opponent_id": "Opponent J",
+    "match_id": "game-010",
+    "opening": "Sicilian Closed",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: our public team page lists Rated 10 vs Opponent J as black (loss), match game-010, fetched 2026-09-05 01:20 local"
+  },
+  "round11": {
+    "colour": "w",
+    "result_for_us": "loss",
+    "opponent": "Opponent K",
+    "opponent_id": "Opponent K",
+    "match_id": "game-011",
+    "opening": "Nimzo-Indian Defence",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: our public team page lists Rated 11 vs Opponent K as white (loss), match game-011, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round12": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "Opponent L",
+    "opponent_id": "Opponent L",
+    "match_id": "game-012",
+    "opening": "Sicilian Classical",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: our public team page lists Rated 12 vs Opponent L as black (win), match game-012, fetched 2026-09-05 01:20 local"
+  },
+  "round13": {
+    "colour": "w",
+    "result_for_us": "draw",
+    "opponent": "Opponent M",
+    "opponent_id": "Opponent M",
+    "match_id": "game-013",
+    "opening": "Reti Opening",
+    "colour_source": "official public metadata",
+    "evidence": "official public metadata: our public team page lists Rated 13 vs Opponent M as white (draw), match game-013, fetched 2026-09-05 01:20 local"
+  },
+  "round14": {
+    "colour": "b",
+    "result_for_us": "win",
+    "opponent": "Opponent N",
+    "opponent_id": "Opponent N",
+    "match_id": "game-014",
+    "opening": "Pirc Defence",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: our public team page lists Rated 14 vs Opponent N as black (win), match game-014, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
+  },
+  "round15": {
+    "colour": "b",
+    "result_for_us": "loss",
+    "opponent": "Opponent O",
+    "opponent_id": "Opponent O",
+    "match_id": "game-015",
+    "opening": "Sicilian Taimanov",
+    "colour_source": "official public metadata + direct log",
+    "evidence": "official public metadata: our public team page lists Rated 15 vs Opponent O as black (loss), match game-015, fetched 2026-09-05 01:20 local; direct match log from the dashboard states the same colour"
   }
 }

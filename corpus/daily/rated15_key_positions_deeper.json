@@ -1,0 +1,191 @@
+[
+ {
+  "label": "round1 move 15 c4",
+  "fen": "rnb2rk1/p1q1n1p1/1p2p2p/2ppP3/P7/2P2N1P/2P1BPP1/R1BQ1RK1 w - - 2 15",
+  "played": "c3c4",
+  "sf_best": "a4a5",
+  "sf_before": 25
+ },
+ {
+  "label": "round1 move 16 Bb2",
+  "fen": "r1b2rk1/p1q1n1p1/1pn1p2p/2ppP3/P1P5/5N1P/2P1BPP1/R1BQ1RK1 w - - 1 16",
+  "played": "c1b2",
+  "sf_best": "c4d5",
+  "sf_before": -40
+ },
+ {
+  "label": "round1 move 17 g3",
+  "fen": "r4rk1/pbq1n1p1/1pn1p2p/2ppP3/P1P5/5N1P/1BP1BPP1/R2Q1RK1 w - - 3 17",
+  "played": "g2g3",
+  "sf_best": "f3h4",
+  "sf_before": -113
+ },
+ {
+  "label": "round1 move 22 Nxd4",
+  "fen": "3r1rk1/pbq3p1/1p2p2p/2p1Pn2/P1Pn4/5NPP/1B2BP2/R1Q2RK1 w - - 5 22",
+  "played": "f3d4",
+  "sf_best": "b2d4",
+  "sf_before": -334
+ },
+ {
+  "label": "round3 move 14 Bd7",
+  "fen": "r4rk1/p1p1qppp/3b4/1Q3b2/1nBP4/4BN2/PP3PPP/R3K2R b KQ - 2 14",
+  "played": "f5d7",
+  "sf_best": "b4c2",
+  "sf_before": -291
+ },
+ {
+  "label": "round3 move 20 Qf4+",
+  "fen": "3B1rk1/p1pb1ppp/8/7Q/1bBPq3/5N2/PP3PPP/R1K5 b - - 2 20",
+  "played": "e4f4",
+  "sf_best": "d7f5",
+  "sf_before": -396
+ },
+ {
+  "label": "round3 move 52 Ke5",
+  "fen": "8/8/3kB3/3P2p1/p1p3P1/P7/1P4r1/2K5 b - - 1 52",
+  "played": "d6e5",
+  "sf_best": "c4c3",
+  "sf_before": -462
+ },
+ {
+  "label": "round3 move 55 Rg3",
+  "fen": "8/8/4B3/3Pk1p1/p1p3P1/P7/1P4r1/1K6 b - - 7 55",
+  "played": "g2g3",
+  "sf_best": "e5d6",
+  "sf_before": -357
+ },
+ {
+  "label": "round5 move 17 bxc3",
+  "fen": "3r2k1/1p2ppbp/6p1/q2npb2/8/P1r3PP/1P1BPPB1/R2Q1RK1 w - - 0 17",
+  "played": "b2c3",
+  "sf_best": "e2e4",
+  "sf_before": 156
+ },
+ {
+  "label": "round5 move 23 hxg4",
+  "fen": "3r2k1/1p2pp2/4b1p1/q7/6p1/P1bB3P/4PP2/1R1Q1RK1 w - - 0 23",
+  "played": "h3g4",
+  "sf_best": "b1b5",
+  "sf_before": -123
+ },
+ {
+  "label": "round5 move 25 Rxb7",
+  "fen": "3r2k1/1p2pp2/4b1p1/8/6Pq/P1bB1P2/4P3/1R1Q1RK1 w - - 1 25",
+  "played": "b1b7",
+  "sf_best": "f1f2",
+  "sf_before": -347
+ },
+ {
+  "label": "round7 move 33 Bb4",
+  "fen": "6rk/p5pp/3Q4/8/2q1bP2/B1P5/P6P/4RRK1 w - - 7 33",
+  "played": "a3b4",
+  "sf_best": "d6b4",
+  "sf_before": 521
+ },
+ {
+  "label": "round7 move 34 Bxa5",
+  "fen": "6rk/6pp/3Q4/p7/1Bq1bP2/2P5/P6P/4RRK1 w - - 0 34",
+  "played": "b4a5",
+  "sf_best": "d6d4",
+  "sf_before": 531
+ },
+ {
+  "label": "round7 move 44 Ke2",
+  "fen": "6rk/4R1pp/1B1Q4/3b4/5P2/2q5/P6P/3RK3 w - - 4 44",
+  "played": "e1e2",
+  "sf_best": "d1d2",
+  "sf_before": 373
+ },
+ {
+  "label": "round7 move 48 Ke2",
+  "fen": "6rk/4R1pp/1B1Q4/3b4/5P2/2q1K3/P2R3P/8 w - - 12 48",
+  "played": "e3e2",
+  "sf_best": "d2d3",
+  "sf_before": 272
+ },
+ {
+  "label": "round10 move 13 Bb7",
+  "fen": "1rbq1rk1/p4pbp/1p1p2p1/n1pPp2P/8/3P2P1/1PPQNPB1/R1B1K2R b KQ - 0 13",
+  "played": "c8b7",
+  "sf_best": "f8e8",
+  "sf_before": -34
+ },
+ {
+  "label": "round10 move 16 Qf5",
+  "fen": "3r1rk1/pb1q1pbp/1p1p2p1/n1pPp2P/R7/1PNP2P1/2PQ1PB1/2B1K2R b K - 2 16",
+  "played": "d7f5",
+  "sf_best": "d7e7",
+  "sf_before": 180
+ },
+ {
+  "label": "round10 move 17 Rfe8",
+  "fen": "3r1rk1/pb3pbp/1p1p2p1/n1pPpq1P/7R/1PNP2P1/2PQ1PB1/2B1K2R b K - 4 17",
+  "played": "f8e8",
+  "sf_best": "g6g5",
+  "sf_before": 241
+ },
+ {
+  "label": "round10 move 18 hxg6",
+  "fen": "3rr1k1/pb3pbp/1p1p2P1/n1pPpq2/7R/1PNP2P1/2PQ1PB1/2B1K2R b K - 0 18",
+  "played": "h7g6",
+  "sf_best": "h7g6",
+  "sf_before": 375
+ },
+ {
+  "label": "round11 move 13 a4",
+  "fen": "r1bqrbk1/3n1ppp/p1p2n2/1p1p4/3P4/1QNBP1N1/PP1B1PPP/4RRK1 w - - 0 13",
+  "played": "a2a4",
+  "sf_best": "e3e4",
+  "sf_before": -18
+ },
+ {
+  "label": "round11 move 27 h4",
+  "fen": "1br1r1k1/1b3p2/3q1np1/p6p/PppPp3/4P1NP/1PBBQPP1/3RR1K1 w - - 2 27",
+  "played": "h3h4",
+  "sf_best": "d1a1",
+  "sf_before": -352
+ },
+ {
+  "label": "round11 move 31 Nxe4",
+  "fen": "1br1r1k1/5p2/b4qp1/p6p/Pp1Pp1nP/2B1P1N1/1PBQ1PP1/1R2R1K1 w - - 5 31",
+  "played": "g3e4",
+  "sf_best": "c2d1",
+  "sf_before": -456
+ },
+ {
+  "label": "round15 move 5 d5",
+  "fen": "r1bqkbnr/pp1p1ppp/2n1p3/1N6/4P3/8/PPP2PPP/RNBQKB1R b KQkq - 2 5",
+  "played": "d7d5",
+  "sf_best": "d7d6",
+  "sf_before": 23
+ },
+ {
+  "label": "round15 move 7 Qe7+",
+  "fen": "r1bqkbnr/pp3ppp/2n5/1N1p4/5B2/8/PPP2PPP/RN1QKB1R b KQkq - 1 7",
+  "played": "d8e7",
+  "sf_best": "f8b4",
+  "sf_before": 186
+ },
+ {
+  "label": "round15 move 10 Ne5",
+  "fen": "r1b1kbnr/pp2qppp/2n5/1N1p4/5B2/8/PPP1BPPP/RN1QK2R b KQkq - 7 10",
+  "played": "c6e5",
+  "sf_best": "c8g4",
+  "sf_before": 354
+ },
+ {
+  "label": "round15 move 18 Ba6",
+  "fen": "N1bk1b1r/p2nqppp/1p6/B2Q4/8/8/PPP1BPPP/3RK2R b K - 0 18",
+  "played": "c8a6",
+  "sf_best": "e7c5",
+  "sf_before": 594
+ },
+ {
+  "label": "round15 move 20 axb6",
+  "fen": "3k1b1r/p2nqppp/1N6/B2Q4/8/8/PPP1bPPP/3R1RK1 b - - 0 20",
+  "played": "a7b6",
+  "sf_best": "d8e8",
+  "sf_before": 972
+ }
+]

@@ -41,6 +41,7 @@ from harness.referee import (
     DRAW_CLAIM_MODES,
     FAILED_TERMINATIONS,
     Outcome,
+    clock_summary,
     play_match,
 )
 from harness.sandbox import local
@@ -391,6 +392,10 @@ def main() -> None:
                     "final_fen": final_fen,
                     "seconds": round(seconds, 2),
                     "failed": outcome.termination in FAILED_TERMINATIONS,
+                    "agent_clock": clock_summary(
+                        outcome.clock_trace, "w" if spec.agent_is_white else "b"),
+                    "opponent_clock": clock_summary(
+                        outcome.clock_trace, "b" if spec.agent_is_white else "w"),
                 }) + "\n")
                 handle.flush()
 

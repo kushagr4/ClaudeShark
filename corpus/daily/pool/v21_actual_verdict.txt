@@ -1,0 +1,13 @@
+== SUBMITTED V2.1 KING-PAWN vs RATED-V1 on the 113 ACTUAL ORGANISER START FENs ==
+corpus/daily/pool/games/v21_vs_ratedv1_actual.jsonl   (single verified owner throughout; completed 2026-09-04 13:22)
+pairs corpus/daily/pool/competition_actual_pairs.json, depth 6, paired colours, 8 workers
+
+games 226   families 113   informative families 54 (47.8%)
+V2.1  +41 =125 -60   score 45.80%   nominal Elo -29.3
+cluster bootstrap 95% (20000 resamples of whole families, seed 20260905): score 42.0%..49.3%, Elo -55.8..-4.6
+leave-one-informative-family-out Elo: -32.7 .. -26.4
+family-score histogram (mean of the two games): 0.00 x6   0.25 x28   0.50 x59   0.75 x19   1.00 x1
+net family-units above 0.5: -4.75
+V2.1 as White +20 =60 -33 (44.3%, -40.1)   V2.1 as Black +21 =65 -27 (47.4%, -18.5)
+pool itself: White wins 47, Black wins 54, draws 125 (no colour tilt in the positions)
+terminations: 125 threefold repetition, 101 checkmate
