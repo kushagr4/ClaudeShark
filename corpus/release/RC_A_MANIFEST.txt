@@ -1,0 +1,8 @@
+claudeshark_rated_v1_rc_a.zip
+  sha256   3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b
+  bytes    39125 compressed, 106863 uncompressed, 11 files
+  source   champions/rated_v1 == git tag rated-v1 == commit 98c48c89b3a8142e6567e5f46b2d2036df7297d1
+  built    2026-09-05 03:52 by tools.release_check --fast --source champions/rated_v1 --keep
+  verified 2026-09-05 06:45-06:50: byte match to champions/rated_v1, content match to the tag,
+           release gate 15/15 (twice), 1202 tests, clockladder PASS, Python 3.12.13 fresh-extraction
+           smoke (rc_a_smoke_py312.json), 0 failures in 521 timed games as the opponent engine

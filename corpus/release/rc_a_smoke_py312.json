@@ -1,0 +1,49 @@
+{
+ "python": "3.12.13",
+ "chess": "1.11.2",
+ "startup_s": 1.63,
+ "moves": [
+  {
+   "label": "start",
+   "move": "d2d4",
+   "legal": true,
+   "spent_s": 2.41,
+   "clock_ms": 120000
+  },
+  {
+   "label": "R15 start, Black",
+   "move": "d7d5",
+   "legal": true,
+   "spent_s": 2.7,
+   "clock_ms": 120000
+  },
+  {
+   "label": "R10 move 13, Black",
+   "move": "c8b7",
+   "legal": true,
+   "spent_s": 3.75,
+   "clock_ms": 90000
+  },
+  {
+   "label": "in check",
+   "move": "e1d2",
+   "legal": true,
+   "spent_s": 0.42,
+   "clock_ms": 5000
+  },
+  {
+   "label": "one legal move",
+   "move": "h8h7",
+   "legal": true,
+   "spent_s": 0.0,
+   "clock_ms": 1000
+  },
+  {
+   "label": "low clock",
+   "move": "c3d5",
+   "legal": true,
+   "spent_s": 0.12,
+   "clock_ms": 700
+  }
+ ]
+}

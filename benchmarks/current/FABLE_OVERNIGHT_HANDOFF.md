@@ -133,12 +133,11 @@ largest think 18.4 s: also rejected
 five experiments on three bases and two clocks, five nulls. `cs_time.py`
 stays exactly as shipped in rated-v1.
 
-*Running at hand-over:* a timed confirmation of the submitted V2.1 king-pawn
-against rated-v1, same 226-game instrument, started 06:05, expected to finish
-about 08:05 (`corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl`, log
-`corpus/daily/time/stage_v21_timed.log`). It can only strengthen or soften
-section 8; it does not change the recommendation, because RC-A is the
-baseline either way.
+*Stopped for the time budget:* a timed confirmation of the submitted V2.1
+king-pawn against rated-v1 was halted at 69 of 226 games on the user's
+rapid-mode instruction (partial 48.6%, non-decisive, retained under a
+PARTIAL name in `corpus/daily/time/games/`). The completed fixed-depth
+226-game result (section 7) is the decision-relevant evidence.
 
 ## 15. Is there an exact release candidate ready?
 
@@ -206,10 +205,8 @@ submitted one is rated-v1 itself.
 
 1. Decide on RC-A (section 16) — the user's call, made with the eligibility
    question (section 3) in mind.
-2. Read the timed V2.1 confirmation when it finishes (about 08:05); run
-   `uv run python -m tools.daily.swissrisk --games corpus/daily/time/games/v21_vs_ratedv1_120s.jsonl --out corpus/daily/time/swissrisk_v21.txt`
-   if it has not been run. Do not run another time-policy experiment without
-   a new mechanism: five constants, five nulls.
+2. Nothing else tonight (rapid mode). Do not run another time-policy
+   experiment without a new mechanism: five constants, five nulls.
 3. The own-engine start book (section 12) is the best-supported next idea
    and is legal; it is mechanical to build and cheap to test under the
    timed-arena instrument, which at 62% informative families is the better
