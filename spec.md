@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 4
+SPEC_REVISION: 5
 
-LAST_UPDATED: 2026-09-05 23:10 UK (Windows PC)
+LAST_UPDATED: 2026-09-05 23:25 UK (Windows PC)
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -55,9 +55,10 @@ ACTIVE:
 
 | branch | owner | baseline | purpose | status |
 |---|---|---|---|---|
-| `rc-c-integration` | Kushagra / Fable | exact RC-B (`3d918a5` engine blobs) | canonical coordination + proven integration | engine unchanged; spec revision 3 |
-| `kushagra/rcc-speed-validation` | Kushagra / Fable | RC-B + candidate 3 (`f2543bd` engine files) | Candidate 3 identity-preserving speed validation | Gate 0 PASS on Mac and PC; Gate 2A screen running (section 17) |
-| `friend/rcc-tactical-horizon` | Friend / Claude | exact RC-B (branch from `origin/rc-c-integration`) | tactical horizon / forcing-line robustness + R21+ loss audit | not yet created on origin as of 22:25 |
+| `rc-c-integration` | Kushagra / Fable | exact RC-B (`3d918a5` engine blobs) | canonical coordination + proven integration | engine unchanged; spec revision 5; the AlphaFish study branch merged (analysis only) |
+| `kushagra/rcc-speed-validation` | Kushagra / Fable | RC-B + candidate 3 (`f2543bd` engine files) | Candidate 3 identity-preserving speed validation | **Gate 0 + Gate 2A PASS; frozen as RC-C, awaiting the user's upload decision** (sections 15, 16) |
+| `friend/rcc-tactical-horizon` | Friend / Claude | exact RC-B (branch from `origin/rc-c-integration`) | tactical horizon / forcing-line robustness + R21+ loss audit | not yet created on origin as of 23:25 |
+| `kushagra/competitor-659a3020-study` | Kushagra (Mac session) | `ba81f75` (integration rev 3) | AlphaFish public-data study, analysis only, no engine files | merged into `rc-c-integration` at `b103982`; branch can be deleted once the user confirms |
 
 FROZEN:
 
@@ -193,7 +194,31 @@ Required sequence:
    Mac partial);
 4. longer validation only if the candidate remains a plausible champion.
 
-Fable may choose a different lane after Candidate 3 is rejected or promoted.
+Status 23:25 UK: steps 1–3 done and passed; RC-C frozen (section 15). Step
+4 (126-game extension) is optional and the user's call.
+
+NEXT FABLE TASK (after the user's RC-C decision; not started; ordered by the
+competitor study in section 20 and the user's instruction of 23:15 UK):
+
+1. classify RC-B's >= 100 cp errors across all available live losses (and
+   the drawn games where a win was thrown away), using the friend's R21+
+   audit and the study's public annotations as the inputs and verifying only
+   the decisive positions — do not redo the friend's audit;
+2. find the dominant causal mechanisms (horizon past the capture-only
+   quiescence, conversion, evaluation, time);
+3. rank the four candidate lanes by expected reduction in the LARGE
+   (>= 100 cp) ERROR RATE per development minute: (a) further safe search
+   efficiency (identity-preserving), (b) proportional capped timing,
+   (c) the specific dominant search / horizon mechanism, (d) conversion;
+4. choose on that basis and pre-register before measuring.
+
+QUEUED HYPOTHESIS — proportional capped timing (from section 20, finding 4):
+spend ≈ 0.033 × remaining clock + 0.19 s, cap ≈ 4.4 s, smooth decay, no
+early-iteration gamble. This is a different variable from the closed
+`START_FRACTION` (sf60) and early-surplus (early16) tests, so the "time lane
+closed" verdict does not cover it. It is NOT to be implemented before the
+user's RC-C decision, and it must be tested as RC-C + timing (or RC-B +
+timing) under section 12, never bundled.
 
 ## 8. Current Friend/Claude Scope
 
@@ -339,7 +364,7 @@ separately earn promotion under section 11.
 
 ## 13. Fable → Friend Instructions
 
-SPEC_REVISION: 4
+SPEC_REVISION: 5
 
 CURRENT FRIEND SCOPE: tactical horizon / forcing-line robustness (section 8)
 and the R21+ loss audit (section 9).
@@ -398,15 +423,22 @@ the losses are not horizon-driven — report and await re-scoping.
 MAX SUGGESTED TIME: audit 60–90 minutes; diagnosis 30 minutes; one
 mechanism implementation 25 minutes + Gate 0/1 30 minutes before any arena.
 
-LATEST COORDINATOR MESSAGE: 2026-09-05 23:10 UK — revision 4: candidate 3
-passed its fresh 100-game screen vs RC-B (58.0%, +56 Elo, 34 informative
-families, no failures, clock equivalent) and is frozen as RC-C
-(`corpus/release/claudeshark_rc_c.zip`), awaiting the user's upload
-decision. **Your baseline stays exact RC-B** (section 12: your candidate is
-measured as RC-B + B; the combination RC-B + A + B is tested separately
-afterwards). Do not rebase onto candidate 3. Nothing else about your scope
-changed; revisions 2–3 above still apply (losses R23/R24/R25; branch from
-`origin/rc-c-integration`).
+LATEST COORDINATOR MESSAGE: 2026-09-05 23:25 UK — revision 5. (a) Candidate
+3 passed its fresh 100-game screen vs RC-B (58.0%, +56 Elo, 34 informative
+families, no failures, clock equivalent) and is frozen as RC-C, awaiting the
+user's upload decision. **Your baseline stays exact RC-B**; do not rebase
+onto candidate 3 (section 12). (b) Section 20 is now canonical: a public-data
+study of the rank-1 team AlphaFish. The high-priority hypothesis for your
+audit framing: RC-B's dominant observable gap is its own UNFORCED >= 100 cp
+error rate (RC-B R16–R20 ≈ 14.5% of moves vs AlphaFish ≈ 0.6%; caveat: not
+matched populations, so this does not prove the whole gap), NOT a failure
+to punish opponents (at 29 positions after an opponent error >= 100 cp, RC-B
+keeps the gain 24/29, AlphaFish 20/29). So: in every R21+ loss, count and
+classify OUR >= 100 cp errors (unforced vs provoked by a sound forcing
+sequence), and do not prioritise generic tactical aggression because
+AlphaFish wins often. Do not treat the study's architecture guess (NNUE /
+numba) as evidence of anything. Revisions 2–3 still apply (losses
+R23/R24/R25; branch from `origin/rc-c-integration`).
 
 ## 14. Friend → Fable Findings
 
@@ -491,6 +523,10 @@ kill condition. Remove it immediately after completion.)
   combination is tested separately under section 12 once your lane has a
   positive result. Still nothing in your section 14 on origin — I will read
   it at my next boundary.
+* 2026-09-05 23:25 UK — Fable → Friend: revision 5. The AlphaFish study
+  (section 20, merged from `kushagra/competitor-659a3020-study`, analysis
+  only) reframes the audit: count our unforced >= 100 cp errors per loss;
+  the punish control says exploitation is not our deficit. Read section 13.
 
 ## 19. Codex Monday
 
@@ -500,6 +536,19 @@ genuinely separate third lane. Do not automatically use Codex to reproduce
 work Claude already completed.
 
 ## 20. Competitor Study — AlphaFish (`659a3020`), 2026-09-05 22:45 UK (Mac, analysis only)
+
+COORDINATOR NOTE (23:25 UK, revision 5): merged into canonical at `b103982`
+(no engine files; commit `8fe76c9`). Read with two caveats fixed by the
+user: (1) the error-rate comparison is between UNMATCHED game populations
+(AlphaFish's 22 games vs RC-B's R16–R20), so it is a high-priority
+hypothesis about the dominant observable gap, not proof of the whole
+strength gap; (2) finding 6 (NNUE / numba) is inference from public
+behaviour and must not be treated as knowledge of AlphaFish's build. The
+actionable content is findings 2–4: our own >= 100 cp error rate is the
+variable to reduce; punishing opponents is not our deficit (24/29 vs 20/29);
+and the proportional capped timing curve is a new, separately testable
+hypothesis (queued in section 7, not to be implemented before the user's
+RC-C decision).
 
 Branch `kushagra/competitor-659a3020-study`; full report
 `analysis/competitors/659a3020_alphafish/REPORT.md` with all public data
