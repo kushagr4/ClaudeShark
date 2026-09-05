@@ -1,0 +1,647 @@
+[
+ {
+  "fullmove": 9,
+  "played": "f8e7",
+  "spent": 3.973,
+  "rc_a": {
+   "move": "a8c8",
+   "score": 52,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "a8c8",
+   "score": 52,
+   "depth": 7
+  }
+ },
+ {
+  "fullmove": 10,
+  "played": "b7b5",
+  "spent": 3.79,
+  "rc_a": {
+   "move": "e8g8",
+   "score": 40,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "e8g8",
+   "score": 40,
+   "depth": 7
+  }
+ },
+ {
+  "fullmove": 11,
+  "played": "d6d5",
+  "spent": 3.194,
+  "rc_a": {
+   "move": "d6d5",
+   "score": -5,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "d6d5",
+   "score": -5,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 12,
+  "played": "f6d5",
+  "spent": 3.906,
+  "rc_a": {
+   "move": "f6d5",
+   "score": 9,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "f6d5",
+   "score": 9,
+   "depth": 7
+  }
+ },
+ {
+  "fullmove": 13,
+  "played": "e7h4",
+  "spent": 3.749,
+  "rc_a": {
+   "move": "e7h4",
+   "score": -380,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "e7h4",
+   "score": -418,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 14,
+  "played": "h4f2",
+  "spent": 2.168,
+  "rc_a": {
+   "move": "h4f2",
+   "score": -418,
+   "depth": 8
+  },
+  "rc_b": {
+   "move": "h4f2",
+   "score": -418,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 15,
+  "played": "d8d5",
+  "spent": 4.944,
+  "rc_a": {
+   "move": "d8d5",
+   "score": -391,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "d8d5",
+   "score": -396,
+   "depth": 10
+  }
+ },
+ {
+  "fullmove": 16,
+  "played": "e8f8",
+  "spent": 2.386,
+  "rc_a": {
+   "move": "e8f8",
+   "score": -404,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "e8f8",
+   "score": -410,
+   "depth": 10
+  }
+ },
+ {
+  "fullmove": 17,
+  "played": "a8d8",
+  "spent": 3.253,
+  "rc_a": {
+   "move": "h5g6",
+   "score": -406,
+   "depth": 8
+  },
+  "rc_b": {
+   "move": "h5g6",
+   "score": -406,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 18,
+  "played": "h5g6",
+  "spent": 3.762,
+  "rc_a": {
+   "move": "h5g6",
+   "score": -419,
+   "depth": 8
+  },
+  "rc_b": {
+   "move": "h5g6",
+   "score": -419,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 19,
+  "played": "d8b8",
+  "spent": 2.552,
+  "rc_a": {
+   "move": "d8b8",
+   "score": -421,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "d8b8",
+   "score": -430,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 20,
+  "played": "f8g8",
+  "spent": 2.254,
+  "rc_a": {
+   "move": "c6d4",
+   "score": -434,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "c6d4",
+   "score": -434,
+   "depth": 7
+  }
+ },
+ {
+  "fullmove": 21,
+  "played": "e5e4",
+  "spent": 2.544,
+  "rc_a": {
+   "move": "e5e4",
+   "score": -429,
+   "depth": 8
+  },
+  "rc_b": {
+   "move": "e5e4",
+   "score": -431,
+   "depth": 9
+  }
+ },
+ {
+  "fullmove": 22,
+  "played": "c6e5",
+  "spent": 2.929,
+  "rc_a": {
+   "move": "c6e5",
+   "score": -428,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "c6e5",
+   "score": -428,
+   "depth": 9
+  }
+ },
+ {
+  "fullmove": 23,
+  "played": "g8f8",
+  "spent": 0.001,
+  "rc_a": {
+   "move": "g8f8",
+   "score": 0,
+   "depth": 0
+  },
+  "rc_b": {
+   "move": "g8f8",
+   "score": 0,
+   "depth": 0
+  }
+ },
+ {
+  "fullmove": 24,
+  "played": "e5c6",
+  "spent": 2.244,
+  "rc_a": {
+   "move": "e5c6",
+   "score": -457,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "e5c6",
+   "score": -456,
+   "depth": 10
+  }
+ },
+ {
+  "fullmove": 25,
+  "played": "e4f3",
+  "spent": 2.834,
+  "rc_a": {
+   "move": "e4f3",
+   "score": -463,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "e4f3",
+   "score": -463,
+   "depth": 9
+  }
+ },
+ {
+  "fullmove": 26,
+  "played": "f8e7",
+  "spent": 1.991,
+  "rc_a": {
+   "move": "a7a5",
+   "score": -459,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "f8e7",
+   "score": -458,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 27,
+  "played": "e7f8",
+  "spent": 1.479,
+  "rc_a": {
+   "move": "e7f8",
+   "score": -471,
+   "depth": 8
+  },
+  "rc_b": {
+   "move": "e7f8",
+   "score": -484,
+   "depth": 9
+  }
+ },
+ {
+  "fullmove": 28,
+  "played": "b8d8",
+  "spent": 1.975,
+  "rc_a": {
+   "move": "b8d8",
+   "score": -468,
+   "depth": 7
+  },
+  "rc_b": {
+   "move": "b8e8",
+   "score": -474,
+   "depth": 8
+  }
+ },
+ {
+  "fullmove": 29,
+  "played": "d8c8",
+  "spent": 1.742,
+  "rc_a": {
+   "move": "d8c8",
+   "score": -654,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "d8c8",
+   "score": -648,
+   "depth": 10
+  }
+ },
+ {
+  "fullmove": 30,
+  "played": "f8g8",
+  "spent": 0.009,
+  "rc_a": {
+   "move": "f8g8",
+   "score": 0,
+   "depth": 0
+  },
+  "rc_b": {
+   "move": "f8g8",
+   "score": 0,
+   "depth": 0
+  }
+ },
+ {
+  "fullmove": 31,
+  "played": "c8d8",
+  "spent": 1.647,
+  "rc_a": {
+   "move": "c8d8",
+   "score": -643,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "c8d8",
+   "score": -643,
+   "depth": 9
+  }
+ },
+ {
+  "fullmove": 32,
+  "played": "g7f6",
+  "spent": 1.514,
+  "rc_a": {
+   "move": "g7f6",
+   "score": -711,
+   "depth": 12
+  },
+  "rc_b": {
+   "move": "g7f6",
+   "score": -711,
+   "depth": 12
+  }
+ },
+ {
+  "fullmove": 33,
+  "played": "g8g7",
+  "spent": 0.002,
+  "rc_a": {
+   "move": "g8g7",
+   "score": 0,
+   "depth": 0
+  },
+  "rc_b": {
+   "move": "g8g7",
+   "score": 0,
+   "depth": 0
+  }
+ },
+ {
+  "fullmove": 34,
+  "played": "g7h8",
+  "spent": 3.296,
+  "rc_a": {
+   "move": "g7h8",
+   "score": -728,
+   "depth": 11
+  },
+  "rc_b": {
+   "move": "g7h8",
+   "score": -723,
+   "depth": 12
+  }
+ },
+ {
+  "fullmove": 35,
+  "played": "h8g7",
+  "spent": 0.001,
+  "rc_a": {
+   "move": "h8g7",
+   "score": 0,
+   "depth": 0
+  },
+  "rc_b": {
+   "move": "h8g7",
+   "score": 0,
+   "depth": 0
+  }
+ },
+ {
+  "fullmove": 36,
+  "played": "a7a5",
+  "spent": 1.943,
+  "rc_a": {
+   "move": "g6f5",
+   "score": -730,
+   "depth": 10
+  },
+  "rc_b": {
+   "move": "g6f5",
+   "score": -730,
+   "depth": 10
+  }
+ },
+ {
+  "fullmove": 37,
+  "played": "f6f5",
+  "spent": 2.794,
+  "rc_a": {
+   "move": "h7h6",
+   "score": -745,
+   "depth": 10
+  },
+  "rc_b": {
+   "move": "h7h6",
+   "score": -746,
+   "depth": 11
+  }
+ },
+ {
+  "fullmove": 38,
+  "played": "g7f6",
+  "spent": 3.189,
+  "rc_a": {
+   "move": "h7h5",
+   "score": -815,
+   "depth": 11
+  },
+  "rc_b": {
+   "move": "h7h5",
+   "score": -815,
+   "depth": 11
+  }
+ },
+ {
+  "fullmove": 39,
+  "played": "f6g5",
+  "spent": 2.254,
+  "rc_a": {
+   "move": "f6g5",
+   "score": -812,
+   "depth": 12
+  },
+  "rc_b": {
+   "move": "f6g5",
+   "score": -812,
+   "depth": 12
+  }
+ },
+ {
+  "fullmove": 40,
+  "played": "h7h6",
+  "spent": 4.71,
+  "rc_a": {
+   "move": "h7h5",
+   "score": -736,
+   "depth": 12
+  },
+  "rc_b": {
+   "move": "h7h5",
+   "score": -789,
+   "depth": 12
+  }
+ },
+ {
+  "fullmove": 41,
+  "played": "g5f6",
+  "spent": 3.024,
+  "rc_a": {
+   "move": "g5f6",
+   "score": -886,
+   "depth": 10
+  },
+  "rc_b": {
+   "move": "f7f6",
+   "score": -894,
+   "depth": 11
+  }
+ },
+ {
+  "fullmove": 42,
+  "played": "f6g7",
+  "spent": 1.83,
+  "rc_a": {
+   "move": "g6h5",
+   "score": -1073,
+   "depth": 11
+  },
+  "rc_b": {
+   "move": "g6h5",
+   "score": -1073,
+   "depth": 11
+  }
+ },
+ {
+  "fullmove": 43,
+  "played": "f7f6",
+  "spent": 1.37,
+  "rc_a": {
+   "move": "f7f6",
+   "score": -1148,
+   "depth": 10
+  },
+  "rc_b": {
+   "move": "f7f6",
+   "score": -1456,
+   "depth": 11
+  }
+ },
+ {
+  "fullmove": 44,
+  "played": "g7f8",
+  "spent": 1.405,
+  "rc_a": {
+   "move": "g7f8",
+   "score": -1491,
+   "depth": 12
+  },
+  "rc_b": {
+   "move": "g7f8",
+   "score": -1491,
+   "depth": 12
+  }
+ },
+ {
+  "fullmove": 45,
+  "played": "g6e8",
+  "spent": 5.734,
+  "rc_a": {
+   "move": "g6e8",
+   "score": -1625,
+   "depth": 14
+  },
+  "rc_b": {
+   "move": "g6e8",
+   "score": -1625,
+   "depth": 14
+  }
+ },
+ {
+  "fullmove": 46,
+  "played": "e8d7",
+  "spent": 1.968,
+  "rc_a": {
+   "move": "e8d7",
+   "score": -1629,
+   "depth": 12
+  },
+  "rc_b": {
+   "move": "e8d7",
+   "score": -1629,
+   "depth": 12
+  }
+ },
+ {
+  "fullmove": 47,
+  "played": "h6h5",
+  "spent": 1.385,
+  "rc_a": {
+   "move": "f8e7",
+   "score": -1625,
+   "depth": 10
+  },
+  "rc_b": {
+   "move": "f8e7",
+   "score": -1625,
+   "depth": 10
+  }
+ },
+ {
+  "fullmove": 48,
+  "played": "f8e7",
+  "spent": 1.788,
+  "rc_a": {
+   "move": "f8e7",
+   "score": -1670,
+   "depth": 9
+  },
+  "rc_b": {
+   "move": "f8e7",
+   "score": -1670,
+   "depth": 9
+  }
+ },
+ {
+  "fullmove": 49,
+  "played": "e7d6",
+  "spent": 0.001,
+  "rc_a": {
+   "move": "e7d6",
+   "score": 0,
+   "depth": 0
+  },
+  "rc_b": {
+   "move": "e7d6",
+   "score": 0,
+   "depth": 0
+  }
+ },
+ {
+  "fullmove": 50,
+  "played": "h5h4",
+  "spent": 0.032,
+  "rc_a": {
+   "move": "h5h4",
+   "score": -29996,
+   "depth": 4
+  },
+  "rc_b": {
+   "move": "h5h4",
+   "score": -29996,
+   "depth": 4
+  }
+ },
+ {
+  "fullmove": 51,
+  "played": "d6e6",
+  "spent": 0.006,
+  "rc_a": {
+   "move": "d6e6",
+   "score": -29998,
+   "depth": 2
+  },
+  "rc_b": {
+   "move": "d6e6",
+   "score": -29998,
+   "depth": 2
+  }
+ }
+]
