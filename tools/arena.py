@@ -430,9 +430,11 @@ def main() -> None:
         handle.close()
         print(f"per-game records written to {arguments.jsonl}")
 
-    if arguments.pgn:
-        arguments.pgn.write_text("\n\n".join(pgns) + "\n", encoding="utf-8")
-        print(f"pgn written to {arguments.pgn}")
+    if pgn_path is not None:
+        # pgn_path, not arguments.pgn: the derived-from-jsonl default used to be
+        # announced and recorded in every game record and then never written.
+        pgn_path.write_text("\n\n".join(pgns) + "\n", encoding="utf-8")
+        print(f"pgn written to {pgn_path}")
 
     if our_failures:
         print("\nOUR FAILURES: " + ", ".join(f"{k} {v}" for k, v in our_failures.items()),
