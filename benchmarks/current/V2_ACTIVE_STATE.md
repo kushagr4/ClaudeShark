@@ -15,7 +15,7 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
 | **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **CHAMPION and SUBMITTED** (uploaded 12:01); every candidate is measured against `champions/rc_b`. |
-| **CURRENT DEVELOPMENT CANDIDATE** | **RC-C candidate 1: check extension** (`CS_CHECK_EXT`, default off in the working tree; candidate = flag on). Preregistered `2026-09-05-rcc-check-extension-prereg.md`. Gate 0 passed (fingerprint off unchanged; +12.5% nodes on; tactics 16/16; controls neutral; one depth-artifact test documented). Gate 1 passed: repairs R20 12…Nxd5 at d7, R20 11…d5 at d8, R17 47.Re1 at d7; R18/R19 unchanged. Equal-time 80-position screen PASSED (robust mean 116 v 138, ≥300 cp errors 13 v 18, +21.6 cp paired). Gate 2a timed screen running (section 8). |
+| **CURRENT DEVELOPMENT CANDIDATE** | RC-C candidate 1 (unbounded check extension) **REJECTED at Gate 2a** 13:37: +25 =43 −32 (46.5%, −24 Elo) vs RC-B over 100 games / 50 families, leave-one-out −32..−18, clock floor 3.4 s v 8.0 s. Candidate 2 = frontier-bounded check extension (`CS_CHECK_EXT_MAXDEPTH`), same targets, stricter cost bound; in Gate 0/1. RC-B remains champion. |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and
@@ -81,6 +81,7 @@ new one under a new name.
 | fast stalemate probe (identical tree) | complete | +11% knps on top of C1, fingerprints unchanged | `2026-09-05-c1-staged-move-picker.md`, `tests/test_has_legal_move.py` |
 | Lane B static king-attack signals | **complete, negative, closed** | best AUC 0.61, sign agreement <40%, signals zero through the early phase of the R1/R11 attacks | `2026-09-05-lane-b-static-attack-signals.md`, `corpus/daily/laneb_signals.txt` |
 | LMR schedule variants (r=2 from depth 4 etc.) | complete, flat, closed | −38% nodes at depth 8 but 5 better / 5 worse at equal time, E-loss slightly worse | `2026-09-05-lmr-schedule-screen.md`, `corpus/daily/lmr/` |
+| RC-C candidate 1: check extension vs RC-B, 100 timed games | **complete, REJECTED** | 46.5%, −24 Elo, 32 informative, bootstrap −74..+24, LOO −32..−18, clock floor 3.4 s v 8.0 s; equal-time blunder screen had been +22 cp | `2026-09-05-rcc-check-extension-prereg.md`, `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl` + `.pgn`, `swissrisk_checkext_100.txt` |
 | depth repair on 27 key rated decisions | complete | depth 7 or 8 repairs 6 of 27 | `corpus/daily/rated15_key_deeper.txt` |
 | public start-FEN recurrence | complete | 84–87% by rounds 14–15; a book is legal only from our own engine's moves | `2026-09-05-start-book-recurrence.md` |
 | tablebases | measured | ≤5-piece positions in 1 of 15 rated games; not worth shipping | `FABLE_OVERNIGHT_HANDOFF.md` |
@@ -146,19 +147,7 @@ evidence order of the user's plan for what remains:
 
 ## 8. Live background jobs
 
-**ONE (CPU-heavy).** Gate 2a timed screen of the check extension:
-
-* PID 30573 (`tools.arena`, via `uv run`, `nohup`), 16 `harness/runner.py`
-  children; `caffeinate -i -w 30573` (PID 30618) holds off idle sleep. AC power.
-* Command: `tools.arena --agent champions/rcc_checkext --opponent champions/rc_b
-  --games 100 --base-ms 120000 --increment-ms 500 --ply-cap 300 --workers 8
-  --corpus corpus/daily/pool/competition_actual_suite.jsonl
-  --jsonl corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl --set-env CS_CHECK_EXT=1`
-* Started 12:42:15; expected finish about 13:40 (1.75 games/min on 8 workers).
-* Output `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl` + `.pgn`; log
-  `corpus/daily/rcc/checkext_vs_rcb_120s_100.log`.
-* Kill condition: a failure termination attributable to the candidate, or the
-  user asks. Do not start a second CPU-heavy job.
+**NONE.** Sweep 13:40: the candidate-1 arena (PID 30573) and its caffeinate guard exited; no python, Stockfish or waiters.
 
 Rules: one CPU-heavy job at a time, registered here, removed when it ends;
 no waiter shells; keep the lid open and the charger in during timed screens.

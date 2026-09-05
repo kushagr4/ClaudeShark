@@ -127,3 +127,35 @@ on positions where somebody blundered that trade is worth +22 cp per move.
 (the first 50 organiser families, both colours; `rc_b` does not declare the
 flag and ignores it). Output `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl`
 + `.pgn`. Result appended when complete.
+
+### Gate 2a result (completed 13:37; 55 min) — **REJECTED**
+
+Raw: `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl` + `.pgn`, risk report
+`swissrisk_checkext_100.txt`.
+
+| | + check extension vs RC-B |
+|---|---|
+| games / families / informative | 100 / 50 / 32 (64%) |
+| W/D/L, score | **+25 =43 −32, 46.5%** |
+| nominal Elo | **−24** |
+| family bootstrap 95% | −74 .. +24 |
+| leave-one-informative-family-out | **−32 .. −18** (never positive) |
+| family-mean histogram | 0.00×3 0.25×17 0.50×18 0.75×8 1.00×4 |
+| as White / as Black | 51.0% (+7) / 42.0% (−56) |
+| failures | 0 / 0 either side |
+| lowest clock held | **candidate 3.4 s** (2 games under 5 s, 14 under 10 s) v RC-B 8.0 s (0, 1) |
+| largest think / mean think | 8.0 s / 2.10 s v 10.3 s / 2.05 s |
+| by length | <80 plies 45% (n=10), 80–139 **41%** (n=51), ≥140 54% (n=39) |
+
+📹 The extension repaired every causal target and won the equal-time
+blunder screen by 22 cp per move, and still lost at the competition clock.
+The 80 blunder positions are selected for tactics; ordinary game positions
+are mostly quiet, where the extension is pure cost (−0.9 nominal ply, and an
+iteration whose cost is unpredictable pushes the clock floor from 8.0 s to
+3.4 s). The rejection criterion was "the short timed screen is negative";
+it is. **Not carried to a longer screen; RC-B remains champion.** The flag
+stays off; the snapshot `champions/rcc_checkext` is kept as the record.
+
+What survives: the mechanism is real (R20, R17, R7 all resolve with the
+extension), the cost model is wrong. A bounded form that extends only at
+the frontier, where the R20 fork sits, is the next preregistered test.
