@@ -183,3 +183,28 @@ the frontier, where the R20 fork sits, is the next preregistered test.
   100-game timed screen vs RC-B below 50% or with a clock floor under
   RC-B's in the same match; any correctness failure.
 * Everything else as for candidate 1.
+
+### Candidate 2 result (13:54) — **REJECTED**; the check-extension lane is closed
+
+240 competition-like positions at 3,000 ms, 4 workers
+(`corpus/daily/rcc/cl240_{base,cand1,cand2}_3000ms.{jsonl,md}`):
+
+| | base (RC-B) | candidate 1 (all checks) | candidate 2 (frontier ≤ 2) |
+|---|---|---|---|
+| robust mean loss | **29** | 32 | 31 |
+| ≥ 100 / ≥ 300 cp | 8% / 1.2% | 9% / 0.8% | 9% / 0.8% |
+| expected-score loss | **0.051** | 0.059 | 0.059 |
+| mean depth reached | **7.90** | 7.35 | 7.32 |
+| better / worse by ≥ 50 cp vs base | — | 5 / 10 | 5 / 10 |
+| mean paired gain | — | −2.4 cp | −2.1 cp |
+
+The suite reproduces candidate 1's clock loss in miniature, so it is a
+usable predictor, and candidate 2 sits exactly where candidate 1 does: the
+frontier bound removes almost no cost because most checks are near the
+leaves anyway, and the per-move `is_check()` plus the extended nodes cost
+over half a ply at the game budget on ordinary positions. Both variants are
+rejected; no timed screen for candidate 2. **RC-B remains champion.**
+
+Kept for the record: the mechanism (a check one ply past the capture-only
+horizon) is behind R20, R17 and R7, and a *cheap* way to see it would be
+valuable; a full extension is not that way in this engine.
