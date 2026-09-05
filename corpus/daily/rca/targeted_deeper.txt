@@ -1,0 +1,14 @@
+
+== R17 47.Re1 deeper ==  side to move: White
+  oracle: best e2c2 cp +435 (stm)   second: ('a5a6', 300)
+  rated_v1     timed f1e1   score  +320 static   +80 depth  8 nodes   621829  oracle after    +2  loss  +440  pv 
+  rated_v1     fixed f1e1   score  +320 static   +80 depth  9 nodes  1016942  oracle after    +2  loss  +440  pv 
+  rc_b         timed f1e1   score  +320 static   +80 depth  8 nodes   624978  oracle after    +2  loss  +440  pv 
+  rc_b         fixed f1e1   score  +320 static   +80 depth  9 nodes  1018215  oracle after    +2  loss  +440  pv 
+
+== R18 15...g6 deeper ==  side to move: Black
+  oracle: best a5a4 cp -29 (stm)   second: ('f7f6', -35)
+  rated_v1     timed f7f6   score   +29 static   +86 depth  8 nodes   597909  oracle after   -28  loss   -15  pv 
+  rated_v1     fixed f7f6   score   +33 static   +86 depth  9 nodes  1031224  oracle after   -28  loss   -15  pv 
+  rc_b         timed f7f6   score   +29 static   +86 depth  8 nodes   597218  oracle after   -28  loss   -15  pv 
+  rc_b         fixed f7f6   score   +33 static   +86 depth  9 nodes  1030627  oracle after   -28  loss   -15  pv 
