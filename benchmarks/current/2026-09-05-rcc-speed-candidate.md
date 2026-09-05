@@ -57,3 +57,22 @@ second at a near-identical tree.
 --corpus corpus/daily/pool/competition_actual_suite.jsonl`, output
 `corpus/daily/rcc/speed_vs_rcb_120s_100.jsonl` + `.pgn`. Result appended when
 complete.
+
+### Gate 2a — STOPPED FOR PC HANDOFF at 14:42 (59 of 100 games), NON-DECISIVE
+
+The user moved development to the PC while the screen was running. The
+process tree (arena, 16 runners, caffeinate) was terminated cleanly at
+14:42:40 and verified gone; the 59 completed game rows were preserved and
+the artifact renamed
+`corpus/daily/rcc/speed_vs_rcb_120s_100.PARTIAL-NON-DECISIVE-STOPPED-FOR-PC-HANDOFF.jsonl`
+(+ `.txt` summary). The arena writes its PGN only at the end, so no PGN
+exists for this run; the games in flight were lost.
+
+Partial read, **not strength evidence**: +18 =25 −16, 51.7%, +12 Elo, 30
+families / 19 informative, family bootstrap −47..+73, no failures. It is
+consistent with "identical tree, more depth" and proves nothing; the screen
+must be rerun in full (100 games, then 226 if positive) on the PC before
+this candidate can be called RC-C.
+
+**Status at handoff: candidate 3 has passed Gate 0 (identity + 1,227 tests
++ +18.7% knps) and awaits Gate 2.** It is not champion; RC-B is.

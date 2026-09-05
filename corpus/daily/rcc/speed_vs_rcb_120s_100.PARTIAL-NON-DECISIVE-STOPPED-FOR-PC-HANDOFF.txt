@@ -1,0 +1,11 @@
+header: agent champions/rcc_speed 1eed9aa164bb2824 | opponent champions/rc_b 859ce7c2cdae0abc | env {} | python 3.12.14
+
+== FULL RUN ==
+ games 59  families 30  informative 19 (63%)
+ W/D/L +18 =25 -16  score 51.7%  Elo +11.8
+ family bootstrap 95%: score 43.2%..60.3%  Elo -47.4..+72.9
+ leave-one-informative-family-out Elo -0.0..+24.4
+ family-mean histogram: 0.00×1 0.25×8 0.50×11 0.75×7 1.00×3
+ as White: n=30 score 58.3% Elo +58.5
+ as Black: n=29 score 44.8% Elo -36.1
+ failed flags 0; terminations Counter({'checkmate': 34, 'threefold_repetition': 21, 'insufficient_material': 3, 'fifty_moves': 1})
