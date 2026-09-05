@@ -429,6 +429,10 @@ def main() -> None:
                         outcome.clock_trace, "w" if spec.agent_is_white else "b"),
                     "opponent_clock": clock_summary(
                         outcome.clock_trace, "b" if spec.agent_is_white else "w"),
+                    # The full per-ply trace (ply, side, ms spent, ms left after
+                    # the increment): the error audit needs each move's think
+                    # time and clock, not only the per-game summary.
+                    "clock_trace": [list(entry) for entry in outcome.clock_trace],
                 }) + "\n")
                 handle.flush()
 
