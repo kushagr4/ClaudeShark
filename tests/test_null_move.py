@@ -33,11 +33,11 @@ def _consecutive_null_lines(fen: str, depth: int) -> list[list[str]]:
     original = searcher._negamax
     found: list[list[str]] = []
 
-    def traced(board, d, alpha, beta, ply, allow_null=True):  # type: ignore[no-untyped-def]
+    def traced(board, d, alpha, beta, ply, allow_null=True, packed=None):  # type: ignore[no-untyped-def]
         stack = board.move_stack
         if len(stack) >= 2 and stack[-1] == NULL and stack[-2] == NULL:
             found.append([m.uci() for m in stack])
-        return original(board, d, alpha, beta, ply, allow_null)
+        return original(board, d, alpha, beta, ply, allow_null, packed)
 
     searcher._negamax = traced  # type: ignore[method-assign]
     searcher.search(chess.Board(fen), 0, max_depth=depth)
@@ -56,12 +56,12 @@ def test_null_move_still_fires() -> None:
     original = searcher._negamax
     nulls = 0
 
-    def traced(board, d, alpha, beta, ply, allow_null=True):  # type: ignore[no-untyped-def]
+    def traced(board, d, alpha, beta, ply, allow_null=True, packed=None):  # type: ignore[no-untyped-def]
         nonlocal nulls
         stack = board.move_stack
         if stack and stack[-1] == NULL:
             nulls += 1
-        return original(board, d, alpha, beta, ply, allow_null)
+        return original(board, d, alpha, beta, ply, allow_null, packed)
 
     searcher._negamax = traced  # type: ignore[method-assign]
     searcher.search(chess.Board(POSITIONS[0]), 0, max_depth=7)
@@ -81,9 +81,9 @@ def test_allow_null_blocks_this_node_only() -> None:
     original = searcher._negamax
     stacks: list[list[chess.Move]] = []
 
-    def traced(board, d, alpha, beta, ply, allow_null=True):  # type: ignore[no-untyped-def]
+    def traced(board, d, alpha, beta, ply, allow_null=True, packed=None):  # type: ignore[no-untyped-def]
         stacks.append(list(board.move_stack))
-        return original(board, d, alpha, beta, ply, allow_null)
+        return original(board, d, alpha, beta, ply, allow_null, packed)
 
     searcher._negamax = traced  # type: ignore[method-assign]
     board = chess.Board(POSITIONS[0])

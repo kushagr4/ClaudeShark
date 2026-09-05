@@ -46,3 +46,5 @@
 * Eligibility for the final Swiss still needs written organiser clarification.
 
 **UPLOAD:** not performed by the agent. **Upload this exact file: `corpus/release/claudeshark_rc_c.zip`, SHA-256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`.** Verify the hash before uploading with `certutil -hashfile corpus\release\claudeshark_rc_c.zip SHA256` (Windows) or `shasum -a 256 corpus/release/claudeshark_rc_c.zip` (Mac). If the user uploads, record the time and confirm the SHA-256 in `V2_ACTIVE_STATE.md` section 1 and `spec.md` section 2; every rated game after that is RC-C.
+
+**UPLOADED: user-confirmed 2026-09-05 23:14 UK.** RC-C is SUBMITTED and CHAMPION; `rc-c-integration` carries its engine from spec revision 6; RC-B is the frozen fallback. The optional 126-game extension was not run (user instruction; Daily Five imminent).

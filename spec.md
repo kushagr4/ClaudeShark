@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 5
+SPEC_REVISION: 6
 
-LAST_UPDATED: 2026-09-05 23:25 UK (Windows PC)
+LAST_UPDATED: 2026-09-05 23:15 UK (Windows PC) — RC-C submitted
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -21,23 +21,33 @@ the revision.
 
 ## 2. Competition Ground Truth
 
-CURRENT_SUBMITTED: RC-B
+CURRENT_SUBMITTED: RC-C
 
-CURRENT_CHAMPION: RC-B
+CURRENT_CHAMPION: RC-C
 
 | field | value |
 |---|---|
-| archive | `corpus/release/claudeshark_rc_b.zip` |
-| SHA-256 | `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a` |
-| bytes | 48,167 compressed, 131,795 uncompressed, 14 files |
-| frozen engine commit | `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` |
-| frozen snapshot | `champions/rc_b` (blob-identical to the 14 shipped files at `3d918a5`) |
-| uploaded | 2026-09-05 12:01 UK time, by the user |
-| fallback | RC-A / exact rated-v1, `corpus/release/claudeshark_rated_v1_rc_a.zip`, SHA-256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, commit `98c48c8` |
-| RC-B strength | +59 Elo over RC-A, 226 timed games, 80 of 113 families informative, bootstrap +25..+95 |
+| archive | `corpus/release/claudeshark_rc_c.zip` |
+| SHA-256 | `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7` |
+| bytes | 50,258 compressed, 139,381 uncompressed, 14 files |
+| frozen engine commit | engine files at `f2543bd` (`kushagra/rcc-speed-validation`); integrated into `rc-c-integration` at the revision-6 commit |
+| frozen snapshot | `champions/rc_c` (= `champions/rcc_speed`; blob-identical to the archive contents) |
+| **user-confirmed upload** | **2026-09-05 23:14 UK** (the user's confirmation message; no separate upload minute was stated — this is the RC-C activation boundary) |
+| RC-C strength | +56 Elo over RC-B, 100 timed games, 34 of 50 families informative, bootstrap −0..+115, identical search tree, +16.5% knps |
+| fallback / control | **RC-B**, `corpus/release/claudeshark_rc_b.zip`, SHA-256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5`, snapshot `champions/rc_b`, uploaded 12:01 UK (rated rounds 20–30) |
+| second fallback | RC-A / exact rated-v1, `corpus/release/claudeshark_rated_v1_rc_a.zip`, SHA-256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, commit `98c48c8` (rated rounds 16–19) |
 
-Never change CURRENT_SUBMITTED unless the USER explicitly confirms another
-upload. RC-B's archive is immutable. No agent uploads anything.
+Every rated game clearly starting after 23:14 UK on 2026-09-05 belongs to
+RC-C until the user confirms another upload; games in progress across the
+boundary are attributed by their start time, and an ambiguous one is
+labelled UNCERTAIN, not guessed. Never change CURRENT_SUBMITTED unless the
+USER explicitly confirms another upload. The RC-C and RC-B archives are
+immutable. No agent uploads anything.
+
+**Daily Five boundary (in effect from 23:15 UK 2026-09-05):** no agent may
+solve, analyse, engine-check, look up or suggest moves for any position the
+user is presented with in a live Daily Five attempt; if one is sent, refuse
+and say why.
 
 Rules of record (`benchmarks/current/2026-09-05-official-rules-snapshot.md`):
 Python 3.12 with python-chess/numpy/torch/onnxruntime/numba only; one thread;
@@ -55,9 +65,9 @@ ACTIVE:
 
 | branch | owner | baseline | purpose | status |
 |---|---|---|---|---|
-| `rc-c-integration` | Kushagra / Fable | exact RC-B (`3d918a5` engine blobs) | canonical coordination + proven integration | engine unchanged; spec revision 5; the AlphaFish study branch merged (analysis only) |
-| `kushagra/rcc-speed-validation` | Kushagra / Fable | RC-B + candidate 3 (`f2543bd` engine files) | Candidate 3 identity-preserving speed validation | **Gate 0 + Gate 2A PASS; frozen as RC-C, awaiting the user's upload decision** (sections 15, 16) |
-| `friend/rcc-tactical-horizon` | Friend / Claude | exact RC-B (branch from `origin/rc-c-integration`) | tactical horizon / forcing-line robustness + R21+ loss audit | not yet created on origin as of 23:25 |
+| `rc-c-integration` | Kushagra / Fable | **exact RC-C** (`f2543bd` engine blobs = `champions/rc_c`) since revision 6 | canonical coordination + proven integration | engine = the submitted build; spec revision 6; the AlphaFish study merged (analysis only) |
+| `kushagra/rcc-speed-validation` | Kushagra / Fable | RC-B + candidate 3 (`f2543bd` engine files) | Candidate 3 identity-preserving speed validation | **COMPLETE — promoted, integrated and submitted as RC-C**; branch kept as the lane record until the user deletes it |
+| `friend/rcc-tactical-horizon` | Friend / Claude | **exact RC-C** (branch from `origin/rc-c-integration` at revision 6 or later) | tactical horizon / forcing-line robustness + R21+ loss audit | not yet created on origin as of 23:15 |
 | `kushagra/competitor-659a3020-study` | Kushagra (Mac session) | `ba81f75` (integration rev 3) | AlphaFish public-data study, analysis only, no engine files | merged into `rc-c-integration` at `b103982`; branch can be deleted once the user confirms |
 
 FROZEN:
@@ -90,10 +100,11 @@ RULES:
 
 * NO AGENT MAY DEVELOP ON ANOTHER OWNER'S FEATURE BRANCH.
 * NO FRIEND AGENT MAY PUSH DIRECTLY TO `rc-c-integration`.
-* NO FEATURE BRANCH MAY MODIFY `main` / `rated-v1` / frozen RC-B
-  (`champions/rc_b`, `corpus/release/claudeshark_rc_b.zip`).
-* The friend's branch is created FROM `rc-c-integration` (exact RC-B engine),
-  never from `kushagra/rcc-speed-validation`.
+* NO FEATURE BRANCH MAY MODIFY `main` / `rated-v1` / frozen RC-B or RC-C
+  (`champions/rc_b`, `champions/rc_c`, `corpus/release/claudeshark_rc_b.zip`,
+  `corpus/release/claudeshark_rc_c.zip`).
+* The friend's branch is created FROM `rc-c-integration` at revision 6 or
+  later (exact RC-C engine).
 * Git identity on every commit: `kushagr4 <ratrakushagra@gmail.com>`. No
   co-author, generated-by, assisted-by or model attribution anywhere.
 * No force-push. No history rewriting. No pushes to `main`.
@@ -109,7 +120,7 @@ Before EVERY new task, both agents must:
 4. compare SPEC_REVISION with the revision last acknowledged;
 5. read new coordinator / agent messages (sections 13, 14, 18);
 6. verify the current branch (`git branch --show-current`);
-7. verify baseline / champion (section 2; `champions/rc_b` blobs unchanged);
+7. verify baseline / champion (section 2; `champions/rc_c` blobs unchanged);
 8. verify no other task owned by that agent is still running;
 9. define the task's expected decision and maximum useful runtime (section 6).
 
@@ -194,11 +205,16 @@ Required sequence:
    Mac partial);
 4. longer validation only if the candidate remains a plausible champion.
 
-Status 23:25 UK: steps 1–3 done and passed; RC-C frozen (section 15). Step
-4 (126-game extension) is optional and the user's call.
+Status 23:15 UK: steps 1–3 done and passed; RC-C frozen, **submitted and
+champion (user-confirmed 23:14 UK)**. Step 4 (126-game extension) was not
+run, on the user's instruction. The lane is complete.
 
-NEXT FABLE TASK (after the user's RC-C decision; not started; ordered by the
-competitor study in section 20 and the user's instruction of 23:15 UK):
+DEVELOPMENT PAUSED for the user's Daily Five: no arena, no Stockfish, no
+heavy analysis, no waiters, no background CPU work until the user resumes.
+
+NEXT FABLE TASK (when the user resumes development; not started; ordered by
+the competitor study in section 20 and the user's instruction of 23:15 UK;
+every candidate must beat `champions/rc_c`):
 
 1. classify RC-B's >= 100 cp errors across all available live losses (and
    the drawn games where a win was thrown away), using the friend's R21+
@@ -224,7 +240,9 @@ timing) under section 12, never bundled.
 
 INITIAL SCOPE: TACTICAL HORIZON / FORCING-LINE ROBUSTNESS.
 
-Start from exact RC-B (`rc-c-integration`), NOT Candidate 3.
+Start from exact RC-C (`rc-c-integration` at revision 6 or later; RC-C is
+RC-B with an identical search tree searched ~16% faster, so every RC-B
+diagnosis below still applies).
 
 Primary aim: find a general and competition-useful way of reducing RC-B
 tactical horizon failures without reproducing the rejected broad
@@ -322,7 +340,7 @@ section 14.
 * **Gate 1** — causal target + matched negative controls (the mechanism
   repairs the pre-registered positive positions and does not change the
   decision or lose depth on the matched negatives).
-* **Gate 2A** — economical controlled strength screen vs `champions/rc_b`
+* **Gate 2A** — economical controlled strength screen vs `champions/rc_c`
   at 120 s + 0.5 s, 300-ply cap, on
   `corpus/daily/pool/competition_actual_suite.jsonl` (paired colours).
 * **Gate 2B** — long validation (160–226 games) only for a real survivor.
@@ -337,7 +355,9 @@ are a win and a loss by colour contributes zero information.
 
 ## 11. Promotion Rules
 
-RC-C MUST BEAT RC-B.
+EVERY NEW CANDIDATE MUST BEAT THE CURRENT CHAMPION — RC-C from 23:14 UK
+2026-09-05 (RC-C itself beat RC-B; beating RC-B or RC-A is no longer
+sufficient).
 
 Fixing one diagnostic position is not sufficient. Running faster is not
 sufficient. Beating RC-A is not sufficient.
@@ -347,7 +367,7 @@ controlled strength; meaningful family evidence; safe clock behaviour (clock
 floor not below RC-B's in the same match, no flags); no serious live
 regression.
 
-If no candidate beats RC-B, RC-B remains champion.
+If no candidate beats the champion, the champion remains.
 
 Exception for identity-preserving changes (identical tree, fingerprint
 unchanged): the strength screen is a non-regression and clock check; the
@@ -364,15 +384,18 @@ separately earn promotion under section 11.
 
 ## 13. Fable → Friend Instructions
 
-SPEC_REVISION: 5
+SPEC_REVISION: 6
 
 CURRENT FRIEND SCOPE: tactical horizon / forcing-line robustness (section 8)
 and the R21+ loss audit (section 9).
 
 PRIORITY:
-1. Set up: create `friend/rcc-tactical-horizon` from `origin/rc-c-integration`;
-   confirm the engine is exact RC-B (`uv run python -m tools.bench --depth 6`
-   = 1,708,269 nodes; `uv run python -m pytest -q` passes).
+1. Set up: create `friend/rcc-tactical-horizon` from `origin/rc-c-integration`
+   (revision 6 or later); confirm the engine is exact RC-C (`uv run python
+   -m tools.bench --depth 6` = 1,708,269 nodes; the engine files hash to
+   `champions/rc_c`; `uv run python -m pytest -q` passes, 1,228 on Windows).
+   **Do not start any CPU-heavy work while the user's Daily Five is live;
+   the user will say when development resumes.**
 2. R21+ loss audit (section 9) — the cheapest source of new information; it
    drives both lanes. Public team page fetched 21:50 UK
    (`analysis/refresh_2026-09-05/claudeshark_team_games_2150.json`, 29
@@ -400,8 +423,9 @@ DO:
 * update section 14 of your branch's `spec.md` on every push.
 
 DO NOT:
-* start from Candidate 3 or touch `cs_eval.pst_*` / `legal_captures`
-  (Kushagra's lane);
+* change `cs_eval.pst_*` / `evaluate_packed` / `cs_ordering.legal_captures`
+  (the RC-C speed machinery; any candidate must keep the identity tests
+  `tests/test_pst_incremental.py` and `tests/test_legal_captures.py` passing);
 * resurrect the rejected check-extension implementation because it fixes
   the R20 puzzle;
 * modify `main`, `rated-v1`, `champions/rc_b`, `corpus/release/*`;
@@ -423,11 +447,17 @@ the losses are not horizon-driven — report and await re-scoping.
 MAX SUGGESTED TIME: audit 60–90 minutes; diagnosis 30 minutes; one
 mechanism implementation 25 minutes + Gate 0/1 30 minutes before any arena.
 
-LATEST COORDINATOR MESSAGE: 2026-09-05 23:25 UK — revision 5. (a) Candidate
-3 passed its fresh 100-game screen vs RC-B (58.0%, +56 Elo, 34 informative
-families, no failures, clock equivalent) and is frozen as RC-C, awaiting the
-user's upload decision. **Your baseline stays exact RC-B**; do not rebase
-onto candidate 3 (section 12). (b) Section 20 is now canonical: a public-data
+LATEST COORDINATOR MESSAGE: 2026-09-05 23:15 UK — revision 6. **RC-C is
+SUBMITTED and CHAMPION (user-confirmed 23:14 UK).** `rc-c-integration` now
+carries the exact RC-C engine; branch from it, and measure every candidate
+against `champions/rc_c`. RC-B is the frozen fallback. Development is
+paused for the user's Daily Five; keep the machine free of arenas,
+Stockfish and background CPU work until the user resumes. When development
+resumes, the priority is reducing our own >= 100 cp errors (below).
+
+Previous message (revision 5, still relevant): (a) Candidate 3 passed its
+fresh 100-game screen vs RC-B (58.0%, +56 Elo, 34 informative families, no
+failures, clock equivalent). (b) Section 20 is canonical: a public-data
 study of the rank-1 team AlphaFish. The high-priority hypothesis for your
 audit framing: RC-B's dominant observable gap is its own UNFORCED >= 100 cp
 error rate (RC-B R16–R20 ≈ 14.5% of moves vs AlphaFish ≈ 0.6%; caveat: not
@@ -496,7 +526,9 @@ Nothing enters here without evidence.
 
 | CANDIDATE | OWNER | COMMIT | GATE STATUS | CONTROLLED RESULT | READY TO INTEGRATE? | REASON |
 |---|---|---|---|---|---|---|
-| Candidate 3 speed = RC-C | Kushagra / Fable | `f2543bd` (archive `claudeshark_rc_c.zip`, sha256 `13898136…60dd7`) | Gate 0 PASS (Mac + PC); Gate 2A PASS (PC) | +39 =38 −23 vs RC-B, 58.0%, +56 Elo, 34 informative, bootstrap −0.0..+115, LOO +50..+64, 0 failures, clock equivalent | **READY FOR INTEGRATION TEST** — not merged; the user decides the upload first | identity-preserving standard met; general bootstrap standard touches zero; `rc-c-integration` stays exact RC-B until the user confirms |
+| Candidate 3 speed = RC-C | Kushagra / Fable | `f2543bd` (archive `claudeshark_rc_c.zip`, sha256 `13898136…60dd7`) | Gate 0 PASS (Mac + PC); Gate 2A PASS (PC) | +39 =38 −23 vs RC-B, 58.0%, +56 Elo, 34 informative, bootstrap −0.0..+115, LOO +50..+64, 0 failures, clock equivalent | **INTEGRATED and SUBMITTED** (user-confirmed 23:14 UK; `rc-c-integration` engine = RC-C at revision 6) | identity-preserving standard met; the optional 126-game extension was not run (user's instruction) |
+
+The queue is otherwise empty. Anything new must beat `champions/rc_c`.
 
 ## 17. Active Jobs
 
@@ -527,6 +559,10 @@ kill condition. Remove it immediately after completion.)
   (section 20, merged from `kushagra/competitor-659a3020-study`, analysis
   only) reframes the audit: count our unforced >= 100 cp errors per loss;
   the punish control says exploitation is not our deficit. Read section 13.
+* 2026-09-05 23:15 UK — Fable → Friend: revision 6. RC-C submitted and
+  champion (user-confirmed 23:14 UK); `rc-c-integration` engine is now
+  RC-C; your baseline and every Gate 2 opponent is `champions/rc_c`.
+  Development paused for the Daily Five until the user resumes.
 
 ## 19. Codex Monday
 

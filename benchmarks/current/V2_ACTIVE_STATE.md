@@ -44,7 +44,7 @@ source of truth.
 
 | identity | exact value |
 |---|---|
-| **CURRENT SUBMITTED BUILD** | **RC-B** — uploaded by the user **2026-09-05 12:01 UK local**: `corpus/release/claudeshark_rc_b.zip`, sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11`. RC-A (`3a89bf3e…ff9b`, commit `98c48c8`) is the historical fallback/control. |
+| **CURRENT SUBMITTED BUILD** | **RC-C** — upload **confirmed by the user 2026-09-05 23:14 UK** (confirmation-message time; no separate upload minute was given, so 23:14 is the activation boundary): `corpus/release/claudeshark_rc_c.zip`, sha256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`, 50,258 bytes, 14 files, engine files at `f2543bd` = `champions/rc_c` = `champions/rcc_speed`. **CURRENT CHAMPION: RC-C**; every new candidate must beat `champions/rc_c`. **RC-B** (`f7b94b65…c9c1a`, commit `3d918a5`, `champions/rc_b`, uploaded 12:01 UK, rated rounds 20–30) is the frozen fallback/control; RC-A (`3a89bf3e…ff9b`, commit `98c48c8`, rounds 16–19) the second fallback. Every rated game clearly starting after 23:14 UK is RC-C until the user confirms another upload; an ambiguous boundary game is labelled UNCERTAIN. Development paused for the user's Daily Five (no arena, Stockfish, analysis or background CPU work until the user resumes). |
 | submitted archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` (39,125 bytes; 106,863 unzipped; 11 files) |
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
