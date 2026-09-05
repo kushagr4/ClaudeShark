@@ -23,10 +23,17 @@ to); V2.1 stays as tag `v2.1-daily-candidate`. The clean `audit/*`
 worktrees and the local `backup/pre-history-cleanup-20260903` twin (identical
 trees) were removed. Details in `spec.md` section 3.
 
-**Candidate 3 on the PC (21:38–21:42):** speed transfer PASS (+16.5% knps,
-identical 1,708,269-node tree, alternated twice,
-`corpus/daily/rcc/pc_speed_transfer_depth6.txt`); Gate 0 PASS (1,228 tests).
-Gate 2A screen vs RC-B launched 21:42, see section 8.
+**Candidate 3 on the PC (21:38–23:10): PROMOTED, FROZEN AS RC-C, AWAITING
+THE USER'S UPLOAD DECISION.** Speed transfer PASS (+16.5% knps, identical
+1,708,269-node tree, alternated twice, `corpus/daily/rcc/pc_speed_transfer_depth6.txt`);
+Gate 0 PASS (1,228 tests); Gate 2A complete: **+39 =38 −23, 58.0%, +56 Elo
+over RC-B**, 100 games, 34/50 informative families, bootstrap −0.0..+115,
+LOO +50..+64, no failures, clock equivalent (`corpus/daily/rcc/speed_vs_rcb_120s_100_pc.jsonl`,
+`swissrisk_speed_pc_100.txt`). Frozen as `corpus/release/claudeshark_rc_c.zip`
+(sha256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`,
+50,258 bytes, 14 files), release gate 15/15, Python 3.12.13 smoke PASS,
+clock ladder PASS; card `RC_C_UPLOAD_CARD.md`, manifest
+`corpus/release/RC_C_MANIFEST.txt`. Not uploaded; RC-B remains SUBMITTED.
 Mac environment used today: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 `.venv`, Stockfish 18 from Homebrew (`tools/corpus/oracle.py` finds it on
 PATH); Mac knps are about 2.5× the Windows machine's, so compare speed only
@@ -42,7 +49,7 @@ source of truth.
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
 | **CURRENT BEST PROVEN BUILD** | **RC-B** = `champions/rc_b` = `corpus/release/claudeshark_rc_b.zip` (48,167 bytes; 131,795 unzipped; 14 files), sha256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, shipped files identical from commit `3d918a5db6233e9f0c7a4dcbee6713b83f758c11` through HEAD on `mac-full-development`; 1,213 tests + 1 skip; release gate 15/15 READY TO UPLOAD; clock ladder PASS; Python 3.12.14 fresh-extraction smoke PASS. Strength: +83 =98 −45 (58.4%, +59 Elo, family bootstrap +25..+95) over RC-A, 226 games, **80 of 113 families informative (71%)**, leave-one-informative-family-out +56..+63, family means 0×6 ¼×18 ½×33 ¾×44 1×12. **Sleep sensitivity PASS**: dropping the 8 games (5 families) in flight across the 10:20–11:31 sleep gives +79 =93 −44, 58.1%, +57 Elo, bootstrap +21..+92 (`corpus/daily/time/c1staged_family_sensitivity.txt`). **CHAMPION and SUBMITTED** (uploaded 12:01); every candidate is measured against `champions/rc_b`. |
-| **CURRENT RC-C CANDIDATE** | **candidate 3, identity-preserving speed** = `champions/rcc_speed` = working tree at commit `f2543bd` (engine files unchanged since). Differs from RC-B by: (1) incremental piece-square sum (`cs_eval.pst_packed/pst_delta/evaluate_packed`, threaded through `_negamax`/`_quiescence`); (2) `cs_ordering.legal_captures` inline out-of-check capture generation; (3) the rejected check-extension code behind `CS_CHECK_EXT` (default off, no effect); (4) LMR knobs at shipped values. **Gate 0 PASSED**: fingerprints 1,708,269 / 1,852,716 unchanged, 1,227 tests + 1 skip, **+18.7% knps** over RC-B. **Gate 2 NOT DONE**: the 100-game timed screen was stopped at 59 games for the handoff (partial, non-decisive: +18 =25 −16). **Not champion.** Record `2026-09-05-rcc-speed-candidate.md`. |
+| **CURRENT RC-C CANDIDATE** | **candidate 3, identity-preserving speed** = `champions/rcc_speed` = working tree at commit `f2543bd` (engine files unchanged since). Differs from RC-B by: (1) incremental piece-square sum (`cs_eval.pst_packed/pst_delta/evaluate_packed`, threaded through `_negamax`/`_quiescence`); (2) `cs_ordering.legal_captures` inline out-of-check capture generation; (3) the rejected check-extension code behind `CS_CHECK_EXT` (default off, no effect); (4) LMR knobs at shipped values. **Gate 0 PASSED** on Mac and PC: fingerprints 1,708,269 / 1,852,716 unchanged, 1,227 + 1 skip (Mac) / 1,228 (PC) tests, **+18.7% knps (Mac), +16.5% (PC)** over RC-B. **Gate 2A PASSED on the PC (23:00)**: fresh 100-game screen vs RC-B at the competition clock **+39 =38 −23, 58.0%, +56 Elo**, 34/50 informative, bootstrap −0.0..+115, LOO +50..+64, 0 failures, clock equivalent. **FROZEN AS RC-C** = `corpus/release/claudeshark_rc_c.zip`, sha256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7` (50,258 bytes; 139,381 unzipped; 14 files); release gate 15/15; card `RC_C_UPLOAD_CARD.md`. **CHAMPION CANDIDATE, NOT SUBMITTED**: the user decides the upload. Record `2026-09-05-rcc-speed-candidate.md`. |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
 Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and
@@ -110,7 +117,8 @@ new one under a new name.
 | LMR schedule variants (r=2 from depth 4 etc.) | complete, flat, closed | −38% nodes at depth 8 but 5 better / 5 worse at equal time, E-loss slightly worse | `2026-09-05-lmr-schedule-screen.md`, `corpus/daily/lmr/` |
 | RC-C candidate 1: check extension vs RC-B, 100 timed games | **complete, REJECTED** | 46.5%, −24 Elo, 32 informative, bootstrap −74..+24, LOO −32..−18, clock floor 3.4 s v 8.0 s; equal-time blunder screen had been +22 cp | `2026-09-05-rcc-check-extension-prereg.md`, `corpus/daily/rcc/checkext_vs_rcb_120s_100.jsonl` + `.pgn`, `swissrisk_checkext_100.txt` |
 | RC-C candidate 2: frontier-bounded check extension | **complete, REJECTED** | 240-suite equal-time: robust mean 31 v 29, depth 7.32 v 7.90, 5 better / 10 worse — same as candidate 1 | `2026-09-05-rcc-check-extension-prereg.md`, `corpus/daily/rcc/cl240_*` |
-| RC-C candidate 3 (speed) vs RC-B, 100 timed games | **PARTIAL — NON-DECISIVE — STOPPED FOR PC HANDOFF** at 59/100 (+18 =25 −16, 51.7%) | not strength evidence; rerun in full on the PC | `corpus/daily/rcc/speed_vs_rcb_120s_100.PARTIAL-NON-DECISIVE-STOPPED-FOR-PC-HANDOFF.jsonl` + `.txt` (no PGN: the arena writes it at the end) |
+| RC-C candidate 3 (speed) vs RC-B, 100 timed games (Mac) | **PARTIAL — NON-DECISIVE — STOPPED FOR PC HANDOFF** at 59/100 (+18 =25 −16, 51.7%) | not strength evidence; superseded by the PC run below | `corpus/daily/rcc/speed_vs_rcb_120s_100.PARTIAL-NON-DECISIVE-STOPPED-FOR-PC-HANDOFF.jsonl` + `.txt` (no PGN: the arena writes it at the end) |
+| RC-C candidate 3 (speed) vs RC-B, 100 timed games, fresh on the PC (21:42–22:56, 6 workers, nothing else running) | **complete, decisive, PROMOTED (identity-preserving standard)** | +39 =38 −23, 58.0%, **+56 Elo**, 34/50 informative, bootstrap −0.0..+115, LOO +50..+64, White 60.0% / Black 56.0%, 0 failures, clock floor 5.6 s v 5.9 s (distribution equivalent, largest think 9.8 s v 13.0 s) | `corpus/daily/rcc/speed_vs_rcb_120s_100_pc.jsonl` + `.pgn` + `.log`, `swissrisk_speed_pc_100.txt`; frozen as `corpus/release/claudeshark_rc_c.zip` |
 | depth repair on 27 key rated decisions | complete | depth 7 or 8 repairs 6 of 27 | `corpus/daily/rated15_key_deeper.txt` |
 | public start-FEN recurrence | complete | 84–87% by rounds 14–15; a book is legal only from our own engine's moves | `2026-09-05-start-book-recurrence.md` |
 | tablebases | measured | ≤5-piece positions in 1 of 15 rated games; not worth shipping | `FABLE_OVERNIGHT_HANDOFF.md` |
@@ -181,16 +189,11 @@ only: candidate 3 speed (+18.7% knps, identical tree).
 
 ## 8. Live background jobs
 
-**ONE (PC, launched 21:42:27):** candidate 3 Gate 2A, `tools.arena --agent
-champions/rcc_speed --opponent champions/rc_b --games 100 --base-ms 120000
---increment-ms 500 --ply-cap 300 --workers 6 --corpus
-corpus/daily/pool/competition_actual_suite.jsonl --jsonl
-corpus/daily/rcc/speed_vs_rcb_120s_100_pc.jsonl`; PIDs 24324 (uv) → 22576
-(arena) + 6 workers; log `speed_vs_rcb_120s_100_pc.log`; expected finish
-~22:55; max 90 min; kill on any candidate-side failure or a clear decision,
-renaming the artifact `PARTIAL-NON-DECISIVE` if stopped early. Sweep before
-launch: no python, Stockfish, uv, waiters or `.owner` sidecars.
-(Mac 14:50: the earlier candidate-3 arena tree was terminated for the handoff and verified gone.)
+**NONE.** The candidate-3 Gate 2A arena (PID 22576, launched 21:42:27)
+exited normally at 22:56:28 with all 100 games written; sweep after exit:
+0 python processes, 0 `.owner` sidecars. The release checks that followed
+(release gate, fingerprint, clock ladder, Python 3.12.13 smoke) all
+completed. Nothing is running.
 
 ## 9. Known DO-NOT-USE artifacts
 

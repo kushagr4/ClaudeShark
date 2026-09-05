@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 3
+SPEC_REVISION: 4
 
-LAST_UPDATED: 2026-09-05 22:25 UK (Windows PC)
+LAST_UPDATED: 2026-09-05 23:10 UK (Windows PC)
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -339,7 +339,7 @@ separately earn promotion under section 11.
 
 ## 13. Fable → Friend Instructions
 
-SPEC_REVISION: 3
+SPEC_REVISION: 4
 
 CURRENT FRIEND SCOPE: tactical horizon / forcing-line robustness (section 8)
 and the R21+ loss audit (section 9).
@@ -398,12 +398,15 @@ the losses are not horizon-driven — report and await re-scoping.
 MAX SUGGESTED TIME: audit 60–90 minutes; diagnosis 30 minutes; one
 mechanism implementation 25 minutes + Gate 0/1 30 minutes before any arena.
 
-LATEST COORDINATOR MESSAGE: 2026-09-05 22:25 UK — revision 3: branch
-cleanup only, no scope change. `mac-full-development`, `v2-development` and
-`v2.2-development` no longer exist on origin (their commits are tags and
-ancestors of `rc-c-integration`); branch from `origin/rc-c-integration` as
-before. The R21+ losses are R23/R24/R25 (revision 2 text above). Candidate
-3's 100-game screen vs RC-B runs until ~23:25.
+LATEST COORDINATOR MESSAGE: 2026-09-05 23:10 UK — revision 4: candidate 3
+passed its fresh 100-game screen vs RC-B (58.0%, +56 Elo, 34 informative
+families, no failures, clock equivalent) and is frozen as RC-C
+(`corpus/release/claudeshark_rc_c.zip`), awaiting the user's upload
+decision. **Your baseline stays exact RC-B** (section 12: your candidate is
+measured as RC-B + B; the combination RC-B + A + B is tested separately
+afterwards). Do not rebase onto candidate 3. Nothing else about your scope
+changed; revisions 2–3 above still apply (losses R23/R24/R25; branch from
+`origin/rc-c-integration`).
 
 ## 14. Friend → Fable Findings
 
@@ -437,8 +440,23 @@ historical non-decisive data only.
 RC-B / candidate / RC-B / candidate on a quiet machine: RC-B 75,764 and
 76,234 knps; candidate 88,104 and 89,056 knps (**+16.5%**; Mac +18.7%);
 1,708,269 nodes in all four runs (`corpus/daily/rcc/pc_speed_transfer_depth6.txt`).
-**PC Gate 0: PASS** — 1,228 tests pass on the lane. Fresh Gate 2A screen
-launched 21:42 (section 17); the decision is made from that artifact only.
+**PC Gate 0: PASS** — 1,228 tests pass on the lane.
+
+2026-09-05 23:10 UK — **Gate 2A PASS; RC-C frozen.** Fresh 100-game screen
+vs `champions/rc_b` (21:42–22:56, 6 workers, nothing else running):
+**+39 =38 −23, 58.0%, +56 Elo**, 50 families / 34 informative (68%),
+bootstrap Elo −0.0..+115, leave-one-out +50..+64, White 60.0% / Black
+56.0%, 0 failures either side, clock floor 5.6 s vs 5.9 s with equivalent
+distributions and a shorter largest think (9.8 vs 13.0 s). Promoted on the
+identity-preserving standard (section 11 exception; the bootstrap lower
+bound is exactly zero, so it does not meet the general standard on its
+own). Frozen: `corpus/release/claudeshark_rc_c.zip`, sha256
+`1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`, 50,258
+bytes, release gate 15/15, fingerprint 1,708,269 from the zip, clock ladder
+PASS, Python 3.12.13 smoke PASS; card
+`benchmarks/current/RC_C_UPLOAD_CARD.md`. **Not uploaded; RC-B remains
+SUBMITTED and the friend's baseline.** Optional: a 126-game extension to
+226 (~2.5 h) to tighten the interval.
 
 ## 16. Integration Queue
 
@@ -446,13 +464,13 @@ Nothing enters here without evidence.
 
 | CANDIDATE | OWNER | COMMIT | GATE STATUS | CONTROLLED RESULT | READY TO INTEGRATE? | REASON |
 |---|---|---|---|---|---|---|
-| Candidate 3 speed | Kushagra / Fable | `f2543bd` | Gate 0 PASS (Mac); Gate 2A pending (PC) | none complete | NO | screen not run in full |
+| Candidate 3 speed = RC-C | Kushagra / Fable | `f2543bd` (archive `claudeshark_rc_c.zip`, sha256 `13898136…60dd7`) | Gate 0 PASS (Mac + PC); Gate 2A PASS (PC) | +39 =38 −23 vs RC-B, 58.0%, +56 Elo, 34 informative, bootstrap −0.0..+115, LOO +50..+64, 0 failures, clock equivalent | **READY FOR INTEGRATION TEST** — not merged; the user decides the upload first | identity-preserving standard met; general bootstrap standard touches zero; `rc-c-integration` stays exact RC-B until the user confirms |
 
 ## 17. Active Jobs
 
-| agent | PID | task | output | start | expected finish | max runtime | kill condition |
-|---|---|---|---|---|---|---|---|
-| Fable (PC) | 24324 (uv) → 22576 (arena) + 6 workers | Gate 2A: `champions/rcc_speed` vs `champions/rc_b`, 100 games, 120 s + 0.5 s, 300-ply cap, 6 workers, `competition_actual_suite` | `corpus/daily/rcc/speed_vs_rcb_120s_100_pc.jsonl` (+ `.pgn` at the end, `.log`) | 2026-09-05 21:42 UK | ~22:55 UK | 90 min | any flag / crash / illegal move on the candidate side; or a clearly negative decision before 100 games; if stopped early the artifact is renamed `PARTIAL-NON-DECISIVE` |
+NONE. (The candidate-3 Gate 2A arena, PID 22576, exited normally at
+22:56:28 with all 100 games written; sweep after exit: 0 python processes,
+0 sidecars.)
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)
@@ -468,6 +486,11 @@ kill condition. Remove it immediately after completion.)
 * 2026-09-05 22:25 UK — Fable → Friend: revision 3, branch audit. Origin now
   carries only `main`, `rc-c-integration`, `kushagra/rcc-speed-validation`
   and the tags in section 3. Nothing about your scope changed.
+* 2026-09-05 23:10 UK — Fable → Friend: revision 4. Candidate 3 passed and
+  is frozen as RC-C (section 15/16). Your baseline remains exact RC-B; the
+  combination is tested separately under section 12 once your lane has a
+  positive result. Still nothing in your section 14 on origin — I will read
+  it at my next boundary.
 
 ## 19. Codex Monday
 

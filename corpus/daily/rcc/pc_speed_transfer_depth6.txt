@@ -1,0 +1,32 @@
+# PC speed transfer check: RC-B vs candidate 3, depth 6, 24-position suite, alternated
+# machine: AMD Ryzen 5 5600X, Windows 11, uv/CPython in .venv; started 2026-09-05 21:38:12
+# pre-run sweep (python processes):
+--- champions/rc_b ---
+24 positions at fixed depth 6
+  average depth   6.00
+  total nodes     1,708,269 (48% quiescence)
+  nodes/second    75,764
+  tt hit rate     9.9%
+  time in search  22.5s
+--- champions/rcc_speed ---
+24 positions at fixed depth 6
+  average depth   6.00
+  total nodes     1,708,269 (48% quiescence)
+  nodes/second    88,104
+  tt hit rate     9.9%
+  time in search  19.4s
+--- champions/rc_b ---
+24 positions at fixed depth 6
+  average depth   6.00
+  total nodes     1,708,269 (48% quiescence)
+  nodes/second    76,234
+  tt hit rate     9.9%
+  time in search  22.4s
+--- champions/rcc_speed ---
+24 positions at fixed depth 6
+  average depth   6.00
+  total nodes     1,708,269 (48% quiescence)
+  nodes/second    89,056
+  tt hit rate     9.9%
+  time in search  19.2s
+# finished 21:39:37

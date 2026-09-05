@@ -1,0 +1,15 @@
+claudeshark_rc_c.zip
+  sha256   1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7
+  bytes    50258 compressed, 139381 uncompressed, 14 files (LF line endings)
+  source   champions/rcc_speed git blobs at f2543bd (== engine files of every later commit on
+           kushagra/rcc-speed-validation through 6f37820); built from an LF export of the blobs
+  built    2026-09-05 23:02 (Windows PC) by tools.release_check --fast --source <LF export> --keep corpus/release/claudeshark_rc_c.zip
+  verified 2026-09-05 23:02-23:08: every extracted file hashes to its git blob, release gate 15/15
+           READY TO UPLOAD, 1228 tests pass on the PC (1227 + 1 skip on the Mac), depth-6
+           fingerprint 1,708,269 from the extracted zip (identical to RC-B), clockladder PASS
+           1 ms..120 s (worst 4.6 s at 120 s), Python 3.12.13 + python-chess 1.11.2
+           fresh-extraction smoke (rc_c_smoke_py312.json: 8 probes legal, startup 1.25 s),
+           0 failures in 100 timed games vs champions/rc_b (speed_vs_rcb_120s_100_pc.jsonl)
+  differs from RC-B by cs_eval.py (incremental piece-square sum), cs_ordering.py (inline
+           out-of-check capture generation), cs_search.py (the sum threaded through the search;
+           CS_CHECK_EXT code path present, default off, no effect); search tree identical
