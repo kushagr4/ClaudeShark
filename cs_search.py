@@ -107,6 +107,28 @@ def _policy(name: str, default: str, allowed: tuple[str, ...]) -> str:
 
 TT_PV_POLICY = _policy("CS_TT_PV_POLICY", "exact", ("all", "exact", "none"))
 
+
+def _int_var(name: str, default: int) -> int:
+    """An integer experiment knob, registered like a flag so the arena records it."""
+    DECLARED_FLAGS.setdefault(name, False)
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    return int(raw.strip())
+
+
+# Late-move reduction schedule. The shipped values are the ones every
+# measurement in benchmarks/ was made with; the knobs exist so a variant can
+# be run from this code base rather than from an edited copy.
+#   LMR_START:     first move index (0-based, after ordering) that may be reduced
+#   LMR_R2_INDEX/LMR_R2_DEPTH: from this index at this depth the reduction is 2
+#   LMR_R3_INDEX/LMR_R3_DEPTH: the same for a reduction of 3; 0 disables it
+LMR_START = _int_var("CS_LMR_START", 3)
+LMR_R2_INDEX = _int_var("CS_LMR_R2_INDEX", 6)
+LMR_R2_DEPTH = _int_var("CS_LMR_R2_DEPTH", 6)
+LMR_R3_INDEX = _int_var("CS_LMR_R3_INDEX", 0)
+LMR_R3_DEPTH = _int_var("CS_LMR_R3_DEPTH", 0)
+
 # Backwards compatibility: CS_TT_PV_CUTOFF=0 was the escape hatch that first
 # revealed the defect, and existing records refer to it. It still forces "none".
 if not _flag("CS_TT_PV_CUTOFF", True):
@@ -768,7 +790,7 @@ class Searcher:
             # check?) happens just after it.
             reduction = 0
             if (
-                move_index >= 3
+                move_index >= LMR_START
                 and can_reduce
                 and not (1 << move.to_square) & them
                 and not move.promotion
@@ -782,7 +804,12 @@ class Searcher:
                     and (1 << move.from_square) & pawns
                 )
             ):
-                reduction = 2 if (move_index >= 6 and depth >= 6) else 1
+                if LMR_R3_INDEX and move_index >= LMR_R3_INDEX and depth >= LMR_R3_DEPTH:
+                    reduction = 3
+                elif move_index >= LMR_R2_INDEX and depth >= LMR_R2_DEPTH:
+                    reduction = 2
+                else:
+                    reduction = 1
                 if reduction > child_depth - 1:
                     reduction = child_depth - 1
 
