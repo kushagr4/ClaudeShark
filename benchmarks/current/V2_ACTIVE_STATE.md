@@ -14,12 +14,13 @@ screen. Mac environment: Apple M4 (10 cores), uv 0.12.10, Python 3.12.14 in
 | submitted archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` (39,125 bytes; 106,863 unzipped; 11 files) |
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
-| **CURRENT BEST PROVEN BUILD** | **RC-A** (nothing has beaten it on the competition distribution) |
-| **CURRENT DEVELOPMENT CANDIDATE** | **C1-search-staged**, wired: `staged_moves` feeds `_negamax` behind `CS_STAGED_MOVES` (default off; on = the candidate). Gate 0 passed 2026-09-05 08:25 (record `2026-09-05-c1-staged-move-picker.md`): tree not byte-identical (history refreshed at the tail, 93 of 133,487 staged nodes, 0 unexplained), 0/24 and 0/18 root moves changed, +17% knps, tactics 16/16, 1,204 tests. Frozen as `champions/c1_staged`. Timed screen running (section 8). |
+| **CURRENT BEST PROVEN BUILD** | **RC-B candidate = `champions/rc_b`** (C1 staged picker on by default + fast stalemate probe): +59 Elo over RC-A at the competition clock on the organiser starts, 226 games, bootstrap +25..+93. RC-A remains the **submitted** build and the immutable fallback until the user confirms an upload. |
+| **CURRENT DEVELOPMENT CANDIDATE** | none in flight. RC-B (`champions/rc_b`, working tree at the commit that carries this line) is in the release gate; see `RC_B_UPLOAD_CARD.md` once written. |
 | previous submitted build | V2.1 KING-PAWN, `corpus/v2/kp/submission_v2_1_kingpawn.zip`, sha256 `a8b95a5cab3e33aaac6e5d3e686eb7f292d3a600a115e18e077b9622f35bbd0a`, commit `10c9277`; **rejected for the locked build** |
 
-Release-candidate stack: RC-A submitted and best proven; no RC-B. Never
-overwrite an RC archive; freeze a new one under a new name.
+Release-candidate stack: RC-A submitted; RC-B frozen from the C1 result and
+awaiting the user's upload decision. Never overwrite an RC archive; freeze a
+new one under a new name.
 
 ## 2. Rated corpora — keep them separate
 
@@ -58,13 +59,16 @@ overwrite an RC archive; freeze a new one under a new name.
 | V2.4b early16 (fewer moves-to-go above 60 s) vs rated-v1, 226 timed games | complete | 49.3%, −4.6 Elo, 65 informative, bootstrap −40..+31, lowest clock 4.1 s v 6.1 s; **rejected** | `corpus/daily/time/games/early16_vs_ratedv1_120s.jsonl` + `.pgn`, `swissrisk_early16.txt` |
 | Timed confirmation V2.1 vs rated-v1 | **PARTIAL — NON-DECISIVE — STOPPED FOR TIME BUDGET** at 69/226 (48.6%) | must not revise the fixed-depth verdict | `corpus/daily/time/games/v21_vs_ratedv1_120s.PARTIAL-NON-DECISIVE-STOPPED-FOR-TIME-BUDGET.jsonl` + `.txt` |
 | C1-search-staged Gate 0 | **complete, passed** | −0.24% nodes, 0/42 root moves changed, +17% knps, 16/16 tactics | `2026-09-05-c1-staged-move-picker.md`, `corpus/daily/time/gate0_c1staged.txt` |
-| C1-search-staged timed screen vs rated-v1, 226 games | **RUNNING** (section 8) | — | `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` |
+| C1-search-staged timed screen vs rated-v1, 226 games, competition clock | **complete, decisive, PROMOTED** | +83 =98 −45, 58.4%, **+59 Elo**, 80 informative, bootstrap +25..+93, clock floor 5.7 s v 4.7 s, 0 failures | `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` + `.pgn`, `swissrisk_c1staged.txt` |
+| fast stalemate probe (identical tree) | complete | +11% knps on top of C1, fingerprints unchanged | `2026-09-05-c1-staged-move-picker.md`, `tests/test_has_legal_move.py` |
+| Lane B static king-attack signals | **complete, negative, closed** | best AUC 0.61, sign agreement <40%, signals zero through the early phase of the R1/R11 attacks | `2026-09-05-lane-b-static-attack-signals.md`, `corpus/daily/laneb_signals.txt` |
+| LMR schedule variants (r=2 from depth 4 etc.) | complete, flat, closed | −38% nodes at depth 8 but 5 better / 5 worse at equal time, E-loss slightly worse | `2026-09-05-lmr-schedule-screen.md`, `corpus/daily/lmr/` |
 | depth repair on 27 key rated decisions | complete | depth 7 or 8 repairs 6 of 27 | `corpus/daily/rated15_key_deeper.txt` |
 | public start-FEN recurrence | complete | 84–87% by rounds 14–15; a book is legal only from our own engine's moves | `2026-09-05-start-book-recurrence.md` |
 | tablebases | measured | ≤5-piece positions in 1 of 15 rated games; not worth shipping | `FABLE_OVERNIGHT_HANDOFF.md` |
 | RC-A release verification | complete | 15/15 gate twice, 1,202 tests, Python 3.12.13 fresh-extraction smoke, ladder PASS, 0 failures in 521 timed games | `corpus/release/RC_A_MANIFEST.txt`, `rc_a_smoke_py312.json`, `RC_A_UPLOAD_CARD.md` |
 
-One experiment is running (the C1 timed screen, section 8).
+No experiment is running.
 
 ## 4. Rejected candidates (do not reopen without new evidence)
 
@@ -88,60 +92,53 @@ onnxruntime, numba only; 13-round Swiss over locked builds; tie-breaks
 points, Buchholz, head-to-head, earlier final submission. Eligibility (UK
 university student on the team) needs written organiser clarification.
 
-## 6. Development priorities (from `ENGINE_OPPORTUNITY_MAP.md`)
+## 6. Development priorities (updated 11:45 Mac, after the day's results)
 
-1. **C1-search-staged**: wire `staged_moves` into `_negamax` behind
-   `CS_STAGED_MOVES` (default on), guarded by "no own pawn on the seventh
-   rank" (fall back to `order_moves`); Gate 0 = per-position node counts
-   identical with the flag on and off over the 24-position suite, the sharp
-   suite and random positions (fingerprint must stay 1,712,405), full tests,
-   NPS before/after (`tools.bench --depth 6`); then a short timed screen
-   (64–100 games at 120 s + 0.5 s on `corpus/daily/pool/competition_actual_suite.jsonl`)
-   with informative families. Expected 10–20% NPS with an identical tree;
-   measured today: 79% of interior nodes cut on their first move, 22% have a
-   table move, the stalemate probe costs only 2.3 µs (not worth touching).
-2. **Lane B, attack blindness**: the largest deployment loss source (R1, R3,
-   R5, R10, R11; 104 correct-move/wrong-score decisions; depth repairs 1 in 4).
-   Build a positive set from those positions and matched negatives (material
-   deficits that are genuinely bad), test the smallest separating signal
-   (safe checks, escape squares, attacker/defender counts, pinned defenders)
-   at static / qsearch / root; never resurrect broad king safety.
-3. Conversion (R3, R7) only with time; time policy closed (five nulls).
+Done today: C1 (promoted, +59), the fast stalemate probe (+11% knps,
+identical tree), Lane B static signals (closed), LMR schedule (closed). The
+evidence order of the user's plan for what remains:
 
-## 7. Next three actions for the Mac session
+1. **RC-B release**: release check, card, user decision on upload. RC-A
+   stays the fallback.
+2. **Speed (lane 6), next targets from the C1 profile**: capture generation
+   for quiescence and the staged head (~14% and ~12% of search time), `is_check`
+   at quiescence entry (~7%), the evaluator's piece scan (~23%; already tight).
+   Every candidate here must keep the fingerprint (1,708,269) and is gated by
+   knps + tests only.
+3. **qsearch / TT lanes (4, 5)**: no evidence yet either way; the 2026-09-04
+   ablation found SEE pruning and the PV cutoff policy neutral. Only with a
+   concrete mechanism.
+4. **Conversion (lane 9)**: Rated 16 (RC-A) repeated the pattern (+529 → +22
+   after 34.Qxe4); R3, R7 yesterday. Still the largest evaluation-side loss
+   source that a term could address; prior mop-up/passed/V2.2a were not
+   strength-proven. Needs a pre-registered positive/negative set like Lane B.
+5. Check extension (A4): the only remaining search lever with a mechanism;
+   would re-open the LMR question. Fixed-depth node growth + tactics first.
 
-1. `git checkout v2.2-development`, read this file and `MAC_HANDOFF.md`, run
-   `uv run python -m pytest -q` (1,205 tests) and `uv run python -m tools.bench --depth 6`
-   (expect 1,712,405 nodes) to confirm the environment.
-2. Finish C1: wire the picker, Gate 0 identity and NPS, short timed screen;
-   freeze RC-B only if the tree is identical and the screen is not negative.
-3. Start Lane B with the pre-registered positive/negative set from
-   `corpus/daily/rated15_key_positions.json` and the round 10/11 sequences.
+## 7. Next three actions
+
+1. Read `RC_B_UPLOAD_CARD.md`; if the user confirms, upload
+   `corpus/release/claudeshark_rc_b.zip` and record the SHA-256 and time in
+   section 1. Until then, every rated game is RC-A.
+2. Ingest any new RC-A rated games from the public team page into
+   `corpus/daily/rca/` (tool flow: `tools.aichessathon_public.fetch` +
+   `parse_team_games`, then `tools.daily.ingest`, then
+   `tools.postmortem.annotate --workers 1`).
+3. Continue lane 6 with fingerprint-gated speedups, one at a time.
 
 ## 8. Live background jobs
 
-**ONE (CPU-heavy).** C1 timed screen, registered 2026-09-05 08:31 local (Mac):
-
-* PID 19304 (`.venv/bin/python3 -m tools.arena`), parent 19302 (`uv run`, launched
-  with `nohup` from the Claude session shell); 16 `harness/runner.py` children.
-* Purpose: Gate 2 timed screen of C1-search-staged against RC-A at the
-  competition clock on the 113 organiser starts, both colours.
-* Command: `tools.arena --agent champions/c1_staged --opponent champions/rated_v1
-  --games 226 --base-ms 120000 --increment-ms 500 --ply-cap 300 --workers 8
-  --corpus corpus/daily/pool/competition_actual_suite.jsonl
-  --jsonl corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl --set-env CS_STAGED_MOVES=1`.
-* Started 08:30:03 local; expected finish about 10:30 (the two Windows
-  226-game runs at this control took 1 h 57 min and 2 h 04 min on 8 workers).
-* Output: `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` (+ `.pgn`),
-  stdout in `corpus/daily/time/games/c1staged_vs_ratedv1_120s.log` (gitignored).
-* Kill condition: only if a failure termination attributable to the candidate
-  appears, or the user asks. Otherwise let it finish; do not start a second
-  CPU-heavy job while it runs.
+**NONE.** Sweep at 11:40 (Mac): the C1 arena (PID 19304) exited at 11:37 with
+226/226 games; its `caffeinate` guard exited with it; no python, uv, Stockfish
+or sleep pollers. The only job after that is the RC-B test + release-check
+chain, which is foreground work of the session, not an experiment.
 
 Rules for future jobs: one CPU-heavy job at a time, registered here (PID,
 parent, purpose, command, start, expected finish, output, sidecar, CPU-heavy,
 kill condition), removed when it ends; no waiter shells; a probe must never
-match its own command line.
+match its own command line. **Keep the lid open and the charger in during a
+timed screen**: the 10:20–11:31 sleep did not distort clocks (monotonic
+timer) but it stalled the run for over an hour on a 31% battery.
 
 ## 9. Known DO-NOT-USE artifacts
 
