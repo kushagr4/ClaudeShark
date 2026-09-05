@@ -9,7 +9,7 @@ check `.owner` sidecars, then continue from section 10.
 ## 1. Clock
 
 * Fable take-over session began **2026-09-05 01:05 local**. Last update to this
-  file: **01:52**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
+  file: **03:55**. (Earlier drafts of this file overstated the clock; times here are from file timestamps.) The user is asleep; a morning handoff is due.
 
 ## 2. Repository
 
@@ -110,19 +110,11 @@ worth shipping.**
 
 ## 9. Running jobs — verify before touching anything
 
-| job | output | status |
-|---|---|---|
-| **V2.4 Stage 2: timed arena 120 s + 0.5 s, `champions/rated_v1_sf60` vs `champions/rated_v1`, 226 games on the 113 organiser starts, 8 workers** | `corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl` (+ `.pgn`), log `corpus/daily/time/stage2_sf60.log` | started **01:45**, python pids 23168/23136 (uv shim + arena); expected 3–3.5 h |
+None at the time of writing (03:55). Complete: V2.4 Stage 2 (`corpus/daily/time/games/sf60_vs_ratedv1_120s.jsonl`, 226 games, **sf60 REJECTED**: +1.5 Elo on 70 informative families, lowest clock 2.2 s against the baseline's 6.7 s; see `2026-09-05-v2.4-time-policy-results.md`). Next CPU job: V2.4b Gate 0 then Gate 2 on `champions/rated_v1_early16`, output under `corpus/daily/time/`.
 
-Complete: report shards (merged into `corpus/daily/rated15_report.*`),
-`tools.daily.deeper` (`corpus/daily/rated15_key_deeper.txt`), V2.4 Stage 1
-(`corpus/daily/time/stage1_*.txt`, sf60 selected by the pre-registered rule).
+**Release candidate RC-A frozen:** `corpus/release/claudeshark_rated_v1_rc_a.zip`, 39,125 bytes, 106,863 unzipped, 11 files, sha256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, built from `champions/rated_v1` by `tools.release_check --source champions/rated_v1 --keep …` (15/15 PASS), full suite 1,202 passed, startup 1.49 s.
 
-Do not start another CPU-heavy job while the arena runs; it is a timed match
-and contention changes what is being measured. **Never smoke-test
-infrastructure on a live path.** Corrupt artifacts that must never enter
-statistics: `corpus/daily/pool/games/v21_vs_ratedv1.CORRUPT-DISCARDED.jsonl`,
-`…_actual.CORRUPT-DISCARDED-2.jsonl`.
+**Never smoke-test infrastructure on a live path.** Corrupt artifacts that must never enter statistics: `corpus/daily/pool/games/v21_vs_ratedv1.CORRUPT-DISCARDED.jsonl`, `…_actual.CORRUPT-DISCARDED-2.jsonl`.
 
 ## 10. Plan
 
