@@ -71,4 +71,60 @@ same-strength result still promotes it as the new development base, because
 the mechanism buys depth at zero evaluation change; a negative result closes
 the lane and the flag stays off.
 
-Result: appended when the match completes.
+### Result (completed 11:37 local; 3 h 07 min wall, of which about 1 h 10 min the Mac was asleep)
+
+Raw: `corpus/daily/time/games/c1staged_vs_ratedv1_120s.jsonl` + `.pgn`; risk
+report `corpus/daily/time/swissrisk_c1staged.txt`.
+
+| | C1-staged vs rated-v1 |
+|---|---|
+| games / families / **informative families** | 226 / 113 / **80 (71%)** |
+| W/D/L, score | **+83 =98 −45, 58.4%** |
+| nominal Elo | **+59** |
+| cluster bootstrap 95% | **+25 .. +93** (score 53.5%..63.1%) |
+| leave-one-family-out | +56 .. +63 |
+| family-mean histogram | 0.00×6 0.25×18 0.50×33 0.75×44 1.00×12 |
+| as White / as Black | 55.8% (+40) / 61.1% (+78) |
+| flags, crashes, illegal moves | **0 / 0 / 0** either side |
+| terminations | checkmate 128, threefold 86, insufficient 10, fifty-move 2; none at the 300-ply cap |
+| lowest clock held | **C1 5.7 s** (0 games under 5 s, 12 under 10 s) v rated-v1 4.7 s (1 under 5 s, 13 under 10 s) |
+| largest single think | C1 10.3 s, rated-v1 8.8 s |
+| mean think / median final clock | 2.07 s / 24.8 s v 2.09 s / 24.2 s |
+
+**Decision by the pre-registered rule: promote.** The bootstrap excludes zero
+by a wide margin, the clock floor is higher than the base's, and there were no
+failures. This is the first candidate in the project's history to beat
+rated-v1 on the organiser's distribution at the competition clock.
+
+*Sleep caveat, on record:* the machine slept (lid closed, on battery) from
+10:20:46 to 11:31:35 with brief dark wakes (`pmset -g log`). The referee's
+per-move clock is monotonic and stops during sleep, so the six games in
+flight resumed with ordinary spends (largest 7.4 s, no flags); only their
+wall-time field shows the gap (3,700–4,480 s against a 300–1,200 s norm).
+No game was discarded.
+
+## Stacked on the same day: the fast stalemate probe (identical tree)
+
+Commit `0216486`: the two out-of-check stand-pat exits in quiescence ask
+`_has_legal_move` instead of `any(board.generate_legal_moves())`. An unpinned
+knight, pawn or slider with any target is a legal move; only a position with
+none pays for the full generator, so the answer is identical
+(`tests/test_has_legal_move.py`: random game and sparse positions, known
+stalemates, pinned-only positions). Fingerprints unchanged in every state
+(1,712,405 / 1,708,269 / sharp 1,852,716).
+
+| quiet machine, depth 6, alternated twice | `champions/c1_staged` (no probe) | working tree (probe) |
+|---|---|---|
+| nodes | 1,708,269 | 1,708,269 |
+| knps | 138,632 / 138,922 | **154,167 / 154,493 (+11%)** |
+| wall | 12.3 s / 12.3 s | 11.1 s / 11.1 s |
+
+Against RC-A (118.7 knps on this machine) the two together are **+30%
+nodes per second** at an unchanged or near-identical tree.
+
+## RC-B
+
+`CS_STAGED_MOVES` now defaults to on; the no-environment fingerprint is
+1,708,269. Frozen as `champions/rc_b` (picker on by default, probe, LMR
+knobs at their shipped values). Release check and card: `RC_B_UPLOAD_CARD.md`.
+
