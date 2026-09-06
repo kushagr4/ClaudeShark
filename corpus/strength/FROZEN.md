@@ -12,3 +12,10 @@ positions in more than one set: 0 (must be 0)
 dev: baseline + candidate screens. val: pre-promotion confirmation. holdout_a: qualification. holdout_b: confirmation. Never reshuffle.
 
 holdout_c  positions  50  (29 fresh spares + 21 from val; seed 20260906; built 2026-09-06 05:01 as a second confirmation set)  sha256 8394781846871c162ccfdc360f0b875351d5943fde6c91dff4f8d8677d60a49e
+
+# ~2400 stage sets (frozen 2026-09-06 08:50 UK): from corpus/competition_like_v1.jsonl (240 competition-like positions, suite hash 6a8111f22f9ea393), never used as game starts before; 0 unsuitable removed, 0 overlapping the 2300 sets removed; seed 20260906; 50 spare
+dev2400        positions  50  sha256 5e0c2bd65a6e50e96c4b84c9e39585e3497c2744044d521c8303c6bc92204cd7
+val2400        positions  40  sha256 1912a8f28c59f8aed68cda76b99f44c041e71abc8aac4f58ea154e8d1b23a0f6
+holdout2400_a  positions  50  sha256 1f6f5e78e9871a263db919ab7f75e0a896f17817db2f18b138415eeb600a2f9d
+holdout2400_b  positions  50  sha256 057371bf6360a6ed288eb6a0dcc67220ee71bbd22e652816f41aa133923c3d56
+dev2400: baseline + screens. val2400: confirmation before promotion. holdout2400_a: qualification. holdout2400_b: confirmation. Never reshuffle.

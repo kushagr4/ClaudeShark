@@ -1,0 +1,33 @@
+== SWISS RISK REPORT ==
+champions\c5_rfp (snapshot d82c133a9fcc4ade) vs uci:stockfish-windows-x86-64-avx2.exe@elo2400 (snapshot c86215fa1977d53b[Hash=16,Threads=1,UCI_Elo=2400,UCI_LimitStrength=True]); 120000 ms + 500 ms; ply cap 300; draw claim strict; corpus corpus\strength\dev2400.jsonl
+
+-- strength (the usual Gate 2 numbers) --
+   games 100   clusters 50   informative clusters 35 (70%)
+   +40 =31 -29   score 55.5%   nominal Elo +38.4
+   cluster bootstrap 95%: score 47.5%..63.5%, Elo -17.4..+96.2
+   leave-one-cluster-out Elo +32.0..+46.4
+   cluster-mean histogram {0.0: 5, 0.25: 8, 0.5: 15, 0.75: 15, 1.0: 7}
+
+-- failures attributable to each side --
+   agent: none
+   opponent: none
+
+-- clock safety --
+   agent: lowest clock ever held 6.0 s; games under 5 s: 0, under 10 s: 8, under 20 s: 23
+   agent: largest single think 17.8 s; mean think 2.25 s; median final clock 42.7 s
+   opponent: lowest clock ever held 0.6 s; games under 5 s: 89, under 10 s: 91, under 20 s: 93
+   opponent: largest single think 44.1 s; mean think 3.72 s; median final clock 2.9 s
+
+-- terminations and conversion --
+   all terminations: {'checkmate': 68, 'threefold_repetition': 23, 'insufficient_material': 1, 'fifty_moves': 6, 'adjudication': 2}
+   agent wins by: {'checkmate': 39, 'adjudication': 1}
+   draws by: {'threefold_repetition': 23, 'insufficient_material': 1, 'fifty_moves': 6, 'adjudication': 1}
+   agent losses by: {'checkmate': 29}
+   mean plies 99, max 300, games at the ply cap: 2
+
+-- population sensitivity --
+   agent as White: +19 =15 -16  score 53.0%  Elo +20.9
+   agent as Black: +21 =16 -13  score 58.0%  Elo +56.1
+
+No single Swiss score is computed. Read the components: a candidate that gains Elo but adds a flag,
+a crash or a drop in the lowest clock has not earned a place in a 13-round locked-build Swiss.
