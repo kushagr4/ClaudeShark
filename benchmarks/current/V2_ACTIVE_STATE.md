@@ -195,18 +195,25 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | RC-C_2300_BASELINE: `champions/rc_c` vs Stockfish 18 UCI_Elo 2300 (Threads 1, Hash 16), 100 games, 120 s + 0.5 s, 300-ply cap, 6 workers, `corpus/strength/dev.jsonl` |
+| TASK | RC-C_2300_BASELINE_STRICT: `champions/rc_c` vs Stockfish 18 UCI_Elo 2300, 100 games, 120 s + 0.5 s, 300-ply cap, **`--draw-claim strict`**, 6 workers, `corpus/strength/dev.jsonl` (the official baseline; the `auto` run is superseded) |
 | OWNER | Fable (PC) |
-| PID | 7216 (uv) → 15968 (arena) + 6 runner + 6 Stockfish children |
-| START | 2026-09-05 23:34:40 UK |
-| LAST HEALTH CHECK | 23:35 (launch verified: header written, 6 Stockfish + 6 runners alive) |
-| NEXT HEALTH CHECK DUE | 23:45 |
-| OUTPUT | `corpus/strength/games/rcc_vs_sf2300_dev_100.jsonl` (+ `.pgn` at the end, `.log`) |
+| PID | 4772 (uv) → 24048 (arena) + 6 runner + 6 Stockfish children |
+| START | 2026-09-06 01:13:30 UK |
+| LAST HEALTH CHECK | 01:14 (launch verified: header written, 6 Stockfish + 6 runners alive) |
+| NEXT HEALTH CHECK DUE | 01:24 |
+| OUTPUT | `corpus/strength/games/rcc_vs_sf2300_dev_100_strict.jsonl` (+ `.pgn` at the end, `.log`) |
 | PROGRESS | 0/100 at launch |
-| EXPECTED FINISH | ~01:00 UK |
-| MAX RUNTIME | 120 min (hard stop 01:35) |
-| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing for 15 min with live processes → stalled procedure; finish at 100 games. A result cannot be "decisive early" here: the baseline exists to measure a rate, so it runs to 100 |
+| EXPECTED FINISH | ~02:30 UK (strict games run longer than auto ones) |
+| MAX RUNTIME | 120 min (hard stop 03:15) |
+| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing for 15 min with live processes → stalled procedure; runs to 100 (a rate measurement) |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed and swept (0 python / 0 Stockfish / 0 sidecars after each):
+00:44:04 RC-C_2300_BASELINE auto (PID 15968, +49 =29 −22, 63.5%, all 29
+draws auto-claims — superseded); 01:05:01 oracle annotation (PID 18968,
+9,568 positions); 01:13:01 large-error audit (PID 20376, 360 errors, 120
+replayed; `2026-09-06-rcc-2300-error-audit.md`). No CPU-heavy diagnostic is
+run while the timed arena is in progress.
 
 Previous job: the candidate-3 Gate 2A arena (PID 22576) exited normally at
 22:56:28 with all 100 games written; sweep after exit: 0 python processes,

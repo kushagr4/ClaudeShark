@@ -10,7 +10,7 @@ is used.
 | OPPONENT IMPLEMENTATION | Stockfish, `C:\Users\epick\engines\stockfish\stockfish-windows-x86-64-avx2.exe` (114,007,552 bytes; sha256 prefix `c86215fa1977d53b` as recorded by the arena) |
 | VERSION | `id name Stockfish 18` (reported by the binary on `uci`) |
 | SETTINGS | `UCI_LimitStrength true`, `UCI_Elo 2300`, `Threads 1`, `Hash 16`; no opening book, no tablebases, no pondering; a fresh engine process per game |
-| TIME CONTROL | 120 s + 0.5 s per side, 300-ply cap, adjudication and draw rules exactly as the internal arena (`harness/referee.py`, draw claim `auto`) — the competition's clock |
+| TIME CONTROL | 120 s + 0.5 s per side, 300-ply cap, adjudication as the internal arena (`harness/referee.py`); **draw claim `strict`** (a threefold ends the game only when a position has actually occurred three times) — see the amendment below |
 | STRENGTH LIMIT | `UCI_Elo 2300` (range 1320–3190 in this build) |
 | RATING CALIBRATION SOURCE | Stockfish's own documentation (wiki page "UCI Protocol and Stockfish Commands", fetched 2026-09-05 23:45 UK): "If `UCI_LimitStrength` is enabled, it aims for an engine strength of the given Elo. This Elo rating has been calibrated at a time control of 120s+1s and anchored to CCRL 40/4." |
 | HARNESS | `tools.arena --opponent-uci <binary> --uci-elo 2300 --uci-hash 16` via `harness/uci_agent.py` (python-chess `SimpleEngine`, `Limit(white_clock, black_clock, increments)` fed from the referee's clock) |
@@ -37,6 +37,21 @@ is used.
    (short screens at other `UCI_Elo` values) before any "2300 cleared"
    claim is made; the 2300/2400 labels are then reported alongside the
    `UCI_Elo` value at which ClaudeShark scores 50%.
+
+## Amendment 2026-09-06 01:10 UK — draw claim must be `strict`
+
+The first 100-game run (`rcc_vs_sf2300_dev_100`, `--draw-claim auto`) ended
+29 games as threefold draws. Replaying every one of them: **0 were actual
+threefolds; all 29 were "claimable via a move"** (python-chess's
+`can_claim_threefold_repetition`), and in **18 of them Stockfish was the side
+to move while winning** — the referee claimed the draw on behalf of a player
+who would never have claimed it. RC-C's final oracle score in those games was
+below −300 in 26 of the 29. The `auto` mode is the documented historical
+artefact in `harness/referee.py`; it never mattered for engine-vs-engine
+comparisons where both sides share it, but against an external opponent it
+gifts the losing side (mostly us) a half point. From this amendment on the
+benchmark is defined with `--draw-claim strict`; the `auto` run stays on
+record as evidence and is not the baseline.
 
 ## Benchmark B (confirmation)
 
