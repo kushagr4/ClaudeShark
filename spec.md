@@ -9,7 +9,7 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 SPEC_REVISION: 12
 
-LAST_UPDATED: 2026-09-06 21:12 UK (Windows PC) — RC-F SUBMITTED (user-confirmed activation boundary 21:07 UK); evening review/performance brief in progress
+LAST_UPDATED: 2026-09-06 22:45 UK (Windows PC) — RC-F submitted 21:07; evening self-review complete (benchmarks/current/2026-09-06-rc-f-evening-review.md): no new high-severity defect, RFP stalemate path decision-neutral, profile and error audit recorded, no candidate created; independent reviews tomorrow
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -625,10 +625,10 @@ Anything new must beat `champions/rc_f` (the development champion; C10 is paused
 
 ## 17. Active Jobs
 
-None (21:05 UK). The RC-F clean 2800 calibration finished at 21:00
-(+11 =35 −14, 47.5%; `corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.*`).
-The agent is STOPPED for the user's RC-F upload decision
-(`benchmarks/current/RC_F_UPLOAD_CARD.md`). C10 stays paused.
+None (22:45 UK). Evening self-review finished; machine swept clean. C10 stays
+paused. First candidate for tomorrow (after the friend's and Astra's
+independent RC-F reviews): per-move reset of table/killers/history,
+pre-registered in `2026-09-06-rc-f-evening-review.md`.
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)
