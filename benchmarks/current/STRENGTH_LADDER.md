@@ -10,8 +10,9 @@ CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300
 
 | item | value |
 |---|---|
-| 2300 BASELINE | **RC-C_2300_BASELINE (dev set, 23:34–00:44): +49 =29 −22, 63.5%, +96 Elo, bootstrap 55.5%..71.0% / +38..+156, 35/50 informative, LOO +91..+106, White 70.0% / Black 57.0%, 0 failures, mean 96 plies, our clock floor 3.8 s (1 game under 5 s, largest think 11.8 s); Stockfish's floor 0.6 s in 95 games (it burns its clock).** `corpus/strength/games/rcc_vs_sf2300_dev_100.jsonl` + `.pgn`, `swissrisk_rcc_sf2300_dev.txt` |
-| 2300 BEST RESULT | 63.5% (baseline; no candidate yet) |
+| 2300 BASELINE (auto draw claim — SUPERSEDED, evidence only) | RC-C vs benchmark A with `--draw-claim auto` (dev set, 23:34–00:44): +49 =29 −22, 63.5%, +96 Elo, bootstrap 55.5%..71.0%, 35/50 informative, White 70.0% / Black 57.0%, 0 failures, mean 96 plies, our clock floor 3.8 s (1 game under 5 s, largest think 11.8 s). **All 29 draws were auto-claims, 18 on Stockfish's behalf while it was winning** (`STRENGTH_BENCHMARK_2300.md`, amendment); a strict-claim reading is nearer 50%. `corpus/strength/games/rcc_vs_sf2300_dev_100.jsonl` + `.pgn`, `swissrisk_rcc_sf2300_dev.txt` |
+| 2300 BASELINE (strict draw claim — OFFICIAL) | pending: rerun on the same dev set with `--draw-claim strict` after the error audit finishes |
+| 2300 BEST RESULT | — (no valid baseline yet) |
 | 2300 PASSED? | NO |
 | 2400 BASELINE | — |
 | 2400 BEST RESULT | — |
