@@ -1,6 +1,6 @@
 """ClaudeShark -- AI Chessathon submission entry point.
 
-The platform imports this module once (inside the 90 s initialisation budget)
+The platform imports this module once (inside the 60 s initialisation budget)
 and then calls :func:`get_move` for every one of our turns. The process stays
 alive between calls, so the transposition table, the killer/history tables and
 the inferred increment all persist across the game.
@@ -18,7 +18,7 @@ import sys
 
 import chess
 
-from cs_fast import Searcher, warm_up
+from cs_search import Searcher
 
 sys.setrecursionlimit(10_000)
 
@@ -62,14 +62,12 @@ def get_move(fen: str, time_left_ms: int) -> str:
 
 
 def _warm_up() -> None:
-    """Compile and touch every hot path once during the initialisation budget.
+    """Touch every hot path once during the initialisation budget.
 
-    The search core is Numba-compiled on first use (about 30 s on one core);
-    the platform's init budget runs before the clock starts, so it is paid
-    here rather than on the first move. The searches that follow exercise
-    the compiled paths, the taper, castling and promotion.
+    python-chess builds its attack tables at import, and CPython has to create
+    the code objects and inline caches for the search on first execution. Doing
+    that here keeps it off the game clock.
     """
-    warm_up()
     warm = Searcher(tt_bits=12)
     for fen, budget in (
         (chess.STARTING_FEN, 3_000),

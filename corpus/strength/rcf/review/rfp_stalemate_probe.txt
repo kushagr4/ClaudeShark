@@ -1,0 +1,7 @@
+endgame positions: 300
+competition_like_v1: 240 positions depth 7: RFP hits 2,282,257, RFP hits on stalemate 0, positions whose root move/score/nodes change with the guard: 0
+endgames<=7 pieces: 300 positions depth 9: RFP hits 987,526, RFP hits on stalemate 1753, positions whose root move/score/nodes change with the guard: 4
+  CHANGED ('4k3/8/3KB3/P4P1p/7P/8/8/8 w - - 3 63', 'a5a6', 29993, 46979, 'a5a6', 29993, 46893, 34)
+  CHANGED ('k7/8/1K6/P7/3B4/8/8/8 w - - 3 92', 'd4f6', 668, 32791, 'd4f6', 668, 32793, 225)
+  CHANGED ('K7/3k4/1P6/8/P7/2q5/8/8 b - - 2 84', 'c3c8', 29995, 36534, 'c3c8', 29995, 36535, 45)
+  CHANGED ('8/8/8/3b2k1/5p2/7p/7K/8 b - - 1 60', 'f4f3', 1523, 26572, 'f4f3', 1523, 26619, 8)

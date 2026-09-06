@@ -4,11 +4,20 @@ An AI Chessathon entry: an iterative-deepening alpha-beta engine written against
 `python-chess`, with a transposition table, quiescence search and a tapered
 piece-square evaluation.
 
-Current version: **v0.5.2-correctness**, frozen at
-`champions/v0_5_2_correctness`. It is the release target. The working tree
-matches it in *behaviour* -- depth-6 node counts are identical -- and adds one
-dormant, flag-gated experiment (`cs_king.py`, `CS_EVAL_KING_SAFETY`, default
-off) that was measured and rejected; see
+Current version: **RC-F** (2026-09-06), frozen at `champions/rc_f` and
+submitted as `corpus/release/claudeshark_rc_f.zip`; `spec.md` §2 is the
+authoritative record of the submitted build and the development champion,
+and `README.md` carries the one-paragraph summary. The paragraph below
+describes the v0.5.2 era and is kept as history: the architecture description
+that follows it still applies, with the search now executed by the
+Numba-compiled core (`cs_core.py`, driven by `cs_fast.py`); the interpreted
+search (`cs_search.py`) remains as the reference implementation selected by
+`CS_CORE=python`.
+
+Historical (v0.5.2-correctness, frozen at `champions/v0_5_2_correctness`): the
+working tree matched it in behaviour -- depth-6 node counts were identical --
+and added one dormant, flag-gated experiment (`cs_king.py`,
+`CS_EVAL_KING_SAFETY`, default off) that was measured and rejected; see
 `benchmarks/current/2026-09-02-king-safety-v1.md`.
 
 ### Version status, stated precisely
