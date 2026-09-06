@@ -23,7 +23,14 @@ the revision.
 
 CURRENT_SUBMITTED: RC-C
 
-CURRENT_CHAMPION: RC-C
+CURRENT_CHAMPION: RC-C (the submitted build; every upload decision is measured against it)
+
+DEVELOPMENT_CHAMPION: C5 = RC-C + reverse futility pruning (`champions/c5_rfp`,
+branch `kushagra/c5-rfp`, promoted 2026-09-06 06:36 UK on non-negative
+evidence — `benchmarks/current/2026-09-06-c5-rfp-prereg.md`; not
+release-checked, not submitted). New search/eval candidates in the strength
+programme are measured against `champions/c5_rfp`; the friend's lane keeps
+`champions/rc_c` as its baseline until the coordinator says otherwise.
 
 | field | value |
 |---|---|
