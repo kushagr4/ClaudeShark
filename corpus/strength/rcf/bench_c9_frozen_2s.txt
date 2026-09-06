@@ -1,0 +1,4 @@
+  total nodes     79,410,355 (41% quiescence)
+  nodes/second    2,496,684
+  tt hit rate     17.9%
+  time in search  31.8s

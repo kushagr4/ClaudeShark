@@ -6,13 +6,15 @@ programme; the champion and submission identity stay in `spec.md` §2.
 CURRENT SUBMITTED / CONTROL: RC-C (`champions/rc_c`, archive `corpus/release/claudeshark_rc_c.zip`,
 sha256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`; submitted 23:14 UK)
 
-CURRENT DEVELOPMENT CHAMPION (from 2026-09-06 18:50 UK): **C9 = the C5 search
-executed by a Numba-compiled core** (`champions/c9_numba`, branch
-`kushagra/c9-numba-core`, engine commit `8131214`). Promoted on +55 =5 −0
-(95.8%, +545 Elo) over 60 games vs `champions/c5_rfp`; release-checked as
-RC-E (`corpus/release/claudeshark_rc_e.zip`, sha256 `fb8f8609…58aa`), **not
-submitted** — `RC_E_UPLOAD_CARD.md`. Later candidates are measured against C9.
-Previous: C5 (`champions/c5_rfp`, 06:36–18:50 UK, RC-D never submitted).
+CURRENT DEVELOPMENT CHAMPION (from 2026-09-06 20:00 UK): **RC-F = C9 (the C5
+search executed by a Numba-compiled core) + the quiescence stalemate fix**
+(`champions/rc_f`, branch `kushagra/rc-f-correctness`, engine commit
+`b7f42cf`). C9 was promoted 18:50 on +55 =5 −0 (95.8%, +545 Elo) over 60
+games vs `champions/c5_rfp`; the fix corrects a stalemate mis-score found at
+the release boundary (`2026-09-06-rc-f-boundary.md`). Release-checked as RC-F
+(`corpus/release/claudeshark_rc_f.zip`, sha256 `4ee4033e…f13d`), **not
+submitted** — `RC_F_UPLOAD_CARD.md`; RC-E is superseded. Later candidates are
+measured against RC-F. Previous: C9 (18:50–20:00), C5 (06:36–18:50).
 
 CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300.md`)
 
@@ -32,9 +34,9 @@ CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300
 | 99.5% PER-GAME | **NOT PASSED** — best build: 3 of 100 games ≥ 99.5 on V1 (`ACCURACY_LADDER.md`) |
 | CURRENT >=100CP ERROR RATE | C5 **8.30%** (194 of 2,337 moves, 60 strict games; >=300 cp 2.14%) against RC-C **8.36%** on its 100 strict games (>=300 cp 1.69%) — the same rate; RFP bought depth, not fewer large errors. RC-C auto-claim audit (the classified one): 8.95%, `2026-09-06-rcc-2300-error-audit.md` |
 | DOMINANT ERROR CLASSES | by result-flipping from live positions (120 largest): TACTICAL HORIZON 19, UNKNOWN/MIXED 16, SEARCH INSTABILITY 10, EVALUATION optimism 7 (optimism is the largest by count, 39, but mostly deepens already-lost positions) |
-| CURRENT CANDIDATE | none — C9 promoted 18:50; external calibration vs Stockfish UCI_Elo 2800 running (dev2400, 60 games) |
-| ACTIVE JOB | C9 vs Stockfish UCI_Elo 2800, 60 games, dev2400, strict (from 18:53) |
-| NEXT ACTION | the user's RC-E upload decision; C10 (next search candidate on the compiled core) pre-registered and screened 60 games vs `champions/c9_numba` |
+| CURRENT CANDIDATE | none — RC-F frozen 20:00; C10 paused until the user's upload decision |
+| ACTIVE JOB | RC-F vs Stockfish UCI_Elo 2800, 60 games, dev2400, strict, clean machine (from 20:06) |
+| NEXT ACTION | the user's RC-F upload decision; then resume C10 from `champions/rc_f` |
 
 ## Error-rate scoreboard
 
@@ -56,5 +58,6 @@ holdout_a, confirmation holdout_b; neither is inspected during design.
 | BASELINE | CANDIDATE | COMMIT | FEATURE | GATES | EXTERNAL RESULT | INTERNAL RESULT | ERROR-RATE CHANGE | PROMOTION REASON |
 |---|---|---|---|---|---|---|---|---|
 | RC-C | C4 instability time extension | `db0fb1c` | soft budget ×1.6 once per move after an unstable iteration | Gate 0 PASS, Gate 1 FAIL | — | — | targets 38 → 34 at +44% time; trigger on 64% of ordinary moves | REJECTED |
+| C9 | **RC-F quiescence stalemate fix** | `b7f42cf` | a non-check quiescence node whose every pseudo-legal capture is illegal asks has_legal_move before returning stand-pat | correctness boundary PASS; Gate 0 PASS (2.55 vs 2.50 Mnps, tactics 16/16, ladder PASS); release 16/16 | clean 2800 calibration running | not re-screened: the change only touches stalemate nodes (C9's +55 =5 −0 vs C5 stands) | — | development champion, RC-F built, not submitted |
 | C5 | **C9 Numba search core** | `8131214` | the C5 algorithm (movegen, make/unmake, PeSTO eval, SEE, ordering, TT, quiescence, negamax) compiled by Numba; python-chess only parses the FEN | Gate 0 PASS: perft exact vs python-chess (6 standard + 58 random positions), eval exact on 391 positions, SEE exact on 1,620 captures, fingerprint 1,391,318 (C5 1,409,912), tactics 16/16, ladder PASS, 1,260 tests, release 16/16 | pending (vs Stockfish 2800 running) | **+55 =5 −0, 95.8% / 60 vs C5, +545 Elo, 30/30 informative, bootstrap +436..+800, LOO +538..+579, 0 failures** | not yet audited | 26× nps, +5.2 plies at 2 s; development champion, RC-E built, not submitted |
 | RC-C | **C5 reverse futility pruning** | `f6c0d30` | static − 120·depth ≥ beta fails high at depth ≤ 3, null window, not in check | Gate 0 PASS; Gate 1 suite PASS (targets missed by one, deviation recorded) | 58.3% / 60 vs benchmark A strict (baseline 56.0%) | 52.5% / 140 vs RC-C, +17 Elo, 49 informative, bootstrap 45.7–59.3%, LOO +13..+23 | ≥100 cp 8.30% vs 8.36% (flat); ≥300 cp 2.14% vs 1.69% (50 vs 79 events, within noise) | non-negative internally, positive externally and on the equal-time suite; development champion, not submitted |

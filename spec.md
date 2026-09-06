@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 10
+SPEC_REVISION: 11
 
-LAST_UPDATED: 2026-09-06 18:58 UK (Windows PC) — TOP-3 sprint mode; C9 Numba core promoted to development champion (+545 Elo vs C5); RC-E archive ready for the user's upload decision
+LAST_UPDATED: 2026-09-06 20:12 UK (Windows PC) — RC-E boundary: C10 paused, quiescence stalemate defect found and fixed, RC-F frozen and release-checked; clean 2800 calibration running; user upload decision pending
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -25,18 +25,25 @@ CURRENT_SUBMITTED: RC-C
 
 CURRENT_CHAMPION: RC-C (the submitted build; every upload decision is measured against it)
 
-DEVELOPMENT_CHAMPION: **C9 = C5's algorithm executed by a Numba-compiled core**
-(`champions/c9_numba`, branch `kushagra/c9-numba-core`, engine commit
-`8131214`; promoted 2026-09-06 18:50 UK on +55 =5 −0, 95.8%, +545 Elo over 60
-games vs `champions/c5_rfp` at 120 s + 0.5 s, strict, 30/30 informative
-families, paired bootstrap +436..+800, 0 failures —
-`benchmarks/current/2026-09-06-c9-numba-core-prereg.md`). Release-checked
-16/16 as **RC-E** (`corpus/release/claudeshark_rc_e.zip`, sha256
-`fb8f860944751e3b86afae1a11660b5903799041fee99605733c397d16ac58aa`, 64,789
-bytes, 16 files) — **NOT SUBMITTED; the user decides**
-(`benchmarks/current/RC_E_UPLOAD_CARD.md`). Every new candidate starts from
-`champions/c9_numba` and is measured against it. Previous development champion
-C5 / RC-D (`champions/c5_rfp`, never submitted) is superseded.
+DEVELOPMENT_CHAMPION: **RC-F = C9 (the C5 algorithm executed by a
+Numba-compiled core) + the quiescence stalemate fix** (`champions/rc_f`, branch
+`kushagra/rc-f-correctness`, engine commit `b7f42cf`; frozen 2026-09-06 20:00
+UK). C9 itself (`champions/c9_numba`, `8131214`) was promoted 18:50 UK on
++55 =5 −0, 95.8%, +545 Elo over 60 games vs `champions/c5_rfp` (120 s + 0.5 s,
+strict, 30/30 informative families, paired bootstrap +436..+800, 0 failures —
+`benchmarks/current/2026-09-06-c9-numba-core-prereg.md`). The catastrophic-
+correctness boundary (`benchmarks/current/2026-09-06-rc-f-boundary.md`) found
+one defect: the compiled quiescence scored a stalemate whose only captures are
+illegal as material (−849 where C5 gives 0); fixed in 10 lines, no speed cost,
+53 targeted rule tests added. RC-F release-checked 16/16 as
+`corpus/release/claudeshark_rc_f.zip`, sha256
+`4ee4033e509bf8709d7d1090037d0aeb6b146da375c88f9986cb1a67789df13d`, 64,984
+bytes, 16 files — **NOT SUBMITTED; the user decides**
+(`benchmarks/current/RC_F_UPLOAD_CARD.md`). RC-E (`claudeshark_rc_e.zip`,
+`fb8f8609…58aa`) is superseded and must not be uploaded. Every new candidate
+starts from `champions/rc_f` and is measured against it. C9 is **a new
+high-performance implementation of the C5 architecture**, not an
+identity-preserving port (fixed-depth nodes differ by 1.3%).
 
 SPRINT MODE (user brief 2026-09-06 17:35 UK): four days to a TOP-3 bot; one
 champion, one active candidate per machine, ≤ 15 min diagnostics, ≤ 30 min
@@ -611,16 +618,20 @@ Nothing enters here without evidence.
 | C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (`kushagra/c6-king-pressure`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | 5 of 50 target repairs, root-score change median 0, equal-time −2.2 cp |
 | C7 LMR verification margin | Kushagra / Fable | `8c18190` (`kushagra/c7-lmr-safeguard`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | net +1 of 74 at the game clock for −0.5 ply; LMR start index / no-escape also closed |
 | **C9 Numba search core** | Kushagra / Fable | `8131214` (`kushagra/c9-numba-core`, `champions/c9_numba`, archive RC-E `claudeshark_rc_e.zip` sha256 `fb8f8609…58aa`) | Gate 0 PASS (perft/eval/SEE exact, fingerprint 1,391,318, tactics 16/16, ladder PASS, release 16/16); Gate 2A internal **95.8% over 60 vs C5, +545 Elo** | 26× nps, +5.2 plies at 2 s | **YES — PROMOTED (development champion); RC-E awaits the user's upload decision** | the largest strength gain in the project's history; compile 27 s inside the 90 s init budget |
+| **RC-F = C9 + quiescence stalemate fix** | Kushagra / Fable | `b7f42cf` (`kushagra/rc-f-correctness`, `champions/rc_f`, archive `claudeshark_rc_f.zip` sha256 `4ee4033e…f13d`) | correctness boundary PASS (perft, 33 targeted rule positions, legacy suite on the compiled core 1,299 pass, fixed-depth agreement 38/40 and 15/16 with C5); Gate 0 PASS (2.55 Mnps vs 2.50, tactics 16/16, ladder PASS); release 16/16 | inherits C9's +55 =5 −0 vs C5; clean 2800 calibration running (see §17) | **YES — development champion; upload awaits the USER** | fixes a real stalemate mis-score; everything else byte-identical to RC-E |
 | C8 proportional capped timing | Kushagra / Fable | `61afb13` (`kushagra/c8-proportional-time`, `champions/c8_prop`) | Gate 0 PASS; Gate 2A internal 49.2%, paired accuracy identical; external 51.7% (C5 55.5%) | see left | NO — NOT PROMOTED | neutral everywhere; clock floor 4.8 s |
 
-Anything new must beat `champions/c9_numba` (the development champion); an upload decision is measured against the submitted RC-C.
+Anything new must beat `champions/rc_f` (the development champion; C10 is paused on `kushagra/c10-log-lmr` and must be rebased onto RC-F before it resumes); an upload decision is measured against the submitted RC-C.
 
 ## 17. Active Jobs
 
-One (18:53 UK): C9 external calibration, `champions/c9_numba` vs Stockfish
-18 UCI_Elo 2800 strict, 60 games, dev2400 set, 6 workers; output
-`corpus/strength/c9/c9_vs_sf2800_dev2400_60_strict.jsonl`; expected finish
-~20:00; ten-minute health checks; register in `V2_ACTIVE_STATE.md` §8.
+One (20:06 UK): RC-F clean external calibration, `champions/rc_f` vs
+Stockfish 18 UCI_Elo 2800 strict, 60 games, dev2400 set, 6 workers, no
+competing CPU work; output
+`corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.jsonl`; expected finish
+~20:55; ten-minute health checks; register in `V2_ACTIVE_STATE.md` §8. The
+earlier C9 run (`corpus/strength/c9/c9_vs_sf2800_dev2400_60_strict.jsonl`)
+was stopped by the user at 47/60 and is labelled PARTIAL / TIMING-CONTAMINATED.
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)
