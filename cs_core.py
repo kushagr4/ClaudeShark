@@ -1160,6 +1160,12 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
             return DRAW_SCORE
         score_captures(M, ML, MS, n)
 
+    # Tactical moves are pseudo-legal here (the reference filters them through
+    # python-chess first), so a position whose every capture is illegal must
+    # still be told apart from a stalemate: `searched` counts the moves that
+    # proved legal, and a non-check node that found none asks has_legal_move
+    # before it is allowed to return the stand-pat score.
+    searched = 0
     for i in range(n):
         move = pick_next(ML, MS, n, i)
         losing = False
@@ -1177,6 +1183,7 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
         if not is_legal_after_make(B, O, S):
             unmake_move(B, O, M, S, U)
             continue
+        searched += 1
         if losing and not in_check(B, O, S):
             unmake_move(B, O, M, S, U)
             continue
@@ -1192,6 +1199,9 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
                 if alpha >= beta:
                     CTL[4] += 1
                     break
+    if searched == 0 and not checked:
+        if not has_legal_move(B, O, M, S, U, ML):
+            return DRAW_SCORE
     return best_score
 
 
