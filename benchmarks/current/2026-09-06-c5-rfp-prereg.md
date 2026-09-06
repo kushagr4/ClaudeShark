@@ -83,3 +83,13 @@ targeted claim withdrawn and the Gate 2A rejection bars unchanged: internal
 zero, or external 60-game screen (benchmark A strict, dev) not above the
 56.0% strict baseline, rejects it. Snapshot `champions/c5_rfp` frozen from
 the branch tree for the screens.
+
+## Gate 2A external — 60 games vs benchmark A (strict, dev set), 04:08–04:51 UK
+
+`champions/c5_rfp` vs Stockfish 18 UCI_Elo 2300: **+32 =6 −22, 58.3%**
+(+58 Elo), 30 families / 19 informative, bootstrap 46.7%..70.8%, LOO
++48..+73, White 56.7% / Black 60.0%, 0 failures, clock floor 8.4 s
+(largest think 13.0 s, mean 2.21 s). RC-C's strict baseline on the same
+set is 56.0% (100 games). Above the rejection bar; on 60 games it is a
+plausible +2 points, not a proof. `corpus/strength/c5/c5_vs_sf2300_dev_60_strict.jsonl`
++ `.pgn`, `swissrisk_c5_sf2300_dev_60.txt`. Internal screen launched 04:52.
