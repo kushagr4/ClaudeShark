@@ -32,24 +32,9 @@ from time import perf_counter
 # time control genuinely differs; it is configuration, not inference.
 INCREMENT_MS = float(os.environ.get("CS_INCREMENT_MS", "500"))
 
-# Proportional capped allocation (candidate C8, off by default). The soft
-# budget becomes a fixed slice of the remaining clock plus a constant, capped,
-# so that time is spent while the clock is full and tapers smoothly, instead of
-# the moves-to-go division that left a median 43 s of 120 unused in the 2400
-# baseline. The constants are chosen so that the realised spend (about 0.65 x
-# soft, because iterations start only inside START_FRACTION and the last one
-# overruns) lands near 0.033 x clock + 0.19 s with a 4.4 s cap
-# (benchmarks/current/2026-09-06-c8-proportional-time-prereg.md).
-TIME_PROP_DEFAULT = "0"
-TIME_PROP = os.environ.get("CS_TIME_PROP", TIME_PROP_DEFAULT).strip().lower() not in {
-    "", "0", "false", "no", "off"}
-PROP_SLOPE = 0.051
-PROP_INTERCEPT_MS = 290.0
-PROP_CAP_MS = 6_800.0
-
 # Declared for the same reason as cs_search.DECLARED_FLAGS: the arena builds its
 # sanitisation and provenance list from what the engine says it reads.
-DECLARED_VARS: tuple[str, ...] = ("CS_INCREMENT_MS", "CS_TIME_PROP")
+DECLARED_VARS: tuple[str, ...] = ("CS_INCREMENT_MS",)
 
 # Wall time the referee attributes to us that we cannot measure from inside:
 # writing the response, the pipe, and the parent waking up.
@@ -119,8 +104,6 @@ class TimeManager:
         increment_credit = min(INCREMENT_MS, usable) * INCREMENT_SHARE
 
         soft = usable / moves_to_go + increment_credit
-        if TIME_PROP:
-            soft = min(PROP_CAP_MS, PROP_SLOPE * time_left_ms + PROP_INTERCEPT_MS)
         hard = min(usable * MAX_SHARE_OF_CLOCK, soft * 3.0)
         if soft > hard:
             soft = hard
