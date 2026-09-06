@@ -40,8 +40,10 @@ def state(cp: float) -> str:
     return "draw"
 
 
-def game_accuracy(game: dict) -> dict:
+def game_accuracy(game: dict, side: str = "agent") -> dict:
     colour = game["agent_colour"]
+    if side == "opponent":
+        colour = "b" if colour == "w" else "w"
     white = colour == "w"
     accs: list[float] = []
     losses: list[int] = []
@@ -69,6 +71,7 @@ def game_accuracy(game: dict) -> dict:
                 e300 += 1
     return {
         "game": game["game"], "result": game.get("agent_score"), "colour": colour,
+        "side": side,
         "moves": len(accs), "accuracy": round(statistics.mean(accs), 2) if accs else None,
         "acpl": round(statistics.mean(losses), 1) if losses else None,
         "max_loss": max_loss, "audited": audited, "e50": e50, "e100": e100, "e300": e300,
@@ -100,9 +103,12 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--label", default="")
+    parser.add_argument("--side", choices=("agent", "opponent"), default="agent",
+                        help="score the agent's moves (default) or the opponent's, for a "
+                             "paired control in engine-versus-engine matches")
     arguments = parser.parse_args()
     games = [json.loads(line) for line in arguments.games.open(encoding="utf-8") if line.strip()]
-    rows = [game_accuracy(g) for g in games]
+    rows = [game_accuracy(g, arguments.side) for g in games]
     summary = summarise(rows)
     with arguments.out.open("w", encoding="utf-8") as handle:
         handle.write(json.dumps({"record": "summary", **summary}) + "\n")
