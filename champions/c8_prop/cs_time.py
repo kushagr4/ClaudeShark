@@ -40,7 +40,7 @@ INCREMENT_MS = float(os.environ.get("CS_INCREMENT_MS", "500"))
 # soft, because iterations start only inside START_FRACTION and the last one
 # overruns) lands near 0.033 x clock + 0.19 s with a 4.4 s cap
 # (benchmarks/current/2026-09-06-c8-proportional-time-prereg.md).
-TIME_PROP_DEFAULT = "0"
+TIME_PROP_DEFAULT = "1"
 TIME_PROP = os.environ.get("CS_TIME_PROP", TIME_PROP_DEFAULT).strip().lower() not in {
     "", "0", "false", "no", "off"}
 PROP_SLOPE = 0.051
