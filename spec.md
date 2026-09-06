@@ -605,10 +605,9 @@ Anything new must beat `champions/rc_c` (or its legitimate successor).
 
 ## 17. Active Jobs
 
-One (04:10 UK): C5 Gate 2A external screen, `champions/c5_rfp` vs Stockfish
-18 UCI_Elo 2300 strict, 60 games, dev set, 6 workers; output
-`corpus/strength/c5/c5_vs_sf2300_dev_60_strict.jsonl`; expected finish
-~04:55; ten-minute health checks; full register in `V2_ACTIVE_STATE.md` §8.
+NONE (17:32 UK sweep: 0 python, 0 Stockfish, 0 sidecars). The C5 2400
+confirmation was stopped by the user at 61/100 (49.2%) and is recorded as
+PARTIAL-NON-DECISIVE in `benchmarks/current/STRENGTH_LADDER.md`.
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)

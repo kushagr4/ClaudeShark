@@ -26,13 +26,14 @@ CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300
 | 2400 BASELINE (C5, dev2400, strict, 08:45–09:51) | **+40 =31 −29, 55.5%, +38 Elo, bootstrap 47.5%..63.5% / −17..+96**, 35/50 informative, LOO +32..+46, White 53.0% / Black 58.0%, 0 failures, clock floor 6.0 s (largest think 17.8 s, mean 2.25 s), terminations checkmate 68 / threefold 23 / fifty-move 6 / adjudication 2 / insufficient 1. `corpus/strength/c5/c5_vs_sf2400_dev2400_100_strict.jsonl` + `.pgn`, `swissrisk_c5_sf2400_dev2400_100.txt`. Note the sets differ from the 2300 stage (competition-like suite, not organiser starts), so 55.5% here is not comparable with the 2300 numbers |
 | 2400 QUALIFICATION (C5, holdout2400_a, strict, 15:23–16:33) | **+37 =38 −25, 56.0%, +42 Elo, bootstrap 48.5%..64.0% / −10..+100**, 31/50 informative, LOO +36..+50, White 60.0% / Black 52.0%, 0 failures, clock floor 3.0 s (three 266–300-ply games living on the increment at 0.3–0.4 s per move; no flag), largest think 15.0 s. Score ≥ 55% ✓, failures ✓, colour ✓, lower bound > 50% ✗ → route B: confirmation on `holdout2400_b` above 50%. Accuracy V1: mean 94.72, median 95.39, min 86.13, p10 89.64, 3/100 ≥ 99.5, ≥100 cp 5.96%, ≥300 cp 1.10%, 120 flips. `corpus/strength/c5/c5_vs_sf2400_holdout2400_a_100_strict.*`, `2026-09-06-c5-2400-qualification-accuracy.md` |
 | 2400 BEST RESULT | 56.0% on holdout2400_a (C5 qualification); 55.5% dev2400 baseline |
-| 2400 PASSED? | **NOT YET** — qualification met the score bar; confirmation (holdout2400_b, 100 games, > 50%) running from 16:48 |
+| 2400 CONFIRMATION (C5, holdout2400_b, strict, 16:48–17:30) | **PARTIAL-NON-DECISIVE — stopped by the user at 61/100: +21 =18 −22, 49.2%**. Not re-run: the sprint rule (2026-09-06 17:35) spends compute on new candidates, not on unchanged-C5 validation. `corpus/strength/c5/c5_vs_sf2400_holdout2400_b_100_strict.jsonl` (61 games) |
+| 2400 PASSED? | **NO** — qualification 56.0% (lower bound 48.5%), confirmation partial 49.2%/61; the 2400 label is not claimed for C5 |
 | 99.5% PER-GAME | **NOT PASSED** — best build: 3 of 100 games ≥ 99.5 on V1 (`ACCURACY_LADDER.md`) |
 | CURRENT >=100CP ERROR RATE | C5 **8.30%** (194 of 2,337 moves, 60 strict games; >=300 cp 2.14%) against RC-C **8.36%** on its 100 strict games (>=300 cp 1.69%) — the same rate; RFP bought depth, not fewer large errors. RC-C auto-claim audit (the classified one): 8.95%, `2026-09-06-rcc-2300-error-audit.md` |
 | DOMINANT ERROR CLASSES | by result-flipping from live positions (120 largest): TACTICAL HORIZON 19, UNKNOWN/MIXED 16, SEARCH INSTABILITY 10, EVALUATION optimism 7 (optimism is the largest by count, 39, but mostly deepens already-lost positions) |
 | CURRENT CANDIDATE | none — C5 promoted 06:36; its 60-game error audit running |
-| ACTIVE JOB | NONE (09:52 sweep: 0 python, 0 Stockfish, 0 sidecars) |
-| NEXT ACTION | the user's RC-D upload decision; then, on resumption: error audit of the 2400 baseline games, mechanism ranking against the 2400 opponent, next candidate measured against `champions/c5_rfp`, qualification on `holdout2400_a` |
+| ACTIVE JOB | NONE (17:32 sweep: 0 python, 0 Stockfish, 0 sidecars) |
+| NEXT ACTION | TOP-3 sprint (user brief 17:35 UK): profile C5, attack the largest bottleneck (python-chess move generation and make/unmake, ~55% of runtime) with a Numba search core; every candidate screened 40–60 games vs `champions/c5_rfp` |
 
 ## Error-rate scoreboard
 

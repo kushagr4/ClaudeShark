@@ -195,17 +195,13 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 2400 CONFIRMATION (route B): `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2400, 100 games, strict, 6 workers, **`corpus/strength/holdout2400_b.jsonl`** (fresh, never used); pass if > 50% |
-| OWNER | Fable (PC) |
-| PID | see process list (uv → arena + 6 runners + 6 Stockfish) |
-| START | 2026-09-06 16:48 UK |
-| LAST HEALTH CHECK | 16:49 (launch verified) |
-| NEXT HEALTH CHECK DUE | 16:59 |
-| OUTPUT | `corpus/strength/c5/c5_vs_sf2400_holdout2400_b_100_strict.jsonl` (+ `.pgn`, `.log`) |
-| EXPECTED FINISH | ~17:55 UK |
-| MAX RUNTIME | 120 min (hard stop 18:50) |
-| STOP CONDITION | log/output not advancing 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
-| STATUS | HEALTHY — CONTINUE |
+| ACTIVE JOBS | **NONE** (17:32 UK sweep: 0 python, 0 Stockfish, 0 sidecars) |
+
+Stopped 17:30 UK (killed by the user, not by the agent): the C5 2400
+confirmation on `holdout2400_b` at **61/100 games, +21 =18 -22, 49.2%** —
+recorded as **PARTIAL-NON-DECISIVE**; the 2400 stage stays NOT PASSED and
+is not re-run (sprint rule: no more unchanged-C5 validation). Output:
+`corpus/strength/c5/c5_vs_sf2400_holdout2400_b_100_strict.jsonl` (61 games).
 
 Completed 12:46:56: the pruning ablation (PID 2268) — its summary step
 crashed on a tool bug after the data file was fully written (114 rows,
