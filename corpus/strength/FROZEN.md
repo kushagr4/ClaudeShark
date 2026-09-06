@@ -10,3 +10,5 @@ holdout_b  positions  50  side to move {'b': 36, 'w': 14}  sha256 ac121f5592cbc4
 
 positions in more than one set: 0 (must be 0)
 dev: baseline + candidate screens. val: pre-promotion confirmation. holdout_a: qualification. holdout_b: confirmation. Never reshuffle.
+
+holdout_c  positions  50  (29 fresh spares + 21 from val; seed 20260906; built 2026-09-06 05:01 as a second confirmation set)  sha256 8394781846871c162ccfdc360f0b875351d5943fde6c91dff4f8d8677d60a49e

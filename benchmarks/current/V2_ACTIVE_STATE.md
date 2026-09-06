@@ -195,18 +195,21 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 GATE 2A EXTERNAL: `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2300, 60 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev.jsonl` (compare with the RC-C strict baseline 56.0%) |
+| TASK | C5 GATE 2A INTERNAL: `champions/c5_rfp` vs `champions/rc_c`, 60 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev.jsonl` (rejection: below 50% with a family bootstrap excluding zero) |
 | OWNER | Fable (PC) |
-| PID | see `.log`/process list at the next check (arena + 6 runners + 6 Stockfish) |
-| START | 2026-09-06 04:10 UK |
-| LAST HEALTH CHECK | 04:10 (launch) |
-| NEXT HEALTH CHECK DUE | 04:20 |
-| OUTPUT | `corpus/strength/c5/c5_vs_sf2300_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
+| PID | 3300 (uv) → 15968 (arena) + 12 engine runners |
+| START | 2026-09-06 04:52 UK |
+| LAST HEALTH CHECK | 04:53 (launch verified: 26 python processes, header written) |
+| NEXT HEALTH CHECK DUE | 05:03 |
+| OUTPUT | `corpus/strength/c5/c5_vs_rcc_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
 | PROGRESS | 0/60 |
-| EXPECTED FINISH | ~04:55 UK |
-| MAX RUNTIME | 80 min (hard stop 05:30) |
-| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 60 |
+| EXPECTED FINISH | ~05:40 UK (engine-vs-engine games run longer) |
+| MAX RUNTIME | 90 min (hard stop 06:25) |
+| STOP CONDITION | any crash/illegal/flag on either side → investigate; output not advancing 15 min → stalled procedure; runs to 60 |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed 04:50:59: C5 external screen (PID 21980), 60 games, +32 =6 −22,
+58.3%; sweep 0/0/0. Health checks 04:16, 04:24, 04:33, 04:43, 04:51.
 
 Completed and swept: C5 Gate 1 replays + equal-time suites (PIDs 20988,
 16308; exits 0 at 03:57 and 04:07; 0 processes after each).
