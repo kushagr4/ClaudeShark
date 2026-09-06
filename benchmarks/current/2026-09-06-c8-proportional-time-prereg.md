@@ -65,3 +65,24 @@ spending the unused third of the clock where the clock is full did not
 reduce the large-error rate. The external screen (pre-registered) runs for
 completeness; promotion would need it to show a lower >= 100 cp rate *and*
 a better score than C5's 55.5% on the same set, not one of the two.
+
+## Gate 2A external — 60 games vs Stockfish UCI_Elo 2400 (strict, dev2400), 14:38–15:22 UK
+
+**+20 =22 −18, 51.7%** (+12 Elo), 30 families / 22 informative, bootstrap
+40.8%..62.5%, LOO 0..+24, White 53.3% / Black 50.0%, 0 failures, clock floor
+**4.8 s** (1 game under 5 s; bar 4 s ✓), largest think 13.6 s, mean think
+2.35 s, median final clock 34.3 s. C5's baseline on the same set: 55.5% over
+100 games. `corpus/strength/c8/c8_vs_sf2400_dev2400_60_strict.jsonl` + `.pgn`,
+`swissrisk_c8_sf2400_dev2400_60.txt`.
+
+## Decision — NOT PROMOTED (15:25 UK)
+
+No pre-registered bar was tripped, and nothing improved: internal 49.2%,
+paired accuracy identical (8.29% vs 8.60% >= 100 cp, minimum 83.9 vs 82.0),
+external 51.7% against 55.5%, and the clock floor moved from 6.0 s towards
+4.8 s. The policy did exactly what it was designed to do (realised spend
+4.0 s at a full clock, tapering to C5's curve) and it bought nothing
+measurable: this engine's large errors are not time-limited at the
+competition clock. Together with C4 (instability extension, +44% time,
++4 net repairs) and the 2026-09-05 sf60/early16 nulls, the time lane is
+closed by evidence from four directions. The switch stays off.
