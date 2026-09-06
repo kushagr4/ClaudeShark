@@ -1,0 +1,33 @@
+== SWISS RISK REPORT ==
+champions\c9_numba (snapshot dbb9abc82e6d2cdc) vs champions\c5_rfp (snapshot d82c133a9fcc4ade); 120000 ms + 500 ms; ply cap 300; draw claim strict; corpus corpus\strength\dev.jsonl
+
+-- strength (the usual Gate 2 numbers) --
+   games 60   clusters 30   informative clusters 30 (100%)
+   +55 =5 -0   score 95.8%   nominal Elo +544.7
+   cluster bootstrap 95%: score 92.5%..99.2%, Elo +436.4..+830.2
+   leave-one-cluster-out Elo +538.5..+578.9
+   cluster-mean histogram {0.75: 5, 1.0: 25}
+
+-- failures attributable to each side --
+   agent: none
+   opponent: none
+
+-- clock safety --
+   agent: lowest clock ever held 9.8 s; games under 5 s: 0, under 10 s: 1, under 20 s: 6
+   agent: largest single think 13.5 s; mean think 2.09 s; median final clock 43.6 s
+   opponent: lowest clock ever held 12.4 s; games under 5 s: 0, under 10 s: 0, under 20 s: 7
+   opponent: largest single think 13.5 s; mean think 2.24 s; median final clock 35.1 s
+
+-- terminations and conversion --
+   all terminations: {'checkmate': 55, 'threefold_repetition': 4, 'insufficient_material': 1}
+   agent wins by: {'checkmate': 55}
+   draws by: {'threefold_repetition': 4, 'insufficient_material': 1}
+   agent losses by: none
+   mean plies 97, max 198, games at the ply cap: 0
+
+-- population sensitivity --
+   agent as White: +28 =2 -0  score 96.7%  Elo +585.0
+   agent as Black: +27 =3 -0  score 95.0%  Elo +511.5
+
+No single Swiss score is computed. Read the components: a candidate that gains Elo but adds a flag,
+a crash or a drop in the lowest clock has not earned a place in a 13-round locked-build Swiss.
