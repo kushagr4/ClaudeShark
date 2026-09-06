@@ -195,18 +195,37 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C4 GATE 1: `tools.strength.replay_compare` — 57 target errors then 120 matched negatives, `champions/rc_c` vs the C4 working tree (`kushagra/c4-instability-extension`), 60 s clock through the normal allocator, oracle-scored at 1M nodes |
+| TASK | ~2400 STAGE BASELINE: `champions/c5_rfp` (development champion) vs Stockfish 18 **UCI_Elo 2400**, 100 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev2400.jsonl` (`STRENGTH_BENCHMARK_2400.md`) |
 | OWNER | Fable (PC) |
-| PID | 1712 (uv) → 19344 (replay_compare) + up to 10 engine subprocesses, then Stockfish for scoring |
-| START | 2026-09-06 02:33 UK |
-| LAST HEALTH CHECK | 02:34 (launch verified: 12 python processes) |
-| NEXT HEALTH CHECK DUE | 02:44 |
-| OUTPUT | `corpus/strength/c4/gate1_targets.jsonl`, `gate1_negatives.jsonl`, log `gate1.log` |
-| PROGRESS | targets in progress |
-| EXPECTED FINISH | ~02:50 UK |
-| MAX RUNTIME | 30 min (hard stop 03:05) |
-| STOP CONDITION | log not advancing for 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
+| PID | 24456 (uv) → 23332 (arena) + 6 runners + 6 Stockfish |
+| START | 2026-09-06 08:45 UK |
+| LAST HEALTH CHECK | 08:46 (launch verified: 6 Stockfish alive, header written) |
+| NEXT HEALTH CHECK DUE | 08:56 |
+| OUTPUT | `corpus/strength/c5/c5_vs_sf2400_dev2400_100_strict.jsonl` (+ `.pgn`, `.log`) |
+| PROGRESS | 0/100 |
+| EXPECTED FINISH | ~10:00 UK |
+| MAX RUNTIME | 120 min (hard stop 10:45) |
+| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 100 (a baseline rate) |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed and swept (0/0/0 after each): C5 2300 qualification on holdout_b
+(PID 11344, 08:28, 61.0% — **2300 stage cleared**), RC-D release checks
+(08:33–08:45), C6 Gate 1 (PID 22936, 08:43; rejected). Health checks every
+≤ 10 min throughout — all HEALTHY. No development is started after this
+baseline: the user's RC-D upload decision is the next gate.
+
+Completed and swept: C5 Gate 1 replays + equal-time suites (PIDs 20988,
+16308; exits 0 at 03:57 and 04:07; 0 processes after each).
+
+Completed 03:46:34: 2300 QUALIFICATION (PID 17512) exited 0 with 100 games;
+post-exit sweep 0 python / 0 Stockfish / 0 sidecars; +50 =11 −39, 55.5%,
+bootstrap 47.0%..64.0% (`STRENGTH_LADDER.md`). Health checks 02:44, 02:52,
+02:59, 03:11, 03:22, 03:31, 03:39, 03:46 — all HEALTHY.
+
+Only deterministic fixed-depth measurements (node counts) and the test
+suite were run beside this arena; every timing-sensitive Gate 1 waits for
+the quiet machine. Completed and swept earlier: C4 Gate 1 (PID 19344,
+02:34, exit 0; rejected), strict baseline (PID 24048, 02:25).
 
 Completed 02:25:46: RC-C_2300_BASELINE_STRICT (PID 24048) exited 0 with 100
 games; post-exit sweep 0 python / 0 Stockfish / 0 sidecars; +44 =24 −32,

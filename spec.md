@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 6
+SPEC_REVISION: 8
 
-LAST_UPDATED: 2026-09-05 23:15 UK (Windows PC) — RC-C submitted
+LAST_UPDATED: 2026-09-06 08:40 UK (Windows PC) — 2300 stage cleared by C5; RC-D built, not submitted
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -23,7 +23,14 @@ the revision.
 
 CURRENT_SUBMITTED: RC-C
 
-CURRENT_CHAMPION: RC-C
+CURRENT_CHAMPION: RC-C (the submitted build; every upload decision is measured against it)
+
+DEVELOPMENT_CHAMPION: C5 = RC-C + reverse futility pruning (`champions/c5_rfp`,
+branch `kushagra/c5-rfp`, promoted 2026-09-06 06:36 UK on non-negative
+evidence — `benchmarks/current/2026-09-06-c5-rfp-prereg.md`; not
+release-checked, not submitted). New search/eval candidates in the strength
+programme are measured against `champions/c5_rfp`; the friend's lane keeps
+`champions/rc_c` as its baseline until the coordinator says otherwise.
 
 | field | value |
 |---|---|
@@ -491,6 +498,45 @@ ACTIVE JOBS: NONE
 
 ## 15. Fable Lane Findings
 
+2026-09-06 04:12 UK — **RC-C → ~2300 → ~2400 strength programme** (user
+brief 23:20 UK; ladder in `benchmarks/current/STRENGTH_LADDER.md`).
+* Benchmark A defined and frozen (`STRENGTH_BENCHMARK_2300.md`): Stockfish
+  18 `UCI_Elo 2300`, competition clock, **strict draw claim** — the arena's
+  `auto` claim gifted 18 of 29 draws to a winning opponent in the first run
+  (all 29 "draws" were claimable-only); start sets frozen
+  (`corpus/strength/FROZEN.md`: dev 50 / val 40 / holdout_a 50 / holdout_b 50).
+* RC-C strict baseline (dev): +44 =24 −32, **56.0%**, bootstrap 48–64%.
+  Qualification on holdout_a: +50 =11 −39, **55.5%**, bootstrap 47–64%,
+  0 failures — score bar met, lower bound not; confirmation run (holdout_b)
+  required and queued.
+* Error audit (`2026-09-06-rcc-2300-error-audit.md`): **8.95% of our moves
+  lose >= 100 cp, 1.39% >= 300**; the 120 largest classified — TACTICAL
+  HORIZON 41 (19 result flips), EVALUATION optimism 39 (static +269 cp above
+  the oracle, mostly deepening lost positions, 7 flips), SEARCH INSTABILITY
+  16 (10 flips), UNKNOWN 17 (16 flips), conversion/endgame 7.
+* C4 instability-triggered time extension: **REJECTED at Gate 1** (7/38
+  repairs at +44% time; the trigger fires on 64% of ordinary moves).
+* C5 reverse futility pruning (`kushagra/c5-rfp`, `champions/c5_rfp`):
+  Gate 0 pass (−17.5% nodes at depth 6, −29.9% at depth 8, no quality loss
+  at equal depth); Gate 1 equal-time suite **better** (robust loss 34 → 31,
+  +0.46 ply, paired +3.4 cp) while the target-replay leg missed its bar by
+  one position — proceeding to Gate 2A as a recorded deviation. External
+  screen running (section 17).
+* Speed lane after profiling RC-C on the PC: remaining hot paths are
+  python-chess `push`/generation; a delta pre-check in quiescence would fire
+  on 4.4% of nodes — not worth it. Speed lane parked.
+
+2026-09-06 08:40 UK — **C5 promoted as development champion (06:36)**:
+internal 140 games vs RC-C +44 =59 −37, 52.5%, +17 Elo, 49 informative
+families, LOO +13..+23; external 58.3% over 60; like-for-like error rate
+8.30% vs RC-C 8.36% (flat). **C5 cleared the ~2300 stage on the untouched
+`holdout_b`: +53 =16 −31, 61.0%, bootstrap 53–69%, 0 failures.** RC-D
+(`corpus/release/claudeshark_rc_d.zip`, sha256 `3dab7d89…51e7`, release gate
+15/15, Python 3.12.13 smoke PASS, fingerprint 1,409,912 from the zip) is
+built and carded, **not uploaded** — the user's call. C6 (selective
+king-pressure evaluation term on top of C5, `kushagra/c6-king-pressure`) is
+at Gate 0/1; the ~2400 stage is being set up.
+
 2026-09-05 21:35 UK — Candidate 3 (`champions/rcc_speed`): Gate 0 passed on
 the Mac (identical fingerprints, 1,227 tests, +18.7% knps). Windows: process
 sweep clean; `rc-c-integration` normalised to exact RC-B (engine blobs equal
@@ -528,13 +574,18 @@ Nothing enters here without evidence.
 |---|---|---|---|---|---|---|
 | Candidate 3 speed = RC-C | Kushagra / Fable | `f2543bd` (archive `claudeshark_rc_c.zip`, sha256 `13898136…60dd7`) | Gate 0 PASS (Mac + PC); Gate 2A PASS (PC) | +39 =38 −23 vs RC-B, 58.0%, +56 Elo, 34 informative, bootstrap −0.0..+115, LOO +50..+64, 0 failures, clock equivalent | **INTEGRATED and SUBMITTED** (user-confirmed 23:14 UK; `rc-c-integration` engine = RC-C at revision 6) | identity-preserving standard met; the optional 126-game extension was not run (user's instruction) |
 
-The queue is otherwise empty. Anything new must beat `champions/rc_c`.
+| C4 instability time extension | Kushagra / Fable | `db0fb1c` (branch `kushagra/c4-instability-extension`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | trigger not selective; +35–44% time |
+| C5 reverse futility pruning | Kushagra / Fable | `f6c0d30` (branch `kushagra/c5-rfp`, snapshot `champions/c5_rfp`, archive RC-D `claudeshark_rc_d.zip` sha256 `3dab7d89…51e7`) | Gate 0 PASS; Gate 1 suite PASS (targets by one, deviation recorded); Gate 2A external 58.3%/60, internal 52.5%/140; 2300 qualification 61.0%/100 (bootstrap 53–69%) | see left | **READY FOR INTEGRATION TEST / UPLOAD DECISION** — development champion; RC-D carded, not submitted | non-negative internally, positive externally on fresh holdout with a lower bound above 50% |
+| C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (branch `kushagra/c6-king-pressure`, on top of C5) | Gate 0: off-switch = C5, on −0.7% nodes / 0 root moves changed, term tests pass; Gate 1 pending | — | NOT YET | activation 40% of optimistic errors vs 9% of ordinary positions (2% against the mover) |
+
+Anything new must beat `champions/rc_c` (or its legitimate successor).
 
 ## 17. Active Jobs
 
-NONE. (The candidate-3 Gate 2A arena, PID 22576, exited normally at
-22:56:28 with all 100 games written; sweep after exit: 0 python processes,
-0 sidecars.)
+One (04:10 UK): C5 Gate 2A external screen, `champions/c5_rfp` vs Stockfish
+18 UCI_Elo 2300 strict, 60 games, dev set, 6 workers; output
+`corpus/strength/c5/c5_vs_sf2300_dev_60_strict.jsonl`; expected finish
+~04:55; ten-minute health checks; full register in `V2_ACTIVE_STATE.md` §8.
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)

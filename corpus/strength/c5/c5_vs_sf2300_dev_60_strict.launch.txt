@@ -1,0 +1,1 @@
+launch 2026-09-06 04:08:22 C5 vs SF18@2300 dev 60 strict (external screen)

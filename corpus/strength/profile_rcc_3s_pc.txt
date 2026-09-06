@@ -1,0 +1,34 @@
+   Ordered by: internal time
+   List reduced from 126 to 28 due to restriction <28>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   435794    1.894    0.000    4.126    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:2310(push)
+   721698    1.760    0.000    3.819    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:1819(generate_pseudo_legal_moves)
+358443/1376    1.580    0.000   19.667    0.014 C:\Users\epick\Documents\ClaudeShark\cs_search.py:613(_negamax)
+  5699129    1.011    0.000    1.281    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:414(scan_reversed)
+340896/287860    0.778    0.000    8.112    0.000 C:\Users\epick\Documents\ClaudeShark\cs_search.py:923(_quiescence)
+  3167632    0.692    0.000    0.692    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:835(piece_type_at)
+   882151    0.630    0.000    0.811    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:1014(_remove_piece_at)
+   561862    0.628    0.000    0.628    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:905(attackers_mask)
+   328047    0.563    0.000    0.762    0.000 C:\Users\epick\Documents\ClaudeShark\cs_eval.py:234(evaluate_packed)
+   984229    0.528    0.000    0.528    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:875(attacks_mask)
+   137244    0.460    0.000    1.051    0.000 C:\Users\epick\Documents\ClaudeShark\cs_see.py:92(see)
+   428935    0.458    0.000    0.584    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:3645(_slider_blockers)
+   364603    0.446    0.000    4.661    0.000 C:\Users\epick\Documents\ClaudeShark\cs_ordering.py:246(staged_moves)
+  3894334    0.429    0.000    0.429    0.000 {method 'bit_length' of 'int' objects}
+   850536    0.359    0.000    0.677    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:864(king)
+   287959    0.355    0.000    0.355    0.000 C:\Users\epick\Documents\ClaudeShark\cs_see.py:47(attackers_to)
+   434962    0.339    0.000    0.549    0.000 C:\Users\epick\Documents\ClaudeShark\cs_eval.py:186(pst_delta)
+     9306    0.319    0.000    0.626    0.000 C:\Users\epick\Documents\ClaudeShark\cs_ordering.py:80(order_moves)
+   435779    0.295    0.000    0.577    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:2431(pop)
+   439104    0.292    0.000    0.593    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:1052(_set_piece_at)
+   267373    0.289    0.000    0.871    0.000 C:\Users\epick\Documents\ClaudeShark\cs_search.py:279(_has_legal_move)
+   442198    0.267    0.000    1.133    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:1906(checkers_mask)
+   445706    0.260    0.000    0.341    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:3768(_from_chess960)
+   990239    0.242    0.000    0.365    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:411(msb)
+   358447    0.240    0.000    0.432    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:3797(_transposition_key)
+   343760    0.240    0.000    3.361    0.000 C:\Users\epick\Documents\ClaudeShark\cs_ordering.py:208(legal_captures)
+   125261    0.223    0.000    0.347    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:3738(generate_castling_moves)
+   434962    0.219    0.000    0.219    0.000 C:\Users\epick\Documents\ClaudeShark\.venv\Lib\site-packages\chess\__init__.py:3316(is_zeroing)
+
+

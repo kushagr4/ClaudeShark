@@ -1,0 +1,14 @@
+claudeshark_rc_d.zip
+  sha256   3dab7d89fee56a84ddb18540f52fb388f65ebb73f258de585f3a73f3329951e7
+  bytes    50597 compressed, 140569 uncompressed, 14 files (LF line endings)
+  source   champions/c5_rfp git blobs on kushagra/c5-rfp (engine commit f6c0d30 = C5 = RC-C + reverse
+           futility pruning); built from an LF export of the blobs
+  built    2026-09-06 08:33 (Windows PC) by tools.release_check --fast --source <LF export> --keep corpus/release/claudeshark_rc_d.zip
+  verified 2026-09-06 08:33-08:45: every extracted file hashes to its git blob, release gate 15/15
+           READY TO UPLOAD, 1,228 tests on the C5 branch, depth-6 fingerprint 1,409,912 from the
+           extracted zip (RC-C: 1,708,269; CS_RFP=0 reproduces RC-C exactly), clockladder PASS
+           1 ms..120 s (worst 4.1 s at 120 s), Python 3.12.13 + python-chess 1.11.2 fresh-extraction
+           smoke (rc_d_smoke_py312.json: 8 probes legal, startup 1.37 s), 0 failures in 300 timed
+           games (140 vs RC-C, 160 vs Stockfish UCI_Elo 2300)
+  differs from RC-C by cs_search.py only: reverse futility pruning at depth <= 3, null window, not in
+           check, margin 120 cp per ply (CS_RFP, CS_RFP_MARGIN, CS_RFP_MAX_DEPTH)
