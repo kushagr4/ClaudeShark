@@ -1,0 +1,17 @@
+search: 24 positions x 2 s; wall 31.40s, inside compiled root 31.39s (100.0%)
+nodes 70,339,049 (q 29,340,133, 42%) nps 2,240,095; make+unmake 57,313,384; gen_moves 17,749,037; evaluate 39,102,911; see 11,968,112; score lists 14,890,060; tt probes 40,938,334
+
+microbench (200 positions, avg 33.0 legal-ish moves): per call us: evaluate 0.00, gen all 0.12, gen captures 0.08, make+legal+unmake per move 0.075, see 0.06, score list 0.80 (0.024/move), tt store+probe 0.010, in_check 0.029, time check per node 0.0074
+
+estimated shares of 31.40s wall (components sum to 22.73s = 72%; remainder is search control flow, pruning tests, history/killers, recursion):
+  move ordering (score+pick)          11.98s   38.2%
+  make/unmake+legality                 4.30s   13.7%
+  in_check (node + LMR)                2.89s    9.2%
+  move generation                      1.86s    5.9%
+  SEE                                  0.73s    2.3%
+  time checks (objmode)                0.52s    1.7%
+  TT probe+store                       0.30s    1.0%
+  evaluation                           0.13s    0.4%
+  Python<->Numba root/ID overhead      0.01s    0.0%
+  remainder (control flow etc.)        8.67s   27.6%
+score_moves per list (avg 33 moves): 0.311 us; pick_next full selection of 27 moves: 0.331 us, first 3 picks: 0.048 us
