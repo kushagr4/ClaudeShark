@@ -1,0 +1,1 @@
+launch 2026-09-06 18:02:21 C9 (champions/c9_numba) vs C5 (champions/c5_rfp) dev 60 strict 120s+0.5s 6 workers (internal first screen)
