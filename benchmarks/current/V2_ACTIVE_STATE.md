@@ -195,21 +195,23 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 GATE 2A INTERNAL: `champions/c5_rfp` vs `champions/rc_c`, 60 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev.jsonl` (rejection: below 50% with a family bootstrap excluding zero) |
+| TASK | C5 GATE 2A INTERNAL, second set: `champions/c5_rfp` vs `champions/rc_c`, 80 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/val.jsonl` (decision on 140 games / 70 families combined with the dev-set 60) |
 | OWNER | Fable (PC) |
-| PID | 3300 (uv) → 15968 (arena) + 12 engine runners |
-| START | 2026-09-06 04:52 UK |
-| LAST HEALTH CHECK | 04:53 (launch verified: 26 python processes, header written) |
-| NEXT HEALTH CHECK DUE | 05:03 |
-| OUTPUT | `corpus/strength/c5/c5_vs_rcc_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
-| PROGRESS | 0/60 |
-| EXPECTED FINISH | ~05:40 UK (engine-vs-engine games run longer) |
-| MAX RUNTIME | 90 min (hard stop 06:25) |
-| STOP CONDITION | any crash/illegal/flag on either side → investigate; output not advancing 15 min → stalled procedure; runs to 60 |
+| PID | 21556 (uv) → 19976 (arena) + 12 engine runners |
+| START | 2026-09-06 05:35 UK |
+| LAST HEALTH CHECK | 05:36 (launch verified: 26 python processes, header written) |
+| NEXT HEALTH CHECK DUE | 05:46 |
+| OUTPUT | `corpus/strength/c5/c5_vs_rcc_val_80_strict.jsonl` (+ `.pgn`, `.log`) |
+| PROGRESS | 0/80 |
+| EXPECTED FINISH | ~06:35 UK |
+| MAX RUNTIME | 100 min (hard stop 07:15) |
+| STOP CONDITION | any crash/illegal/flag on either side → investigate; output not advancing 15 min → stalled procedure; runs to 80 |
 | STATUS | HEALTHY — CONTINUE |
 
-Completed 04:50:59: C5 external screen (PID 21980), 60 games, +32 =6 −22,
-58.3%; sweep 0/0/0. Health checks 04:16, 04:24, 04:33, 04:43, 04:51.
+Completed and swept (0/0/0 after each): C5 external screen (PID 21980,
+04:51, 58.3%); C5 internal screen on dev (PID 15968, 05:34, 49.2%).
+Health checks 04:16, 04:24, 04:33, 04:43, 04:51, 05:00, 05:08, 05:17,
+05:27, 05:34 — all HEALTHY.
 
 Completed and swept: C5 Gate 1 replays + equal-time suites (PIDs 20988,
 16308; exits 0 at 03:57 and 04:07; 0 processes after each).
