@@ -1,0 +1,1 @@
+launch 2026-09-06 16:47:16 C5 vs SF18@2400 holdout2400_b 100 strict (2400 CONFIRMATION)

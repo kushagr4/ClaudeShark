@@ -1,0 +1,25 @@
+launch 13:27:37
+  labelled 50/259
+  labelled 100/259
+  labelled 150/259
+  labelled 200/259
+  labelled 250/259
+114 positions at clock 60000 ms
+  >=100 cp losses: baseline 74, candidate 73; repaired 11, broken 10
+  candidate extended on 0 (0%)
+  mean ms: baseline 2044, candidate 2232 (+9%)
+  mean depth: baseline 7.84, candidate 7.32
+  mean loss: baseline 461.8, candidate 454.6
+--- negatives ---
+  labelled 50/266
+  labelled 100/266
+  labelled 150/266
+  labelled 200/266
+  labelled 250/266
+120 positions at clock 60000 ms
+  >=100 cp losses: baseline 2, candidate 3; repaired 0, broken 1
+  candidate extended on 0 (0%)
+  mean ms: baseline 1929, candidate 2062 (+7%)
+  mean depth: baseline 8.19, candidate 7.62
+  mean loss: baseline 11.9, candidate 12.6
+GATE1 EXIT=0 at 13:33:20

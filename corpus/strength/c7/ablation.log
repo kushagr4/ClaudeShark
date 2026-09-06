@@ -1,0 +1,15 @@
+launch 12:15:40
+  labelled 50/286
+  labelled 100/286
+  labelled 150/286
+  labelled 200/286
+  labelled 250/286
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\epick\Documents\ClaudeShark\tools\strength\ablate.py", line 135, in <module>
+  File "C:\Users\epick\Documents\ClaudeShark\tools\strength\ablate.py", line 122, in main
+    base_bad: set[str] = set()
+    
+KeyError: 'loss'
+ABLATE EXIT=1 at 12:46:56
