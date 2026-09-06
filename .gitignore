@@ -22,3 +22,13 @@ corpus/**/*.log
 
 # Transient single-writer ownership records for experiment outputs.
 *.jsonl.owner
+
+# Test and JIT caches, editor and OS metadata.
+.pytest_cache/
+.numba_cache/
+*.nbi
+*.nbc
+*.swp
+*~
+.DS_Store
+Thumbs.db
