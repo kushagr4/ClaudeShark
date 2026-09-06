@@ -1,0 +1,180 @@
+launch 06:34:45
+60 games written to corpus\strength\c5\c5_vs_sf2300_dev_60_strict.games.jsonl
+60 games; cheap pass
+  5806 positions: 54 terminal, 5752 to the oracle at 200000 nodes
+  labelled 50/5752
+  labelled 100/5752
+  labelled 150/5752
+  labelled 200/5752
+  labelled 250/5752
+  labelled 300/5752
+  labelled 350/5752
+  labelled 400/5752
+  labelled 450/5752
+  labelled 500/5752
+  labelled 550/5752
+  labelled 600/5752
+  labelled 650/5752
+  labelled 700/5752
+  labelled 750/5752
+  labelled 800/5752
+  labelled 850/5752
+  labelled 900/5752
+  labelled 950/5752
+  labelled 1000/5752
+  labelled 1050/5752
+  labelled 1100/5752
+  labelled 1150/5752
+  labelled 1200/5752
+  labelled 1250/5752
+  labelled 1300/5752
+  labelled 1350/5752
+  labelled 1400/5752
+  labelled 1450/5752
+  labelled 1500/5752
+  labelled 1550/5752
+  labelled 1600/5752
+  labelled 1650/5752
+  labelled 1700/5752
+  labelled 1750/5752
+  labelled 1800/5752
+  labelled 1850/5752
+  labelled 1900/5752
+  labelled 1950/5752
+  labelled 2000/5752
+  labelled 2050/5752
+  labelled 2100/5752
+  labelled 2150/5752
+  labelled 2200/5752
+  labelled 2250/5752
+  labelled 2300/5752
+  labelled 2350/5752
+  labelled 2400/5752
+  labelled 2450/5752
+  labelled 2500/5752
+  labelled 2550/5752
+  labelled 2600/5752
+  labelled 2650/5752
+  labelled 2700/5752
+  labelled 2750/5752
+  labelled 2800/5752
+  labelled 2850/5752
+  labelled 2900/5752
+  labelled 2950/5752
+  labelled 3000/5752
+  labelled 3050/5752
+  labelled 3100/5752
+  labelled 3150/5752
+  labelled 3200/5752
+  labelled 3250/5752
+  labelled 3300/5752
+  labelled 3350/5752
+  labelled 3400/5752
+  labelled 3450/5752
+  labelled 3500/5752
+  labelled 3550/5752
+  labelled 3600/5752
+  labelled 3650/5752
+  labelled 3700/5752
+  labelled 3750/5752
+  labelled 3800/5752
+  labelled 3850/5752
+  labelled 3900/5752
+  labelled 3950/5752
+  labelled 4000/5752
+  labelled 4050/5752
+  labelled 4100/5752
+  labelled 4150/5752
+  labelled 4200/5752
+  labelled 4250/5752
+  labelled 4300/5752
+  labelled 4350/5752
+  labelled 4400/5752
+  labelled 4450/5752
+  labelled 4500/5752
+  labelled 4550/5752
+  labelled 4600/5752
+  labelled 4650/5752
+  labelled 4700/5752
+  labelled 4750/5752
+  labelled 4800/5752
+  labelled 4850/5752
+  labelled 4900/5752
+  labelled 4950/5752
+  labelled 5000/5752
+  labelled 5050/5752
+  labelled 5100/5752
+  labelled 5150/5752
+  labelled 5200/5752
+  labelled 5250/5752
+  labelled 5300/5752
+  labelled 5350/5752
+  labelled 5400/5752
+  labelled 5450/5752
+  labelled 5500/5752
+  labelled 5550/5752
+  labelled 5600/5752
+  labelled 5650/5752
+  labelled 5700/5752
+  labelled 5750/5752
+deep pass
+  1868 positions: 54 terminal, 1814 to the oracle at 1000000 nodes
+  labelled 50/1814
+  labelled 100/1814
+  labelled 150/1814
+  labelled 200/1814
+  labelled 250/1814
+  labelled 300/1814
+  labelled 350/1814
+  labelled 400/1814
+  labelled 450/1814
+  labelled 500/1814
+  labelled 550/1814
+  labelled 600/1814
+  labelled 650/1814
+  labelled 700/1814
+  labelled 750/1814
+  labelled 800/1814
+  labelled 850/1814
+  labelled 900/1814
+  labelled 950/1814
+  labelled 1000/1814
+  labelled 1050/1814
+  labelled 1100/1814
+  labelled 1150/1814
+  labelled 1200/1814
+  labelled 1250/1814
+  labelled 1300/1814
+  labelled 1350/1814
+  labelled 1400/1814
+  labelled 1450/1814
+  labelled 1500/1814
+  labelled 1550/1814
+  labelled 1600/1814
+  labelled 1650/1814
+  labelled 1700/1814
+  labelled 1750/1814
+  labelled 1800/1814
+annotated games written to corpus\strength\c5\c5_vs_sf2300_dev_60_strict.annotated.jsonl
+2337 of our moves audited; 194 errors >= 100 cp; replaying 194
+oracle scoring 322 post-move positions at 1000000 nodes
+  labelled 50/322
+  labelled 100/322
+  labelled 150/322
+  labelled 200/322
+  labelled 250/322
+  labelled 300/322
+# Large-error audit — c5_vs_sf2300_dev_60_strict.annotated.jsonl
+
+engine champions\c5_rfp; 60 games; 2337 of our moves audited (positions already beyond +/-800 cp excluded)
+
+| bin | moves | share |
+|---|---|---|
+| <50 | 1938 | 82.9% |
+| 50-99 | 205 | 8.8% |
+| 100-299 | 144 | 6.2% |
+| >=300 | 50 | 2.1% |
+
+**>=100 cp self-inflicted error rate: 8.30% of moves** (194 errors); >=300 cp: 2.14% (50); average cp loss 128.2
+errors written to corpus\strength\c5\c5_vs_sf2300_dev_60_strict.errors.jsonl; report benchmarks\current\2026-09-06-c5-error-audit.md
+AUDIT EXIT=0 at 06:55:10
