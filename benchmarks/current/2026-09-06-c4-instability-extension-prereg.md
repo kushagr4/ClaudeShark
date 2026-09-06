@@ -40,3 +40,30 @@ the target set afterwards): `EXTEND_FACTOR = 1.6`, `EXTEND_JUMP = 50`,
 * Gate 2A external: 60 games vs benchmark A (strict) on the dev set.
 * Gate 2A internal: 60 games vs `champions/rc_c`.
 * Promotion only with both non-negative and the error rate below baseline.
+
+## Result — REJECTED at Gate 1 (2026-09-06 02:35 UK)
+
+Gate 0 passed (fingerprint 1,708,269 with `CS_TIME_EXTEND` on and off; 1,228
+tests). Gate 1 (`tools.strength.replay_compare`, 60 s clock, RC-C vs the
+candidate, oracle 1M nodes; `corpus/strength/c4/gate1_*.jsonl`, `gate1.log`):
+
+| set | n | baseline >= 100 cp | candidate >= 100 cp | repaired | broken | extended | mean ms | mean depth |
+|---|---|---|---|---|---|---|---|---|
+| targets (horizon + instability errors) | 57 | 38 | 34 | **7** | 3 | 47 (82%) | 2,183 → 3,145 (+44%) | 7.21 → 7.63 |
+| matched negatives (< 30 cp moves, same games) | 120 | 2 | 2 | 0 | 0 | **77 (64%)** | 2,062 → 2,779 (+35%) | 7.61 → 8.07 |
+
+* Repairs 7 < the pre-registered 10; net +4 of 38 reproduced errors.
+* The trigger is not selective: it fires on 64% of ordinary moves (82% of
+  the targets). RC-C's root moves or scores change between iterations on
+  most moves at depths 4–8 (baseline unstable-iteration count >= 1 in 98 of
+  120 negatives and 51 of 57 targets), so "instability" does not mark the
+  error positions — it marks nearly everything, and the candidate is a
+  +35–44% uniform time increase, which the sf60 and early16 experiments
+  already showed to be flat at the competition clock.
+* The 7 repairs are one-ply repairs bought with time (depth +1 in every
+  case); they say depth pays, not that instability finds where it pays.
+
+**Verdict: REJECTED. The switch stays off (`CS_TIME_EXTEND=0` is RC-C);
+the branch is kept as the record.** What survives: depth repairs a real
+share of the largest errors, so the lane that buys depth without buying
+time — identity-preserving speed — is next, profile-driven.

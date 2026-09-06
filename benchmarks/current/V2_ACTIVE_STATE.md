@@ -195,18 +195,23 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | RC-C_2300_BASELINE_STRICT: `champions/rc_c` vs Stockfish 18 UCI_Elo 2300, 100 games, 120 s + 0.5 s, 300-ply cap, **`--draw-claim strict`**, 6 workers, `corpus/strength/dev.jsonl` (the official baseline; the `auto` run is superseded) |
+| TASK | C4 GATE 1: `tools.strength.replay_compare` — 57 target errors then 120 matched negatives, `champions/rc_c` vs the C4 working tree (`kushagra/c4-instability-extension`), 60 s clock through the normal allocator, oracle-scored at 1M nodes |
 | OWNER | Fable (PC) |
-| PID | 4772 (uv) → 24048 (arena) + 6 runner + 6 Stockfish children |
-| START | 2026-09-06 01:13:30 UK |
-| LAST HEALTH CHECK | 01:14 (launch verified: header written, 6 Stockfish + 6 runners alive) |
-| NEXT HEALTH CHECK DUE | 01:24 |
-| OUTPUT | `corpus/strength/games/rcc_vs_sf2300_dev_100_strict.jsonl` (+ `.pgn` at the end, `.log`) |
-| PROGRESS | 0/100 at launch |
-| EXPECTED FINISH | ~02:30 UK (strict games run longer than auto ones) |
-| MAX RUNTIME | 120 min (hard stop 03:15) |
-| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing for 15 min with live processes → stalled procedure; runs to 100 (a rate measurement) |
+| PID | 1712 (uv) → 19344 (replay_compare) + up to 10 engine subprocesses, then Stockfish for scoring |
+| START | 2026-09-06 02:33 UK |
+| LAST HEALTH CHECK | 02:34 (launch verified: 12 python processes) |
+| NEXT HEALTH CHECK DUE | 02:44 |
+| OUTPUT | `corpus/strength/c4/gate1_targets.jsonl`, `gate1_negatives.jsonl`, log `gate1.log` |
+| PROGRESS | targets in progress |
+| EXPECTED FINISH | ~02:50 UK |
+| MAX RUNTIME | 30 min (hard stop 03:05) |
+| STOP CONDITION | log not advancing for 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed 02:25:46: RC-C_2300_BASELINE_STRICT (PID 24048) exited 0 with 100
+games; post-exit sweep 0 python / 0 Stockfish / 0 sidecars; +44 =24 −32,
+56.0% (`STRENGTH_LADDER.md`). Health checks 01:20, 01:28, 01:35, 01:42,
+01:49, 01:56, 02:03, 02:11, 02:19, 02:25 — all HEALTHY.
 
 Completed and swept (0 python / 0 Stockfish / 0 sidecars after each):
 00:44:04 RC-C_2300_BASELINE auto (PID 15968, +49 =29 −22, 63.5%, all 29
