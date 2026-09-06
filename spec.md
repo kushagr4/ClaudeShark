@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 11
+SPEC_REVISION: 12
 
-LAST_UPDATED: 2026-09-06 21:05 UK (Windows PC) — RC-F boundary complete: clean 2800 calibration 47.5% (parity), release validated, agent stopped for the user's upload decision
+LAST_UPDATED: 2026-09-06 21:12 UK (Windows PC) — RC-F SUBMITTED (user-confirmed activation boundary 21:07 UK); evening review/performance brief in progress
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -38,7 +38,7 @@ illegal as material (−849 where C5 gives 0); fixed in 10 lines, no speed cost,
 53 targeted rule tests added. RC-F release-checked 16/16 as
 `corpus/release/claudeshark_rc_f.zip`, sha256
 `4ee4033e509bf8709d7d1090037d0aeb6b146da375c88f9986cb1a67789df13d`, 64,984
-bytes, 16 files — **NOT SUBMITTED; the user decides**
+bytes, 16 files — **SUBMITTED — user-confirmed activation boundary 2026-09-06 21:07 UK**
 (`benchmarks/current/RC_F_UPLOAD_CARD.md`). RC-E (`claudeshark_rc_e.zip`,
 `fb8f8609…58aa`) is superseded and must not be uploaded. Every new candidate
 starts from `champions/rc_f` and is measured against it. C9 is **a new
@@ -52,21 +52,21 @@ reject, change lane after two hours without progress.
 
 | field | value |
 |---|---|
-| archive | `corpus/release/claudeshark_rc_c.zip` |
-| SHA-256 | `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7` |
-| bytes | 50,258 compressed, 139,381 uncompressed, 14 files |
-| frozen engine commit | engine files at `f2543bd` (`kushagra/rcc-speed-validation`); integrated into `rc-c-integration` at the revision-6 commit |
-| frozen snapshot | `champions/rc_c` (= `champions/rcc_speed`; blob-identical to the archive contents) |
-| **user-confirmed upload** | **2026-09-05 23:14 UK** (the user's confirmation message; no separate upload minute was stated — this is the RC-C activation boundary) |
-| RC-C strength | +56 Elo over RC-B, 100 timed games, 34 of 50 families informative, bootstrap −0..+115, identical search tree, +16.5% knps |
-| fallback / control | **RC-B**, `corpus/release/claudeshark_rc_b.zip`, SHA-256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5`, snapshot `champions/rc_b`, uploaded 12:01 UK (rated rounds 20–30) |
-| second fallback | RC-A / exact rated-v1, `corpus/release/claudeshark_rated_v1_rc_a.zip`, SHA-256 `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b`, commit `98c48c8` (rated rounds 16–19) |
+| archive | `corpus/release/claudeshark_rc_f.zip` |
+| SHA-256 | `4ee4033e509bf8709d7d1090037d0aeb6b146da375c88f9986cb1a67789df13d` |
+| bytes | 64,984 compressed, 195,818 uncompressed, 16 files |
+| frozen engine commit | `b7f42cf` (`kushagra/rc-f-correctness`); records `b863b42` |
+| frozen snapshot | `champions/rc_f` (blob-identical to the archive contents) |
+| **user-confirmed upload** | **2026-09-06 21:07 UK** (the user's stated activation boundary) |
+| RC-F strength | C9 core +545 Elo over C5 (60 games); parity with the Stockfish 18 UCI_Elo 2800 proxy (+29 =53 −25 pooled over 107 games); 0 failures in 167 timed games |
+| fallback / control | **RC-C**, `corpus/release/claudeshark_rc_c.zip`, SHA-256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`, commit `f2543bd`, snapshot `champions/rc_c`, uploaded 2026-09-05 23:14 UK |
+| second fallback | RC-B, `corpus/release/claudeshark_rc_b.zip`, SHA-256 `f7b94b6507c39f32c6ba40f453e302812ba0bfbce1c8be16d2129ecb458c9c1a`, commit `3d918a5`, snapshot `champions/rc_b` |
 
-Every rated game clearly starting after 23:14 UK on 2026-09-05 belongs to
-RC-C until the user confirms another upload; games in progress across the
+Every rated game clearly starting after 21:07 UK on 2026-09-06 belongs to
+RC-F until the user confirms another upload (23:14 UK 2026-09-05 to 21:07 UK 2026-09-06 was RC-C); games in progress across the
 boundary are attributed by their start time, and an ambiguous one is
 labelled UNCERTAIN, not guessed. Never change CURRENT_SUBMITTED unless the
-USER explicitly confirms another upload. The RC-C and RC-B archives are
+USER explicitly confirms another upload. The RC-F, RC-C and RC-B archives are
 immutable. No agent uploads anything.
 
 **Daily Five boundary (in effect from 23:15 UK 2026-09-05):** no agent may
