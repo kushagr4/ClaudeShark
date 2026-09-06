@@ -195,22 +195,33 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 2300 QUALIFICATION: `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2300, 100 games, 120 s + 0.5 s, strict, 6 workers, **`corpus/strength/holdout_b.jsonl`** (fresh, never used) |
+| TASK | C7 EQUAL-TIME SUITE: `tools.corpus.analyse` on the 240-position suite at 3,000 ms for no-escape, LMR_START 4 and verify 30 (sequential), oracle 1M nodes |
 | OWNER | Fable (PC) |
-| PID | 22848 (uv) → 11344 (arena) + 6 runners + 6 Stockfish |
-| START | 2026-09-06 07:18 UK |
-| LAST HEALTH CHECK | 07:19 (launch verified: header written, 6 Stockfish alive) |
-| NEXT HEALTH CHECK DUE | 07:29 |
-| OUTPUT | `corpus/strength/c5/c5_vs_sf2300_holdout_b_100_strict.jsonl` (+ `.pgn`, `.log`) |
-| PROGRESS | 0/100 |
-| EXPECTED FINISH | ~08:30 UK |
-| MAX RUNTIME | 120 min (hard stop 09:20) |
-| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 100 (qualification) |
+| PID | see process list (uv → analyse; 4 engine workers, then Stockfish) |
+| START | 2026-09-06 13:15 UK |
+| LAST HEALTH CHECK | 13:16 (launch) |
+| NEXT HEALTH CHECK DUE | 13:26 |
+| OUTPUT | `corpus/strength/c7/cl240_{noescape,start4,verify30}_3000ms.jsonl`, log `equaltime.log` |
+| EXPECTED FINISH | ~13:35 UK |
+| MAX RUNTIME | 45 min (hard stop 14:00) |
+| STOP CONDITION | log/output not advancing 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
 | STATUS | HEALTHY — CONTINUE |
 
-Completed and swept (0/0/0 after each): C5 internal screens (dev 60 at
-05:34, val 80 at 06:34), C5 60-game audit (06:55), RC-C strict-baseline
-audit (07:16). Health checks every ≤ 10 min throughout — all HEALTHY.
+Completed 12:46:56: the pruning ablation (PID 2268) — its summary step
+crashed on a tool bug after the data file was fully written (114 rows,
+verified); summarised offline, tool fixed (`2026-09-06-c7-lmr-ablation.md`).
+Sweep after exit: 0 python, 0 Stockfish.
+
+Completed 09:51:40: ~2400 stage baseline (PID 23332), 100 games, +40 =31
+−29, 55.5%, bootstrap 47.5–63.5%, 0 failures; health checks 08:52, 09:00
+and the exit notification — all HEALTHY. **Development paused** pending the
+user's RC-D upload decision (`RC_D_UPLOAD_CARD.md`).
+
+Completed and swept (0/0/0 after each): C5 2300 qualification on holdout_b
+(PID 11344, 08:28, 61.0% — **2300 stage cleared**), RC-D release checks
+(08:33–08:45), C6 Gate 1 (PID 22936, 08:43; rejected). Health checks every
+≤ 10 min throughout — all HEALTHY. No development is started after this
+baseline: the user's RC-D upload decision is the next gate.
 
 Completed and swept: C5 Gate 1 replays + equal-time suites (PIDs 20988,
 16308; exits 0 at 03:57 and 04:07; 0 processes after each).

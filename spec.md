@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 7
+SPEC_REVISION: 8
 
-LAST_UPDATED: 2026-09-06 04:12 UK (Windows PC) — strength programme running
+LAST_UPDATED: 2026-09-06 08:40 UK (Windows PC) — 2300 stage cleared by C5; RC-D built, not submitted
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -526,6 +526,17 @@ brief 23:20 UK; ladder in `benchmarks/current/STRENGTH_LADDER.md`).
   python-chess `push`/generation; a delta pre-check in quiescence would fire
   on 4.4% of nodes — not worth it. Speed lane parked.
 
+2026-09-06 08:40 UK — **C5 promoted as development champion (06:36)**:
+internal 140 games vs RC-C +44 =59 −37, 52.5%, +17 Elo, 49 informative
+families, LOO +13..+23; external 58.3% over 60; like-for-like error rate
+8.30% vs RC-C 8.36% (flat). **C5 cleared the ~2300 stage on the untouched
+`holdout_b`: +53 =16 −31, 61.0%, bootstrap 53–69%, 0 failures.** RC-D
+(`corpus/release/claudeshark_rc_d.zip`, sha256 `3dab7d89…51e7`, release gate
+15/15, Python 3.12.13 smoke PASS, fingerprint 1,409,912 from the zip) is
+built and carded, **not uploaded** — the user's call. C6 (selective
+king-pressure evaluation term on top of C5, `kushagra/c6-king-pressure`) is
+at Gate 0/1; the ~2400 stage is being set up.
+
 2026-09-05 21:35 UK — Candidate 3 (`champions/rcc_speed`): Gate 0 passed on
 the Mac (identical fingerprints, 1,227 tests, +18.7% knps). Windows: process
 sweep clean; `rc-c-integration` normalised to exact RC-B (engine blobs equal
@@ -564,7 +575,8 @@ Nothing enters here without evidence.
 | Candidate 3 speed = RC-C | Kushagra / Fable | `f2543bd` (archive `claudeshark_rc_c.zip`, sha256 `13898136…60dd7`) | Gate 0 PASS (Mac + PC); Gate 2A PASS (PC) | +39 =38 −23 vs RC-B, 58.0%, +56 Elo, 34 informative, bootstrap −0.0..+115, LOO +50..+64, 0 failures, clock equivalent | **INTEGRATED and SUBMITTED** (user-confirmed 23:14 UK; `rc-c-integration` engine = RC-C at revision 6) | identity-preserving standard met; the optional 126-game extension was not run (user's instruction) |
 
 | C4 instability time extension | Kushagra / Fable | `db0fb1c` (branch `kushagra/c4-instability-extension`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | trigger not selective; +35–44% time |
-| C5 reverse futility pruning | Kushagra / Fable | `f6c0d30` (branch `kushagra/c5-rfp`, snapshot `champions/c5_rfp`) | Gate 0 PASS, Gate 1 suite PASS / targets miss by one (deviation recorded), Gate 2A running | pending | NOT YET | external 60 vs benchmark A then internal 60 vs `champions/rc_c` |
+| C5 reverse futility pruning | Kushagra / Fable | `f6c0d30` (branch `kushagra/c5-rfp`, snapshot `champions/c5_rfp`, archive RC-D `claudeshark_rc_d.zip` sha256 `3dab7d89…51e7`) | Gate 0 PASS; Gate 1 suite PASS (targets by one, deviation recorded); Gate 2A external 58.3%/60, internal 52.5%/140; 2300 qualification 61.0%/100 (bootstrap 53–69%) | see left | **READY FOR INTEGRATION TEST / UPLOAD DECISION** — development champion; RC-D carded, not submitted | non-negative internally, positive externally on fresh holdout with a lower bound above 50% |
+| C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (branch `kushagra/c6-king-pressure`, on top of C5) | Gate 0: off-switch = C5, on −0.7% nodes / 0 root moves changed, term tests pass; Gate 1 pending | — | NOT YET | activation 40% of optimistic errors vs 9% of ordinary positions (2% against the mover) |
 
 Anything new must beat `champions/rc_c` (or its legitimate successor).
 
