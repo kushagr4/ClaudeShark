@@ -9,7 +9,7 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 SPEC_REVISION: 12
 
-LAST_UPDATED: 2026-09-06 22:45 UK (Windows PC) — RC-F submitted 21:07; evening self-review complete (benchmarks/current/2026-09-06-rc-f-evening-review.md): no new high-severity defect, RFP stalemate path decision-neutral, profile and error audit recorded, no candidate created; independent reviews tomorrow
+LAST_UPDATED: 2026-09-06 23:20 UK (Windows PC) — repository hygiene: closed lanes tagged and removed, RC-F integrated into rc-c-integration, README/PROJECT current-state summaries; RC-F unchanged
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -82,18 +82,19 @@ engine; 50 MB unzipped; 90 s init; 10 uploads/day, close 11 Sept 11:00.
 
 ## 3. Branch Ownership
 
-Branch audit 2026-09-05 22:25 UK: every branch below has a stated reason to
-exist; everything else was verified redundant (zero unique commits, or a
-message-only rewrite twin with identical trees) and removed.
+Branch audit 2026-09-06 23:20 UK (repository-hygiene pass): every closed
+candidate lane was tagged at its tip and its branch removed from origin and
+locally; nothing unique was discarded (every deleted branch's tip is a tag
+below, and its records are in canonical history).
 
 ACTIVE:
 
 | branch | owner | baseline | purpose | status |
 |---|---|---|---|---|
-| `rc-c-integration` | Kushagra / Fable | **exact RC-C** (`f2543bd` engine blobs = `champions/rc_c`) since revision 6 | canonical coordination + proven integration | engine = the submitted build; spec revision 6; the AlphaFish study merged (analysis only) |
-| `kushagra/rcc-speed-validation` | Kushagra / Fable | RC-B + candidate 3 (`f2543bd` engine files) | Candidate 3 identity-preserving speed validation | **COMPLETE — promoted, integrated and submitted as RC-C**; branch kept as the lane record until the user deletes it |
-| `friend/rcc-tactical-horizon` | Friend / Claude | **exact RC-C** (branch from `origin/rc-c-integration` at revision 6 or later) | tactical horizon / forcing-line robustness + R21+ loss audit | not yet created on origin as of 23:15 |
-| `kushagra/competitor-659a3020-study` | Kushagra (Mac session) | `ba81f75` (integration rev 3) | AlphaFish public-data study, analysis only, no engine files | merged into `rc-c-integration` at `b103982`; branch can be deleted once the user confirms |
+| `rc-c-integration` | Kushagra / Fable | **exact RC-F** (engine files = `champions/rc_f`, `b7f42cf`) since the 23:05 UK merge | canonical coordination + proven integration; carries every record and the RC-D archive | current |
+| `kushagra/rc-f-correctness` | Kushagra / Fable | RC-F | the RC-E boundary, RC-F release and evening-review records; identical to integration except the RC-D archive files | complete, retained as the RC-F record lane |
+| `kushagra/c10-log-lmr` | Kushagra / Fable | C9 (`99afd81`) + `a15ef48` | C10 logarithmic LMR schedule, fixed-depth Gate 1 only | **PAUSED**; rebase onto RC-F before any resumption |
+| `friend/...` | Friend / Claude | branch from `origin/rc-c-integration` | the friend's independent RC-F review lane (not yet pushed) | expected 2026-09-07 |
 
 FROZEN:
 
@@ -102,6 +103,8 @@ FROZEN:
 | `main` = tag `rated-v1` | `98c48c8` | RC-A / exact rated-v1, the fallback archive's source; never modified |
 | tag `v2.1-daily-candidate` | `10c9277` | V2.1 king-pawn, the build that played rated rounds 1–15; rejected for the locked build |
 | RC-B frozen engine | `3d918a5` | reachable from `rc-c-integration`; snapshot `champions/rc_b`, archive `corpus/release/claudeshark_rc_b.zip` |
+| RC-C frozen engine | `f2543bd` | reachable from `rc-c-integration`; snapshot `champions/rc_c`, archive `corpus/release/claudeshark_rc_c.zip` |
+| RC-F frozen engine | `b7f42cf` | reachable from `rc-c-integration`; snapshot `champions/rc_f`, archive `corpus/release/claudeshark_rc_f.zip` |
 
 HISTORICAL (tags only, no branch):
 
@@ -109,25 +112,27 @@ HISTORICAL (tags only, no branch):
 |---|---|---|
 | `handoff/pc-to-mac-2026-09-05` | `9d22cef` | Windows → Mac handoff (RC-A submitted, staged picker unwired); was branch `v2.2-development` |
 | `handoff/mac-to-pc-2026-09-05` | `335bb8a` | Mac → PC handoff (RC-B champion, candidate 3 in the tree); was branch `mac-full-development` |
+| `lane/rcc-speed-validation` | `b556571` | candidate 3 → RC-C validation lane (record copies only; engine `f2543bd` is in canonical history) |
+| `lane/c4-instability-extension` | `db9a04e` | C4 instability time extension, REJECTED at Gate 1 (engine change lives only here) |
+| `lane/c5-rfp` | `b0b1101` | C5 reverse futility pruning, promoted (fully merged) |
+| `lane/c6-king-pressure` | `1582c72` | C6 selective king pressure, REJECTED (`cs_pressure.py` lives only here) |
+| `lane/c7-lmr-safeguard` | `8c18190` | C7 LMR verification margin, REJECTED (engine change lives only here) |
+| `lane/c8-proportional-time` | `f49bfaa` | C8 proportional timing, not promoted (fully merged) |
+| `lane/c9-numba-core` | `99afd81` | C9 Numba core promotion (fully merged) |
 
-DELETED 2026-09-05 22:20 UK (local and origin unless noted): `mac-full-development`
-(`335bb8a`, ancestor of both active branches); `v2.2-development` (`9d22cef`,
-ancestor); `v2-development` (`10c9277`, ancestor, kept as the tag above);
-`audit/aggression` and `audit/rook-endings` (local only, `f20a408`, ancestor
-of `main`, their worktrees were clean and were removed);
-`backup/pre-history-cleanup-20260903` (local only, `bf8845f`, a 23-commit
-message-only rewrite twin of the history ending `bfc69ec` with identical
-trees at every position; its only distinct content was the old commit
-messages). No file content was lost: every deleted branch's tree is
-reachable from `rc-c-integration`.
+DELETED 2026-09-06 23:15 UK (origin and local): `kushagra/competitor-659a3020-study`
+(fully merged, zero unique commits) and the seven lanes tagged above.
+Earlier deletions (2026-09-05 22:20 UK): `mac-full-development`, `v2.2-development`,
+`v2-development`, `audit/aggression`, `audit/rook-endings`,
+`backup/pre-history-cleanup-20260903` — all ancestors or identical-tree twins.
 
 RULES:
 
 * NO AGENT MAY DEVELOP ON ANOTHER OWNER'S FEATURE BRANCH.
 * NO FRIEND AGENT MAY PUSH DIRECTLY TO `rc-c-integration`.
-* NO FEATURE BRANCH MAY MODIFY `main` / `rated-v1` / frozen RC-B or RC-C
-  (`champions/rc_b`, `champions/rc_c`, `corpus/release/claudeshark_rc_b.zip`,
-  `corpus/release/claudeshark_rc_c.zip`).
+* NO FEATURE BRANCH MAY MODIFY `main` / `rated-v1` / frozen RC-B, RC-C or RC-F
+  (`champions/rc_b`, `champions/rc_c`, `champions/rc_f`, `corpus/release/claudeshark_rc_b.zip`,
+  `corpus/release/claudeshark_rc_c.zip`, `corpus/release/claudeshark_rc_f.zip`).
 * The friend's branch is created FROM `rc-c-integration` at revision 6 or
   later (exact RC-C engine).
 * Git identity on every commit: `kushagr4 <ratrakushagra@gmail.com>`. No
