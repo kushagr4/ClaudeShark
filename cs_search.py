@@ -144,6 +144,14 @@ if not _flag("CS_TT_PV_CUTOFF", True):
 # depth 8, with 23 of 24 root moves unchanged (the one that moved matched the
 # unpruned reference's preference). Small, consistent, and contained.
 USE_ASPIRATION = _flag("CS_ASPIRATION", True)
+# Reverse futility pruning (candidate C5). At a non-PV node near the frontier
+# and out of check, a static score that clears beta by a depth-scaled margin
+# is returned without searching: the position is so far above the window
+# that the few remaining plies are unlikely to bring it back. Pre-registered
+# in benchmarks/current/2026-09-06-c5-rfp-prereg.md; 0 disables (RC-C).
+USE_RFP = _flag("CS_RFP", True)
+RFP_MARGIN = _int_var("CS_RFP_MARGIN", 120)
+RFP_MAX_DEPTH = _int_var("CS_RFP_MAX_DEPTH", 3)
 
 # Static exchange evaluation, in two independent places so each can be measured
 # on its own.
@@ -743,6 +751,22 @@ class Searcher:
             return terminal if terminal is not None else evaluate_packed(board, packed)
 
         in_check = board.is_check()
+
+        # Reverse futility pruning: near the frontier, at a null-window node,
+        # out of check and away from mate scores, a static score above beta by
+        # RFP_MARGIN per remaining ply fails high without a search. The margin
+        # scales with depth because the deeper the remaining search, the more
+        # a static score can be overturned.
+        if (
+            USE_RFP
+            and not in_check
+            and depth <= RFP_MAX_DEPTH
+            and beta - alpha == 1
+            and -MATE_BOUND < beta < MATE_BOUND
+        ):
+            static = evaluate_packed(board, packed)
+            if static - RFP_MARGIN * depth >= beta:
+                return static
 
         # Null-move pruning: hand the opponent a free move and see whether the
         # position still fails high. If it does, the real move list will too, so
