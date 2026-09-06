@@ -23,14 +23,14 @@ CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300
 | 2300 QUALIFICATION (C5, holdout_b, strict, 07:18–08:28) | **+53 =16 −31, 61.0%, +78 Elo, bootstrap 53.0%..69.0% / +21..+139**, 30/50 informative, LOO +72..+87, White 61.0% / Black 61.0%, 0 failures, clock floor 5.1 s (largest think 13.2 s, mean 2.15 s). Score ≥ 55% ✓, no failures ✓, no colour/start pathology ✓, **lower bound > 50% ✓ (route A)**. `corpus/strength/c5/c5_vs_sf2300_holdout_b_100_strict.jsonl` + `.pgn`, `swissrisk_c5_sf2300_holdout_b_100.txt` |
 | 2300 BEST RESULT | **61.0% on holdout_b — C5** (RC-C: 56.0% dev, 55.5% holdout_a) |
 | 2300 PASSED? | **YES — 2300 TARGET CLEARED 2026-09-06 08:28 UK by C5** on the ~2300 BENCHMARK-A proxy (Stockfish 18 UCI_Elo 2300, strict). Build: C5 = RC-C + reverse futility pruning, `champions/c5_rfp`, branch `kushagra/c5-rfp`, engine commit `f6c0d30`; archive `corpus/release/claudeshark_rc_d.zip` (RC-D, sha256 `3dab7d89fee56a84ddb18540f52fb388f65ebb73f258de585f3a73f3329951e7`, 50,597 bytes, 14 files, release gate 15/15). Error rates: >=100 cp 8.30%, >=300 cp 2.14% (60 strict dev games). Not submitted — the user's decision (`RC_D_UPLOAD_CARD.md`) |
-| 2400 BASELINE | — |
-| 2400 BEST RESULT | — |
-| 2400 PASSED? | NO |
+| 2400 BASELINE (C5, dev2400, strict, 08:45–09:51) | **+40 =31 −29, 55.5%, +38 Elo, bootstrap 47.5%..63.5% / −17..+96**, 35/50 informative, LOO +32..+46, White 53.0% / Black 58.0%, 0 failures, clock floor 6.0 s (largest think 17.8 s, mean 2.25 s), terminations checkmate 68 / threefold 23 / fifty-move 6 / adjudication 2 / insufficient 1. `corpus/strength/c5/c5_vs_sf2400_dev2400_100_strict.jsonl` + `.pgn`, `swissrisk_c5_sf2400_dev2400_100.txt`. Note the sets differ from the 2300 stage (competition-like suite, not organiser starts), so 55.5% here is not comparable with the 2300 numbers |
+| 2400 BEST RESULT | 55.5% (C5 baseline on dev2400; no candidate yet) |
+| 2400 PASSED? | NO — baseline only; qualification on `holdout2400_a` not run (development paused for the user's RC-D decision) |
 | CURRENT >=100CP ERROR RATE | C5 **8.30%** (194 of 2,337 moves, 60 strict games; >=300 cp 2.14%) against RC-C **8.36%** on its 100 strict games (>=300 cp 1.69%) — the same rate; RFP bought depth, not fewer large errors. RC-C auto-claim audit (the classified one): 8.95%, `2026-09-06-rcc-2300-error-audit.md` |
 | DOMINANT ERROR CLASSES | by result-flipping from live positions (120 largest): TACTICAL HORIZON 19, UNKNOWN/MIXED 16, SEARCH INSTABILITY 10, EVALUATION optimism 7 (optimism is the largest by count, 39, but mostly deepens already-lost positions) |
 | CURRENT CANDIDATE | none — C5 promoted 06:36; its 60-game error audit running |
-| ACTIVE JOB | C5 2300 qualification on `holdout_b` (launched 07:18; see `V2_ACTIVE_STATE.md` §8) |
-| NEXT ACTION | C5's own 2300 qualification on `holdout_b` (fresh 100 games, strict), then confirmation on `holdout_c` if the lower bound does not clear 50% |
+| ACTIVE JOB | NONE (09:52 sweep: 0 python, 0 Stockfish, 0 sidecars) |
+| NEXT ACTION | the user's RC-D upload decision; then, on resumption: error audit of the 2400 baseline games, mechanism ranking against the 2400 opponent, next candidate measured against `champions/c5_rfp`, qualification on `holdout2400_a` |
 
 ## Error-rate scoreboard
 
