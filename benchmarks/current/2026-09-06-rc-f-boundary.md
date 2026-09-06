@@ -132,7 +132,35 @@ but sum to within 4%. Nothing suspicious.
 games, dev2400 set, 120 s + 0.5 s, strict claims, 6 workers, **no competing
 CPU work** (`corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.*`).
 
-RESULT: see §7a (filled when the run ends).
+RESULT (21:00 UK, `ARENA EXIT 0`): **+11 =35 −14, 47.5%, nominal −17 Elo,
+Wilson 95% −104..+70, paired bootstrap −83..+47 (30 position clusters),
+White +6 =16 −8 (46.7%), Black +5 =19 −6 (48.3%), 0 failures, clock floor
+2,243 ms, largest think 14,408 ms, mean think 2,162 ms**; terminations:
+checkmate 24, threefold 25, fifty-move 6, insufficient 2, stalemate 1,
+adjudication 2 (`swissrisk_rcf_sf2800_dev2400_60.txt`). Completed depth per
+move is not recorded by the arena; the 2 s bench average is 11.75 plies (C9
+pre-registration) and the tactics run averaged 12.69 plies at 1 s.
+
+### 7a. Reading the two 2800 samples together
+
+The stopped C9 run scored 57.4% over 47 games and the clean RC-F run 47.5%
+over 60; paired on the 40 shared start positions the drop is 16 points
+(about 1.9 sigma). That is **not** a build difference: at fixed depth 8 over
+the bench suite both `champions/c9_numba` and `champions/rc_f` search exactly
+4,852,987 nodes (47% quiescence), so outside a true stalemate the fix leaves
+the tree untouched, and equal-time nodes/s are the same (§5). The variance is
+Stockfish's skill-limited move randomisation plus the sample size (the two
+intervals overlap almost entirely). Pooled, the C9 core has scored
++29 =53 −25 over 107 games against Stockfish 18 UCI_Elo 2800 (51.9%), with
+the C9 subset flagged as timing-contaminated. A 60-game RC-F vs C9
+head-to-head would score 50% by construction and was not run; it is not
+needed for the upload decision.
+
+Ladder reading: C9/RC-F plays at about the 2800 proxy's level (the 2400 proxy
+was passed by C5 at 55–56%; C9 beat C5 95.8%). The 2400→2600→2800
+progression is therefore effectively cleared to ~2800 parity; the next
+external target is 3000+.
+
 
 ## 8. Release validation — RC-F
 
@@ -146,4 +174,19 @@ RESULT: see §7a (filled when the run ends).
 | init / JIT | import + warm-up 27.05 s (budget 90 s); ordinary moves after that do not compile (in-check, one-move, mate-in-one probes answer in 0.00 s; 700 ms clock answered in 0.09 s) |
 | clock ladder | PASS |
 | rules compliance | pure Python + numba JIT (docs 2026-09-06 17:38: "Compiled speed comes from numba"); no third-party engine code; no native binaries; nothing written to disk |
-| working tree | clean after the records commit (§9) |
+| working tree | clean after the records commit (`18b63e3`, and the calibration commit that follows) |
+
+## 9. Final state (21:05 UK)
+
+Active jobs: 0 (`Get-Process`: no python, no Stockfish, no uv). Stale jobs
+found: 0. Terminated: 0. Background state: CLEAN. C10 paused on
+`kushagra/c10-log-lmr` (`a15ef48`), to be rebased onto RC-F if it resumes.
+
+UPLOAD RECOMMENDATION: **YES — RC-F** (`corpus/release/claudeshark_rc_f.zip`,
+sha256 `4ee4033e509bf8709d7d1090037d0aeb6b146da375c88f9986cb1a67789df13d`),
+replacing RC-C. Basis: +545 Elo over C5 (which itself beat RC-C by +17 Elo
+internally and passed the 2400 proxy), parity with the 2800 proxy over 107
+games, 0 failures in 167 timed games on the compiled core, release gate
+16/16, competition-stack smoke 10/10, a real stalemate defect found and fixed
+with the tree otherwise unchanged. Do not upload RC-E. The decision is the
+user's.

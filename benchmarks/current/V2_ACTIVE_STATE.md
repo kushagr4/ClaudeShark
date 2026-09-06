@@ -195,18 +195,11 @@ ACTIVE JOBS REGISTER (ten-minute health-check rule in force; the agent
 inspects every owned job at intervals of at most ten minutes by regaining
 control, never by a poller):
 
-| field | value |
-|---|---|
-| TASK | RC-F CLEAN EXTERNAL CALIBRATION: `champions/rc_f` vs Stockfish 18 UCI_Elo 2800 (Hash 16, Threads 1), 60 games, 120 s + 0.5 s, strict, dev2400 set, 6 workers, no competing CPU work; a progress marker for the benchmark ladder, not a promotion test |
-| OWNER | Fable (PC) |
-| PID | uv → arena + 6 runners + agents + 6 Stockfish (`Get-Process`: 14 python, 6 stockfish at 20:09) |
-| START | 2026-09-06 20:06 UK |
-| LAST HEALTH CHECK | 20:09 (HEALTHY) |
-| NEXT HEALTH CHECK DUE | 20:19 |
-| OUTPUT | `corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.jsonl` (+ `.pgn`, `.log`, `.launch.txt`) |
-| EXPECTED FINISH | ~20:55 UK |
-| KILL CONDITION | no new game for 15 minutes, any crash/illegal/flag line, or a second CPU-heavy job appearing |
-| ON EXIT | sweep; swissrisk → `corpus/strength/rcf/swissrisk_rcf_sf2800_dev2400_60.txt`; record in `2026-09-06-rc-f-boundary.md` §7a, `STRENGTH_LADDER.md`, spec §17 → none; then STOP for the user's RC-F upload decision |
+NONE (21:05 UK). Last job: RC-F clean external calibration vs Stockfish 18
+UCI_Elo 2800, 20:06–21:00, `ARENA EXIT 0`, +11 =35 −14 (47.5%), 0 failures,
+health checks 20:07, 20:09, 20:11, 20:20, 20:29, 20:42, 20:52, 21:00 (all
+HEALTHY). Sweep at 21:00: no python, no Stockfish, no uv. Background state
+CLEAN. The agent is stopped for the user's RC-F upload decision.
 
 Stopped run (user, 19:37): C9 vs Stockfish 2800, 47/60, +18 =18 −11 —
 PARTIAL / TIMING-CONTAMINATED (C10 fixed-depth work overlapped 18:59–19:05;

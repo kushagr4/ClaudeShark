@@ -9,7 +9,7 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 SPEC_REVISION: 11
 
-LAST_UPDATED: 2026-09-06 20:12 UK (Windows PC) — RC-E boundary: C10 paused, quiescence stalemate defect found and fixed, RC-F frozen and release-checked; clean 2800 calibration running; user upload decision pending
+LAST_UPDATED: 2026-09-06 21:05 UK (Windows PC) — RC-F boundary complete: clean 2800 calibration 47.5% (parity), release validated, agent stopped for the user's upload decision
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -618,20 +618,17 @@ Nothing enters here without evidence.
 | C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (`kushagra/c6-king-pressure`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | 5 of 50 target repairs, root-score change median 0, equal-time −2.2 cp |
 | C7 LMR verification margin | Kushagra / Fable | `8c18190` (`kushagra/c7-lmr-safeguard`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | net +1 of 74 at the game clock for −0.5 ply; LMR start index / no-escape also closed |
 | **C9 Numba search core** | Kushagra / Fable | `8131214` (`kushagra/c9-numba-core`, `champions/c9_numba`, archive RC-E `claudeshark_rc_e.zip` sha256 `fb8f8609…58aa`) | Gate 0 PASS (perft/eval/SEE exact, fingerprint 1,391,318, tactics 16/16, ladder PASS, release 16/16); Gate 2A internal **95.8% over 60 vs C5, +545 Elo** | 26× nps, +5.2 plies at 2 s | **YES — PROMOTED (development champion); RC-E awaits the user's upload decision** | the largest strength gain in the project's history; compile 27 s inside the 90 s init budget |
-| **RC-F = C9 + quiescence stalemate fix** | Kushagra / Fable | `b7f42cf` (`kushagra/rc-f-correctness`, `champions/rc_f`, archive `claudeshark_rc_f.zip` sha256 `4ee4033e…f13d`) | correctness boundary PASS (perft, 33 targeted rule positions, legacy suite on the compiled core 1,299 pass, fixed-depth agreement 38/40 and 15/16 with C5); Gate 0 PASS (2.55 Mnps vs 2.50, tactics 16/16, ladder PASS); release 16/16 | inherits C9's +55 =5 −0 vs C5; clean 2800 calibration running (see §17) | **YES — development champion; upload awaits the USER** | fixes a real stalemate mis-score; everything else byte-identical to RC-E |
+| **RC-F = C9 + quiescence stalemate fix** | Kushagra / Fable | `b7f42cf` (`kushagra/rc-f-correctness`, `champions/rc_f`, archive `claudeshark_rc_f.zip` sha256 `4ee4033e…f13d`) | correctness boundary PASS (perft, 33 targeted rule positions, legacy suite on the compiled core 1,299 pass, fixed-depth agreement 38/40 and 15/16 with C5); Gate 0 PASS (2.55 Mnps vs 2.50, tactics 16/16, ladder PASS); release 16/16 | inherits C9's +55 =5 −0 vs C5; clean 2800 calibration +11 =35 −14 (47.5%, paired bootstrap −83..+47, 0 failures); pooled C9-core record vs the 2800 proxy +29 =53 −25 over 107 games | **YES — development champion; upload awaits the USER** | fixes a real stalemate mis-score; everything else byte-identical to RC-E |
 | C8 proportional capped timing | Kushagra / Fable | `61afb13` (`kushagra/c8-proportional-time`, `champions/c8_prop`) | Gate 0 PASS; Gate 2A internal 49.2%, paired accuracy identical; external 51.7% (C5 55.5%) | see left | NO — NOT PROMOTED | neutral everywhere; clock floor 4.8 s |
 
 Anything new must beat `champions/rc_f` (the development champion; C10 is paused on `kushagra/c10-log-lmr` and must be rebased onto RC-F before it resumes); an upload decision is measured against the submitted RC-C.
 
 ## 17. Active Jobs
 
-One (20:06 UK): RC-F clean external calibration, `champions/rc_f` vs
-Stockfish 18 UCI_Elo 2800 strict, 60 games, dev2400 set, 6 workers, no
-competing CPU work; output
-`corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.jsonl`; expected finish
-~20:55; ten-minute health checks; register in `V2_ACTIVE_STATE.md` §8. The
-earlier C9 run (`corpus/strength/c9/c9_vs_sf2800_dev2400_60_strict.jsonl`)
-was stopped by the user at 47/60 and is labelled PARTIAL / TIMING-CONTAMINATED.
+None (21:05 UK). The RC-F clean 2800 calibration finished at 21:00
+(+11 =35 −14, 47.5%; `corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.*`).
+The agent is STOPPED for the user's RC-F upload decision
+(`benchmarks/current/RC_F_UPLOAD_CARD.md`). C10 stays paused.
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)
