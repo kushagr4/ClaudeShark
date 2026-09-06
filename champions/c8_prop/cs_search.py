@@ -1085,12 +1085,3 @@ def _phase_of(board: chess.Board) -> int:
         + 4 * board.queens.bit_count()
     )
     return phase if phase < TOTAL_PHASE else TOTAL_PHASE
-
-
-# The compiled core (cs_core / cs_fast) is what the agent ships from C9 on.
-# Tools that import ``Searcher`` from here get it too, so bench, tactics, the
-# clock ladder and the corpus analysers measure the shipped engine. Set
-# CS_CORE=python to get the interpreted search above (the C5 reference).
-PySearcher = Searcher
-if os.environ.get("CS_CORE", "numba").strip().lower() == "numba":
-    from cs_fast import Searcher  # noqa: E402,F811

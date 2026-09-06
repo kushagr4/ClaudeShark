@@ -1,0 +1,3 @@
+
+engine: working tree   budget: 1000 ms
+solved 16/16   avg depth 12.69   nodes 9,809,410

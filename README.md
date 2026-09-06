@@ -1,5 +1,23 @@
 # ClaudeShark
 
+**Current state (2026-09-06 21:07 UK):** the submitted build is **RC-F**
+(`corpus/release/claudeshark_rc_f.zip`, SHA-256
+`4ee4033e509bf8709d7d1090037d0aeb6b146da375c88f9986cb1a67789df13d`, engine
+commit `b7f42cf`, frozen snapshot `champions/rc_f`). RC-F is also the
+development champion: every new candidate starts from `champions/rc_f` and is
+measured against it. Primary goal: a top-3 Chessathon finish. Next: the
+friend's independent review, Astra's independent audit, then the highest-EV
+candidate from RC-F. **`spec.md` is the source of truth** for the submitted
+build, the champion, open lanes and active jobs; `benchmarks/current/` holds
+the current-programme records (`STRENGTH_LADDER.md`, `V2_ACTIVE_STATE.md`,
+the RC-F boundary and evening-review records).
+
+Where things live: engine source at the repository root (`agent.py`, the
+`cs_*` modules; `cs_core.py` + `cs_fast.py` are the Numba search core);
+frozen builds in `champions/`; release archives in `corpus/release/`; tests
+in `tests/`; tooling in `tools/`; match and audit evidence in
+`corpus/strength/`.
+
 An entry for the [AI Chessathon](https://aichessathon.com): an iterative-deepening
 alpha-beta chess engine in Python, over `python-chess`.
 
