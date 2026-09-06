@@ -195,7 +195,17 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| ACTIVE JOBS | **NONE** (17:32 UK sweep: 0 python, 0 Stockfish, 0 sidecars) |
+| TASK | C9 FIRST STRENGTH SCREEN: `champions/c9_numba` (Numba core) vs `champions/c5_rfp`, 60 games, 120 s + 0.5 s, strict, dev set, 6 workers; continue bar ≥ 55% |
+| OWNER | Fable (PC) |
+| PID | uv → arena + 6 runners + 12 agent processes (compile burst at each game start) |
+| START | 2026-09-06 18:58 UK |
+| LAST HEALTH CHECK | 18:58 (launch) |
+| NEXT HEALTH CHECK DUE | 19:08 |
+| OUTPUT | `corpus/strength/c9/c9_vs_c5_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
+| EXPECTED FINISH | ~19:50 UK |
+| MAX RUNTIME | 90 min (hard stop 20:30) |
+| STOP CONDITION | log not advancing 10 min with live processes → stalled procedure; any crash/illegal/init failure → investigate |
+| STATUS | HEALTHY — CONTINUE |
 
 Stopped 17:30 UK (killed by the user, not by the agent): the C5 2400
 confirmation on `holdout2400_b` at **61/100 games, +21 =18 -22, 49.2%** —

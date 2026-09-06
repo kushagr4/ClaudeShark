@@ -32,3 +32,37 @@
    repetition on the path and game history, fifty-move and insufficient-material rules.
 4. `cs_fast.py`: Searcher-compatible wrapper (same `search()` signature as `cs_search.Searcher`)
    so bench, arena, tactics and the clock ladder run unchanged; `agent.py` switched to it.
+
+## M1 — movegen exact (18:25 UK, 35 min after pre-registration)
+
+perft equals python-chess on all six standard positions (startpos d4 197,281;
+Kiwipete d3 97,862; pos3 d5 674,624; pos4 d4 422,333; pos5 d3 62,379; pos6 d3
+89,890) and on 58 random game positions at depth 2–3; hash key, packed sum and
+board equal a fresh reconstruction after every legal move from 60 random
+positions. Perft speed 9–13 million nodes/s (python-chess about 100k).
+
+## M2 — evaluation, SEE, search (18:50 UK)
+
+Evaluation equals `cs_eval.evaluate` on 391 random positions (0 mismatches),
+insufficient material equals `is_material_draw`, SEE equals `cs_see.see` on
+1,620 captures (0 mismatches). At equal fixed depth the compiled search and
+the interpreted C5 search choose the same root move in 10 of 12 cases with
+the same or near-identical scores and node counts (depth 4 and 6 over six
+openings). Mate scores, stalemate avoidance, the fifty-move claim and the
+legal-move/abort behaviour are held by `tests/test_core.py` (16 tests).
+
+## Gate 0 — PASS (18:55 UK)
+
+| check | result |
+|---|---|
+| fingerprint `tools.bench --depth 6` | **1,391,318 nodes** (C5 1,409,912: the same tree within 1.3%) in 0.5 s, **2,593,264 nps** |
+| timed `tools.bench --ms 2000 --positions 8` | **depth 11.62, 2,332,412 nps** vs C5 (same run, interpreted core) depth 6.38, 89,711 nps: **26× nps, +5.2 plies** |
+| tactics suite 1 s | **16/16**, average depth 12.69 (C5 16/16 at lower depth) |
+| clock ladder | **PASS** 1 ms..120 s, worst 3.6 s at 120 s, nothing over hard |
+| tests | full suite 1,258 passed (legacy suite on the interpreted core via `CS_CORE=python` in conftest) + `tests/test_core.py` 16 passed |
+| agent import + warm-up (compile) | **27.6 s** on this PC (Ryzen 5 5600X); platform init budget 90 s (harness 60 s); first move at a full clock 2.4 s |
+| snapshot | `champions/c9_numba` (16 files: the 14 C5 files + `cs_core.py`, `cs_fast.py`), commit `8131214` |
+
+## Gate 2A internal — 60 games vs `champions/c5_rfp` (strict, dev set, 6 workers), launched 18:58 UK
+
+Output `corpus/strength/c9/c9_vs_c5_dev_60_strict.jsonl` (+ `.pgn`, `.log`). Continue bar: ≥ 55%.
