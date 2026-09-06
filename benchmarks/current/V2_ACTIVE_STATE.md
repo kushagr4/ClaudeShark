@@ -195,15 +195,15 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C7 EQUAL-TIME SUITE: `tools.corpus.analyse` on the 240-position suite at 3,000 ms for no-escape, LMR_START 4 and verify 30 (sequential), oracle 1M nodes |
+| TASK | C8 GATE 2A INTERNAL: `champions/c8_prop` (proportional capped time) vs `champions/c5_rfp`, 60 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev.jsonl`; accuracy on both sides afterwards |
 | OWNER | Fable (PC) |
-| PID | see process list (uv → analyse; 4 engine workers, then Stockfish) |
-| START | 2026-09-06 13:15 UK |
-| LAST HEALTH CHECK | 13:16 (launch) |
-| NEXT HEALTH CHECK DUE | 13:26 |
-| OUTPUT | `corpus/strength/c7/cl240_{noescape,start4,verify30}_3000ms.jsonl`, log `equaltime.log` |
-| EXPECTED FINISH | ~13:35 UK |
-| MAX RUNTIME | 45 min (hard stop 14:00) |
+| PID | see process list at the next check (uv → arena + 12 engine runners) |
+| START | 2026-09-06 14:00 UK |
+| LAST HEALTH CHECK | 14:00 (launch) |
+| NEXT HEALTH CHECK DUE | 14:10 |
+| OUTPUT | `corpus/strength/c8/c8_vs_c5_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
+| EXPECTED FINISH | ~14:50 UK |
+| MAX RUNTIME | 80 min (hard stop 15:20) |
 | STOP CONDITION | log/output not advancing 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
 | STATUS | HEALTHY — CONTINUE |
 
