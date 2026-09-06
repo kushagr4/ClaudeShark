@@ -5,7 +5,13 @@ The evaluator's active-term set is process state and must not leak between tests
 
 from __future__ import annotations
 
-import pytest
+import os
+
+# The legacy suite exercises the interpreted search in cs_search directly;
+# the compiled core has its own tests (tests/test_core.py).
+os.environ.setdefault("CS_CORE", "python")
+
+import pytest  # noqa: E402
 
 import cs_eval
 import cs_terms
