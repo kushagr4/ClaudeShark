@@ -108,3 +108,91 @@ implemented tonight: it is a 2–3 h change and the brief caps a candidate at
 See the section appended after the error audit of the 60 clean RC-F games
 against Stockfish 18 UCI_Elo 2800 (`corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.annotated.jsonl`,
 audit `review/rcf_2800_errors.jsonl`, report `review/rcf_2800_error_audit.md`).
+
+### Task 4 results — RC-F, 60 clean games vs Stockfish 18 UCI_Elo 2800 (dev2400, strict)
+
+Pipeline: `tools.strength.convert` → `tools.postmortem.annotate` (Stockfish
+18, cheap/deep node budgets) → `tools.strength.accuracy` → `tools.strength.audit`
+(replay at the recorded think time, 10 s deep replay, fixed-depth ladder
+9–14) → `review/rcf_error_classify.py`. Files: `review/rcf_2800_accuracy.md`,
+`review/rcf_2800_error_audit.md`, `review/rcf_2800_errors.jsonl`,
+`review/rcf_2800_error_classes.md`, `review/notrepro_replay_losses.json`.
+
+| measure | RC-F vs 2800 (60 games, 3,332 own moves) | C5 vs 2400 (100 games, 4,100 moves, 2026-09-06 morning) |
+|---|---|---|
+| ≥ 100 cp self-inflicted errors | **3.33%** (111) | 6.54% (268) |
+| ≥ 300 cp | **0.57%** (19) | 1.44% (59) |
+| average cp loss per error | 34.7 | 69.6 |
+| result-flipping errors | 41 in 60 games | 102 in 100 games |
+| accuracy (CLAUDESHARK_ACCURACY_V1) | mean 96.02, median 96.34, min 87.67; games ≥ 99.5: 4 of 60 | — |
+
+**Extra-depth repair rate** (errors reproduced at the game budget with a
+ladder point at replay depth D + k; ladder capped at depth 14, so +2/+3 are
+available for fewer errors): **+1: 18/73 = 25%, +2: 20/56 = 36%, +3: 17/38 =
+45%.** Depth alone is no longer the main lever: more than half of the errors
+survive three extra plies.
+
+**Mechanism classes** (heuristic, stated in the script):
+
+| class | errors | result flips | notes |
+|---|---|---|---|
+| no repair by +3 plies nor by a 10 s replay ("EVALUATION / knowledge") | 52 | 17 | queens on the board in 39 of 52; late middlegame 23, endgame 11, opening/middlegame 18; the mover was already lost by the oracle in 30 (collapse of a lost position), drawn in 17, winning in 5 |
+| not reproduced by a fresh-table replay at the same budget ("state / instability") | 45 | 20 | the replay chose a different move; see below |
+| tactical horizon (repaired at +1/+2/+3) | 8 | 3 | small: the 12-ply engine has largely removed this class |
+| search shape (10 s replay repairs, +3 plies do not) | 6 | 1 | LMR / ordering candidates |
+| endgame knowledge (≤ 8 pieces, nothing repairs) | 4 | 1 | K+P and rook endings |
+| conversion (winning by ≥ 300, no repair) | 2 | 0 | |
+| time (moved in < 0.8 s with > 20 s on the clock) | 2 | 0 | |
+
+**The "not reproduced" class, examined.** Scoring the fresh-table replay
+move with the oracle: better than the game move in 32 of 45, similar in 8,
+worse in 5; the replay move loses under 100 cp in 26 of 45; median loss 163
+cp (game) vs 62 cp (replay); 10 of the class's 20 result flips avoided.
+Matched control: 45 random *good* moves (loss < 50 cp) replayed with a fresh
+table at their recorded budgets — the same move 33 times, **0 new ≥ 100 cp
+errors** (base rate 3.33%, expected about 1.5), mean loss 8.6 cp. So a fresh
+table is not worse on average, and at the error positions it is much
+better — but the error positions were *selected* for the in-game state
+having gone wrong, and a re-roll of any kind regresses toward the mean, so
+"carried-over table/killer/history state hurts" is a hypothesis with a real
+signal, not a demonstrated cause. It is cheap to test properly (paired
+60-game screen: RC-F vs RC-F with table, killers and history reset per
+move, game keys kept). Not implemented tonight: the brief's bar for a
+same-night candidate is exceptional confidence, and this has a selection
+bias it cannot remove without the screen.
+
+**Ranking of what limits RC-F now** (by result flips, frequency, fixability):
+
+1. **Evaluation / positional knowledge** (52 errors, 17 flips): nothing in
+   the search fixes them; RC-F evaluates with PeSTO tables, bishop pair and
+   tempo only. Fixable but not cheaply (every earlier single-term attempt was
+   rejected on the 6-ply engine; at 12 plies the trade-off may differ), and
+   it is the last lane in the sprint priority.
+2. **Carried-over search state / marginal decisions** (45 errors, 20 flips):
+   cheap to test (one-line reset per move), unproven cause.
+3. **Search shape and horizon** (14 errors, 4 flips): LMR/ordering and
+   +2/+3-ply tactics; speed work (staged ordering, +10–20% NPS ≈ +0.3 ply)
+   helps this class only, and +1 ply repairs just 25% of errors.
+
+## Optional candidate
+
+**NOT created.** No change reached the "exceptionally high-confidence" bar by
+23:00: the state-reset hypothesis has an unremovable selection bias without a
+game screen, and staged ordering is a 2–3 h change. Both are pre-registered
+below for tomorrow, after the independent reviews.
+
+Pre-registration for tomorrow (first in line, ≤ 30 min implementation):
+CANDIDATE: RC-F + per-move reset of table, killers and history (game keys
+kept). CURRENT CHAMPION: RC-F. HYPOTHESIS: carried-over state from previous
+searches biases marginal decisions; a fresh state per move removes 20–50% of
+the "not reproduced" error class. TARGET FAILURE CLASS: errors not
+reproduced by a fresh replay (45 of 111). EXPECTED NPS EFFECT: none. EXPECTED
+CLOCK EFFECT: none (same allocator). EXPECTED ACTIVATION: every move.
+MATCHED NEGATIVE: random good-move replays (done tonight: 0 of 45 harmed).
+REJECTION: < 52% over 60 paired games vs RC-F, or any failure. MAX TIME: 30
+min + one 60-game screen.
+
+## Final state (22:40 UK)
+
+Active jobs 0; sweep clean (no python, Stockfish or uv processes); C10 still
+paused; no upload performed. Evidence committed on `kushagra/rc-f-correctness`.
