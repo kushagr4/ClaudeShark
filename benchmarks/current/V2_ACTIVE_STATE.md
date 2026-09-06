@@ -195,18 +195,13 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | ~2400 STAGE BASELINE: `champions/c5_rfp` (development champion) vs Stockfish 18 **UCI_Elo 2400**, 100 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev2400.jsonl` (`STRENGTH_BENCHMARK_2400.md`) |
-| OWNER | Fable (PC) |
-| PID | 24456 (uv) → 23332 (arena) + 6 runners + 6 Stockfish |
-| START | 2026-09-06 08:45 UK |
-| LAST HEALTH CHECK | 08:46 (launch verified: 6 Stockfish alive, header written) |
-| NEXT HEALTH CHECK DUE | 08:56 |
-| OUTPUT | `corpus/strength/c5/c5_vs_sf2400_dev2400_100_strict.jsonl` (+ `.pgn`, `.log`) |
-| PROGRESS | 0/100 |
-| EXPECTED FINISH | ~10:00 UK |
-| MAX RUNTIME | 120 min (hard stop 10:45) |
-| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 100 (a baseline rate) |
-| STATUS | HEALTHY — CONTINUE |
+| TASK | NONE |
+| LAST SWEEP | 2026-09-06 09:52 UK: 0 python, 0 Stockfish, 0 uv, 0 sidecars, no waiters |
+
+Completed 09:51:40: ~2400 stage baseline (PID 23332), 100 games, +40 =31
+−29, 55.5%, bootstrap 47.5–63.5%, 0 failures; health checks 08:52, 09:00
+and the exit notification — all HEALTHY. **Development paused** pending the
+user's RC-D upload decision (`RC_D_UPLOAD_CARD.md`).
 
 Completed and swept (0/0/0 after each): C5 2300 qualification on holdout_b
 (PID 11344, 08:28, 61.0% — **2300 stage cleared**), RC-D release checks
