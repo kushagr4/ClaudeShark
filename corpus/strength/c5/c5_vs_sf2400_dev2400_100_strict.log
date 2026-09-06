@@ -1,0 +1,2 @@
+move history -> corpus\strength\c5\c5_vs_sf2400_dev2400_100_strict.pgn (derived from --jsonl; pass --pgn to place it elsewhere, --no-pgn to discard it)
+champions\c5_rfp vs uci:stockfish-windows-x86-64-avx2.exe@elo2400: 100 games at 120s+0.5s, ply cap 300, 6 concurrent, corpus strength_dev2400-2026-09-06 (5e0c2bd65a6e50e9, 50 positions)
