@@ -11,6 +11,7 @@ rows against different opponents are not like-for-like in difficulty.
 | C5 | ~2400 A, dev2400, strict (baseline) | 100 | +40 =31 −29 | 55.5% | +38 | 94.64 | 95.16 | **83.58** | 89.6 | 3 | 97 | 93 | 89 | 40.6 | 6.54% | 1.44% | 102 | 6.0 s | 0 |
 | C8 (prop. time) | C5, dev, strict (internal screen; paired control below) | 60 | +21 =17 −22 | 49.2% | −6 | 92.86 | 93.00 | 83.92 | 89.4 | 0 | 60 | 60 | 60 | 36.6 | 8.29% | 1.38% | 124 | 8.0 s | 0 |
 | C5 (control) | C8, same 60 games | 60 | +22 =17 −21 | 50.8% | +6 | 92.86 | 93.19 | 81.96 | 89.5 | 0 | 60 | 60 | 60 | 36.2 | 8.60% | 1.26% | 130 | 8.4 s | 0 |
+| **C5** | **~2400 A, holdout2400_a, strict (qualification)** | 100 | +37 =38 −25 | 56.0% | +42 | 94.72 | 95.39 | **86.13** | 89.6 | 3 | 97 | 92 | 86 | 33.0 | 5.96% | 1.10% | 120 | 3.0 s | 0 |
 
 Reading: the engine's play is about 93–95% accurate on V1 with a floor near
 80%; 3 of 260 scored games reach 99.5%. The 99.5%-in-every-game target is

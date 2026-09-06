@@ -195,15 +195,15 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 2400 QUALIFICATION: `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2400, 100 games, 120 s + 0.5 s, strict, 6 workers, **`corpus/strength/holdout2400_a.jsonl`** (fresh, never used); accuracy afterwards |
+| TASK | C5 2400 CONFIRMATION (route B): `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2400, 100 games, strict, 6 workers, **`corpus/strength/holdout2400_b.jsonl`** (fresh, never used); pass if > 50% |
 | OWNER | Fable (PC) |
-| PID | see process list at the next check (uv → arena + 6 runners + 6 Stockfish) |
-| START | 2026-09-06 15:27 UK |
-| LAST HEALTH CHECK | 15:28 (launch verified) |
-| NEXT HEALTH CHECK DUE | 15:38 |
-| OUTPUT | `corpus/strength/c5/c5_vs_sf2400_holdout2400_a_100_strict.jsonl` (+ `.pgn`, `.log`) |
-| EXPECTED FINISH | ~16:40 UK |
-| MAX RUNTIME | 120 min (hard stop 17:30) |
+| PID | see process list (uv → arena + 6 runners + 6 Stockfish) |
+| START | 2026-09-06 16:48 UK |
+| LAST HEALTH CHECK | 16:49 (launch verified) |
+| NEXT HEALTH CHECK DUE | 16:59 |
+| OUTPUT | `corpus/strength/c5/c5_vs_sf2400_holdout2400_b_100_strict.jsonl` (+ `.pgn`, `.log`) |
+| EXPECTED FINISH | ~17:55 UK |
+| MAX RUNTIME | 120 min (hard stop 18:50) |
 | STOP CONDITION | log/output not advancing 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
 | STATUS | HEALTHY — CONTINUE |
 
