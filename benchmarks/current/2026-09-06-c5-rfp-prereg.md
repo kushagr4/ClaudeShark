@@ -93,3 +93,17 @@ the branch tree for the screens.
 set is 56.0% (100 games). Above the rejection bar; on 60 games it is a
 plausible +2 points, not a proof. `corpus/strength/c5/c5_vs_sf2300_dev_60_strict.jsonl`
 + `.pgn`, `swissrisk_c5_sf2300_dev_60.txt`. Internal screen launched 04:52.
+
+## Gate 2A internal — 60 games vs `champions/rc_c` (strict, dev set), 04:52–05:34 UK
+
+**+16 =27 −17, 49.2%** (−6 Elo), 30 families / 20 informative, bootstrap
+39.2%..60.0% (Elo −77..+70), LOO −18..+6, White 50.0% / Black 48.3%, 0
+failures, clock floors 7.2 s (C5) / 6.3 s (RC-C), 27 draws (25 threefold).
+Not rejected by the pre-registered bar (the bootstrap includes 50%), but
+not the non-negative result a promotion needs. With 20 informative families
+this cannot see a ±30 Elo effect either way, and RFP is the only general
+effective-depth gain measured today, so the decision is resolved rather than
+guessed: a second internal screen on an independent start set (`val`, 40
+families, 80 games) launched 05:35; the promotion call is made on the 140
+games / 70 families combined. `corpus/strength/c5/c5_vs_rcc_dev_60_strict.jsonl`
++ `.pgn`, `swissrisk_c5_rcc_dev_60.txt`.
