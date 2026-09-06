@@ -1,0 +1,1 @@
+launch 2026-09-06 01:13:24 RC-C vs SF18@2300 dev 100 strict
