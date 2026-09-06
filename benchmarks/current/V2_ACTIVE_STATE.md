@@ -195,18 +195,23 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | 2300 QUALIFICATION: `champions/rc_c` vs Stockfish 18 UCI_Elo 2300, 100 games, 120 s + 0.5 s, strict draw claim, 6 workers, **`corpus/strength/holdout_a.jsonl`** (never used for design) |
+| TASK | C5 GATE 1: `replay_compare` (57 targets, 120 negatives, 60 s clock, `champions/rc_c` vs the C5 tree) then `tools.corpus.analyse` on the 240-position `competition_like_v1` suite at 3,000 ms for RC-C and for C5 (oracle 1M nodes) |
 | OWNER | Fable (PC) |
-| PID | 9472 (uv) → 17512 (arena) + 6 runner + 6 Stockfish children |
-| START | 2026-09-06 02:39 UK |
-| LAST HEALTH CHECK | 03:11 (45/100, +22 =4 −19, all processes alive, output advancing; checks at 02:44, 02:52, 02:59, 03:11) |
-| NEXT HEALTH CHECK DUE | 03:21 |
-| OUTPUT | `corpus/strength/games/rcc_vs_sf2300_holdout_a_100_strict.jsonl` (+ `.pgn`, `.log`) |
-| PROGRESS | 45/100 at 03:11 |
-| EXPECTED FINISH | ~03:55 UK |
-| MAX RUNTIME | 120 min (hard stop 04:40) |
-| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 100 (qualification) |
+| PID | 9996 (uv) → 20988 (replay_compare; later analyse) + engine subprocesses / Stockfish |
+| START | 2026-09-06 03:47 UK |
+| LAST HEALTH CHECK | 03:48 (launch verified: 12 python processes) |
+| NEXT HEALTH CHECK DUE | 03:58 |
+| OUTPUT | `corpus/strength/c5/gate1_targets.jsonl`, `gate1_negatives.jsonl`, `cl240_rcc_3000ms.jsonl`, `cl240_c5_3000ms.jsonl`, log `gate1.log` |
+| PROGRESS | targets in progress |
+| EXPECTED FINISH | ~04:10 UK |
+| MAX RUNTIME | 40 min (hard stop 04:30) |
+| STOP CONDITION | log not advancing for 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed 03:46:34: 2300 QUALIFICATION (PID 17512) exited 0 with 100 games;
+post-exit sweep 0 python / 0 Stockfish / 0 sidecars; +50 =11 −39, 55.5%,
+bootstrap 47.0%..64.0% (`STRENGTH_LADDER.md`). Health checks 02:44, 02:52,
+02:59, 03:11, 03:22, 03:31, 03:39, 03:46 — all HEALTHY.
 
 Only deterministic fixed-depth measurements (node counts) and the test
 suite were run beside this arena; every timing-sensitive Gate 1 waits for

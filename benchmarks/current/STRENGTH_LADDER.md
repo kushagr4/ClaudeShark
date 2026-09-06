@@ -12,8 +12,9 @@ CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300
 |---|---|
 | 2300 BASELINE (auto draw claim — SUPERSEDED, evidence only) | RC-C vs benchmark A with `--draw-claim auto` (dev set, 23:34–00:44): +49 =29 −22, 63.5%, +96 Elo, bootstrap 55.5%..71.0%, 35/50 informative, White 70.0% / Black 57.0%, 0 failures, mean 96 plies, our clock floor 3.8 s (1 game under 5 s, largest think 11.8 s). **All 29 draws were auto-claims, 18 on Stockfish's behalf while it was winning** (`STRENGTH_BENCHMARK_2300.md`, amendment); a strict-claim reading is nearer 50%. `corpus/strength/games/rcc_vs_sf2300_dev_100.jsonl` + `.pgn`, `swissrisk_rcc_sf2300_dev.txt` |
 | 2300 BASELINE (strict draw claim — OFFICIAL) | **RC-C_2300_BASELINE_STRICT (dev set, 01:13–02:25): +44 =24 −32, 56.0%, +42 Elo, bootstrap 48.0%..64.0% / −14..+100, 30/50 informative, LOO +36..+50, White 52.0% / Black 60.0%, 0 failures, mean 109 plies, our clock floor 5.2 s (largest think 10.8 s).** Score clears 55% but the lower bound does not clear 50%: on this set the 2300 stage would need the confirmation route. `corpus/strength/games/rcc_vs_sf2300_dev_100_strict.jsonl` + `.pgn`, `swissrisk_rcc_sf2300_dev_strict.txt` |
-| 2300 BEST RESULT | 56.0% (RC-C strict baseline; no candidate yet) |
-| 2300 PASSED? | NO |
+| 2300 QUALIFICATION (RC-C, holdout_a, strict, 02:39–03:46) | **+50 =11 −39, 55.5%, +38 Elo, bootstrap 47.0%..64.0%**, 28/50 informative, LOO +32..+46, White 59.0% / Black 52.0%, 0 failures, clock floor 4.1 s (1 game under 5 s, largest think 9.4 s), mean 98 plies. Score ≥ 55% ✓, no failures ✓, no colour pathology ✓, lower bound > 50% ✗ → passes only via a second fresh 100-game confirmation above 50% (`holdout_b`, benchmark B). `corpus/strength/games/rcc_vs_sf2300_holdout_a_100_strict.jsonl` + `.pgn`, `swissrisk_rcc_sf2300_holdout_a_strict.txt` |
+| 2300 BEST RESULT | 56.0% dev (baseline), 55.5% holdout_a (qualification) — RC-C |
+| 2300 PASSED? | **NOT YET** — qualification met the score bar; confirmation run pending (queued behind C5 Gate 1) |
 | 2400 BASELINE | — |
 | 2400 BEST RESULT | — |
 | 2400 PASSED? | NO |
