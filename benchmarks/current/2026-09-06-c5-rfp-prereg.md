@@ -107,3 +107,33 @@ guessed: a second internal screen on an independent start set (`val`, 40
 families, 80 games) launched 05:35; the promotion call is made on the 140
 games / 70 families combined. `corpus/strength/c5/c5_vs_rcc_dev_60_strict.jsonl`
 + `.pgn`, `swissrisk_c5_rcc_dev_60.txt`.
+
+## Gate 2A internal, second set — 80 games vs `champions/rc_c` (strict, val set), 05:35–06:34 UK
+
+**+28 =32 −20, 55.0%** (+35 Elo), 40 families / 29 informative, bootstrap
+45.6%..63.7%, LOO +27..+45, White 60.0% / Black 50.0%, 0 failures.
+`corpus/strength/c5/c5_vs_rcc_val_80_strict.jsonl` + `.pgn`, `swissrisk_c5_rcc_val_80.txt`.
+
+**Combined internal, 140 games / 70 families** (`c5_vs_rcc_combined_140.jsonl`,
+`swissrisk_c5_rcc_combined_140.txt`): **+44 =59 −37, 52.5%, +17 Elo**, 49
+informative (70%), bootstrap 45.7%..59.3% (Elo −30..+65), LOO +13..+23,
+White 55.7% / Black 49.3%, family means 0.00×5 0.25×19 0.50×21 0.75×14
+1.00×11, 0 failures, clock floors 7.2 s / 6.3 s.
+
+## Decision — PROMOTED AS DEVELOPMENT CHAMPION (06:36 UK)
+
+| requirement (§16 of the brief) | evidence |
+|---|---|
+| correctness | Gate 0: off-switch identical to RC-C, 1,228 tests, tactics 16/16, clock ladder not needed (allocator untouched) |
+| reduces its target mechanism | targeted claim withdrawn (7/38 repairs); the general claim — more effective depth at equal time — holds: −17.5%/−29.9% nodes at depth 6/8, +0.46 ply at 60 s clock |
+| no matched-negative regression | negatives 2 → 2 errors; equal-time suite robust loss 34 → 31, tails down, >= 300 count unchanged |
+| improves external benchmark | 58.3% over 60 games vs the 56.0% strict baseline (plausible, not proven) |
+| non-negative vs champion | 52.5% over 140 games, +17 Elo, LOO entirely positive; bootstrap includes 50% |
+
+Every measurement points the same way and none is negative, so C5 is the
+**development champion** from 06:36 UK: later candidates are measured
+against `champions/c5_rfp`. It is **not** release-checked, **not**
+carded for upload and **not** submitted — +17 ± 47 Elo over 140 games is
+weaker evidence than RC-C carried at its promotion, and the submission
+decision is the user's. RC-C stays frozen as the submitted build and the
+control. Error-rate row: audit of the 60 external-screen games follows.

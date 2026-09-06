@@ -1,0 +1,33 @@
+== SWISS RISK REPORT ==
+champions\c5_rfp (snapshot d82c133a9fcc4ade) vs champions\rc_c (snapshot 08e368f84bd55511); 120000 ms + 500 ms; ply cap 300; draw claim strict; corpus dev60+val80
+
+-- strength (the usual Gate 2 numbers) --
+   games 140   clusters 70   informative clusters 49 (70%)
+   +44 =59 -37   score 52.5%   nominal Elo +17.4
+   cluster bootstrap 95%: score 45.7%..59.3%, Elo -29.9..+65.3
+   leave-one-cluster-out Elo +12.6..+22.7
+   cluster-mean histogram {0.0: 5, 0.25: 19, 0.5: 21, 0.75: 14, 1.0: 11}
+
+-- failures attributable to each side --
+   agent: none
+   opponent: none
+
+-- clock safety --
+   agent: lowest clock ever held 4.6 s; games under 5 s: 1, under 10 s: 12, under 20 s: 57
+   agent: largest single think 13.9 s; mean think 2.06 s; median final clock 25.3 s
+   opponent: lowest clock ever held 5.2 s; games under 5 s: 0, under 10 s: 11, under 20 s: 55
+   opponent: largest single think 9.9 s; mean think 2.08 s; median final clock 25.0 s
+
+-- terminations and conversion --
+   all terminations: {'threefold_repetition': 51, 'insufficient_material': 7, 'checkmate': 80, 'fifty_moves': 1, 'adjudication': 1}
+   agent wins by: {'checkmate': 44}
+   draws by: {'threefold_repetition': 51, 'insufficient_material': 7, 'fifty_moves': 1}
+   agent losses by: {'checkmate': 36, 'adjudication': 1}
+   mean plies 127, max 300, games at the ply cap: 1
+
+-- population sensitivity --
+   agent as White: +25 =28 -17  score 55.7%  Elo +39.9
+   agent as Black: +19 =31 -20  score 49.3%  Elo -5.0
+
+No single Swiss score is computed. Read the components: a candidate that gains Elo but adds a flag,
+a crash or a drop in the lowest clock has not earned a place in a 13-round locked-build Swiss.
