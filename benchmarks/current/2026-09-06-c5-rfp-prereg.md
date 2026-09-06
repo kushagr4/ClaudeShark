@@ -34,3 +34,52 @@ not in check and `beta` is not a mate score, compute the static score; if
   negatives at a 60 s clock, oracle-scored; equal-time 3,000 ms run on the
   240 ordinary suite against the RC-C record.
 * Gate 2A: 60 games vs benchmark A (strict, dev) and 60 vs `champions/rc_c`.
+
+## Gate 0 — PASS (03:05–03:20 UK)
+
+`CS_RFP=0` fingerprint 1,708,269 (RC-C). Switch on: depth-6 nodes
+1,708,269 → 1,409,912 (**−17.5%**, 0 of 24 root moves changed); depth-8
+nodes 6,802,906 → 4,767,220 (**−29.9%**, 2 of 24 root moves changed);
+tactics 16/16; 1,228 tests. Files `corpus/strength/c5_depth{6,8}_{rcc,on}.txt`.
+
+## Gate 1 — measured 03:47–04:07 UK on a quiet machine
+
+**Target / negative replays** (`replay_compare`, 60 s clock, RC-C vs C5,
+oracle 1M nodes; `corpus/strength/c5/gate1_*.jsonl`):
+
+| set | n | RC-C >= 100 cp | C5 >= 100 cp | repaired | broken | mean ms | mean depth |
+|---|---|---|---|---|---|---|---|
+| targets (57 horizon/instability errors) | 57 | 37 | 34 | **7** | **4** | 2,240 → 2,325 (+4%) | 7.21 → 7.67 |
+| matched negatives (120) | 120 | 2 | 2 | 0 | 0 | 2,051 → 1,918 (−7%) | 7.61 → 8.07 |
+
+**Equal-time 240-position suite** (`tools.corpus.analyse`, 3,000 ms, oracle
+1M nodes; `corpus/strength/c5/cl240_{rcc,c5}_3000ms.{jsonl,md}`; a first
+pair run by mistake at fixed depth 6 is kept as `…_depth6.*` and shows no
+quality loss at equal depth, robust mean 35 vs 35):
+
+| | RC-C | C5 |
+|---|---|---|
+| robust mean loss | 34 | **31** |
+| p90 / p95 | 95 / 175 | **82 / 130** |
+| >= 100 cp / >= 300 cp | 9% / 1.7% (4) | 8% / 1.7% (4) |
+| expected-score loss | 0.061 | **0.051** |
+| paired mean gain (winsorised 500) | — | **+3.4 cp**; better by >= 50 cp in 11, worse in 5 |
+
+**Verdict against the pre-registration — recorded as written:** the
+equal-time suite leg PASSES (better robust mean, lower tails, >= 300 count
+unchanged); the target-replay leg FAILS by one position on each count
+(7 repaired against a bar of 8; 4 broken against a bar of 3). By the letter
+of "any of", Gate 1 is failed.
+
+**Decision and deviation, stated plainly:** the target leg was written as
+the test of the *targeted* claim (RFP repairs the audited horizon errors);
+it does not — a half-ply does not reach most of them, and 7-vs-8 on 38 noisy
+timed replays is not a distinction. The *general* claim (more effective
+depth at equal time with no quality loss) is what promotion needs and it
+passed on 240 positions with a paired gain. C5 therefore proceeds to Gate
+2A **as a deviation from the pre-registered "any of" rule**, with the
+targeted claim withdrawn and the Gate 2A rejection bars unchanged: internal
+60-game screen vs `champions/rc_c` below 50% with a bootstrap excluding
+zero, or external 60-game screen (benchmark A strict, dev) not above the
+56.0% strict baseline, rejects it. Snapshot `champions/c5_rfp` frozen from
+the branch tree for the screens.
