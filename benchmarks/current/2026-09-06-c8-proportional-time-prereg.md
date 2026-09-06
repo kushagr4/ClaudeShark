@@ -34,3 +34,21 @@ unchanged. Fixed-depth and fixed-budget searches never touch this path.
   traces and compared with the target.
 * Gate 2A internal: 60 games vs `champions/c5_rfp`, strict, dev set, accuracy on both sides.
 * Gate 2A external: 60 games vs Stockfish UCI_Elo 2400 strict on dev2400, accuracy.
+
+## Gate 0 — PASS (13:52–13:58 UK)
+
+Fingerprint 1,409,912 with the switch on and off; 1,228 tests; clock ladder
+with the switch on PASS 1 ms..120 s (worst 3.8 s at 120 s). Snapshot
+`champions/c8_prop` = the C5 files with `TIME_PROP_DEFAULT = "1"`.
+
+## Gate 2A internal — 60 games vs `champions/c5_rfp` (strict, dev set), 13:38–14:23 UK
+
+**+21 =17 −22, 49.2%** (−6 Elo), 30 families / 20 informative, bootstrap
+38.3%..60.0%, LOO −18..+6, White 53.3% / Black 45.0%, 0 failures; clock
+floor 8.0 s (C5 8.4 s), largest think 15.6 s (C5 9.3 s), median final clock
+18.3 s (C5 24.7 s). Realised spend by clock band (median seconds; target in
+brackets): 100–121 s **4.04** (4.15) vs C5 3.02; 60–100 s 2.81 vs 2.24;
+30–60 s 1.61 vs 1.51; 15–30 s 0.93 vs 0.92 — the policy does what it was
+designed to do: it moves time to the full-clock phase and converges to C5's
+curve below 30 s. Strength: flat within noise (bar: not below 48% ✓).
+Accuracy on both sides (the paired control) decides; annotation running.

@@ -1,0 +1,72 @@
+move history -> corpus\strength\c8\c8_vs_c5_dev_60_strict.pgn (derived from --jsonl; pass --pgn to place it elsewhere, --no-pgn to discard it)
+champions\c8_prop vs champions\c5_rfp: 60 games at 120s+0.5s, ply cap 300, 6 concurrent, corpus strength_dev-2026-09-05 (80b61369d891f3dd, 50 positions)
+[   1/60] = insufficient_material +0 =1 -0
+[   2/60] + checkmate            +1 =1 -0
+[   3/60] + checkmate            +2 =1 -0
+[   4/60] + checkmate            +3 =1 -0
+[   5/60] = threefold_repetition +3 =2 -0
+[   6/60] - checkmate            +3 =2 -1
+[   7/60] - checkmate            +3 =2 -2
+[   8/60] - checkmate            +3 =2 -3
+[   9/60] + checkmate            +4 =2 -3
+[  10/60] + checkmate            +5 =2 -3
+[  11/60] + checkmate            +6 =2 -3
+[  12/60] + checkmate            +7 =2 -3
+[  13/60] = threefold_repetition +7 =3 -3
+[  14/60] - checkmate            +7 =3 -4
+[  15/60] = threefold_repetition +7 =4 -4
+[  16/60] = insufficient_material +7 =5 -4
+[  17/60] + checkmate            +8 =5 -4
+[  18/60] = threefold_repetition +8 =6 -4
+[  19/60] = insufficient_material +8 =7 -4
+[  20/60] - checkmate            +8 =7 -5
+[  21/60] = threefold_repetition +8 =8 -5
+[  22/60] + checkmate            +9 =8 -5
+[  23/60] + checkmate            +10 =8 -5
+[  24/60] = threefold_repetition +10 =9 -5
+[  25/60] - checkmate            +10 =9 -6
+[  26/60] + checkmate            +11 =9 -6
+[  27/60] - checkmate            +11 =9 -7
+[  28/60] = threefold_repetition +11 =10 -7
+[  29/60] - checkmate            +11 =10 -8
+[  30/60] = insufficient_material +11 =11 -8
+[  31/60] = threefold_repetition +11 =12 -8
+[  32/60] = insufficient_material +11 =13 -8
+[  33/60] + checkmate            +12 =13 -8
+[  34/60] = threefold_repetition +12 =14 -8
+[  35/60] - checkmate            +12 =14 -9
+[  36/60] - checkmate            +12 =14 -10
+[  37/60] + checkmate            +13 =14 -10
+[  38/60] - checkmate            +13 =14 -11
+[  39/60] - checkmate            +13 =14 -12
+[  40/60] + checkmate            +14 =14 -12
+[  41/60] - checkmate            +14 =14 -13
+[  42/60] + checkmate            +15 =14 -13
+[  43/60] + checkmate            +16 =14 -13
+[  44/60] - checkmate            +16 =14 -14
+[  45/60] + checkmate            +17 =14 -14
+[  46/60] = threefold_repetition +17 =15 -14
+[  47/60] + checkmate            +18 =15 -14
+[  48/60] - checkmate            +18 =15 -15
+[  49/60] + checkmate            +19 =15 -15
+[  50/60] - checkmate            +19 =15 -16
+[  51/60] - checkmate            +19 =15 -17
+[  52/60] + checkmate            +20 =15 -17
+[  53/60] = threefold_repetition +20 =16 -17
+[  54/60] - checkmate            +20 =16 -18
+[  55/60] - checkmate            +20 =16 -19
+[  56/60] - checkmate            +20 =16 -20
+[  57/60] - checkmate            +20 =16 -21
+[  58/60] - checkmate            +20 =16 -22
+[  59/60] + checkmate            +21 =16 -22
+[  60/60] = threefold_repetition +21 =17 -22
+
+champions\c8_prop vs champions\c5_rfp over 60 games
++21 =17 -22, score 49.2%
+elo -6
+  Wilson score 95% CI        -93 .. +81
+  paired bootstrap 95% CI    -83 .. +64   (30 position clusters)
+terminations: checkmate 43, insufficient_material 5, threefold_repetition 12
+per-game records written to corpus\strength\c8\c8_vs_c5_dev_60_strict.jsonl
+pgn written to corpus\strength\c8\c8_vs_c5_dev_60_strict.pgn
+ARENA EXIT=0 at 14:23:24
