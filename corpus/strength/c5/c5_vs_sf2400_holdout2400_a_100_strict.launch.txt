@@ -1,0 +1,1 @@
+launch 2026-09-06 15:22:52 C5 vs SF18@2400 holdout2400_a 100 strict (2400 QUALIFICATION)

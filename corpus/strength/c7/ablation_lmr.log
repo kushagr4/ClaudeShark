@@ -1,0 +1,13 @@
+launch 12:48:28
+  labelled 50/258
+  labelled 100/258
+  labelled 150/258
+  labelled 200/258
+  labelled 250/258
+114 positions at depth 8; base >= 100 cp on 74
+  base       >= 100 cp:  74  repaired   0  broken   0  nodes 22,038,577 (+0%)
+  start4     >= 100 cp:  70  repaired   6  broken   2  nodes 22,842,789 (+4%)
+  start5     >= 100 cp:  73  repaired   5  broken   4  nodes 23,470,594 (+6%)
+  r2late     >= 100 cp:  71  repaired   6  broken   3  nodes 30,856,942 (+40%)
+  start4_r2late >= 100 cp:  69  repaired   9  broken   4  nodes 31,461,555 (+43%)
+ABLATE EXIT=0 at 12:56:02

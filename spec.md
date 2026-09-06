@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 8
+SPEC_REVISION: 9
 
-LAST_UPDATED: 2026-09-06 08:40 UK (Windows PC) — 2300 stage cleared by C5; RC-D built, not submitted
+LAST_UPDATED: 2026-09-06 15:30 UK (Windows PC) — accuracy standard V1; C6/C7/C8 closed; 2400 qualification running
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -566,6 +566,27 @@ PASS, Python 3.12.13 smoke PASS; card
 SUBMITTED and the friend's baseline.** Optional: a 126-game extension to
 226 (~2.5 h) to tighten the interval.
 
+2026-09-06 15:30 UK — **accuracy programme** (user brief 11:45 UK).
+`ACCURACY_STANDARD.md` freezes `CLAUDESHARK_ACCURACY_V1` (Lichess move
+formula on our Stockfish-18 oracle, arithmetic mean, ±1000 clamp; calibrated
+≈ platform − 2 points on 44 public player-games). C5 on the ~2400 proxy:
+mean **94.6**, median 95.2, **minimum 83.6**, p10 89.6, 3 of 100 games at
+99.5 or above; RC-C on ~2300: mean 93.0, min 80.5, 0 of 100. The 99.5%
+per-game target is not near any measured build and is not claimed. 2400
+audit (268 errors, all replayed): result flips UNKNOWN 31, HORIZON 24,
+INSTABILITY 22, OPTIMISM 9, CONVERSION 8, ENDGAME 8. Fixed-depth ablation
+traced the instability/unknown errors to **late-move reductions** (LMR off
+repairs 20 of 74 at depth 8; RFP 6, null move 4), but no safeguard survived
+equal time: C7 (verification margin) net +1 at −0.5 ply, rejected; C8
+(proportional capped timing, the AlphaFish curve reproduced to 4.0 s at a
+full clock) flat internally, identical paired accuracy, 51.7% vs 55.5%
+externally, not promoted; C6 (king-pressure term) rejected earlier. Lanes
+closed today with evidence: time policy (four directions), LMR safeguards,
+static king pressure. Remaining lanes: conversion/endgame knowledge (16
+flips; historically costly), structural speed (python-chess boundary).
+C5 / RC-D remains the development champion; its 2400 qualification on
+`holdout2400_a` is running.
+
 ## 16. Integration Queue
 
 Nothing enters here without evidence.
@@ -576,7 +597,9 @@ Nothing enters here without evidence.
 
 | C4 instability time extension | Kushagra / Fable | `db0fb1c` (branch `kushagra/c4-instability-extension`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | trigger not selective; +35–44% time |
 | C5 reverse futility pruning | Kushagra / Fable | `f6c0d30` (branch `kushagra/c5-rfp`, snapshot `champions/c5_rfp`, archive RC-D `claudeshark_rc_d.zip` sha256 `3dab7d89…51e7`) | Gate 0 PASS; Gate 1 suite PASS (targets by one, deviation recorded); Gate 2A external 58.3%/60, internal 52.5%/140; 2300 qualification 61.0%/100 (bootstrap 53–69%) | see left | **READY FOR INTEGRATION TEST / UPLOAD DECISION** — development champion; RC-D carded, not submitted | non-negative internally, positive externally on fresh holdout with a lower bound above 50% |
-| C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (branch `kushagra/c6-king-pressure`, on top of C5) | Gate 0: off-switch = C5, on −0.7% nodes / 0 root moves changed, term tests pass; Gate 1 pending | — | NOT YET | activation 40% of optimistic errors vs 9% of ordinary positions (2% against the mover) |
+| C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (`kushagra/c6-king-pressure`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | 5 of 50 target repairs, root-score change median 0, equal-time −2.2 cp |
+| C7 LMR verification margin | Kushagra / Fable | `8c18190` (`kushagra/c7-lmr-safeguard`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | net +1 of 74 at the game clock for −0.5 ply; LMR start index / no-escape also closed |
+| C8 proportional capped timing | Kushagra / Fable | `61afb13` (`kushagra/c8-proportional-time`, `champions/c8_prop`) | Gate 0 PASS; Gate 2A internal 49.2%, paired accuracy identical; external 51.7% (C5 55.5%) | see left | NO — NOT PROMOTED | neutral everywhere; clock floor 4.8 s |
 
 Anything new must beat `champions/rc_c` (or its legitimate successor).
 

@@ -1,0 +1,112 @@
+move history -> corpus\strength\c5\c5_vs_sf2400_holdout2400_a_100_strict.pgn (derived from --jsonl; pass --pgn to place it elsewhere, --no-pgn to discard it)
+champions\c5_rfp vs uci:stockfish-windows-x86-64-avx2.exe@elo2400: 100 games at 120s+0.5s, ply cap 300, 6 concurrent, corpus strength_holdout2400_a-2026-09-06 (1f6f5e78e9871a26, 50 positions)
+[   1/100] + checkmate            +1 =0 -0
+[   2/100] + checkmate            +2 =0 -0
+[   3/100] = threefold_repetition +2 =1 -0
+[   4/100] + checkmate            +3 =1 -0
+[   5/100] = threefold_repetition +3 =2 -0
+[   6/100] = threefold_repetition +3 =3 -0
+[   7/100] - checkmate            +3 =3 -1
+[   8/100] + checkmate            +4 =3 -1
+[   9/100] + checkmate            +5 =3 -1
+[  10/100] + checkmate            +6 =3 -1
+[  11/100] + checkmate            +7 =3 -1
+[  12/100] + checkmate            +8 =3 -1
+[  13/100] + checkmate            +9 =3 -1
+[  14/100] = threefold_repetition +9 =4 -1
+[  15/100] + checkmate            +10 =4 -1
+[  16/100] - checkmate            +10 =4 -2
+[  17/100] + checkmate            +11 =4 -2
+[  18/100] - checkmate            +11 =4 -3
+[  19/100] = threefold_repetition +11 =5 -3
+[  20/100] = threefold_repetition +11 =6 -3
+[  21/100] + checkmate            +12 =6 -3
+[  22/100] = threefold_repetition +12 =7 -3
+[  23/100] - checkmate            +12 =7 -4
+[  24/100] + checkmate            +13 =7 -4
+[  25/100] + checkmate            +14 =7 -4
+[  26/100] = threefold_repetition +14 =8 -4
+[  27/100] + checkmate            +15 =8 -4
+[  28/100] + checkmate            +16 =8 -4
+[  29/100] + checkmate            +17 =8 -4
+[  30/100] + checkmate            +18 =8 -4
+[  31/100] = threefold_repetition +18 =9 -4
+[  32/100] - checkmate            +18 =9 -5
+[  33/100] + checkmate            +19 =9 -5
+[  34/100] = threefold_repetition +19 =10 -5
+[  35/100] - checkmate            +19 =10 -6
+[  36/100] + checkmate            +20 =10 -6
+[  37/100] = fifty_moves          +20 =11 -6
+[  38/100] = threefold_repetition +20 =12 -6
+[  39/100] + checkmate            +21 =12 -6
+[  40/100] - checkmate            +21 =12 -7
+[  41/100] = threefold_repetition +21 =13 -7
+[  42/100] - checkmate            +21 =13 -8
+[  43/100] = threefold_repetition +21 =14 -8
+[  44/100] = threefold_repetition +21 =15 -8
+[  45/100] + checkmate            +22 =15 -8
+[  46/100] = fifty_moves          +22 =16 -8
+[  47/100] + checkmate            +23 =16 -8
+[  48/100] = insufficient_material +23 =17 -8
+[  49/100] + checkmate            +24 =17 -8
+[  50/100] = threefold_repetition +24 =18 -8
+[  51/100] + checkmate            +25 =18 -8
+[  52/100] = threefold_repetition +25 =19 -8
+[  53/100] = threefold_repetition +25 =20 -8
+[  54/100] = fifty_moves          +25 =21 -8
+[  55/100] - checkmate            +25 =21 -9
+[  56/100] = fifty_moves          +25 =22 -9
+[  57/100] = threefold_repetition +25 =23 -9
+[  58/100] = threefold_repetition +25 =24 -9
+[  59/100] - checkmate            +25 =24 -10
+[  60/100] - checkmate            +25 =24 -11
+[  61/100] = threefold_repetition +25 =25 -11
+[  62/100] - checkmate            +25 =25 -12
+[  63/100] + adjudication         +26 =25 -12
+[  64/100] = insufficient_material +26 =26 -12
+[  65/100] - checkmate            +26 =26 -13
+[  66/100] + checkmate            +27 =26 -13
+[  67/100] - checkmate            +27 =26 -14
+[  68/100] - checkmate            +27 =26 -15
+[  69/100] - checkmate            +27 =26 -16
+[  70/100] = threefold_repetition +27 =27 -16
+[  71/100] + checkmate            +28 =27 -16
+[  72/100] + checkmate            +29 =27 -16
+[  73/100] + checkmate            +30 =27 -16
+[  74/100] + checkmate            +31 =27 -16
+[  75/100] + checkmate            +32 =27 -16
+[  76/100] - checkmate            +32 =27 -17
+[  77/100] - checkmate            +32 =27 -18
+[  78/100] = threefold_repetition +32 =28 -18
+[  79/100] = threefold_repetition +32 =29 -18
+[  80/100] = adjudication         +32 =30 -18
+[  81/100] - checkmate            +32 =30 -19
+[  82/100] - checkmate            +32 =30 -20
+[  83/100] - checkmate            +32 =30 -21
+[  84/100] + checkmate            +33 =30 -21
+[  85/100] = fifty_moves          +33 =31 -21
+[  86/100] + checkmate            +34 =31 -21
+[  87/100] + checkmate            +35 =31 -21
+[  88/100] - checkmate            +35 =31 -22
+[  89/100] + checkmate            +36 =31 -22
+[  90/100] = threefold_repetition +36 =32 -22
+[  91/100] + checkmate            +37 =32 -22
+[  92/100] = threefold_repetition +37 =33 -22
+[  93/100] = threefold_repetition +37 =34 -22
+[  94/100] = fifty_moves          +37 =35 -22
+[  95/100] - checkmate            +37 =35 -23
+[  96/100] = threefold_repetition +37 =36 -23
+[  97/100] - checkmate            +37 =36 -24
+[  98/100] - checkmate            +37 =36 -25
+[  99/100] = threefold_repetition +37 =37 -25
+[ 100/100] = threefold_repetition +37 =38 -25
+
+champions\c5_rfp vs uci:stockfish-windows-x86-64-avx2.exe@elo2400 over 100 games
++37 =38 -25, score 56.0%
+elo +42
+  Wilson score 95% CI        -26 .. +110
+  paired bootstrap 95% CI    -10 .. +96   (50 position clusters)
+terminations: adjudication 2, checkmate 61, fifty_moves 6, insufficient_material 2, threefold_repetition 29
+per-game records written to corpus\strength\c5\c5_vs_sf2400_holdout2400_a_100_strict.jsonl
+pgn written to corpus\strength\c5\c5_vs_sf2400_holdout2400_a_100_strict.pgn
+ARENA EXIT=0 at 16:33:00

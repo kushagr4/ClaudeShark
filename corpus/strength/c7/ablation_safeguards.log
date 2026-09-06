@@ -1,0 +1,14 @@
+launch 12:58:08
+  labelled 50/280
+  labelled 100/280
+  labelled 150/280
+  labelled 200/280
+  labelled 250/280
+114 positions at depth 8; base >= 100 cp on 74
+  base       >= 100 cp:  74  repaired   0  broken   0  nodes 22,038,577 (+0%)
+  verify30   >= 100 cp:  63  repaired  19  broken   8  nodes 44,186,061 (+100%)
+  verify60   >= 100 cp:  62  repaired  19  broken   7  nodes 51,410,284 (+133%)
+  verify100  >= 100 cp:  61  repaired  20  broken   7  nodes 59,451,920 (+170%)
+  noescape   >= 100 cp:  67  repaired  10  broken   3  nodes 30,260,563 (+37%)
+  v60_noesc  >= 100 cp:  62  repaired  19  broken   7  nodes 58,350,714 (+165%)
+ABLATE EXIT=0 at 13:13:07
