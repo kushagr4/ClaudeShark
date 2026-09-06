@@ -195,23 +195,22 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 GATE 2A INTERNAL, second set: `champions/c5_rfp` vs `champions/rc_c`, 80 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/val.jsonl` (decision on 140 games / 70 families combined with the dev-set 60) |
+| TASK | C5 2300 QUALIFICATION: `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2300, 100 games, 120 s + 0.5 s, strict, 6 workers, **`corpus/strength/holdout_b.jsonl`** (fresh, never used) |
 | OWNER | Fable (PC) |
-| PID | 21556 (uv) → 19976 (arena) + 12 engine runners |
-| START | 2026-09-06 05:35 UK |
-| LAST HEALTH CHECK | 05:36 (launch verified: 26 python processes, header written) |
-| NEXT HEALTH CHECK DUE | 05:46 |
-| OUTPUT | `corpus/strength/c5/c5_vs_rcc_val_80_strict.jsonl` (+ `.pgn`, `.log`) |
-| PROGRESS | 0/80 |
-| EXPECTED FINISH | ~06:35 UK |
-| MAX RUNTIME | 100 min (hard stop 07:15) |
-| STOP CONDITION | any crash/illegal/flag on either side → investigate; output not advancing 15 min → stalled procedure; runs to 80 |
+| PID | 22848 (uv) → 11344 (arena) + 6 runners + 6 Stockfish |
+| START | 2026-09-06 07:18 UK |
+| LAST HEALTH CHECK | 07:19 (launch verified: header written, 6 Stockfish alive) |
+| NEXT HEALTH CHECK DUE | 07:29 |
+| OUTPUT | `corpus/strength/c5/c5_vs_sf2300_holdout_b_100_strict.jsonl` (+ `.pgn`, `.log`) |
+| PROGRESS | 0/100 |
+| EXPECTED FINISH | ~08:30 UK |
+| MAX RUNTIME | 120 min (hard stop 09:20) |
+| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 100 (qualification) |
 | STATUS | HEALTHY — CONTINUE |
 
-Completed and swept (0/0/0 after each): C5 external screen (PID 21980,
-04:51, 58.3%); C5 internal screen on dev (PID 15968, 05:34, 49.2%).
-Health checks 04:16, 04:24, 04:33, 04:43, 04:51, 05:00, 05:08, 05:17,
-05:27, 05:34 — all HEALTHY.
+Completed and swept (0/0/0 after each): C5 internal screens (dev 60 at
+05:34, val 80 at 06:34), C5 60-game audit (06:55), RC-C strict-baseline
+audit (07:16). Health checks every ≤ 10 min throughout — all HEALTHY.
 
 Completed and swept: C5 Gate 1 replays + equal-time suites (PIDs 20988,
 16308; exits 0 at 03:57 and 04:07; 0 processes after each).
