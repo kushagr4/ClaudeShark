@@ -7,9 +7,9 @@ branch. The central principle: **parallelise discovery, serialise promotion.**
 
 ## 1. Spec Revision
 
-SPEC_REVISION: 9
+SPEC_REVISION: 10
 
-LAST_UPDATED: 2026-09-06 15:30 UK (Windows PC) — accuracy standard V1; C6/C7/C8 closed; 2400 qualification running
+LAST_UPDATED: 2026-09-06 18:58 UK (Windows PC) — TOP-3 sprint mode; C9 Numba core promoted to development champion (+545 Elo vs C5); RC-E archive ready for the user's upload decision
 
 CANONICAL_BRANCH: rc-c-integration
 
@@ -25,12 +25,23 @@ CURRENT_SUBMITTED: RC-C
 
 CURRENT_CHAMPION: RC-C (the submitted build; every upload decision is measured against it)
 
-DEVELOPMENT_CHAMPION: C5 = RC-C + reverse futility pruning (`champions/c5_rfp`,
-branch `kushagra/c5-rfp`, promoted 2026-09-06 06:36 UK on non-negative
-evidence — `benchmarks/current/2026-09-06-c5-rfp-prereg.md`; not
-release-checked, not submitted). New search/eval candidates in the strength
-programme are measured against `champions/c5_rfp`; the friend's lane keeps
-`champions/rc_c` as its baseline until the coordinator says otherwise.
+DEVELOPMENT_CHAMPION: **C9 = C5's algorithm executed by a Numba-compiled core**
+(`champions/c9_numba`, branch `kushagra/c9-numba-core`, engine commit
+`8131214`; promoted 2026-09-06 18:50 UK on +55 =5 −0, 95.8%, +545 Elo over 60
+games vs `champions/c5_rfp` at 120 s + 0.5 s, strict, 30/30 informative
+families, paired bootstrap +436..+800, 0 failures —
+`benchmarks/current/2026-09-06-c9-numba-core-prereg.md`). Release-checked
+16/16 as **RC-E** (`corpus/release/claudeshark_rc_e.zip`, sha256
+`fb8f860944751e3b86afae1a11660b5903799041fee99605733c397d16ac58aa`, 64,789
+bytes, 16 files) — **NOT SUBMITTED; the user decides**
+(`benchmarks/current/RC_E_UPLOAD_CARD.md`). Every new candidate starts from
+`champions/c9_numba` and is measured against it. Previous development champion
+C5 / RC-D (`champions/c5_rfp`, never submitted) is superseded.
+
+SPRINT MODE (user brief 2026-09-06 17:35 UK): four days to a TOP-3 bot; one
+champion, one active candidate per machine, ≤ 15 min diagnostics, ≤ 30 min
+implementation, 40–60-game first screens (continue at ≥ 55%), promote or
+reject, change lane after two hours without progress.
 
 | field | value |
 |---|---|
@@ -599,15 +610,17 @@ Nothing enters here without evidence.
 | C5 reverse futility pruning | Kushagra / Fable | `f6c0d30` (branch `kushagra/c5-rfp`, snapshot `champions/c5_rfp`, archive RC-D `claudeshark_rc_d.zip` sha256 `3dab7d89…51e7`) | Gate 0 PASS; Gate 1 suite PASS (targets by one, deviation recorded); Gate 2A external 58.3%/60, internal 52.5%/140; 2300 qualification 61.0%/100 (bootstrap 53–69%) | see left | **READY FOR INTEGRATION TEST / UPLOAD DECISION** — development champion; RC-D carded, not submitted | non-negative internally, positive externally on fresh holdout with a lower bound above 50% |
 | C6 selective king-pressure term | Kushagra / Fable | `cb34d9c` (`kushagra/c6-king-pressure`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | 5 of 50 target repairs, root-score change median 0, equal-time −2.2 cp |
 | C7 LMR verification margin | Kushagra / Fable | `8c18190` (`kushagra/c7-lmr-safeguard`) | Gate 0 PASS, Gate 1 FAIL | — | NO — REJECTED | net +1 of 74 at the game clock for −0.5 ply; LMR start index / no-escape also closed |
+| **C9 Numba search core** | Kushagra / Fable | `8131214` (`kushagra/c9-numba-core`, `champions/c9_numba`, archive RC-E `claudeshark_rc_e.zip` sha256 `fb8f8609…58aa`) | Gate 0 PASS (perft/eval/SEE exact, fingerprint 1,391,318, tactics 16/16, ladder PASS, release 16/16); Gate 2A internal **95.8% over 60 vs C5, +545 Elo** | 26× nps, +5.2 plies at 2 s | **YES — PROMOTED (development champion); RC-E awaits the user's upload decision** | the largest strength gain in the project's history; compile 27 s inside the 90 s init budget |
 | C8 proportional capped timing | Kushagra / Fable | `61afb13` (`kushagra/c8-proportional-time`, `champions/c8_prop`) | Gate 0 PASS; Gate 2A internal 49.2%, paired accuracy identical; external 51.7% (C5 55.5%) | see left | NO — NOT PROMOTED | neutral everywhere; clock floor 4.8 s |
 
-Anything new must beat `champions/rc_c` (or its legitimate successor).
+Anything new must beat `champions/c9_numba` (the development champion); an upload decision is measured against the submitted RC-C.
 
 ## 17. Active Jobs
 
-NONE (17:32 UK sweep: 0 python, 0 Stockfish, 0 sidecars). The C5 2400
-confirmation was stopped by the user at 61/100 (49.2%) and is recorded as
-PARTIAL-NON-DECISIVE in `benchmarks/current/STRENGTH_LADDER.md`.
+One (18:53 UK): C9 external calibration, `champions/c9_numba` vs Stockfish
+18 UCI_Elo 2800 strict, 60 games, dev2400 set, 6 workers; output
+`corpus/strength/c9/c9_vs_sf2800_dev2400_60_strict.jsonl`; expected finish
+~20:00; ten-minute health checks; register in `V2_ACTIVE_STATE.md` §8.
 
 (Any listed job needs: agent, PID, task, output, start, expected finish,
 kill condition. Remove it immediately after completion.)

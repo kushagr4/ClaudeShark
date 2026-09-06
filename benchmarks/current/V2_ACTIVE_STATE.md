@@ -45,6 +45,7 @@ source of truth.
 | identity | exact value |
 |---|---|
 | **CURRENT SUBMITTED BUILD** | **RC-C** — upload **confirmed by the user 2026-09-05 23:14 UK** (confirmation-message time; no separate upload minute was given, so 23:14 is the activation boundary): `corpus/release/claudeshark_rc_c.zip`, sha256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`, 50,258 bytes, 14 files, engine files at `f2543bd` = `champions/rc_c` = `champions/rcc_speed`. **CURRENT CHAMPION: RC-C**; every new candidate must beat `champions/rc_c`. **RC-B** (`f7b94b65…c9c1a`, commit `3d918a5`, `champions/rc_b`, uploaded 12:01 UK, rated rounds 20–30) is the frozen fallback/control; RC-A (`3a89bf3e…ff9b`, commit `98c48c8`, rounds 16–19) the second fallback. Every rated game clearly starting after 23:14 UK is RC-C until the user confirms another upload; an ambiguous boundary game is labelled UNCERTAIN. Development paused for the user's Daily Five (no arena, Stockfish, analysis or background CPU work until the user resumes). |
+| **DEVELOPMENT CHAMPION (18:50 UK)** | **C9 = C5's search executed by a Numba-compiled core** (`cs_core.py` + `cs_fast.py`; `champions/c9_numba`, branch `kushagra/c9-numba-core`, engine commit `8131214`). 60 games vs `champions/c5_rfp` at 120 s + 0.5 s strict: **+55 =5 −0, 95.8%, +545 Elo**, 30/30 informative, paired bootstrap +436..+800, LOO +538..+579, White 96.7% / Black 95.0%, clock floor 9.8 s, largest think 13.5 s, 0 failures. 2,332 knps vs 89.7 knps (26×), depth 11.6 vs 6.4 at 2 s, tactics 16/16. **RC-E** built from the committed blobs: `corpus/release/claudeshark_rc_e.zip`, sha256 `fb8f860944751e3b86afae1a11660b5903799041fee99605733c397d16ac58aa`, 64,789 bytes, 16 files, release check 16/16, fresh-extraction smoke under Python 3.12.13 / numba 0.67.0 10/10 legal, import + compile 27 s (`corpus/release/rc_e_smoke_py312.json`). **NOT SUBMITTED — the user's decision** (`RC_E_UPLOAD_CARD.md`). C5 / RC-D superseded, never submitted. |
 | submitted archive | `corpus/release/claudeshark_rated_v1_rc_a.zip` (39,125 bytes; 106,863 unzipped; 11 files) |
 | submitted SHA-256 | `3a89bf3e2fbfab0b7e07baf2fff7e0edf2288fc2a4d372e8eda823db1767ff9b` |
 | underlying commit | `98c48c89b3a8142e6567e5f46b2d2036df7297d1` (tag `rated-v1`, also `main`) |
@@ -195,17 +196,20 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C9 FIRST STRENGTH SCREEN: `champions/c9_numba` (Numba core) vs `champions/c5_rfp`, 60 games, 120 s + 0.5 s, strict, dev set, 6 workers; continue bar ≥ 55% |
+| TASK | C9 EXTERNAL CALIBRATION: `champions/c9_numba` vs Stockfish 18 UCI_Elo 2800 (Hash 16, Threads 1), 60 games, 120 s + 0.5 s, strict, dev2400 set, 6 workers; a progress marker for the benchmark ladder, not a promotion test |
 | OWNER | Fable (PC) |
-| PID | uv → arena + 6 runners + 12 agent processes (compile burst at each game start) |
-| START | 2026-09-06 18:58 UK |
-| LAST HEALTH CHECK | 18:58 (launch) |
-| NEXT HEALTH CHECK DUE | 19:08 |
-| OUTPUT | `corpus/strength/c9/c9_vs_c5_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
-| EXPECTED FINISH | ~19:50 UK |
-| MAX RUNTIME | 90 min (hard stop 20:30) |
+| PID | uv → arena + 6 runners + agents + Stockfish (see process list) |
+| START | 2026-09-06 18:53 UK |
+| LAST HEALTH CHECK | 18:54 (launch verified: 14 python, 3 Stockfish) |
+| NEXT HEALTH CHECK DUE | 19:04 |
+| OUTPUT | `corpus/strength/c9/c9_vs_sf2800_dev2400_60_strict.jsonl` (+ `.pgn`, `.log`) |
+| EXPECTED FINISH | ~20:00 UK |
+| MAX RUNTIME | 100 min (hard stop 20:35) |
 | STOP CONDITION | log not advancing 10 min with live processes → stalled procedure; any crash/illegal/init failure → investigate |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed 18:44:33: C9 first strength screen, 60 games vs `champions/c5_rfp`,
++55 =5 −0 (95.8%), 0 failures; sweep after exit: 0 python, 0 Stockfish.
 
 Stopped 17:30 UK (killed by the user, not by the agent): the C5 2400
 confirmation on `holdout2400_b` at **61/100 games, +21 =18 -22, 49.2%** —
