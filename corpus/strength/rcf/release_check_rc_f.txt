@@ -1,0 +1,19 @@
+PASS  agent.py at zip root                         the platform imports agent by name from the root
+PASS  engine modules packaged                      15 cs_* modules
+PASS  expanded size within limit                   195,818 bytes of 50,000,000
+PASS  no unexpectedly large files                  none
+PASS  no native binaries in zip                    source only
+PASS  imports resolve on the platform              stdlib + preinstalled
+PASS  no requirements.txt giving false confidence  none shipped
+PASS  no development-only imports                  clean
+PASS  no network imports                           clean
+PASS  no machine-specific absolute paths           clean
+PASS  no filesystem writes                         clean
+PASS  extracted zip imports and runs               60 probes
+PASS  legal move on every probe                    all legal
+PASS  stays inside every clock                     all within budget
+PASS  smoke game from extracted zip                white by checkmate
+PASS  test suite                                   1372 passed in 179.29s (0:02:59)
+
+submission.zip would be 64,984 bytes compressed
+READY TO UPLOAD
