@@ -240,3 +240,69 @@ def test_time_abort_returns_promptly(searcher):
     elapsed = perf_counter() - started
     assert move is not None
     assert elapsed < 0.6
+
+
+# Stalemates whose only pseudo-legal captures are illegal. The compiled
+# quiescence generates pseudo-legal captures and used to fall through to the
+# stand-pat score when every one of them was rejected after make, scoring the
+# stalemated side as simply behind on material (reproduction in
+# tools/review_c9_repro.py).
+STALEMATES_WITH_ILLEGAL_CAPTURE = (
+    "6Bk/5K2/8/8/8/8/8/R7 b - - 0 1",
+    "k7/P7/K7/8/8/8/8/8 b - - 0 1",
+    "8/8/8/8/8/5k2/5p2/5K2 w - - 0 1",
+)
+
+
+def _prepare(searcher, board):
+    searcher.new_game()
+    searcher.CTL[:] = 0
+    searcher.PATH[:] = 0
+    searcher.TCTL[0] = 1e18
+    core.load_board(board, searcher.B, searcher.O, searcher.M, searcher.S)
+    s = searcher
+    return (s.B, s.O, s.M, s.S, s.U, s.MLS, s.MSS, s.PATH, s.GK, s.TK, s.TV, s.KILL,
+            s.HIST, s.CTL, s.TCTL, s.GAINS)
+
+
+@pytest.mark.parametrize("fen", STALEMATES_WITH_ILLEGAL_CAPTURE)
+def test_quiescence_scores_stalemate_as_draw_when_captures_are_illegal(searcher, fen):
+    board = chess.Board(fen)
+    assert board.is_valid() and board.is_stalemate(), fen
+    args = _prepare(searcher, board)
+    tactical = core.gen_moves(searcher.B, searcher.O, searcher.M, searcher.S,
+                              searcher.MLS[0], True)
+    assert tactical >= 1, "fixture should offer a pseudo-legal capture"
+    assert core.quiescence(*args, -core.INFINITY, core.INFINITY, 0, 0) == core.DRAW_SCORE
+    args = _prepare(searcher, board)
+    assert core.negamax(*args, 1, -core.INFINITY, core.INFINITY, 0, False) == core.DRAW_SCORE
+
+
+def test_search_does_not_count_a_stalemating_move_as_a_win(searcher):
+    # Kb6-a6 stalemates; every white move draws, so the root score must be 0
+    # rather than the +800 a mis-scored stalemate produced.
+    move, info = _search(searcher, "k7/P7/1K6/8/8/8/8/8 w - - 0 1", 4)
+    assert info.score == core.DRAW_SCORE
+
+
+def test_quiescence_values_track_the_interpreted_reference():
+    from cs_search import PySearcher
+
+    rng = random.Random(29)
+    fast = cs_fast.Searcher()
+    reference = PySearcher(tt_bits=12)
+    reference.time.begin_fixed(3_600_000.0)
+    agreed = checked = 0
+    for _ in range(200):
+        board = _random_board(rng, rng.randint(0, 120))
+        if board.is_game_over() or board.is_check():
+            continue
+        args = _prepare(fast, board)
+        got = core.quiescence(*args, -core.INFINITY, core.INFINITY, 0, 0)
+        want = reference._quiescence(board, -core.INFINITY, core.INFINITY, 0, 0)
+        checked += 1
+        agreed += got == want
+        # Never a draw on one side and a decisive material verdict on the other.
+        assert (got == 0) == (want == 0) or abs(got - want) < 150, (board.fen(), got, want)
+    assert checked >= 120
+    assert agreed >= 0.9 * checked, (agreed, checked)
