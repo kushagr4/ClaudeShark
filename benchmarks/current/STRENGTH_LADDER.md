@@ -3,8 +3,8 @@
 Updated 2026-09-06 07:20 UK. Source of truth for the external-strength
 programme; the champion and submission identity stay in `spec.md` §2.
 
-CURRENT SUBMITTED / CONTROL: RC-C (`champions/rc_c`, archive `corpus/release/claudeshark_rc_c.zip`,
-sha256 `1389813694461865c8b0d505046f745179f099682a86de96bc5be57a66060dd7`; submitted 23:14 UK)
+CURRENT SUBMITTED / CONTROL: RC-F (`champions/rc_f`, archive `corpus/release/claudeshark_rc_f.zip`,
+sha256 `4ee4033e509bf8709d7d1090037d0aeb6b146da375c88f9986cb1a67789df13d`; submitted 2026-09-06 21:07 UK; previously RC-C from 2026-09-05 23:14 UK)
 
 CURRENT DEVELOPMENT CHAMPION (from 2026-09-06 20:00 UK): **RC-F = C9 (the C5
 search executed by a Numba-compiled core) + the quiescence stalemate fix**
@@ -12,8 +12,7 @@ search executed by a Numba-compiled core) + the quiescence stalemate fix**
 `b7f42cf`). C9 was promoted 18:50 on +55 =5 −0 (95.8%, +545 Elo) over 60
 games vs `champions/c5_rfp`; the fix corrects a stalemate mis-score found at
 the release boundary (`2026-09-06-rc-f-boundary.md`). Release-checked as RC-F
-(`corpus/release/claudeshark_rc_f.zip`, sha256 `4ee4033e…f13d`), **not
-submitted** — `RC_F_UPLOAD_CARD.md`; RC-E is superseded. Later candidates are
+(`corpus/release/claudeshark_rc_f.zip`, sha256 `4ee4033e…f13d`), **submitted 21:07 UK** — `RC_F_UPLOAD_CARD.md`; RC-E is superseded. Later candidates are
 measured against RC-F. Previous: C9 (18:50–20:00), C5 (06:36–18:50).
 
 CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300.md`)
