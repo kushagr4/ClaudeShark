@@ -15,14 +15,6 @@ the release boundary (`2026-09-06-rc-f-boundary.md`). Release-checked as RC-F
 (`corpus/release/claudeshark_rc_f.zip`, sha256 `4ee4033e…f13d`), **submitted 21:07 UK** — `RC_F_UPLOAD_CARD.md`; RC-E is superseded. Later candidates are
 measured against RC-F. Previous: C9 (18:50–20:00), C5 (06:36–18:50).
 
-CURRENT DEVELOPMENT CHAMPION (from 2026-09-06 18:50 UK): **C9 = the C5 search
-executed by a Numba-compiled core** (`champions/c9_numba`, branch
-`kushagra/c9-numba-core`, engine commit `8131214`). Promoted on +55 =5 −0
-(95.8%, +545 Elo) over 60 games vs `champions/c5_rfp`; release-checked as
-RC-E (`corpus/release/claudeshark_rc_e.zip`, sha256 `fb8f8609…58aa`), **not
-submitted** — `RC_E_UPLOAD_CARD.md`. Later candidates are measured against C9.
-Previous: C5 (`champions/c5_rfp`, 06:36–18:50 UK, RC-D never submitted).
-
 CURRENT EXTERNAL TARGET: ~2300 BENCHMARK-A (definition: `STRENGTH_BENCHMARK_2300.md`)
 
 | item | value |
