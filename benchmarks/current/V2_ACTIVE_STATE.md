@@ -195,18 +195,23 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C4 GATE 1: `tools.strength.replay_compare` — 57 target errors then 120 matched negatives, `champions/rc_c` vs the C4 working tree (`kushagra/c4-instability-extension`), 60 s clock through the normal allocator, oracle-scored at 1M nodes |
+| TASK | 2300 QUALIFICATION: `champions/rc_c` vs Stockfish 18 UCI_Elo 2300, 100 games, 120 s + 0.5 s, strict draw claim, 6 workers, **`corpus/strength/holdout_a.jsonl`** (never used for design) |
 | OWNER | Fable (PC) |
-| PID | 1712 (uv) → 19344 (replay_compare) + up to 10 engine subprocesses, then Stockfish for scoring |
-| START | 2026-09-06 02:33 UK |
-| LAST HEALTH CHECK | 02:34 (launch verified: 12 python processes) |
-| NEXT HEALTH CHECK DUE | 02:44 |
-| OUTPUT | `corpus/strength/c4/gate1_targets.jsonl`, `gate1_negatives.jsonl`, log `gate1.log` |
-| PROGRESS | targets in progress |
-| EXPECTED FINISH | ~02:50 UK |
-| MAX RUNTIME | 30 min (hard stop 03:05) |
-| STOP CONDITION | log not advancing for 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
+| PID | 9472 (uv) → 17512 (arena) + 6 runner + 6 Stockfish children |
+| START | 2026-09-06 02:39 UK |
+| LAST HEALTH CHECK | 03:11 (45/100, +22 =4 −19, all processes alive, output advancing; checks at 02:44, 02:52, 02:59, 03:11) |
+| NEXT HEALTH CHECK DUE | 03:21 |
+| OUTPUT | `corpus/strength/games/rcc_vs_sf2300_holdout_a_100_strict.jsonl` (+ `.pgn`, `.log`) |
+| PROGRESS | 45/100 at 03:11 |
+| EXPECTED FINISH | ~03:55 UK |
+| MAX RUNTIME | 120 min (hard stop 04:40) |
+| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 100 (qualification) |
 | STATUS | HEALTHY — CONTINUE |
+
+Only deterministic fixed-depth measurements (node counts) and the test
+suite were run beside this arena; every timing-sensitive Gate 1 waits for
+the quiet machine. Completed and swept earlier: C4 Gate 1 (PID 19344,
+02:34, exit 0; rejected), strict baseline (PID 24048, 02:25).
 
 Completed 02:25:46: RC-C_2300_BASELINE_STRICT (PID 24048) exited 0 with 100
 games; post-exit sweep 0 python / 0 Stockfish / 0 sidecars; +44 =24 −32,
