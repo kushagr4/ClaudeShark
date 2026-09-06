@@ -195,18 +195,21 @@ control, never by a poller):
 
 | field | value |
 |---|---|
-| TASK | C5 GATE 1: `replay_compare` (57 targets, 120 negatives, 60 s clock, `champions/rc_c` vs the C5 tree) then `tools.corpus.analyse` on the 240-position `competition_like_v1` suite at 3,000 ms for RC-C and for C5 (oracle 1M nodes) |
+| TASK | C5 GATE 2A EXTERNAL: `champions/c5_rfp` vs Stockfish 18 UCI_Elo 2300, 60 games, 120 s + 0.5 s, strict, 6 workers, `corpus/strength/dev.jsonl` (compare with the RC-C strict baseline 56.0%) |
 | OWNER | Fable (PC) |
-| PID | 9996 (uv) → 20988 (replay_compare; later analyse) + engine subprocesses / Stockfish |
-| START | 2026-09-06 03:47 UK |
-| LAST HEALTH CHECK | 03:48 (launch verified: 12 python processes) |
-| NEXT HEALTH CHECK DUE | 03:58 |
-| OUTPUT | `corpus/strength/c5/gate1_targets.jsonl`, `gate1_negatives.jsonl`, `cl240_rcc_3000ms.jsonl`, `cl240_c5_3000ms.jsonl`, log `gate1.log` |
-| PROGRESS | targets in progress |
-| EXPECTED FINISH | ~04:10 UK |
-| MAX RUNTIME | 40 min (hard stop 04:30) |
-| STOP CONDITION | log not advancing for 10 min with live processes → stalled procedure; exit ≠ 0 → investigate |
+| PID | see `.log`/process list at the next check (arena + 6 runners + 6 Stockfish) |
+| START | 2026-09-06 04:10 UK |
+| LAST HEALTH CHECK | 04:10 (launch) |
+| NEXT HEALTH CHECK DUE | 04:20 |
+| OUTPUT | `corpus/strength/c5/c5_vs_sf2300_dev_60_strict.jsonl` (+ `.pgn`, `.log`) |
+| PROGRESS | 0/60 |
+| EXPECTED FINISH | ~04:55 UK |
+| MAX RUNTIME | 80 min (hard stop 05:30) |
+| STOP CONDITION | any crash/illegal/flag on our side → investigate; output not advancing 15 min → stalled procedure; runs to 60 |
 | STATUS | HEALTHY — CONTINUE |
+
+Completed and swept: C5 Gate 1 replays + equal-time suites (PIDs 20988,
+16308; exits 0 at 03:57 and 04:07; 0 processes after each).
 
 Completed 03:46:34: 2300 QUALIFICATION (PID 17512) exited 0 with 100 games;
 post-exit sweep 0 python / 0 Stockfish / 0 sidecars; +50 =11 −39, 55.5%,
