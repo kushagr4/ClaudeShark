@@ -52,3 +52,16 @@ brackets): 100–121 s **4.04** (4.15) vs C5 3.02; 60–100 s 2.81 vs 2.24;
 designed to do: it moves time to the full-clock phase and converges to C5's
 curve below 30 s. Strength: flat within noise (bar: not below 48% ✓).
 Accuracy on both sides (the paired control) decides; annotation running.
+
+### Paired accuracy on the internal screen (both sides scored, `…accuracy_c8.jsonl` / `…accuracy_c5.jsonl`)
+
+| side | mean | median | min | p10 | < 98 | ACPL_V1 | >= 50 cp | >= 100 cp | >= 300 cp | flips |
+|---|---|---|---|---|---|---|---|---|---|---|
+| C8 (proportional time) | 92.86 | 93.00 | 83.92 | 89.43 | 60/60 | 36.6 | 15.61% | 8.29% | 1.38% | 124 |
+| C5 (control, same games) | 92.86 | 93.19 | 81.96 | 89.51 | 60/60 | 36.2 | 16.52% | 8.60% | 1.26% | 130 |
+
+No bar tripped (games below 98: equal), and nothing improved beyond noise:
+spending the unused third of the clock where the clock is full did not
+reduce the large-error rate. The external screen (pre-registered) runs for
+completeness; promotion would need it to show a lower >= 100 cp rate *and*
+a better score than C5's 55.5% on the same set, not one of the two.
