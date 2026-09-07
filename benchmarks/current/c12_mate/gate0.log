@@ -1,0 +1,76 @@
+=== FULL SUITE 21:50:49 ===
+........................................................................ [ 96%]
+.................................................                        [100%]
+1417 passed in 194.81s (0:03:14)
+=== ROUND 54 + C11-RESIDUAL PLAYOUTS (fixed depth) 21:54:05 ===
+RC-F RESULT R54-m91 build=rc_f depth=8 MATE plies=15 term=CHECKMATE first_mate_claim=10 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+RC-F RESULT R54-m91 build=rc_f depth=10 FAIL plies=12 term=THREEFOLD_REPETITION first_mate_claim=None final=8/8/1K5k/2R5/8/8/8/8 w - - 12 97
+RC-F RESULT R54-m91 build=rc_f depth=12 FAIL plies=16 term=THREEFOLD_REPETITION first_mate_claim=8 final=8/5K2/7k/2R5/8/8/8/8 w - - 16 99
+RC-F RESULT R54-m91 build=rc_f depth=14 MATE plies=19 term=CHECKMATE first_mate_claim=6 final=8/5K1k/8/7R/8/8/8/8 b - - 19 100
+C12 RESULT R54-m91 build=c12 depth=8 MATE plies=15 term=CHECKMATE first_mate_claim=10 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+C12 RESULT R54-m91 build=c12 depth=10 FAIL plies=12 term=THREEFOLD_REPETITION first_mate_claim=None final=8/8/1K5k/2R5/8/8/8/8 w - - 12 97
+C12 RESULT R54-m91 build=c12 depth=12 MATE plies=15 term=CHECKMATE first_mate_claim=8 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+C12 RESULT R54-m91 build=c12 depth=14 MATE plies=15 term=CHECKMATE first_mate_claim=6 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+RC-F RESULT R54-m93 build=rc_f depth=8 MATE plies=11 term=CHECKMATE first_mate_claim=6 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+RC-F RESULT R54-m93 build=rc_f depth=10 FAIL plies=14 term=THREEFOLD_REPETITION first_mate_claim=6 final=4K3/7k/1R6/8/8/8/8/8 w - - 18 100
+RC-F RESULT R54-m93 build=rc_f depth=12 FAIL plies=12 term=THREEFOLD_REPETITION first_mate_claim=4 final=8/8/4K2k/R7/8/8/8/8 w - - 16 99
+RC-F RESULT R54-m93 build=rc_f depth=14 MATE plies=15 term=CHECKMATE first_mate_claim=2 final=8/5K1k/8/7R/8/8/8/8 b - - 19 100
+C12 RESULT R54-m93 build=c12 depth=8 MATE plies=11 term=CHECKMATE first_mate_claim=6 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+C12 RESULT R54-m93 build=c12 depth=10 MATE plies=13 term=CHECKMATE first_mate_claim=6 final=7k/5K2/7R/8/8/8/8/8 b - - 17 99
+C12 RESULT R54-m93 build=c12 depth=12 MATE plies=13 term=CHECKMATE first_mate_claim=4 final=7k/5K2/7R/8/8/8/8/8 b - - 17 99
+C12 RESULT R54-m93 build=c12 depth=14 MATE plies=11 term=CHECKMATE first_mate_claim=2 final=8/5K1k/8/7R/8/8/8/8 b - - 15 98
+RC-F RESULT KQK-2 build=rc_f depth=8 MATE plies=17 term=CHECKMATE first_mate_claim=10 final=2k5/2Q5/1K6/8/8/8/8/8 b - - 17 9
+RC-F RESULT KQK-2 build=rc_f depth=10 FAIL plies=16 term=THREEFOLD_REPETITION first_mate_claim=8 final=2k5/4Q3/8/8/3K4/8/8/8 w - - 16 9
+RC-F RESULT KQK-2 build=rc_f depth=12 FAIL plies=12 term=THREEFOLD_REPETITION first_mate_claim=4 final=2k5/8/3Q4/8/8/8/3K4/8 w - - 12 7
+RC-F RESULT KQK-2 build=rc_f depth=14 FAIL plies=18 term=THREEFOLD_REPETITION first_mate_claim=0 final=3Q4/k7/8/8/8/8/8/3K4 w - - 18 10
+C12 RESULT KQK-2 build=c12 depth=8 MATE plies=17 term=CHECKMATE first_mate_claim=10 final=2k5/2Q5/1K6/8/8/8/8/8 b - - 17 9
+C12 RESULT KQK-2 build=c12 depth=10 MATE plies=17 term=CHECKMATE first_mate_claim=8 final=2k5/2Q5/2K5/8/8/8/8/8 b - - 17 9
+C12 RESULT KQK-2 build=c12 depth=12 MATE plies=15 term=CHECKMATE first_mate_claim=6 final=1k6/1Q6/2K5/8/8/8/8/8 b - - 15 8
+C12 RESULT KQK-2 build=c12 depth=14 MATE plies=13 term=CHECKMATE first_mate_claim=0 final=8/8/8/kQ6/2K5/8/8/8 b - - 13 7
+RC-F RESULT KQK-3 build=rc_f depth=8 MATE plies=17 term=CHECKMATE first_mate_claim=10 final=7k/6Q1/5K2/8/8/8/8/8 b - - 17 9
+RC-F RESULT KQK-3 build=rc_f depth=10 MATE plies=15 term=CHECKMATE first_mate_claim=6 final=7k/6Q1/6K1/8/8/8/8/8 b - - 15 8
+RC-F RESULT KQK-3 build=rc_f depth=12 MATE plies=19 term=CHECKMATE first_mate_claim=4 final=5k2/5Q2/5K2/8/8/8/8/8 b - - 19 10
+RC-F RESULT KQK-3 build=rc_f depth=14 FAIL plies=10 term=THREEFOLD_REPETITION first_mate_claim=2 final=5k2/8/8/4Q3/8/7K/8/8 w - - 10 6
+C12 RESULT KQK-3 build=c12 depth=8 MATE plies=17 term=CHECKMATE first_mate_claim=10 final=7k/6Q1/5K2/8/8/8/8/8 b - - 17 9
+C12 RESULT KQK-3 build=c12 depth=10 MATE plies=15 term=CHECKMATE first_mate_claim=6 final=7k/6Q1/6K1/8/8/8/8/8 b - - 15 8
+C12 RESULT KQK-3 build=c12 depth=12 MATE plies=15 term=CHECKMATE first_mate_claim=4 final=5k2/5Q2/5K2/8/8/8/8/8 b - - 15 8
+C12 RESULT KQK-3 build=c12 depth=14 MATE plies=13 term=CHECKMATE first_mate_claim=2 final=6k1/6Q1/6K1/8/8/8/8/8 b - - 13 7
+=== OUTSIDE DOMAIN 240 @ depth 8 22:09:19 ===
+corpus positions            : 240 (fixed depth 8)
+positions where the gate fires (candidate): 0
+positions where the gate fires (RC-F, no term): 0
+ROOT MOVE CHANGES           : 0 / 240
+ROOT SCORE CHANGES          : 0 / 240
+NODE COUNT DIFFERENCES      : 0 / 240
+total nodes RC-F 51,854,481 vs C11 51,854,481 (+0.0000%)
+VERDICT: PASS
+=== TACTICS 22:11:02 ===
+
+engine: working tree   budget: 1000 ms
+solved 16/16   avg depth 12.69   nodes 9,594,795
+=== CLOCK LADDER 22:11:34 ===
+    2000      yes        21.4%       428          0
+    5000      yes         9.1%       456          0
+   10000      yes         5.6%       564          0
+   30000      yes         4.7%      1419          0
+   60000      yes         3.6%      2165          0
+  120000      yes         3.4%      4046          0
+
+PASS
+=== NPS + TT HIT RATE, alternating 22:12:44 ===
+--- run 1 RC-F ---
+  nodes/second    2,439,457
+  tt hit rate     18.5%
+--- run 1 C12  ---
+  nodes/second    2,402,539
+  tt hit rate     18.6%
+--- run 2 RC-F ---
+  nodes/second    2,363,783
+  tt hit rate     19.0%
+--- run 2 C12  ---
+  nodes/second    2,324,387
+  tt hit rate     18.7%
+=== FIXED-DEPTH FINGERPRINT 22:16:40 ===
+RC-F d8:   total nodes     4,852,987 (47% quiescence)
+C12  d8:   total nodes     4,852,987 (47% quiescence)
+=== DONE 22:17:40 ===
