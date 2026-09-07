@@ -178,7 +178,16 @@ class Searcher:
             info.depth = depth
 
             if abs(best_score) > core.MATE_BOUND:
-                break
+                # Stop only when this iteration could actually have proved the
+                # mate it is claiming. A mate score reaching the root from the
+                # table at a shallow depth is still used as the score and the
+                # move, but it does not end the search: those scores come from
+                # earlier, deeper searches of other roots, and trusting one at
+                # depth 1 lets the engine play a mate-in-13 while it already
+                # held a mate in 11, with no search able to notice the
+                # regression. Proving a mate in n plies needs n plies.
+                if core.MATE_SCORE - abs(best_score) <= depth:
+                    break
             if depth > 1 and (
                 best_move != previous_move or abs(best_score - previous_score) >= 50
             ):
