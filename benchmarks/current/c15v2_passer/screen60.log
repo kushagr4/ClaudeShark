@@ -1,0 +1,31 @@
+[  40/60] - checkmate            +13 =16 -11
+[  41/60] = insufficient_material +13 =17 -11
+[  42/60] = threefold_repetition +13 =18 -11
+[  43/60] - checkmate            +13 =18 -12
+[  44/60] = threefold_repetition +13 =19 -12
+[  45/60] = threefold_repetition +13 =20 -12
+[  46/60] + checkmate            +14 =20 -12
+[  47/60] + checkmate            +15 =20 -12
+[  48/60] = threefold_repetition +15 =21 -12
+[  49/60] = fifty_moves          +15 =22 -12
+[  50/60] - checkmate            +15 =22 -13
+[  51/60] - checkmate            +15 =22 -14
+[  52/60] + checkmate            +16 =22 -14
+[  53/60] + checkmate            +17 =22 -14
+[  54/60] = threefold_repetition +17 =23 -14
+[  55/60] - checkmate            +17 =23 -15
+[  56/60] - checkmate            +17 =23 -16
+[  57/60] = threefold_repetition +17 =24 -16
+[  58/60] = threefold_repetition +17 =25 -16
+[  59/60] + checkmate            +18 =25 -16
+[  60/60] + checkmate            +19 =25 -16
+
+. vs champions\rc_i over 60 games
++19 =25 -16, score 52.5%
+elo +17
+  Wilson score 95% CI        -70 .. +104
+  paired bootstrap 95% CI    -53 .. +89   (30 position clusters)
+terminations: adjudication 1, checkmate 35, fifty_moves 2, insufficient_material 5, threefold_repetition 17
+per-game records written to corpus\strength\c15v2\c15v2_vs_rci_dev_60_strict.jsonl
+pgn written to corpus\strength\c15v2\c15v2_vs_rci_dev_60_strict.pgn
+=== SCREEN DONE 22:04:39 ===
