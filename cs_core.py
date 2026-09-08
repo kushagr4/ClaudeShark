@@ -193,6 +193,26 @@ for _pt in range(1, 7):
         PSTV[_pt + 6, _sq] = -((MG_BLACK[_pt][_sq] << 16) + EG_BLACK[_pt][_sq])
 BISHOP_PAIR_PACKED = (BISHOP_PAIR_MG << 16) + BISHOP_PAIR_EG
 
+# Mop-up mating gradient, ported unchanged from cs_mopup.py. Two geometric
+# terms for bare-king endings: drive the defending king to an edge, and bring
+# the attacking king closer. Whole centipawns, added after the taper because
+# these positions are endgames by definition and the gradient must not be
+# diluted (cs_eval applies the same term at the same "post" stage).
+MOPUP_EDGE = 30
+MOPUP_PROXIMITY = 15
+MOPUP_EDGE_BONUS = np.zeros(64, dtype=np.int64)
+MOPUP_PROX_BONUS = np.zeros((64, 64), dtype=np.int64)
+for _sq in range(64):
+    _file = _sq & 7
+    _rank = _sq >> 3
+    MOPUP_EDGE_BONUS[_sq] = (3 - min(_file, 7 - _file, _rank, 7 - _rank)) * MOPUP_EDGE
+for _a in range(64):
+    for _b in range(64):
+        _cheb = max(abs((_a & 7) - (_b & 7)), abs((_a >> 3) - (_b >> 3)))
+        MOPUP_PROX_BONUS[_a, _b] = (7 - _cheb) * MOPUP_PROXIMITY
+
+
+
 
 # ------------------------------------------------------------- bit helpers
 
@@ -784,6 +804,32 @@ def is_material_draw(B):
 
 
 @njit(cache=False)
+def mop_up_bonus(B):
+    """White's-point-of-view mating gradient; zero unless one side is a bare king.
+
+    The same gate as ``cs_mopup.mop_up``: the defender must have nothing but
+    its king, and the attacker must hold at least one rook or queen. Every
+    other position, including K+B+N and K+B+B against a bare king, scores
+    exactly zero, so ordinary play is untouched.
+    """
+    black_pieces = B[7] | B[8] | B[9] | B[10] | B[11]
+    if black_pieces == 0:
+        if (B[4] | B[5]) == 0:
+            return 0
+        their = lsb(B[12])
+        our = lsb(B[6])
+        return MOPUP_EDGE_BONUS[their] + MOPUP_PROX_BONUS[our, their]
+    white_pieces = B[1] | B[2] | B[3] | B[4] | B[5]
+    if white_pieces == 0:
+        if (B[10] | B[11]) == 0:
+            return 0
+        their = lsb(B[6])
+        our = lsb(B[12])
+        return -(MOPUP_EDGE_BONUS[their] + MOPUP_PROX_BONUS[our, their])
+    return 0
+
+
+@njit(cache=False)
 def evaluate(B, S):
     """C5's evaluation: tapered PeSTO + bishop pair + tempo, side to move's view."""
     packed = S[5]
@@ -804,6 +850,7 @@ def evaluate(B, S):
         score = total // TOTAL_PHASE
     else:
         score = -((-total) // TOTAL_PHASE)
+    score += mop_up_bonus(B)
     if S[0] == 0:
         return score + TEMPO
     return -score + TEMPO
