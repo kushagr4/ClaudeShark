@@ -1,0 +1,41 @@
+=== FREEZE SNAPSHOT 15:06:50 ===
+  cs_time.py
+  cs_tt.py
+=== LF EXPORT ===
+16
+=== RELEASE CHECK 15:06:51 ===
+PASS  agent.py at zip root                         the platform imports agent by name from the root
+PASS  engine modules packaged                      15 cs_* modules
+PASS  expanded size within limit                   200,210 bytes of 50,000,000
+PASS  no unexpectedly large files                  none
+PASS  no native binaries in zip                    source only
+PASS  imports resolve on the platform              stdlib + preinstalled
+PASS  no requirements.txt giving false confidence  none shipped
+PASS  no development-only imports                  clean
+PASS  no network imports                           clean
+PASS  no machine-specific absolute paths           clean
+PASS  no filesystem writes                         clean
+PASS  extracted zip imports and runs               60 probes
+PASS  legal move on every probe                    all legal
+PASS  stays inside every clock                     all within budget
+PASS  smoke game from extracted zip                white by checkmate
+PASS  test suite                                   1451 passed in 183.52s (0:03:03)
+
+submission.zip would be 66,552 bytes compressed
+READY TO UPLOAD
+=== HASH ===
+3bfe20b53891e468726fb1ae8461f568f510a6c82f7cc299b38abc5681749921 *corpus/release/claudeshark_rc_i.zip
+16 files 200210 bytes unpacked
+=== PY3.12 SMOKE 15:11:16 ===
+startpos               d2d4   legal=True 2.71s clock 120000
+in check               e1e2   legal=True 0.00s clock 120000
+checkmated (no move)   0000   legal=True 0.00s clock 120000
+one legal move         h1g2   legal=True 0.00s clock 120000
+mate in 1              a1a8   legal=True 0.00s clock 60000
+promotion              a7a8q  legal=True 0.36s clock 30000
+en passant             d2d4   legal=True 0.40s clock 5000
+700 ms clock           f3g5   legal=True 0.11s clock 700
+fifty-move 99          h1g1   legal=True 0.00s clock 120000
+round-20 middlegame    d4d5   legal=True 2.83s clock 90000
+import+warm-up 27.66 s | python 3.12.13 numba 0.67.0
+=== DONE 15:11:54 ===

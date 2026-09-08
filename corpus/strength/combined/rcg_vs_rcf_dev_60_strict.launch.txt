@@ -1,0 +1,1 @@
+launch 2026-09-08 14:10:39 COMBINED vs RC-F dev 60 strict 120s+0.5s 6 workers (extension of the 30-game screen)
