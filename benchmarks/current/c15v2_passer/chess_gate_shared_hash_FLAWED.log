@@ -1,0 +1,25 @@
+=== COMPARE  RC-I vs C15-v2, 144 serious errors, depth 12  20:18:12 ===
+144 positions, depth 12, 6 workers per build
+  base: 144 searched
+  cand: 144 searched
+
+set                               n base>=100 cand>=100 repaired worsened mean base mean cand
+TARGET  enemy passer rank6+      35        23        17        7        1     337.1     236.2
+HELDOUT enemy passer rank<6      33        29        26        3        0     305.5     294.1
+CONTROL no enemy passer          76        63        59        7        3     421.2     419.6
+ALL serious errors              144       115       102       17        4     374.2     346.3
+=== RETENTION against the 17 C15 repaired  20:21:10 ===
+C15 repaired      : 17
+C15-v2 retained   : 15
+C15-v2 lost       : 2
+C15-v2 new repairs: 2
+C15-v2 worsened   : 4
+   LOST  4r1k1/p5b1/6p1/1p4P1/2p1N2R/P3PQK1/1q6/8 w - - 0 39  base 106 -> cand 119  (e4f6 -> e4f6)
+   LOST  8/P7/8/1K6/7Q/8/q7/6k1 w - - 1 70  base 977 -> cand 5946  (h4g3 -> h4g3)
+   WORSE 5q2/2Br2bk/2RNb2p/Q4pp1/3p4/3P3P/5PPK/8 b - - 5 42  base 95 -> cand 128
+   WORSE r2qr1k1/1pp2ppp/1b3nn1/pP1P2N1/P1Bp2b1/2P5/2QN1PPP/R1B2RK1 w - - 0 15  base 99 -> cand 109
+   WORSE 8/P7/8/1K6/3Q3p/8/q7/6k1 b - - 5 68  base 0 -> cand 26635
+   WORSE Q7/8/8/1K6/8/5Q2/q7/6k1 b - - 0 72  base 0 -> cand 24873
+=== CAUSAL REPLAY  20:21:10 ===
+repaired 17, worsened 4, depth-proof repairs 7 -> benchmarks/current/c15v2_passer/CAUSAL_REPLAY.md
+=== DONE 20:21:10 ===

@@ -1,0 +1,15 @@
+=== COMPARE (deterministic oracle) RC-I vs C15-v2  20:23:37 ===
+144 positions, depth 12, 6 workers per build, oracle 1,000,000 nodes with the table cleared per analysis
+  base: 144 searched
+  cand: 144 searched
+
+ORACLE DETERMINISM: positions whose own score differed between the two passes: 0 (must be 0)
+ORACLE DETERMINISM: same move scored differently: 0 (must be 0)
+positions where a build did not reach depth 12 within 20000 ms: 9
+
+set                               n base>=100 cand>=100 repaired worsened mean base mean cand
+TARGET  enemy passer rank6+      35        24        20        4        0     272.1     210.0
+HELDOUT enemy passer rank<6      33        18        17        3        2     169.5     165.5
+CONTROL no enemy passer          76        49        45        4        0     273.7     268.1
+ALL serious errors              144        91        82       11        2     249.5     230.5
+=== DONE 20:27:30 ===

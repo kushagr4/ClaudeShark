@@ -1,0 +1,26 @@
+=== EQUIVALENCE  C15-semantics(v1) vs C15-v2  20:29:01 ===
+corpus positions      : 240 (fixed depth 8)
+baseline              : C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/e3813b42-0a37-4aea-86be-348b96190e38/scratchpad/nps/v1
+candidate             : C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/e3813b42-0a37-4aea-86be-348b96190e38/scratchpad/c15v2
+ROOT MOVE CHANGES     : 0 / 240
+ROOT SCORE CHANGES    : 0 / 240
+NODE COUNT DIFFERENCES: 0 / 240
+total nodes 52,601,904 vs 52,601,904 (+0.0000%)
+wrote benchmarks/current/c15v2_passer/equivalence_v1_vs_c15v2.json
+=== BEHAVIOUR  RC-I vs C15-v2  20:30:50 ===
+corpus positions      : 240 (fixed depth 8)
+baseline              : C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/e3813b42-0a37-4aea-86be-348b96190e38/scratchpad/rcg
+candidate             : C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/e3813b42-0a37-4aea-86be-348b96190e38/scratchpad/c15v2
+ROOT MOVE CHANGES     : 7 / 240
+ROOT SCORE CHANGES    : 10 / 240
+NODE COUNT DIFFERENCES: 182 / 240
+   MOVE  ('5r2/2p3kp/3b2p1/4p1RP/1PB2Q2/P7/5PK1/8 b - - 0 44', 'f8f4', 'e5f4')
+   MOVE  ('8/1q4pk/3ppn1p/1p1Pp3/p1p1P3/P1N1P2P/1PP2QP1/6K1 b - - 0 30', 'e6d5', 'b5b4')
+   MOVE  ('b7/2p5/1pP2k2/1P1Pp3/4Pp2/4qBp1/1Q4P1/5K2 b - - 3 45', 'f6f7', 'e3d3')
+   MOVE  ('r2qr2k/pbp1n1bp/3pP1p1/8/2B1pP2/P3B2P/4N1P1/2RQ1RK1 w - - 1 21', 'e3d4', 'd1b3')
+   MOVE  ('3r4/1p6/2b3k1/1pPpPq1p/3BpPp1/2Q3P1/5K1P/R7 w - - 6 40', 'f2g1', 'f2g2')
+   MOVE  ('2r1r1k1/p2n1pp1/Pp2p2p/1Q6/1BPPn2q/4N2P/2R2PP1/3R2K1 b - - 8 36', 'e8d8', 'c8d8')
+   MOVE  ('r1bq1r2/p3np1k/1p1p1n1p/2pPp3/2P1P2p/P1PB4/5PP1/1RBQ1RKN w - - 2 16', 'f2f4', 'd1d2')
+total nodes 51,854,480 vs 52,601,904 (+1.4414%)
+wrote benchmarks/current/c15v2_passer/outside_domain_rci_vs_c15v2.json
+=== DONE 20:32:35 ===

@@ -1,0 +1,1 @@
+launch 2026-09-08 21:08:58 C15-v2 vs RC-I dev 60 strict 120s+0.5s 6 workers

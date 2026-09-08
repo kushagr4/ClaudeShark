@@ -1,0 +1,47 @@
+=== FREEZE SNAPSHOT 22:05:23 ===
+  cs_time.py
+  cs_tt.py
+=== LF EXPORT ===
+16
+=== RELEASE CHECK 22:05:24 ===
+PASS  agent.py at zip root                         the platform imports agent by name from the root
+PASS  engine modules packaged                      15 cs_* modules
+PASS  expanded size within limit                   201,363 bytes of 50,000,000
+PASS  no unexpectedly large files                  none
+PASS  no native binaries in zip                    source only
+PASS  imports resolve on the platform              stdlib + preinstalled
+PASS  no requirements.txt giving false confidence  none shipped
+PASS  no development-only imports                  clean
+PASS  no network imports                           clean
+PASS  no machine-specific absolute paths           clean
+PASS  no filesystem writes                         clean
+PASS  extracted zip imports and runs               60 probes
+PASS  legal move on every probe                    all legal
+PASS  stays inside every clock                     all within budget
+PASS  smoke game from extracted zip                white by checkmate
+PASS  test suite                                   1486 passed in 191.67s (0:03:11)
+
+submission.zip would be 67,072 bytes compressed
+READY TO UPLOAD
+=== WORKTREE HASH ===
+c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5 *corpus/release/claudeshark_rc_j.zip
+16 files 201363 bytes unpacked
+=== COPY TO CANONICAL 22:10:05 ===
+canonical: C:/Users/epick/Documents/ClaudeShark/corpus/release/claudeshark_rc_j.zip
+c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5 *C:/Users/epick/Documents/ClaudeShark/corpus/release/claudeshark_rc_j.zip
+canonical copy is byte-identical to the worktree build
+=== PY3.12 SMOKE AGAINST THE CANONICAL ARTIFACT 22:10:05 ===
+startpos               d2d4   legal=True 2.87s clock 120000
+in check               e1e2   legal=True 0.00s clock 120000
+checkmated (no move)   0000   legal=True 0.00s clock 120000
+one legal move         h1g2   legal=True 0.00s clock 120000
+mate in 1              a1a8   legal=True 0.00s clock 60000
+promotion              a7a8q  legal=True 0.36s clock 30000
+en passant             d2d4   legal=True 0.48s clock 5000
+700 ms clock           f3g5   legal=True 0.11s clock 700
+fifty-move 99          h1g1   legal=True 0.00s clock 120000
+round-20 middlegame    d4d5   legal=True 2.95s clock 90000
+import+warm-up 28.24 s | python 3.12.13 numba 0.67.0
+=== ALSO PUBLISH THE SUBMITTED RC-I ARCHIVE, WHICH IS MISSING FROM CANONICAL ===
+3bfe20b53891e468726fb1ae8461f568f510a6c82f7cc299b38abc5681749921 *C:/Users/epick/Documents/ClaudeShark/corpus/release/claudeshark_rc_i.zip
+=== DONE 22:10:43 ===
