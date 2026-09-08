@@ -90,6 +90,12 @@ class Searcher:
         self.cutoffs = 0
         self.researches = 0
         self._game_keys: list[int] = []
+        # Exact occurrence counts for the positions this game has really been
+        # in. The engine sees its own turns as roots; the position its own move
+        # creates is never handed back to it, so it is recorded here when the
+        # move is chosen. Without it the engine cannot see that its own move
+        # completes a threefold.
+        self._history: dict[int, int] = {}
 
     def new_game(self) -> None:
         self.TK.fill(0)
@@ -97,6 +103,7 @@ class Searcher:
         self.KILL.fill(0)
         self.HIST.fill(0)
         self._game_keys.clear()
+        self._history.clear()
         self.CTL[10] = 0
 
     # ------------------------------------------------------------------ root
@@ -142,6 +149,21 @@ class Searcher:
                 self._game_keys.append(root_key)
                 self.GK[len(self._game_keys) - 1] = root_key
         CTL[10] = len(self._game_keys)
+        self._history[root_key] = self._history.get(root_key, 0) + 1
+
+        # A move whose resulting position has already occurred twice in this
+        # game gives the opponent a threefold claim, so it is a draw however
+        # good the search thinks the position is. The search cannot see this:
+        # its history holds only positions with us to move. Scored here, at the
+        # root, where one Zobrist key per legal move costs nothing.
+        repeats: set[int] = set()
+        for move in legal:
+            board.push(move)
+            core.load_board(board, B, O, M, S)
+            if self._history.get(int(S[4]), 0) >= 2:
+                repeats.add(move.uci())
+            board.pop()
+        core.load_board(board, B, O, M, S)
 
         # Root moves in python-chess order, scored and sorted like C5's order_moves.
         ROOT, RS = self.ROOT, self.RS
@@ -157,6 +179,10 @@ class Searcher:
                          self.HIST, self.GAINS)
         order = sorted(range(nroot), key=lambda i: -int(MS[i]))
         root_moves = [int(ROOT[i]) for i in order]
+
+        drawing = [m for m in root_moves if core.move_to_uci(m) in repeats]
+        if drawing and len(drawing) < len(root_moves):
+            root_moves = [m for m in root_moves if core.move_to_uci(m) not in repeats]
 
         best_move = root_moves[0]
         best_score = 0
@@ -210,7 +236,21 @@ class Searcher:
         info.nps = int(info.nodes * 1000.0 / info.elapsed_ms) if info.elapsed_ms > 0 else 0
         info.tt_probes = self.tt.probes = int(CTL[7])
         info.tt_hits = self.tt.hits = int(CTL[8])
-        return core.move_to_chess(best_move), info
+
+        # A real threefold is worth exactly zero. Prefer it only when every
+        # searched alternative is worse than a draw, so the engine still plays
+        # on whenever playing on is better.
+        if drawing and best_score < 0:
+            best_move = drawing[0]
+            info.score = best_score = 0
+
+        played = core.move_to_chess(best_move)
+        board.push(played)
+        core.load_board(board, B, O, M, S)
+        after = int(S[4])
+        board.pop()
+        self._history[after] = self._history.get(after, 0) + 1
+        return played, info
 
     def _search_root(
         self, depth: int, root_moves: list[int], alpha: int = -core.INFINITY,

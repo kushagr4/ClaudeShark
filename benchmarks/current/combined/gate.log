@@ -1,0 +1,39 @@
+=== FULL SUITE 12:45:41 ===
+........................................................................ [ 99%]
+...........                                                              [100%]
+1451 passed in 182.11s (0:03:02)
+=== CONVERSION (C12 vs COMBINED) 12:48:45 ===
+===== PROMOTION METRIC =====
+  C12    elementary: all-depth 6/8, >=3-of-4 6/8, cells 28/32
+  RCG    elementary: all-depth 7/8, >=3-of-4 8/8, cells 31/32
+  C12    KBNK control cells converted 1/4 (expected: unchanged)
+  RCG    KBNK control cells converted 1/4 (expected: unchanged)
+=== 240 CORPUS 13:29:47 ===
+corpus positions            : 240 (fixed depth 8)
+positions where the gate fires (candidate): 0
+positions where the gate fires (RC-F, no term): 0
+ROOT MOVE CHANGES           : 0 / 240
+ROOT SCORE CHANGES          : 0 / 240
+NODE COUNT DIFFERENCES      : 1 / 240
+   NODES ('r7/P3R2p/1K6/8/5p2/4p3/2P3kP/8 w - - 0 44', 46420, 46419)
+total nodes RC-F 51,854,481 vs C11 51,854,480 (-0.0000%)
+VERDICT: PASS
+=== TACTICS 13:31:28 ===
+
+engine: working tree   budget: 1000 ms
+solved 16/16   avg depth 12.75   nodes 9,644,334
+=== CLOCK 13:31:58 ===
+   30000      yes         5.2%      1560          0
+   60000      yes         3.2%      1893          0
+  120000      yes         3.0%      3571          0
+
+PASS
+=== NPS vs C12 and vs RC-F 13:33:01 ===
+  C12  run1:   nodes/second    2,492,771
+  RCG  run1:   nodes/second    2,468,734
+  C12  run2:   nodes/second    2,548,500
+  RCG  run2:   nodes/second    2,572,128
+  C12  run3:   nodes/second    2,501,175
+  RCG  run3:   nodes/second    2,400,114
+  RC-F ref  :   nodes/second    2,598,849
+=== DONE 13:39:48 ===

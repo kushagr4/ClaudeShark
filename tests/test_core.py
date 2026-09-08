@@ -115,7 +115,11 @@ def test_evaluation_and_material_draw_match_reference():
         if board.is_game_over():
             continue
         core.load_board(board, B, O, M, S)
-        assert core.evaluate(B, S) == py_evaluate(board), board.fen()
+        # The compiled evaluation carries the mop-up mating gradient; the
+        # interpreted reference ships every registry term off.
+        bonus = int(core.mop_up_bonus(B))
+        expected = py_evaluate(board) + (bonus if board.turn == chess.WHITE else -bonus)
+        assert core.evaluate(B, S) == expected, board.fen()
         assert bool(core.is_material_draw(B)) == py_material_draw(board), board.fen()
 
 
