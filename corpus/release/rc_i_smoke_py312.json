@@ -1,0 +1,81 @@
+{
+ "archive": "corpus/release/claudeshark_rc_i.zip",
+ "import_s": 27.66,
+ "python": "3.12.13",
+ "numba": "0.67.0",
+ "numpy": "2.5.2",
+ "chess": "1.11.2",
+ "probes": [
+  {
+   "name": "startpos",
+   "move": "d2d4",
+   "legal": true,
+   "think_s": 2.71,
+   "clock_ms": 120000
+  },
+  {
+   "name": "in check",
+   "move": "e1e2",
+   "legal": true,
+   "think_s": 0.0,
+   "clock_ms": 120000
+  },
+  {
+   "name": "checkmated (no move)",
+   "move": "0000",
+   "legal": true,
+   "think_s": 0.0,
+   "clock_ms": 120000
+  },
+  {
+   "name": "one legal move",
+   "move": "h1g2",
+   "legal": true,
+   "think_s": 0.0,
+   "clock_ms": 120000
+  },
+  {
+   "name": "mate in 1",
+   "move": "a1a8",
+   "legal": true,
+   "think_s": 0.0,
+   "clock_ms": 60000
+  },
+  {
+   "name": "promotion",
+   "move": "a7a8q",
+   "legal": true,
+   "think_s": 0.36,
+   "clock_ms": 30000
+  },
+  {
+   "name": "en passant",
+   "move": "d2d4",
+   "legal": true,
+   "think_s": 0.4,
+   "clock_ms": 5000
+  },
+  {
+   "name": "700 ms clock",
+   "move": "f3g5",
+   "legal": true,
+   "think_s": 0.11,
+   "clock_ms": 700
+  },
+  {
+   "name": "fifty-move 99",
+   "move": "h1g1",
+   "legal": true,
+   "think_s": 0.0,
+   "clock_ms": 120000
+  },
+  {
+   "name": "round-20 middlegame",
+   "move": "d4d5",
+   "legal": true,
+   "think_s": 2.83,
+   "clock_ms": 90000
+  }
+ ],
+ "all_legal": true
+}
