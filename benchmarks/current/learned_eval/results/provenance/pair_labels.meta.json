@@ -1,0 +1,1 @@
+{"sf": "C:/Users/epick/engines/stockfish/stockfish-windows-x86-64-avx2.exe", "sf_sha256": "c86215fa1977d53b82ed854540a4c7b025be4cd042276c85ba3de53fb9118911", "nodes": 50000, "hash": 32, "workers": 10, "tasks_file": "C:\\Users\\epick\\Documents\\ClaudeShark-data\\learned_eval\\pilot\\pairs\\pair_tasks.jsonl", "already_done": 0, "to_do": 2032, "started": "2026-09-11 19:30:54"}

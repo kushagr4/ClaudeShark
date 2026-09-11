@@ -1,0 +1,65 @@
+{
+ "n": 300,
+ "reference_nodes": 4000000,
+ "reference_seconds": 191.8,
+ "workers": 10,
+ "budgets": {
+  "50000": {
+   "mean_abs_dE": 0.0227,
+   "median_abs_dE": 0.0015,
+   "category_agreement": 0.96,
+   "spearman": 0.9767,
+   "bestmove_agreement": 0.7267,
+   "qualifies": true,
+   "seconds": 5.2,
+   "positions_per_s": 57.59
+  },
+  "100000": {
+   "mean_abs_dE": 0.018,
+   "median_abs_dE": 0.0018,
+   "category_agreement": 0.97,
+   "spearman": 0.982,
+   "bestmove_agreement": 0.7833,
+   "qualifies": true,
+   "seconds": 7.3,
+   "positions_per_s": 40.9
+  },
+  "200000": {
+   "mean_abs_dE": 0.0151,
+   "median_abs_dE": 0.0015,
+   "category_agreement": 0.9667,
+   "spearman": 0.9825,
+   "bestmove_agreement": 0.8167,
+   "qualifies": true,
+   "seconds": 12.1,
+   "positions_per_s": 24.89
+  },
+  "400000": {
+   "mean_abs_dE": 0.0118,
+   "median_abs_dE": 0.0005,
+   "category_agreement": 0.9733,
+   "spearman": 0.9848,
+   "bestmove_agreement": 0.8533,
+   "qualifies": true,
+   "seconds": 22.1,
+   "positions_per_s": 13.56
+  },
+  "1000000": {
+   "mean_abs_dE": 0.0108,
+   "median_abs_dE": 0.0005,
+   "category_agreement": 0.9733,
+   "spearman": 0.9906,
+   "bestmove_agreement": 0.8933,
+   "qualifies": true,
+   "seconds": 51.5,
+   "positions_per_s": 5.82
+  }
+ },
+ "chosen_nodes": 50000,
+ "rule_met": true,
+ "determinism": {
+  "positions": 30,
+  "mismatches": 0,
+  "ids": []
+ }
+}
