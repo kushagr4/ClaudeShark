@@ -1,0 +1,42 @@
+STAGE sup-ladder start 00:32:40
+R81-8bs    timed@ 120.0s d=13 g4h5 == live  (2.63s)
+    d13 g4h5      +36   5,612,049    2.7s
+    d14 g4e6      +43  17,212,868    8.5s
+    d15 g4e6      +53  27,502,435   13.9s
+    RC-J own values @d13: played 34 reference 46
+R94-33ws   timed@  66.1s d=16 b1e1 != live b1a1  (2.15s)
+    d16 b1e1       +0   4,483,389    2.3s
+    d17 b1e1       +0   6,578,939    3.3s
+    d18 b1e1      -22  21,319,508   10.8s
+    RC-J own values @d16: played -9 reference 0
+R94-35ws   timed@  62.8s d=14 e1b1 == live  (1.98s)
+    d14 e1b1       +0   3,927,011    1.9s
+    d15 e1b1       +0   5,914,311    2.9s
+    d16 h2h4       +0  10,863,086    5.3s
+    RC-J own values @d14: played -5 reference -27
+R101-52bs  timed@  39.7s d=18 h5h4 == live  (1.36s)
+    d18 h5h4      -79   3,124,737    1.4s
+    d19 h5h4      -80   4,186,937    1.8s
+    d20 h5h4      -79   5,583,869    2.4s
+    RC-J own values @d18: played -79 reference -95
+R101-57bs  timed@  34.7s d=21 b8a7 == live  (1.95s)
+    d21 b8a7      -80   4,543,137    1.9s
+    d22 b8a7      -80   5,559,311    2.3s
+    d23 b8a7      -80   6,530,970    2.7s
+    RC-J own values @d21: played -81 reference -78
+R101-61bs  timed@  31.8s d=24 b8e5 != live b8d6  (0.9s)
+    d24 b8e5     -118   2,283,733    0.9s
+    d25 b8e5     -118   2,696,025    1.1s
+    d26 b8e5     -118   3,321,949    1.3s
+    RC-J own values @d24: played -123 reference -186
+done 6 positions in 108s
+STAGE sup-ladder done 00:34:56
+STAGE sup-verify start 00:34:56
+R81-8bs   SF@10M best g4e6 -4 E0.50 d29 | played g4h5 -129 E0.12 loss 125 exact  extra {g4e6:0}  21s
+R94-33ws  SF@10M best b1e1 +0 E0.50 d40 | played b1a1 -199 E0.00 loss 199 exact  extra {b1e1:0}  36s
+R94-35ws  SF@10M best e3f3 +0 E0.50 d44 | played e1b1 -159 E0.01 loss 159 exact  extra {e3f3:0, h2h4:48}  60s
+R101-52bs SF@10M best h5g6 +0 E0.50 d71 | played h5h4 +0 E0.50 loss 0 exact  extra {h5g6:0}  73s
+R101-57bs SF@10M best f7f6 +0 E0.50 d61 | played b8a7 -546 E0.00 loss 546 exact  extra {f7f6:0}  83s
+R101-61bs SF@10M best g5g4 +0 E0.50 d66 | played b8d6 -545 E0.00 loss 545 exact  extra {g5g4:0, b8e5:616}  93s
+STAGE sup-verify done 00:36:30
+PIPELINE DONE

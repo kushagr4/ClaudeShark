@@ -1,0 +1,8 @@
+R103 black q on b4: mg=998 eg=958 tapered=988.0
+R103 black r on b4: mg=466 eg=515 tapered=478.2
+R103 black q on b2: mg=986 eg=956 tapered=978.5
+R103 black r on b2: mg=509 eg=525 tapered=513.0
+R103 black q on a2: mg=1001 eg=919 tapered=980.5
+R103 black r on a2: mg=504 eg=523 tapered=508.8
+capture on c8 at 30 Rxc8 captured b
+capture on d7 at 33 Nxd7 captured p

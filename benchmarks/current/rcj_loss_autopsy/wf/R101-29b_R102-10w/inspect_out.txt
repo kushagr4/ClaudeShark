@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\scratchpad\autopsy\wf\R101-29b_R102-10w\inspect.py", line 3, in <module>
+    import chess, chess.pgn
+  File "C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\scratchpad\c27\.venv\Lib\site-packages\chess\__init__.py", line 18, in <module>
+    import dataclasses
+  File "C:\Users\epick\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\dataclasses.py", line 5, in <module>
+    import inspect
+  File "C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\scratchpad\autopsy\wf\R101-29b_R102-10w\inspect.py", line 3, in <module>
+    import chess, chess.pgn
+  File "C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\scratchpad\c27\.venv\Lib\site-packages\chess\pgn.py", line 12, in <module>
+    import chess.engine
+  File "C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\scratchpad\c27\.venv\Lib\site-packages\chess\engine.py", line 23, in <module>
+    from chess import Color
+ImportError: cannot import name 'Color' from partially initialized module 'chess' (most likely due to a circular import) (C:\Users\epick\AppData\Local\Temp\claude\C--Users-epick-Documents-ClaudeShark\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\scratchpad\c27\.venv\Lib\site-packages\chess\__init__.py)

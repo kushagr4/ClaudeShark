@@ -1,0 +1,6 @@
+R98 after Bc2 Rae8, material -1
+  Bf4 Rxe1+ Rxe1 Rxe1: material -6 (white view)
+R98 after Nf1: e1 defenders ['c1', 'c3']  e3 defenders ['e1', 'f1', 'f2']
+R98 after f3 Rae8 Bf2: e1 defenders ['c1', 'f2']
+R99 after e4 Nc5 exf3 exf3 Nd7: b2 black attackers ['c1', 'g7']  white defenders ['b3']
+R99 after Be6 e4: black legal moves of Bg7 ['Bh8', 'Bf8'] ; e5 pawn can advance? False

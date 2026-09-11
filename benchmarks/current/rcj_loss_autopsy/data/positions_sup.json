@@ -1,0 +1,236 @@
+[
+ {
+  "id": "R81-8bs",
+  "fen": "r2qkb1r/pp3ppp/2np1n2/4p3/4P1b1/N1N2P2/PPP3PP/R1BQKB1R b KQkq - 0 8",
+  "played": "g4h5",
+  "reference": "g4e6",
+  "clock_in_ms": null,
+  "loss_cp": 137,
+  "flip": true
+ },
+ {
+  "id": "R83-18ws",
+  "fen": "r1b1r3/p1p4p/1p1n1pk1/2p3p1/P7/2PPB1N1/2P2PPP/R4RK1 w - - 1 18",
+  "played": "a1e1",
+  "reference": "f1e1",
+  "clock_in_ms": 81964,
+  "loss_cp": 86,
+  "flip": true
+ },
+ {
+  "id": "R94-14ws",
+  "fen": "1r3rk1/p3ppbp/2ppbnp1/q7/4P3/2N1BB2/PPP1QPPP/1R3RK1 w - - 8 14",
+  "played": "e3d4",
+  "reference": "e3d2",
+  "clock_in_ms": 101013,
+  "loss_cp": 91,
+  "flip": true
+ },
+ {
+  "id": "R94-24ws",
+  "fen": "1rr5/p3pkbp/3p1pp1/2pP4/P7/4B3/P1P2PPP/1R3RK1 w - - 1 24",
+  "played": "a2a3",
+  "reference": "e3d2",
+  "clock_in_ms": 80482,
+  "loss_cp": 74,
+  "flip": true
+ },
+ {
+  "id": "R94-26ws",
+  "fen": "1rr5/p3pk1p/3p2p1/P1pP1p2/8/P3B3/1bP2PPP/1R3RK1 w - - 1 26",
+  "played": "a3a4",
+  "reference": "e3g5",
+  "clock_in_ms": 76624,
+  "loss_cp": 66,
+  "flip": true
+ },
+ {
+  "id": "R94-33ws",
+  "fen": "8/1r2pk1p/p2p2p1/P2P1p2/P1p5/brP1R1P1/3B1PKP/1R6 w - - 3 33",
+  "played": "b1a1",
+  "reference": "b1e1",
+  "clock_in_ms": 66072,
+  "loss_cp": 133,
+  "flip": true
+ },
+ {
+  "id": "R94-35ws",
+  "fen": "8/1r2pk2/p2p2pp/P2P1p2/P1p5/1rP1R1P1/1b1B1PKP/4R3 w - - 2 35",
+  "played": "e1b1",
+  "reference": "e3f3",
+  "clock_in_ms": 62834,
+  "loss_cp": 132,
+  "flip": true
+ },
+ {
+  "id": "R94-36ws",
+  "fen": "8/1r2pk2/p2p2p1/P2P1p1p/P1p5/1rP1R1P1/1b1B1PKP/1R6 w - - 0 36",
+  "played": "h2h3",
+  "reference": "h2h4",
+  "clock_in_ms": 61425,
+  "loss_cp": 94,
+  "flip": true
+ },
+ {
+  "id": "R95-19bs",
+  "fen": "1r1qr1k1/pp3pp1/3b1Bp1/2p5/1nP1p3/4N1PP/P2PPPB1/RQ3RK1 b - - 0 19",
+  "played": "d8f6",
+  "reference": "g7f6",
+  "clock_in_ms": 88176,
+  "loss_cp": 38,
+  "flip": true
+ },
+ {
+  "id": "R98-14ws",
+  "fen": "r1bqr1k1/1ppp1pp1/p1n2n1p/8/B2P4/4B3/PP1N1PPP/R2QR1K1 w - - 2 14",
+  "played": "d2f3",
+  "reference": "d1f3",
+  "clock_in_ms": 107208,
+  "loss_cp": 27,
+  "flip": true
+ },
+ {
+  "id": "R98-15ws",
+  "fen": "r1bqr1k1/2pp1pp1/p1n2n1p/1p6/B2P4/4BN2/PP3PPP/R2QR1K1 w - - 0 15",
+  "played": "a4c2",
+  "reference": "a4b3",
+  "clock_in_ms": 102735,
+  "loss_cp": 31,
+  "flip": true
+ },
+ {
+  "id": "R98-16ws",
+  "fen": "r1bqr1k1/2p2pp1/p1np1n1p/1p6/3P4/4BN2/PPB2PPP/R2QR1K1 w - - 0 16",
+  "played": "a2a3",
+  "reference": "d1d2",
+  "clock_in_ms": 101036,
+  "loss_cp": 87,
+  "flip": true
+ },
+ {
+  "id": "R98-18ws",
+  "fen": "r3r1k1/2pq1pp1/p1npbn1p/1p6/3P4/P3BN2/1PB2PPP/2RQR1K1 w - - 3 18",
+  "played": "c2d3",
+  "reference": "f3h4",
+  "clock_in_ms": 95805,
+  "loss_cp": 78,
+  "flip": true
+ },
+ {
+  "id": "R98-19ws",
+  "fen": "r3r1k1/2pq1pp1/p1np1n1p/1p1b4/3P4/P2BBN2/1P3PPP/2RQR1K1 w - - 5 19",
+  "played": "d1c2",
+  "reference": "h2h3",
+  "clock_in_ms": 91990,
+  "loss_cp": 17,
+  "flip": true
+ },
+ {
+  "id": "R101-12bs",
+  "fen": "r2q1rk1/pp1b1pbp/2np2p1/2pNp1Pn/4P2P/3P1P2/PPP1N1B1/R1BQ1RK1 b - - 2 12",
+  "played": "c6d4",
+  "reference": "c6e7",
+  "clock_in_ms": 109487,
+  "loss_cp": 52,
+  "flip": true
+ },
+ {
+  "id": "R101-16bs",
+  "fen": "r2q1rk1/pp3pbp/2bp2p1/3Np1Pn/4P2P/1QPP1P2/P5B1/R1B2RK1 b - - 0 16",
+  "played": "a7a5",
+  "reference": "a8c8",
+  "clock_in_ms": 98267,
+  "loss_cp": 77,
+  "flip": true
+ },
+ {
+  "id": "R101-17bs",
+  "fen": "r2q1rk1/1p3pbp/2bp2p1/p2Np1Pn/4P2P/1QPPBP2/P5B1/R4RK1 b - - 1 17",
+  "played": "a5a4",
+  "reference": "b7b5",
+  "clock_in_ms": 96329,
+  "loss_cp": 56,
+  "flip": true
+ },
+ {
+  "id": "R101-18bs",
+  "fen": "r2q1rk1/1p3pbp/2bp2p1/3Np1Pn/p1Q1P2P/2PPBP2/P5B1/R4RK1 b - - 1 18",
+  "played": "a4a3",
+  "reference": "c6d5",
+  "clock_in_ms": 94527,
+  "loss_cp": 77,
+  "flip": true
+ },
+ {
+  "id": "R101-28bs",
+  "fen": "r4rk1/4qpb1/3p2p1/8/1Q1PPp2/pRP2P2/P5B1/2R3K1 b - - 4 28",
+  "played": "e7c7",
+  "reference": "g7f6",
+  "clock_in_ms": 75783,
+  "loss_cp": 19,
+  "flip": true
+ },
+ {
+  "id": "R101-33bs",
+  "fen": "3r2k1/r4pb1/3p2p1/8/2BPPp2/pRP2P2/P7/1R3K2 b - - 3 33",
+  "played": "g7f6",
+  "reference": "a7c7",
+  "clock_in_ms": 70097,
+  "loss_cp": 68,
+  "flip": true
+ },
+ {
+  "id": "R101-44bs",
+  "fen": "8/r4pk1/8/2PB2p1/4Pp1b/p2K1P2/P7/7R b - - 0 44",
+  "played": "g7f6",
+  "reference": "h4f2",
+  "clock_in_ms": 51236,
+  "loss_cp": 58,
+  "flip": true
+ },
+ {
+  "id": "R101-52bs",
+  "fen": "8/1P1B1p2/8/4b1pk/4Pp2/p4P2/P3K3/8 b - - 8 52",
+  "played": "h5h4",
+  "reference": "h5g6",
+  "clock_in_ms": 39660,
+  "loss_cp": 130,
+  "flip": true
+ },
+ {
+  "id": "R101-56bs",
+  "fen": "8/1P3p2/3b4/6p1/4PpBk/p4P2/P5K1/8 b - - 16 56",
+  "played": "d6b8",
+  "reference": "f7f6",
+  "clock_in_ms": 35326,
+  "loss_cp": 69,
+  "flip": true
+ },
+ {
+  "id": "R101-57bs",
+  "fen": "1b6/1P3p2/8/6p1/4PpBk/p4P2/P4K2/8 b - - 18 57",
+  "played": "b8a7",
+  "reference": "f7f6",
+  "clock_in_ms": 34740,
+  "loss_cp": 383,
+  "flip": true
+ },
+ {
+  "id": "R101-61bs",
+  "fen": "1b6/1P6/4B3/6p1/5p2/p4Pk1/P3K3/8 b - - 0 61",
+  "played": "b8d6",
+  "reference": "g5g4",
+  "clock_in_ms": 31776,
+  "loss_cp": 463,
+  "flip": true
+ },
+ {
+  "id": "R105-11bs",
+  "fen": "r1bq1rk1/1p1pppbp/p5p1/4B2n/2PQ4/2N3P1/PP2PPBP/R4RK1 b - - 2 11",
+  "played": "f7f6",
+  "reference": "g7e5",
+  "clock_in_ms": 103239,
+  "loss_cp": 42,
+  "flip": true
+ }
+]

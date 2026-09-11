@@ -1,0 +1,56 @@
+[
+ {
+  "id": "R81-8bs",
+  "fen": "r2qkb1r/pp3ppp/2np1n2/4p3/4P1b1/N1N2P2/PPP3PP/R1BQKB1R b KQkq - 0 8",
+  "played": "g4h5",
+  "reference": "g4e6",
+  "clock_in_ms": null,
+  "loss_cp": 137,
+  "flip": true
+ },
+ {
+  "id": "R94-33ws",
+  "fen": "8/1r2pk1p/p2p2p1/P2P1p2/P1p5/brP1R1P1/3B1PKP/1R6 w - - 3 33",
+  "played": "b1a1",
+  "reference": "b1e1",
+  "clock_in_ms": 66072,
+  "loss_cp": 133,
+  "flip": true
+ },
+ {
+  "id": "R94-35ws",
+  "fen": "8/1r2pk2/p2p2pp/P2P1p2/P1p5/1rP1R1P1/1b1B1PKP/4R3 w - - 2 35",
+  "played": "e1b1",
+  "reference": "e3f3",
+  "clock_in_ms": 62834,
+  "loss_cp": 132,
+  "flip": true
+ },
+ {
+  "id": "R101-52bs",
+  "fen": "8/1P1B1p2/8/4b1pk/4Pp2/p4P2/P3K3/8 b - - 8 52",
+  "played": "h5h4",
+  "reference": "h5g6",
+  "clock_in_ms": 39660,
+  "loss_cp": 130,
+  "flip": true
+ },
+ {
+  "id": "R101-57bs",
+  "fen": "1b6/1P3p2/8/6p1/4PpBk/p4P2/P4K2/8 b - - 18 57",
+  "played": "b8a7",
+  "reference": "f7f6",
+  "clock_in_ms": 34740,
+  "loss_cp": 383,
+  "flip": true
+ },
+ {
+  "id": "R101-61bs",
+  "fen": "1b6/1P6/4B3/6p1/5p2/p4Pk1/P3K3/8 b - - 0 61",
+  "played": "b8d6",
+  "reference": "g5g4",
+  "clock_in_ms": 31776,
+  "loss_cp": 463,
+  "flip": true
+ }
+]

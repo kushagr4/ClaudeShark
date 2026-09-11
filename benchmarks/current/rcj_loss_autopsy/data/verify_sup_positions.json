@@ -1,0 +1,58 @@
+[
+ {
+  "id": "R81-8bs",
+  "fen": "r2qkb1r/pp3ppp/2np1n2/4p3/4P1b1/N1N2P2/PPP3PP/R1BQKB1R b KQkq - 0 8",
+  "played": "g4h5",
+  "best": "g4e6",
+  "extra": [
+   "g4e6",
+   "g4h5"
+  ]
+ },
+ {
+  "id": "R94-33ws",
+  "fen": "8/1r2pk1p/p2p2p1/P2P1p2/P1p5/brP1R1P1/3B1PKP/1R6 w - - 3 33",
+  "played": "b1a1",
+  "best": "b1e1",
+  "extra": [
+   "b1e1"
+  ]
+ },
+ {
+  "id": "R94-35ws",
+  "fen": "8/1r2pk2/p2p2pp/P2P1p2/P1p5/1rP1R1P1/1b1B1PKP/4R3 w - - 2 35",
+  "played": "e1b1",
+  "best": "e3f3",
+  "extra": [
+   "e1b1",
+   "h2h4"
+  ]
+ },
+ {
+  "id": "R101-52bs",
+  "fen": "8/1P1B1p2/8/4b1pk/4Pp2/p4P2/P3K3/8 b - - 8 52",
+  "played": "h5h4",
+  "best": "h5g6",
+  "extra": [
+   "h5h4"
+  ]
+ },
+ {
+  "id": "R101-57bs",
+  "fen": "1b6/1P3p2/8/6p1/4PpBk/p4P2/P4K2/8 b - - 18 57",
+  "played": "b8a7",
+  "best": "f7f6",
+  "extra": [
+   "b8a7"
+  ]
+ },
+ {
+  "id": "R101-61bs",
+  "fen": "1b6/1P6/4B3/6p1/5p2/p4Pk1/P3K3/8 b - - 0 61",
+  "played": "b8d6",
+  "best": "g5g4",
+  "extra": [
+   "b8e5"
+  ]
+ }
+]

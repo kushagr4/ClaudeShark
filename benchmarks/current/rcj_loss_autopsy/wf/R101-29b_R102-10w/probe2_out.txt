@@ -1,0 +1,79 @@
+R101 m29 before: f7: p white_att=[] black_att=['c7q', 'f8r', 'g8k'] | d6: p white_att=['b4Q'] black_att=['c7q'] | d8: None white_att=[] black_att=['c7q', 'a8r', 'f8r']
+R101 after Rfd8: f7: p white_att=[] black_att=['c7q', 'g8k']
+Bg7 attacks ['d4', 'e5', 'f6', 'h6', 'f8', 'h8'] | Bf6 attacks ['d4', 'h4', 'e5', 'g5', 'e7', 'g7', 'd8', 'h8']
+R101 game position before move 30 (after 30.Bf1):
+r . . r . . k .
+. . q . . p b .
+. . . p . . p .
+. . . . . . . .
+. Q . P P p . .
+p R P . . P . .
+P . . . . . . .
+. R . . . B K .
+   f7: p white_att=[] black_att=['c7q', 'g8k'] files ['b:open', 'c:half-open(B)', 'e:half-open(B)', 'g:half-open(W)', 'h:open']
+  static after 30...Rf8 (SF best): 125
+  static after 30...Qa5 (played): 123
+R101 before 32 (after 32.Bc4): f7: p white_att=['c4B'] black_att=['g8k']
+R101 move 57 position (Black to move) FEN 1b6/1P3p2/8/6p1/4PpBk/p4P2/P4K2/8 b - - 18 57
+. b . . . . . .
+. P . . . p . .
+. . . . . . . .
+. . . . . . p .
+. . . . P p B k
+p . . . . P . .
+P . . . . K . .
+. . . . . . . .
+  bishops {'W': ['light'], 'B': ['dark']} material(B view) 0 static -74 low_material_ref 0
+   child Ba7+: static(B view)=-94 mat=+0
+   child f6: static(B view)=-97 mat=+0
+R101 move 61 position (Black to move) FEN 1b6/1P6/4B3/6p1/5p2/p4Pk1/P3K3/8 b - - 0 61
+. b . . . . . .
+. P . . . . . .
+. . . . B . . .
+. . . . . . p .
+. . . . . p . .
+p . . . . P k .
+P . . . K . . .
+. . . . . . . .
+  bishops {'W': ['light'], 'B': ['dark']} material(B view) 0 static -49 low_material_ref 0
+   child Bd6: static(B view)=-46 mat=+0
+   child g4: static(B view)=-51 mat=+0
+   child Be5: static(B view)=-47 mat=+0
+  line g4 fxg4 f3+ static(B view) -121 mat -1 FEN 1b6/1P6/4B3/8/6P1/p4pk1/P3K3/8 w - - 0 63
+  line Bd6 Bg4 static(B view) -27 mat 0 FEN 8/1P6/3b4/6p1/5pB1/p4Pk1/P3K3/8 b - - 2 62
+
+R102 m10 root: h3: N white_att=['g2P'] black_att=['c8b'] | e5: n white_att=['f4B'] black_att=['d6b'] | files ['d:half-open(W)', 'e:half-open(B)']
+R102 after SF played PV (13...Qb6), White to move:
+r . . . . r k .
+p p . . . p p p
+. q . . . n . .
+. B p p . . . .
+. . . . . P . .
+. . P . . . . Q
+P P . . . P P P
+R . . . . R K .
+   b5: B white_att=[] black_att=['b6q'] | b2: P white_att=[] black_att=[] | e4: None white_att=[] black_att=['d5p', 'f6n'] | files ['d:half-open(W)', 'e:open']
+  bishops {'W': ['light'], 'B': []}
+  White moves leaving bishop defended/unattacked AND b2 defended/unattacked: ['Qd7', 'Qd3', 'c4', 'a4']
+R102 after 10.Be2: h3: N white_att=['g2P'] black_att=['c8b'] | f3 f3: None white_att=['d2N', 'e2B', 'g2P'] black_att=['e5n']
+R102 game material/file trajectory (RC-J=White):
+  m11: mat=-3 static=-473 files=['d:half-open(W)', 'e:half-open(B)'] 
+  m12: mat=-3 static=-338 files=['d:half-open(W)', 'e:half-open(B)'] 
+  m13: mat=-3 static=-355 files=['d:half-open(W)', 'e:half-open(B)'] 
+  m14: mat=+0 static=+32 files=['d:half-open(W)', 'e:open'] 
+  m15: mat=+0 static=+28 files=['d:half-open(W)', 'e:open'] 
+  m16: mat=+0 static=+49 files=['d:half-open(W)', 'e:open'] 
+  m17: mat=+0 static=+29 files=['d:half-open(W)', 'e:open'] 
+  m18: mat=+0 static=+21 files=['d:half-open(W)', 'e:open'] 
+  m19: mat=+0 static=+18 files=['d:half-open(W)', 'e:open'] 
+  m20: mat=+0 static=-12 files=['d:half-open(W)', 'e:open'] 
+  m21: mat=+0 static=-55 files=['d:half-open(W)', 'e:open'] 
+  m22: mat=+0 static=-47 files=['d:half-open(W)', 'e:open'] 
+  m23: mat=+0 static=-39 files=['b:half-open(W)', 'd:open', 'e:open'] 
+  m24: mat=+0 static=-32 files=['b:half-open(W)', 'd:open', 'e:open'] 
+  m25: mat=-9 static=-1055 files=['b:half-open(W)', 'd:open', 'e:open'] 
+  m26: mat=+0 static=-31 files=['b:half-open(W)', 'd:open', 'e:open'] 
+  m27: mat=+0 static=-52 files=['b:half-open(W)', 'd:open', 'e:open', 'f:half-open(W)', 'h:half-open(B)'] 
+  m28: mat=+0 static=-18 files=['b:half-open(W)', 'd:open', 'e:open', 'f:half-open(W)', 'h:half-open(B)'] 
+  m29: mat=+0 static=-7 files=['b:half-open(W)', 'd:open', 'e:open', 'f:half-open(W)', 'h:half-open(B)'] 
+  m30: mat=+0 static=-18 files=['b:half-open(W)', 'd:open', 'e:open', 'f:half-open(W)', 'h:half-open(B)'] 

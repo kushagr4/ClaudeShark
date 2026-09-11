@@ -1,0 +1,935 @@
+{
+ "GOOD": [
+  {
+   "id": "R79-8",
+   "game": 79,
+   "loss": 13,
+   "d_own": 8,
+   "d_net": 8,
+   "d_trap": -1,
+   "d_static": -8
+  },
+  {
+   "id": "R79-9",
+   "game": 79,
+   "loss": 20,
+   "d_own": 5,
+   "d_net": 5,
+   "d_trap": -1,
+   "d_static": -35
+  },
+  {
+   "id": "R79-10",
+   "game": 79,
+   "loss": 17,
+   "d_own": -1,
+   "d_net": -3,
+   "d_trap": 0,
+   "d_static": 114
+  },
+  {
+   "id": "R79-11",
+   "game": 79,
+   "loss": 29,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": -1,
+   "d_static": -126
+  },
+  {
+   "id": "R88-12",
+   "game": 88,
+   "loss": 1,
+   "d_own": -5,
+   "d_net": -6,
+   "d_trap": 0,
+   "d_static": 77
+  },
+  {
+   "id": "R88-16",
+   "game": 88,
+   "loss": 4,
+   "d_own": -15,
+   "d_net": -17,
+   "d_trap": 0,
+   "d_static": -69
+  },
+  {
+   "id": "R92-6",
+   "game": 92,
+   "loss": 22,
+   "d_own": 9,
+   "d_net": 9,
+   "d_trap": -2,
+   "d_static": -36
+  },
+  {
+   "id": "R92-8",
+   "game": 92,
+   "loss": 26,
+   "d_own": 1,
+   "d_net": 6,
+   "d_trap": 1,
+   "d_static": 379
+  },
+  {
+   "id": "R91-8",
+   "game": 91,
+   "loss": 21,
+   "d_own": 9,
+   "d_net": 9,
+   "d_trap": 0,
+   "d_static": -8
+  },
+  {
+   "id": "R83-12",
+   "game": 83,
+   "loss": 0,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R83-13",
+   "game": 83,
+   "loss": 24,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -11
+  },
+  {
+   "id": "R83-16",
+   "game": 83,
+   "loss": 19,
+   "d_own": 0,
+   "d_net": 0,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R83-17",
+   "game": 83,
+   "loss": 30,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R95-7",
+   "game": 95,
+   "loss": 1,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 1,
+   "d_static": -18
+  },
+  {
+   "id": "R95-9",
+   "game": 95,
+   "loss": 0,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 2,
+   "d_static": 1
+  },
+  {
+   "id": "R95-15",
+   "game": 95,
+   "loss": 11,
+   "d_own": -6,
+   "d_net": -6,
+   "d_trap": 0,
+   "d_static": 2
+  },
+  {
+   "id": "R101-14",
+   "game": 101,
+   "loss": 0,
+   "d_own": 1,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": 0
+  },
+  {
+   "id": "R101-20",
+   "game": 101,
+   "loss": 24,
+   "d_own": -5,
+   "d_net": -5,
+   "d_trap": 0,
+   "d_static": -50
+  },
+  {
+   "id": "R101-28",
+   "game": 101,
+   "loss": 19,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": 1
+  },
+  {
+   "id": "R101-49",
+   "game": 101,
+   "loss": 0,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -1
+  },
+  {
+   "id": "R101-50",
+   "game": 101,
+   "loss": 0,
+   "d_own": 1,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": 4
+  },
+  {
+   "id": "R101-51",
+   "game": 101,
+   "loss": 0,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": 10
+  },
+  {
+   "id": "R99-9",
+   "game": 99,
+   "loss": 2,
+   "d_own": 1,
+   "d_net": 6,
+   "d_trap": 1,
+   "d_static": 379
+  },
+  {
+   "id": "R99-12",
+   "game": 99,
+   "loss": 0,
+   "d_own": 4,
+   "d_net": 4,
+   "d_trap": -1,
+   "d_static": 9
+  },
+  {
+   "id": "R99-13",
+   "game": 99,
+   "loss": 7,
+   "d_own": 8,
+   "d_net": 8,
+   "d_trap": 1,
+   "d_static": 17
+  },
+  {
+   "id": "R99-14",
+   "game": 99,
+   "loss": 21,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": 5
+  },
+  {
+   "id": "R98-8",
+   "game": 98,
+   "loss": 0,
+   "d_own": -4,
+   "d_net": 2,
+   "d_trap": 1,
+   "d_static": 370
+  },
+  {
+   "id": "R98-9",
+   "game": 98,
+   "loss": 0,
+   "d_own": -6,
+   "d_net": -6,
+   "d_trap": 0,
+   "d_static": -42
+  },
+  {
+   "id": "R98-14",
+   "game": 98,
+   "loss": 27,
+   "d_own": 9,
+   "d_net": 9,
+   "d_trap": 0,
+   "d_static": -20
+  },
+  {
+   "id": "R98-19",
+   "game": 98,
+   "loss": 17,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": 7
+  },
+  {
+   "id": "R98-20",
+   "game": 98,
+   "loss": 1,
+   "d_own": -3,
+   "d_net": -4,
+   "d_trap": 0,
+   "d_static": -27
+  },
+  {
+   "id": "R103-10",
+   "game": 103,
+   "loss": 18,
+   "d_own": 8,
+   "d_net": 8,
+   "d_trap": 0,
+   "d_static": 5
+  },
+  {
+   "id": "R103-11",
+   "game": 103,
+   "loss": 17,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 1,
+   "d_static": -3
+  },
+  {
+   "id": "R103-14",
+   "game": 103,
+   "loss": 6,
+   "d_own": 5,
+   "d_net": 5,
+   "d_trap": -1,
+   "d_static": -12
+  },
+  {
+   "id": "R103-16",
+   "game": 103,
+   "loss": 14,
+   "d_own": -3,
+   "d_net": -3,
+   "d_trap": 0,
+   "d_static": -43
+  },
+  {
+   "id": "R103-19",
+   "game": 103,
+   "loss": 20,
+   "d_own": 4,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R103-22",
+   "game": 103,
+   "loss": 20,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -8
+  },
+  {
+   "id": "R103-23",
+   "game": 103,
+   "loss": 7,
+   "d_own": -10,
+   "d_net": -10,
+   "d_trap": 0,
+   "d_static": 11
+  },
+  {
+   "id": "R105-6",
+   "game": 105,
+   "loss": 0,
+   "d_own": 9,
+   "d_net": 9,
+   "d_trap": -2,
+   "d_static": -36
+  },
+  {
+   "id": "R105-8",
+   "game": 105,
+   "loss": 26,
+   "d_own": 1,
+   "d_net": 6,
+   "d_trap": 1,
+   "d_static": 379
+  },
+  {
+   "id": "R105-9",
+   "game": 105,
+   "loss": 0,
+   "d_own": 2,
+   "d_net": -3,
+   "d_trap": 0,
+   "d_static": -386
+  },
+  {
+   "id": "R105-10",
+   "game": 105,
+   "loss": 1,
+   "d_own": 6,
+   "d_net": 10,
+   "d_trap": -1,
+   "d_static": 35
+  },
+  {
+   "id": "R94-7",
+   "game": 94,
+   "loss": 23,
+   "d_own": 7,
+   "d_net": 7,
+   "d_trap": -2,
+   "d_static": -21
+  },
+  {
+   "id": "R94-8",
+   "game": 94,
+   "loss": 1,
+   "d_own": 0,
+   "d_net": 0,
+   "d_trap": 0,
+   "d_static": -19
+  },
+  {
+   "id": "R94-9",
+   "game": 94,
+   "loss": 14,
+   "d_own": -7,
+   "d_net": -11,
+   "d_trap": 0,
+   "d_static": -358
+  },
+  {
+   "id": "R94-22",
+   "game": 94,
+   "loss": 14,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": -14
+  }
+ ],
+ "BAD": [
+  {
+   "id": "R81-8",
+   "game": 81,
+   "loss": 137,
+   "d_own": 7,
+   "d_net": 7,
+   "d_trap": 0,
+   "d_static": 10
+  },
+  {
+   "id": "R88-11",
+   "game": 88,
+   "loss": 67,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": -28
+  },
+  {
+   "id": "R91-11",
+   "game": 91,
+   "loss": 41,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 1,
+   "d_static": 12
+  },
+  {
+   "id": "R83-15",
+   "game": 83,
+   "loss": 48,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -29
+  },
+  {
+   "id": "R83-18",
+   "game": 83,
+   "loss": 86,
+   "d_own": 7,
+   "d_net": 7,
+   "d_trap": -1,
+   "d_static": -11
+  },
+  {
+   "id": "R95-16",
+   "game": 95,
+   "loss": 49,
+   "d_own": 7,
+   "d_net": 6,
+   "d_trap": 1,
+   "d_static": -27
+  },
+  {
+   "id": "R95-17",
+   "game": 95,
+   "loss": 106,
+   "d_own": 3,
+   "d_net": 8,
+   "d_trap": 0,
+   "d_static": 357
+  },
+  {
+   "id": "R101-12",
+   "game": 101,
+   "loss": 52,
+   "d_own": -7,
+   "d_net": -7,
+   "d_trap": 0,
+   "d_static": -54
+  },
+  {
+   "id": "R101-16",
+   "game": 101,
+   "loss": 77,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": 12
+  },
+  {
+   "id": "R101-17",
+   "game": 101,
+   "loss": 56,
+   "d_own": -2,
+   "d_net": 0,
+   "d_trap": 0,
+   "d_static": -14
+  },
+  {
+   "id": "R101-18",
+   "game": 101,
+   "loss": 77,
+   "d_own": -2,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": 373
+  },
+  {
+   "id": "R101-22",
+   "game": 101,
+   "loss": 73,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -7
+  },
+  {
+   "id": "R101-30",
+   "game": 101,
+   "loss": 172,
+   "d_own": 1,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": 2
+  },
+  {
+   "id": "R101-33",
+   "game": 101,
+   "loss": 68,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": 5
+  },
+  {
+   "id": "R101-44",
+   "game": 101,
+   "loss": 58,
+   "d_own": 5,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": -2
+  },
+  {
+   "id": "R101-52",
+   "game": 101,
+   "loss": 130,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": 5
+  },
+  {
+   "id": "R101-53",
+   "game": 101,
+   "loss": 77,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": -17
+  },
+  {
+   "id": "R101-55",
+   "game": 101,
+   "loss": 74,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -15
+  },
+  {
+   "id": "R101-56",
+   "game": 101,
+   "loss": 69,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": 13
+  },
+  {
+   "id": "R101-57",
+   "game": 101,
+   "loss": 383,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R101-61",
+   "game": 101,
+   "loss": 463,
+   "d_own": -4,
+   "d_net": -3,
+   "d_trap": 0,
+   "d_static": -5
+  },
+  {
+   "id": "R99-6",
+   "game": 99,
+   "loss": 72,
+   "d_own": 7,
+   "d_net": 7,
+   "d_trap": -2,
+   "d_static": 25
+  },
+  {
+   "id": "R99-11",
+   "game": 99,
+   "loss": 43,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": -1,
+   "d_static": -43
+  },
+  {
+   "id": "R99-20",
+   "game": 99,
+   "loss": 64,
+   "d_own": -9,
+   "d_net": -9,
+   "d_trap": 0,
+   "d_static": 4
+  },
+  {
+   "id": "R98-10",
+   "game": 98,
+   "loss": 70,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -10
+  },
+  {
+   "id": "R98-13",
+   "game": 98,
+   "loss": 75,
+   "d_own": 7,
+   "d_net": 7,
+   "d_trap": 0,
+   "d_static": 66
+  },
+  {
+   "id": "R98-16",
+   "game": 98,
+   "loss": 87,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -13
+  },
+  {
+   "id": "R98-17",
+   "game": 98,
+   "loss": 69,
+   "d_own": 8,
+   "d_net": 8,
+   "d_trap": 0,
+   "d_static": -23
+  },
+  {
+   "id": "R98-18",
+   "game": 98,
+   "loss": 78,
+   "d_own": -7,
+   "d_net": -7,
+   "d_trap": 0,
+   "d_static": -24
+  },
+  {
+   "id": "R98-23",
+   "game": 98,
+   "loss": 54,
+   "d_own": -5,
+   "d_net": -6,
+   "d_trap": 0,
+   "d_static": -19
+  },
+  {
+   "id": "R98-24",
+   "game": 98,
+   "loss": 46,
+   "d_own": -5,
+   "d_net": -5,
+   "d_trap": 0,
+   "d_static": -18
+  },
+  {
+   "id": "R102-8",
+   "game": 102,
+   "loss": 67,
+   "d_own": 4,
+   "d_net": 4,
+   "d_trap": -2,
+   "d_static": -29
+  },
+  {
+   "id": "R103-15",
+   "game": 103,
+   "loss": 66,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": -1,
+   "d_static": -87
+  },
+  {
+   "id": "R103-24",
+   "game": 103,
+   "loss": 58,
+   "d_own": 5,
+   "d_net": 7,
+   "d_trap": 0,
+   "d_static": -33
+  },
+  {
+   "id": "R105-11",
+   "game": 105,
+   "loss": 42,
+   "d_own": 8,
+   "d_net": 12,
+   "d_trap": 1,
+   "d_static": 434
+  },
+  {
+   "id": "R94-14",
+   "game": 94,
+   "loss": 91,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -25
+  },
+  {
+   "id": "R94-24",
+   "game": 94,
+   "loss": 74,
+   "d_own": 2,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": -13
+  },
+  {
+   "id": "R94-26",
+   "game": 94,
+   "loss": 66,
+   "d_own": 1,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": -13
+  },
+  {
+   "id": "R94-33",
+   "game": 94,
+   "loss": 133,
+   "d_own": -3,
+   "d_net": -3,
+   "d_trap": 1,
+   "d_static": 17
+  },
+  {
+   "id": "R94-35",
+   "game": 94,
+   "loss": 132,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": 4
+  },
+  {
+   "id": "R94-36",
+   "game": 94,
+   "loss": 94,
+   "d_own": 1,
+   "d_net": 1,
+   "d_trap": 0,
+   "d_static": -2
+  },
+  {
+   "id": "R94-42",
+   "game": 94,
+   "loss": 76,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": -6
+  },
+  {
+   "id": "R94-43",
+   "game": 94,
+   "loss": 84,
+   "d_own": 10,
+   "d_net": 10,
+   "d_trap": 0,
+   "d_static": -28
+  }
+ ],
+ "FLIP": [
+  {
+   "id": "R79-12",
+   "game": 79,
+   "loss": 55,
+   "d_own": -3,
+   "d_net": -3,
+   "d_trap": 1,
+   "d_static": 16
+  },
+  {
+   "id": "R81-10",
+   "game": 81,
+   "loss": 59,
+   "d_own": 2,
+   "d_net": 3,
+   "d_trap": -1,
+   "d_static": 12
+  },
+  {
+   "id": "R88-17",
+   "game": 88,
+   "loss": 112,
+   "d_own": -1,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": -70
+  },
+  {
+   "id": "R92-9",
+   "game": 92,
+   "loss": 47,
+   "d_own": -1,
+   "d_net": -1,
+   "d_trap": 0,
+   "d_static": -23
+  },
+  {
+   "id": "R91-13",
+   "game": 91,
+   "loss": 117,
+   "d_own": 1,
+   "d_net": 2,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R83-20",
+   "game": 83,
+   "loss": 121,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -6
+  },
+  {
+   "id": "R95-20",
+   "game": 95,
+   "loss": 69,
+   "d_own": 3,
+   "d_net": 3,
+   "d_trap": 0,
+   "d_static": -3
+  },
+  {
+   "id": "R101-29",
+   "game": 101,
+   "loss": 60,
+   "d_own": 4,
+   "d_net": 4,
+   "d_trap": 0,
+   "d_static": -10
+  },
+  {
+   "id": "R99-25",
+   "game": 99,
+   "loss": 44,
+   "d_own": -2,
+   "d_net": -2,
+   "d_trap": 0,
+   "d_static": -26
+  },
+  {
+   "id": "R98-25",
+   "game": 98,
+   "loss": 64,
+   "d_own": 3,
+   "d_net": 4,
+   "d_trap": 0,
+   "d_static": -18
+  },
+  {
+   "id": "R102-10",
+   "game": 102,
+   "loss": 124,
+   "d_own": -7,
+   "d_net": -7,
+   "d_trap": 0,
+   "d_static": -18
+  },
+  {
+   "id": "R103-25",
+   "game": 103,
+   "loss": 92,
+   "d_own": 6,
+   "d_net": 8,
+   "d_trap": 0,
+   "d_static": -41
+  },
+  {
+   "id": "R105-16",
+   "game": 105,
+   "loss": 107,
+   "d_own": 4,
+   "d_net": 4,
+   "d_trap": -2,
+   "d_static": 3
+  },
+  {
+   "id": "R94-44",
+   "game": 94,
+   "loss": 117,
+   "d_own": 9,
+   "d_net": 9,
+   "d_trap": 0,
+   "d_static": -10
+  }
+ ]
+}
