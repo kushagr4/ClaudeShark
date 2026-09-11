@@ -1,0 +1,48 @@
+train quiet 60958 of 79673; val quiet 7583 of 9870
+frozen link K_mg 209.4 K_eg 96.0; shrink s* 0.5; control 0.581389 vs E0 0.581389
+  U epoch  0 train 0.57831 val 0.57929
+  U epoch  1 train 0.57587 val 0.57610
+  U epoch  2 train 0.57284 val 0.57476
+  U epoch  3 train 0.57129 val 0.57433
+  U epoch  4 train 0.56959 val 0.57370
+  U epoch  5 train 0.56814 val 0.57360
+  U epoch  6 train 0.56656 val 0.57237
+  U epoch  7 train 0.56473 val 0.57186
+  U epoch  8 train 0.56243 val 0.57226
+  U epoch  9 train 0.55999 val 0.57105
+  U epoch 10 train 0.55698 val 0.57000
+  U epoch 11 train 0.55349 val 0.57150
+  U epoch 12 train 0.54991 val 0.56951
+  U epoch 13 train 0.54548 val 0.57104
+  U epoch 14 train 0.54152 val 0.56920
+  U epoch 15 train 0.53657 val 0.57151
+  U epoch 16 train 0.53174 val 0.57149
+  U epoch 17 train 0.52716 val 0.57203
+  U epoch 18 train 0.52264 val 0.57603
+  U epoch 19 train 0.51744 val 0.57652
+  U epoch 20 train 0.51297 val 0.57962
+U: {"bce": 0.5691985233324566, "mse": 0.05671647762226683, "band_mse": 0.02387704290951461, "band_mse_E0": 0.01779829831491493, "band_mse_shrink": 0.006837341382228448, "band_bce_rel": 0.020198969101274944, "mid_bce_rel": -0.0015166057897180174, "band_spearman": 0.3172362247017894, "band_spearman_E0": 0.24195325204646903, "band_magnitude_ratio": 1.4157058734160204, "n": 7583, "n_band": 3527, "pair_qs_acc": 0.7857142857142857, "best_epoch": 14, "epochs_run": 21, "eligible": false}
+  B epoch  0 train 0.62926 val 0.57921
+  B epoch  1 train 0.62704 val 0.57601
+  B epoch  2 train 0.62480 val 0.57532
+  B epoch  3 train 0.62371 val 0.57460
+  B epoch  4 train 0.62240 val 0.57414
+  B epoch  5 train 0.62130 val 0.57431
+  B epoch  6 train 0.61994 val 0.57328
+  B epoch  7 train 0.61856 val 0.57259
+  B epoch  8 train 0.61688 val 0.57171
+  B epoch  9 train 0.61516 val 0.57089
+  B epoch 10 train 0.61292 val 0.57088
+  B epoch 11 train 0.61045 val 0.57076
+  B epoch 12 train 0.60795 val 0.56982
+  B epoch 13 train 0.60472 val 0.57065
+  B epoch 14 train 0.60220 val 0.56934
+  B epoch 15 train 0.59844 val 0.56935
+  B epoch 16 train 0.59480 val 0.56978
+  B epoch 17 train 0.59170 val 0.57016
+  B epoch 18 train 0.58808 val 0.57317
+  B epoch 19 train 0.58473 val 0.57285
+  B epoch 20 train 0.58148 val 0.57579
+B: {"bce": 0.5693386263578217, "mse": 0.05696159365661141, "band_mse": 0.01947032644491188, "band_mse_E0": 0.01779829831491493, "band_mse_shrink": 0.006837341382228448, "band_bce_rel": 0.0013654189022280772, "mid_bce_rel": -0.010326729895423825, "band_spearman": 0.31511431672775714, "band_spearman_E0": 0.24195325204646903, "band_magnitude_ratio": 1.1678952559446678, "n": 7583, "n_band": 3527, "pair_qs_acc": 0.8021978021978022, "best_epoch": 14, "epochs_run": 21, "eligible": false}
+selection: chosen U; eligible U False B False; B-U band mse -0.004407 se 0.000310
+N1q acceptance: {"float_band_mse": 0.02387704290951461, "quant_band_mse": 0.023793906187097636, "band_mse_rel_diff": 0.0034818684512999665, "max_abs_cp_diff": 9.339118957519531, "mean_abs_cp_diff": 2.0625080357931305, "pair_agreement": 0.9945054945054945, "quant_pair_qs_acc": 0.7879120879120879, "clip_counts": {"W1": 0, "W2": 0}, "passed": true}

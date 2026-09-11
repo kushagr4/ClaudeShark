@@ -1,0 +1,82 @@
+{
+ "frozen_at": "2026-09-11 22:46:10",
+ "chosen": "U",
+ "validation_fail": true,
+ "acceptance_passed": true,
+ "magnitude_audit_passed": false,
+ "rich_links": {
+  "E0": [
+   210.46053765039122,
+   187.81953510781997,
+   213.94847532583444,
+   125.71550717723643,
+   101.6209386146534,
+   137.27209271803605,
+   131.05498070376086,
+   86.09159277350423,
+   105.52545489489312
+  ],
+  "N1q": [
+   231.10273784033188,
+   173.422180698249,
+   216.58209979413266,
+   133.25632460049218,
+   118.78229811534995,
+   155.45944069835386,
+   137.57433078872918,
+   97.23971747213702,
+   110.52883121383127
+  ],
+  "phase_bands": [
+   [
+    16,
+    99
+   ],
+   [
+    8,
+    16
+   ],
+   [
+    0,
+    8
+   ]
+  ],
+  "pawn_buckets": [
+   [
+    0,
+    9
+   ],
+   [
+    9,
+    13
+   ],
+   [
+    13,
+    99
+   ]
+  ],
+  "fitted_on": "validation quiet, 1M labels"
+ },
+ "files": {
+  "n1_weights.npz": "b1b809b79d84238ef292096334d598d2a6327e96df690ade182dcf4e871da201",
+  "calibration.json": "8c5baba75e6c7c6993b29840c357583ed6b2b6192dc24fac9c10f77578372fb7",
+  "selection.json": "4e48f16c3b6710302ef0ddd6e5b551acf2068336535cfc16bab86c0f795dcc30",
+  "acceptance.json": "b60435f437d5ebd23d5e5109050edde0e69b5c23ec319589a58434f49f226d5c",
+  "magnitude_audit.json": "0c285cec4c56fd6801a78e3efe5d03650b4b78fd74ce039a3d3275d388b3afc6"
+ },
+ "scripts": {
+  "engine_n1.py": "05ca136f1f727cc882478f6cdd1ae5e2b2a6e422230c733ecf81fb531bc4bf56",
+  "nn1.py": "755ecfc66716f150cb458182e0f031a57291e8321efb652150b4e4639f1c000e",
+  "nn1kit.py": "4130771c55cf4c32268999abe22845bd5e38361da95eb1b9190c67e159d463b2",
+  "features.py": "e6a4197f84959c6ec02b0643212192b5afc22a4ca00b278bdf499f3df17bcfaa",
+  "train_n1.py": "d259e713c72272f9286ed6e6b633f3b0eaa5860f8a7a133e36339d308d5eefdc",
+  "gates_n1.py": "6a22a9932f3d32f0a6eb271c9159c0e71219d493072354bf1e89ec3a59ffbf1e",
+  "pairs_n1.py": "4f0ec9e00c506915dea4f849cebf86866828776ed85e8c5c5ca9277bc336f699",
+  "speed_n1.py": "20312dd0e9f004eb7135570cbe3d2203ca8ddd340d729fe03417e763e5884272",
+  "regress_n1.py": "906a8c389a5184029e77739cc8189cc6c9f4c81e6a64318c82bc7759d0ebd1b2",
+  "holdout_n1.py": "2c4e8eeee03a9266ea76f87281309cbd808d5ec5689af7a2577c602f5197e2b9",
+  "freeze_n1.py": "7adc7ec0b3da7b30f4e4dc5f344dd1b1eb378d676dead46f99d3045c8f962797",
+  "audit_n1.py": "8a6d0c0fe54682521bc24da0246d3abd36f77b11af8abc6911760d6de0b5e6f7"
+ },
+ "rule": "after any test label is read: no retraining, reselection, re-quantisation, link refit, weight edit or threshold change"
+}

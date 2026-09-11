@@ -1,0 +1,28 @@
+{
+ "float_band_mse": 0.02387704290951461,
+ "quant_band_mse": 0.023793906187097636,
+ "band_mse_rel_diff": 0.0034818684512999665,
+ "max_abs_cp_diff": 9.339118957519531,
+ "mean_abs_cp_diff": 2.0625080357931305,
+ "pair_agreement": 0.9945054945054945,
+ "quant_pair_qs_acc": 0.7879120879120879,
+ "clip_counts": {
+  "W1": 0,
+  "W2": 0
+ },
+ "quant_metrics": {
+  "bce": 0.5691729747720606,
+  "mse": 0.05669735026303138,
+  "band_mse": 0.023793906187097636,
+  "band_mse_E0": 0.01779829831491493,
+  "band_mse_shrink": 0.006837341382228448,
+  "band_bce_rel": 0.01993652974185478,
+  "mid_bce_rel": -0.0015144275996447076,
+  "band_spearman": 0.3174226863039457,
+  "band_spearman_E0": 0.24195325204646903,
+  "band_magnitude_ratio": 1.4102564102564104,
+  "n": 7583,
+  "n_band": 3527
+ },
+ "passed": true
+}

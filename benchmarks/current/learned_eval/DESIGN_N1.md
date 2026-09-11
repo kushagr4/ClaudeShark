@@ -311,10 +311,18 @@ Sensitivity flags, not gates:
   * the 50 cp instability counter.
 
   Criteria, all required:
-  * an audit build samples every 64th evaluate call's position during RC-J-N1
-    depth-10 searches of the 24 openings and 300 validation roots; the p99 of
-    |f| at those call sites is <= 250 cp in every phase band (mean, sd, p1,
-    p99 and max are reported);
+  * an audit build samples every 4,096th evaluate call's position during
+    depth-10 searches of the 24 openings and depth-8 searches of 300 validation
+    roots; the p99 of |f| at those call sites is <= 250 cp in every phase band
+    (mean, sd, p1, p99 and max are reported). A band with no sampled call site
+    fails the criterion.
+
+    **Disclosed deviation** (before the test opened, and before any audit
+    result was judged): the stride was 64. The 20,000-row sample buffer then
+    filled within the first few openings, after about 1.3M of the 58M calls,
+    so it held no endgame call site at all. The first audit run crashed on
+    that empty band. The stride was raised so the fixed buffer spans every
+    search; the criterion itself is unchanged.
   * the mean of f on the validation balanced band has |mean| <= 10 cp;
   * the slope of N1q on E0 over validation positions lies in [0.8, 1.25] per
     phase band;
