@@ -1,0 +1,148 @@
+{
+ "seed": "N1-20260911",
+ "rule": "sha1('N1-20260911|'+group) mod 10: 0-7 train, 8 val, 9 test",
+ "per_game": {
+  "TWIC": 4,
+  "PUBLIC": 8,
+  "VS_SF": 6,
+  "SELFPLAY": 6
+ },
+ "first_ply": {
+  "TWIC": 16,
+  "PUBLIC": 2,
+  "VS_SF": 2,
+  "SELFPLAY": 2
+ },
+ "min_gap": 10,
+ "twic_min_elo": 2200,
+ "target": 100000,
+ "dropped_to_target": 1419,
+ "positions": 100000,
+ "games": 25823,
+ "groups": {
+  "test": 2420,
+  "val": 2389,
+  "train": 19272
+ },
+ "by_family_split": {
+  "PUBLIC/test": 411,
+  "PUBLIC/train": 2426,
+  "PUBLIC/val": 331,
+  "SELFPLAY/test": 577,
+  "SELFPLAY/train": 3671,
+  "SELFPLAY/val": 475,
+  "TWIC/test": 8872,
+  "TWIC/train": 70528,
+  "TWIC/val": 8731,
+  "VS_SF/test": 481,
+  "VS_SF/train": 3048,
+  "VS_SF/val": 449
+ },
+ "by_split": {
+  "test": 10341,
+  "val": 9986,
+  "train": 79673
+ },
+ "phase_bands": {
+  "mg>=16": 53690,
+  "8-15": 24423,
+  "<8": 21887
+ },
+ "game_counts": {
+  "games_PUBLIC": 486,
+  "excluded_autopsy_start_family_PUBLIC": 49,
+  "duplicate_game_PUBLIC": 105,
+  "games_VS_SF": 740,
+  "excluded_autopsy_start_family_VS_SF": 40,
+  "games_SELFPLAY": 825,
+  "excluded_autopsy_start_family_SELFPLAY": 86,
+  "duplicate_game_SELFPLAY": 1,
+  "games_TWIC": 23772,
+  "duplicate_game_TWIC": 20
+ },
+ "sampling_skips": {
+  "check_or_over": 8085,
+  "autopsy_position": 11,
+  "candidates_position": 77,
+  "dedup_dropped_from_test": 19,
+  "dedup_dropped_from_val": 27,
+  "dedup_dropped_from_train": 671
+ },
+ "twic": {
+  "twic_games_total": 61459,
+  "twic_eligible_after_exclusion": 24298
+ },
+ "holdout": {
+  "uuids": 30,
+  "start_families": 28,
+  "positions": 3957,
+  "ids": [
+   "R79-12w",
+   "R81-10b",
+   "R83-20w",
+   "R88-17b",
+   "R91-13w",
+   "R92-9b",
+   "R94-44w",
+   "R95-20b",
+   "R98-25w",
+   "R99-25b",
+   "R101-29b",
+   "R102-10w",
+   "R103-25w",
+   "R105-16b",
+   "R81-8bs",
+   "R94-33ws",
+   "R94-35ws",
+   "R101-52bs",
+   "R101-57bs",
+   "R101-61bs"
+  ]
+ },
+ "leakage": {
+  "uuid": 0,
+  "position": 0,
+  "start_family": 0,
+  "move_sequence": 0,
+  "cross_split_groups": {
+   "train-val": 0,
+   "train-test": 0,
+   "val-test": 0
+  }
+ },
+ "candidates_games_excluded": 5318,
+ "inputs": {
+  "analysis/top50_games.jsonl": "37f821f4dfadf3ff68be908e59a522add534d9e3eddcc1e5fcc93215f6a9644b",
+  "analysis/refresh_2026-09-05/top50_games.jsonl": "a975a4154469518c59c22032dbed4a0c7a194f210a79a982dc7764a4414b5e56",
+  "analysis/competitors/659a3020_alphafish/alphafish_games.jsonl": "2e2ddbd4682a43fcb65a19aaae630414f25239d5a5fc824c7617c847aa2cef71",
+  "analysis/competitors/claudeshark_public/games.jsonl": "40052bfee19fed7e3644728473641593fd5daca3d9e99292a131d3409ed2dfdd",
+  "corpus/strength/c5/c5_vs_sf2300_dev_60_strict.annotated.jsonl": "ec76fb955351e212577604c569f8444f9d22c0f5be3ea2bcdd8170f4ee06f2f0",
+  "corpus/strength/c5/c5_vs_sf2300_holdout_b_100_strict.pgn": "3319cbcfeca613808fa1174685c3ef3177d464fa9057b7a4c0b9ce5e533b3fff",
+  "corpus/strength/c5/c5_vs_sf2400_dev2400_100_strict.annotated.jsonl": "91964762684fd0660cd41baf1b30d677739c0898214299cc00cd02871f43e3b9",
+  "corpus/strength/c5/c5_vs_sf2400_holdout2400_a_100_strict.annotated.jsonl": "6f35f49f5bac7a368f06ee2249ef83d54538a50c05e6a36136ed5c4553ec5911",
+  "corpus/strength/c8/c8_vs_sf2400_dev2400_60_strict.pgn": "9ae6a65f5c17938f2f0b9fc7378f89d7c3d2a139e23669de748503806aa0291a",
+  "corpus/strength/games/rcc_vs_sf2300_dev_100.annotated.jsonl": "4989391e41a0ea26841b5362034dd7c15b71ba8f7cdd156325339eb18c3f7f21",
+  "corpus/strength/games/rcc_vs_sf2300_dev_100_strict.annotated.jsonl": "7c8e0b66427f0254b3c426019de7de1a56407d53937d4fb1eca7de84ba8e9f23",
+  "corpus/strength/games/rcc_vs_sf2300_holdout_a_100_strict.pgn": "2966bd841687417b4cc5a343d4f772ff48a9eb876ecceb8c7d429ade747081cb",
+  "corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.annotated.jsonl": "65f6256d8475dd869d30575b011acd78b774701b08f22397fb144cb9df29601e",
+  "corpus/daily/rcc/checkext_vs_rcb_120s_100.pgn": "f04a21296261cb3f9647323e55efd95d5c7e14e4a4956443ceae1278ca1a5fcf",
+  "corpus/daily/rcc/speed_vs_rcb_120s_100_pc.pgn": "d5ef695292af9d5cec6525a5a6989908b9a4b894ccd869c11d5f589e86e7c413",
+  "corpus/daily/time/games/c1staged_vs_ratedv1_120s.pgn": "7d3b6d1a7ba6f5910bd4b3211379e9b35e53a7d7516438d18a3b1ba3dd3181ac",
+  "corpus/daily/time/games/early16_vs_ratedv1_120s.pgn": "a52ef593e17ecb49a82932f6d8f6e04d0bbf3f50a2eae1ead711c308676148dc",
+  "corpus/strength/c5/c5_vs_rcc_dev_60_strict.pgn": "0000e0d7305af3684be40c443745aba6790c92443f18e667ca58c67fd774654f",
+  "corpus/strength/c5/c5_vs_rcc_val_80_strict.pgn": "2cb123f6dc7df528bcfb7104e43f216892eefc8bee5b5a0fc0db1be08db33715",
+  "corpus/strength/c8/c8_vs_c5_dev_60_strict.annotated.jsonl": "c41a1c44c4075d58e6eb404f10289c995260d7db872a45c4130524792ab35b29",
+  "corpus/strength/c9/c9_vs_c5_dev_60_strict.pgn": "eeb35edafa171e7f4f21be5ba1f7919caf0ba1375a79b71e914e4ec48479457d"
+ },
+ "twic_files": {
+  "twic1500.pgn": "4da0b306d32f51cc5e58073cbb62ed429acedcac6ec4860d49f9cea6e8775893",
+  "twic1520.pgn": "70e50f4e7dc020cddf1f8ec475ff008d7596b113622c31e8d73d68fc6f3e40b1",
+  "twic1540.pgn": "86845122f4b9125b812571d6c820e245500afeb6138541d65dd11a82360c5d49",
+  "twic1560.pgn": "70bf7025443a5a093d6611a64bd24eb35ba72132d5548db8fd9d70a9dbbd539e",
+  "twic1580.pgn": "80d2a8ccb2cf9da01cd6a46797125539d8f6e3eef51c9dc9c8d0445e492568b0",
+  "twic1600.pgn": "9abfe82dd2ed4d7bb963af6af4ba42b7e48c400fa553af6dec99c2d15619e254",
+  "twic1620.pgn": "39b45b2562d1fb7e9a2ec9591076993c10651c90bd887093a3aa1e7c23dbcdcb",
+  "twic1640.pgn": "fb08d54ace9a70000ac763f98dadb1c9d0c6ed395ca256a54669ea0e650fbd30"
+ },
+ "pool_sha256": "f016e26af726e46c57dbdfc698eb9b12845a15dd337feb5a3532948c04099560"
+}

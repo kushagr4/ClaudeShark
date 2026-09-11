@@ -20,7 +20,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..",
 sys.path.insert(0, ROOT)
 from tools.corpus.extract import _game_id  # noqa: E402  (same TWIC game ids as corpus/candidates.jsonl)
 
-SEED = 20260911
+SEED = 20260911  # the pilot's seed; N1 passes --seed N1-20260911
+TWIC_MIN_ELO = 2300
 TWIC_DIR = "C:/Users/epick/engines/twic"
 AUTOPSY = os.path.join(ROOT, "benchmarks/current/rcj_loss_autopsy")
 STANDARD4 = " ".join(chess.STARTING_FEN.split()[:4])
@@ -173,7 +174,7 @@ def load_twic(n_wanted, exclude_ids, rng):
                     we, be = int(h.get("WhiteElo", "0")), int(h.get("BlackElo", "0"))
                 except ValueError:
                     continue
-                if we < 2300 or be < 2300:
+                if we < TWIC_MIN_ELO or be < TWIC_MIN_ELO:
                     continue
                 gid = _game_id(h, name)
                 if gid in exclude_ids:
@@ -268,7 +269,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
     ap.add_argument("--twic-games", type=int, default=4000)
+    ap.add_argument("--seed", default="20260911")
+    ap.add_argument("--twic-min-elo", type=int, default=2300)
+    ap.add_argument("--twic-per-game", type=int, default=1)
+    ap.add_argument("--per-game", default="", help="overrides such as PUBLIC=8,VS_SF=6,SELFPLAY=6")
+    ap.add_argument("--target", type=int, default=0, help="exact pool size; 0 keeps every sampled position")
     a = ap.parse_args()
+    global SEED, TWIC_MIN_ELO
+    SEED = int(a.seed) if a.seed.isdigit() else a.seed
+    TWIC_MIN_ELO = a.twic_min_elo
+    PER_GAME["TWIC"] = a.twic_per_game
+    for item in filter(None, a.per_game.split(",")):
+        fam, n = item.split("=")
+        PER_GAME[fam] = int(n)
     os.makedirs(a.out, exist_ok=True)
     rng = random.Random(SEED)
 
@@ -328,6 +341,13 @@ def main():
             continue
         by_key[r["fen4"]] = r
         kept.append(r)
+    dropped_to_target = 0
+    if a.target and len(kept) > a.target:
+        # Exact size: drop TWIC rows first, then the rest, in a seeded hash order.
+        order = sorted(kept, key=lambda r: (r["family"] != "TWIC", sha1(f"{SEED}|drop|{r['pid']}")))
+        drop = {r["pid"] for r in order[:len(kept) - a.target]}
+        kept = [r for r in kept if r["pid"] not in drop]
+        dropped_to_target = len(drop)
 
     # Leakage audit: nothing from the holdout may survive in any split.
     leak = dict(
@@ -353,8 +373,9 @@ def main():
 
     table = collections.Counter((r["family"], r["split"]) for r in kept)
     manifest = dict(
-        seed=SEED, rule="sha1('20260911|'+group) mod 10: 0-7 train, 8 val, 9 test",
-        per_game=PER_GAME, first_ply=FIRST_PLY, min_gap=MIN_GAP,
+        seed=SEED, rule=f"sha1('{SEED}|'+group) mod 10: 0-7 train, 8 val, 9 test",
+        per_game=PER_GAME, first_ply=FIRST_PLY, min_gap=MIN_GAP, twic_min_elo=TWIC_MIN_ELO,
+        target=a.target, dropped_to_target=dropped_to_target,
         positions=len(kept), games=len(games), groups={k: len(v) for k, v in groups_by_split.items()},
         by_family_split={f"{f}/{s}": n for (f, s), n in sorted(table.items())},
         by_split=dict(collections.Counter(r["split"] for r in kept)),
