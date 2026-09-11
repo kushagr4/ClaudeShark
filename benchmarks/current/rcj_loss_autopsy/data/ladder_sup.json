@@ -1,0 +1,272 @@
+[
+ {
+  "id": "R81-8bs",
+  "fen": "r2qkb1r/pp3ppp/2np1n2/4p3/4P1b1/N1N2P2/PPP3PP/R1BQKB1R b KQkq - 0 8",
+  "played": "g4h5",
+  "reference": "g4e6",
+  "timed": {
+   "move": "g4h5",
+   "depth": 13,
+   "score": 36,
+   "nodes": 5612049,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.63,
+   "clock_in_ms": 120000,
+   "clock_assumed": true
+  },
+  "reproduces_live": true,
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "g4h5",
+    "score": 36,
+    "nodes": 5612049,
+    "seconds": 2.74
+   },
+   {
+    "depth": 14,
+    "move": "g4e6",
+    "score": 43,
+    "nodes": 17212868,
+    "seconds": 8.47
+   },
+   {
+    "depth": 15,
+    "move": "g4e6",
+    "score": 53,
+    "nodes": 27502435,
+    "seconds": 13.87
+   }
+  ],
+  "rcj_values": {
+   "depth": 13,
+   "played": 34,
+   "reference": 46
+  }
+ },
+ {
+  "id": "R94-33ws",
+  "fen": "8/1r2pk1p/p2p2p1/P2P1p2/P1p5/brP1R1P1/3B1PKP/1R6 w - - 3 33",
+  "played": "b1a1",
+  "reference": "b1e1",
+  "timed": {
+   "move": "b1e1",
+   "depth": 16,
+   "score": 0,
+   "nodes": 4483389,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.15,
+   "clock_in_ms": 66072,
+   "clock_assumed": false
+  },
+  "reproduces_live": false,
+  "ladder": [
+   {
+    "depth": 16,
+    "move": "b1e1",
+    "score": 0,
+    "nodes": 4483389,
+    "seconds": 2.26
+   },
+   {
+    "depth": 17,
+    "move": "b1e1",
+    "score": 0,
+    "nodes": 6578939,
+    "seconds": 3.31
+   },
+   {
+    "depth": 18,
+    "move": "b1e1",
+    "score": -22,
+    "nodes": 21319508,
+    "seconds": 10.78
+   }
+  ],
+  "rcj_values": {
+   "depth": 16,
+   "played": -9,
+   "reference": 0
+  }
+ },
+ {
+  "id": "R94-35ws",
+  "fen": "8/1r2pk2/p2p2pp/P2P1p2/P1p5/1rP1R1P1/1b1B1PKP/4R3 w - - 2 35",
+  "played": "e1b1",
+  "reference": "e3f3",
+  "timed": {
+   "move": "e1b1",
+   "depth": 14,
+   "score": 0,
+   "nodes": 3927011,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.98,
+   "clock_in_ms": 62834,
+   "clock_assumed": false
+  },
+  "reproduces_live": true,
+  "ladder": [
+   {
+    "depth": 14,
+    "move": "e1b1",
+    "score": 0,
+    "nodes": 3927011,
+    "seconds": 1.94
+   },
+   {
+    "depth": 15,
+    "move": "e1b1",
+    "score": 0,
+    "nodes": 5914311,
+    "seconds": 2.87
+   },
+   {
+    "depth": 16,
+    "move": "h2h4",
+    "score": 0,
+    "nodes": 10863086,
+    "seconds": 5.34
+   }
+  ],
+  "rcj_values": {
+   "depth": 14,
+   "played": -5,
+   "reference": -27
+  }
+ },
+ {
+  "id": "R101-52bs",
+  "fen": "8/1P1B1p2/8/4b1pk/4Pp2/p4P2/P3K3/8 b - - 8 52",
+  "played": "h5h4",
+  "reference": "h5g6",
+  "timed": {
+   "move": "h5h4",
+   "depth": 18,
+   "score": -79,
+   "nodes": 3124737,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.36,
+   "clock_in_ms": 39660,
+   "clock_assumed": false
+  },
+  "reproduces_live": true,
+  "ladder": [
+   {
+    "depth": 18,
+    "move": "h5h4",
+    "score": -79,
+    "nodes": 3124737,
+    "seconds": 1.37
+   },
+   {
+    "depth": 19,
+    "move": "h5h4",
+    "score": -80,
+    "nodes": 4186937,
+    "seconds": 1.77
+   },
+   {
+    "depth": 20,
+    "move": "h5h4",
+    "score": -79,
+    "nodes": 5583869,
+    "seconds": 2.38
+   }
+  ],
+  "rcj_values": {
+   "depth": 18,
+   "played": -79,
+   "reference": -95
+  }
+ },
+ {
+  "id": "R101-57bs",
+  "fen": "1b6/1P3p2/8/6p1/4PpBk/p4P2/P4K2/8 b - - 18 57",
+  "played": "b8a7",
+  "reference": "f7f6",
+  "timed": {
+   "move": "b8a7",
+   "depth": 21,
+   "score": -80,
+   "nodes": 4543137,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.95,
+   "clock_in_ms": 34740,
+   "clock_assumed": false
+  },
+  "reproduces_live": true,
+  "ladder": [
+   {
+    "depth": 21,
+    "move": "b8a7",
+    "score": -80,
+    "nodes": 4543137,
+    "seconds": 1.92
+   },
+   {
+    "depth": 22,
+    "move": "b8a7",
+    "score": -80,
+    "nodes": 5559311,
+    "seconds": 2.29
+   },
+   {
+    "depth": 23,
+    "move": "b8a7",
+    "score": -80,
+    "nodes": 6530970,
+    "seconds": 2.69
+   }
+  ],
+  "rcj_values": {
+   "depth": 21,
+   "played": -81,
+   "reference": -78
+  }
+ },
+ {
+  "id": "R101-61bs",
+  "fen": "1b6/1P6/4B3/6p1/5p2/p4Pk1/P3K3/8 b - - 0 61",
+  "played": "b8d6",
+  "reference": "g5g4",
+  "timed": {
+   "move": "b8e5",
+   "depth": 24,
+   "score": -118,
+   "nodes": 2283733,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 0.9,
+   "clock_in_ms": 31776,
+   "clock_assumed": false
+  },
+  "reproduces_live": false,
+  "ladder": [
+   {
+    "depth": 24,
+    "move": "b8e5",
+    "score": -118,
+    "nodes": 2283733,
+    "seconds": 0.93
+   },
+   {
+    "depth": 25,
+    "move": "b8e5",
+    "score": -118,
+    "nodes": 2696025,
+    "seconds": 1.13
+   },
+   {
+    "depth": 26,
+    "move": "b8e5",
+    "score": -118,
+    "nodes": 3321949,
+    "seconds": 1.33
+   }
+  ],
+  "rcj_values": {
+   "depth": 24,
+   "played": -123,
+   "reference": -186
+  }
+ }
+]

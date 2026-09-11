@@ -1,0 +1,166 @@
+======================================================================
+R101-29b black
+r . . . . r k .
+. . q . . p b .
+. . . p . . p .
+. . . . . . . .
+. Q . P P p . .
+p R P . . P . .
+P . . . . . B .
+. R . . . . K .
+rcj hanging/attacked pieces: ['d6p att=1 def=1', 'a3p att=2 def=1']
+opp attacked pieces: ['d4P att=1 def=2', 'c3P att=1 def=2']
+--- SF played PV
+  ply0 static=+107 mat=+0
+  ply1 Rfd8    static=+101 mat=+0 mob_own=32 mob_opp=25
+  ply2 Qb5     static=+120 mat=+0 mob_own=32 mob_opp=36
+  ply3 Bf6     static=+104 mat=+0 mob_own=34 mob_opp=36
+  ply4 Bf1     static=+154 mat=+0 mob_own=34 mob_opp=36
+  ply5 Rf8     static=+127 mat=+0 mob_own=36 mob_opp=36
+  ply6 Qc4     static=+130 mat=+0 mob_own=35 mob_opp=32
+  ply7 Qa5     static=+102 mat=+0 mob_own=36 mob_opp=33
+  ply8 Qb5     static=+131 mat=+0 mob_own=30 mob_opp=36
+--- SF best PV
+  ply0 static=+107 mat=+0
+  ply1 Bf6     static=+91 mat=+0 mob_own=36 mob_opp=25
+  ply2 Qb6     static=+106 mat=+0 mob_own=35 mob_opp=28
+  ply3 Qd7     static=+86 mat=+0 mob_own=37 mob_opp=29
+  ply4 Qb4     static=+104 mat=+0 mob_own=37 mob_opp=25
+  ply5 Ra4     static=+87 mat=+0 mob_own=34 mob_opp=25
+  ply6 Qb7     static=+115 mat=+0 mob_own=35 mob_opp=30
+  ply7 Qe6     static=+100 mat=+0 mob_own=35 mob_opp=32
+  ply8 Qd5     static=+92 mat=+0 mob_own=33 mob_opp=33
+game: move san | rcj_static(before move, RC-J view) | SF best_cp | loss
+    8 Bg4    static=  +12 sf_best=  +37 loss=   0 E=0.54 draw
+    9 Bd7    static=  +54 sf_best=  +45 loss=   0 E=0.55 draw
+   10 e5     static=  +70 sf_best=  +63 loss=   0 E=0.59 draw
+   11 Nh5    static=  +95 sf_best= +131 loss=   0 E=0.88 win
+   12 Nd4    static=  +29 sf_best= +129 loss=  52 E=0.88 win
+   13 cxd4   static= -334 sf_best=  +77 loss=   0 E=0.64 draw
+   14 Bc6    static=  +22 sf_best= +151 loss=   0 E=0.96 win
+   15 dxc3   static=  +42 sf_best= +169 loss=   0 E=0.98 win
+   16 a5     static=  +22 sf_best= +165 loss=  77 E=0.98 win
+   17 a4     static=   +2 sf_best= +122 loss=  56 E=0.87 win
+   18 a3     static=  +21 sf_best= +130 loss=  77 E=0.90 win
+   19 Bxd5   static=  +27 sf_best=  +62 loss=  36 E=0.57 draw
+   20 Nf4    static=   +7 sf_best=  +24 loss=  24 E=0.51 draw
+   21 exf4   static= -312 sf_best=  -11 loss=   0 E=0.50 draw
+   22 b6     static=  +70 sf_best=  +15 loss=  73 E=0.50 draw
+   23 h6     static=  +72 sf_best=  +60 loss=   0 E=0.54 draw
+   24 Bxh6   static=  +17 sf_best=  +73 loss=   0 E=0.58 draw
+   25 Qxh4   static=  +13 sf_best= +114 loss=   0 E=0.85 win
+   26 Qe7    static=  +77 sf_best= +143 loss=  31 E=0.97 win
+   27 Bg7    static=  +79 sf_best= +141 loss=  37 E=0.96 win
+   28 Qc7    static=  +97 sf_best= +117 loss=  19 E=0.87 win
+   29 Rfd8   static= +107 sf_best= +111 loss=  60 E=0.83 win
+   30 Qa5    static= +151 sf_best=  +73 loss= 172 E=0.58 draw
+   31 Rxa5   static= -841 sf_best= -109 loss=   0 E=0.18 loss
+   32 Ra7    static=  +97 sf_best=  -60 loss=  38 E=0.47 draw
+   33 Bf6    static= +104 sf_best=  -99 loss=  68 E=0.26 draw
+   34 Rd7    static=  +81 sf_best= -167 loss=   0 E=0.01 loss
+   35 Kg7    static=  +69 sf_best= -152 loss=   0 E=0.02 loss
+   36 Bh4    static=  +64 sf_best= -153 loss=  30 E=0.02 loss
+   37 Kh7    static=  +48 sf_best= -187 loss=  52 E=0.00 loss
+   38 g5     static=  +59 sf_best= -231 loss=   0 E=0.00 loss
+   39 Rac7   static=  +39 sf_best= -230 loss=   0 E=0.00 loss
+   40 Kg7    static=  +51 sf_best= -236 loss=   0 E=0.00 loss
+   41 Ra7    static=  +61 sf_best= -228 loss=   0 E=0.00 loss
+   42 Rxa7   static= -422 sf_best= -145 loss=   0 E=0.03 loss
+   43 dxc5   static=  +68 sf_best=  -94 loss=   0 E=0.30 draw
+   44 Kf6    static=  +67 sf_best=  -93 loss=  58 E=0.31 draw
+   45 Bf2    static=  +14 sf_best= -124 loss=   0 E=0.09 loss
+   46 Bc5    static=   -1 sf_best= -106 loss=   0 E=0.20 loss
+   47 Rxb7   static=  -12 sf_best=   +0 loss=   0 E=0.50 draw
+   48 Bd6    static=  -68 sf_best=   +0 loss=   0 E=0.50 draw
+   49 Be5    static=  -56 sf_best=   +0 loss=   0 E=0.50 draw
+   50 Kg6    static=  -51 sf_best=   +0 loss=   0 E=0.50 draw
+   51 Kh5    static=  -54 sf_best=   +0 loss=   0 E=0.50 draw
+   52 Kh4    static=  -67 sf_best=   +0 loss= 130 E=0.50 draw
+   53 Bd4+   static=  -46 sf_best=   +0 loss=  77 E=0.50 draw
+   54 Be5    static=  -26 sf_best= -127 loss=   0 E=0.07 loss
+   55 Bd6    static=  -40 sf_best=   +0 loss=  74 E=0.50 draw
+   56 Bb8    static=  -49 sf_best=  -80 loss=  69 E=0.39 draw
+   57 Ba7+   static=  -74 sf_best=  -66 loss= 383 E=0.45 draw
+   58 Kg3    static=  -85 sf_best= -344 loss=   0 E=0.00 loss
+   59 Bb8    static=  -48 sf_best=   +0 loss=   0 E=0.50 draw
+   60 fxe6   static= -100 sf_best=   +0 loss=   0 E=0.50 draw
+   61 Bd6    static=  -49 sf_best=   +0 loss= 463 E=0.50 draw
+   62 Bc7    static=  -27 sf_best= -469 loss=   0 E=0.00 loss
+   63 Be5    static=  -48 sf_best= -460 loss=  40 E=0.00 loss
+   64 Bc7    static=  -40 sf_best= -555 loss=   0 E=0.00 loss
+   65 Kh4    static=  -61 sf_best= -617 loss=   0 E=0.00 loss
+   66 Kg3    static=  -92 sf_best= -581 loss=   0 E=0.00 loss
+   67 Bb8    static=  -48 sf_best= -585 loss=  14 E=0.00 loss
+   68 Be5    static=  -21 sf_best= -610 loss=  17 E=0.00 loss
+   69 Bxb8   static= -732 sf_best= -625 loss=   0 E=0.00 loss
+   70 Kf2    static=  -29 sf_best= -630 loss=   0 E=0.00 loss
+   71 Ke3    static=  -84 sf_best= -555 loss=   0 E=0.00 loss
+   72 Kd4    static= -108 sf_best= -719 loss=   0 E=0.00 loss
+   73 Kc4    static=  -93 sf_best= -602 loss=  63 E=0.00 loss
+   74 Kc3    static= -105 sf_best=-1500 loss=   0 E=0.00 loss
+   75 Kb2    static= -113 sf_best= -541 loss=   0 E=0.00 loss
+   76 Kxa2   static= -209 sf_best= -533 loss=   0 E=0.00 loss
+   77 Kb2    static= -133 sf_best= -532 loss=   0 E=0.00 loss
+   78 a2     static= -200 sf_best= -520 loss=   0 E=0.00 loss
+   79 Kxa2   static= -371 sf_best= -528 loss=   0 E=0.00 loss
+   80 Ka3    static= -119 sf_best= -522 loss=   0 E=0.00 loss
+   81 Kb4    static=  -94 sf_best= -514 loss=   0 E=0.00 loss
+   82 Kb5    static=  -94 sf_best= -513 loss= 987 E=0.00 loss
+   83 Kc4    static= -169 sf_best=-1500 loss=   0 E=0.00 loss
+   84 Kc3    static= -220 sf_best=-1500 loss=   0 E=0.00 loss
+   85 Kd3    static= -963 sf_best=-1500 loss=   0 E=0.00 loss
+   86 Kc4    static= -933 sf_best=-1500 loss=   0 E=0.00 loss
+   87 Kb3    static= -979 sf_best=-1500 loss=   0 E=0.00 loss
+   88 Kc2    static= -980 sf_best=-1500 loss=   0 E=0.00 loss
+   89 Kb1    static= -985 sf_best=-1500 loss=   0 E=0.00 loss
+   90 Kc1    static= -964 sf_best=-1500 loss=   0 E=0.00 loss
+   91 Kd1    static= -944 sf_best=-1500 loss=   0 E=0.00 loss
+======================================================================
+R102-10w white
+r . b q . r k .
+p p . . . p p p
+. . . b . n . .
+. B p p n . . .
+. . . . . B . .
+. . P . P . . N
+P P . N . P P P
+R . . Q . R K .
+rcj hanging/attacked pieces: ['h3N att=1 def=1']
+opp attacked pieces: ['e5n att=1 def=1']
+--- SF played PV
+  ply0 static=-48 mat=+0
+  ply1 Nf3     static=-44 mat=+0 mob_own=34 mob_opp=29
+  ply2 Nxf3+   static=-473 mat=-3 mob_own=30 mob_opp=32
+  ply3 Qxf3    static=-31 mat=+0 mob_own=30 mob_opp=24
+  ply4 Bxh3    static=-338 mat=-3 mob_own=30 mob_opp=28
+  ply5 Qxh3    static=+30 mat=+0 mob_own=33 mob_opp=22
+  ply6 Bxf4    static=-355 mat=-3 mob_own=28 mob_opp=27
+  ply7 exf4    static=+14 mat=+0 mob_own=30 mob_opp=18
+  ply8 Qb6     static=+32 mat=+0 mob_own=30 mob_opp=22
+--- SF best PV
+  ply0 static=-48 mat=+0
+  ply1 Be2     static=-62 mat=+0 mob_own=27 mob_opp=29
+  ply2 Bxh3    static=-375 mat=-3 mob_own=26 mob_opp=33
+  ply3 gxh3    static=-52 mat=+0 mob_own=27 mob_opp=27
+  ply4 Qd7     static=-31 mat=+0 mob_own=27 mob_opp=34
+  ply5 h4      static=-58 mat=+0 mob_own=27 mob_opp=34
+  ply6 Rfe8    static=-51 mat=+0 mob_own=27 mob_opp=35
+  ply7 Bg3     static=-63 mat=+0 mob_own=25 mob_opp=35
+  ply8 Rad8    static=-81 mat=+0 mob_own=25 mob_opp=31
+game: move san | rcj_static(before move, RC-J view) | SF best_cp | loss
+    8 O-O    static=  -72 sf_best=  -20 loss=  67 E=0.48 draw
+    9 dxe5   static=  -37 sf_best=  -84 loss=   0 E=0.32 draw
+   10 Nf3    static=  -48 sf_best=  -85 loss= 124 E=0.32 draw
+   11 Qxf3   static= -473 sf_best= -207 loss=   0 E=0.00 loss
+   12 Qxh3   static= -338 sf_best= -217 loss=   0 E=0.00 loss
+   13 exf4   static= -355 sf_best= -188 loss=   0 E=0.00 loss
+   14 Bd3    static=  +32 sf_best= -203 loss=   0 E=0.00 loss
+   15 Bf5    static=  +28 sf_best= -202 loss=   0 E=0.00 loss
+   16 Qg3    static=  +49 sf_best= -230 loss=   0 E=0.00 loss
+   17 b3     static=  +29 sf_best= -153 loss=   0 E=0.02 loss
+   18 Qh4    static=  +21 sf_best= -123 loss=  40 E=0.10 loss
+   19 Rac1   static=  +18 sf_best= -166 loss=   0 E=0.01 loss
+   20 Bb1    static=  -12 sf_best= -154 loss=  36 E=0.02 loss
+   21 f5     static=  -55 sf_best= -194 loss=   0 E=0.00 loss
+   22 bxc4   static=  -47 sf_best= -176 loss=  20 E=0.01 loss
+   23 Rcd1   static=  -39 sf_best= -221 loss=   0 E=0.00 loss

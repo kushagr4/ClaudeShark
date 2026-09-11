@@ -1,0 +1,1122 @@
+[
+ {
+  "id": "R79-12w",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 81,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "d2b3",
+   "depth": 13,
+   "score": 34,
+   "nodes": 6412987,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.86,
+   "clock_in_ms": 109386,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "d2b3",
+    "loss_10M": 81,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "d2b3",
+    "loss_10M": 81,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "d2b3",
+    "loss_10M": 81,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 13,
+   "played": 34,
+   "reference": -21
+  },
+  "sf_best_10M": {
+   "cp": -19,
+   "mate": null,
+   "E": 0.486,
+   "bound": "exact",
+   "depth": 32,
+   "move": "f1d1"
+  }
+ },
+ {
+  "id": "R81-10b",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 93,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "h7h6",
+   "depth": 10,
+   "score": 54,
+   "nodes": 4323990,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.29,
+   "clock_in_ms": 115321,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 10,
+    "move": "h7h6",
+    "loss_10M": 93,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 11,
+    "move": "h7h6",
+    "loss_10M": 93,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 12,
+    "move": "h7h6",
+    "loss_10M": 93,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 10,
+   "played": 54,
+   "reference": 56
+  },
+  "sf_best_10M": {
+   "cp": -34,
+   "mate": null,
+   "E": 0.4695,
+   "bound": "exact",
+   "depth": 33,
+   "move": "d6d5"
+  }
+ },
+ {
+  "id": "R83-20w",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 158,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "e3f2",
+   "depth": 14,
+   "score": -59,
+   "nodes": 4084536,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.66,
+   "clock_in_ms": 78274,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 14,
+    "move": "e3f2",
+    "loss_10M": 158,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "f3f4",
+    "loss_10M": 118,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 16,
+    "move": "f3f4",
+    "loss_10M": 118,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 14,
+   "played": -59,
+   "reference": -84
+  },
+  "sf_best_10M": {
+   "cp": -54,
+   "mate": null,
+   "E": 0.4755,
+   "bound": "exact",
+   "depth": 30,
+   "move": "e3d2"
+  }
+ },
+ {
+  "id": "R88-17b",
+  "set": "decisive",
+  "cls": "UNSTABLE",
+  "confirmed": true,
+  "live_loss_10M": 111,
+  "state_dependent": true,
+  "cold_timed": {
+   "move": "a8b8",
+   "depth": 11,
+   "score": 0,
+   "nodes": 5834807,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 3.3,
+   "clock_in_ms": 94502,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 11,
+    "move": "a8b8",
+    "loss_10M": 85,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 12,
+    "move": "f6h5",
+    "loss_10M": 145,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 13,
+    "move": "f6h5",
+    "loss_10M": 145,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 11,
+   "played": -10,
+   "reference": -42
+  },
+  "sf_best_10M": {
+   "cp": -42,
+   "mate": null,
+   "E": 0.4535,
+   "bound": "exact",
+   "depth": 28,
+   "move": "f4h5"
+  }
+ },
+ {
+  "id": "R91-13w",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 103,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "f2f4",
+   "depth": 14,
+   "score": -4,
+   "nodes": 7936167,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 3.91,
+   "clock_in_ms": 101521,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 14,
+    "move": "f2f4",
+    "loss_10M": 103,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "f2f4",
+    "loss_10M": 103,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 16,
+    "move": "f2f4",
+    "loss_10M": 103,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 14,
+   "played": -4,
+   "reference": -8
+  },
+  "sf_best_10M": {
+   "cp": 2,
+   "mate": null,
+   "E": 0.501,
+   "bound": "exact",
+   "depth": 27,
+   "move": "f2f3"
+  }
+ },
+ {
+  "id": "R92-9b",
+  "set": "decisive",
+  "cls": "UNSTABLE",
+  "confirmed": true,
+  "live_loss_10M": 63,
+  "state_dependent": true,
+  "cold_timed": {
+   "move": "f8e8",
+   "depth": 13,
+   "score": -10,
+   "nodes": 20408031,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 8.61,
+   "clock_in_ms": 110809,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "f8e8",
+    "loss_10M": 13,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 14,
+    "move": "f8e8",
+    "loss_10M": 13,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 15,
+    "move": "f8e8",
+    "loss_10M": 13,
+    "bound": "exact",
+    "tag": "GOOD"
+   }
+  ],
+  "plus1_good": true,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 13,
+   "played": -14,
+   "reference": -10
+  },
+  "sf_best_10M": {
+   "cp": -76,
+   "mate": null,
+   "E": 0.365,
+   "bound": "exact",
+   "depth": 27,
+   "move": "h7h6"
+  }
+ },
+ {
+  "id": "R94-44w",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 138,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "d2c1",
+   "depth": 16,
+   "score": 8,
+   "nodes": 3127359,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.36,
+   "clock_in_ms": 51563,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 16,
+    "move": "d2c1",
+    "loss_10M": 138,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 17,
+    "move": "d2c1",
+    "loss_10M": 138,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 18,
+    "move": "d2c1",
+    "loss_10M": 138,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 16,
+   "played": 8,
+   "reference": -51
+  },
+  "sf_best_10M": {
+   "cp": 0,
+   "mate": null,
+   "E": 0.5005,
+   "bound": "exact",
+   "depth": 42,
+   "move": "d1h1"
+  }
+ },
+ {
+  "id": "R95-20b",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 87,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "f6e6",
+   "depth": 12,
+   "score": 55,
+   "nodes": 4448440,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.15,
+   "clock_in_ms": 85205,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 12,
+    "move": "f6e6",
+    "loss_10M": 87,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 13,
+    "move": "f6e6",
+    "loss_10M": 87,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "f6e6",
+    "loss_10M": 87,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 12,
+   "played": 55,
+   "reference": 38
+  },
+  "sf_best_10M": {
+   "cp": -46,
+   "mate": null,
+   "E": 0.475,
+   "bound": "exact",
+   "depth": 29,
+   "move": "f6d4"
+  }
+ },
+ {
+  "id": "R98-25w",
+  "set": "decisive",
+  "cls": "UNSTABLE",
+  "confirmed": true,
+  "live_loss_10M": 95,
+  "state_dependent": true,
+  "cold_timed": {
+   "move": "h2g1",
+   "depth": 11,
+   "score": -4,
+   "nodes": 3764014,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.93,
+   "clock_in_ms": 76966,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 11,
+    "move": "h2g1",
+    "loss_10M": 34,
+    "bound": "exact",
+    "tag": "GREY"
+   },
+   {
+    "depth": 12,
+    "move": "h2g1",
+    "loss_10M": 34,
+    "bound": "exact",
+    "tag": "GREY"
+   },
+   {
+    "depth": 13,
+    "move": "h2g1",
+    "loss_10M": 34,
+    "bound": "exact",
+    "tag": "GREY"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 11,
+   "played": -8,
+   "reference": -53
+  },
+  "sf_best_10M": {
+   "cp": -42,
+   "mate": null,
+   "E": 0.472,
+   "bound": "exact",
+   "depth": 28,
+   "move": "d2f1"
+  }
+ },
+ {
+  "id": "R99-25b",
+  "set": "decisive",
+  "cls": "REPAIRED BY DEPTH",
+  "confirmed": true,
+  "live_loss_10M": 57,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "c8e6",
+   "depth": 13,
+   "score": -65,
+   "nodes": 4409253,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.24,
+   "clock_in_ms": 74925,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "c8e6",
+    "loss_10M": 57,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "c8e6",
+    "loss_10M": 57,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "e5e4",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 13,
+   "played": -65,
+   "reference": -91
+  },
+  "sf_best_10M": {
+   "cp": -103,
+   "mate": null,
+   "E": 0.224,
+   "bound": "exact",
+   "depth": 27,
+   "move": "e5e4"
+  }
+ },
+ {
+  "id": "R101-29b",
+  "set": "decisive",
+  "cls": "UNSTABLE",
+  "confirmed": true,
+  "live_loss_10M": 63,
+  "state_dependent": true,
+  "cold_timed": {
+   "move": "f8c8",
+   "depth": 12,
+   "score": 75,
+   "nodes": 2930158,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.49,
+   "clock_in_ms": 74627,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 12,
+    "move": "f8c8",
+    "loss_10M": 88,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 13,
+    "move": "f8c8",
+    "loss_10M": 88,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "f8c8",
+    "loss_10M": 88,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 12,
+   "played": 69,
+   "reference": 63
+  },
+  "sf_best_10M": {
+   "cp": 115,
+   "mate": null,
+   "E": 0.857,
+   "bound": "exact",
+   "depth": 28,
+   "move": "g7f6"
+  }
+ },
+ {
+  "id": "R102-10w",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 148,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "d2f3",
+   "depth": 13,
+   "score": -38,
+   "nodes": 9566925,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 4.23,
+   "clock_in_ms": 114433,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "d2f3",
+    "loss_10M": 148,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "d2f3",
+    "loss_10M": 148,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "d2f3",
+    "loss_10M": 148,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 13,
+   "played": -35,
+   "reference": -62
+  },
+  "sf_best_10M": {
+   "cp": -79,
+   "mate": null,
+   "E": 0.352,
+   "bound": "exact",
+   "depth": 32,
+   "move": "b5e2"
+  }
+ },
+ {
+  "id": "R103-25w",
+  "set": "decisive",
+  "cls": "REPAIRED BY DEPTH",
+  "confirmed": true,
+  "live_loss_10M": 87,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "e1d1",
+   "depth": 12,
+   "score": 28,
+   "nodes": 5099314,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.75,
+   "clock_in_ms": 84217,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 12,
+    "move": "e1d1",
+    "loss_10M": 87,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 13,
+    "move": "e1d1",
+    "loss_10M": 87,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "h6h4",
+    "loss_10M": 9,
+    "bound": "exact",
+    "tag": "GOOD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 12,
+   "played": 24,
+   "reference": 25
+  },
+  "sf_best_10M": {
+   "cp": -39,
+   "mate": null,
+   "E": 0.4885,
+   "bound": "exact",
+   "depth": 31,
+   "move": "h6f4"
+  }
+ },
+ {
+  "id": "R105-16b",
+  "set": "decisive",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 133,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "a8b8",
+   "depth": 13,
+   "score": -29,
+   "nodes": 4354068,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.08,
+   "clock_in_ms": 86166,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "a8b8",
+    "loss_10M": 133,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "a8b8",
+    "loss_10M": 133,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "a8b8",
+    "loss_10M": 133,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 13,
+   "played": -37,
+   "reference": -37
+  },
+  "sf_best_10M": {
+   "cp": -80,
+   "mate": null,
+   "E": 0.3715,
+   "bound": "exact",
+   "depth": 28,
+   "move": "d7d6"
+  }
+ },
+ {
+  "id": "R81-8bs",
+  "set": "supplementary",
+  "cls": "REPAIRED BY DEPTH",
+  "confirmed": true,
+  "live_loss_10M": 125,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "g4h5",
+   "depth": 13,
+   "score": 36,
+   "nodes": 5612049,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.63,
+   "clock_in_ms": 120000,
+   "clock_assumed": true
+  },
+  "ladder": [
+   {
+    "depth": 13,
+    "move": "g4h5",
+    "loss_10M": 125,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 14,
+    "move": "g4e6",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 15,
+    "move": "g4e6",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   }
+  ],
+  "plus1_good": true,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 13,
+   "played": 34,
+   "reference": 46
+  },
+  "sf_best_10M": {
+   "cp": -4,
+   "mate": null,
+   "E": 0.497,
+   "bound": "exact",
+   "depth": 29,
+   "move": "g4e6"
+  }
+ },
+ {
+  "id": "R94-33ws",
+  "set": "supplementary",
+  "cls": "UNSTABLE",
+  "confirmed": true,
+  "live_loss_10M": 199,
+  "state_dependent": true,
+  "cold_timed": {
+   "move": "b1e1",
+   "depth": 16,
+   "score": 0,
+   "nodes": 4483389,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 2.15,
+   "clock_in_ms": 66072,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 16,
+    "move": "b1e1",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 17,
+    "move": "b1e1",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 18,
+    "move": "b1e1",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   }
+  ],
+  "plus1_good": true,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 16,
+   "played": -9,
+   "reference": 0
+  },
+  "sf_best_10M": {
+   "cp": 0,
+   "mate": null,
+   "E": 0.4995,
+   "bound": "exact",
+   "depth": 40,
+   "move": "b1e1"
+  }
+ },
+ {
+  "id": "R94-35ws",
+  "set": "supplementary",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 159,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "e1b1",
+   "depth": 14,
+   "score": 0,
+   "nodes": 3927011,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.98,
+   "clock_in_ms": 62834,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 14,
+    "move": "e1b1",
+    "loss_10M": 159,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 15,
+    "move": "e1b1",
+    "loss_10M": 159,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 16,
+    "move": "h2h4",
+    "loss_10M": 48,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 14,
+   "played": -5,
+   "reference": -27
+  },
+  "sf_best_10M": {
+   "cp": 0,
+   "mate": null,
+   "E": 0.5005,
+   "bound": "exact",
+   "depth": 44,
+   "move": "e3f3"
+  }
+ },
+ {
+  "id": "R101-52bs",
+  "set": "supplementary",
+  "cls": "UNSTABLE",
+  "confirmed": false,
+  "live_loss_10M": 0,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "h5h4",
+   "depth": 18,
+   "score": -79,
+   "nodes": 3124737,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.36,
+   "clock_in_ms": 39660,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 18,
+    "move": "h5h4",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 19,
+    "move": "h5h4",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   },
+   {
+    "depth": 20,
+    "move": "h5h4",
+    "loss_10M": 0,
+    "bound": "exact",
+    "tag": "GOOD"
+   }
+  ],
+  "plus1_good": true,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 18,
+   "played": -79,
+   "reference": -95
+  },
+  "sf_best_10M": {
+   "cp": 0,
+   "mate": null,
+   "E": 0.5,
+   "bound": "exact",
+   "depth": 71,
+   "move": "h5g6"
+  }
+ },
+ {
+  "id": "R101-57bs",
+  "set": "supplementary",
+  "cls": "NOT REPAIRED",
+  "confirmed": true,
+  "live_loss_10M": 546,
+  "state_dependent": false,
+  "cold_timed": {
+   "move": "b8a7",
+   "depth": 21,
+   "score": -80,
+   "nodes": 4543137,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 1.95,
+   "clock_in_ms": 34740,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 21,
+    "move": "b8a7",
+    "loss_10M": 546,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 22,
+    "move": "b8a7",
+    "loss_10M": 546,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 23,
+    "move": "b8a7",
+    "loss_10M": 546,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 21,
+   "played": -81,
+   "reference": -78
+  },
+  "sf_best_10M": {
+   "cp": 0,
+   "mate": null,
+   "E": 0.5,
+   "bound": "exact",
+   "depth": 61,
+   "move": "f7f6"
+  }
+ },
+ {
+  "id": "R101-61bs",
+  "set": "supplementary",
+  "cls": "UNSTABLE",
+  "confirmed": true,
+  "live_loss_10M": 545,
+  "state_dependent": true,
+  "cold_timed": {
+   "move": "b8e5",
+   "depth": 24,
+   "score": -118,
+   "nodes": 2283733,
+   "stop": "SOFT_START_FRACTION",
+   "seconds": 0.9,
+   "clock_in_ms": 31776,
+   "clock_assumed": false
+  },
+  "ladder": [
+   {
+    "depth": 24,
+    "move": "b8e5",
+    "loss_10M": 616,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 25,
+    "move": "b8e5",
+    "loss_10M": 616,
+    "bound": "exact",
+    "tag": "BAD"
+   },
+   {
+    "depth": 26,
+    "move": "b8e5",
+    "loss_10M": 616,
+    "bound": "exact",
+    "tag": "BAD"
+   }
+  ],
+  "plus1_good": false,
+  "inexact": false,
+  "rcj_values": {
+   "depth": 24,
+   "played": -123,
+   "reference": -186
+  },
+  "sf_best_10M": {
+   "cp": 0,
+   "mate": null,
+   "E": 0.5,
+   "bound": "exact",
+   "depth": 66,
+   "move": "g5g4"
+  }
+ }
+]

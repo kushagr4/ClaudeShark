@@ -1,0 +1,105 @@
+active terms at import: []
+BISHOP_PAIR mg/eg 22 40 TEMPO 8 TOTAL_PHASE 24
+
+========== R103-25w  phase 18
+  W queen on h6: mg=1082 eg=945 tapered=1047.8
+  W queen on f4: mg=1021 eg=970 tapered=1008.2
+  W queen on h4: mg=1022 eg=959 tapered=1006.2
+  W queen on d4: mg=1015 eg=983 tapered=1007.0
+  W queen on e3: mg=1020 eg=945 tapered=1001.2
+  after e1d1: eval(White pov)=110  mobW=27 mobB=45
+     W mob {'Qh6': 8, 'Bf3': 4, 'Rd1': 6, 'Rc1': 9}
+     B mob {'ra8': 9, 'qb4': 19, 'bd3': 9, 'ra3': 8}
+  after h6f4: eval(White pov)=69  mobW=33 mobB=43
+     W mob {'Qf4': 13, 'Bf3': 5, 'Re1': 5, 'Rc1': 10}
+     B mob {'ra8': 9, 'qb4': 17, 'bd3': 9, 'ra3': 8}
+  after h6h4: eval(White pov)=67  mobW=32 mobB=45
+     W mob {'Qh4': 12, 'Bf3': 5, 'Re1': 5, 'Rc1': 10}
+     B mob {'ra8': 9, 'qb4': 19, 'bd3': 9, 'ra3': 8}
+--- R103 played PV
+  root eval(pov)=125
+  ply1 Red1    eval(pov)=  110 phase=18 mobW=27 mobB=45
+  ply2 Qb2     eval(pov)=  136 phase=18 mobW=27 mobB=46
+  ply3 g4      eval(pov)=  104 phase=18 mobW=25 mobB=46
+  ply4 Ra2     eval(pov)=   95 phase=18 mobW=25 mobB=45
+  ply5 Qh4     eval(pov)=   37 phase=18 mobW=24 mobB=45
+  ply6 Bc2     eval(pov)=   95 phase=18 mobW=19 mobB=39
+  ply7 Rf1     eval(pov)=   68 phase=18 mobW=19 mobB=39
+  ply8 f6      eval(pov)=  101 phase=18 mobW=18 mobB=36
+  final W mob: {'Qh4': 6, 'Bf3': 3, 'Rf1': 4, 'Rc1': 5}
+  final B mob: {'ra8': 10, 'bc2': 7, 'qb2': 13, 'ra2': 6}
+--- R103 best PV
+  root eval(pov)=125
+  ply1 Qf4     eval(pov)=   69 phase=18 mobW=33 mobB=43
+  ply2 Qb2     eval(pov)=   95 phase=18 mobW=34 mobB=46
+  ply3 Qd4     eval(pov)=   77 phase=18 mobW=37 mobB=42
+  ply4 Qxd4    eval(pov)= -941 phase=14 mobW=20 mobB=45
+  ply5 exd4    eval(pov)=   29 phase=10 mobW=25 mobB=26
+  ply6 R8a7    eval(pov)=   53 phase=10 mobW=25 mobB=23
+  ply7 Rc8+    eval(pov)=   59 phase=10 mobW=31 mobB=23
+  ply8 Kg7     eval(pov)=   70 phase=10 mobW=32 mobB=23
+  final W mob: {'Rc8': 14, 'Bf3': 5, 'Re1': 13}
+  final B mob: {'ra7': 7, 'bd3': 9, 'ra3': 7}
+--- R103 actual game 25..28
+  root eval(pov)=125
+  ply1 Red1    eval(pov)=  110 phase=18 mobW=27 mobB=45
+  ply2 Qb2     eval(pov)=  136 phase=18 mobW=27 mobB=46
+  ply3 e4      eval(pov)=  129 phase=18 mobW=28 mobB=45
+  ply4 Ra2     eval(pov)=  120 phase=18 mobW=28 mobB=44
+  ply5 Qe3     eval(pov)=   57 phase=18 mobW=29 mobB=44
+  ply6 R8a3    eval(pov)=   59 phase=18 mobW=29 mobB=35
+  ply7 Qe1     eval(pov)=   32 phase=18 mobW=23 mobB=35
+  final W mob: {'Bf3': 3, 'Qe1': 9, 'Rd1': 2, 'Rc1': 9}
+  final B mob: {'bd3': 8, 'ra3': 7, 'qb2': 19, 'ra2': 1}
+  played pv_end: black pieces on rank 2: ['a2r', 'b2q', 'c2b']; white queen: ['h4']
+  best pv_end: black pieces on rank 2: []; white queen: []
+
+========== R105-16b  phase 20
+  after a8b8: eval(Black pov)=22  mobW=36 mobB=15
+     B mob {'rf8': 4, 'qd8': 8, 'rb8': 1, 'bg7': 2, 'bc8': 0}
+     Nb6 legal: True  Qa7 legal: True
+  after d7d6: eval(Black pov)=25  mobW=36 mobB=19
+     B mob {'rf8': 4, 'qd8': 9, 'bc8': 2, 'ra8': 2, 'bg7': 2}
+     Nb6 legal: True  Qa7 legal: True
+--- R105 played PV
+  root eval(pov)=31
+  ply1 Rb8     eval(pov)=   22 phase=20 mobW=36 mobB=15
+  ply2 Qa7     eval(pov)=   58 phase=20 mobW=28 mobB=15
+  ply3 Qc7     eval(pov)=   45 phase=20 mobW=28 mobB=15
+  ply4 c5      eval(pov)=   49 phase=20 mobW=26 mobB=14
+  ply5 e4      eval(pov)=   39 phase=20 mobW=23 mobB=21
+  ply6 Rfd1    eval(pov)=   45 phase=20 mobW=24 mobB=21
+  ply7 f4      eval(pov)=   36 phase=20 mobW=24 mobB=20
+  ply8 Bxe4    eval(pov)=  -36 phase=20 mobW=30 mobB=20
+  final W mob: {'Qa7': 5, 'Be4': 11, 'Na4': 2, 'Rd1': 10, 'Ra1': 2}
+  final B mob: {'rf8': 6, 'rb8': 1, 'bg7': 6, 'qc7': 7, 'bc8': 0}
+--- R105 best PV
+  root eval(pov)=31
+  ply1 d6      eval(pov)=   25 phase=20 mobW=36 mobB=19
+  ply2 Nb6     eval(pov)=  -19 phase=20 mobW=35 mobB=18
+  ply3 Rb8     eval(pov)=  -28 phase=20 mobW=35 mobB=17
+  ply4 Nxc8    eval(pov)= -302 phase=19 mobW=37 mobB=18
+  ply5 Rxc8    eval(pov)=  -17 phase=18 mobW=33 mobB=21
+  ply6 b4      eval(pov)=   -1 phase=18 mobW=33 mobB=21
+  ply7 e4      eval(pov)=  -11 phase=18 mobW=29 mobB=26
+  ply8 Rab1    eval(pov)=   -2 phase=18 mobW=30 mobB=26
+  final W mob: {'Bd5': 6, 'Qe3': 15, 'Rf1': 3, 'Rb1': 6}
+  final B mob: {'rf8': 4, 'qd8': 9, 'rc8': 6, 'bg7': 7}
+  after d6 Nb6 Rb8 Nxc8 Rxc8: eval(Black pov) -17  phase 18  bishop-pair tapered value 26.5
+  B bishop on c8: mg=351 eg=274
+  W knight on a4: mg=324 eg=263
+  W knight on b6: mg=397 eg=261
+  W knight on c5: mg=356 eg=303
+  W queen on e3: mg=1020 eg=945 tapered=1007.5
+  W queen on a7: mg=1001 eg=919 tapered=987.3
+--- R105 actual game 16..19
+  root eval(pov)=31
+  ply1 Rb8     eval(pov)=   22 phase=20 mobW=36 mobB=15
+  ply2 Qa7     eval(pov)=   58 phase=20 mobW=28 mobB=15
+  ply3 Qc7     eval(pov)=   45 phase=20 mobW=28 mobB=15
+  ply4 Nc5     eval(pov)=   28 phase=20 mobW=30 mobB=14
+  ply5 Rf6     eval(pov)=    6 phase=20 mobW=30 mobB=15
+  ply6 Rab1    eval(pov)=   15 phase=20 mobW=29 mobB=15
+  ply7 e4      eval(pov)=    5 phase=20 mobW=26 mobB=18
+  final W mob: {'Qa7': 5, 'Bd5': 6, 'Nc5': 8, 'Rf1': 3, 'Rb1': 4}
+  final B mob: {'rb8': 1, 'bg7': 2, 'qc7': 9, 'rf6': 6, 'bc8': 0}

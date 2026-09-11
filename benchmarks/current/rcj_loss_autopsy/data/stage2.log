@@ -1,0 +1,175 @@
+STAGE 1 start 00:10:57
+R95 L The W in Woxbridge - claudeshark: 51 RC-J moves in 63s (total 63s)
+R101 L rogo - claudeshark: 84 RC-J moves in 80s (total 143s)
+R99 L Yumo - claudeshark: 59 RC-J moves in 57s (total 200s)
+R98 L claudeshark - zz: 69 RC-J moves in 90s (total 290s)
+R102 L claudeshark - YG: 38 RC-J moves in 48s (total 338s)
+R103 L claudeshark - Quant Larper: 54 RC-J moves in 62s (total 399s)
+R105 L Boardzempic - claudeshark: 53 RC-J moves in 56s (total 456s)
+R94 L claudeshark - POFPOF: 83 RC-J moves in 92s (total 548s)
+done. stockfish sha256 c86215fa1977d53b nodes 1000000 analyses 734
+STAGE 1 done 00:20:05
+STAGE 2 start 00:20:05
+R79 white  87 moves  >=50:13 >=100: 4 >=300: 1 flips: 0 inexact:0  traj =====LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     GRADUAL  m 12 Nb3     d2b3  best f1d1  loss   55cp  dE 0.16  E 0.47->0.31  cp -33/-88  clk 109.386
+       worst overall: m61 Bd2 680cp (loss->loss)
+R81 black  45 moves  >=50:10 >=100: 7 >=300: 1 flips: 2 inexact:0  traj =L=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 10 h6      h7h6  best d6d5  loss   59cp  dE 0.24  E 0.44->0.20  cp -51/-110  clk 115.321
+       >=100cp while not lost: m  8 Bh5     loss  137 dE 0.40 draw->loss
+       worst overall: m40 Kd4 635cp (loss->loss)
+R83 white  59 moves  >=50:12 >=100: 8 >=300: 1 flips: 2 inexact:0  traj ===========L=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 20 Bf2     e3f2  best e3d2  loss  121cp  dE 0.40  E 0.40->0.00  cp -78/-199  clk 78.274
+       >=100cp while not lost: m 20 Bf2     loss  121 dE 0.40 draw->loss
+       worst overall: m56 Bg3 343cp (loss->loss)
+R88 black  74 moves  >=50:12 >=100: 8 >=300: 2 flips: 1 inexact:0  traj ==========LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 17 Rac8    a8c8  best f4e6  loss  112cp  dE 0.39  E 0.43->0.04  cp -53/-165  clk 94.50200000000001
+       >=100cp while not lost: m 17 Rac8    loss  112 dE 0.39 draw->loss
+       worst overall: m63 g6+ 460cp (loss->loss)
+R91 white  32 moves  >=50: 8 >=100: 5 >=300: 1 flips: 1 inexact:0  traj ======LLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 13 f4      f2f4  best f2f3  loss  117cp  dE 0.30  E 0.50->0.20  cp +8/-109  clk 101.52199999999999
+       >=100cp while not lost: m 13 f4      loss  117 dE 0.30 draw->loss
+       worst overall: m30 Nf4 340cp (loss->loss)
+R92 black  64 moves  >=50: 9 >=100: 2 >=300: 0 flips: 1 inexact:0  traj ====LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m  9 e5      e7e5  best f8e8  loss   47cp  dE 0.22  E 0.34->0.12  cp -82/-129  clk 110.809
+       worst overall: m55 Rg5 249cp (loss->loss)
+R94 white  83 moves  >=50:20 >=100: 9 >=300: 2 flips: 7 inexact:0  traj ========LLLL=LL=L=L=LLLLLL=====L======LLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 44 Bc1     d2c1  best d1h1  loss  117cp  dE 0.37  E 0.50->0.13  cp +0/-117  clk 51.563
+       >=100cp while not lost: m 33 Ra1     loss  133 dE 0.49 draw->loss
+       >=100cp while not lost: m 35 Rb1     loss  132 dE 0.45 draw->loss
+       >=100cp while not lost: m 44 Bc1     loss  117 dE 0.37 draw->loss
+       worst overall: m76 Kd5 329cp (loss->loss)
+R95 black  51 moves  >=50:10 >=100: 4 >=300: 1 flips: 2 inexact:0  traj ===============LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 20 Qe6     f6e6  best f6d4  loss   69cp  dE 0.37  E 0.43->0.07  cp -66/-135  clk 85.205
+       >=100cp while not lost: m 17 c5      loss  106 dE 0.13 draw->draw
+       worst overall: m48 Rxe2+ 463cp (loss->loss)
+R98 white  69 moves  >=50:18 >=100: 4 >=300: 0 flips: 6 inexact:0  traj ==================LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 25 Bc2     d3c2  best f2f3  loss   64cp  dE 0.29  E 0.46->0.18  cp -48/-112  clk 76.96600000000001
+       worst overall: m66 Rc1 200cp (loss->loss)
+R99 black  59 moves  >=50: 6 >=100: 1 >=300: 0 flips: 1 inexact:0  traj ==================L=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 25 Be6     c8e6  best e5e4  loss   44cp  dE 0.25  E 0.28->0.04  cp -96/-140  clk 74.925
+       worst overall: m32 f5 115cp (loss->loss)
+R101 black  84 moves  >=50:18 >=100: 5 >=300: 3 flips:12 inexact:0  traj ===WW=WWWWW======WWWWW=L==LLLLLLLLL==LL=======L===L===LLLLLL
+     FLIP     m 29 Rfd8    f8d8  best g7f6  loss   60cp  dE 0.31  E 0.83->0.52  cp +111/+51  clk 74.627
+       >=100cp while not lost: m 30 Qa5     loss  172 dE 0.33 draw->draw
+       >=100cp while not lost: m 52 Kh4     loss  130 dE 0.44 draw->loss
+       >=100cp while not lost: m 57 Ba7+    loss  383 dE 0.45 draw->loss
+       >=100cp while not lost: m 61 Bd6     loss  463 dE 0.50 draw->loss
+       worst overall: m82 Kb5 987cp (loss->loss)
+R102 white  38 moves  >=50: 9 >=100: 4 >=300: 1 flips: 1 inexact:0  traj ===LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 10 Nf3     d2f3  best b5e2  loss  124cp  dE 0.32  E 0.32->0.01  cp -85/-209  clk 114.43299999999999
+       >=100cp while not lost: m 10 Nf3     loss  124 dE 0.32 draw->loss
+       worst overall: m41 Bd3 579cp (loss->loss)
+R103 white  54 moves  >=50: 8 >=100: 2 >=300: 2 flips: 1 inexact:0  traj ==================LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     FLIP     m 25 Red1    e1d1  best h6f4  loss   92cp  dE 0.42  E 0.49->0.07  cp -38/-130  clk 84.217
+       worst overall: m52 Rh3 662cp (loss->loss)
+R105 black  53 moves  >=50: 8 >=100: 4 >=300: 2 flips: 2 inexact:0  traj ======LLLL=L=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+     GRADUAL  m 16 Rb8     a8b8  best d7d6  loss  107cp  dE 0.34  E 0.34->0.00  cp -85/-192  clk 86.166
+       >=100cp while not lost: m 16 Rb8     loss  107 dE 0.34 draw->loss
+       worst overall: m49 Kb4 600cp (loss->loss)
+STAGE 2 done 00:20:05
+STAGE 3 start 00:20:05
+R79-12w    timed@ 109.4s d=13 d2b3 == live  (2.86s)
+    d13 d2b3      +34   6,412,987    3.0s
+    d14 d2b3      +32   9,822,582    4.3s
+    d15 d2b3      +29  18,296,678    7.6s
+    RC-J own values @d13: played 34 reference -21
+R81-10b    timed@ 115.3s d=10 h7h6 == live  (2.29s)
+    d10 h7h6      +54   4,323,990    2.3s
+    d11 h7h6      +49   6,707,867    3.6s
+    d12 h7h6      +49   9,829,993    5.1s
+    RC-J own values @d10: played 54 reference 56
+R83-20w    timed@  78.3s d=14 e3f2 == live  (1.66s)
+    d14 e3f2      -59   4,084,536    1.7s
+    d15 f3f4      -68   9,993,828    4.1s
+    d16 f3f4      -67  14,946,692    6.3s
+    RC-J own values @d14: played -59 reference -84
+R88-17b    timed@  94.5s d=11 a8b8 != live a8c8  (3.3s)
+    d11 a8b8       +0   5,834,807    3.3s
+    d12 f6h5      -19  12,971,269    7.6s
+    d13 f6h5      -23  24,198,448   13.6s
+    RC-J own values @d11: played -10 reference -42
+R91-13w    timed@ 101.5s d=14 f2f4 == live  (3.91s)
+    d14 f2f4       -4   7,936,167    3.7s
+    d15 f2f4       -4  14,631,594    7.0s
+    d16 f2f4       -7  29,794,751   13.8s
+    RC-J own values @d14: played -4 reference -8
+R92-9b     timed@ 110.8s d=13 f8e8 != live e7e5  (8.61s)
+    d13 f8e8      -10  20,408,031    8.9s
+    d14 f8e8       -8  36,231,910   15.5s
+    d15 f8e8      -11  63,470,243   26.7s
+    RC-J own values @d13: played -14 reference -10
+R94-44w    timed@  51.6s d=16 d2c1 == live  (1.36s)
+    d16 d2c1       +8   3,127,359    1.4s
+    d17 d2c1       +2   5,548,368    2.4s
+    d18 d2c1       -6  14,012,139    6.6s
+    RC-J own values @d16: played 8 reference -51
+R95-20b    timed@  85.2s d=12 f6e6 == live  (2.15s)
+    d12 f6e6      +55   4,448,440    2.1s
+    d13 f6e6      +55   8,053,275    3.6s
+    d14 f6e6      +50  12,511,809    6.0s
+    RC-J own values @d12: played 55 reference 38
+R98-25w    timed@  77.0s d=11 h2g1 != live d3c2  (1.93s)
+    d11 h2g1       -4   3,764,014    2.0s
+    d12 h2g1       -4   8,624,600    4.4s
+    d13 h2g1       +0  13,865,404    6.9s
+    RC-J own values @d11: played -8 reference -53
+R99-25b    timed@  74.9s d=13 c8e6 == live  (2.24s)
+    d13 c8e6      -65   4,409,253    2.2s
+    d14 c8e6      -65   7,526,728    3.9s
+    d15 e5e4      -81  21,476,333   11.5s
+    RC-J own values @d13: played -65 reference -91
+R101-29b   timed@  74.6s d=12 f8c8 != live f8d8  (1.49s)
+    d12 f8c8      +75   2,930,158    1.5s
+    d13 f8c8      +74   4,573,035    2.3s
+    d14 f8c8      +71   7,587,033    3.7s
+    RC-J own values @d12: played 69 reference 63
+R102-10w   timed@ 114.4s d=13 d2f3 == live  (4.23s)
+    d13 d2f3      -38   9,566,925    4.2s
+    d14 d2f3      -43  21,940,937   10.7s
+    d15 d2f3      -39  39,783,082   18.1s
+    RC-J own values @d13: played -35 reference -62
+R103-25w   timed@  84.2s d=12 e1d1 == live  (2.75s)
+    d12 e1d1      +28   5,099,314    2.7s
+    d13 e1d1      +26   8,064,041    4.3s
+    d14 h6h4      +18  22,789,051   12.3s
+    RC-J own values @d12: played 24 reference 25
+R105-16b   timed@  86.2s d=13 a8b8 == live  (2.08s)
+    d13 a8b8      -29   4,354,068    2.1s
+    d14 a8b8      -28   7,239,921    3.2s
+    d15 a8b8      -29  18,384,207    8.4s
+    RC-J own values @d13: played -37 reference -37
+done 14 positions in 341s
+STAGE 3 done 00:26:18
+STAGE 5 start 00:26:18
+R79-12w   SF@10M best f1d1 -19 E0.49 d32 | played d2b3 -100 E0.25 loss 81 exact  extra {f1d1:0}  21s
+R81-10b   SF@10M best d6d5 -34 E0.47 d33 | played h7h6 -127 E0.12 loss 93 exact  extra {d6d5:0}  42s
+R83-20w   SF@10M best e3d2 -54 E0.48 d30 | played e3f2 -212 E0.00 loss 158 exact  extra {e3d2:0, f3f4:118}  68s
+R88-17b   SF@10M best f4h5 -42 E0.45 d28 | played a8c8 -153 E0.06 loss 111 exact  extra {f4e6:22, a8b8:85, f6h5:145}  116s
+R91-13w   SF@10M best f2f3 +2 E0.50 d27 | played f2f4 -101 E0.24 loss 103 exact  extra {f2f3:0}  137s
+R92-9b    SF@10M best h7h6 -76 E0.36 d27 | played e7e5 -139 E0.09 loss 63 exact  extra {f8e8:13}  169s
+R94-44w   SF@10M best d1h1 +0 E0.50 d42 | played d2c1 -138 E0.04 loss 138 exact  extra {d1h1:0}  184s
+R95-20b   SF@10M best f6d4 -46 E0.47 d29 | played f6e6 -133 E0.07 loss 87 exact  extra {f6d4:0}  201s
+R98-25w   SF@10M best d2f1 -42 E0.47 d28 | played d3c2 -137 E0.07 loss 95 exact  extra {f2f3:19, h2g1:34}  244s
+R99-25b   SF@10M best e5e4 -103 E0.22 d27 | played c8e6 -160 E0.01 loss 57 exact  extra {e5e4:0}  265s
+R101-29b  SF@10M best g7f6 +115 E0.86 d28 | played f8d8 +52 E0.53 loss 63 exact  extra {g7f6:0, f8c8:88}  295s
+R102-10w  SF@10M best b5e2 -79 E0.35 d32 | played d2f3 -227 E0.00 loss 148 exact  extra {b5e2:0}  318s
+R103-25w  SF@10M best h6f4 -39 E0.49 d31 | played e1d1 -126 E0.08 loss 87 exact  extra {h6f4:0, h6h4:9}  344s
+R105-16b  SF@10M best d7d6 -80 E0.37 d28 | played a8b8 -213 E0.00 loss 133 exact  extra {d7d6:0}  364s
+STAGE 5 done 00:32:23
+STAGE 6 start 00:32:23
+R79 m12 Nb3: swing played +0 best -1 | RC-J static best-played after_move +16 pv_end -133 | terms@pv_end {'king_safety': -8, 'mopup': 0, 'passed': -4, 'king_pawn': 0, 'low_material': 0}
+R81 m10 h6: swing played +0 best +0 | RC-J static best-played after_move +12 pv_end -17 | terms@pv_end {'king_safety': -6, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R83 m20 Bf2: swing played -2 best +0 | RC-J static best-played after_move -6 pv_end +110 | terms@pv_end {'king_safety': -10, 'mopup': 0, 'passed': 2, 'king_pawn': 0, 'low_material': 0}
+R88 m17 Rac8: swing played +0 best +0 | RC-J static best-played after_move -70 pv_end -20 | terms@pv_end {'king_safety': -8, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R91 m13 f4: swing played +0 best +0 | RC-J static best-played after_move -3 pv_end -23 | terms@pv_end {'king_safety': 4, 'mopup': 0, 'passed': 0, 'king_pawn': -1, 'low_material': 0}
+R92 m9 e5: swing played +0 best -3 | RC-J static best-played after_move -23 pv_end -386 | terms@pv_end {'king_safety': 8, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R94 m44 Bc1: swing played +0 best +0 | RC-J static best-played after_move -10 pv_end -21 | terms@pv_end {'king_safety': -3, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R95 m20 Qe6: swing played +0 best -8 | RC-J static best-played after_move -3 pv_end -921 | terms@pv_end {'king_safety': -2, 'mopup': 0, 'passed': -20, 'king_pawn': 0, 'low_material': 0}
+R98 m25 Bc2: swing played +0 best +0 | RC-J static best-played after_move -18 pv_end -44 | terms@pv_end {'king_safety': -12, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R99 m25 Be6: swing played +0 best +0 | RC-J static best-played after_move -26 pv_end -75 | terms@pv_end {'king_safety': 2, 'mopup': 0, 'passed': 0, 'king_pawn': -5, 'low_material': 0}
+R101 m29 Rfd8: swing played +0 best +0 | RC-J static best-played after_move -10 pv_end -39 | terms@pv_end {'king_safety': 0, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R102 m10 Nf3: swing played +0 best +0 | RC-J static best-played after_move -18 pv_end -113 | terms@pv_end {'king_safety': -16, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R103 m25 Red1: swing played +0 best +0 | RC-J static best-played after_move -41 pv_end -31 | terms@pv_end {'king_safety': -2, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+R105 m16 Rb8: swing played -1 best +0 | RC-J static best-played after_move +3 pv_end +34 | terms@pv_end {'king_safety': -6, 'mopup': 0, 'passed': 0, 'king_pawn': 0, 'low_material': 0}
+STAGE 6 done 00:32:23
+PIPELINE DONE

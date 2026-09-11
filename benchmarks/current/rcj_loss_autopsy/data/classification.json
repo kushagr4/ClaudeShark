@@ -1,0 +1,698 @@
+{
+ "losses": [
+  {
+   "position_id": "R98-25w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed. RC-J's expected score (E) was 0.463 before 25.Bc2 and 0.178 after, and the game never came back (trajectory: 18 draws, then L for the rest). The 10M re-check agrees: Bc2 is -137 cp (E 0.07) against best 25.Nf1 at -42 (E 0.472), a 95 cp loss. Earlier losses of 87, 69 and 78 cp (moves 16-18) and 35, 54 and 46 cp (moves 22-24) never changed the category; E_best stayed at 0.46-0.51 from move 20 to move 25. There is a pattern worth recording, though: Stockfish recommended the same untangling regroup four moves running (Nf3-g1 at moves 22, 23 and 24, then f2-f3 at 25), and RC-J declined it every time.",
+   "chess_explanation": "Black has been a pawn up since 10...Nxe4 and has doubled rooks on the fully open e-file (Re7, then Rae8). That ties White's Be3 to the file. If it steps off, Rxe1+ Rxe1 Rxe1 wins a rook; checked with python-chess after 25.Bc2 Rae8 26.Bf4, material goes from -1 to -6. Both of Stockfish's top moves solve this bind. 25.f3 blunts Bd5's diagonal towards g2, takes e4 and g4 from Black, and frees f2 for the bishop. After Bf2, e1 is defended by both the f2 bishop and Rc1, so the rooks can be traded (Stockfish line: f3 Rae8 Bf2 Rxe1 Bxe1). The 10M-best 25.Nf1 opens the c3-e1 diagonal, so the c3 queen now defends e1 and Nf1 guards e3 (checked: e1 defenders c1 and c3; e3 defenders e1, f1 and f2). 25.Bc2 is a neutral bishop shuffle that leaves the bind in place. In Stockfish's line after Bc2 (Rae8 a4 Na7 Qa3 Bb7 Nf1 Nd5), White's pieces are pushed back and ...Nd5 lands, hitting e3 and b4. At the end of each 8-move line, White has 27 non-pawn moves after Bc2 against 39 in the best line. In the game Black traded into an ending against White's weak isolated d4 and b4 pawns and won it.",
+   "category": "state-dependence",
+   "secondary_category": "piece activity/mobility",
+   "evidence": [
+    "depth_repair.state_dependent = true. A fresh search at the same clock does not reproduce Bc2. At depths 11, 12 and 13 (the live depth plus up to two more plies) it plays 25.Kg1 every time, scoring -4, -4 and 0.",
+    "The 10M check rates Kg1 at -76 cp: a 34 cp loss, E 0.3815, still a draw. So a fresh search at the live depth would not have made the result-flipping move.",
+    "RC-J scores Bc2 at -8 against the fresh search's -4 for Kg1: a 4 cp near-tie. Leftover search memory from earlier moves (hash table and move-ordering history) broke that tie towards Bc2, which the 10M check puts 61 cp below Kg1.",
+    "RC-J scored f3 45 cp below Bc2 (-53 vs -8). Stockfish has it the other way round: f3 -61, Bc2 -137.",
+    "Static eval after each move, from White's side: Bc2 0, f3 -18, Nf1 -22, Kg1 +15. The piece-square tables cost f3 21 cp (middlegame) and Nf1 25 cp. Both moves Stockfish prefers are prophylactic moves the tables penalise.",
+    "Same bias at moves 22-24: Stockfish's Ng1 costs 36 cp middlegame / 47 cp endgame in the tables. Static eval after Ng1 was -30, -18 and -21, against +6, +1 and -3 for the moves RC-J played.",
+    "The bind is about open-file control, and RC-J's evaluation has no rook-file term. Doubled black rooks on the open e-file are invisible to it except through piece-square values.",
+    "The unused king-safety term is inconsistent: it favours the best line by 7 cp right after the move but the played line by 12 cp at the end of the 8-move line. It is not the cause. The unused passed-pawn and king-pawn terms are 0 in both lines.",
+    "RC-J is optimistic across the whole position: +17 for White while a pawn down (bishop pair plus tables), against Stockfish's -42. That shifts every move equally, so it does not explain the choice.",
+    "RECORD THIS: set up FEN r7/2pqrp1k/p1np1npp/1p1b4/1P1P4/P1QBB2P/3N1PPK/2R1R3 w - - 5 25. Show the depth_repair ladder: fresh RC-J plays Kg1 at depths 11, 12 and 13, while the live engine played Bc2. Then show the move 22-25 table of Stockfish's regroup (Ng1 x3, then f3) with the static penalties (-30/-18/-21/-18 vs +6/+1/-3/0). Reproduce with: C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\R98-25w_R99-25b\\autopsy_inspect.py"
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "+45. RC-J scored Bc2 at -8 and Stockfish's scan-best f3 at -53. Against the fresh search's own choice, Kg1 at -4, Bc2 is about 4 cp worse, a near-tie.",
+   "feature_that_could_flip": "Measured: the fresh search itself plays Kg1 at three depths in a row, a 34 cp loss that keeps the draw. Only the leftover search memory produced Bc2. No evaluation feature is supported by the measurements. Speculation: a rook-on-open-file term (Black's doubled rooks on the open e-file) might raise RC-J's view of the rook-trading lines (f3/Bf2, Nf1). It has not been measured, and the table penalty on f3/Nf1/Ng1 works against those lines."
+  },
+  {
+   "position_id": "R99-25b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed under the frozen rule. RC-J's expected score (E) fell from 0.282 to 0.036 and never recovered. The 10M re-check agrees: Be6 is -160 (E 0.011) against ...e4 at -103 (E 0.224), a 57 cp loss. The position was already a loss (E 0.17) before 24...Qc1, but White's inaccuracy 25.g4 put it back in the draw range (E 0.28), so move 25 is the first flip that stuck. An earlier contributor that did not change the category: 20...Rd8 (64 cp, E 0.50, Stockfish best ...e4). It allowed 21.Rxd8+ Qxd8 22.Nc5, after which b7 fell by force: 22...Bc8 was already Stockfish's choice at E 0.30, with b7 attacked by Nc5 and Qb3 and defended only by Bc8. Stockfish's best was ...e5-e4 at moves 20, 24 and 25; RC-J never played it.",
+   "chess_explanation": "Black is a pawn down. The g7 bishop is walled in by its own e5 pawn and the f6 knight: it attacks only f6, h6, f8 and h8. The ...e4 break is urgent. After 25...e4 Nc5 exf3 exf3 Nd7 (Stockfish's line), the long diagonal opens: Bg7 then hits b2, c3, d4 and e5. b2 is attacked by Qc1 and Bg7 and defended only by Qb3. The e5 target is gone and the e5 square is free for Black's pieces. 25...Be6 develops the bishop and hits c4, but lets White play 26.e4 first. That fixes Black's e5 pawn on a dark square for good. After Be6 e4, Bg7's only legal moves are Bh8 and Bf8, and the e5 pawn cannot move (checked with python-chess). Be6 also takes the c8 bishop off the b7 knight. In the game White clamped with 26.e4, the knight came back via Nc5 and took a6 (31.Nxa6) to create the decisive a-passer (a8=Q on move 52), and the fixed e5 pawn eventually fell (38.Bxe5).",
+   "category": "search/pruning pathology",
+   "secondary_category": "piece activity/mobility",
+   "evidence": [
+    "depth_repair: REPAIRED BY DEPTH, and state_dependent = false. A fresh search reproduces the live move: Be6 at depth 13 (-65) and depth 14 (-65). At depth 15 it switches to e4 (-81), which the 10M check rates as a 0 cp loss (GOOD).",
+    "The move is within reach two plies deeper, which is evidence for a plain horizon failure. It is not a malfunction of the pruning: the search simply lacked depth.",
+    "Depth 15 took 11.52 s and 21.5M nodes from a fresh start. The live search stopped at depth 13 after 2.24 s by the soft time limit, with about 72 s on the clock (clock history suggests roughly 40 moves still to play). Scores at depths 13 and 14 were identical, so no instability signal would have granted extra time. Time allocation is not a credible primary cause.",
+    "RC-J's 26 cp margin (-65 vs -91) exactly equals the static difference right after the move: Be6 +28, e4 +2 from Black's side. Moving the bishop off c8 is worth 28 cp middlegame / 36 cp endgame in the piece-square tables; ...e4 is worth 6 / 5. At depth 13 the choice comes down to the bishop's table bonus.",
+    "PeSTO has no term for a bishop blocked by its own fixed pawn. After Be6 e4, Bg7 has 2 legal moves; after the ...e4 line it attacks 8 squares, including b2.",
+    "A generic mobility term would not flip this. By the dossier, Black's move count is 31 after Be6 vs 29 after e4. At the end of the 8-move lines Black has 27 moves in both, while White has 37 in the best line against 30 in the played one.",
+    "No unused term favours e4. King safety: 0 difference right after the move, +2 at the end of the line. Passed pawns: 0. King-pawn: -5, which favours the played line.",
+    "RECORD THIS: set up FEN 2b3k1/1N3pb1/p1p2npp/P3p3/2P3P1/1Q3P2/1P2PB1P/2q2BK1 b - - 0 25. Show the depth ladder (depth 13 Be6 -65, depth 14 Be6 -65, depth 15 e4 -81, 11.5 s). Then show the board after 25...Be6 26.e4 with the g7 bishop down to Bh8/Bf8, next to the board after 25...e4 26.Nc5 exf3 27.exf3 Nd7, where Bg7 hits b2. Reproduce with: C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\R98-25w_R99-25b\\verify_claims.py"
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "+26. RC-J scored Be6 at -65 and e4 at -91 at depth 13, a modest preference equal to the one-move static difference.",
+   "feature_that_could_flip": "Measured: two more plies of search (depth 15) flip the choice to e4, but that cost about 5 times the move's actual time (11.5 s vs 2.24 s from a fresh start). Speculation, not measured: a bad-bishop term (penalising own fixed pawns on the bishop's colour inside its diagonal, here e5 blocking Bg7) might value the ...e4 break sooner. The dossier shows that generic mobility and all the unused terms (king safety, passed, king-pawn) do not favour e4."
+  },
+  {
+   "position_id": "R101-29b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Under the frozen rule this is correct. Move 29 is the last win-to-draw flip that RC-J never recovered from (E 0.8335 -> 0.5235). An earlier win-to-draw flip (16...a5 / 17...a4 / 18...a3 at 77/56/77cp, E 0.90 -> 0.57) was recovered by move 25. But this is the first loss of the WIN, not the move that lost the game. Rfd8 is a modest 60cp error (63cp at 10M). Stockfish rated the game a dead draw (best_cp 0, E 0.50) at moves 47-53 and again at 59-61. The errors that decided the result came in an opposite-coloured-bishop ending (White bishop light, Black bishop dark, confirmed with python-chess). 30...Qa5 (172cp) was a draw-to-loss flip that was later recovered. 57...Ba7+ (383cp) was NOT REPAIRED at d21-23, and RC-J's own margin there was -3. 61...Bd6 (463cp) was the final draw-to-loss flip and was never recovered. It is state-dependent, and cold RC-J instead plays b8e5, which loses 616. At move 61 RC-J valued Bd6 at -123 and Stockfish's ...g4 at -186, so it preferred keeping a pawn. After 61...g4 62.fxg4 f3+, RC-J's static is -121 with material -1. After 61...Bd6 62.Bg4, its static is -27 with material 0. The shipped low_material term returns 0 in this position, so RC-J has no opposite-coloured-bishop drawishness scaling and prices the drawing pawn break as a lost pawn. RECORD THIS: show FEN 1b6/1P6/4B3/6p1/5p2/p4Pk1/P3K3/8 b - - 0 61 (Stockfish 0.00; RC-J plays Bd6, which loses 463cp). Next to it, show the RC-J values Bd6 -123 vs g4 -186 from the bundle's supplementary R101-61bs entry, and the output of board_probe2.py in the wf scratch dir.",
+   "chess_explanation": "Material is level: queens, two rooks and a bishop each. Black has an advanced a3 passer, and White's king has no g- or h-pawns. f7 was defended three times (Qc7, Rf8, Kg8). 29...Rfd8 takes the rook off f7, leaving only the queen and king on it. It does this to guard a d6 pawn that was already held: d6 is attacked once (Qb4) and defended once (Qc7). White answers 30.Bf1 to re-route the bishop to c4 onto the a2-g8 diagonal, and 32.Bc4 did hit f7 with only the king defending. Stockfish's best reply at move 30 is d8f8, simply undoing Rfd8, and its played-line PV also has ...Rf8 at ply 5. That confirms Rfd8 was a lost tempo that loosened f7 while White was rerouting. The best move 29...Bf6 keeps both rooks in place and f7 covered. It widens the bishop from 6 to 8 attacked squares, adding h4, g5, e7 and d8, which covers the e7/d8 entry squares against Rb7/Rb8 invasions. It keeps the d4 pressure. Stockfish's line continues ...Qd7 and ...Ra4, activating the rook with tempo on the b4 queen. In the game, 30...Qa5 (172cp) traded queens into a rook ending where White's Rb7/Rb8 and Bc4 dominated.",
+   "category": "UNKNOWN",
+   "secondary_category": "state-dependence",
+   "evidence": [
+    "rcj_values at d12: played Rfd8 +69, reference Bf6 +63, a +6cp margin, which is inside noise. Stockfish 10M: Rfd8 +52, Bf6 +115, loss 63.",
+    "depth_repair: state_dependent=true, class UNSTABLE. Cold RC-J plays f8c8 (not Rfd8) at d12/13/14 with scores 75/74/71. Every rung is BAD at 88cp, worse than the live move, and Bf6 is never chosen. So state decided WHICH rook move, but cold search is no better. That is evidence against state-dependence as the cause.",
+    "Deeper cold search (d+1, d+2) does not repair it, which is evidence against a simple horizon failure.",
+    "Dossier: material 0 in both lines. The unshipped king_safety term is 8 in both lines at after_move and pv_end, and king_pawn is 3 in both. Pawn counts are identical (isolated 2, doubled 1). king_own attacks are 0 in both. No unshipped term separates the lines (term_pref_best_minus_played all 0).",
+    "Mobility is the only measured difference, and it favours Bf6. Own mobility after the move is 36 for Bf6 vs 32 for Rfd8. At pv_end, own minus opponent mobility is 33-33=0 for the best line vs 30-36=-6 for the played line.",
+    "RC-J's static eval prefers the played line: pv_end 131 vs 92 (best minus played -39); after_move 101 vs 91.",
+    "RC-J's static eval does not register f7 pressure: after 30...Rf8 (Stockfish best) it reads 125, after 30...Qa5 (played) 123. At move 30 RC-J's static was +151 vs Stockfish +73, so it overrated its position after 30.Bf1.",
+    "python-chess: f7 attackers/defenders went from [Qc7, Rf8, Kg8] to [Qc7, Kg8] after Rfd8. After 32.Bc4, f7 is attacked by Bc4 and defended only by Kg8."
+   ],
+   "confidence": "low",
+   "rcj_margin_cp": "+6 (played 69 vs Stockfish-best 63 at d12); RC-J was essentially indifferent",
+   "feature_that_could_flip": "None identified with causal support. Speculation: a mobility term. The Bf6 line is +4 own moves after the move and +6 net at pv_end, which at a few cp per move could exceed the 6cp margin. But the margin is inside noise, and RC-J's own static eval prefers the played line by 39cp, so nothing shows it chose Rfd8 for a mobility reason. For the game RESULT, as distinct from this move, a concrete, measured candidate is opposite-coloured-bishop drawishness scaling. At move 61 it would remove the ~63cp material penalty RC-J put on the drawing ...g4 break (-186 vs -123), and the shipped low_material term returns 0 there."
+  },
+  {
+   "position_id": "R102-10w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed. The game starts from a set-up FEN at move 7, so RC-J's decisions begin at move 8. Trajectory '===L...': moves 8-10 are in the draw category, and 10.Nf3 flips E from 0.3245 to 0.006. The game never leaves the loss category afterwards, and Nf3 is the only >=100cp error while not lost. 8.O-O (67cp, when Stockfish preferred Nf3) moved E from 0.48 to 0.32 but did not change the category, so it is a contributor, not the turning point. Every later RC-J move up to move 30 is within 0-67cp of best: the result was decided at move 10. RECORD THIS: the table from board_probe.py (wf scratch dir) for moves 14-19. Material is exactly equal, while RC-J's static reads +32/+28/+49/+29/+21/+18 and Stockfish's best_cp reads -203/-202/-230/-153/-123/-166. RC-J confidently thought it was slightly better in a strategically lost position for six moves.",
+   "chess_explanation": "Black's Ne5 is defended by Bd6, and Bc8 already eyes h3, where White's Nh3 is defended only by g2. After 10.Nf3?, the forced sequence is 10...Nxf3+ 11.Qxf3 Bxh3 12.Qxh3 Bxf4 13.exf4, then ...Qb6. Black removes both White knights and White's good dark-squared bishop. White's e-pawn is dragged to f4, doubling the f-pawns (f2/f4), which cripples White's kingside majority. The e-file becomes fully open, and Black's rooks get there first. White is left with a light bishop on b5, misplaced and hit by ...Qb6 and then ...c4, against Nf6, facing Black's c5/d5 queenside majority. The ...Qb6 double attack on b5 and b2 is not a material tactic: Qd7, Qd3, c4 and a4 all save both, and material stayed exactly level from move 14 to move 30. The loss is positional. In the game Black followed with 14...c4, 16...Rae8, 19...Re2 (rook on White's second rank, f2 attacked), later ...Rxg2 and Nf2#. 10.Be2 keeps f3 covered three times (Nd2, Be2, g2). After ...Bxh3 gxh3, White keeps the bishop pair and the e3 pawn, so the e-file is only half-open, for Black. Stockfish still rates it only -79.",
+   "category": "other static evaluation issue",
+   "secondary_category": "pawn structure",
+   "evidence": [
+    "rcj_values at d13: played Nf3 -35, reference Be2 -62, so RC-J preferred Nf3 by 27cp. Stockfish 10M: Nf3 -227, Be2 -79, loss 148. RC-J's Be2 value is within 17cp of Stockfish, while its Nf3 value is 192cp too optimistic. The misjudgment is entirely in the positions reached after Nf3.",
+    "depth_repair: NOT REPAIRED, state_dependent=false, reproduces_live=true. Cold RC-J plays d2f3 at d13/14/15 (scores -38/-43/-39; 9.6M to 39.8M nodes). Search depth and TT/history state are not the cause.",
+    "The Stockfish played PV ends quietly with material 0 and White to move. RC-J's static there is +32 (White's view), while Stockfish's best_cp at the same game position (move 14) is -203, a 235cp gap.",
+    "Actual game, moves 14-19: material exactly 0 on every move. RC-J static +32, +28, +49, +29, +21, +18 vs Stockfish best_cp -203, -202, -230, -153, -123, -166. A persistent 150-280cp gap in quiet positions, which a horizon effect would not explain.",
+    "Features that differ between the lines, of kinds PeSTO cannot see: the e-file is fully open in the played line vs half-open for Black only in the best line (python-chess). White has doubled f-pawns (f2/f4) behind a 4-vs-3 Black queenside majority. White keeps one light bishop vs a knight instead of the bishop pair.",
+    "Measured dossier terms point the WRONG way, so none of them would flip the choice. At pv_end, mobility is 30 v 22 (+8) for the played line vs 25 v 31 (-6) for the best line. The unshipped king_safety term is +6 (played) vs -10 (best). The naive pawn count is worse in the best line (isolated 2 + doubled 1 vs doubled 1). RC-J static at pv_end is 32 (played) vs -81 (best).",
+    "Game conversion used the open e-file: 16...Rae8, then 19...Re2 with Black's rook on White's second rank at equal material (RC-J static -12 vs Stockfish -154 at move 20)."
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "+27 (played -35 vs Stockfish-best -62 at d13)",
+   "feature_that_could_flip": "Speculation, not measured: an open-file / rook-activity term combined with a crippled-majority pawn term (doubled pawns that cannot produce a passer, set against the opponent's healthy queenside majority). The evidence is structural: only the played line opens the e-file and doubles the f-pawns, and Black won through that file (19...Re2). The margin to overturn is just 27cp. The unshipped terms that were measured would not flip it: a naive doubled/isolated penalty and the rejected king-safety term both favour Nf3. The dossier does not isolate which positional factor Stockfish is weighing, so the specific feature is unconfirmed."
+  },
+  {
+   "position_id": "R91-13w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed. The trajectory is '======L...'. The two earlier inaccuracies, 11.a3 (41cp) and 12.h5 (38cp), left E_best at 0.49, still a draw. 13.f4 is the only drop from draw to loss: E 0.5035 to 0.2025 in the scan, and 0.501 to 0.243 at 10M (loss 103cp). Every later loss (15.Be3 48cp, 16.Rb1 49, 17.Rxb7 49, 24.Bc3 214, 27.f5 282) came in a position that was already lost (E_best 0.12 or below). The only >=100cp error played while the game was not yet lost is this one.",
+   "chess_explanation": "13.f4 attacks the Ne5. Black answers 13...Nd7, and the retreat gains something. It opens the Bg7's long diagonal: Bg7 pseudo-mobility goes from 2 to 6, and b2 goes from 1 black attacker to 2 (Qb6 and Bg7) against 1 defender (Bc1). Moving the f-pawn also leaves f2 empty, so ...c4 becomes a discovered check from Qb6 along b6-g1. That is equally true after 13.f3, so it does not separate the two moves, but after f4 it combines with the double attack on b2. White cannot meet both threats. The game went 14.hxg6 fxg6 15.Be3 (blocking the diagonal, but the bishop leaves b2) Qxb2 16.Rb1 Qxa3 17.Rxb7 Rfb8 18.Rxb8+ Rxb8. Black ends a clean pawn up, with an outside passed a-pawn (White has no a- or b-pawn) and an active queen on a3. The same open dark diagonals later carried the mating attack. Stockfish's 13.f3 attacks the Bg4 instead. Its only defender is Ne5, so the knight has to stay on e5 and the long diagonal stays closed. After 13...Bd7, b2 has one attacker and one defender. Then hxg6 Nxg6 a4-a5 gains queenside space with tempo on the Qb6 (Stockfish +2).",
+   "category": "other static evaluation issue",
+   "secondary_category": "piece activity/mobility",
+   "evidence": [
+    "Not a horizon failure: cold RC-J plays f4 at d=14, 15 and 16 (all BAD, loss_10M 103), with scores -4, -4, -7. Not state-dependent: the cold search reproduces the live move.",
+    "RC-J values at d14: f4 -4, f3 -8. It rates the two moves as essentially equal; Stockfish 10M separates them by 103cp (f3 +2, f4 -101).",
+    "PeSTO static (white view) on the game continuation once the pawn is lost: before move 16 +17 (material -1) vs Stockfish -165; before move 19 +8 (material -1) vs -261; before move 22 +2 (material -1) vs -248. RC-J's search score for f4 (-4 to -7) matches these static values, which fits the search seeing the pawn loss and scoring it as roughly zero. This is an inference; the bundle has no RC-J principal variation.",
+    "Per-piece breakdown in those pawn-down positions: White's positional sum is +59 to +77 against Black's +3 to +34. Black's extra outside passer on a7 is rated 23-31cp below base by the pawn table, and the queen on a3 is rated about 15cp below base by the queen table. The unshipped terms are all tiny: king_safety -2 to -8, passed 0 to -1 (the passer is unadvanced), king_pawn 0 to -3. None could close a gap of 170-260cp.",
+    "Dossier at the ends of Stockfish's two lines: rcj_static is +27 for the played line and +4 for the best line, so RC-J prefers the played line by 23cp where Stockfish rates it about 100cp worse. Mobility differs in Stockfish's direction: played line own 19 / opponent 38, best line own 21 / opponent 31. PeSTO cannot see mobility.",
+    "Attack map, measured: after f4 Nd7, b2 has 2 black attackers and 1 white defender, Bg7 mobility 6. After f3 Bd7, 1 attacker and 1 defender, Bg7 mobility 2.",
+    "RECORD THIS: show FEN r4rk1/pp2ppb1/1q1p2pp/2pPn2P/6b1/P2P2P1/1PP1NPB1/R1BQ1RK1 w - - 1 13 and play 13.f4 Nd7 so the Bg7 lights up on b2. Then show FEN 1r4k1/p2np1b1/3p2pp/2pP4/5Pb1/q2PB1P1/2P1N1B1/3Q1RK1 w - - 0 19: PeSTO +8 for White while a pawn down, Stockfish -261."
+   ],
+   "confidence": "low",
+   "rcj_margin_cp": "+4 (played f4 -4 minus Stockfish-best f3 -8, RC-J depth 14)",
+   "feature_that_could_flip": "None identified with confidence. Speculative: (a) the unshipped king_safety term prefers f3 by exactly 4cp after the move (-4 vs -8) and at the end of Stockfish's line (0 vs -4). That equals RC-J's 4cp margin, so it might tie or flip the root, but at noise level, and the term was already measured as net-neutral. (b) A mobility term would register Black's +7 opponent mobility at the line ends (38 vs 31) and the Bg7 opening from 2 to 6 moves; untested. (c) The existing passed term gives 0-1cp for the outside a7 passer, so it would not help here."
+  },
+  {
+   "position_id": "R92-9b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed as the decisive flip, with one precursor. 8...a6 (26cp; Stockfish preferred 8...Nxd4) cost about 0.11 E (0.45 to 0.34) and allowed the 9.c5 clamp, but the game stayed a draw. 9...e5 is the drop into loss: E 0.3375 to 0.1185 in the scan. At 10M: e5 -139 (E 0.086), best h6 -76 (E 0.365), Re8 -89 (E 0.304); loss 63cp. The next move, 10...b5 (36cp), came in an already lost position.",
+   "chess_explanation": "White's pawn is already on c5, so 9...e5 gives up the last black pawn that could ever cover d6. Black has no c-pawn, and the e-pawn has now passed e6. d6 becomes a permanent hole: after e5 it is attacked by the c5 pawn and defended by nothing, whereas after Re8 or h6 the e7 pawn still covers it. The d7 pawn becomes backward on the half-open d-file, and d5 weakens too. White simply reroutes the knights to the hole: 10.Nc2 b5 11.Bg5 h6 12.Bxf6 (removing the Nf6 guard of d5/e4) Qxf6 13.Ne3 Rb8 14.Ne4 Qe6 15.Nd6. The d6 knight smothers the c8 bishop and the d7 pawn (Stockfish -152 with equal material). Re8 or h6 keeps e7 covering d6, keeps ...e6/...d6 available, and h6 also rules out the Bg5xf6 idea. Material stays level throughout; the loss is structural.",
+   "category": "state-dependence",
+   "secondary_category": "pawn structure",
+   "evidence": [
+    "depth_repair marks this state_dependent=true with reproduces_live=false. Cold RC-J plays f8e8 at d13, 14 and 15 (all GOOD, loss_10M 13), scoring -10, -8, -11. Live RC-J played e5.",
+    "RC-J values at d13: e5 -14, Re8 -10. The cold search prefers Stockfish's move by only 4cp, so the choice sits within the margin where accumulated TT and history state can decide it.",
+    "Why the margin is so thin, from the evaluator: PeSTO static right after the move is +8 for e5 and -15 for Re8, so it statically prefers e5 by 23cp (the e-pawn move is worth +32 in the middlegame pawn table). All unshipped terms are 0 there.",
+    "PeSTO misjudges the e5 structure persistently with material level: before move 10, static +49 (black view) vs Stockfish -125; move 11 +27 vs -172; move 13 +39 vs -150; move 14 +30 vs -146; move 15 (Nd6 in place) -10 vs -152. PeSTO does credit the d6 knight (+61 from the table), but only once it arrives. It has no notion of the permanent hole or the backward d7 pawn.",
+    "Attack map, measured: after e5, d6 has White attacker c5P and zero black attackers or pawn cover. After Re8 or h6, d6 is covered by the e7 pawn. The dossier's pawn fields (isolated, doubled, passed) do not measure holes or backward pawns, so they show no difference after the move.",
+    "Timing caveat: the live move used 3.45s of clock before any increment (1:50.809 to 1:47.362), while the cold timed reproduction ran 8.61s to reach d13. The live search may have finished a different depth, and depths below 13 were not tested, so time allocation cannot be fully ruled out as a contributor.",
+    "RECORD THIS: show FEN r1bq1rk1/1p1p1pbp/p1n2np1/2P1p3/8/2N3P1/PPN1PPBP/R1BQ1RK1 b - - 1 10 (after 10.Nc2): PeSTO +49 for Black, Stockfish -125. Then FEN 1rb2rk1/3p1pb1/p1nNq1pp/1pP1p3/8/4N1P1/PP2PPBP/R2Q1RK1 b - - 5 15 with the knight on the d6 hole. Put the depth_repair ladder table beside it (cold RC-J plays Re8 at d13, 14 and 15; live played e5)."
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "-4 (played e5 -14 minus Stockfish-best Re8 -10, RC-J depth 13; the cold search prefers Stockfish's move)",
+   "feature_that_could_flip": "Speculative: a hole/backward-pawn term. It would penalise a pawn move that leaves a square in one's own half (here d6) attacked by an enemy pawn and no longer coverable by any own pawn, plus a backward pawn on a half-open file (d7). PeSTO prefers e5 by 23cp statically and overrates the resulting structure by 150-200cp across moves 10-15, while RC-J's cold margin is only 4cp. So even a small penalty at the relevant leaves would plausibly have kept the state-perturbed live search off e5. Not measured. No fix on the TT/history side can be identified from this bundle."
+  },
+  {
+   "position_id": "R103-25w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Move 25 is the game's only category flip. The trajectory is 18 'draw' entries (moves 8-25) and 'L' from move 26 on. The 10M re-check confirms it: e1d1 loses 87 cp, E 0.4885 -> 0.0835. The flip sits in the middle of a three-move pattern. At moves 24, 25 and 26 Stockfish's best move each time retreats the idle h6 queen (24: h6f4; 25: h6f4, with h6h4 within 9 cp; 26: h6h4), and RC-J leaves it on h6 each time (24.Kg2, 58 cp scan loss; 25.Red1; 26.e4, 83 cp). 24.Kg2 barely moved E (0.50 -> 0.49 by the next move's best), and 26.e4 comes after the flip. The earlier 15.Bxb7 (66 cp) gave back a +96 edge (E_best 0.72), but it never reached the win band. So 25.Red1 is the real turning point.",
+   "chess_explanation": "The material is level (Q+2R+B and five pawns each). Black has doubled rooks on the a-file (Ra3, Ra8), queen b4 and a strong light-squared bishop on d3, all aimed at White's second rank and f2. White's queen on h6 has no attack: Black's king has a full g6/f7/h7 shield, Ra8 guards the back rank, and no second White piece can join. The Stockfish move Qf4 (or Qh4) brings the queen back along the 4th rank with tempo on the undefended b4 queen. After ...Qb2, Qd4 forces the queens off (Qd4 Qxd4 exd4), which kills Black's 2nd-rank play. White then gets active rooks (Rc8+, Re1): at the PV end White has 32 non-pawn moves to Black's 23, and SF calls it -39, about equal despite the doubled isolated d-pawns. After 25.Red1 the queen stays offside. Black plays ...Qb2 and ...Ra2 (and ...Bc2 in the SF line), putting three pieces on White's second rank while White's rooks and queen go passive (Qh4 6 moves, Rf1 4, Rc1 5). In the game White's queen had to come back anyway (27.Qe3, 28.Qe1), and the pressure turned into tactics several moves later: 31...Bf1+ 32.Qxf1 Qxf3+ and 33...Qxe4, about 12-16 plies after the error.",
+   "category": "piece activity/mobility",
+   "secondary_category": "time allocation",
+   "evidence": [
+    "10M re-check from the same root: e1d1 -126 cp (E 0.0835), h6f4 -39 (E 0.4885), h6h4 -48 (loss 9). The two good moves are both queen retreats along the 4th rank.",
+    "depth_repair = REPAIRED BY DEPTH, not state-dependent (a cold search reproduces e1d1). Cold ladder: d12 e1d1 (score 28, BAD, loss 87), d13 e1d1 (26, BAD), d14 h6h4 (18, GOOD, loss 9). plus1_good is false, so it takes d+2. d14 costs 12.27 s cumulative against the 2.75 s the timed search spent (stop = SOFT_START_FRACTION, clock 84.2 s). The best move was stable at d12 and d13, so no instability signal would have extended time.",
+    "rcj_values at depth 12: played 24, Qf4 25. RC-J rated Stockfish's move 1 cp HIGHER at child level. The root picked Red1 at 28, a statistical tie, while the true gap is 87 cp.",
+    "RC-J's static eval actively favours the played move at the root: 110 after Red1, 69 after Qf4, 67 after Qh4 (41-43 cp). That gap is entirely PeSTO's queen table at phase 18/24. Queen on h6: mg 1082 / eg 945, tapered 1047.8. Queen on f4: 1021 / 970, tapered 1008.2 (39.6 cp less). Queen on h4: tapered 1006.2 (41.6 cp less). The generic table pays about 40 cp for a queen that attacks nothing.",
+    "Mobility, which PeSTO cannot see (dossier; own/opp non-pawn moves incl. king): after the move, played 31/48 vs best 37/46; at the PV end, played 22/40 (net -18) vs best 36/28 (net +8), a 26-move swing toward the best line. Per piece at the played PV end: White Qh4 6, Bf3 3, Rf1 4, Rc1 5; Black Qb2 13, Ra8 10, Bc2 7, Ra2 6. Black pieces on White's 2nd rank: 3 (Ra2, Qb2, Bc2) in the played line, 0 in the best line (queens traded).",
+    "RC-J's static eval overrates the played line far more than the best line: at the played PV end RC-J says +101 against SF -126 (227 cp off), and at the best PV end +70 against SF -39 (109 cp off).",
+    "King safety does not separate the lines. The unshipped king_safety term is -3 vs -3 after the move and +3 (played) vs +1 (best) at the PV end, which would favour the played move by 2. King-zone attacks on White's king are 1 after both moves. Unshipped passed / king_pawn / low_material terms are all 0.",
+    "RECORD THIS (evaluator paying to keep an idle queen): show FEN r5k1/4pp1p/3p2pQ/3P4/1q6/r2bPBPP/5PK1/2R1R3 w - - 5 25 with arrows Qh6-f4-d4 (SF) vs Re1-d1 (RC-J). Run in CMD: C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\R103-25w_R105-16b\\features.py . Capture the lines 'W queen on h6 ... tapered=1047.8' vs 'W queen on f4 ... tapered=1008.2' and 'after e1d1: eval(White pov)=110' vs 'after h6f4: eval(White pov)=69'. Then show the played-PV end board (r5k1/4p2p/3p1pp1/3P4/6PQ/4PB1P/rqb2PK1/2R2R2 w - - 0 29), where RC-J's static says +101 and Stockfish says -126. Output is saved in wf\\R103-25w_R105-16b\\features_out.txt."
+   ],
+   "confidence": "low",
+   "rcj_margin_cp": "-1 (played e1d1 = 24, Stockfish best h6f4 = 25 at depth 12, from RC-J's own child searches). RC-J did not prefer its move; it was a tie, decided at the root (Red1 28) by a few centipawns of noise.",
+   "feature_that_could_flip": "No single feature is proven. Candidates, with evidence: (1) SPECULATION: a mobility/activity term. The measured activity swing between the lines is 26 non-pawn moves at the SF PV ends (played net -18, best net +8), and at a 1 cp margin almost any term leaning the right way would flip the root. (2) SPECULATION: a less generous PeSTO queen table on h6 when there is no attack. The h6 bonus (39.6 cp tapered over f4) exactly explains RC-J's 41 cp static root preference, but the tied child values (24 vs 25) show the search mostly cancels it, so its causal weight is unproven. (3) MEASURED: two more plies. Cold depth 14 plays h6h4 (loss 9 cp) but needs 12.27 s against 2.75 s spent, with a stable best move at d12-13, so no plausible time-allocation rule would have triggered it. A king-safety term would NOT flip it (it favours the played line by 2 cp at the PV end)."
+  },
+  {
+   "position_id": "R105-16b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "This was selected by the GRADUAL rule (largest dE while not yet lost), and it is the game's decisive error. At the 10M re-check it loses 133 cp (107 in the scan), E 0.3715 -> 0.001; no other RC-J move comes close in cp while the game was still savable. It is not the first move into the loss band, though. 11...f6 (42 cp) already took the position from E_best 0.31 to 0.08 at move 12, and it stayed in the loss band through move 15 (E 0.07-0.15). White's 16.Na4 handed back a defensible -85 (E 0.34), and Rb8 threw that away. White again let part of it slip (move 18 E 0.28, -96), and the final unrecovered drop came with 19...e4 (89 cp). Rb8 is also the acute symptom of a chronic problem: Stockfish's best move was ...d7-d6 at moves 6, 10, 12, 13 and 16, and RC-J never played ...d6 all game.",
+   "chess_explanation": "Black's c8 bishop is shut in by its own d7 pawn (and b7), and after ...a6 the b6 and a7 squares are holes. White threatens Na4-b6, forking a8 and c8. The Stockfish move 16...d6 opens the c8 bishop. After 17.Nb6 Rb8 18.Nxc8 Rxc8 Black gives up the bishop pair, but the piece it gives is its worst one, for White's offside knight. Black finishes development (Rc8, Qd8 free, ...e4 next) and stands only a bit worse (-80). 16...Rb8 dodges the fork but leaves the d7/c8 knot in place. 17.Qa7! attacks b8 and b7, 17...Qc7 is practically forced, and 18.c5 clamps b6/d6 for the knight. Black's queenside is frozen: the c8 bishop has 0 moves and the b8 rook 1 move, and Stockfish rates it -213. In the game the c8 bishop never moved again. It was captured on c8 by 30.Rxc8, and the d7 pawn fell to 33.Nxd7.",
+   "category": "piece activity/mobility",
+   "secondary_category": "exchange valuation",
+   "evidence": [
+    "10M re-check from the same root: a8b8 -213 cp (E 0.001), d7d6 -80 (E 0.3715), loss 133 cp.",
+    "depth_repair = NOT REPAIRED, not state-dependent (a cold timed search reproduces a8b8). Ladder: d13 a8b8 (-29), d14 a8b8 (-28), d15 a8b8 (-29), all BAD at loss 133. Stable non-repair two plies deeper is evidence against a simple horizon failure.",
+    "rcj_values at depth 13: played -37, d6 -37. RC-J cannot tell apart two moves that are 133 cp apart.",
+    "RC-J's static eval is blind to the difference at the root: +22 (Black's view) after Rb8, +25 after d6 (+3 for d6).",
+    "Mobility, which PeSTO cannot see (dossier; own/opp incl. king): after the move 16/38 (Rb8) vs 20/38 (d6); at the PV end 21/33 (net -12) vs 27/32 (net -5). Per piece after Rb8: Bc8 0, Rb8 1, Bg7 2, total 15. After d6: Bc8 2, Ra8 2, total 19. Along the whole SF played PV the c8 bishop stays at 0 moves and the b8 rook at 1, and they are still 0 and 1 in the actual game after 19...e4.",
+    "RC-J's static eval misjudges the paralysed line. Along SF's played PV it stays at +22 to +58 for Black for seven plies, while Stockfish says -213. It only drops to -36 when a pawn falls at ply 8, so RC-J's evaluator registers the paralysis only once material is lost. At the best PV end RC-J says -2 against SF -80.",
+    "Exchange valuation: the d6 line forces Nb6 Rb8 Nxc8 Rxc8, which surrenders the bishop pair. The shipped bonus is mg 22 / eg 40, 26.5 cp tapered at phase 18, and RC-J's static eval falls from +31 (root) to -17 after Rxc8 (16 cp of that is the tempo swing). The bishop Black gives up is the permanently immobile c8 bishop, yet PeSTO scores it at full value (black Bc8 mg 351 / eg 274, no mobility penalty).",
+    "PeSTO also scores White's refuting queen on a7 about 20 cp below e3 (tapered 987.3 vs 1007.5), so the key White resource reads as a concession to RC-J's evaluator.",
+    "King safety is not the explanation: the unshipped king_safety term is -10 vs -10 after the move and favours the PLAYED line by 6 at the PV end. Passed / king_pawn / low_material terms are all 0.",
+    "RECORD THIS (the bishop that never moved): show FEN r1bq1r1k/1p1p2bp/p5p1/3Bpp2/N1P5/4Q1P1/PP2PP1P/R4RK1 b - - 3 16 with SF arrow d7-d6 vs RC-J Ra8-b8. Step through the game PGN (autopsy\\public_new\\f5bf01c0-09f5-4ab7-8583-413e958ff3b2.pgn) from 16...Rb8 to 30.Rxc8, highlighting that the black bishop sits on c8 for 14 moves until White captures it there, and d7 falls to 33.Nxd7. The same features.py command prints 'bc8': 0 in every Black mobility line of the played PV. Cross-game observation, from two positions only and not a proven pattern: PeSTO's queen table misreads queen placement in both losses (it overrates RC-J's idle Qh6 by about 40 cp in R103 and underrates White's invading Qa7 by about 20 cp here)."
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "0 (played a8b8 = -37, Stockfish best d7d6 = -37 at depth 13, RC-J's own values). An exact tie; the root's timed score for Rb8 was -29.",
+   "feature_that_could_flip": "SPECULATION, grounded in measured features: a mobility term, or more narrowly a penalty for a bishop blocked by its own pawns. After Rb8 the c8 bishop has 0 moves and the b8 rook 1 (Black total 15), against 19 after d6. The lock persists through the SF PV and the actual game (Bc8 never moved from move 16 to its capture at move 30). With a 0 cp margin, even a small term at the leaves would plausibly flip the root, but we cannot verify which leaves RC-J's search actually reached. A secondary SPECULATION: making the bishop-pair bonus (26.5 cp here) conditional on both bishops having moves would remove RC-J's penalty for the forced Nb6xc8 trade in the d6 line. More depth is not the fix (d13-15 all keep a8b8), and a king-safety term would push the wrong way (it favours the played line by 6 cp at the PV end)."
+  },
+  {
+   "position_id": "R79-12w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed, with nuance. The trajectory stays in the draw category over moves 8-12 (E_best 0.58, 0.56, 0.52, 0.51, 0.47). The selection is GRADUAL, and 12.Nb3 is the largest single decline: scan dE -0.162 (0.471 to 0.309); at 10M the E goes from 0.486 to 0.248, crossing into loss. RC-J never recovers (E_best 0.24 at move 13 and at most 0.24 afterwards). Earlier moves each cost at most 29cp / 0.04 E. 11.cxd5 (29cp) contributes because it vacates c4 for Black's c-pawn. The plan was right but the move order was wrong: at move 11, before cxd5, Stockfish's best move WAS d2b3 (Nb3). Once cxd5 exd5 frees c4, the same knight jump costs 81cp at 10M because ...c4 now arrives with tempo.",
+   "chess_explanation": "12.Nb3 wins nothing. It attacks c5 (defended by Nd7 and Be7) and a5 (defended by Ra8 and Qd8). The reply 12...c4 is protected by d5 and hits the knight, whose only non-losing retreat is Nbd2. That costs White two tempi and gives Black three things: a fixed d5-c4 chain that blunts Bg2, a protected advanced pawn on c4, and a mobile queenside majority (a5/b7/c4 vs a2/b2) for ...b5-b4. The game followed that script: 13.Nbd2 b5 14.a3 Nb6 16.b3 17...b4 18.axb4 axb4 21.bxc4 dxc4 23...b3. Black's b-pawn became a passer that reached b2, and Black's knights got into c2/a3. Stockfish's 12.Rd1 does three things: it keeps Nd2 covering c4/b3, backs up d4 along the d-file, and frees f1 for Nd2-f1-e3 against d5. Its PV runs 12...Nc6 13.Nf1 cxd4 14.Nxd4 Ndxe5 15.Bf4 Ng6 and leaves Black with an isolated d5 pawn (dossier pawns_opp isolated=1) against more active White pieces (mobility 45/32). The pawn deficit at the end of that PV is an artefact of cutting it at 8 plies: Nc6 is attacked by Qc2 and Nd4 and defended only by b7, so Nxc6 bxc6 Qxc6 wins it back (10M: Rd1 = -19). RC-J's search saw one ply of ...c4, but it scores the resulting bind as fine for White.",
+   "category": "space",
+   "secondary_category": "pawn structure",
+   "evidence": [
+    "10M re-verification: Rd1 -19 (E 0.486), Nb3 -100 (E 0.248), loss 81cp. RC-J's cold search picks Nb3 at d13, d14 and d15 with scores 34/32/29, all exact bounds. Classification: NOT REPAIRED, and state_dependent=false (the cold search reproduces the live move). There is no sign of a horizon problem, a time problem or a state problem.",
+    "RC-J's own values at d13: Nb3 +34, Rd1 -21. Its value for Stockfish's move is within 2cp of Stockfish (-21 vs -19), but it misvalues its own Nb3 by 134cp (+34 vs -100). The misjudgment sits almost entirely in the Nb3 ...c4 structure, not in the Rd1 line.",
+    "PeSTO static (RC-J view, recomputed with the interpreted cs_eval reference; it matches the dossier): after 12.Nb3 +56, after 12...c4 +61. The static eval moves 5cp TOWARD White when Black plays ...c4, while Stockfish's valuation of that line is about -100. The played-line PV end is +35, matching RC-J's search value of +34. RC-J's score for Nb3 is essentially PeSTO's opinion of the ...c4 bind.",
+    "Persistent gap at level material: over moves 13-17, RC-J's static eval (before its move) is +61, +68, +83, +59, +28, while Stockfish's best_cp is -103, -101, -150, -113, -169. Material is 0 throughout. That is a sustained 150-200cp positional misjudgment while Black's queenside majority rolls forward.",
+    "Crude space count (own ranks 2-4, not attacked by enemy pawns; files a-d): White's queenside space drops from 9 to 6 when ...c4 is played. Black's rises from 12 to 14 (played PV end) and to 16 after 17...b4. White's net mobility moves from +8 after ...c4 (29/21) to -1 after 16.b3 (30/31) and -5 after 17...b4 (25/30). RC-J has no space, pawn-chain or mobility term.",
+    "Against / caveats: at the PV end my space count does not separate the two lines cleanly (Black is +5 on queenside space in the best line too). The bundle has no RC-J PV for Nb3. The unshipped terms point the WRONG way: best-minus-played is king_safety 0 after the move and -8 at PV end, passed 0 and -4. Neither built term would have flipped this.",
+    "RECORD THIS (move-order trap): show FEN rnbq1rk1/1p1nbpp1/7p/p1ppP3/3P4/5NP1/PPQN1PBP/R1B2RK1 w - - 0 12 next to the move-11 position before cxd5, where Stockfish's best move was the same Nb3. Then play 12.Nb3 c4 13.Nbd2 and show the knight back on d2 with ...c4 fixed. Caption: RC-J's value for Rd1 is -21 against Stockfish's -19; its value for Nb3 is +34 against Stockfish's -100.",
+    "RECORD THIS (confident misjudgment): run \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe\" \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\R79-12w_R81-10b\\traj.py\" and capture the R79 table. RC-J's static eval sits at +28..+83 on moves 12-17 while Stockfish slides from -33 to -169, with material level."
+   ],
+   "confidence": "low",
+   "rcj_margin_cp": "+55 (played Nb3 +34 minus Stockfish-best Rd1 -21, RC-J depth 13)",
+   "feature_that_could_flip": "None identified with confidence. The following is speculation. A space or pawn-chain term that credits the side owning an advanced, protected wing chain (Black's d5-c4 with the ...b5-b4 lever) points the right way. However, my crude count shows only about a 3-square shift on ...c4. A classical Stockfish-style space weight of roughly 6cp per square in a full middlegame gives about 20cp, well short of the 55cp margin. The project's built king_safety (-8) and passed-pawn (-4) terms push toward the played move, so neither would have flipped it."
+  },
+  {
+   "position_id": "R81-10b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed. Selection kind is FLIP. 8...Bh5 (137cp) came first and took the game from draw to loss (E_best 0.21 at move 9). White then handed it back with 10.Qd2 (E_best 0.44 at move 10, draw category). Bh5 is also REPAIRED BY DEPTH (R81-8bs: the cold search at d14 and d15 plays Be6). 10...h6 is therefore the first flip RC-J never recovers from: at 10M the E goes from 0.4695 (d5) to 0.1245, and E_best is at most 0.14 from move 11 onwards. Bh5 is a precursor, not the decisive move: it put the bishop where 13.g4 would later hit it with tempo.",
+   "chess_explanation": "After 10.Qd2, White's king is still on e1, the queens face each other on the d-file, and Bg5 is defended only by Qd2. 10...d5 is the thematic central break at the one moment it works tactically. After 11.exd5 Nxd5, the departing Nf6 unmasks Be7 onto Bg5. After 12.Bxe7 Ndxe7, the d-file opens so Qd8 hits Qd2, forcing 13.O-O-O Qxd2+ 14.Rxd2: queens come off, White's attacking chances disappear, and the position is near equal (10M -34). 10...h6 spends that tempo. After 11.Be3 the tactic is gone (Stockfish's best at move 11 is ...a6, not ...d5), and White castles long into a classic opposite-side storm: g4 hits Bh5 with tempo, then g5. The h6 pawn is the hook: it attacks g5, so White's lever makes contact at once and hxg5 hxg5 opens the h-file for Rh1/Qh2. The game followed exactly this: 12.O-O-O O-O 13.g4 Bg6 15.h4 16.g5 hxg5 17.hxg5 ... 20.Qh2, and the h-file attack (32.Qh7+, 33.Rh6+) decided it. RC-J kept declining central counterplay afterwards: 14...Rad8 (best ...d5, 115cp), 15...Qc8 (best ...Nd4, 173cp), 16...hxg5 (best ...Nxe4, 147cp).",
+   "category": "king safety",
+   "secondary_category": "exchange valuation",
+   "evidence": [
+    "10M re-verification: d5 -34 (E 0.4695), h6 -127 (E 0.1245), loss 93cp. RC-J's cold search picks h6 at d10, d11 and d12 with scores 54/49/49, all exact bounds. Classification: NOT REPAIRED, and state_dependent=false (the cold search reproduces the live move). Time is not the issue either: 2.29s used at 115s on the clock, and deeper searches don't change the move.",
+    "RC-J's own values at d10: h6 54, d5 56. RC-J saw essentially no difference (margin -2cp, a noise-level tie between root and child searches) where Stockfish sees 93cp. It overvalues both lines, d5 by 90cp (56 vs -34) and h6 by 181cp (54 vs -127). The extra 91cp of misvaluation sits in the line where the queens stay on and the kings end up on opposite wings.",
+    "The feature that differs between the lines: at the played-line PV end the queens are on (1/1) and White has castled long (Kc1). At the best-line PV end the queens are off (0/0; material path shows the queen trade at plies 7-8). PeSTO scores the queenless best endpoint at +55 and the queens-on played endpoint at +72, so the evaluator actively prefers keeping queens by 17cp, which is backwards when facing a storm.",
+    "The hook, checked with python-chess: after 10...h6 the pawn attacks g5. In the game, 16.g5 hxg5 17.hxg5 opened the h-file, and White's decisive play ran down it (Qh2, Qh5, Qh7+, Rh6+).",
+    "Persistent gap at level material: over moves 11-16, RC-J's static eval (Black's view, before its move) is +106, +58, +135, +125, +164, +146, while Stockfish's best_cp is -124, -227, -250, -147, -223, -354, with material 0. RC-J is 250-500cp optimistic while White's g/h pawns advance against its king. PeSTO has no king-danger or pawn-storm term.",
+    "Against: the dossier's static king features do not favour d5. At the PV end, Black's king shows 2 attacks and a shield of 1 in the best line vs 1 attack and a shield of 2 in the played line. The unshipped king_safety term prefers h6 (best-minus-played -4 after the move, -6 at PV end). The project's rejected shield/zone king-safety term would NOT have flipped this. The weakness is a dynamic storm or hook with queens on, not a static shield count.",
+    "RECORD THIS (the rejected fix points the wrong way): show FEN r2qk2r/pp2bppp/2np1n2/4p1Bb/4P3/N1N2P2/PPPQ2PP/R3KB1R b KQkq - 4 10 and play 10...d5 11.exd5 Nxd5 12.Bxe7 Ndxe7 13.O-O-O Qxd2+ as the Stockfish line. Then show the game line 10...h6 11.Be3 ... 16.g5 hxg5 17.hxg5 with the open h-file. Caption: RC-J scored the two moves 54 vs 56, a coin flip, while Stockfish separates them by 93cp, and the project's shelved king-safety term would have nudged RC-J toward h6 (+4 after the move, +6 at PV end).",
+    "RECORD THIS: the R81 table from the traj.py command (same command as for R79). RC-J's static eval stays between +58 and +164 on moves 10-16 while Stockfish falls from -51 to -354, with material level throughout."
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "-2 (played h6 54 minus Stockfish-best d5 56, RC-J depth 10). RC-J's child values marginally favoured d5, but the root chose h6: effectively a tie.",
+   "feature_that_could_flip": "The following is speculation. Two candidates: (a) a pawn-storm or hook term for opposite-side castling that penalises a flank pawn giving the enemy's advancing g/h pawns an immediate lever, scaled by whether queens are on the board; (b) a king-danger term that scales with queen presence, so a forced queen trade gains value when the kings face opposite-wing storms. Since RC-J's margin is only 2cp, any correctly-signed signal of a few cp could plausibly have flipped the root. This is NOT the project's existing shield/zone king_safety term, which leans toward h6 here (+4 after the move, +6 at PV end)."
+  },
+  {
+   "position_id": "R83-20w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Under the frozen rule this is the right move, but there is an earlier near-identical flip. At move 18, Rae1 lost 86cp (SF best Rfe1) and took E from 0.47 to 0.02 (move-19 best_cp -148). Oxchess's 19...f5, roughly a 70cp opponent error, handed it back: move-20 best_cp -78, E 0.40. So Bf2 is the first flip RC-J never recovered from. Rae1 is still the thematic start: it took the a1 rook off the a4 pawn, and a4 is exactly the pawn SF's Bf2 refutation wins with ...Bd7xa4. RC-J then played 21.Ra1 (another 86cp loss) to defend a4 again, which gave up the e-file to ...Re2. The weak queenside was long-standing: SF wanted c3-c4 at moves 13, 15, 16 and 17 (24/48/19/30cp) to fix the doubled c-pawns, and RC-J never played it.",
+   "chess_explanation": "The position is equal in material (R+R+B+N+7 pawns each). White has doubled c-pawns (c2/c3) and a loose a4 pawn. Black's king is on g6 behind a pawn mass (f5/g5/h5), and the e-file is shared: Re1/Rf1 against Re8. Both bishop moves open the e-file, and after either one, ...Bd7 attacks a4 with no white piece defending it (checked with python-chess). The difference is what follows. After 20.Bd2 (SF 10M -54), Stockfish's line has Black trading rooks first (Rxe1 Rxe1), then h4 Ne2 Bd7, and White has time for a5, so the a-pawn leaves the bishop's diagonal. Material stays level for all 8 plies. The bishop on d2 also covers c3, e1, f4 and g5, supporting a later f4 break and stopping ...f4. After 20.Bf2 (SF -212), Black plays Bd7 at once. SF's best defence, f4, gives up two pawns for one (Bxa4, fxg5, Bxc2, Kxg5: material -2 at ply 8). RC-J's actual alternative in the game, 21.Ra1, keeps the pawn for a while but hands over the e-file: ...h4 forces Nh1, where the knight has one legal move (Ng3, into the h4 pawn), then ...Re2 and ...Rxc2 put a rook on the second rank. Material in the game stayed level until move 30, yet SF rated those positions -111 to -282. The weak queenside pawns and passive pieces cost White the game, not a single tactic.",
+   "category": "UNKNOWN",
+   "secondary_category": "piece activity/mobility",
+   "evidence": [
+    "depth_repair: NOT REPAIRED, state_dependent=false. Cold RC-J reproduces Bf2 at d14 (-59) and switches to another BAD move, f3f4, at d15/d16 (-68/-67; SF 10M loss 118). Bd2 is never chosen, so this is not a simple horizon failure. The d15 search took 4.1s and d16 6.3s with a 78s clock, so time allocation is not the cause either.",
+    "rcj_values d14: Bf2 -59, Bd2 -84. SF 10M: Bf2 -212, Bd2 -54. RC-J is about 150cp too optimistic on its move and about 30cp too pessimistic on the best move.",
+    "The PeSTO evaluation agrees with SF at the ends of SF's lines. RC-J's static eval is -118 at the end of the played PV (material -2) and -8 at the end of the best PV, so it prefers the best line by 110cp. Evaluation blindness at SF's leaves is therefore excluded. RC-J's -59 must come from a white defence other than SF's f4, probably the Ra1 or a5 regrouping it actually played next move. RC-J's PV was not recorded, so this cannot be confirmed.",
+    "Root children differ very little statically: RC-J static +30 after Bf2 and +24 after Bd2 (bishop PST f2 386/288 against d2 365/296, phase 12/24). The 25cp preference comes from the search tree, not from the root PST.",
+    "In RC-J's actual continuation (Ra1, Nh1, Re2, a5, Rxc2, axb6, Bxc5), material is level or nearly level while SF is far more pessimistic than RC-J's static eval (white POV, SF against RC-J): move 22 -282 vs -1, move 23 -231 vs -80, move 26 -111 vs -51, move 28 -117 vs -11, move 29 -112 vs -25. Pseudo-legal non-pawn mobility was white 17-20 against black 33-36 at moves 22-23. This correlates with the gap, but it is not proven causal.",
+    "Unshipped terms are too small to flip a 25cp margin: at the root children king_safety favours Bd2 by 4 and passed by 0. Along the game line king_safety runs +8 to -6 and passed 0 to +5."
+   ],
+   "confidence": "low",
+   "rcj_margin_cp": "+25 (played Bf2 -59 minus SF-best Bd2 -84 at RC-J d14; a narrow preference)",
+   "feature_that_could_flip": "None identified with causal evidence. Speculation: a mobility or piece-activity term. After Bf2 White has 20 pseudo-legal non-pawn moves against 23 after Bd2 (Black 26 in both). In the Ra1 branch the net mobility deficit is -13 to -19, against -9 at the end of SF's best line. At roughly 3-4cp per move that could cover the 25cp margin, but this is unverified without RC-J's own PV. The unshipped king_safety (+4) and passed (0) terms were checked and are too small."
+  },
+  {
+   "position_id": "R88-17b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Confirmed. The trajectory is draw ('=') through move 17 and loss for every move after. E fell from 0.432 to 0.038 on the scan, and 10M confirms Rac8 at -153 (E 0.058) against best f4h5 at -42 (E 0.45). The only earlier sizeable error was 11...Nf4 (67cp, SF c7c6, E 0.50 to 0.37). It stayed in the draw band, so it is a precursor, not the flip. It is the same theme, though: RC-J putting and keeping its knight on f4.",
+   "chess_explanation": "Material is equal. White threatens dxe5 dxe5, which opens the d-file while the black queen sits on d7. White's Ra2 can swing to d2/d1, the Ng3 is heading for f5, and Kh2 steps off the Bb6-g1 diagonal. Both of Stockfish's good moves take the f4 knight off its advanced square. 17...Nh5 (10M best, -42) challenges the g3 knight. 17...Ne6 (-64) blocks the c4-f7 diagonal of the Qb3+Bc4 battery and, after dxe5, jumps to c5 with tempo on the queen (Qb1). There the knight covers d7 and d3, the two entry squares of the opened d-file, and hits a4 and e4. Rac8 does nothing for the d-file. After dxe5 dxe5 Kh2 Qd6 Rd1 Qe7 Nf5, White owns the d-file (Rd1 hits d3/d5/d6/d7) and has a knight on f5, while the black knight on f4 still looks active but does little. In the game this played out as Rd2, Nf5, Rd7 (seventh-rank invasion) and a lost ending. RECORD THIS: show FEN r3r1k1/1ppq1ppp/1b1p1nb1/pP2p3/P1BPPn2/1QP2NNP/R4PP1/2B1R1K1 b - - 8 17 next to the PeSTO lookup. A black knight on f4 is worth 406mg, the joint-top knight value in the table, against 356 on e6 and 329 on h5. The live search and all three cold searches (d11-13) keep the knight on f4, while both of Stockfish's good moves retreat it.",
+   "category": "piece activity/mobility",
+   "secondary_category": "other static evaluation issue",
+   "evidence": [
+    "RC-J's own static eval prefers the played move by 70cp at the root children (+53 after Rac8, -17 after Ne6, RC-J POV). With phase 24/24 this is pure middlegame PST: black knight f4 406mg against e6 356mg (-50), plus rook a8 458 against c8 478 (+20). The measured reason RC-J liked its move is the knight-square bonus.",
+    "rcj_values d11: Rac8 -10, Ne6 -42, so search cuts the preference to 32cp but does not remove it. SF 10M: Rac8 -153, Ne6 -64, Nh5 -42.",
+    "Every RC-J choice keeps the knight on f4: live Rac8, cold d11 a8b8 (loss 85), cold d12/d13 f6h5 (loss 145, scores -19/-23). SF's two good moves, f4h5 and f4e6, both move it (PeSTO -77mg and -50mg respectively). depth_repair is UNSTABLE and not repaired: deeper search changes the move but never finds a knight retreat, which argues against a horizon cause.",
+    "At the end of SF's played PV (material level), RC-J's static eval is +68 for Black, while SF scores the line about -153. At the end of the best PV, RC-J's static eval is +48, so RC-J prefers the played-line leaf by 20cp where SF prefers the best line by roughly 90-110cp.",
+    "Square control at the PV ends (python-chess): in the played line White's Rd1 attacks d7, d6, d3 and d5, and white Nf5 sits on f5, protected by e4. In the best line White has no rook on the d-file, and black Nc5 covers d7 and d3 and attacks a4 and e4. White's mobility is 51 at the played-line leaf against 43 at the best-line leaf (Black 34 vs 32). RC-J has no mobility, open-file or square-control term.",
+    "Unshipped terms do not explain it: king_safety is 0 at the played leaf and -8 (RC-J POV) at the best leaf, so it actually favours the played line; passed, king_pawn and low_material are all 0. The project's rejected king-safety term would not have flipped this move.",
+    "state_dependent=true (cold plays a8b8, not a8c8), but every cold alternative is also BAD (85/145/145cp). Accumulated state only chose which bad move was played, so it is not the primary cause."
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "+32 (played Rac8 -10 minus reference Ne6 -42 at RC-J d11); root static margin +70",
+   "feature_that_could_flip": "Speculative, direction supported by evidence: an open-file rook term or a mobility term that rewards White's Rd1 on the opened d-file and White's +8 pseudo-legal moves at the played-line leaf (51 vs 43), which would lower RC-J's value of lines that keep the knight on f4 relative to Ne6/Nc5. Alternatively, reduce the PST bonus for a knight on the relative f5/f4 square when it can be driven off or exchanged (PeSTO gives it 406mg against 356 on e6); changes would have to stay colour-symmetric. Either would need to move leaf values by more than about 32cp. The unshipped king_safety term was checked and points the wrong way (-8 against the best line)."
+  },
+  {
+   "position_id": "R94-44w",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Move 44 is the decisive error under the frozen rule, but it is not the game's first bad position. After move 44 RC-J never got back into the draw category: E went 0.4995 to 0.126 in the scan, and the 10M check has cp 0 for the best move against -138 for Bc1. Earlier, 14.Bd4 (91cp) and 16.Nd5 (95cp) put RC-J in the loss category for most of moves 15-32 (best_cp down to -201), but the opponent let the game drift back to 0.00 by move 33. Several later errors went unpunished: 33.Ra1 (133cp; the cold search plays the good b1e1, so this one is state-dependent/UNSTABLE), 35.Rb1 (132cp; NOT REPAIRED), 42.Kg2 (76) and 43.Red1 (84). The position at move 44 was dead equal (SF depth 42, cp 0). The final collapse took two moves: 44.Bc1, then 45.Kg1 (134cp), which moved the best line from -136 to -282 by move 46.",
+   "chess_explanation": "Material is level: two rooks and a bishop each, 6 pawns each. White's a4/a5 pawns are doubled and isolated and c3 is weak. Black's Bb2 is backed by Rb7 and Ra2. Only the b- and h-files are open. Stockfish's Rh1 takes the d1 rook off a closed file, where it sits behind its own d5 pawn with 7 moves, and puts it on the open h-file with 12 moves, eyeing Rh7+. It also keeps Bd2 guarding c3. White then brings the other rook to e6 with check: SF PV Rh1 Kf6 Rbe1 Ba1 Re6+ Kf7 Be1 Rc2, evaluated 0.00. Bc1 sends the bishop to the back rank and removes the only guard of c3 (c3 defenders: [d2] before, [] after). That gives Black ...Rb3 with tempo. In SF's line for the played move the bishop has to go back (Bc1 Kf6 Re1 Rb3 Bd2), a net loss of two tempi. In the game, 45.Kg1 Rb3 46.Rxb2 Raxb2 47.Bxb2 Rxb2 reached a rook ending in which Black's rook sits on the open b-file and 2nd rank (12 moves) and White's rook is stuck on d1 on a closed file (8 moves). Black's king then walked f6-e5-xd5-e4-f3 collecting pawns. Material is 0 at every ply of both SF PVs, so the loss is purely positional: rook and king activity against White's weak a- and c-pawns.",
+   "category": "piece activity/mobility",
+   "secondary_category": "other static evaluation issue",
+   "evidence": [
+    "10M re-check from the same root: Rh1 cp 0 (E 0.5005, depth 42); Bc1 cp -138 (E 0.0385, depth 32); loss 138.",
+    "depth_repair: NOT REPAIRED at depth 16, 17 and 18 (every depth plays d2c1, loss 138); state_dependent=false; the cold search reproduces the live move. This argues against a horizon failure and against state-dependence. Time was not the issue: 51.6s on the clock, the timed search stopped at depth 16 after 1.36s, and depth 18 still plays Bc1 (root scores 8/2/-6).",
+    "RC-J's own values at depth 16: Bc1 +8, Rh1 -51, so it preferred Bc1 by 59cp.",
+    "Static eval (recomputed with PeSTO + mop-up only): +1 after Bc1, -9 after Rh1 (dossier: -7 vs -17, best minus played -10). Tapered PST change of the moving piece at phase 10/24: rook d1 to h1 costs 29.0cp (mg 494 to 451, eg 511 to 492); bishop d2 to c1 costs 18.7cp. The whole 10cp static preference for Bc1 comes from the PeSTO rook table rating d1 (closed file) above h1 (open file).",
+    "File state: only the b- and h-files are open, and the d-file is closed by d5/d6. Rook mobility after Rh1: h1 rook 12, b1 rook 7. After Bc1: d1 rook 7, b1 rook 2. Dossier mob_own after the move: 30 for the best move vs 21 for the played move (mob_opp 22 in both).",
+    "After Bc1, c3 has no defender, and ...Rb3 follows in both SF's line for the played move and the game.",
+    "None of the unshipped terms separates the lines: material path is 0 at all 8 plies of both PVs; king_safety -5/-5 after the move and -2 (played) vs -5 (best) at PV end; passed, king_pawn and low_material all 0.",
+    "Counter-evidence: at the PV ends, mob_own is 31 (played) vs 24 (best), each side has one rook on an open file in both lines, and RC-J's static prefers the played PV end (dossier 33 vs 12; my recompute 25 vs 4). About 49cp of the 59cp margin comes from search content that cannot be observed.",
+    "RC-J's static misreads the rook ending the game reached: at moves 48-52, with equal material (11-11, then 10-10), RC-J scores -26, -32, -25, +2, -9 where SF scores -238, -262, -267, -254, -259.",
+    "Pattern: White's rook moves on 33-44 were 33.Ra1 34.Rae1 35.Rb1 37.Rbe1 38.Rb1 39.Ree1 43.Red1. SF's best move was Rh1 (to the open h-file) at both move 43 (e1h1) and move 44 (d1h1), and RC-J declined both times.",
+    "RECORD THIS: show FEN 8/1r2pk2/p2p4/P2P1p2/P1p3p1/2P3P1/rb1B1PK1/1R1R4 w - - 4 44 with two arrows, d1h1 (SF, 0.00) and d2c1 (RC-J, -138), next to the list of rook shuffles from moves 33-43. Then run in CMD: \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe\" \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\R94-44w_R95-20b\\r94_eval.py\" and film the 'move | RC-J static | SF best_cp' table for moves 44-56: RC-J stays near 0 while SF goes from -250 to -490 at equal material."
+   ],
+   "confidence": "low",
+   "rcj_margin_cp": "+59 (played d2c1 +8, SF best d1h1 -51, depth 16)",
+   "feature_that_could_flip": "Speculative: a rook-activity term (a bonus for open or half-open files, or rook mobility), or at least removing the PeSTO rook table's corner penalty in endgames. For: the table alone makes Rh1 29.0cp worse than keeping the rook on d1, which is the whole 10cp static preference for Bc1. Rook mobility after the move is 12+7 for Rh1 against 7+2 for Bc1. In the resulting equal-material rook ending, RC-J reads -26 against SF's -238 while Black's rook sits on an open file (12 moves) and White's on a closed one (8). Against: at the SF PV ends the rook-file features and mobility do not favour the best line, and most of the 59cp margin is unexplained search content. That such a term would flip this move is unproven."
+  },
+  {
+   "position_id": "R95-20b",
+   "first_decisive_confirmed": true,
+   "first_decisive_note": "Move 20 is the only draw-to-loss flip: the trajectory is '=' through move 20 and 'L' afterwards. E went 0.4315 to 0.065 in the scan and 0.475 to 0.071 in the 10M check. The earlier, larger cp error 17...c5 (106cp; best was Bf4) is the precursor. It allowed 18.Nxg6 hxg6 19.Bxf6 Qxf6 20.Bxe4, so Black reached move 20 a pawn down. But E only fell from 0.55 to 0.45, and Qd4 still held at move 20 (-46, E 0.475), so c5 did not decide the game. 19...Qxf6 (38cp) was minor. 30...Bxe3 (119cp) later made an already-lost position worse.",
+   "chess_explanation": "Black is a pawn down after Bxe4. Stockfish's Qd4 centralises the queen: it hits a1, e3, c4 and d2 and sets up Be5 on the long diagonal. It then wins back the d2 pawn: Qd4 Bf3 Be5 Qb3 Qxd2 Rfd1 Qc3 Qxc3 Bxc3. The result is equal material, Black's structure intact (0 isolated, 1 doubled) and White's damaged (a2 and c4 isolated). RC-J's Qe6 attacks the e4 bishop twice (the queen plus the Re8 behind it, against Qb1 alone) and also hits h3, which has no defender. If White retreats the bishop, Black does regain a pawn: Bf3 Qxh3 or Bd5 Nxd5 cxd5 Qxd5. The refutation is the counter-attack 21.a3, hitting the Nb4 first. After a3 Qxe4 Qxe4 Rxe4 axb4 cxb4 Rxa7, queens and a pair of minor pieces are gone and Black is still a pawn down. White has a rook on the 7th, and Black's pawns have become doubled isolated b-pawns (b7/b4) plus doubled g-pawns, 2 isolated and 2 doubled, against a healthy White structure. The game followed this line exactly. White's rook took 24.Rxa7, 34.Rxb4 and 43.Rxb6, and White's c- and d-pawns went on to promote.",
+   "category": "UNKNOWN",
+   "secondary_category": "search/pruning pathology",
+   "evidence": [
+    "10M re-check from the same root: Qd4 -46 (E 0.475, depth 29); Qe6 -133 (E 0.071, depth 33); loss 87 (scan 69).",
+    "depth_repair: NOT REPAIRED at depth 12, 13 and 14 (every depth plays f6e6, loss 87); state_dependent=false; the cold search reproduces the live move; root scores 55/55/50. The clock was 85.2s and the timed search stopped at depth 12 after 2.15s, so this is neither time allocation nor state-dependence.",
+    "RC-J's own values at depth 12: Qe6 +55, Qd4 +38, a 17cp margin. Both are far more optimistic than SF (-133 and -46).",
+    "RC-J's own static eval at the ends of SF's lines (recomputed, Black's view): the refutation line (a3 Qxe4 Qxe4 Rxe4 axb4 cxb4 Rxa7) scores -19. The best line, completed with the recapture Bxc3 that the 8-ply PV cut off, scores +42. The dossier's -932 for the best line is an artefact of that cut. So PeSTO itself prefers SF's best line by 61cp, and evaluator blindness on SF's lines does not explain the choice.",
+    "The values don't add up. +38 for Qd4 matches RC-J's static at the end of SF's best line (+42; +84 after Qd4 Bf3 Be5 Qb3 Qxd2). +55 for Qe6 is 74cp above RC-J's own -19 at the end of SF's refutation. So RC-J's search after Qe6 does not end in SF's a3 line, and without a search trace (not permitted here) the reason cannot be established.",
+    "RC-J's static after Qe6 and hand-picked White replies: Bf3 Qxh3 +133; Bd5 Nxd5 cxd5 Qxd5 +122; Bd3 Nxd3 exd3 +35; Bg2 +6; a3 Nc6 Bf3 -2. The refutation a3 is a quiet pawn move that counter-attacks the Nb4, which c5 defends.",
+    "Pawn structure at the SF PV ends: the played line leaves Black with 5 pawns, 2 isolated and 2 doubled, a pawn down; the best line leaves Black with 0 isolated and 1 doubled at equal material, and White with 2 isolated. The unshipped passed-pawn term gives +20 to the played line (the b4 passer), so a passed-pawn term would have pushed toward Qe6.",
+    "RC-J's static also misreads the endgame that followed: at moves 24-29 it scores -19, +7, 0, +11, -1, -22 where SF scores -135, -135, -184, -190, -153, -179, with Black a pawn down and 2 isolated plus 2 doubled pawns. The doubled b-pawns fell to 34.Rxb4 and 43.Rxb6. This explains how large the later misjudgment was, not the choice at move 20.",
+    "RECORD THIS: show FEN 1r2r1k1/pp3pp1/3b1qp1/2p5/1nP1B3/4N1PP/P2PPP2/RQ3RK1 b - - 0 20 with Qe6 (RC-J +55) against Qd4 (RC-J +38), then the surprise: RC-J's own evaluator scores SF's two lines the other way round (+42 for Qd4's line, -19 for Qe6's), so the evaluation isn't what chose Qe6. Run in CMD: \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe\" \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\R94-44w_R95-20b\\r95_lines.py\" (the hand-picked lines), then r95_eval.py from the same folder for the move 24-45 table of RC-J static vs SF."
+   ],
+   "confidence": "medium",
+   "rcj_margin_cp": "+17 (played f6e6 +55, SF best f6d4 +38, depth 12, Black's view)",
+   "feature_that_could_flip": "None identified with evidence. Speculative: (a) on the search side, less reduction or pruning of quiet moves that attack a piece (like a3) at shallow plies. RC-J's +55 cannot be squared with its own -19 at the end of the a3 line, but this is unverified because no search trace was allowed. (b) A doubled/isolated pawn term would score the end of the a3 line below -19, but it only matters if RC-J's search actually reaches that line, and the mismatch above suggests it does not, so it is unlikely to flip the move on its own. A passed-pawn term would push toward Qe6 (+20 in the played line)."
+  }
+ ],
+ "skeptics": [
+  {
+   "lens": "CLUSTER AND CANDIDATE SKEPTIC",
+   "corrections": [
+    {
+     "position_id": "R88-17b",
+     "original_category": "piece activity/mobility",
+     "corrected_category": "other static evaluation issue",
+     "reason": "The only measured reason RC-J liked Rac8 is a PeSTO square value. The knight on f4 scores 406mg against 356 on e6 and 329 on h5, which gives a 70cp root static preference for the played move. The mobility support (White 51 vs 43 pseudo-legal moves at the SF PV leaves) is a leaf correlate. It fails the base-rate control below: across the 14 lost games, the SF-best move has higher own mobility at 0.64 of decisive positions, 0.58 of other >=40cp errors and 0.57 of <=30cp alternatives. state_dependent=true is not causal here because every cold alternative is also BAD (85/145/145cp). Confidence: low-medium."
+    },
+    {
+     "position_id": "R103-25w",
+     "original_category": "piece activity/mobility",
+     "corrected_category": "search/pruning pathology",
+     "reason": "This has the same evidence class as R99, which was labelled search. RC-J's own child values are a 1cp tie (Red1 24, Qf4 25), so no RC-J value shows it chose Red1 for a mobility reason, and the 26-move activity swing is measured only at the ends of Stockfish's PVs. The one piece of causal evidence is the deterministic ladder: cold d14 plays h6h4 (GOOD, 9cp). That is a horizon failure repaired at d+2, not a demonstrated pruning defect. It needed 12.27s cumulative against 2.75s spent (4.5x). Mobility stays as an unproven secondary. Confidence: medium for the horizon, low for any evaluation reading."
+    },
+    {
+     "position_id": "R99-25b",
+     "original_category": "search/pruning pathology",
+     "corrected_category": "search/pruning pathology",
+     "reason": "Category kept, meaning narrowed. It is a plain horizon failure, repaired only at d+2 (cold d15 e5e4 GOOD, 11.52s against 2.24s live, 5.1x). No pruning, reduction or TT malfunction is shown. It must not be cited as support for a targeted pruning change (candidate B). The 26cp margin equals the PST bonus for moving the bishop off c8. That is a PeSTO-driven root preference that the deeper search overrides."
+    },
+    {
+     "position_id": "R105-16b",
+     "original_category": "piece activity/mobility",
+     "corrected_category": "piece activity/mobility",
+     "reason": "Category kept, confidence lowered from medium to low. RC-J's own values are an exact tie (-37 vs -37), and its static eval after the move slightly prefers Stockfish's d6 (+3). So nothing shows RC-J chose Rb8 because of a feature it cannot see. The evidence is the absence of a term (Bc8 has 0 moves throughout), which is necessary but not sufficient. The own-mobility gap after the move (+4) is inside the base-rate distribution (GOOD-bucket mean +0.85, range to +9)."
+    },
+    {
+     "position_id": "R92-9b",
+     "original_category": "state-dependence",
+     "corrected_category": "state-dependence",
+     "reason": "Category kept, confidence lowered to low. State and depth are confounded. The cold timed search needed 8.61s to reach d13, while the live move used about 3.45s, so the live search probably finished below d13, and depths below d were not laddered. What the evidence supports is: cold RC-J at d13-15 plays GOOD Re8 on a 4cp margin. Whether the live move came from TT/history state or from a shallower depth cannot be separated."
+    },
+    {
+     "position_id": "R101-29b",
+     "original_category": "UNKNOWN",
+     "corrected_category": "UNKNOWN",
+     "reason": "UNKNOWN stands (margin +6, no term separates the lines, cold plays another BAD rook move). This corrects the agent's side claim that opposite-coloured-bishop drawishness scaling would remove RC-J's penalty on 61...g4. My reasoning, not measured: both 61...Bd6 and 61...g4 stay OCB endings, and a multiplicative OCB scale s>0 preserves their order (-123s vs -186s), so it would not flip move 61. At move 57 RC-J's values are a tie (-81 vs -78). The OCB idea also rests on one game and has no first-decisive support."
+    }
+   ],
+   "clusters": [
+    {
+     "type": "other static evaluation issue (PeSTO square-value misvaluation: Nf4 R88, pawn-down PST overrating R91, open e-file/doubled f-pawns read as fine R102; root-PST pull also visible in R94 rook d1>h1, R99 bishop off c8, R103 queen h6, R98 f3/Nf1/Ng1 penalised)",
+     "losses": [
+      "R88-17b",
+      "R91-13w",
+      "R102-10w"
+     ],
+     "first_decisive_count": 3,
+     "severity": "mean 121cp at 10M (111/103/148); all draw->loss",
+     "result_flips": 3,
+     "depth_repair": "0/3 (R88 UNSTABLE, every cold alternative BAD; R91 and R102 NOT REPAIRED d..d+2)",
+     "confidence": "low-medium",
+     "fixability": "low (0.15): no single table entry or term covers more than one loss. The pattern 'PeSTO static prefers the played move' is 11/14 decisive vs 28/43 other errors vs 27/46 GOOD alternatives: not significant at n=14 and partly built in, because a PeSTO search picks PeSTO-preferred moves. A fix means retuning the tables, which is not small or interpretable",
+     "regression_risk": "high (3): table changes touch every node and every position",
+     "dev_time": "2-4 weeks (tuning corpus + Texel-style refit + gates)",
+     "rank_score": "0.18 = 3 x 1.21 x 0.15 / 3"
+    },
+    {
+     "type": "state-dependence (causal only where the cold search plays a non-losing move)",
+     "losses": [
+      "R92-9b",
+      "R98-25w",
+      "R94-33ws (supplementary)"
+     ],
+     "first_decisive_count": 2,
+     "severity": "decisive mean 79cp (63/95); supplementary R94-33ws 199cp",
+     "result_flips": 3,
+     "depth_repair": "n/a. Cold ladder GOOD/GREY at d..d+2 in all three (R92 Re8 13cp, R98 Kg1 34cp GREY, R94-33ws Re1 0cp). Excluded as non-causal: R88, R101-29b, R101-61bs (cold also BAD)",
+     "confidence": "medium for R98 and R94-33ws, low for R92 (time/depth confound)",
+     "fixability": "low (0.1): the margins are 4cp near-ties. Accumulated TT/history state is a random perturbation that will also rescue moves, and no symmetric measurement exists of how often live state beats cold search. There is no targeted mechanism",
+     "regression_risk": "medium (2): clearing TT or history between moves costs depth everywhere",
+     "dev_time": "unknown; no specific defect to fix",
+     "rank_score": "0.15 = 2.5 x 1.19 x 0.1 / 2"
+    },
+    {
+     "type": "piece activity/mobility (generic mobility or activity term)",
+     "losses": [
+      "R94-44w",
+      "R105-16b"
+     ],
+     "first_decisive_count": 2,
+     "severity": "mean 136cp (138/133); both draw->loss",
+     "result_flips": 2,
+     "depth_repair": "0/2 (NOT REPAIRED d..d+2)",
+     "confidence": "low",
+     "fixability": "low (0.15). The headline correlate fails its control: best-move own mobility is higher after the move at 9/14 = 0.64 of decisive positions (mean +1.50), vs 0.58 of other >=40cp errors (+1.12) and 0.57 of <=30cp alternatives (+0.85), all in the same 14 games. In R79, R88, R92, R99 and R102 the played move has MORE mobility. The narrower sub-features also fail: rook on open/half-open file at PV end favours best 7:2 in decisive positions but 7:13 AGAINST best in the other 43 errors; blocked bishop (<=2 moves) 3:2 decisive, 8:3 errors, 11:7 GOOD, so not specific",
+     "regression_risk": "high (3): same profile as the rejected king-safety v1, a uniform term evaluated at every node, with an NPS cost (KS v1 cost -11.6%)",
+     "dev_time": "1-2 weeks + NPS work + gates",
+     "rank_score": "0.14 = 2 x 1.36 x 0.15 / 3"
+    },
+    {
+     "type": "endgame knowledge (opposite-coloured-bishop drawishness), result-deciding moves in one game",
+     "losses": [
+      "R101-57bs (supplementary)",
+      "R101-61bs (supplementary)"
+     ],
+     "first_decisive_count": 0,
+     "severity": "546cp and 545cp at 10M; both draw->loss in one game",
+     "result_flips": 2,
+     "depth_repair": "0/2 (m57 NOT REPAIRED d21-23; m61 UNSTABLE, cold b8e5 loses 616)",
+     "confidence": "low",
+     "fixability": "very low (0.05): a multiplicative OCB scale preserves move order when both candidate lines stay OCB, which is the case at m61 (-123 vs -186). At m57 RC-J's values tie (-81 vs -78)",
+     "regression_risk": "low (1): gated by material signature",
+     "dev_time": "2-3 days",
+     "rank_score": "0.14 = 0.5 x 5.45 x 0.05 / 1"
+    },
+    {
+     "type": "search depth / horizon (the C22 target)",
+     "losses": [
+      "R99-25b",
+      "R103-25w",
+      "R81-8bs (supplementary)"
+     ],
+     "first_decisive_count": 2,
+     "severity": "decisive 57/87cp; supplementary 125cp; mean 90cp",
+     "result_flips": 3,
+     "depth_repair": "2/14 decisive, both only at d+2, needing 5.1x (11.52s vs 2.24s) and 4.5x (12.27s vs 2.75s) the live time. 0/14 decisive at +1. The single +1 repair (R81-8bs) needed 8.47s vs 2.74s (3.1x), and that game was lost later anyway by 10...h6 (NOT REPAIRED)",
+     "confidence": "medium (deterministic ladder)",
+     "fixability": "very low (0.05) via C22: START_FRACTION 0.45->0.50 buys +0.262 mean ply and >=1 extra iteration on 26% of positions. It cannot buy the +2 plies at 4-5x time these repairs need. Final clocks in losses were 14.8-65.4s (median about 28s), so the slack cannot fund 4-5x per move at 2+0",
+     "regression_risk": "low (1)",
+     "dev_time": "0 (already built); one preregistered gated arena, only on explicit human approval",
+     "rank_score": "0.11 = 2.5 x 0.90 x 0.05 / 1"
+    },
+    {
+     "type": "king safety (dynamic: queens-on opposite-side pawn storm, h6 hook)",
+     "losses": [
+      "R81-10b"
+     ],
+     "first_decisive_count": 1,
+     "severity": "93cp; draw->loss",
+     "result_flips": 1,
+     "depth_repair": "0/1 (NOT REPAIRED d10-12)",
+     "confidence": "medium for the chess reading, low for any term",
+     "fixability": "very low (0.1): the built shield/zone term points the WRONG way (-4 after the move, -6 at PV end), and at PV end the unshipped king_safety term prefers the played line in 10/14 positions. A storm/hook term would be new work",
+     "regression_risk": "high (3): KS v1 already rejected",
+     "dev_time": "2-3 weeks",
+     "rank_score": "0.03 = 1 x 0.93 x 0.1 / 3"
+    },
+    {
+     "type": "space / pawn structure (...c4 bind R79; d6 hole R92 secondary; crippled majority R102 secondary)",
+     "losses": [
+      "R79-12w"
+     ],
+     "first_decisive_count": 1,
+     "severity": "81cp; draw->loss",
+     "result_flips": 1,
+     "depth_repair": "0/1 (NOT REPAIRED)",
+     "confidence": "low",
+     "fixability": "very low (0.1): three different features in three games; a crude space weight gives about 20cp against a 55cp margin",
+     "regression_risk": "high (3)",
+     "dev_time": "2-3 weeks per feature",
+     "rank_score": "0.03 = 1 x 0.81 x 0.1 / 3"
+    },
+    {
+     "type": "UNKNOWN (incl. unverified search mismatch in R95: RC-J's +55 for Qe6 is irreconcilable with its own -19 at the end of SF's a3 refutation)",
+     "losses": [
+      "R83-20w",
+      "R95-20b",
+      "R101-29b"
+     ],
+     "first_decisive_count": 3,
+     "severity": "mean 103cp (158/87/63); R83 and R95 draw->loss, R101 win->draw",
+     "result_flips": 3,
+     "depth_repair": "0/3 (R83 switches to another BAD move; R95 NOT REPAIRED; R101 UNSTABLE, cold also BAD)",
+     "confidence": "n/a",
+     "fixability": "none identified",
+     "regression_risk": "n/a",
+     "dev_time": "n/a",
+     "rank_score": "0"
+    }
+   ],
+   "recommendation": "D",
+   "recommendation_reason": "The evidence does not support any candidate, so keep RC-J. Every cluster ranks between 0 and 0.18. A candidate worth building would need roughly 1.0 or more: 3+ losses with causal support, fixability 0.5 or better, and low risk.\n\nWhy not A (evaluation candidate):\n- No single evaluator-invisible feature has causal support in two or more losses. Each specific feature appears exactly once: the Nf4 PST value (R88), the idle Qh6 PST value (R103), the rook PST d1>h1 (R94), the immobile Bc8 (R105), the ...c4 bind (R79), the d6 hole (R92), the open e-file with doubled f-pawns (R102).\n- The generic mobility correlate is not enough, and I measured why. Within the same 14 games, the best move has more own mobility at 0.64 of decisive positions, 0.58 of other >=40cp errors and 0.57 of harmless alternatives. That is base rate, not signal.\n- Rook-on-open-file looks good on the decisive set (7:2) but reverses on the other 43 errors (7:13).\n- The unshipped king_safety term favours the played line at PV end in 10/14 positions, and passed-pawn is +2 Elo, inconclusive.\n- A generic mobility term has the same risk profile as the rejected king-safety v1: uniform, every node, NPS cost.\n\nWhy not B (targeted search candidate):\n- Only 2 of 14 decisive errors are depth-repaired, both only at +2 plies and 4.5-5.1x the time.\n- No pruning or reduction defect was identified. R95's mismatch is unverified.\n- The causal state-dependence cases (R92, R98) are 4cp near-ties with no mechanism to target, and R92 is time-confounded.\n\nWhy not C (START_FRACTION 0.50):\n- It rescues 0 of the 14 decisive errors: none is repaired at +1, and it cannot buy +2.\n- Its only +1 repair is a supplementary error in a game RC-J lost anyway.\n- Its case would rest purely on generic depth Elo, which is independent of this autopsy and needs its own preregistered gate and explicit human approval.\n\nWhat the evidence does show:\n- A diffuse deficit. PeSTO-only evaluation reads quiet, level-material, strategically lost positions as +0 to +80 while Stockfish says -150 to -250.\n- The features behind that differ in every game. That calls for a larger evaluation programme (a tuned multi-term evaluator or NN), not a small gated candidate.\n- The 52.8% to 29.2% decline cannot be attributed to any cluster from loss-only scans.",
+   "timing_verdict": "Time allocation caused none of the 14 decisive errors. Every live search stopped at SOFT_START_FRACTION after 0.9-4.2s, with 31-115s on the clock. The depth repairs that exist needed 3.1x (R81-8bs, +1), 4.5x (R103, +2) and 5.1x (R99, +2) the live time. Loss final clocks were 14.8-65.4s (median about 28s) over 65-174 plies, so there is no bank to fund 3-5x per move. C22 (0.45->0.50) buys +0.262 mean ply, and 0/14 decisive errors are repaired at +1. So C22's expected rescues in this set are about 0. It is a generic-depth hypothesis with no autopsy support, and any arena for it requires a new explicit human instruction.",
+   "c22_value": "START_FRACTION 0.50 (vs 0.45 in the c27 reference cs_time.py): +0.262 mean completed ply, >=1 extra iteration on 26% of positions. Expected rescues among the 14 decisive errors: 0 (none repaired at +1; the two d+2 repairs need 4.5-5.1x time). Among the 5 confirmed supplementary errors: at most R81-8bs (+1 at 3.1x time), in a game later lost to a NOT REPAIRED error. Not supported by this autopsy.",
+   "notes": "What I ran (read-only; all scratch files in C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/6aa4cc83-13ea-4a98-8c08-bba93a80f5d1/scratchpad/autopsy/wf/skeptic_candidate/; no engines, python-chess plus the interpreted cs_eval with mopup only):\n\n1. control.py (output in control_out.json) is a base-rate control inside the 14 lost games (no W/D games were scanned). Buckets: GOOD = different move, <=30cp, not yet lost (n=46, 12 games); BAD = >=40cp, not yet lost (n=43); FLIP = the 14 decisive positions.\n   - Best move has higher own mobility after the move: 0.57 / 0.58 / 0.64 (means +0.85 / +1.12 / +1.50).\n   - PeSTO static after the move prefers the played move: 0.59 / 0.65 / 0.79 (median -3 / -10 / -10).\n   - Trapped-piece difference: no signal.\n   - The FLIP static differences exactly reproduce the dossier's rcj_static_best_minus_played_after_move, which cross-checks the control.\n\n2. features2.py tests rook-on-open/half-open-file and blocked-bishop (<=2 moves) differences, after the move and at the SF PV ends.\n   - Rook-file at PV end: best+ : best- = 14:10 GOOD, 7:13 BAD, 7:2 FLIP.\n   - After the move it almost never differs (1/14).\n   - Blocked bishop is not specific.\n   - The R94 poster case shows rf_end 0.\n\nMinimal held-out test that could show causality for a mobility or activity term. Split by GAME: design on the 14 loss games; hold out the 16 W/D games plus future rounds, which the parent would need to scan with Stockfish (I did not).\n   - Stage 1, no code: preregister that delta-mobility (best minus played) separates >=40cp errors from <=30cp alternatives on held-out games (rate gap >=20 points, or AUC >=0.65). In-sample it is already 0.64 vs 0.57, so it is expected to fail. That failure is a cheap kill.\n   - Stage 2, only if Stage 1 passes: a flag-gated term, with the cold RC-J ladder run on held-out BAD positions (repairs) and held-out GOOD positions (breaks). Require repairs minus breaks > 0 by sign test, and an NPS cost within a preregistered bound. Measure the baseline symmetrically. Arena only on explicit human approval.\n\nClassification caveats:\n- rcj_values are root-restricted child searches; margins at or below 6cp (R81, R91, R92, R101, R103, R105) are noise-level and cannot support any causal story in either direction.\n- The c27 cs_terms DEFAULTS has low_material False, and also mopup False, which the brief says ships in RC-J. So c27 may not exactly match RC-J's defaults. Treat the 'shipped low_material' wording in R101 as unshipped.\n\nRECORD THIS (the correlate that evaporates):\n- Run in CMD: \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe\" \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\skeptic_candidate\\control.py\"\n- Film the three summary rows (GOOD 0.57 / BAD 0.58 / FLIP 0.64 on 'best own-mob higher').\n- Caption: the '9 of 14 losses' mobility story is about the same rate as moves RC-J got right.\n\nRECORD THIS (a pattern that flips sign):\n- Run features2.py from the same folder with the same interpreter.\n- Film the rf_end column: 7:2 for Stockfish's move in the decisive losses, 7:13 against it in the other 43 mistakes."
+  },
+  {
+   "lens": "TIMING AND DEPTH SKEPTIC. Read-only re-derivation from repair.json, ladder.json, ladder_sup.json, verify.json, verify_sup.json, repair.py, rcj_ladder.py, the PGN clocks, the shipped cs_time.py (c27 copy: START_FRACTION 0.45, 500 ms increment, soft = usable/26 (or /20 when phase<=8) + 0.375 s, hard = min(0.33*usable, 3*soft)), and the C26 REPORT.md. No engine was run. Scratch scripts: C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/6aa4cc83-13ea-4a98-8c08-bba93a80f5d1/scratchpad/autopsy/wf/skeptic_timing/{live_clock.py,budget.py,c22_window.py}.",
+   "corrections": [
+    {
+     "position_id": "R103-25w",
+     "original_category": "piece activity/mobility (secondary: time allocation)",
+     "corrected_category": "search/pruning pathology",
+     "reason": "Time allocation is excluded by the budget arithmetic, not just unlikely. At clock 84.2 s the soft budget is 3.60 s and the hard cap is 10.81 s. Cold d13 finishes at 4.31 s, which is past the whole soft budget, so d14 would not start even with START_FRACTION = 1.0. Cold d14 (the GOOD h6h4) finishes at 12.27 s, which is past the hard cap. RC-J's own child values are a 1 cp tie (24 vs 25), and this is the one decisive error in the set that depth repairs AND whose repair restores the draw category (h6h4 E 0.481). The only mechanism the ladder supports is therefore a horizon miss at a depth the time manager cannot reach. The queen-PST and mobility story is speculative: the tied child values show search cancels the 40 cp PST preference. If the primary label stays evaluation, drop 'time allocation' as the secondary."
+    }
+   ],
+   "recommendation": "NO",
+   "recommendation_reason": "C22 would not plausibly have saved any of these losses. The facts:\n(1) Among the 14 first-decisive errors, zero are repaired at d+1. That is the most C22 can buy: its +0.262 mean ply is essentially one extra iteration on about 26% of moves.\n(2) I replayed C22's actual trigger condition on the cold timeline. An extra iteration starts only if the depth-d iteration completes inside [0.45*soft, 0.50*soft). That happens at 4 of the 19 confirmed errors (21%, consistent with the measured 26%): R81-10b, R83-20w, R101-29b and R101-61bs. In all four the extra ply plays a BAD move (h6 93 cp; f3f4 118 cp instead of Bf2 158 cp; f8c8 88 cp; b8e5 616 cp) and none changes the result category.\n(3) Only two decisive errors are repaired at all, both at d+2 (R99, R103). Neither is reachable by any START_FRACTION: the d+1 iteration ends after the entire soft budget (R99 3.94 s vs 3.25 s; R103 4.31 s vs 3.60 s). From cold, the d+2 iteration would also be aborted by the hard cap (R99 11.52 s vs 9.74 s; R103 12.27 s vs 10.81 s).\n(4) R99's repair would not have mattered anyway. At 10M nodes the best move is already in the loss category (E 0.224), so the 'decisive' flip exists only in the scan.\n(5) The one +1 repair in the whole set, the supplementary R81-8bs, falls outside C22's window: d13 ends at 2.63 s against a 0.50*soft threshold of 2.49 s. Its game was later decided by 10...h6, which is NOT REPAIRED.\n(6) Prior time-policy evidence agrees. START_FRACTION 0.60 is a bigger step than C22 and measured +1.5 Elo over 226 games (rejected), and +9 Elo over 400 games (inconclusive) in an earlier run.\nCaveat: the live think time, estimated as PGN clock delta + 0.5 s increment, differs from the cold timed search by a factor of 0.45 to 1.61. Which positions fall inside C22's 5%-of-soft window on the live server is therefore effectively random. That does not change the answer, because d+1 is BAD at every decisive position that reproduces cold.",
+   "c22_value": "LOW",
+   "timing_verdict": "Is the deterministic classification applied correctly? Yes. I re-derived all 20 rows from ladder + verify under repair.py's frozen rules and every class matches: decisive NOT REPAIRED 8, UNSTABLE 4, REPAIRED BY DEPTH 2; decisive +1 repairs 0; supplementary 5/6 confirmed. Points the audit should state explicitly:\n(a) 'Result-flip errors confirmed at 10M: 18' only works if R99-25b is excluded. Its 10M best move is already in the loss category (E 0.224 to 0.011), so there are 19 cp-confirmed errors, of which 18 are 10M category flips. The '2 repaired' are then R81-8bs (+1) and R103 (+2), so only one decisive loss has a depth repair that restores the result.\n(b) R101-52bs gets class UNSTABLE by rule fall-through although every rung is GOOD. It is a non-error, so the label is cosmetic.\n(c) plus1_good=True on R92-9b, R94-33ws and R101-52bs is not a depth repair: the cold search is already GOOD at d. The headline correctly counts 0.\n(d) R94-35ws is correctly NOT REPAIRED under the cp rule (h2h4 48 cp), but that d+2 move keeps the draw (E 0.484). On a result view it is a +2 result repair.\n(e) The reconstructed d is the cold timed depth. Depth d-1 was never tested, and live think time differs from cold (R92: live about 3.9 s vs cold 8.61 s; R88: 2.07 vs 3.30; R91: 2.17 vs 3.91; R103: 4.44 vs 2.75). For reproducing rows this does not matter, since they are BAD at d, d+1 and d+2. For state-dependent rows it means 'state' and '\u00b11 ply' are confounded, especially for R92, where live may have finished only d12.\n(f) Coverage: only the 6 supplementary flips with \u2265100 cp scan loss were depth-tested; 20 sub-100 cp flip moves in positions_sup.json were not.\n\nDoes C26's claim survive? The literal claim, '+1 or +2 depth repaired none', does NOT survive on this larger, correctly selected set. Under the frozen rule, 3 of 19 confirmed errors are repaired within +2: R81-8bs at +1, R99 and R103 at +2. Its practical core DOES survive and is strengthened. +1 repairs 0 of 14 decisive errors (C26: 0 of 6 reproducible). The +2 repairs lie beyond the soft budget under any START_FRACTION and beyond the hard cap from cold. Only one of them (R103) changes a result.\nThe second half of the C25 audit's paraphrase ('their cause is evaluation misjudgement of 75-415 cp') is not supported by depth non-repair. By the user's discipline, non-repair is evidence against a horizon failure, not proof of an evaluation error. C26 itself found the static gap near-neutral (+9/+11/+8) and called it 'static evaluation as seen through search'. On this set, RC-J's own evaluator prefers Stockfish's line at the PV end in R83 and R95.\n\nState-dependent cases: 6 of 19 confirmed errors do not reproduce cold (C26: 6 of 12). In three of them the cold search, at the same clock, would have avoided the result flip, which is more than depth avoids within +1 (one case):\n- R94-33ws: cold plays Stockfish's exact move b1e1 at d16-18 (0 cp). Live think 2.06 s vs cold 2.15 s, the same budget, so this is the cleanest evidence that accumulated TT/history state, not depth, made the 199 cp error.\n- R92-9b: cold plays Re8 at d13-15 (13 cp, GOOD, E 0.304 draw). Confounded: the live search spent about 3.9 s where cold needed 8.6 s to finish d13, so live may have stopped at the untested d12.\n- R98-25w: cold plays Kg1 at d11-13 (34 cp GREY, but E 0.3815 keeps the draw).\nIn R88-17b, R101-29b and R101-61bs, state only chose which BAD move was played; cold is also BAD, so state is not the cause there.",
+   "clusters": [
+    {
+     "type": "depth-repairable only at d+2 (horizon), beyond any time policy",
+     "losses": [
+      "R103-25w",
+      "R99-25b"
+     ],
+     "severity": "low: only R103 changes the result; R99 was already lost at 10M (best E 0.224)",
+     "depth_repair": "REPAIRED BY DEPTH at d+2 only; d+1 BAD in both. The d+1 iteration ends after the full soft budget (R99 3.94 s > 3.25 s; R103 4.31 s > 3.60 s) and d+2 exceeds the hard cap from cold (11.52 s > 9.74 s; 12.27 s > 10.81 s)",
+     "confidence": "high (deterministic ladder + 10M verification)",
+     "fixability": "not by START_FRACTION or C22; would need roughly 1.2x NPS plus a larger per-move budget, or a search change",
+     "regression_risk": "n/a for C22; a bigger per-move budget would drain the clock",
+     "first_decisive_count": 2,
+     "result_flips": 1,
+     "rank_score": "2 of 14 decisive, 1 result-relevant",
+     "dev_time": "none justified"
+    },
+    {
+     "type": "state-dependent: cold search from the same clock avoids the result flip",
+     "losses": [
+      "R92-9b",
+      "R98-25w",
+      "R94-33ws (supplementary)"
+     ],
+     "severity": "medium: 3 of 19 confirmed errors, more than depth rescues within +1",
+     "depth_repair": "not applicable: cold is GOOD or category-preserving at d already (R92 Re8 13 cp; R98 Kg1 34 cp, E 0.38; R94-33ws b1e1 0 cp)",
+     "confidence": "medium: R94-33ws clean (live 2.06 s vs cold 2.15 s); R92 confounded with depth (live about 3.9 s vs cold 8.6 s, d12 untested)",
+     "fixability": "unknown; would need the history-conditioned reconstruction track, not a time change",
+     "regression_risk": "unknown",
+     "first_decisive_count": 2,
+     "result_flips": 3
+    },
+    {
+     "type": "state-dependent but cold is also BAD (state chose which bad move)",
+     "losses": [
+      "R88-17b",
+      "R101-29b",
+      "R101-61bs (supplementary)"
+     ],
+     "severity": "medium",
+     "depth_repair": "UNSTABLE; every cold rung BAD (R88 85/145/145 cp; R101-29b 88 cp; R101-61bs 616 cp)",
+     "confidence": "high that neither depth nor state is the fix",
+     "fixability": "not by time policy",
+     "regression_risk": "n/a",
+     "first_decisive_count": 2,
+     "result_flips": 3
+    },
+    {
+     "type": "reproduces cold and NOT REPAIRED at d..d+2 (cause outside depth; category not assigned by this lens)",
+     "losses": [
+      "R79-12w",
+      "R81-10b",
+      "R83-20w",
+      "R91-13w",
+      "R94-44w",
+      "R95-20b",
+      "R102-10w",
+      "R105-16b",
+      "R94-35ws (supplementary)",
+      "R101-57bs (supplementary)"
+     ],
+     "severity": "high: 8 of 14 decisive errors",
+     "depth_repair": "NOT REPAIRED; C22 triggers on R81 and R83 on the cold timeline and still plays BAD moves (h6; f3f4 118 cp). R94-35ws d+2 h2h4 is cp-BAD but keeps the draw",
+     "confidence": "high that extra depth is not the fix; low for any specific evaluation cause (non-repair is not proof of evaluation error)",
+     "fixability": "not by C22 or START_FRACTION",
+     "regression_risk": "n/a",
+     "first_decisive_count": 8,
+     "result_flips": 10
+    }
+   ],
+   "notes": "1. The C22 trigger replay on the cold timeline (c22_window.py) gets an extra iteration at R81-10b, R83-20w, R101-29b and R101-61bs. Each extra ply plays a BAD move, and only R83 changes its move (Bf2 158 cp to f3f4 118 cp, both lost). R81-8bs, the only +1 repair, would need START_FRACTION \u2265 about 0.55: d13 ends at 2.74 s and soft is 4.98 s.\n2. Live think time is estimated as PGN clock delta + 0.5 s increment - 0.04 s overhead. Against the cold timed search it ranges from 0.45x (R92) to 1.61x (R103), so the cold reconstruction of d is \u00b11 ply at best. The pipeline never tested d-1.\n3. The C26 corpus (R93-44w, R91-17w, R88-31b, R73-15b, ...) shares no position with this set. It was not first-decisive-selected, and only 6 of its 12 positions reproduced.\n4. Cheapest open check, for a future engine-permitted step only: cold fixed-depth d12 at R92-9b and d10 at R88-17b. These separate 'state' from 'live stopped one ply shallower'.\n\nRECORD THIS (a): run \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe\" \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\skeptic_timing\\c22_window.py\" and film the four C22_extra_iter=YES rows, each followed by a BAD d+1 move. Caption: 'the time tweak buys the extra ply, and the extra ply plays the losing move again'.\n\nRECORD THIS (b): the R103 board r5k1/4pp1p/3p2pQ/3P4/1q6/r2bPBPP/5PK1/2R1R3 w - - 5 25 next to the numbers d14 = 12.27 s vs soft 3.60 s vs hard 10.81 s. Caption: the one decisive loss that more depth fixes needs a depth no time setting can reach.\n\nRECORD THIS (c): R94-33ws, FEN 8/1r2pk1p/p2p2p1/P2P1p2/P1p5/brP1R1P1/3B1PKP/1R6 w - - 3 33. The live engine played Ra1 (199 cp, draw to loss); the same engine from a cold table, with the same clock and the same ~2.1 s, plays Stockfish's b1e1 at d16, d17 and d18.\n\nRECORD THIS (d): the budget.py table (same interpreter, ...\\wf\\skeptic_timing\\budget.py), showing the live_think vs cold_s columns. Highlight R92: live about 3.9 s, cold 8.6 s."
+  },
+  {
+   "lens": "CATEGORY SKEPTIC. For each of the 14 decisive positions I asked three questions. (a) Is there a measured feature that differs between the SF played line and the SF best line, of a kind PeSTO cannot see, and that points toward the best move? (b) Do RC-J's own values show a preference beyond noise, and can that preference be traced to the feature? (c) Do the depth ladder, the state test and the timing rule out search, state and time? I re-read all 14 bundles (repair ladders, rcj_values, 10M verification, dossier leaves), compared live PGN clock deltas with the cold timed searches, and recomputed leaf PSTs, king squares and per-piece mobility with python-chess and the cs_eval reference evaluator. No engine was run. Scratch scripts: C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/6aa4cc83-13ea-4a98-8c08-bba93a80f5d1/scratchpad/autopsy/wf/skeptic_categories/summ.py, clocks.py, probe.py.",
+   "corrections": [
+    {
+     "position_id": "R79-12w",
+     "original_category": "space",
+     "corrected_category": "UNKNOWN",
+     "reason": "No measured feature separates the lines. The agent's own space count does not separate them at the PV end, and its space-weight estimate (about 20cp) is well short of the 55cp margin. The best-line leaf is cut mid-exchange: I checked that c6 is attacked twice and defended once, with material -1 and a recapture pending. Its mobility (45/32 against 27/26) and its static (-98) are therefore confounded. The unshipped king_safety (-8) and passed (-4) terms favour the played move. What remains is SF disagreement, non-repair at d13-15, and a later game gap (moves 13-17). That shows PeSTO misjudging the game positions, but it does not identify a feature. The only weak pointer to evaluation is that RC-J's d13 value for Nb3 (+34) equals its own static at SF's refutation leaf (+35). That is suggestive, but RC-J's leaves lie deeper than SF's 8-ply PV."
+    },
+    {
+     "position_id": "R81-10b",
+     "original_category": "king safety",
+     "corrected_category": "UNKNOWN",
+     "reason": "RC-J did not prefer h6: its child values are h6 54 and d5 56 (margin -2, and the child search favours SF's move). I recomputed both SF leaves. In both, Black's king is still uncastled on e8, so there is no opposite-side castling at the decision horizon; White's Kc1 faces an uncastled king. White attacks on Black's king zone are 1 in the played leaf and 2 in the best leaf; shield is 2 against 1. The unshipped king_safety term prefers h6 by 4-6cp. The pawn storm (12...O-O, 13.g4, 16.g5 hxg5, Qh2) comes several moves after the decision, so it is post-hoc narrative, not a feature of the lines RC-J compared. The queens on/off difference is real, but nothing links it to RC-J's choice. The cold search reproduces h6 at d10-12 (not state, not simple horizon). The root chose h6 while the child search rates d5 2cp higher, but that is within noise and does not establish a search pathology."
+    },
+    {
+     "position_id": "R91-13w",
+     "original_category": "other static evaluation issue",
+     "corrected_category": "UNKNOWN",
+     "reason": "RC-J's margin is 4cp (f4 -4, f3 -8), which is noise. The central claim, that RC-J's search saw the pawn loss and scored it about 0, is inference only: there is no RC-J PV. SF's own played PV has material back at 0 by ply 6-8 (path 0,0,0,1,1,1,0,0,0), so no pawn is lost within the line. The PeSTO-vs-SF gap in pawn-down positions is measured at moves 16-22, after the decision. RC-J's search value (-4) is 31cp below its own static at SF's played leaf (+27), so its search does not rest on that leaf. The leaf mobility difference (net -19 against -10) and the Bg7 diagonal opening (2 to 6 squares) are real PeSTO-blind features favouring f3. However, nothing in RC-J's values ties its choice to them, and 'other static evaluation issue' names no specific feature at all."
+    },
+    {
+     "position_id": "R94-44w",
+     "original_category": "piece activity/mobility",
+     "corrected_category": "UNKNOWN",
+     "reason": "The mobility evidence reverses within the line. After the move, own mobility is 30 for Rh1 against 21 for Bc1. At the SF PV ends it is 24 (best) against 31 (played). The agent notes that each side has a rook on an open file in both leaves, and RC-J's static prefers the played leaf (33 vs 12). The rook PST explains only 10cp of the 59cp margin (Bc1 +8, Rh1 -51 at d16), and the agent concedes the other ~49cp is unobservable search content. The rook-ending misreading (moves 48-52) comes after the decision. The removal of c3's guard (...Rb3 with tempo) is concrete, but SF's played PV keeps material level with the bishop returning, so there is no evidence of a missed threat either. That leaves SF preference plus non-repair at d16-18: UNKNOWN."
+    },
+    {
+     "position_id": "R102-10w",
+     "original_category": "other static evaluation issue",
+     "corrected_category": "UNKNOWN",
+     "reason": "The agent itself concludes that 'the specific feature is unconfirmed'. Every measured feature points the wrong way. At the PV ends, mobility is +8 (played) against -6 (best); the unshipped king_safety is +6 against -10; the naive isolated/doubled count is worse in the best line. RC-J's d13 value for Nf3 (-35) is 67cp below its own static at SF's played leaf (+32), so its search does not rest on the leaf whose +32 vs SF -203 the agent cites. The open e-file and the doubled f-pawns are real PeSTO-blind differences, but nothing in RC-J's values ties its 27cp preference to them. The persistent 150-280cp quiet gap over moves 14-19 is the strongest evaluation-suspect signal in the set, yet it is measured after the decision and does not name a feature. This is evaluation-suspect, not an evaluation category."
+    },
+    {
+     "position_id": "R103-25w",
+     "original_category": "piece activity/mobility",
+     "corrected_category": "search/pruning pathology",
+     "reason": "RC-J did not prefer Red1 at child level: played 24, Qf4 25 at d12 (margin -1). The queen-PST root preference (Qh6 47.8 against Qf4 8.2 tapered, a 41cp static gap) is therefore cancelled by search; it is not the reason for the choice. The 26-move mobility swing at the PV ends is confounded by the queen trade in the best line: Black's Qb2 alone has 13 moves in the played leaf. The frozen ladder is the only causal-type evidence: d12 and d13 play e1d1, d14 plays h6h4 (GOOD, 9cp). This is the same REPAIRED-BY-DEPTH (d+2) pattern as R99, and I file both under search/pruning pathology in the plain horizon sense, not as a pruning bug. Confidence is low: with a tie margin, a d+2 move flip is weaker evidence than R99's, where the 26cp margin is stable across d13-14. Secondary 'time allocation' is not supported: d14 needs 12.27s cumulative against the 2.75s the cold timed search spent, with the best move stable, and C22 buys only +0.26 ply."
+    }
+   ],
+   "clusters": [
+    {
+     "type": "UNKNOWN - evaluation-suspect, feature unidentified (RC-J's static prefers SF's played leaf; no measured PeSTO-blind feature points to the best move, or the one that does is confounded)",
+     "losses": [
+      "R79-12w",
+      "R81-10b",
+      "R91-13w",
+      "R94-44w",
+      "R101-29b",
+      "R102-10w"
+     ],
+     "severity": "highest in aggregate: 6/14 losses, 626cp total 10M loss (mean 104); includes the two largest persistent quiet-position gaps (R102 150-280cp moves 14-19; R81 250-500cp moves 11-16)",
+     "depth_repair": "5 NOT REPAIRED (cold reproduces the live move at d..d+2); R101 UNSTABLE but every cold rung is also BAD (f8c8 88cp). No depth repairs.",
+     "confidence": "high that no feature category is supported; low for any mechanism",
+     "fixability": "Not fixable from this evidence. The next step is diagnostic: dump RC-J's own PV and leaf statics at depth d for these six roots (reading only, a separate step) to find the leaf feature PeSTO misprices. Building a term now would repeat the king-safety v1 pattern.",
+     "regression_risk": "High if a term is built on the current hypotheses. Every measured candidate (king_safety, passed, naive pawn counts, mobility at PV ends) favours the PLAYED move in at least 4 of these 6.",
+     "dev_time": "about 1 day for a read-only PV/leaf dump tool; engine work unscoped",
+     "first_decisive_count": 6,
+     "result_flips": 8,
+     "rank_score": "1 for diagnosis, 4 for engine change"
+    },
+    {
+     "type": "UNKNOWN - search-side suspect (RC-J's own static prefers SF's BEST leaf; its search value does not match its static at SF's refutation leaf)",
+     "losses": [
+      "R83-20w",
+      "R95-20b"
+     ],
+     "severity": "2/14 losses, 245cp (R83 158, R95 87)",
+     "depth_repair": "Both NOT REPAIRED, reproduced cold; R83 deeper switches to another BAD move (f3f4 118cp)",
+     "confidence": "medium that evaluation is not the cause (R83 leaf static -118 vs -8; R95 -19 vs +42 favour the best line); low for any mechanism",
+     "fixability": "Needs a root move-list/search trace: why RC-J does not reach 21.a3 (R95) or ...Bd7xa4 then f4 (R83). A quiet counter-attacking move being reduced or pruned is a hypothesis only.",
+     "regression_risk": "unknown; LMR/pruning changes affect every position",
+     "dev_time": "about 0.5 day for the trace; fix unscoped",
+     "first_decisive_count": 2,
+     "result_flips": 2,
+     "rank_score": "2 for diagnosis"
+    },
+    {
+     "type": "piece activity/mobility (retained, low confidence)",
+     "losses": [
+      "R88-17b",
+      "R105-16b"
+     ],
+     "severity": "2/14 losses, 244cp (R88 111, R105 133)",
+     "depth_repair": "R88 UNSTABLE (state_dependent, but every cold rung is BAD and keeps the knight on f4); R105 NOT REPAIRED d13-15, reproduced",
+     "confidence": "low. R88: the traced reason is PeSTO's knight PST: f4 406 vs c5 353 at the leaves, which is the whole 20cp leaf preference, so 'other static evaluation issue (PST)' is equally supported. The measured leaf mobility difference is only 6 net moves (about 18cp at typical weights), less than the 32cp search margin. R105: exact tie (-37/-37). RC-J's played value equals its static at SF's refutation leaf (-36). Bc8 has 0 moves and Rb8 1 at all 9 plies of the played PV, and Black's mobility is 21 against 27 at the best leaf.",
+     "fixability": "medium-hard: a mobility term, or a narrower blocked-bishop/restricted-piece term; must stay colour-symmetric and go through the preregistration/SPRT process",
+     "regression_risk": "medium-high: mobility costs NPS (king-safety v1 cost 11.6% NPS) and shifts every evaluation",
+     "dev_time": "2-4 days plus a strength test (needs explicit approval)",
+     "first_decisive_count": 2,
+     "result_flips": 2,
+     "rank_score": "3 (the only feature cluster with 2 supporting positions, still weak)"
+    },
+    {
+     "type": "state-dependence",
+     "losses": [
+      "R92-9b",
+      "R98-25w"
+     ],
+     "severity": "2/14 losses, 158cp (R92 63, R98 95); plus supplementary R94-33ws Ra1 199cp (cold plays SF-best b1e1)",
+     "depth_repair": "UNSTABLE: cold plays f8e8 GOOD 13cp at d13-15 (R92); h2g1 GREY 34cp, still a draw, at d11-13 (R98)",
+     "confidence": "R98 medium-high: live clock delta 2.24s vs cold timed 1.93s, and cold Kg1 at three depths. R92 low-medium: the live move used 3.45s but cold needed 8.61s to reach d13 (8.86s from scratch), so a shallower live depth is not excluded unless a warm TT compensated. Depths below 13 were not tested. Both margins are near-ties (4cp).",
+     "fixability": "low: no TT/history defect identifiable from the bundles; these are near-ties broken by accumulated state",
+     "regression_risk": "high for any TT-aging or history change made without a specific defect",
+     "dev_time": "n/a",
+     "first_decisive_count": 2,
+     "result_flips": 3,
+     "rank_score": "5"
+    },
+    {
+     "type": "search/pruning pathology - plain horizon (repaired only at d+2; not a pruning bug)",
+     "losses": [
+      "R99-25b",
+      "R103-25w"
+     ],
+     "severity": "2/14 losses, 144cp (R99 57, R103 87); plus supplementary R81-8bs Bh5 125cp repaired at d+1",
+     "depth_repair": "REPAIRED BY DEPTH at d+2 only (R99 e5e4 at d15; R103 h6h4 at d14); no +1-ply repair of any decisive live move",
+     "confidence": "R99 medium (26cp margin stable across d13-14, Be6 value drops at d15); R103 low (tie margin)",
+     "fixability": "low through time management: d+2 cost about 5x the move's time (11.5s vs 2.24s; 12.27s vs 2.75s)",
+     "regression_risk": "low for C22 itself, but C22 does not reach these",
+     "dev_time": "none (C22 already built)",
+     "first_decisive_count": 2,
+     "result_flips": 3,
+     "rank_score": "6"
+    }
+   ],
+   "recommendation": "Do not build or test any evaluation term on the strength of this autopsy. After the skeptic pass, 8 of 14 decisive losses are UNKNOWN. No loss supports king safety, space, pawn structure or passed pawns. The only surviving feature cluster, piece activity/mobility (R88, R105), rests on two positions with low confidence. The next step is diagnostic and read-only: capture RC-J's own PV and leaf statics at depth d for the six evaluation-suspect UNKNOWNs, and a root move-list trace for R83 and R95, then re-run this categorisation. No arena, strength screen or engine change without a new explicit instruction from the user.",
+   "recommendation_reason": "Six of the eleven feature categories the agents assigned rested only on Stockfish disagreement, non-repair at depth, or game events after the decision. R81's king-safety story does not exist at the decision horizon (Black's king is on e8 in both leaves, and the king-zone counts and unshipped term favour h6). R79's space count does not separate the lines. R94's mobility evidence reverses between after-move and PV end. R102's agent conceded the feature was unconfirmed. R91's margin is 4cp. R103's child values favour SF's move, and the frozen ladder repairs it at d+2. The measured unshipped terms point toward the PLAYED move in most positions (king_safety in 10 of 14 at the PV end). Building a term would therefore repeat the king-safety v1 result: help a few positions, hurt the rest. Only R88 (Nf4 PST traced as the reason, all RC-J choices keep the knight) and R105 (Bc8 0 moves across the PV, RC-J value equal to its static at the refutation leaf, tie margin) meet the evaluation-evidence bar, and both only weakly.",
+   "c22_value": "About 0 of 14 decisive losses on this evidence. No decisive live move is repaired at +1 ply. The two horizon repairs (R99, R103) need +2 plies at about 5x the move's time, while C22 buys +0.262 mean ply and at least one extra iteration on 26% of positions. The one +1-ply repair is supplementary (R81-8bs Bh5), and that game was later lost by other moves. In the two state-dependent near-ties (R92, R98), C22 would change the search trajectory, but that perturbs the choice in either direction rather than repairing it. Any case for C22 must rest on general depth-for-Elo measurement, not on this autopsy.",
+   "timing_verdict": "Time allocation is not supported as the primary cause of any decisive loss (both agent uses were secondary and self-rebutted; R103's d14 needs 12.27s against 2.75s). One caveat for the timing lane. Live clock deltas (increment not added) are below the cold timed search times in several positions: R92 3.45s vs 8.61s, R91 1.71 vs 3.91, R88 1.61 vs 3.30, R95 1.14 vs 2.15, R102 2.71 vs 4.23, R79 1.69 vs 2.86. The reconstructed depth d may therefore overstate the live depth by up to about 1 ply, unless a warm TT compensated. Depths below d were never tested. This does not create time-allocation cases, but it weakens the state-dependence inference for R92, where a shallower live depth is an unexcluded alternative.",
+   "notes": "Corrected category counts: UNKNOWN 8 (R79, R81, R83, R91, R94, R95, R101, R102); piece activity/mobility 2 (R88, R105); state-dependence 2 (R92, R98); search/pruning pathology as plain horizon 2 (R99, R103). The original distribution was 7 feature categories over 11 positions and 3 UNKNOWN.\n\nRetained without change, with caveats:\n- R83, R95, R101: UNKNOWN, as the agents had them. In R83 and R95 RC-J's own evaluator prefers SF's BEST leaf (-118 vs -8; -19 vs +42), which points away from evaluation.\n- R88 and R105: see the cluster confidence. For R88 the traced reason is a PeSTO PST value, so the 'mobility' label is about the effect, not a proven missing term.\n- R92: state-dependence kept by the frozen definition (cold plays GOOD Re8), with the timing caveat above.\n- R98: the strongest state case.\n- R99: kept, but note the agent's own words: the search lacked depth; this is not a pruning malfunction.\n\nA methodological point for the synthesis: 'RC-J's value for SF's move is accurate but its value for its own move is far too optimistic' is near-tautological for any error, so it does not discriminate evaluation from search. The discriminating check is whether RC-J's search value matches its own static at SF's refutation leaf. It matches within 2cp only in R79 (+34/+35) and R105 (-37/-36). In R81, R88, R91, R92, R94, R98, R99, R101, R102 and R103 the search value lies 17-67cp below that static; in R83 and R95 it lies above it. In all twelve, RC-J's search is not resting on SF's line.\n\nSupplementary R101-61bs (the move that actually lost R101): RC-J's values (Bd6 -123 vs g4 -186) and statics (Bd6 Bg4 -27; g4 fxg4 f3+ -121, material -1) show it priced the drawing break as a lost pawn in an opposite-coloured-bishop ending. That supports an endgame-knowledge hypothesis. However, a uniform opposite-coloured-bishop scale factor multiplies both children and would not by itself reverse their order, and cold RC-J (b8e5, 616cp) also avoids g4. Also, low_material is an UNSHIPPED counterfactual term per the dossier (the R101 agent called it shipped); it returns 0 there either way.\n\nRECORD THIS (the category collapse): a two-column table of the seven agents' categories against the skeptic-corrected ones. King safety goes 1 to 0, space 1 to 0, 'other static' 2 to 0, and UNKNOWN 3 to 8.\n\nRECORD THIS (the king-safety story that isn't there at the decision): run in CMD\n\"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\c27\\.venv\\Scripts\\python.exe\" \"C:\\Users\\epick\\AppData\\Local\\Temp\\claude\\C--Users-epick-Documents-ClaudeShark\\6aa4cc83-13ea-4a98-8c08-bba93a80f5d1\\scratchpad\\autopsy\\wf\\skeptic_categories\\probe.py\"\nand capture the '--- R81 leaves' lines: Black's king is on e8 in both SF lines, and the zone attackers are 1 (h6) against 2 (d5). Show them beside the RC-J values 54 vs 56.\n\nRECORD THIS (the bishop that never moves): capture the '--- R105 played PV' table from the same command. Bc8 has 0 moves and Rb8 1 at every ply while RC-J's static stays +22 to +58, until the pawn falls at ply 8 (-36), which equals RC-J's search value (-37).\n\nGit: nothing was committed or modified outside wf/skeptic_categories."
+  }
+ ]
+}

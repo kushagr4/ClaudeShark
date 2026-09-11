@@ -1,0 +1,85 @@
+active terms (env): []
+====================================================================== 
+R98-25w
+r . . . . . . .
+. . p q r p . k
+p . n p . n p p
+. p . b . . . .
+. P . P . . . .
+P . Q B B . . P
+. . . N . P P K
+. . R . R . . .
+r7/2pqrp1k/p1np1npp/1p1b4/1P1P4/P1QBB2P/3N1PPK/2R1R3 w - - 5 25
+static at root (stm): 17
+  Bc2    d3c2: static-after (mover view)     0   pst_delta white-pos mg    1 eg  -17
+  f3     f2f3: static-after (mover view)   -18   pst_delta white-pos mg  -21 eg   -5
+  Nf1    d2f1: static-after (mover view)   -22   pst_delta white-pos mg  -25 eg  -13
+  Kg1    h2g1: static-after (mover view)    15   pst_delta white-pos mg   16 eg   -7
+   e3: W attackers ['e1', 'f2']  B attackers ['e7']
+   e1: W attackers ['c1']  B attackers []
+   d4: W attackers ['c3', 'e3']  B attackers ['c6']
+   b4: W attackers ['a3', 'c3']  B attackers ['c6']
+   g2: W attackers ['h2']  B attackers ['d5']
+   e4: W attackers ['d2', 'd3']  B attackers ['d5', 'f6', 'e7']
+   g4: W attackers ['h3']  B attackers ['f6', 'd7']
+   d5: W attackers []  B attackers ['f6']
+  played: Bc2 Rae8 a4 Na7 Qa3 Bb7 Nf1 Nd5
+   end FEN 4r3/nbpqrp1k/p2p2pp/1p1n4/PP1P4/Q3B2P/2B2PPK/2R1RN2 w - - 5 29  static(stm) 10
+  best: f3 Rae8 Bf2 Rxe1 Bxe1 Qe6 Bh4 Nh5
+   end FEN 4r3/2p2p1k/p1npq1pp/1p1b3n/1P1P3B/P1QB1P1P/3N2PK/2R5 w - - 3 29  static(stm) -34
+After Bc2 Rae8:
+. . . . r . . .
+. . p q r p . k
+p . n p . n p p
+. p . b . . . .
+. P . P . . . .
+P . Q . B . . P
+. . B N . P P K
+. . R . R . . .
+   e3: W attackers ['e1', 'f2', 'c3']  B attackers ['e7']
+   e1: W attackers ['c1']  B attackers []
+   d4: W attackers ['c3', 'e3']  B attackers ['c6']
+   b4: W attackers ['a3', 'c3']  B attackers ['c6']
+  is Be3 pinned (absolute)? False
+  black heavy pieces on e-file: ['e7', 'e8']
+  white pieces on e-file: ['e1R', 'e3B']
+
+R98 earlier moves (PST cost of SF's recurring Ng1 / f3 regroup):
+  move 22: b4 static-after 6 pst mg -1 eg 1 | Ng1 static-after -30 pst mg -36 eg -47
+  move 23: Qc3 static-after 1 pst mg -22 eg 45 | Ng1 static-after -18 pst mg -36 eg -47
+  move 24: Nd2 static-after -3 pst mg -20 eg -2 | Ng1 static-after -21 pst mg -36 eg -47
+====================================================================== 
+R99-25b
+. . b . . . k .
+. N . . . p b .
+p . p . . n p p
+P . . . p . . .
+. . P . . . P .
+. Q . . . P . .
+. P . . P B . P
+. . q . . B K .
+2b3k1/1N3pb1/p1p2npp/P3p3/2P3P1/1Q3P2/1P2PB1P/2q2BK1 b - - 0 25
+static at root (stm): 13
+  Be6    c8e6: static-after (mover view)    28   pst_delta white-pos mg  -28 eg  -36
+  e4     e5e4: static-after (mover view)     2   pst_delta white-pos mg   -6 eg   -5
+   b7: W attackers ['b3']  B attackers ['c8']
+   e4: W attackers ['f3']  B attackers ['f6']
+   c4: W attackers ['b3']  B attackers ['c1']
+   b2: W attackers ['b3']  B attackers ['c1']
+   f1: W attackers ['g1']  B attackers ['c1']
+   e5: W attackers []  B attackers []
+   c5: W attackers ['f2', 'b7']  B attackers []
+   d6: W attackers ['b7']  B attackers []
+   d8: W attackers ['b7']  B attackers []
+  played: Be6 e4 h5 h3 Nh7 Be3 Qe1 Qc3
+   end FEN 6k1/1N3pbn/p1p1b1p1/P3p2p/2P1P1P1/2Q1BP1P/1P6/4qBK1 b - - 4 29  static(stm) -9
+  best: e4 Nc5 exf3 exf3 Nd7 Ne4 Nf8 Be3
+   end FEN 2b2nk1/5pb1/p1p3pp/P7/2P1N1P1/1Q2BP2/1P5P/2q2BK1 b - - 4 29  static(stm) -84
+  Nb7 legal moves: []
+  Nb7 (white) pseudo moves: ['Nd8', 'Nd6', 'Nc5']
+  Bg7 attacks now: ['f6', 'h6', 'f8', 'h8']
+After Be6 e4: Bg7 attacks ['f6', 'h6', 'f8', 'h8']  Be6 attacks ['c4', 'g4', 'd5', 'f5', 'd7', 'f7', 'c8']
+ e5 pawn: W attackers [] B defenders []
+After e4 Nc5 exf3 exf3 Nd7: Bg7 attacks ['b2', 'c3', 'd4', 'e5', 'f6', 'h6', 'f8', 'h8']
+  c8e6 pst delta (white-positive) mg -28 eg -36  -> black gain mg 28 eg 36
+  e5e4 pst delta (white-positive) mg -6 eg -5  -> black gain mg 6 eg 5
