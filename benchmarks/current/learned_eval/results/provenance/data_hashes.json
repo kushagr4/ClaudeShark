@@ -1,0 +1,38 @@
+﻿{
+    "budget\\stab_50000.jsonl":  {
+                                     "sha256":  "2dc3fbad26ed3b3f78b360e9984c70b9cfbd95388b366f7b0fc50d01e0c19685",
+                                     "bytes":  89768
+                                 },
+    "pairs\\roots.json":  {
+                              "sha256":  "04322c291f7b726777106d7761309d05b4227ad51230a661d05ba65e0d27fcff",
+                              "bytes":  183528
+                          },
+    "pairs\\pair_tasks.jsonl":  {
+                                    "sha256":  "5aae72fab54a2b2da5c5048d8102ba531b8fbc9bbdd1a2a6432c424cf618c08f",
+                                    "bytes":  254089
+                                },
+    "tasks.jsonl":  {
+                        "sha256":  "da90ccd7a6767dc017ccb1e4ef149bd31eea8f67f25a86be44908f2b07bdbbb3",
+                        "bytes":  856661
+                    },
+    "budget\\stab_4000000.jsonl":  {
+                                       "sha256":  "082ab6ff710cfc0dfd27b7c092c4f6668f769630d3707c573cb9555a291d7dfe",
+                                       "bytes":  90790
+                                   },
+    "labels_50000.jsonl":  {
+                               "sha256":  "fb00a9a12cda2275cfc974561c19346229ce0d9dc27fdc4b19429ccdaf0aa329",
+                               "bytes":  2689127
+                           },
+    "pool.jsonl":  {
+                       "sha256":  "c0f852fd7f836e70d9bf314a64f8b2d43ab2e76d165c03716e0095c327c7a6d3",
+                       "bytes":  4022751
+                   },
+    "budget\\stability_tasks.jsonl":  {
+                                          "sha256":  "f6e1bc32d60fe4e28fcf92c6e52fc0c3de204be48953beedca7774cac5a7d9b0",
+                                          "bytes":  28536
+                                      },
+    "pairs\\pair_labels.jsonl":  {
+                                     "sha256":  "b3f279ed6dd1a1b1a67881755fec088a1d02bb9786553180ddf2d9ca80399a7a",
+                                     "bytes":  668190
+                                 }
+}
