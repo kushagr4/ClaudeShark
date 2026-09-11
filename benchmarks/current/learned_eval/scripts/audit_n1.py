@@ -92,6 +92,9 @@ def main():
     for name, lo, hi in BANDS:
         m = (ph >= lo) & (ph < hi)
         v = f[m]
+        if len(v) == 0:
+            A[name] = dict(n=0, p99_abs=None, note="no sampled call site in this band: criterion not verifiable")
+            continue
         A[name] = dict(n=int(m.sum()), mean=float(v.mean()), sd=float(v.std()), p1=float(np.percentile(v, 1)),
                        p99=float(np.percentile(v, 99)), p99_abs=float(np.percentile(np.abs(v), 99)),
                        max_abs=float(np.abs(v).max()))
@@ -99,7 +102,7 @@ def main():
                               share_abs_f_ge_30=float(np.mean(np.abs(f) >= 30)),
                               share_abs_f_ge_120=float(np.mean(np.abs(f) >= 120)),
                               share_abs_f_ge_200=float(np.mean(np.abs(f) >= 200)),
-                              passed=all(b["p99_abs"] <= 250 for b in A.values()))
+                              passed=all(b["p99_abs"] is not None and b["p99_abs"] <= 250 for b in A.values()))
 
     BB, SS, STM = F.arrays_from_boards(va_all["boards"])
     _, QP = nn1kit.params(fl, Q)

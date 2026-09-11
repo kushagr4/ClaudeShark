@@ -1,0 +1,8 @@
+{
+ "K_mg": 209.3684638635598,
+ "K_eg": 95.99048930408632,
+ "fitted_on": "train quiet, E0, 50k labels",
+ "shrink_s_star": 0.5,
+ "control_E0x1p5_val_bce": 0.5813887595066151,
+ "E0_val_bce": 0.5813889573964368
+}

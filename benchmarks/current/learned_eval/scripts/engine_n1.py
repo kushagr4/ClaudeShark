@@ -16,7 +16,7 @@ Modes:
   real          evaluate = E0 + N1q                         (the candidate)
   shadow_cost   N1q computed and stored, evaluate = E0      (per-node cost on RC-J's identical tree)
   shadow_verify N1q computed, the incremental row compared with a rebuild at every call, evaluate = E0
-  audit         real, plus every 64th evaluate call's position sampled for the magnitude audit
+  audit         real, plus every 4,096th evaluate call's position sampled for the magnitude audit
 
     python engine_n1.py OUT_DIR WEIGHTS.npz MODE          (zero weights: WEIGHTS = --zero)
 """
@@ -30,7 +30,7 @@ import numpy as np
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
 RUNTIME = ["agent.py"] + sorted(f for f in os.listdir(ROOT) if f.startswith("cs_") and f.endswith(".py"))
 AUDIT_SAMPLES = 20000
-AUDIT_STRIDE = 64
+AUDIT_STRIDE = 4096  # 64 filled the buffer within the first few openings (58M calls in all); see DESIGN_N1.md
 
 MAKE_OLD = "    flags = move >> 15\n    piece = M[fr]\n    key = S[4] ^ ep_key_term(B, S)\n"
 MAKE_NEW = "    flags = move >> 15\n    piece = M[fr]\n    U[ply, 7] = piece\n    key = S[4] ^ ep_key_term(B, S)\n"
