@@ -1,0 +1,15 @@
+{
+ "n": 300,
+ "mean_abs_dE_1m_4m": 0.012546666666666668,
+ "median_abs_dE_1m_4m": 0.0010000000000000009,
+ "share_abs_dE_ge_0p05": 0.07333333333333333,
+ "category_agreement_1m_4m": 0.98,
+ "bestmove_agreement_1m_4m": 0.85,
+ "band_agreement_1m_4m": 0.9766666666666667,
+ "band_agreement_50k_1m": 0.93,
+ "band_agreement_50k_4m": 0.94,
+ "signed_shift_50k_to_1m": -0.0012933333333333312,
+ "signed_shift_50k_to_1m_band": -0.0033358208955223873,
+ "band_n_1m": 134,
+ "calibration_caveat": false
+}
