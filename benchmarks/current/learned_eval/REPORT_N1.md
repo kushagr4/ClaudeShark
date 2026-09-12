@@ -137,7 +137,18 @@ pilot had seen in its validation or test split (7,497 positions, 2,306 groups)
 the numbers are unchanged (G1 −1.63%, G2 (i) +0.0061). Test groups by family:
 TWIC 2,350, PUBLIC 31, VS_SF 25, SELFPLAY 12.
 
-## Runtime speed: automatic rejection (>30%)
+## Runtime speed: gate INVALID / NON-DECISIVE; descriptive evidence of ~57% overhead
+
+*Wording corrected after the stage closed (see the correction note at the end
+of this section). The raw measurements and the verdict are unchanged.*
+
+**Formal result: the speed gate is INVALID / NON-DECISIVE.** The design (§10)
+makes a speed block valid only if its null control — RC-J against a second
+RC-J process — stays within ±2% by median per-round ratio. The null control
+missed that condition on both attempts (median 1.022 each time), so under the
+frozen protocol no NPS band, including the >30% "automatic rejection" band, was
+formally measured. The numbers below are descriptive engineering evidence, not
+a gate outcome.
 
 Idle machine, each engine its own process, 5 ABBA rounds per block, completed
 depth excluding partial iterations.
@@ -150,20 +161,32 @@ depth excluding partial iterations.
 | aspiration re-searches / unstable iterations (5 rounds) | 60 / 589 | 90 / 732 |
 | compile + warm-up | 27.3-28.1 s | 29.8-30.5 s |
 
-**NPS cost 57.6%** (pessimistic end; 57.3% from medians), far past the 30%
-automatic-rejection band. The shadow-cost build reproduces RC-J's node count
-exactly, so this is per-node cost, not a tree-shape artefact: the incremental
-accumulator removes the first layer's cost but the 256→32→1 head still runs at
-every leaf.
+**Descriptive engineering evidence.** The shadow build repeatedly searched the
+bit-identical 16,818,635-node tree at approximately 0.43× RC-J's throughput
+(0.427-0.433 in every round of both sets), implying approximately 56-57%
+overhead (57.6% from the pessimistic end, 57.3% from medians), and real N1 was
+approximately 1.5 completed plies shallower at equal time. The shadow-cost
+build reproduces RC-J's node count exactly, so this is per-node cost, not a
+tree-shape artefact: the incremental accumulator removes the first layer's
+cost but the 256→32→1 head still runs at every leaf. This is very strong
+evidence that the implementation is too expensive, but it is not a formally
+valid timing gate.
 
-**Measurement caveat, disclosed:** the null control (RC-J against a second RC-J
-process) failed both times, at a median ratio of 1.022 against the ±2% rule, so
-the first set was voided and repeated as the design requires, and the repeat
-also missed. The per-run spread between identical processes reached 20% at a
-1,000 ms budget. The cost figure is therefore approximate — but the margin to
-the band boundary (57% against 30%) is an order of magnitude larger than the
-instability, and the shadow-cost block, which compares on a bit-identical tree,
-repeated within 0.427-0.433 in every round of both sets.
+**Why the gate is invalid, disclosed:** the null control failed both times, at
+a median ratio of 1.022 against the ±2% rule, so the first set was voided and
+repeated as the design requires, and the repeat also missed. The per-run
+spread between identical processes reached 20% at a 1,000 ms budget. The
+margin between the observed overhead and the 30% band boundary is an order of
+magnitude larger than that instability, which is why the evidence is reported
+as strong; it does not make the block valid.
+
+**Correction note (2026-09-12).** This section, the verdict table and
+requirement 17 originally described the speed result as a measured "automatic
+rejection (>30%)". That overstated the protocol: a block whose null control
+fails twice has no valid band. The wording was corrected to "INVALID /
+NON-DECISIVE" with the same measurements retained as descriptive evidence. N1
+remains REJECTED independently of speed, on the magnitude audit (A, D, F) and
+the sealed test gates G2 and G3.
 
 ## RC-J real-loss holdout (opened last, descriptive only)
 
@@ -213,7 +236,7 @@ already fails to reproduce the live move.
 | N1q acceptance (§8) | pass |
 | magnitude audit (§10) | **FAIL** — A (call-site p99 252.6 cp), D (own middlegame link 28% hot), F (17/20 bare-king mates) |
 | static test gates (§9) | **FAIL** — G1 and G4 pass; G2 and G3 fail |
-| speed (§10) | **automatic rejection** — 57.6% NPS cost, 1.51 ply at equal time |
+| speed (§10) | **INVALID / NON-DECISIVE** — null control missed ±2% on both attempts; descriptive evidence only: ~0.43× throughput on the identical tree (~56-57% overhead), ~1.5 ply shallower at equal time |
 | regression corpus (§11) | not run: barred by the magnitude-audit failure |
 | holdout (§12) | descriptive: 5/14 repaired at the clock, 3/14 at fixed depth, 0 worsened |
 
@@ -224,9 +247,12 @@ with Stockfish's centipawns rises from 0.242 to 0.295 on test (+0.053
 knowledge as a 40% larger evaluation in exactly those positions, so its
 *calibrated* judgement of near-balanced positions is worse than E0's, and worse
 still than simply halving E0. After RC-J's own quiescence resolution the
-ranking advantage disappears. It then costs 57% of the search speed, because
-incremental accumulators remove only the first layer's cost while the
-256 → 32 → 1 head runs at every leaf.
+ranking advantage disappears. Those three findings — the magnitude audit and
+gates G2 and G3 — are each sufficient for rejection. The speed block, formally
+invalid because its null control failed twice, adds descriptive evidence that
+the implementation costs about 57% of the search speed, because incremental
+accumulators remove only the first layer's cost while the 256 → 32 → 1 head
+runs at every leaf.
 
 **Not attempted, deliberately:** rescaling or clamping f, changing any search
 margin, retraining after the test or the holdout, or running an arena. The
@@ -271,7 +297,7 @@ an unfalsifiable one.
 | 14 | holdout last, no retraining after | holdout script refuses to run without the other result files and records their hashes |
 | 15 | balanced improvement and quiescence-resolved evidence required | G2 and G3 |
 | 16 | search replay and regression corpus if static gates pass | barred: the magnitude audit failed |
-| 17 | NPS bands | 57.6% cost measured on a bit-identical tree: **automatic rejection (>30%)**; null control failed both attempts and is disclosed |
+| 17 | NPS bands | **gate INVALID / NON-DECISIVE**: the null control missed the ±2% validity condition on both attempts, so no band was formally measured; descriptive evidence of ~56-57% overhead on a bit-identical tree and ~1.5 ply lost at equal time; rejection rests on the magnitude audit, G2 and G3 |
 | 18 | START_FRACTION 0.45, no search change, no arena | zero-weight control reproduces RC-J's tree; no arena run |
 | 19 | main only, zero tags, no push | `main` the only branch, 0 tags, 0 stashes, one worktree, clean tree; local commits only (3 ahead of `origin/main`, unpushed); RC-J runtime files identical to `2bf6885` and the release ZIP `c8226c03…22fb5` unchanged |
 | 20 | stop and report | this report |
