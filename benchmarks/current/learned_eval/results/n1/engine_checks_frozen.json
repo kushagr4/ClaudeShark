@@ -1,0 +1,95 @@
+{
+ "weights": "frozen",
+ "build_real": {
+  "mode": "real",
+  "evaluate_calls": 5,
+  "threaded": 11
+ },
+ "accumulator": {
+  "engine": "C:\\Users\\epick\\Documents\\ClaudeShark-data\\learned_eval\\n1\\engines\\n1_real_frozen",
+  "counts": {
+   "capture": 4603,
+   "castle_kingside_black": 47,
+   "castle_kingside_white": 35,
+   "castle_queenside_black": 17,
+   "castle_queenside_white": 32,
+   "en_passant": 42,
+   "evaluations": 10018,
+   "full_evaluate_calls": 10018,
+   "king_move": 3428,
+   "moves": 15169,
+   "multi_ply_catch_up": 3505,
+   "null_move": 983,
+   "promotion_bishop": 28,
+   "promotion_capture": 13,
+   "promotion_knight": 35,
+   "promotion_queen": 39,
+   "promotion_rook": 42,
+   "transitions": 18950,
+   "unmake": 2798
+  },
+  "failures": 0,
+  "first_failures": [],
+  "passed": true,
+  "exit": 0
+ },
+ "build_zero": {
+  "mode": "real",
+  "evaluate_calls": 5,
+  "threaded": 11
+ },
+ "zero_weight_control": {
+  "zero_nodes": 16818635,
+  "rcj_nodes": 16818635,
+  "recorded": 16818635,
+  "nodes_identical": true,
+  "moves_identical": true,
+  "counters": {
+   "evaluate_calls": 9662444,
+   "rebuilds": 246,
+   "catch_up_steps": 10124443,
+   "verify_mismatches": 0,
+   "root_searches": 246
+  }
+ },
+ "build_verify": {
+  "mode": "shadow_verify",
+  "evaluate_calls": 5,
+  "threaded": 11
+ },
+ "shadow_verify": {
+  "depth10": {
+   "nodes": 16818635,
+   "nodes_identical": true,
+   "moves_identical": true,
+   "counters": {
+    "evaluate_calls": 9662444,
+    "rebuilds": 246,
+    "catch_up_steps": 10124443,
+    "verify_mismatches": 0,
+    "root_searches": 246
+   }
+  },
+  "budget1000": {
+   "nodes": 12082428,
+   "counters": {
+    "evaluate_calls": 6688745,
+    "rebuilds": 251,
+    "catch_up_steps": 7102644,
+    "verify_mismatches": 0,
+    "root_searches": 251
+   }
+  },
+  "selfplay_40_moves": {
+   "plies": 80,
+   "evaluate_calls": 3911924,
+   "rebuilds": 582,
+   "catch_up_steps": 4145372,
+   "verify_mismatches": 0,
+   "root_seeds": 582
+  },
+  "mismatches_total": 0,
+  "rebuilds_equal_root_seeds": true
+ },
+ "passed": true
+}

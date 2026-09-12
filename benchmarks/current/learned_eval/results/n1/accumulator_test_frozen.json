@@ -1,0 +1,27 @@
+{
+ "engine": "C:\\Users\\epick\\Documents\\ClaudeShark-data\\learned_eval\\n1\\engines\\n1_real_frozen",
+ "counts": {
+  "capture": 4603,
+  "castle_kingside_black": 47,
+  "castle_kingside_white": 35,
+  "castle_queenside_black": 17,
+  "castle_queenside_white": 32,
+  "en_passant": 42,
+  "evaluations": 10018,
+  "full_evaluate_calls": 10018,
+  "king_move": 3428,
+  "moves": 15169,
+  "multi_ply_catch_up": 3505,
+  "null_move": 983,
+  "promotion_bishop": 28,
+  "promotion_capture": 13,
+  "promotion_knight": 35,
+  "promotion_queen": 39,
+  "promotion_rook": 42,
+  "transitions": 18950,
+  "unmake": 2798
+ },
+ "failures": 0,
+ "first_failures": [],
+ "passed": true
+}
