@@ -188,10 +188,10 @@ fi
   && git config --local core.filemode false \
   && ok "core.filemode=false set (a tree copied from Windows otherwise shows mode churn)"
 
-# The Windows working tree carries CRLF in 12 of the 16 production modules (its system-wide
-# core.autocrlf=true), while the committed blobs and the release archive are LF and identical to
-# each other. Re-materialise the tracked files from the blobs so the bytes on disk are the
-# canonical ones. Tracked files are unmodified, so nothing is lost.
+# The Windows working tree carries CRLF in most production modules (its system-wide
+# core.autocrlf=true), while the committed blobs are LF. Re-materialise the tracked files from
+# the blobs so the bytes on disk are the canonical ones. Tracked files are unmodified, so
+# nothing is lost.
 step "10b. line endings of the production sources"
 RUNTIME_CRLF=0
 for f in agent.py cs_constants.py cs_core.py cs_drawish.py cs_eval.py cs_fast.py cs_king.py \
@@ -199,24 +199,55 @@ for f in agent.py cs_constants.py cs_core.py cs_drawish.py cs_eval.py cs_fast.py
          cs_terms.py cs_time.py cs_tt.py; do
   [ -f "$f" ] && LC_ALL=C grep -q $'\r' "$f" 2>/dev/null && RUNTIME_CRLF=$((RUNTIME_CRLF + 1))
 done
-if [ "$RUNTIME_CRLF" != "0" ]; then
-  warn "$RUNTIME_CRLF production module(s) carry CRLF from the Windows copy"
+CHANGED_TRACKED="$(git diff --name-only | wc -l | tr -d ' ')"
+if [ "$RUNTIME_CRLF" != "0" ] || [ "$CHANGED_TRACKED" != "0" ]; then
+  warn "$RUNTIME_CRLF production module(s) carry CRLF; git reports $CHANGED_TRACKED changed tracked file(s)"
   if [ "$CHECK_ONLY" = 0 ]; then
-    if [ -z "$(git status --porcelain --untracked-files=no)" ]; then
+    # With core.autocrlf=false git reports every CRLF copy as modified, so "nothing modified" is
+    # the wrong guard. Re-materialise only if each reported change is line endings alone.
+    REAL=0
+    while IFS= read -r -d '' f; do
+      if ! LC_ALL=C tr -d '\r' < "$f" | cmp -s - <(git show ":$f"); then
+        REAL=$((REAL + 1))
+        warn "$f has uncommitted changes beyond line endings"
+      fi
+    done < <(git diff --name-only -z)
+    if [ "$REAL" = 0 ]; then
       git checkout-index -a -f && ok "re-materialised every tracked file from its committed blob"
     else
-      fail "tracked files are modified; resolve that before re-materialising"
+      fail "$REAL tracked file(s) have real uncommitted changes; resolve before re-materialising"
     fi
   fi
 else
   ok "all 16 production modules already have canonical (LF) bytes"
 fi
+RUNTIME="agent.py cs_constants.py cs_core.py cs_drawish.py cs_eval.py cs_fast.py cs_king.py
+         cs_kingpawn.py cs_mopup.py cs_ordering.py cs_passed.py cs_search.py cs_see.py
+         cs_terms.py cs_time.py cs_tt.py"
 BAD=0
-for f in agent.py cs_core.py cs_search.py cs_eval.py cs_tt.py; do
-  git show "2bf6885:$f" 2>/dev/null | cmp -s - "$f" || BAD=$((BAD + 1))
+for f in $RUNTIME; do
+  git show "HEAD:$f" 2>/dev/null | cmp -s - "$f" || BAD=$((BAD + 1))
 done
-[ "$BAD" = 0 ] && ok "spot check: 5 production modules byte-identical to 2bf6885" \
-               || fail "$BAD production module(s) differ from 2bf6885 byte for byte"
+[ "$BAD" = 0 ] && ok "all 16 production modules byte-identical to their committed blobs" \
+               || fail "$BAD production module(s) differ from the committed blob byte for byte"
+# RC-J is commit 2bf6885. Since 2026-09-16 cs_core.py and cs_fast.py also carry the optional
+# NNUE (CS_NNUE, off by default); every other production module must still be RC-J's.
+UNEXPECTED=0
+# shellcheck disable=SC2086
+for f in $(git diff --name-only 2bf6885 HEAD -- $RUNTIME); do
+  case "$f" in
+    cs_core.py|cs_fast.py) ;;
+    *) UNEXPECTED=$((UNEXPECTED + 1)); warn "$f differs from RC-J (2bf6885)" ;;
+  esac
+done
+[ "$UNEXPECTED" = 0 ] && ok "the other 14 production modules are RC-J's (2bf6885), byte for byte" \
+                      || fail "$UNEXPECTED production module(s) changed outside the NNUE flag"
+if [ -x .venv/bin/python ]; then
+  env -u CS_NNUE -u CS_NNUE_VERIFY .venv/bin/python -c \
+    "import cs_core, sys; sys.exit(1 if getattr(cs_core, 'NNUE_ENABLED', False) else 0)" \
+    && ok "NNUE flag off by default (the engine is RC-J unless CS_NNUE=1)" \
+    || fail "cs_core reports the NNUE enabled with CS_NNUE unset"
+fi
 
 # 11 ------------------------------------------------------------------- verification
 step "11. state verification"

@@ -20,7 +20,8 @@ from cs_search import PySearcher
 
 def args(s):
     return (s.B, s.O, s.M, s.S, s.U, s.MLS, s.MSS, s.PATH, s.GK,
-            s.TK, s.TV, s.KILL, s.HIST, s.CTL, s.TCTL, s.GAINS)
+            s.TK, s.TV, s.KILL, s.HIST, s.CTL, s.TCTL, s.GAINS,
+            s.NNA, s.NNK)
 
 
 def prepare(s, board):

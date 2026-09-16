@@ -266,7 +266,7 @@ def _prepare(searcher, board):
     core.load_board(board, searcher.B, searcher.O, searcher.M, searcher.S)
     s = searcher
     return (s.B, s.O, s.M, s.S, s.U, s.MLS, s.MSS, s.PATH, s.GK, s.TK, s.TV, s.KILL,
-            s.HIST, s.CTL, s.TCTL, s.GAINS)
+            s.HIST, s.CTL, s.TCTL, s.GAINS, s.NNA, s.NNK)
 
 
 @pytest.mark.parametrize("fen", STALEMATES_WITH_ILLEGAL_CAPTURE)

@@ -48,13 +48,15 @@ def test_qsearch_e0_equals_rcj_quiescence():
     HIST = np.zeros(8192, dtype=np.int64)
     CTL = np.zeros(16, dtype=np.int64)
     TCTL = np.array([1e18, 1e18])
+    NNA = np.zeros((C.N1_ROWS, 256), dtype=np.int32)
+    NNK = np.zeros(C.STACK, dtype=np.int64)
     W = np.zeros(2 * F.NF + 2)
     for b in boards(300):
         C.load_board(b, B, O, M, S)
         ours = evalkit.qsearch(B, O, M, S, U, MLS, MSS, GAINS, W, False, -C.INFINITY, C.INFINITY, 0, 0)
         ours_w0 = evalkit.qsearch(B, O, M, S, U, MLS, MSS, GAINS, W, True, -C.INFINITY, C.INFINITY, 0, 0)
         theirs = C.quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GAINS,
-                              -C.INFINITY, C.INFINITY, 0, 0)
+                              NNA, NNK, -C.INFINITY, C.INFINITY, 0, 0)
         assert ours == theirs == ours_w0, b.fen()
 
 

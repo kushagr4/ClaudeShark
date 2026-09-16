@@ -1,5 +1,5 @@
 {
- "schema": "claudeshark-migration-reference/1",
+ "schema": "claudeshark-migration-reference/2",
  "seed": 20260912,
  "n_playout": 40,
  "float_tol": 1e-06,
@@ -33,13 +33,14 @@
  },
  "inputs": {
   "n1_weights_sha256": "b1b809b79d84238ef292096334d598d2a6327e96df690ade182dcf4e871da201",
-  "e1_weights_sha256": "2929b09406134d96a06afd91b33d23486752c6fe136e7fea4addf9b4e94730cb",
-  "cs_core_sha256": "694069a2f052548073c92a105c167981a9eafed436bcfb06d50fbf71b57a42d3",
+  "e1_weights_sha256": "016ef7d5d31f0cf492126f9214418ddcc02ff58ef0491be8785ba3ba1441a5d7",
+  "cs_core_sha256": "f958bbbefbc0c7d1f0320057fac7776300b688dd56a8e9c4ab21eeb029cc0553",
   "features_sha256": "e6a4197f84959c6ec02b0643212192b5afc22a4ca00b278bdf499f3df17bcfaa",
   "nn1_sha256": "755ecfc66716f150cb458182e0f031a57291e8321efb652150b4e4639f1c000e",
-  "nn1kit_sha256": "4130771c55cf4c32268999abe22845bd5e38361da95eb1b9190c67e159d463b2"
+  "nn1kit_sha256": "4130771c55cf4c32268999abe22845bd5e38361da95eb1b9190c67e159d463b2",
+  "hash_basis": "text sources LF-normalised (git canonical form); .npz raw bytes"
  },
- "seconds": 17.9,
+ "seconds": 17.61,
  "positions": [
   {
    "name": "start",

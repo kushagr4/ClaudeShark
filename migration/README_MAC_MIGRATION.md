@@ -8,10 +8,10 @@ games, no training, no push.
 
 | | |
 |---|---|
-| **5 local commits that are not on GitHub** | `.git` must be copied as files; a `git clone` loses them |
+| **Local commits not yet on GitHub** | `.git` must be copied as files; a `git clone` loses them |
 | **13 untracked C28 files** | not committed, not on GitHub, and not in a `git bundle` |
 | **RC-J release archive** | `corpus/release/claudeshark_rc_j.zip`, SHA-256 `c8226c03…22fb5`, never regenerated |
-| **RC-J runtime identity** | the 16 engine modules stay byte-identical to `2bf6885` — no line-ending conversion |
+| **RC-J runtime identity** | 14 engine modules byte-identical to `2bf6885`; `cs_core.py` and `cs_fast.py` carry the default-off NNUE flag and reproduce RC-J node for node with it unset — no line-ending conversion |
 | **Frozen N1 evidence** | weights, freeze manifest, gates, reports: historical, never rewritten |
 | **External research data** | `ClaudeShark-data/` (111 MB) and the TWIC PGN issues (69 MB) |
 
@@ -81,7 +81,9 @@ precisely why §3a is needed: the bytes on the Windows disk are not the canonica
 Measured on the Windows machine:
 
 * the 16 production modules **as committed at `2bf6885`** and **as stored in
-  `claudeshark_rc_j.zip`** are byte-identical to each other, with **LF** endings;
+  `claudeshark_rc_j.zip`** are byte-identical to each other, with **LF** endings (since
+  2026-09-16 `cs_core.py` and `cs_fast.py` also carry the default-off NNUE flag, so their
+  current blobs differ from the archive; the other 14 still match it);
 * the same 16 files **in the Windows working tree** carry **CRLF in 12 of them** (`agent.py`,
   `cs_core.py`, `cs_drawish.py`, `cs_eval.py`, `cs_fast.py`, `cs_king.py`, `cs_kingpawn.py`,
   `cs_ordering.py`, `cs_passed.py`, `cs_search.py`, `cs_terms.py`, `cs_time.py` — 4,690 CR bytes
@@ -105,12 +107,13 @@ Verify:
 
 ```bash
 for f in agent.py cs_core.py cs_search.py cs_eval.py cs_tt.py; do
-  git show 2bf6885:$f | cmp -s - $f && echo "OK   $f" || echo "DIFF $f"
+  git show HEAD:$f | cmp -s - $f && echo "OK   $f" || echo "DIFF $f"
 done
 ```
 
 `bootstrap_mac.sh` does this automatically (step 10b) and `verify_mac_port.py` checks all 16
-files on disk against the `2bf6885` blobs.
+files on disk against the committed blobs, and that only `cs_core.py` and `cs_fast.py`
+differ from `2bf6885`.
 
 **C. Single archive.** `tar` preserves bytes and is safe for the production sources:
 
@@ -269,6 +272,18 @@ Both files must be switched to the variables above as part of the C28 repair, in
 commit. `bootstrap_mac.sh` prints a warning naming each file that still holds the Windows default,
 so the gap cannot be forgotten. Until then, C28 tooling would not find the corpus on the Mac — which
 is correct, because C28 must not run until it is repaired and re-reviewed anyway.
+
+## 8b. The optional NNUE (`CS_NNUE`)
+
+Added 2026-09-16, after the migration tooling was first committed. `cs_core.py` and `cs_fast.py`
+can add the frozen N1-U network to the evaluation the search uses, incrementally, when
+`CS_NNUE=1`. It is **off by default** and nothing in this migration turns it on: with the flag
+unset the engine reproduces RC-J's depth-10 fingerprint (16,818,635 nodes, identical moves). The
+network was rejected as an evaluator on its own evidence, so it is research-only. Details and
+evidence: `benchmarks/current/nnue/`.
+
+Do **not** export `CS_NNUE` in the Mac shell profile. `verify_mac_port.py` checks that the flag
+reads as off with it unset, and reports it if the current shell sets it.
 
 ## 9. Git on the Mac
 

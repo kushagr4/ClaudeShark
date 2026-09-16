@@ -189,7 +189,7 @@ def test_mate_found_through_the_table_reports_the_same_distance():
 def _search_args(searcher):
     s = searcher
     return (s.B, s.O, s.M, s.S, s.U, s.MLS, s.MSS, s.PATH, s.GK, s.TK, s.TV, s.KILL,
-            s.HIST, s.CTL, s.TCTL, s.GAINS)
+            s.HIST, s.CTL, s.TCTL, s.GAINS, s.NNA, s.NNK)
 
 
 def _prepare(searcher, fen):
