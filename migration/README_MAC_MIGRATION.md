@@ -184,18 +184,24 @@ in the script now, before any Mac number exists.
 
 **If anything differs, investigate it — never edit the fixture to match.**
 
-### Windows baselines, measured 2026-09-12
+### Windows baselines, measured 2026-09-16 (after the NNUE commit `e3a1f0f`)
 
 | | |
 |---|---|
-| `pytest -q tests` | **1486 passed** in 192 s |
-| reference fixture | **59 positions**, `values_sha256` `49badbe2dbfa4d44b64e4175d9c8a8cef703fc2e4903c70f79e59caf34cf57e0` |
-| `verify_mac_port.py` on Windows | every check passes **except** `RC-J runtime bytes on disk` (4/16 — the CRLF issue of §3a) |
+| `pytest -q tests` | **1499 passed** in 221 s (1486 before; the NNUE commit added the 9 tests of `tests/test_nnue.py` and 4 fixture-hygiene cases for their positions) |
+| reference fixture | **59 positions**, schema 2, `values_sha256` `49badbe2dbfa4d44b64e4175d9c8a8cef703fc2e4903c70f79e59caf34cf57e0` — unchanged by the NNUE commit, so the evaluator outputs with the flag off are identical |
+| `verify_mac_port.py` on Windows | every check passes **except** `production modules bytes on disk` (4/16, the CRLF issue of §3a); `manifest hashes` reads 624 exact and 23 matching once CRLF is normalised, 0 differ |
 
-On the Mac, after `git checkout-index -a -f`, `RC-J runtime bytes on disk` must read **16/16** and
-the whole report must be `ALL CHECKS PASS`. The fixture comparison must print `PASS 59 positions
-identical`; the test count should be 1486 (a different count means tests were skipped, not that
-the engine changed — check the skip reasons).
+On the Mac, after `git checkout-index -a -f`, `production modules bytes on disk` must read **16/16**,
+`manifest hashes` must report **0** files that match only after CRLF normalisation, and the whole
+report must be `ALL CHECKS PASS`. The fixture comparison must print `PASS 59 positions identical`;
+the test count should be 1499 (a different count means tests were skipped, not that the engine
+changed — check the skip reasons).
+
+Manifest hashes of tracked files are git's canonical (LF) blobs; untracked and ignored files are
+hashed as their bytes, which every transfer method here preserves. `make_manifest.py` refuses to
+write a manifest while a tracked file carries an edit that is not in the index, because the Mac's
+`git checkout-index` would silently replace it.
 
 ## 7. Optional: the deterministic node fingerprint
 

@@ -1,6 +1,6 @@
 {
  "schema": "claudeshark-mac-migration/1",
- "created": "2026-09-12 08:40:00",
+ "created": "2026-09-16 19:36:53",
  "source_machine": {
   "system": "Windows",
   "release": "11",
@@ -42,6 +42,10 @@
    "cs_terms.py",
    "cs_time.py",
    "cs_tt.py"
+  ],
+  "nnue_flag_files": [
+   "cs_core.py",
+   "cs_fast.py"
   ]
  },
  "stockfish": {
@@ -67,9 +71,9 @@
   }
  ],
  "counts": {
-  "untracked": 22,
+  "untracked": 14,
   "ignored_non_cache": 13,
-  "components": 77
+  "components": 70
  },
  "components": [
   {
@@ -80,9 +84,11 @@
    "regenerate_on_mac": false,
    "historical_artifact": false,
    "note": "Carries the local commits that are not on GitHub. Transfer as files; a clone of origin/main would lose them.",
-   "head": "ce2bd74f22e40d58d863bf44c5170f6682833ab2",
+   "head": "e3a1f0fa03b555df570dac18db479ce4f36827b7",
    "branch": "main",
    "unpushed_commits": [
+    "e3a1f0f Add an optional NNUE to the search, off by default (CS_NNUE)",
+    "459711e Add reproducible macOS migration tooling",
     "ce2bd74 N1 report: speed gate reworded as invalid/non-decisive, measurements retained",
     "33ea3b6 N1 learned evaluation (100K): REJECTED on magnitude, static gates and speed",
     "6cc618d N1 freeze: U chosen on a validation fail, quantisation accepted, magnitude audit failed",
@@ -92,9 +98,9 @@
    "tags": [],
    "stashes": [],
    "worktrees": [
-    "C:/Users/epick/Documents/ClaudeShark ce2bd74 [main]"
+    "C:/Users/epick/Documents/ClaudeShark e3a1f0f [main]"
    ],
-   "size": 35640411
+   "size": 35844959
   },
   {
    "logical_path": "corpus/release/claudeshark_rc_j.zip",
@@ -106,7 +112,8 @@
    "note": "Canonical submitted archive. Must keep SHA-256 c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5. Never regenerate, never repack.",
    "exists": true,
    "size": 67072,
-   "sha256": "c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5"
+   "sha256": "c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "agent.py",
@@ -115,10 +122,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 3134,
-   "sha256": "5050a921365402e657286560ac1ad08e03bd51e2997ede0f988d2a74b47f37aa"
+   "sha256": "72498d55cd0dc1af9c6ec49b8e5680b0a3f93f88216f6643ab240de2c33226a8",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "5050a921365402e657286560ac1ad08e03bd51e2997ede0f988d2a74b47f37aa"
   },
   {
    "logical_path": "cs_constants.py",
@@ -127,10 +136,11 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 7014,
-   "sha256": "97915cb09bcc17d22fe652872bdb7c95d6ca16768bb564a71a23d837886ece1a"
+   "sha256": "97915cb09bcc17d22fe652872bdb7c95d6ca16768bb564a71a23d837886ece1a",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "cs_core.py",
@@ -139,10 +149,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime carrying the default-off CS_NNUE flag; with the flag unset it reproduces RC-J (2bf6885) node for node (benchmarks/current/nnue). Canonical bytes are the committed blob (LF).",
    "exists": true,
-   "size": 49077,
-   "sha256": "694069a2f052548073c92a105c167981a9eafed436bcfb06d50fbf71b57a42d3"
+   "size": 58126,
+   "sha256": "f958bbbefbc0c7d1f0320057fac7776300b688dd56a8e9c4ab21eeb029cc0553",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "0701af661d1177cba212febd0f6dcf684d197702a506537b7b9e4672d9bce85e"
   },
   {
    "logical_path": "cs_drawish.py",
@@ -151,10 +163,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 6927,
-   "sha256": "66b55ef7bfd5587980fbc4a45015730c813f3f429b3f15419825951beb8fc4b9"
+   "sha256": "1d28551bf56037c3a716553bdb923ea056f6785c4e93566d6f1f06585b99369b",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "66b55ef7bfd5587980fbc4a45015730c813f3f429b3f15419825951beb8fc4b9"
   },
   {
    "logical_path": "cs_eval.py",
@@ -163,10 +177,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 14260,
-   "sha256": "168e8c53bd1fe2ecb95846efe4c066d0bdcf34994d74b6984b5527f4cfae804b"
+   "sha256": "1f1b5554d34fef295c64d534683f27d57f3c60156cb099a0c7688a5e69c85af7",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "168e8c53bd1fe2ecb95846efe4c066d0bdcf34994d74b6984b5527f4cfae804b"
   },
   {
    "logical_path": "cs_fast.py",
@@ -175,10 +191,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime carrying the default-off CS_NNUE flag; with the flag unset it reproduces RC-J (2bf6885) node for node (benchmarks/current/nnue). Canonical bytes are the committed blob (LF).",
    "exists": true,
-   "size": 13040,
-   "sha256": "a51527146b44fc7e0ad07ec09e8752028de37380cd20585faf9d9932e66640fb"
+   "size": 13348,
+   "sha256": "8f860765ac0de3e915a694cdc74ec39ad0d0fe4e573d232bdf4187f6aaa16a4b",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "fff3df9267979e793a2abd1fdb31f0e3b396675d3044ce8e1cdb9b5a1c1174f5"
   },
   {
    "logical_path": "cs_king.py",
@@ -187,10 +205,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 13954,
-   "sha256": "7d5b9cd1d7d9e7e3de1e98b83265b67485afeb14b9265728bd79726e241d9164"
+   "sha256": "e476f98d9bd837eb2bae6fb5e02c729a909ed1fba6308eeec9bb0942fbfcf379",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "7d5b9cd1d7d9e7e3de1e98b83265b67485afeb14b9265728bd79726e241d9164"
   },
   {
    "logical_path": "cs_kingpawn.py",
@@ -199,10 +219,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 3983,
-   "sha256": "7c79ac906135b1e07a7b8d6003a7885ffe5f4eb9d27ae658d6fdc49ff5636fbc"
+   "sha256": "027edb9ddc8883ba34b77fa557f88ecf02718fd31315b96ea6b4672d12e01d74",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "7c79ac906135b1e07a7b8d6003a7885ffe5f4eb9d27ae658d6fdc49ff5636fbc"
   },
   {
    "logical_path": "cs_mopup.py",
@@ -211,10 +233,11 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 4386,
-   "sha256": "0d7b1dd7e5f5cd618a39f52b5ea0ecf9a53c1b91d8cf9a85567e6a18f4a031d6"
+   "sha256": "0d7b1dd7e5f5cd618a39f52b5ea0ecf9a53c1b91d8cf9a85567e6a18f4a031d6",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "cs_ordering.py",
@@ -223,10 +246,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 13031,
-   "sha256": "9419be507ab117e597e855bf0575394e64a6983c5dcf9a990c0d0deda0dabf13"
+   "sha256": "8b43af097883f0f4d17e4bd3080e75c8875aad9be6db967d73514c69bcca11ae",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "9419be507ab117e597e855bf0575394e64a6983c5dcf9a990c0d0deda0dabf13"
   },
   {
    "logical_path": "cs_passed.py",
@@ -235,10 +260,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 7761,
-   "sha256": "a38964da802d7a023223cdf0e17cee68f5a654c393340d65addf982b7f583544"
+   "sha256": "640a20e8196384e32f7b84558101a47c48dc78a5d060198aaaea827dbdaa79ab",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "a38964da802d7a023223cdf0e17cee68f5a654c393340d65addf982b7f583544"
   },
   {
    "logical_path": "cs_search.py",
@@ -247,10 +274,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 48641,
-   "sha256": "8134ef60925d0e6a740528b7cb329b373ca3d40c6479ed778b00b08df949f968"
+   "sha256": "bbe93e16ccc1c4b3188e812ba0c64678b9efa85a1160c2b54509785a9f62cc29",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "8134ef60925d0e6a740528b7cb329b373ca3d40c6479ed778b00b08df949f968"
   },
   {
    "logical_path": "cs_see.py",
@@ -259,10 +288,11 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 6225,
-   "sha256": "c5aeb6dbcb226386a6e2731ef43f6479df6249f2ca17e85e5557bf602592de8c"
+   "sha256": "c5aeb6dbcb226386a6e2731ef43f6479df6249f2ca17e85e5557bf602592de8c",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "cs_terms.py",
@@ -271,10 +301,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 5137,
-   "sha256": "addc5ef80a669e1bc74dd48be2d7502a860508fb5b6cefcf897e71e463c071f2"
+   "sha256": "9e036f2457655e780148d8ca9fc6246837d17443634ce644d12ec54cb46759ac",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "addc5ef80a669e1bc74dd48be2d7502a860508fb5b6cefcf897e71e463c071f2"
   },
   {
    "logical_path": "cs_time.py",
@@ -283,10 +315,12 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 6253,
-   "sha256": "07436183612b0ec234f266b7fa23f0b41e8284f30197a2bdb05476ae290db46d"
+   "sha256": "2e2d0f5066d68d4192b250bd6425a7ac80557b71d7c0c2762deecc12fd251298",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "07436183612b0ec234f266b7fa23f0b41e8284f30197a2bdb05476ae290db46d"
   },
   {
    "logical_path": "cs_tt.py",
@@ -295,10 +329,11 @@
    "portable_directly": true,
    "regenerate_on_mac": false,
    "historical_artifact": false,
-   "note": "Production runtime; byte-identical to 2bf6885. No line-ending conversion.",
+   "note": "Production runtime; committed blob byte-identical to 2bf6885 and to the RC-J release archive (LF). No line-ending conversion.",
    "exists": true,
    "size": 3330,
-   "sha256": "c68a8b2e54845bd3b8f7e5779914bc53d045e6bcc880ae68aca63a67199bfa66"
+   "sha256": "c68a8b2e54845bd3b8f7e5779914bc53d045e6bcc880ae68aca63a67199bfa66",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/n1_weights.npz",
@@ -310,7 +345,8 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 1061954,
-   "sha256": "b1b809b79d84238ef292096334d598d2a6327e96df690ade182dcf4e871da201"
+   "sha256": "b1b809b79d84238ef292096334d598d2a6327e96df690ade182dcf4e871da201",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/n1_weights.json",
@@ -322,7 +358,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 2969,
-   "sha256": "dbbcab9caa8cdaeb413cda47cc6976ae3e927710f095a548237a6aad47b23e45"
+   "sha256": "002a13eff5931a34cf58313596a2f537ab0b18bb69c4ea88f16e88f7eb5a10bb",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "dbbcab9caa8cdaeb413cda47cc6976ae3e927710f095a548237a6aad47b23e45"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/freeze.json",
@@ -334,7 +372,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 2556,
-   "sha256": "7fa3bdc8719dcbeb693cd2d2aa3bb9ccebd0291df45921d2e98db9486c5d934f"
+   "sha256": "a4a5bc5cb3ee0f96ead7cb0682ff61d14fe88df8705f9d20fdcd5460bea2c812",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "7fa3bdc8719dcbeb693cd2d2aa3bb9ccebd0291df45921d2e98db9486c5d934f"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/calibration.json",
@@ -346,7 +386,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 215,
-   "sha256": "8c5baba75e6c7c6993b29840c357583ed6b2b6192dc24fac9c10f77578372fb7"
+   "sha256": "11f0c2526fb3536f4dde9c2abb87642fff92bf2e18727606253e50fe0278e2f3",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "8c5baba75e6c7c6993b29840c357583ed6b2b6192dc24fac9c10f77578372fb7"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/selection.json",
@@ -358,7 +400,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 1765,
-   "sha256": "4e48f16c3b6710302ef0ddd6e5b551acf2068336535cfc16bab86c0f795dcc30"
+   "sha256": "6fdb4dedb09aa157bdfb29983bd9dc046d534eeb0263dda3edb898fd05aa4fe4",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "4e48f16c3b6710302ef0ddd6e5b551acf2068336535cfc16bab86c0f795dcc30"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/acceptance.json",
@@ -370,7 +414,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 814,
-   "sha256": "b60435f437d5ebd23d5e5109050edde0e69b5c23ec319589a58434f49f226d5c"
+   "sha256": "a99d23e1315a8a45819ae78e07deb5d416feb5260ace890fe907a2a32eb1cfe9",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "b60435f437d5ebd23d5e5109050edde0e69b5c23ec319589a58434f49f226d5c"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/magnitude_audit.json",
@@ -382,7 +428,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 1915,
-   "sha256": "0c285cec4c56fd6801a78e3efe5d03650b4b78fd74ce039a3d3275d388b3afc6"
+   "sha256": "87260721f6113e4e59ecef0b5af494ef40703e1b85bc31f49a37c8665c6364bb",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "0c285cec4c56fd6801a78e3efe5d03650b4b78fd74ce039a3d3275d388b3afc6"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/test_gates.json",
@@ -394,7 +442,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 5899,
-   "sha256": "a05b00cb80340b840734fbc75c610155b7754a705717fbbe8aeb65fd39842ea6"
+   "sha256": "f78d98d4db259092a2a8d7ebe32099ea98844fd64714d3d8ddd3e3ba4bcb3414",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "a05b00cb80340b840734fbc75c610155b7754a705717fbbe8aeb65fd39842ea6"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/speed_n1.json",
@@ -406,7 +456,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 166034,
-   "sha256": "73678015d7d03bda852854f48c47fb8451d938f6b768b25d598ce5984dc938e0"
+   "sha256": "7746116b3b2b1f0a925f448c6eac1cbec9b7c5229c01919929604ade92ea9d78",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "73678015d7d03bda852854f48c47fb8451d938f6b768b25d598ce5984dc938e0"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/holdout.json",
@@ -418,7 +470,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 18430,
-   "sha256": "9ebd23e8dbbed83afde97cb5319adaf46d2d51c276890dece1b989cd98cc915c"
+   "sha256": "0f3b3ff6e1d3c72bc80f9cdfd82cc85e1c90be645326e5d149e833bd67a26609",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "9ebd23e8dbbed83afde97cb5319adaf46d2d51c276890dece1b989cd98cc915c"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/n1/engine_checks_frozen.json",
@@ -430,7 +484,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 2127,
-   "sha256": "6487c35701d999fc934ee6b0f19824bb9d8b050218600e09db32ba06060bfa47"
+   "sha256": "acd5a4ce77a1ba7b5d2938ed8512d4b8d2d65314a91aef6a2262a5dc649ae3f6",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "6487c35701d999fc934ee6b0f19824bb9d8b050218600e09db32ba06060bfa47"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/DESIGN_N1.md",
@@ -442,7 +498,8 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 19735,
-   "sha256": "a9b8ec4d0fb13931bc1560c66fbb1d2c409e63ff9a0420adfa1ad374eaf863e9"
+   "sha256": "a9b8ec4d0fb13931bc1560c66fbb1d2c409e63ff9a0420adfa1ad374eaf863e9",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/REPORT_N1.md",
@@ -454,7 +511,8 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 19562,
-   "sha256": "d4524afacff59eae4e8efdcfc9f1069ce5722bb9b3b76557f7f753176309655a"
+   "sha256": "d4524afacff59eae4e8efdcfc9f1069ce5722bb9b3b76557f7f753176309655a",
+   "hash_basis": "git_index_blob"
   },
   {
    "logical_path": "benchmarks/current/learned_eval/results/e1_weights.json",
@@ -466,7 +524,9 @@
    "note": "Frozen N1 evidence: never rewritten on the Mac.",
    "exists": true,
    "size": 3664,
-   "sha256": "2929b09406134d96a06afd91b33d23486752c6fe136e7fea4addf9b4e94730cb"
+   "sha256": "016ef7d5d31f0cf492126f9214418ddcc02ff58ef0491be8785ba3ba1441a5d7",
+   "hash_basis": "git_index_blob",
+   "worktree_sha256": "2929b09406134d96a06afd91b33d23486752c6fe136e7fea4addf9b4e94730cb"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/DESIGN_C28.md",
@@ -478,7 +538,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 32241,
-   "sha256": "b9b36197a343595e370bbe1980e07c19f3fb529b49828fed84e25a6f67f528ba"
+   "sha256": "b9b36197a343595e370bbe1980e07c19f3fb529b49828fed84e25a6f67f528ba",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/analyse_c28.py",
@@ -490,7 +551,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 79028,
-   "sha256": "0ea5afdf3ffebdaf5b18479d569fe6c2ff030b75cbfb843dc38d55822c552d28"
+   "sha256": "0ea5afdf3ffebdaf5b18479d569fe6c2ff030b75cbfb843dc38d55822c552d28",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/c28paths.py",
@@ -502,7 +564,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 3296,
-   "sha256": "2f4e17c8d9e87f4589c3a43a202f7a9b91e0e9bf74bfad939ef248c286cb665f"
+   "sha256": "2f4e17c8d9e87f4589c3a43a202f7a9b91e0e9bf74bfad939ef248c286cb665f",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/cct.py",
@@ -514,7 +577,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 18866,
-   "sha256": "f5760f5ccdaf73c8d956e021117e0ec4ccfcead992a45e97b05d143d4ce7d596"
+   "sha256": "f5760f5ccdaf73c8d956e021117e0ec4ccfcead992a45e97b05d143d4ce7d596",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/critics.py",
@@ -526,7 +590,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 8250,
-   "sha256": "27f0c1f8bdde5218dee2037537e934cef8cbc86242c502eb1637914c70f380dc"
+   "sha256": "27f0c1f8bdde5218dee2037537e934cef8cbc86242c502eb1637914c70f380dc",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/pools_c28.py",
@@ -538,7 +603,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 24564,
-   "sha256": "610ea3642ce29c68700817096e13b5a865768f5dd61ec6aebc7e78744c41df21"
+   "sha256": "610ea3642ce29c68700817096e13b5a865768f5dd61ec6aebc7e78744c41df21",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/sf_oracle.py",
@@ -550,7 +616,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 17722,
-   "sha256": "d2f4671a276d3cdca5d59180b5bb58b7e42c1b1cb28157b3f59c00605b0797b6"
+   "sha256": "d2f4671a276d3cdca5d59180b5bb58b7e42c1b1cb28157b3f59c00605b0797b6",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/stage_c28.py",
@@ -562,7 +629,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 47807,
-   "sha256": "2d854370f4b1592ea4b2a93994e1f94a369f8bac7e66dc592635e46f0fb8e611"
+   "sha256": "2d854370f4b1592ea4b2a93994e1f94a369f8bac7e66dc592635e46f0fb8e611",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/test_analyse.py",
@@ -574,7 +642,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 29072,
-   "sha256": "72d0ab8e241a2ef6178aad0f7311fa7f38cd3287008353e7498343e884332541"
+   "sha256": "72d0ab8e241a2ef6178aad0f7311fa7f38cd3287008353e7498343e884332541",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/test_cct.py",
@@ -586,7 +655,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 17127,
-   "sha256": "bb188a49253026bec2f3355172be016d97bf39c04d708445481d88dfb42cca88"
+   "sha256": "bb188a49253026bec2f3355172be016d97bf39c04d708445481d88dfb42cca88",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/test_oracle.py",
@@ -598,7 +668,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 8869,
-   "sha256": "aecfe56bc75b3dcf897e8a3e9844e9f79687b81ca4eb3dd013a39710de84f5fc"
+   "sha256": "aecfe56bc75b3dcf897e8a3e9844e9f79687b81ca4eb3dd013a39710de84f5fc",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/test_pools.py",
@@ -610,7 +681,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 9446,
-   "sha256": "649b3bad9591f3158fd3674ca13ce254859f2f059e076615fe2fa8956f424b46"
+   "sha256": "649b3bad9591f3158fd3674ca13ce254859f2f059e076615fe2fa8956f424b46",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/hard_position_mining/scripts/test_stage.py",
@@ -622,91 +694,8 @@
    "note": "C28 pre-adjudication source: not committed, not on GitHub, and not contained in a git bundle. Must be transferred with the working tree.",
    "exists": true,
    "size": 31154,
-   "sha256": "a157da7e2672acc6d4e38d6dfc6afecf8cef465da069bf9f91d587f236886822"
-  },
-  {
-   "logical_path": "migration/README_MAC_MIGRATION.md",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/README_MAC_MIGRATION.md",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 16546,
-   "sha256": "3f0bae2922c668ccb6a49493b9e6e65c15658d76bd66de63d5adbfe704a6c690"
-  },
-  {
-   "logical_path": "migration/bootstrap_mac.sh",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/bootstrap_mac.sh",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 13301,
-   "sha256": "2defaebff889367588d59ebb40a6300339ae0029e39000f28d6b98c9d310153f"
-  },
-  {
-   "logical_path": "migration/make_manifest.py",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/make_manifest.py",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 14362,
-   "sha256": "8b1f20647fde02b38c40af350063debea81486b3974a9c4082ee3a59ec9f1802"
-  },
-  {
-   "logical_path": "migration/make_reference.py",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/make_reference.py",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 13068,
-   "sha256": "dd962fd8486e5772242ae2ff85cc76e20809a4dbc289f0ce6bfec8fe603331f4"
-  },
-  {
-   "logical_path": "migration/package_for_mac.ps1",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/package_for_mac.ps1",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 5919,
-   "sha256": "d6e3bac8cbcab6bae3fab2e13a6f98e83a16c7f9e083e01b424f1aaa9c3b4f69"
-  },
-  {
-   "logical_path": "migration/reference_windows.json",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/reference_windows.json",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 28219,
-   "sha256": "a502756ebd6eabae6310188a4d42d8d4b3d4d8a823ff47c3665a1d8962468c72"
-  },
-  {
-   "logical_path": "migration/verify_mac_port.py",
-   "source_windows_path": "C:/Users/epick/Documents/ClaudeShark/migration/verify_mac_port.py",
-   "classification": "C_UNTRACKED_REQ",
-   "portable_directly": true,
-   "regenerate_on_mac": false,
-   "historical_artifact": false,
-   "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
-   "exists": true,
-   "size": 12946,
-   "sha256": "68077df984f2cac97ccee1a3ef1920336bcedba10111819b1adf9ed22f6ca1a8"
+   "sha256": "a157da7e2672acc6d4e38d6dfc6afecf8cef465da069bf9f91d587f236886822",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "migration/verify_windows.json",
@@ -718,7 +707,8 @@
    "note": "Migration tooling written for this move; untracked until the user approves the commit. Transfers with the working tree either way.",
    "exists": true,
    "size": 3168,
-   "sha256": "26b6eae63bc0d746af90c3fe871fdef699923d3a71288d027cfe8675379700fb"
+   "sha256": "26b6eae63bc0d746af90c3fe871fdef699923d3a71288d027cfe8675379700fb",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/2026-09-02-v0.5-regression.pgn",
@@ -730,7 +720,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 78381,
-   "sha256": "df64fd858c29b439e1e8da98bc8bb0473efb97d6aa00ae664805092c1b0f01ec"
+   "sha256": "df64fd858c29b439e1e8da98bc8bb0473efb97d6aa00ae664805092c1b0f01ec",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "benchmarks/current/2026-09-02-v0.5.1-regression.pgn",
@@ -742,7 +733,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 73916,
-   "sha256": "9be9e4a1385f68878742f1262803879e140eb6c0db518b276169f1b73d736ef2"
+   "sha256": "9be9e4a1385f68878742f1262803879e140eb6c0db518b276169f1b73d736ef2",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/candidates.jsonl",
@@ -754,7 +746,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 4087068,
-   "sha256": "b695636b112287a9bfea5929d8f82eb1ad73da59106fbed7f28903e25974ab03"
+   "sha256": "b695636b112287a9bfea5929d8f82eb1ad73da59106fbed7f28903e25974ab03",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/mopup/games/gate2_fixed_depth.pgn",
@@ -766,7 +759,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 129282,
-   "sha256": "3cda1cb55bd75e005ac78b8046133227c2909a7a618f52d1cc031cf7ed63a0e3"
+   "sha256": "3cda1cb55bd75e005ac78b8046133227c2909a7a618f52d1cc031cf7ed63a0e3",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/passed/games/gate2_fixed_depth.pgn",
@@ -778,7 +772,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 126096,
-   "sha256": "52b41d9d13be736489ac718d2b0c12d7e7e774e79c87032b2578cdc32eaebc41"
+   "sha256": "52b41d9d13be736489ac718d2b0c12d7e7e774e79c87032b2578cdc32eaebc41",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/strength/c9/c9_vs_c5_dev_60_strict.pgn",
@@ -790,7 +785,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 59074,
-   "sha256": "eeb35edafa171e7f4f21be5ba1f7919caf0ba1375a79b71e914e4ec48479457d"
+   "sha256": "eeb35edafa171e7f4f21be5ba1f7919caf0ba1375a79b71e914e4ec48479457d",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/strength/rcf/rcf_vs_sf2800_dev2400_60_strict.pgn",
@@ -802,7 +798,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 73924,
-   "sha256": "8a2174369cdd90334b8c8f6782420e78a3ea05c4f9673887db08698ea1d8b741"
+   "sha256": "8a2174369cdd90334b8c8f6782420e78a3ea05c4f9673887db08698ea1d8b741",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/tune/candidates_labelled.features.npz",
@@ -814,7 +811,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 816035,
-   "sha256": "3de02e834224de63db57b54509775897ccc69f05bdaaeb5493f6e96704c6f0e2"
+   "sha256": "3de02e834224de63db57b54509775897ccc69f05bdaaeb5493f6e96704c6f0e2",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/tune/engines/",
@@ -837,7 +835,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 127337,
-   "sha256": "85f86107f39e6299b3487aa8ab0cfd66cf8357aa7da3f9de6a16dc3633e9f110"
+   "sha256": "85f86107f39e6299b3487aa8ab0cfd66cf8357aa7da3f9de6a16dc3633e9f110",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/v2/fw/lowmat/games/targeted_fixed_depth.pgn",
@@ -849,7 +848,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 77900,
-   "sha256": "0b9d51bb515ce9ad05b9343135f4407b4817d3e457c2f50ba24fe732f9770059"
+   "sha256": "0b9d51bb515ce9ad05b9343135f4407b4817d3e457c2f50ba24fe732f9770059",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/v2/kp/games/gate2_fixed_depth.pgn",
@@ -861,7 +861,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 129487,
-   "sha256": "1badd3891f4cdc59e4a65695c6f024ca3c588cd0cdd3bd01cf94df6be0e8909a"
+   "sha256": "1badd3891f4cdc59e4a65695c6f024ca3c588cd0cdd3bd01cf94df6be0e8909a",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "corpus/v2/kp/games/secondary_vs_passed.pgn",
@@ -873,7 +874,8 @@
    "note": "Ignored by .gitignore but part of the research record.",
    "exists": true,
    "size": 129429,
-   "sha256": "050642fb13d61d3d58a3068f0750edec827baf2e780511eee76d55949af00996"
+   "sha256": "050642fb13d61d3d58a3068f0750edec827baf2e780511eee76d55949af00996",
+   "hash_basis": "worktree_bytes"
   },
   {
    "logical_path": "${CLAUDESHARK_DATA_ROOT}",
@@ -989,6 +991,6 @@
    "note": "Windows Stockfish download archive"
   }
  ],
- "manifest_body_sha256": "c458a9c28519376d3d442d7a2f6fdaea53b86d4ac86b89b464dd3798d24fd691",
- "seconds": 12.2
+ "manifest_body_sha256": "463d545295d8622286a5e0cee65c8cb2712191f6728fb4bee3bf5162c68334e5",
+ "seconds": 14.7
 }
