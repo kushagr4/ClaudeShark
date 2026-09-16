@@ -81,6 +81,10 @@ class Searcher:
         self.CTL = np.zeros(16, dtype=np.int64)
         self.TCTL = np.zeros(2, dtype=np.float64)
         self.GAINS = np.zeros(40, dtype=np.int64)
+        # NNUE accumulator rows and their position keys (cs_core.NNUE_ENABLED). Allocated
+        # whatever the flag, so the compiled search keeps one signature.
+        self.NNA = np.zeros((core.N1_ROWS, 256), dtype=np.int32)
+        self.NNK = np.zeros(core.STACK, dtype=np.int64)
         self.ROOT = np.zeros(core.MAX_MOVES, dtype=np.int64)
         self.RS = np.zeros(core.MAX_MOVES, dtype=np.int64)
         self.time = TimeManager()
@@ -263,7 +267,7 @@ class Searcher:
         score, move = core.search_root(
             self.B, self.O, self.M, self.S, self.U, self.MLS, self.MSS, self.PATH, self.GK,
             self.TK, self.TV, self.KILL, self.HIST, self.CTL, self.TCTL, self.GAINS,
-            ROOT, RS, n, depth, alpha, beta,
+            self.NNA, self.NNK, ROOT, RS, n, depth, alpha, beta,
         )
         if self.CTL[0]:
             return int(score), int(move), root_moves

@@ -31,6 +31,8 @@ perft on the standard positions and random games, evaluation against
 
 from __future__ import annotations
 
+import os
+
 import numpy as np
 from numba import njit, objmode
 from time import perf_counter
@@ -64,6 +66,15 @@ BOUND_UPPER = 2
 FLAG_EP = 1
 FLAG_CASTLE = 2
 FLAG_DPP = 4
+
+# Optional NNUE evaluation: the frozen N1-U network added to the evaluation the
+# search uses (see the NNUE section at the end of this file and
+# benchmarks/current/nnue/README.md). Off unless CS_NNUE=1. Both values are read
+# once at import and compiled in as constants, so with the flag off every NNUE
+# branch is removed and the compiled search is RC-J's.
+_TRUE = ("1", "true", "yes", "on")
+NNUE_ENABLED = os.environ.get("CS_NNUE", "0").strip().lower() in _TRUE
+NNUE_VERIFY = NNUE_ENABLED and os.environ.get("CS_NNUE_VERIFY", "0").strip().lower() in _TRUE
 
 # Search parameters, exactly C5's shipped values.
 QS_MAX_PLY = 10
@@ -346,6 +357,8 @@ def make_move(B, O, M, S, U, move):
     promo = (move >> 12) & 7
     flags = move >> 15
     piece = M[fr]
+    if NNUE_ENABLED:
+        U[ply, 7] = piece  # the NNUE catch-up replays moves from the undo stack
     key = S[4] ^ ep_key_term(B, S)
     packed = S[5]
     from_bb = np.int64(1) << fr
@@ -865,6 +878,19 @@ def evaluate(B, S):
 
 
 @njit(cache=False)
+def evaluate_search(B, S, U, NNA, NNK):
+    """The evaluation the search calls: ``evaluate``, plus the NNUE correction when
+    CS_NNUE is on. ``evaluate`` itself is unchanged, so every other caller sees RC-J's
+    evaluator whatever the flag."""
+    score = evaluate(B, S)
+    if NNUE_ENABLED:
+        score += n1_eval(B, S, U, NNA, NNK)
+        if NNUE_VERIFY:
+            n1_verify(B, S, NNA)
+    return score
+
+
+@njit(cache=False)
 def compute_packed(M):
     packed = 0
     for sq in range(64):
@@ -1163,7 +1189,7 @@ def _check_time(CTL, TCTL):
 
 @njit(cache=False)
 def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GAINS,
-               alpha, beta, ply, qply):
+               NNA, NNK, alpha, beta, ply, qply):
     _check_time(CTL, TCTL)
     CTL[3] += 1
     if CTL[0]:
@@ -1191,7 +1217,7 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
         if n == 0:
             return -MATE_SCORE + ply
         if at_cap:
-            return evaluate(B, S)
+            return evaluate_search(B, S, U, NNA, NNK)
         score_captures(M, ML, MS, n)
         best_score = -INFINITY
         stand_pat = -INFINITY
@@ -1199,8 +1225,8 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
         if at_cap:
             if not has_legal_move(B, O, M, S, U, ML):
                 return DRAW_SCORE
-            return evaluate(B, S)
-        stand_pat = evaluate(B, S)
+            return evaluate_search(B, S, U, NNA, NNK)
+        stand_pat = evaluate_search(B, S, U, NNA, NNK)
         if stand_pat >= beta:
             if has_legal_move(B, O, M, S, U, ML):
                 return stand_pat
@@ -1243,7 +1269,7 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
             unmake_move(B, O, M, S, U)
             continue
         score = -quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
-                            GAINS, -beta, -alpha, ply + 1, qply + 1)
+                            GAINS, NNA, NNK, -beta, -alpha, ply + 1, qply + 1)
         unmake_move(B, O, M, S, U)
         if CTL[0]:
             return 0
@@ -1262,7 +1288,7 @@ def quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
 
 @njit(cache=False)
 def negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GAINS,
-            depth, alpha, beta, ply, allow_null):
+            NNA, NNK, depth, alpha, beta, ply, allow_null):
     _check_time(CTL, TCTL)
     if CTL[0]:
         return 0
@@ -1316,20 +1342,20 @@ def negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GA
 
     if depth <= 0:
         return quiescence(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
-                          GAINS, alpha, beta, ply, 0)
+                          GAINS, NNA, NNK, alpha, beta, ply, 0)
 
     checked = in_check(B, O, S)
     if ply >= MAX_PLY - 2:
         if not any_legal_move(B, O, M, S, U, ML):
             return -MATE_SCORE + ply if checked else DRAW_SCORE
-        return evaluate(B, S)
+        return evaluate_search(B, S, U, NNA, NNK)
 
     side = S[0]
     base = 6 * side
 
     if (not checked and depth <= RFP_MAX_DEPTH and beta - alpha == 1
             and -MATE_BOUND < beta < MATE_BOUND):
-        static = evaluate(B, S)
+        static = evaluate_search(B, S, U, NNA, NNK)
         if static - RFP_MARGIN * depth >= beta:
             return static
 
@@ -1338,7 +1364,8 @@ def negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GA
         reduction = 3 if depth > 6 else 2
         make_null(B, O, M, S, U)
         null_score = -negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
-                              GAINS, depth - 1 - reduction, -beta, -beta + 1, ply + 1, False)
+                              GAINS, NNA, NNK, depth - 1 - reduction, -beta, -beta + 1,
+                              ply + 1, False)
         unmake_null(B, O, M, S, U)
         if CTL[0]:
             return 0
@@ -1397,16 +1424,18 @@ def negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GA
 
         if move_index == 0:
             score = -negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
-                             GAINS, child_depth, -beta, -alpha, ply + 1, True)
+                             GAINS, NNA, NNK, child_depth, -beta, -alpha, ply + 1, True)
         else:
             score = -negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL,
-                             GAINS, child_depth - reduction, -alpha - 1, -alpha, ply + 1, True)
+                             GAINS, NNA, NNK, child_depth - reduction, -alpha - 1, -alpha,
+                             ply + 1, True)
             if reduction and score > alpha and not CTL[0]:
                 score = -negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL,
-                                 TCTL, GAINS, child_depth, -alpha - 1, -alpha, ply + 1, True)
+                                 TCTL, GAINS, NNA, NNK, child_depth, -alpha - 1, -alpha,
+                                 ply + 1, True)
             if alpha < score < beta and not CTL[0]:
                 score = -negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL,
-                                 TCTL, GAINS, child_depth, -beta, -alpha, ply + 1, True)
+                                 TCTL, GAINS, NNA, NNK, child_depth, -beta, -alpha, ply + 1, True)
         unmake_move(B, O, M, S, U)
         if CTL[0]:
             return 0
@@ -1441,7 +1470,7 @@ def negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GA
 
 @njit(cache=False)
 def search_root(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GAINS,
-                ROOT, RS, nroot, depth, alpha, beta):
+                NNA, NNK, ROOT, RS, nroot, depth, alpha, beta):
     """C5's root loop: full window for every move, partial-move commit.
 
     ``ROOT`` holds the root moves in search order, ``RS`` receives their
@@ -1452,11 +1481,13 @@ def search_root(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL
     best_score = -INFINITY
     best_move = ROOT[0]
     PATH[0] = S[4]
+    if NNUE_ENABLED:
+        n1_seed_root(B, S, NNA, NNK)
     for i in range(nroot):
         move = ROOT[i]
         make_move(B, O, M, S, U, move)
         score = -negamax(B, O, M, S, U, MLS, MSS, PATH, GK, TK, TV, KILL, HIST, CTL, TCTL, GAINS,
-                         depth - 1, -beta, -alpha, 1, True)
+                         NNA, NNK, depth - 1, -beta, -alpha, 1, True)
         unmake_move(B, O, M, S, U)
         if CTL[0]:
             RS[i] = -INFINITY
@@ -1550,3 +1581,209 @@ def encode_move(board: chess.Board, move: chess.Move) -> int:
     elif piece == chess.KING and abs((move.from_square & 7) - (move.to_square & 7)) == 2:
         code |= FLAG_CASTLE << 15
     return code
+
+
+# ---------------------------------------------------------------- optional NNUE
+#
+# N1-U: the 768 -> 2x128 -> 32 -> 1 network trained in benchmarks/current/learned_eval
+# (DESIGN_N1.md), used exactly as frozen there. It was REJECTED as a replacement
+# evaluator on its own evidence (magnitude audit, balanced-position and
+# after-quiescence gates, about 0.43x RC-J's speed), so it is research-only and off by
+# default. Nothing below runs unless CS_NNUE=1.
+#
+# Inference is incremental. NNA holds one int32 accumulator row per ply: 128 units from
+# White's perspective, then 128 from Black's. NNK[ply] is the Zobrist key the row was
+# built for, so a row is only ever reused for that exact position. An evaluation catches
+# up from the nearest valid ancestor by replaying the moves in the undo stack
+# (U[ply, 6] the move, U[ply, 7] the moved piece, U[ply, 0] the capture); the root row
+# is seeded once per root search, so the search never rebuilds from the bitboards
+# otherwise. Extra rows: N1_SCRATCH (the head's input), N1_CTRL (counters: 0 evaluations,
+# 1 rebuilds, 2 catch-up steps, 4 verify mismatches, 7 root seeds) and N1_VERIFY (a
+# from-scratch rebuild, compared at every evaluation when CS_NNUE_VERIFY=1).
+
+NNUE_WEIGHTS_SHA256 = "b1b809b79d84238ef292096334d598d2a6327e96df690ade182dcf4e871da201"
+NNUE_WEIGHTS_DEFAULT = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "benchmarks", "current", "learned_eval", "results", "n1", "n1_weights.npz")
+N1_SCRATCH = STACK
+N1_CTRL = STACK + 1
+N1_VERIFY = STACK + 2
+N1_ROWS = STACK + 3
+
+
+def _load_nnue_weights():
+    """The quantised N1-U layers, or tiny zero arrays of the same types when the flag is off
+    (never read then). CS_NNUE_WEIGHTS overrides the location; the default file must be the
+    frozen network, byte for byte."""
+    if not NNUE_ENABLED:
+        return (np.zeros((1, 128), np.int16), np.zeros(128, np.int32),
+                np.zeros((1, 256), np.int8), np.zeros(1, np.int32), np.zeros(1, np.int32), 0)
+    path = os.environ.get("CS_NNUE_WEIGHTS", "") or NNUE_WEIGHTS_DEFAULT
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"CS_NNUE=1 but there are no N1-U weights at {path}; "
+                                "set CS_NNUE_WEIGHTS")
+    if os.path.normcase(os.path.abspath(path)) == os.path.normcase(NNUE_WEIGHTS_DEFAULT):
+        import hashlib
+        import pathlib
+
+        # Read through pathlib: tools/release_check.py rejects any literal file-open call in a
+        # shipped module, whatever the mode.
+        digest = hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
+        if digest != NNUE_WEIGHTS_SHA256:
+            raise ValueError(f"{path} is not the frozen N1-U network (SHA-256 {digest})")
+    with np.load(path) as z:
+        layers = [z[k] for k in ("W1q", "b1q", "W2q", "b2q", "w3q", "b3q")]
+    expected = (((768, 128), np.int16), ((128,), np.int32), ((32, 256), np.int8),
+                ((32,), np.int32), ((32,), np.int32), ((1,), np.int64))
+    for layer, (shape, dtype) in zip(layers, expected, strict=True):
+        if layer.shape != shape or layer.dtype != dtype:
+            raise ValueError(f"{path} does not hold N1's quantised layers: expected {shape} "
+                             f"{np.dtype(dtype).name}, found {layer.shape} {layer.dtype}")
+    w1, b1, w2, b2, w3, b3 = (np.ascontiguousarray(layer) for layer in layers)
+    return w1, b1, w2, b2, w3, int(b3[0])
+
+
+N1_W1, N1_B1, N1_W2, N1_B2, N1_W3, N1_B3 = _load_nnue_weights()
+
+
+@njit(cache=False)
+def n1_add(NNA, row, c, sq, sign):
+    """Add (sign > 0) or remove piece code c on square sq in both perspectives of a row."""
+    col = 0 if c <= 6 else 1
+    t = c - 1 - 6 * col
+    iw = (0 if col == 0 else 384) + t * 64 + sq
+    ib = (0 if col == 1 else 384) + t * 64 + (sq ^ 56)
+    if sign > 0:
+        for k in range(128):
+            NNA[row, k] += N1_W1[iw, k]
+        for k in range(128):
+            NNA[row, 128 + k] += N1_W1[ib, k]
+    else:
+        for k in range(128):
+            NNA[row, k] -= N1_W1[iw, k]
+        for k in range(128):
+            NNA[row, 128 + k] -= N1_W1[ib, k]
+
+
+@njit(cache=False)
+def n1_rebuild(B, NNA, row):
+    for k in range(128):
+        NNA[row, k] = N1_B1[k]
+        NNA[row, 128 + k] = N1_B1[k]
+    for c in range(1, 13):
+        bb = B[c]
+        while bb:
+            sq = lsb(bb)
+            bb &= bb - 1
+            n1_add(NNA, row, c, sq, 1)
+
+
+@njit(cache=False)
+def n1_refresh(B, NNA, row):
+    n1_rebuild(B, NNA, row)
+    NNA[N1_CTRL, 1] += 1
+
+
+@njit(cache=False)
+def n1_seed_root(B, S, NNA, NNK):
+    NNA[N1_CTRL, 7] += 1
+    n1_refresh(B, NNA, S[6])
+    NNK[S[6]] = S[4]
+
+
+@njit(cache=False)
+def n1_apply(U, NNA, i):
+    """Row i from row i - 1 through the move recorded at U[i - 1] (a null move copies)."""
+    NNA[N1_CTRL, 2] += 1
+    for k in range(256):
+        NNA[i, k] = NNA[i - 1, k]
+    move = U[i - 1, 6]
+    if move == 0:
+        return
+    fr = move & 63
+    to = (move >> 6) & 63
+    promo = (move >> 12) & 7
+    flags = move >> 15
+    piece = U[i - 1, 7]
+    captured = U[i - 1, 0]
+    side = 0 if piece <= 6 else 1
+    n1_add(NNA, i, piece, fr, -1)
+    n1_add(NNA, i, promo + 6 * side if promo else piece, to, 1)
+    if captured:
+        cap_sq = to
+        if flags & FLAG_EP:
+            cap_sq = to - 8 if side == 0 else to + 8
+        n1_add(NNA, i, captured, cap_sq, -1)
+    if flags & FLAG_CASTLE:
+        if to == 6:
+            rf, rt = 7, 5
+        elif to == 2:
+            rf, rt = 0, 3
+        elif to == 62:
+            rf, rt = 63, 61
+        else:
+            rf, rt = 56, 59
+        rook = 4 + 6 * side
+        n1_add(NNA, i, rook, rf, -1)
+        n1_add(NNA, i, rook, rt, 1)
+
+
+@njit(cache=False)
+def n1_ensure(B, S, U, NNA, NNK):
+    """Make the current ply's row valid and return its index."""
+    ply = S[6]
+    if NNK[ply] == S[4]:
+        return ply
+    j = ply - 1
+    while j >= 0 and NNK[j] != U[j, 4]:
+        j -= 1
+    if j < 0:
+        n1_refresh(B, NNA, ply)
+    else:
+        for i in range(j + 1, ply + 1):
+            n1_apply(U, NNA, i)
+            if i < ply:
+                NNK[i] = U[i, 4]
+    NNK[ply] = S[4]
+    return ply
+
+
+@njit(cache=False)
+def n1_eval(B, S, U, NNA, NNK):
+    """The N1-U correction in centipawns for the side to move (exactly nn1.quant_forward_cp)."""
+    NNA[N1_CTRL, 0] += 1
+    row = n1_ensure(B, S, U, NNA, NNK)
+    so = 128 * S[0]
+    oo = 128 - so
+    sc = N1_SCRATCH
+    for k in range(128):
+        a = NNA[row, so + k]
+        NNA[sc, k] = 0 if a < 0 else (255 if a > 255 else a)
+        a = NNA[row, oo + k]
+        NNA[sc, 128 + k] = 0 if a < 0 else (255 if a > 255 else a)
+    out = np.int64(N1_B3)
+    for j in range(32):
+        z = np.int32(0)
+        for i in range(256):
+            z += NNA[sc, i] * np.int32(N1_W2[j, i])
+        z += N1_B2[j]
+        h = z // 64
+        if h < 0:
+            h = 0
+        elif h > 255:
+            h = 255
+        out += np.int64(h) * N1_W3[j]
+    num = 100 * out
+    q = (num if num >= 0 else -num) // 16320
+    return q if num >= 0 else -q
+
+
+@njit(cache=False)
+def n1_verify(B, S, NNA):
+    """Count a mismatch when the incremental row differs from a from-scratch rebuild."""
+    n1_rebuild(B, NNA, N1_VERIFY)
+    ply = S[6]
+    for k in range(256):
+        if NNA[ply, k] != NNA[N1_VERIFY, k]:
+            NNA[N1_CTRL, 4] += 1
+            return

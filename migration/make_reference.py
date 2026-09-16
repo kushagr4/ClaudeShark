@@ -118,6 +118,13 @@ def sha256_file(path: str) -> str:
     return h.hexdigest()
 
 
+def sha256_text(path: str) -> str:
+    """SHA-256 of a text source with CRLF normalised to LF: git's canonical form, shared by a
+    Windows working copy (core.autocrlf=true) and a macOS checkout of the same commit."""
+    with open(path, "rb") as fh:
+        return hashlib.sha256(fh.read().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def measure(rows: list[dict], with_cct: bool) -> dict:
     import numpy as np
 
@@ -161,18 +168,19 @@ def measure(rows: list[dict], with_cct: bool) -> dict:
     seconds = time.perf_counter() - t0
 
     res = dict(
-        schema="claudeshark-migration-reference/1",
+        schema="claudeshark-migration-reference/2",
         seed=SEED, n_playout=N_PLAYOUT, float_tol=FLOAT_TOL,
         exact_fields=list(EXACT_FIELDS), float_fields=list(FLOAT_FIELDS),
         platform=dict(system=platform.system(), release=platform.release(),
                       machine=platform.machine(), processor=platform.processor(),
                       python=sys.version.split()[0], python_build=platform.python_build(),
                       numpy=np.__version__, chess=chess.__version__),
-        inputs=dict(n1_weights_sha256=sha256_file(weights), e1_weights_sha256=sha256_file(e1_path),
-                    cs_core_sha256=sha256_file(os.path.join(ROOT, "cs_core.py")),
-                    features_sha256=sha256_file(os.path.join(LE_SCRIPTS, "features.py")),
-                    nn1_sha256=sha256_file(os.path.join(LE_SCRIPTS, "nn1.py")),
-                    nn1kit_sha256=sha256_file(os.path.join(LE_SCRIPTS, "nn1kit.py"))),
+        inputs=dict(n1_weights_sha256=sha256_file(weights), e1_weights_sha256=sha256_text(e1_path),
+                    cs_core_sha256=sha256_text(os.path.join(ROOT, "cs_core.py")),
+                    features_sha256=sha256_text(os.path.join(LE_SCRIPTS, "features.py")),
+                    nn1_sha256=sha256_text(os.path.join(LE_SCRIPTS, "nn1.py")),
+                    nn1kit_sha256=sha256_text(os.path.join(LE_SCRIPTS, "nn1kit.py")),
+                    hash_basis="text sources LF-normalised (git canonical form); .npz raw bytes"),
         seconds=round(seconds, 2),
         positions=out,
     )
@@ -222,6 +230,10 @@ def compare(a_path: str, b_path: str) -> int:
         a = json.load(fh)
     with open(b_path, encoding="utf-8") as fh:
         b = json.load(fh)
+    if a.get("schema") != b.get("schema"):
+        print(f"FAIL schema differs: A {a.get('schema')} B {b.get('schema')} "
+              "(regenerate the older file with this script)")
+        return 1
     pa = {r["name"]: r for r in a["positions"]}
     pb = {r["name"]: r for r in b["positions"]}
     print(f"A: {a['platform']['system']} {a['platform']['machine']} python {a['platform']['python']}")

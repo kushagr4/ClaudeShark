@@ -40,6 +40,8 @@ DEFAULT_SF_DIR = "C:/Users/epick/engines/stockfish"
 RELEASE_ZIP = "corpus/release/claudeshark_rc_j.zip"
 RELEASE_ZIP_SHA256 = "c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5"
 RCJ_SOURCE_COMMIT = "2bf6885"
+# Since 2026-09-16 these two also carry the optional NNUE (CS_NNUE, off by default).
+NNUE_FLAG_FILES = ("cs_core.py", "cs_fast.py")
 SF_WINDOWS_SHA256 = "c86215fa1977d53b82ed854540a4c7b025be4cd042276c85ba3de53fb9118911"
 SF_VERSION = "Stockfish 18"
 
@@ -95,6 +97,18 @@ def sha256_file(path: str) -> str:
     return h.hexdigest()
 
 
+TRACKED: set[str] = set()
+DIRTY: list[str] = []
+
+
+def canonical_bytes(rel: str) -> bytes | None:
+    """The file as git stores it in the index (LF text, raw binaries): the bytes a checkout of
+    the commit produces on any platform. A Windows working copy under core.autocrlf=true has
+    CRLF instead, so hashing it would make every checked-out text file fail on the Mac."""
+    out = subprocess.run(("git", "show", f":{rel}"), cwd=ROOT, capture_output=True, check=False)
+    return out.stdout if out.returncode == 0 else None
+
+
 def entry(logical: str, source: str, cls: str, portable: bool, regenerate: bool,
           historical: bool, note: str = "", want_hash: bool = True) -> dict:
     row = dict(logical_path=logical, source_windows_path=source.replace("\\", "/"),
@@ -106,7 +120,24 @@ def entry(logical: str, source: str, cls: str, portable: bool, regenerate: bool,
         row["exists"] = True
         row["size"] = os.path.getsize(source)
         if want_hash:
-            row["sha256"] = sha256_file(source)
+            rel = logical.replace("\\", "/")
+            blob = canonical_bytes(rel) if rel in TRACKED else None
+            if blob is not None:
+                row["sha256"] = hashlib.sha256(blob).hexdigest()
+                row["hash_basis"] = "git_index_blob"
+                worktree = sha256_file(source)
+                if worktree != row["sha256"]:
+                    row["worktree_sha256"] = worktree
+                    with open(source, "rb") as fh:
+                        lf = hashlib.sha256(fh.read().replace(b"\r\n", b"\n")).hexdigest()
+                    if lf != row["sha256"]:
+                        # A real edit that is not in the index: a Mac checkout-index would
+                        # silently replace it, so the manifest must not pass it off as clean.
+                        row["uncommitted_change"] = True
+                        DIRTY.append(rel)
+            else:
+                row["sha256"] = sha256_file(source)
+                row["hash_basis"] = "worktree_bytes"
     elif os.path.isdir(source):
         row["exists"] = True
         row["is_directory"] = True
@@ -146,6 +177,8 @@ def main() -> int:
     ap.add_argument("--data-root", default=DEFAULT_DATA_ROOT)
     ap.add_argument("--twic", default=DEFAULT_TWIC)
     ap.add_argument("--quick", action="store_true", help="skip the bulk directory digests")
+    ap.add_argument("--allow-dirty", action="store_true",
+                    help="write the manifest even if tracked files carry unstaged edits")
     args = ap.parse_args()
     t0 = time.perf_counter()
 
@@ -159,6 +192,7 @@ def main() -> int:
                    ".numba_cache/")
     ignored_required = [p for p in ignored_all if not any(m in p for m in cache_marks)]
 
+    TRACKED.update(git("ls-files").splitlines())
     components: list[dict] = []
 
     components.append(dict(
@@ -179,9 +213,15 @@ def main() -> int:
                             f"{RELEASE_ZIP_SHA256}. Never regenerate, never repack."))
 
     for name in RUNTIME_FILES:
-        components.append(entry(name, os.path.join(ROOT, name), "E_RELEASE", True, False, False,
-                                f"Production runtime; byte-identical to {RCJ_SOURCE_COMMIT}. "
-                                "No line-ending conversion."))
+        if name in NNUE_FLAG_FILES:
+            note = ("Production runtime carrying the default-off CS_NNUE flag; with the flag "
+                    f"unset it reproduces RC-J ({RCJ_SOURCE_COMMIT}) node for node "
+                    "(benchmarks/current/nnue). Canonical bytes are the committed blob (LF).")
+        else:
+            note = (f"Production runtime; committed blob byte-identical to {RCJ_SOURCE_COMMIT} "
+                    "and to the RC-J release archive (LF). No line-ending conversion.")
+        components.append(entry(name, os.path.join(ROOT, name), "E_RELEASE", True, False,
+                                False, note))
 
     for rel in N1_ARTEFACTS:
         components.append(entry(rel, os.path.join(ROOT, rel), "B_TRACKED", True, False, True,
@@ -253,7 +293,8 @@ def main() -> int:
                     git_user_name="kushagr4", git_user_email="ratrakushagra@gmail.com",
                     ai_attribution="never"),
         release=dict(zip=RELEASE_ZIP, sha256=RELEASE_ZIP_SHA256,
-                     runtime_source_commit=RCJ_SOURCE_COMMIT, runtime_files=list(RUNTIME_FILES)),
+                     runtime_source_commit=RCJ_SOURCE_COMMIT, runtime_files=list(RUNTIME_FILES),
+                     nnue_flag_files=list(NNUE_FLAG_FILES)),
         stockfish=stockfish,
         secrets=list(SECRET_VARIABLES),
         counts=dict(untracked=len(untracked), ignored_non_cache=len(ignored_required),
@@ -263,6 +304,13 @@ def main() -> int:
     res["manifest_body_sha256"] = hashlib.sha256(
         json.dumps(res["components"], sort_keys=True).encode()).hexdigest()
     res["seconds"] = round(time.perf_counter() - t0, 1)
+    if DIRTY:
+        res["dirty"] = sorted(DIRTY)
+        if not args.allow_dirty:
+            print("REFUSED: these tracked files differ from the index by more than line endings, "
+                  "so a Mac checkout would not reproduce them:\n  " + "\n  ".join(sorted(DIRTY))
+                  + "\nCommit or stage them first, or pass --allow-dirty.")
+            return 2
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(res, fh, indent=1)

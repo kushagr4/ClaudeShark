@@ -27,6 +27,8 @@ SF_WINDOWS_SHA256 = "c86215fa1977d53b82ed854540a4c7b025be4cd042276c85ba3de53fb91
 RELEASE_ZIP = "corpus/release/claudeshark_rc_j.zip"
 RELEASE_ZIP_SHA256 = "c8226c03164e70454d4a1c03c72f3a253912616386dc415e2b6f140b05122fb5"
 RCJ_SOURCE_COMMIT = "2bf6885"
+# Since 2026-09-16 these two also carry the optional NNUE (CS_NNUE, off by default).
+NNUE_FLAG_FILES = ("cs_core.py", "cs_fast.py")
 C28_DIR = "benchmarks/current/hard_position_mining"
 C28_ORACLE_MARKS = ("oracle_1m.jsonl", "oracle_4m.jsonl", "classified_1m.jsonl",
                     "classified_4m.jsonl", "tasks_4m.jsonl")
@@ -38,6 +40,21 @@ def sha256_file(path: str) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def compare_hash(path: str, expected: str, basis: str | None) -> str:
+    """'exact'; 'crlf' when the file matches only once CRLF is normalised (a Windows working
+    copy of a text file whose manifest hash is git's canonical blob); 'differ'; 'missing'."""
+    if not os.path.isfile(path):
+        return "missing"
+    with open(path, "rb") as fh:
+        data = fh.read()
+    if hashlib.sha256(data).hexdigest() == expected:
+        return "exact"
+    normalised = hashlib.sha256(data.replace(b"\r\n", b"\n")).hexdigest()
+    if basis == "git_index_blob" and normalised == expected:
+        return "crlf"
+    return "differ"
 
 
 def git(*args: str) -> str:
@@ -131,13 +148,27 @@ def main() -> int:
     runtime = ("agent.py", "cs_constants.py", "cs_core.py", "cs_drawish.py", "cs_eval.py",
                "cs_fast.py", "cs_king.py", "cs_kingpawn.py", "cs_mopup.py", "cs_ordering.py",
                "cs_passed.py", "cs_search.py", "cs_see.py", "cs_terms.py", "cs_time.py", "cs_tt.py")
-    diff = git("diff", "--stat", RCJ_SOURCE_COMMIT, "HEAD", "--", *runtime)
-    r.check("RC-J production-source identity", diff == "",
-            f"committed blobs identical to {RCJ_SOURCE_COMMIT}"
-            if diff == "" else diff.splitlines()[-1])
+    changed = [n for n in git("diff", "--name-only", RCJ_SOURCE_COMMIT, "HEAD", "--",
+                              *runtime).splitlines() if n]
+    unexpected = [n for n in changed if n not in NNUE_FLAG_FILES]
+    r.check("RC-J production-source identity", not unexpected,
+            f"{len(runtime) - len(changed)}/{len(runtime)} modules identical to "
+            f"{RCJ_SOURCE_COMMIT}; NNUE flag files: {', '.join(changed) or 'none'}",
+            f"unexpected changes: {unexpected}" if unexpected else "")
 
-    # The stronger claim: the bytes on disk, not just the committed blobs. A tree copied from
-    # Windows with core.autocrlf=true carries CRLF and fails this until it is re-materialised.
+    # With CS_NNUE unset the engine must be RC-J, so the flag has to read as off.
+    probe = subprocess.run(
+        (sys.executable, "-c", "import cs_core; print(getattr(cs_core, 'NNUE_ENABLED', False))"),
+        cwd=ROOT, capture_output=True, text=True, check=False,
+        env={k: v for k, v in os.environ.items() if not k.startswith("CS_NNUE")})
+    out = probe.stdout.strip()
+    flag = out.splitlines()[-1] if out else probe.stderr[-200:]
+    r.check("NNUE flag off by default", flag == "False", flag)
+    if os.environ.get("CS_NNUE"):
+        r.info("CS_NNUE in this shell", f"{os.environ['CS_NNUE']} (the engine here is not RC-J)")
+
+    # The bytes on disk against the committed blobs. A tree copied from Windows with
+    # core.autocrlf=true carries CRLF and fails this until it is re-materialised.
     crlf, differ = [], []
     for name in runtime:
         path = os.path.join(ROOT, name)
@@ -146,12 +177,12 @@ def main() -> int:
             continue
         with open(path, "rb") as fh:
             disk = fh.read()
-        blob = subprocess.run(("git", "show", f"{RCJ_SOURCE_COMMIT}:{name}"), cwd=ROOT,
+        blob = subprocess.run(("git", "show", f"HEAD:{name}"), cwd=ROOT,
                               capture_output=True, check=False).stdout
         if disk != blob:
             (crlf if disk.replace(b"\r\n", b"\n") == blob else differ).append(name)
-    r.check("RC-J runtime bytes on disk", not crlf and not differ,
-            f"{len(runtime) - len(crlf) - len(differ)}/{len(runtime)} byte-identical",
+    r.check("production modules bytes on disk", not crlf and not differ,
+            f"{len(runtime) - len(crlf) - len(differ)}/{len(runtime)} identical to HEAD blobs",
             (f"CRLF line endings in {len(crlf)} file(s): run "
              "`git config --local core.autocrlf false && git checkout-index -a -f`"
              if crlf else "") + (f" content differs: {differ}" if differ else ""))
@@ -160,26 +191,27 @@ def main() -> int:
     if os.path.isfile(args.manifest):
         with open(args.manifest, encoding="utf-8") as fh:
             man = json.load(fh)
-        bad, checked, missing = [], 0, 0
+        if man.get("dirty"):
+            r.check("manifest built from a clean tree", False, f"{len(man['dirty'])} file(s)",
+                    ", ".join(man["dirty"][:5]))
+        tally: dict[str, list[str]] = {"exact": [], "crlf": [], "differ": [], "missing": []}
+        n1_bad, n1_listed = [], 0
         for c in man.get("components", []):
             if "sha256" not in c or c.get("classification") == "F_REGENERABLE":
                 continue
-            p = os.path.join(ROOT, c["logical_path"])
-            if not os.path.isfile(p):
-                missing += 1
-                continue
-            checked += 1
-            if sha256_file(p) != c["sha256"]:
-                bad.append(c["logical_path"])
-        r.check("manifest hashes", not bad, f"{checked} verified, {len(bad)} differ, "
-                                            f"{missing} not in this tree",
-                ", ".join(bad[:5]))
-        n1 = [c for c in man.get("components", [])
-              if c.get("historical_artifact") and "results/n1/" in c.get("logical_path", "")]
-        n1_bad = [c["logical_path"] for c in n1
-                  if "sha256" in c and os.path.isfile(os.path.join(ROOT, c["logical_path"]))
-                  and sha256_file(os.path.join(ROOT, c["logical_path"])) != c["sha256"]]
-        r.check("N1 frozen artifacts", not n1_bad, f"{len(n1)} listed", ", ".join(n1_bad[:5]))
+            rel = c["logical_path"]
+            status = compare_hash(os.path.join(ROOT, rel), c["sha256"], c.get("hash_basis"))
+            tally[status].append(rel)
+            if c.get("historical_artifact") and "results/n1/" in rel:
+                n1_listed += 1
+                if status in ("differ", "missing"):
+                    n1_bad.append(rel)
+        r.check("manifest hashes", not tally["differ"],
+                f"{len(tally['exact'])} exact, {len(tally['crlf'])} match once CRLF is "
+                f"normalised (Windows working copies), {len(tally['differ'])} differ, "
+                f"{len(tally['missing'])} not in this tree",
+                ", ".join(tally["differ"][:5]))
+        r.check("N1 frozen artifacts", not n1_bad, f"{n1_listed} listed", ", ".join(n1_bad[:5]))
     else:
         r.check("manifest hashes", False, "manifest not found", args.manifest)
 
