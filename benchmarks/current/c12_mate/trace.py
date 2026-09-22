@@ -20,7 +20,7 @@ import chess, chess.pgn
 import cs_core as core
 import cs_fast
 
-PGN = r"C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/e3813b42-0a37-4aea-86be-348b96190e38/scratchpad/live/pgn/aichessathon-round-54-nakamura.pgn"
+PGN = r"C:/Users/epick/AppData/Local/Temp/claude/C--Users-epick-Documents-ClaudeShark/e3813b42-0a37-4aea-86be-348b96190e38/scratchpad/live/pgn/aichessathon-round-54.pgn"
 BOUND = {0: "?", core.BOUND_EXACT: "EXACT", core.BOUND_LOWER: "LOWER",
          core.BOUND_UPPER: "UPPER"}
 

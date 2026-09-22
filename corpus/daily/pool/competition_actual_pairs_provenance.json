@@ -10,7 +10,7 @@
   },
   "limit": "nodes (fixed); hash cleared before each position"
  },
- "source": "public rated-game records",
+ "source": "public rated-game records (source file no longer tracked)",
  "distinct_positions": 114,
  "kept": 113,
  "excluded_our_own_starts": [

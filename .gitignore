@@ -32,3 +32,11 @@ corpus/**/*.log
 *~
 .DS_Store
 Thumbs.db
+
+# ClaudeShark's own rated-game records and the loss-autopsy game PGNs are project data,
+# not build output: keep them trackable despite the *.pgn and corpus/**/*.log rules above.
+!corpus/daily/round*.pgn
+!corpus/daily/rca/round*.pgn
+!corpus/daily/rcb/round*.pgn
+!corpus/daily/logs/round*.log
+!benchmarks/current/rcj_loss_autopsy/pgn/game-*.pgn

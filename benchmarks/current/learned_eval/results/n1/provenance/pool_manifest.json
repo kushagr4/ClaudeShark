@@ -112,10 +112,6 @@
  },
  "candidates_games_excluded": 5318,
  "inputs": {
-  "public rated-game records": "37f821f4dfadf3ff68be908e59a522add534d9e3eddcc1e5fcc93215f6a9644b",
-  "public rated-game records": "a975a4154469518c59c22032dbed4a0c7a194f210a79a982dc7764a4414b5e56",
-  "public rated-game records": "2e2ddbd4682a43fcb65a19aaae630414f25239d5a5fc824c7617c847aa2cef71",
-  "corpus/daily/public/games.jsonl": "40052bfee19fed7e3644728473641593fd5daca3d9e99292a131d3409ed2dfdd",
   "corpus/strength/c5/c5_vs_sf2300_dev_60_strict.annotated.jsonl": "ec76fb955351e212577604c569f8444f9d22c0f5be3ea2bcdd8170f4ee06f2f0",
   "corpus/strength/c5/c5_vs_sf2300_holdout_b_100_strict.pgn": "3319cbcfeca613808fa1174685c3ef3177d464fa9057b7a4c0b9ce5e533b3fff",
   "corpus/strength/c5/c5_vs_sf2400_dev2400_100_strict.annotated.jsonl": "91964762684fd0660cd41baf1b30d677739c0898214299cc00cd02871f43e3b9",
@@ -132,7 +128,12 @@
   "corpus/strength/c5/c5_vs_rcc_dev_60_strict.pgn": "0000e0d7305af3684be40c443745aba6790c92443f18e667ca58c67fd774654f",
   "corpus/strength/c5/c5_vs_rcc_val_80_strict.pgn": "2cb123f6dc7df528bcfb7104e43f216892eefc8bee5b5a0fc0db1be08db33715",
   "corpus/strength/c8/c8_vs_c5_dev_60_strict.annotated.jsonl": "c41a1c44c4075d58e6eb404f10289c995260d7db872a45c4130524792ab35b29",
-  "corpus/strength/c9/c9_vs_c5_dev_60_strict.pgn": "eeb35edafa171e7f4f21be5ba1f7919caf0ba1375a79b71e914e4ec48479457d"
+  "corpus/strength/c9/c9_vs_c5_dev_60_strict.pgn": "eeb35edafa171e7f4f21be5ba1f7919caf0ba1375a79b71e914e4ec48479457d",
+  "public rated-game records, source 1 (no longer tracked in the repository)": "37f821f4dfadf3ff68be908e59a522add534d9e3eddcc1e5fcc93215f6a9644b",
+  "public rated-game records, source 2 (no longer tracked in the repository)": "a975a4154469518c59c22032dbed4a0c7a194f210a79a982dc7764a4414b5e56",
+  "public rated-game records, source 3 (no longer tracked in the repository)": "2e2ddbd4682a43fcb65a19aaae630414f25239d5a5fc824c7617c847aa2cef71",
+  "corpus/daily/public/games.jsonl": "d1f49ca501665205df45456ee6b8f29b6887287e43782f0eb16ab03051bb4552",
+  "_note": "corpus/daily/public/games.jsonl is the anonymised copy of the file the pool was built from (same positions and moves; participant labels replaced); its hash is the current file's"
  },
  "twic_files": {
   "twic1500.pgn": "4da0b306d32f51cc5e58073cbb62ed429acedcac6ec4860d49f9cea6e8775893",

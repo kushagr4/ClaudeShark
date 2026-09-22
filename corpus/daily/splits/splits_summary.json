@@ -1,5 +1,5 @@
 {
- "source": "public rated-game records",
+ "source": "public rated-game records (source file no longer tracked)",
  "source_sha256": "37f821f4dfadf3ff68be908e59a522add534d9e3eddcc1e5fcc93215f6a9644b",
  "seed": 20260904,
  "algorithm": "shuffle families with the seed, then assign each to the split furthest below its target share of games; families are never split",
